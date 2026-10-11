@@ -1,0 +1,105 @@
+{
+  "type": "FOX2_BRD00_OWNER_APPROVAL_AND_LIBRARY_PUBLICATION_RECEIPT",
+  "release_id": "FOX2-BRD00-V0.2-20261011-001",
+  "project": "FOX2",
+  "brd_id": "FOX2-BRD-00",
+  "brd_version": "0.2",
+  "publication_scope": "FOX2_INTERNAL_BUSINESS_REQUIREMENTS_ONLY",
+  "owner_decision": {
+    "recorded_date_local": "2026-10-11",
+    "source": "FOX2 interactive Owner conversation 2026-10-11: assistant requested approval of BRD-00 v0.2 for four scope points and publication; Owner replied \"Tui đồng ý Chọn\"",
+    "interpreted_decision": "APPROVE_BRD00_V0.2_CONTENT_AND_REQUEST_LIBARY_PUBLICATION",
+    "scope": [
+      "FOX2 greenfield internal independence",
+      "V1 Vietnam equities investment decision support; no order writing",
+      "localhost website from M1 using explicitly marked synthetic fixtures",
+      "unique BRD ownership and preserved cross-BRD FOX2-only dependencies"
+    ],
+    "exclusions": [
+      "No other BRD approved",
+      "No numerical return targets or risk caps adopted",
+      "No broker order/margin/cash transfer",
+      "No Git, DEV, merge, external release or LIVE permission"
+    ]
+  },
+  "authority": {
+    "policy": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.0.md",
+    "policy_sha256": "d47a90cccca9f66dbe4d3923eae3900926c40fa32518d0f3f0fa8de9f37421e0",
+    "publisher": "CHAT as Owner-delegated Library operator; actual upload/readback performed",
+    "independent_discretionary_review": "NOT_RUN / not imposed for L0 document approval"
+  },
+  "approved_source": {
+    "file_name": "FOX2-BRD-00_CANDIDATE_v0.2.md",
+    "library_path": "/Trading_Candidates/FOX2/20261011_BRD_V02_FOX2_ONLY/FOX2-BRD-00_CANDIDATE_v0.2.md",
+    "file_id": "file_0000000073188211b77c418d08d19d4a",
+    "sha256": "50bfeb83c53c31855ee3a11688d93740c7ab080304a63e5ccc49e9a9e833264b",
+    "bytes": 8267,
+    "business_change_contract_id": "FOX2-BRD-INDEPENDENCE-20261011-001",
+    "business_change_contract_path": "/Trading_Candidates/FOX2/20261011_BRD_V02_FOX2_ONLY/FOX2_BRD_V02_CHANGE_CONTRACT_20261011.md"
+  },
+  "release_edition": {
+    "filename": "FOX2-BRD-00_v0.2.md",
+    "path": "/Trading/FOX2/01_BRD/FOX2-BRD-00_v0.2.md",
+    "file_id": "file_000000002844821188bceb05f5c87669",
+    "library_file_id": "libfile_2fdb7b6c16c4819192acb763fac53205",
+    "sha256": "adf043885d4759b72cbd9fd161d8b5762af725495b5cbc59c5858df1f4cf4bf4",
+    "bytes": 9498,
+    "administrative_edits": [
+      "Replaced pre-approval candidate status with Owner-approval and receipt-reference status",
+      "Added Owner decision and source identity paragraph",
+      "Updated T91 release-state wording only; test identifier unchanged",
+      "Replaced footer pre-approval notation"
+    ],
+    "functional_requirement_rows_changed": false,
+    "requirement_ids": [
+      "FOX2-00-R01",
+      "FOX2-00-R02",
+      "FOX2-00-R03",
+      "FOX2-00-R04",
+      "FOX2-00-R05",
+      "FOX2-00-R06",
+      "FOX2-00-R07",
+      "FOX2-00-R08",
+      "FOX2-00-R09"
+    ],
+    "test_ids": [
+      "FOX2-00-T01",
+      "FOX2-00-T02",
+      "FOX2-00-T03",
+      "FOX2-00-T90",
+      "FOX2-00-T91"
+    ]
+  },
+  "readback": {
+    "provider_readback_path": "/mnt/data/fox2_brd00_release_20261011/library_readback/FOX2-BRD-00_v0.2.md",
+    "binary_equal_local_source": true,
+    "sha256_match": true,
+    "bytes_match": true,
+    "observed_utc": "2026-10-11T11:12:13.679741+00:00"
+  },
+  "effectivity": {
+    "business_requirement_document": "LIBRARY_PUBLISHED / OWNER_APPROVED_V0.2",
+    "github_mirror": "PENDING_NOT_VERIFIED",
+    "CODE_ALLOWED": "NO",
+    "DEV": "NOT_GRANTED",
+    "MERGE": "NOT_GRANTED",
+    "LIVE": "NOT_GRANTED",
+    "broker_write": "NOT_GRANTED"
+  },
+  "routing_precheck": {
+    "POLICY_CHECK": "PASS FOX2 Policy v1.0 verified",
+    "TASK_STATE_CHECK": "PASS preexisting 9 candidates, 0 published BRDs before operation",
+    "R0": "No duplicate publication found",
+    "R1": "L0 Owner-approved BRD publication",
+    "R2": "Owner approval BRD-00 only; policy permits actual Library operator; CODE_ALLOWED NO",
+    "R3": "CHAT Library write/readback verified; external Agent quotas unknown/not needed",
+    "R4": "CHAT direct publication is lowest-cost eligible; Copilot/Codex/WORK considered and not dispatched",
+    "R5": "No OS Git worktree or source WIP touched",
+    "R6": "Library write/readback passed; Git mirror pending only for later DEV",
+    "R7": "CHAT · GPT-6 · authoring reasoning · exact BRD00 v0.2 document release / STOP before BRD06 approval or any DEV"
+  },
+  "change_control": {
+    "future_edits": "new revision and Owner decision for material changes; never silently overwrite published v0.2",
+    "current_readback_hash_locked": "adf043885d4759b72cbd9fd161d8b5762af725495b5cbc59c5858df1f4cf4bf4"
+  }
+}

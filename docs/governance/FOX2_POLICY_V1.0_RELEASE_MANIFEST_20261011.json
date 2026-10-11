@@ -1,0 +1,56 @@
+{
+  "type": "FOX2_POLICY_V1_INITIAL_PUBLICATION_RECEIPT",
+  "project": "FOX2",
+  "scope": "FOX2 ONLY / internal document governance",
+  "version": "1.0.0",
+  "date_local": "2026-10-11",
+  "issued_effective_label": "RELEASED_EFFECTIVE / FOX2_DOCUMENT_POLICY_PUBLISHED",
+  "owner_decision": "FOX2 Owner directed review/removal of all prior-project restrictions; publish when verified; Owner previously delegated Library document publication to CHAT.",
+  "publisher": "CHAT / Owner-delegated Library operator",
+  "authorization_evidence": "Owner instructions in the FOX2 conversation, Oct 11, 2026; no claim of protected signature or external issuer",
+  "source_candidate": {
+    "filename": "FOX2_POLICY_V1_CONSOLIDATED_CANDIDATE_REV5_OWNER_FIRST_20261011.md",
+    "library_path": "/Trading_Candidates/FOX2/20261011_FOX2_POLICY_V1_REV5_OWNER_FIRST/FOX2_POLICY_V1_CONSOLIDATED_CANDIDATE_REV5_OWNER_FIRST_20261011.md",
+    "file_id": "file_00000000bbd08207b6b45bb1d2d50de0",
+    "size_bytes": 54162,
+    "sha256": "0cca7ea9d05c4ea7fb97235163bd72541a515186a363e9ef6a0cdc8dc6abe2c0"
+  },
+  "published": {
+    "file_name": "FOX2_POLICY_V1.0.md",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.0.md",
+    "file_id": "file_000000008728820793528338ae59066c",
+    "library_file_id": "libfile_7aa35d65b2d0819185a6d3e446723b7f",
+    "size_bytes": 48924,
+    "sha256": "d47a90cccca9f66dbe4d3923eae3900926c40fa32518d0f3f0fa8de9f37421e0",
+    "library_write_result": "succeeded / file overwritten (initial misplaced Candidate content)",
+    "observed_listing_at_utc": "2026-10-11T10:37:13.369639+00:00",
+    "readback_file_id": "file_000000008728820793528338ae59066c",
+    "readback_byte_comparison": "PASS",
+    "readback_sha256_comparison": "PASS"
+  },
+  "static_checks": {
+    "legacy_project_explicit_names_absent": true,
+    "legacy_policy_label_absent": true,
+    "independent_project_scope": true,
+    "owner_first_authority": true,
+    "publisher_actual_access_required": true,
+    "three_policy_domains_retained": true,
+    "routing_r0_r7": true,
+    "no_dev_live_auto": true,
+    "no_false_candidate_release_label": true,
+    "release_content_byte_readback": true
+  },
+  "superseded_destination_content": "A preexisting same-path Candidate-marked draft was corrected in place after Owner-directed release; exact original bytes remain preserved as REV5 Candidate in Library.",
+  "review": {
+    "policy_text_static_review": "PASS",
+    "independent_discretionary_audit": "NOT_RUN / waived by Owner for L0 FOX2 bootstrap"
+  },
+  "technical_rights": {
+    "CODE_ALLOWED": false,
+    "git_merge": false,
+    "live": false,
+    "broker_write": false,
+    "no_cross_project_migration": true
+  },
+  "classification_rule": "Policy effect is limited to the authenticated Library document publication, not any host/Git/broker/release permission."
+}
