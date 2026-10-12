@@ -5,14 +5,14 @@
   "task_id": "FOX2-GITFIRST-OFFICIAL-ROLLOUT-001",
   "change_id": "FOX2-OFFICIAL-SYNC-V13-20261012",
   "submission_state": "PARTIAL",
-  "submitted_at_utc": "2026-10-12T04:11:22.630894+00:00",
+  "submitted_at_utc": "2026-10-12T04:14:30.331846+00:00",
   "agent": {
     "product": "ChatGPT Work Mode / Codex assistant",
     "model": "NOT_EXPOSED",
     "mode": "NOT_EXPOSED",
     "host": "/workspace/scratch/66e7f833250b; connected Library/GitHub APIs; no Windows access",
     "started_at_utc": "2026-10-12T03:47:14Z",
-    "finished_at_utc": "2026-10-12T04:11:22.630894+00:00",
+    "finished_at_utc": "2026-10-12T04:14:30.331846+00:00",
     "quota_observation": "NOT_EXPOSED"
   },
   "routing": {
@@ -64,9 +64,9 @@
     "worktree": "Isolated API publisher staging fox2_full_audit/publication; no local Git/Windows worktree claimed",
     "writer_lease": "Fresh branch created atomically for current WORK; every ref update expected head + force=false",
     "report_path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
-    "delivery_status": "LOCAL_ONLY",
-    "pr_url": null,
-    "local_head_before_submission": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
+    "delivery_status": "PUSHED_UNREVIEWED",
+    "pr_url": "https://github.com/dunglt2505/FOX2/pull/2",
+    "local_head_before_submission": "f775a65d3a5cfe608b5bcefb8a7585b270797a38"
   },
   "scope": {
     "requested": [
@@ -76,7 +76,8 @@
       "277 source byte hashes",
       "current6V1.3/v2 source remote verified",
       "12source/workflow readbacks",
-      "scoped workflow/task/attributes and actual Git task read"
+      "scoped workflow/task/attributes and actual Git task read",
+      "Actual same-WP remote report submission and14result files exact readback verified"
     ],
     "partial": [
       "15/39 official exact;6/16currentpublished exact;M1 mirror blocked"
@@ -257,9 +258,9 @@
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Required Contract v2 result; own containing bytes hash is supplied externally after publication",
         "within_allowed_paths": true,
-        "new_sha256": "22db5f4dcad5e947032ae930d1c379c3c8cd8d7f88d9a2d1d2577f2485282a67"
+        "new_sha256": null
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
@@ -269,11 +270,11 @@
         "new_sha256": "af050c42456d9796b0a7357c4694a8af72d59520dcfe412bbc081a88d7fd46bb"
       },
       {
-        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/delivery_receipt.json",
         "operation": "ADD",
-        "intent": "Required Contract v2 result; own containing bytes hash is supplied externally after publication",
+        "intent": "Observed prior submission receipt;final containing SHA stays external",
         "within_allowed_paths": true,
-        "new_sha256": null
+        "new_sha256": "300e79bb0e870aefca3087cdaa739051125f2a5ff5ac0ae7e13849fc02e09ff3"
       }
     ],
     "forbidden_paths_touched": false
@@ -436,6 +437,18 @@
         "E-SCHEMA"
       ],
       "notes": "Local exact-schema checker; independent CHAT may use standard Draft202012 validator"
+    },
+    {
+      "id": "SYNC-T-PILOT-RESULT",
+      "kind": "INTEGRATION",
+      "status": "PASS",
+      "command_or_method": "Observed ref/source/task commit; read report and v2 manifest+all14result files at immutable report submission; compare expected content",
+      "environment": "Connected GitHub API",
+      "run_at_utc": "2026-10-12T04:14:30.331846+00:00",
+      "evidence_ids": [
+        "E-DELIVERY"
+      ],
+      "notes": "Remote delivery actual;independent CHAT acceptance NOT_RUN;no containing commit SHA self-reference"
     }
   ],
   "acceptance": [
@@ -492,9 +505,10 @@
       "id": "SYNC-A07-PILOT",
       "status": "PASS",
       "evidence_ids": [
-        "E-REMOTE"
+        "E-REMOTE",
+        "E-DELIVERY"
       ],
-      "reason": "Actual task Git read/WORK document execution; report remote pointer verified after push outside committed report; CHAT independent acceptance NOT_RUN"
+      "reason": "Actual same-WP Git task read,WORK execution,remote report/v2manifest readback and CHAT-readable result;CHAT decision remains NOT_RUN"
     },
     {
       "id": "SYNC-A08-NEGATIVE",
@@ -628,6 +642,19 @@
       "supports_ids": [
         "SYNC-T-V2",
         "SYNC-A06-V2"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-DELIVERY",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/delivery_receipt.json",
+      "sha256": "300e79bb0e870aefca3087cdaa739051125f2a5ff5ac0ae7e13849fc02e09ff3",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:14:30.331846+00:00",
+      "description": "Actual remote source/report commits and exact readbacks observed before this receipt",
+      "supports_ids": [
+        "SYNC-T-PILOT-RESULT",
+        "SYNC-A07-PILOT"
       ],
       "sanitized": true
     }
