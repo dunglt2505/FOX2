@@ -1,0 +1,309 @@
+{
+  "contract_version": "2.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY",
+  "task_id": "FOX2-M1-P1-RESULT-RECOVERY-20261012",
+  "change_id": "FOX2-M1-P1-RESULT-RECOVERY-20261012",
+  "submission_state": "PARTIAL",
+  "submitted_at_utc": "2026-10-12T08:51:48Z",
+  "agent": {
+    "product": "GitHub Copilot Pro / VS Code",
+    "model": "NOT_EXPOSED",
+    "mode": "NOT_EXPOSED",
+    "host": "FoxLe-PC",
+    "started_at_utc": "2026-10-12T08:45:45Z",
+    "finished_at_utc": "2026-10-12T08:51:48Z",
+    "quota_observation": "NOT_EXPOSED"
+  },
+  "routing": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "UNKNOWN",
+    "r4": "PARTIAL",
+    "r5": "PARTIAL",
+    "r6": "PASS",
+    "r7": "PASS",
+    "assignment_check": "PASS",
+    "routing_evidence": "Policy V1.7.1 exact raw SHA recomputed from pinned Git blob; task/source manifest read at def8985155db6329e42d480cc8c728ebbfa4d4f5; report-only destination and standing C6F.2A role authority confirmed. Model/quota and server-side writer lease are not exposed. See recovery_checks.md."
+  },
+  "source": {
+    "policy_sha256": "9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d",
+    "policy_version": "1.7.1",
+    "task_commit_sha": "def8985155db6329e42d480cc8c728ebbfa4d4f5",
+    "source_manifest_sha256": "6e3a90678ceba60b4cf20b2aef7c0834394243a30b0075457fcfff056576b38c",
+    "approved_base_commit_sha": "def8985155db6329e42d480cc8c728ebbfa4d4f5",
+    "source_readback_status": "PARTIAL",
+    "brd_revisions": [
+      "FOX2 M1 v0.4",
+      "FOX2 market-data contract v0.4"
+    ],
+    "previous_evidence_reused": [
+      "Conversation-recovered summary of prior P1 only; original logs/artifacts are NOT_RETAINED and claims remain NOT_VERIFIED."
+    ]
+  },
+  "permissions": {
+    "git_source_read": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "git_code_push": false,
+    "code_allowed": false,
+    "pr_create": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false,
+    "grant_evidence": "FOX2 Policy V1.7.1 C6F.2A standing internal report-only authority for eligible Copilot Pro roles; actual authenticated push is evidenced only by successful update of the designated report branch."
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot",
+    "worktree": "C:\\Projects\\FOX2",
+    "writer_lease": "Designated branch at pinned task commit and sole local worktree observed; no server-side exclusive-writer lease interface available.",
+    "report_path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md",
+    "delivery_status": "LOCAL_ONLY",
+    "pr_url": null,
+    "local_head_before_submission": "def8985155db6329e42d480cc8c728ebbfa4d4f5"
+  },
+  "scope": {
+    "requested": [
+      "Recover existing P1 results and submit a Policy V1.7.1 Result Contract v2 report without rerunning P1."
+    ],
+    "completed": [
+      "Verified Policy V1.7.1 pinned raw SHA and task/source-manifest identity.",
+      "Checked the current local Windows Git state and designated remote result branch.",
+      "Created a partial report, machine manifest, and sanitized evidence of current-session recovery checks."
+    ],
+    "partial": [
+      "Prior P1 details are conversation-recovered; original P1 logs and files were not retained.",
+      "Official Library bytes and all ten source blobs were not independently re-read during this recovery."
+    ],
+    "not_done": [
+      "No original P1 checks or M1 acceptance tests were rerun.",
+      "No DNSE/provider/Production access or rights verification.",
+      "No independent CHAT delivery verification or acceptance."
+    ],
+    "explicit_exclusions": [
+      "Application/runtime code, FOX legacy files, main, merge, PR creation, DNSE Production, broker writes, and LIVE."
+    ],
+    "changed_paths": [
+      {
+        "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md",
+        "operation": "ADD",
+        "intent": "P1 result recovery report",
+        "within_allowed_paths": true,
+        "new_sha256": "87421da11bb3ed1d3cb07f72249bc6c85a3332f5aa134543df8ff549957e2eb3"
+      },
+      {
+        "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence_manifest.json",
+        "operation": "ADD",
+        "intent": "Result Contract v2 manifest",
+        "within_allowed_paths": true,
+        "new_sha256": null
+      },
+      {
+        "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md",
+        "operation": "ADD",
+        "intent": "Sanitized current-session recovery checks",
+        "within_allowed_paths": true,
+        "new_sha256": "3f8074a70768b3fb7be0dae073ebea038a6ebe00a07c36bc3f6d113badb199de"
+      }
+    ],
+    "forbidden_paths_touched": false
+  },
+  "tests": [
+    {
+      "id": "RECOVERY-POLICY-HASH",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "git show at pinned policy commit; SHA-256 recomputed from raw blob bytes",
+      "environment": "Windows / Git 2.56.0.windows.1 / Python 3.13.15",
+      "run_at_utc": "2026-10-12T08:51:46Z",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "notes": "99233 bytes; digest matched the V1.7.1 release manifest."
+    },
+    {
+      "id": "RECOVERY-TASK-SOURCE-SCHEMA-HASHES",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "git show at pinned report branch commit; raw bytes hashed",
+      "environment": "Windows / Git 2.56.0.windows.1 / Python 3.13.15",
+      "run_at_utc": "2026-10-12T08:51:46Z",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "notes": "Task/source manifest and schema identities were read from the pinned task commit."
+    },
+    {
+      "id": "RECOVERY-REMOTE-REF",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "git ls-remote origin for the designated report branch",
+      "environment": "Windows / Git 2.56.0.windows.1",
+      "run_at_utc": "2026-10-12T08:51:46Z",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "notes": "Remote branch resolved to the pinned task commit."
+    },
+    {
+      "id": "RECOVERY-REPORT-MANIFEST-SCHEMA",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Python jsonschema Draft202012Validator with FormatChecker against the schema at pinned HEAD",
+      "environment": "Windows / Python 3.13.15 / jsonschema 4.26.0",
+      "run_at_utc": "2026-10-12T08:51:48Z",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "notes": "The draft manifest passed with 0 validation errors; revalidate after final edits."
+    },
+    {
+      "id": "RECOVERY-PUSH-WRITE-PROBE",
+      "kind": "READBACK",
+      "status": "NOT_RUN",
+      "command_or_method": "No-op git push --dry-run only",
+      "environment": "Windows / Git 2.56.0.windows.1",
+      "run_at_utc": "2026-10-12T08:45:45Z",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "notes": "No ref update was pending; this did not verify permission to update a remote ref."
+    },
+    {
+      "id": "ORIGINAL-P1-AND-M1-ACCEPTANCE",
+      "kind": "OTHER",
+      "status": "NOT_RUN",
+      "command_or_method": "Not repeated under the recovery-only handoff",
+      "environment": "Not applicable",
+      "run_at_utc": null,
+      "evidence_ids": [],
+      "notes": "Original P1 completion is reported, but original detailed outputs were not retained; 105 M1 acceptance tests remain unrun."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "RCV-POLICY-BINDING",
+      "status": "PASS",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "reason": "Pinned Policy V1.7.1 raw hash matches its release manifest."
+    },
+    {
+      "id": "RCV-REMOTE-TASK-AND-BRANCH",
+      "status": "PASS",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "reason": "Pinned task/source manifest and designated report branch were read at their immutable commit."
+    },
+    {
+      "id": "P1-WINDOWS-ENVIRONMENT",
+      "status": "NOT_RUN",
+      "evidence_ids": [],
+      "reason": "Prior environment observations are conversation-recovered only; this recovery did not rerun P1."
+    },
+    {
+      "id": "P1-FOX-REUSE-INVENTORY",
+      "status": "NOT_RUN",
+      "evidence_ids": [],
+      "reason": "Prior inventory summary is conversation-only and was not independently re-inspected."
+    },
+    {
+      "id": "P1-DNSE-METADATA-AND-RIGHTS",
+      "status": "NOT_RUN",
+      "evidence_ids": [],
+      "reason": "No provider access or data-rights verification was performed; the prior cache summary is not retained evidence."
+    },
+    {
+      "id": "P1-M1-READINESS",
+      "status": "NOT_RUN",
+      "evidence_ids": [],
+      "reason": "No acceptance tests were rerun; readiness findings remain conversation-only."
+    },
+    {
+      "id": "P1-RESULT-DELIVERY",
+      "status": "NOT_RUN",
+      "evidence_ids": [],
+      "reason": "CHAT must independently read the immutable result commit and verify delivery."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "RECOVERY-CHECKS",
+      "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md",
+      "sha256": "3f8074a70768b3fb7be0dae073ebea038a6ebe00a07c36bc3f6d113badb199de",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T08:45:45Z",
+      "description": "Sanitized record of current-session Policy/source identity, local Git, remote branch, and toolchain checks; not original P1 evidence.",
+      "supports_ids": [
+        "RCV-POLICY-BINDING",
+        "RCV-REMOTE-TASK-AND-BRANCH",
+        "RECOVERY-POLICY-HASH",
+        "RECOVERY-TASK-SOURCE-SCHEMA-HASHES",
+        "RECOVERY-REMOTE-REF"
+      ],
+      "sanitized": true
+    }
+  ],
+  "risks": [
+    {
+      "id": "P1-ORIGINAL-EVIDENCE-NOT-RETAINED",
+      "severity": "MEDIUM",
+      "state": "OPEN",
+      "impact": "Prior P1 assertions cannot be independently verified from original logs or files.",
+      "next_action": "CHAT reviews the limitation and decides whether the conversation summary is adequate; do not rerun by default.",
+      "owner_role": "CHAT"
+    },
+    {
+      "id": "DNSE-RIGHTS-UNKNOWN",
+      "severity": "HIGH",
+      "state": "NOT_VERIFIED",
+      "impact": "Provider data cannot be used or published until licensing and retention rights are established.",
+      "next_action": "Verify rights before any future provider-data work.",
+      "owner_role": "FOX2 Owner / CHAT"
+    },
+    {
+      "id": "MODEL-QUOTA-NOT_EXPOSED",
+      "severity": "LOW",
+      "state": "NOT_VERIFIED",
+      "impact": "Model, mode, quota, and token usage cannot be audited from this interface.",
+      "next_action": "Record only if exposed by the host.",
+      "owner_role": "CHAT"
+    },
+    {
+      "id": "REMOTE-WRITER-LEASE-NOT_EXPOSED",
+      "severity": "MEDIUM",
+      "state": "NOT_VERIFIED",
+      "impact": "A GitHub server-side exclusive-writer lease is not visible in available checks.",
+      "next_action": "CHAT validates branch ancestry and changed paths at the result SHA.",
+      "owner_role": "CHAT"
+    }
+  ],
+  "security": {
+    "secret_scan": "NOT_RUN",
+    "private_account_data_in_git": false,
+    "licensed_raw_feed_in_git": false,
+    "evidence_redacted": true,
+    "check_notes": "No credentials, private-account data, or raw DNSE data were included; no dedicated secret-scanning tool was run."
+  },
+  "usage": {
+    "attempts": 1,
+    "retries": 0,
+    "usage_status": "NOT_MEASURED",
+    "tokens_used": null,
+    "credits_used": null,
+    "escalation_reason": "None."
+  },
+  "next_step": {
+    "requested_chat_decision": "REVIEW",
+    "action": "Read report and manifest at the same immutable remote result commit, recompute evidence hash, validate schema/source/grants/diff, and issue a separate delivery decision.",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Actual remote push and same-commit report/manifest readback."
+  }
+}
