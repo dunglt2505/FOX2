@@ -1,0 +1,57 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.6.0",
+  "change_id": "FOX2-C6F-RESULT-DELIVERY-POLICY-BINDING-20261012",
+  "source_policy": {
+    "version": "1.5.0",
+    "sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd"
+  },
+  "owner_decision": "Owner requests immediate C6F and C6F.0 policy binding + pre-dispatch delivery assurance, with P1 current-task transition and Git-first return prompt. This is FOX2-only document grant, not automatic Copilot report push or DEV.",
+  "publication_operator": "CHAT delegated document publisher, observed Library upload & exact raw-byte readback",
+  "published_at_utc": "2026-10-12T06:42:19.553852+00:00",
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.6.md",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.6.md",
+    "file_id": "file_0000000079608207afd76beeb876a966",
+    "library_file_id": "libfile_a6df2921006c819194191bec85145179",
+    "bytes": 92571,
+    "sha256": "8cf205ab2b3c8d0d5be9edaa81c0a3bcfb73644caaf2eaa25fd52a6491a62081",
+    "readback": "PASS_EXACT_BYTES"
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v5.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v5.md",
+      "file_id": "file_000000006e04820798fee07f2fe52f74",
+      "library_file_id": "libfile_7b634e7e20a88191963a3ad72dd490a9",
+      "bytes": 5678,
+      "sha256": "e58d233cc37d8e6ea6055de17de72f87fd561f90882e4846926a340acb049699",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v5.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v5.md",
+      "file_id": "file_00000000da3c8207a3e08cb2374f3262",
+      "library_file_id": "libfile_24646b8e05908191a32ea7d95e51c0d3",
+      "bytes": 5854,
+      "sha256": "e41b142fad9755c57f682cac81986cafdbe3e5aeb2573207225f7ba6e348ef60",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "result_contract_schema": "2.0 UNCHANGED",
+  "effectivity": "RELEASED_EFFECTIVE after actual Library upload/exact readback and this observed release manifest; Git mirror separate handoff step",
+  "git_mirror": "PENDING_OBSERVED_REMOTE",
+  "p1_task_status": "HISTORICAL_V1.2_PENDING_TRANSITION",
+  "controls": {
+    "CODE_ALLOWED": "NO",
+    "GIT_REPORT_PUSH": "NOT_GRANTED_BY_POLICY",
+    "GIT_CODE_PUSH": "NO",
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO"
+  },
+  "review": "NOT_RUN_INDEPENDENT_OTHER_ACTOR"
+}
