@@ -1,0 +1,36 @@
+{
+  "document_type": "FOX2_GIT_SYNC_RECEIPT",
+  "change_id": "FOX2-C5B-EXECUTION-ROUTING-SELECTOR-20261012",
+  "policy_version": "1.8.1",
+  "repo": "dunglt2505/FOX2",
+  "branch": "work/FOX2-POLICY-V181-EXECUTION-ROUTING-UI-chat-20261012",
+  "verified_source_commit": "edbdeef4dba521c46005c9115b664db928484b2c",
+  "verified_at_utc": "2026-10-12T10:45:11.023235+00:00",
+  "verification": "PASS_RAW_SHA256_AT_PINNED_REMOTE_COMMIT",
+  "files": [
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.8.1.md",
+      "sha256": "5d88518916cd98c3caf0e1169012d8200a21bb3789938b6f116f148317ef4ae4"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.8.1_RELEASE_MANIFEST_20261012.json",
+      "sha256": "c23379a0b966d3a14e498d3c0302812a76b6d06aa7057ca2c14205f71227428f"
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_1_EFFECTIVE_ROUTING_INDEX_20261012.md",
+      "sha256": "7d3f2985214f0b79377af6bbf78d723fa73024978c48ab3a2766910d8a44428d"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.1.md",
+      "sha256": "37a6210244ae275887655b24e3159411dba2c6d064410edbaabcf7cb0163d9e0"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.1.json",
+      "sha256": "33f0dbbb6271c965ed801ec909bfc0033758197114e9b5649363a43240547622"
+    }
+  ],
+  "scope": "Policy V1.8.1 and supporting Execution Routing Selector artifacts only. This does not set GIT_SOURCE_READY=YES for arbitrary future implementation WPs.",
+  "result_contract": "v2 unchanged",
+  "main_push": "NO",
+  "merge": "NO"
+}
