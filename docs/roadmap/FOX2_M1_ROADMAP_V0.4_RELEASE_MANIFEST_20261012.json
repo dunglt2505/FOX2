@@ -1,0 +1,101 @@
+{
+  "document_type": "FOX2_M1_ROADMAP_V04_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "release_id": "FOX2-M1-ROADMAP-V04-20261012-001",
+  "released_date": "2026-10-12",
+  "owner_decision": {
+    "conversation_decision": "Owner approved the audited/redlined Roadmap v0.4 and instructed implementation to proceed.",
+    "decision_scope": "Approve exact Roadmap v0.4 + P2 WP Plan release edition after WORK PASS_WITH_ACTIONS and CHAT redlines R01-R06; request implementation progression subject to execution gates.",
+    "not_implied": [
+      "CODE_ALLOWED",
+      "GIT_CODE_PUSH",
+      "MAIN_PUSH",
+      "MERGE_ALLOWED",
+      "DNSE_PRODUCTION",
+      "BROKER_WRITE",
+      "LIVE"
+    ]
+  },
+  "policy": {
+    "id": "FOX2-POLICY-V1",
+    "version": "1.8",
+    "status": "RELEASED_EFFECTIVE",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.md",
+    "library_raw_sha256": "226fecb094843d492e87c4768f5741726a4651b7556d5ec0abf3739e9720dd7b",
+    "verified_git_commit": "736863e18c43236509130c6a683b982491d2867d",
+    "protocol_version": 8,
+    "local_dispatch_schema": "FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.json"
+  },
+  "m1_source": {
+    "git_commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+    "bcc": "FOX2-BCC-M1-DSM-20261011-v04"
+  },
+  "p1": {
+    "evidence_commit": "0dba7673ee8ad3b2d64ceabfeacce21564f3bed3",
+    "decision": "P1_READONLY_EVIDENCE_DELIVERABLE=ACCEPTED",
+    "issue": 5,
+    "state": "CLOSED"
+  },
+  "work_audit": {
+    "roadmap_design_verdict": "PASS_WITH_ACTIONS",
+    "p2_architecture_verdict": "PASS_WITH_ACTIONS",
+    "p2_01_design_ready": "CONDITIONAL",
+    "p2_01_execution_authorized": false,
+    "findings": {
+      "critical": 0,
+      "high": 1,
+      "medium": 5,
+      "low": 1
+    },
+    "chat_redlines_applied": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06"
+    ],
+    "tracking_cleanup": "R07_TO_BE_APPLIED_TO_ISSUE_8"
+  },
+  "official_files": [
+    {
+      "name": "FOX2_M1_ROADMAP_v0.4.md",
+      "library_path": "/Trading/FOX2/06_Roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "file_id": "file_00000000d55082069b7f041afa9ecaac",
+      "library_file_id": "libfile_b072cd5c3cac8191bd479fa156fb26e5",
+      "bytes": 13322,
+      "sha256": "df1bb83701c774644d3cc664f350134e40caeda73ca77cd61a987a7ecf2e8ee4",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_M1_P2_WP_PLAN_v0.1.md",
+      "library_path": "/Trading/FOX2/06_Roadmap/FOX2_M1_P2_WP_PLAN_v0.1.md",
+      "file_id": "file_000000004c748207bab82f0c606bf9b8",
+      "library_file_id": "libfile_358f2fd9e06481918751d3399681a163",
+      "bytes": 24111,
+      "sha256": "210e28fd7caeecaca6edf7b71c7f39d769ee2be2d51b399ffec989bd57e4180b",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "supersession": {
+    "prior_roadmap": "/Trading/FOX2/06_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
+    "status": "SUPERSEDED_BY_V0.4_FOR_OPERATING_ROADMAP_AFTER_THIS_VERIFIED_RELEASE",
+    "history_retained": true
+  },
+  "effectivity": "ROADMAP_V04_LIBRARY_RELEASED_EFFECTIVE",
+  "execution_state": {
+    "p2_code_allowed": false,
+    "p2_01_design_state": "CONDITIONAL_LOCK_REQUIRED",
+    "fresh_execution_precheck_required": true,
+    "dnse_production": false
+  },
+  "git_mirror": {
+    "status": "PENDING_REMOTE_VERIFICATION",
+    "repository": "dunglt2505/FOX2",
+    "intended_paths": [
+      "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "docs/roadmap/FOX2_M1_P2_WP_PLAN_v0.1.md",
+      "docs/roadmap/FOX2_M1_ROADMAP_V0.4_RELEASE_MANIFEST_20261012.json"
+    ]
+  }
+}
