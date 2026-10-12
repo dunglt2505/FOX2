@@ -1,0 +1,93 @@
+{
+  "project": "FOX2",
+  "record_type": "CHAT_GIT_SOURCE_SYNC_RECEIPT",
+  "policy_version": "1.5.0",
+  "source_gate": "YES",
+  "task": "FOX2_M1_V0.4_SOURCE_RECOVERY",
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-M1-V04-SOURCE-RECOVERY-chat-20261012",
+  "source_commit": "1e1972cb204ac780e68878c34f6a59d205bdb18c",
+  "source_library_receipt": "/Trading/FOX2/01_BRD/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json",
+  "source_authority": "FOX2 Library official published revision",
+  "required_source_count": 8,
+  "required_companion_count": 2,
+  "remote_verified_count": 10,
+  "verified": "PASS_ALL_10",
+  "files": [
+    {
+      "git_path": "docs/brd_mirror/FOX2-BRD-00_v0.4.md",
+      "official_library_raw_sha256": "e13b00581ab04c4bb2aabbfb196aec06475c2b0fc44d5b366ca2e382444ebef8",
+      "remote_git_blob_sha": "bad3394adbb1566752b551fe56e9c90d15b91afc",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/brd_mirror/FOX2-BRD-06_v0.4.md",
+      "official_library_raw_sha256": "be3ce2d664401b176019d063182684f3ae043690c16a4c83b38ff43eea24dd1e",
+      "remote_git_blob_sha": "92c57dd686b9dde61ace46287e8f1ac63ec3a553",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/brd_mirror/FOX2-BRD-08_v0.4.md",
+      "official_library_raw_sha256": "0e8b3c4206fee03f732588063eeb92ebb07af97d2164f06495a7f7539a893ca7",
+      "remote_git_blob_sha": "98a3cc700833f0f5e7af37a1f65e4d44c9823d03",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "official_library_raw_sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2",
+      "remote_git_blob_sha": "369a893a83dd140ce423c032784941a22d4a443e",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+      "official_library_raw_sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+      "remote_git_blob_sha": "fa395662b772658d782b46718b7eb8392f6bbf76",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+      "official_library_raw_sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+      "remote_git_blob_sha": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+      "official_library_raw_sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b",
+      "remote_git_blob_sha": "321bc0e2525befa8842f09edfc09ce20c2cbab09",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/roadmap/FOX2_M1_ROADMAP_v0.3.md",
+      "official_library_raw_sha256": "96e567e6743e5f4182b09737912a4e67b01cc7b0868a0499e1fa79e6181e14a8",
+      "remote_git_blob_sha": "43629d6fc37774cfc155740196fe084e98db4134",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/brd_mirror/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json",
+      "official_library_raw_sha256": "646b97efe2c1ce982ddbb95f823fcd283b9b802c50654cf42fc938548d213e3d",
+      "remote_git_blob_sha": "27965a9aebe9a5be07fb9f539e7ba10b7633bb13",
+      "status": "PASS_EXACT_BYTES"
+    },
+    {
+      "git_path": "docs/brd_mirror/FOX2_M1_V04_RELEASE_SUMMARY_AND_NEXT_GATE.md",
+      "official_library_raw_sha256": "0b7a10dc42c84022907241441f744269b2083e0dc283204e9dbf16acc94bb178",
+      "remote_git_blob_sha": "2a233a92e031db4e0e08187bee4706a38069158d",
+      "status": "PASS_EXACT_BYTES"
+    }
+  ],
+  "scope": "DOCUMENT_SOURCE_MIRROR_ONLY",
+  "runtime_test_state": "105/105 NOT_RUN",
+  "main_merged": false,
+  "pr_review_or_merge": "NOT_GRANTED",
+  "executor_permissions": {
+    "code_allowed": false,
+    "main_push": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  },
+  "previous_platform_refusal": "Historical tool safety refusal root cause UNDETERMINED. One Owner-requested standard supported retry succeeded; not proof prior refusal reason resolved globally.",
+  "reviewer": "CHAT independent Library hash + remote commit/path/blob verification",
+  "documentation": "Source commit is external immutable pointer. This receipt is committed separately and does not embed its own containing commit SHA."
+}
