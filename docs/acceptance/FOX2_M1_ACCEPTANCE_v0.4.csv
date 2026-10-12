@@ -1,0 +1,106 @@
+test_id,owner_brd,checkpoint,scope,scenario,expected,execution_status
+FOX2-00-T01,FOX2-BRD-00,M1-A/B,M1,Không trùng owner BRD; provenance đầy đủ,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-00-T02,FOX2-BRD-00,M1-A/B,M1,"Thiếu dữ liệu phải UNKNOWN/UNAVAILABLE, không hiện zero",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-00-T03,FOX2-BRD-00,M1-A/B,M1,Không tồn tại endpoint đặt lệnh hay switch margin trong MVP,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-01-T01,FOX2-BRD-01,LATER,LATER_M3_M4,Hai kế hoạch cùng dùng cash không được double allocate,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-01-T02,FOX2-BRD-01,LATER,LATER_M3_M4,Unsettled proceeds không được đồng nhất với settled cash,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-01-T03,FOX2-BRD-01,LATER,LATER_M3_M4,RiskVeto hoặc stale account chặn funded suggestion,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-02-T01,FOX2-BRD-02,LATER,LATER_M3_M4,Kết quả ngày không có cơ hội thì danh sách rỗng hợp lệ,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-02-T02,FOX2-BRD-02,LATER,LATER_M3_M4,TRIGGERED không tạo order write,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-02-T03,FOX2-BRD-02,LATER,LATER_M3_M4,Stale/corporate action/source thiếu chặn vùng giá giả,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-03-T01,FOX2-BRD-03,LATER,LATER_M3_M4,Market xanh nhưng breadth xấu vẫn cảnh báo,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-03-T02,FOX2-BRD-03,LATER,LATER_M3_M4,Giả định không có holdings -> risk UNAVAILABLE,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-03-T03,FOX2-BRD-03,LATER,LATER_M3_M4,Cross-user không lộ dữ liệu/risk,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-03-T04,FOX2-BRD-03,LATER,LATER_M3_M4,RiskVeto được tôn trọng dù EntryQuality cao,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-04-T01,FOX2-BRD-04,LATER,LATER_M3_M4,H3 không tự SELL_ALL,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-04-T02,FOX2-BRD-04,LATER,LATER_M3_M4,Unknown broker order không tự re-submit/cancel,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-04-T03,FOX2-BRD-04,LATER,LATER_M3_M4,Thiếu sellable leaves advice non-executable,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-04-T04,FOX2-BRD-04,LATER,LATER_M3_M4,STOP_HARVEST không reverse verified fills,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-05-T01,FOX2-BRD-05,LATER,LATER_M3_M4,Báo cáo công bố trễ không được xuất hiện trong backtest trước ngày công bố,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-05-T02,FOX2-BRD-05,LATER,LATER_M3_M4,MTF W1 up và M15 down được phép cùng đúng,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-05-T03,FOX2-BRD-05,LATER,LATER_M3_M4,Volume tăng không được ghi net inflow,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-05-T04,FOX2-BRD-05,LATER,LATER_M3_M4,Không dùng pivot xác nhận muộn như signal tại quá khứ,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T01,FOX2-BRD-06,M1-A/B,M1,ATC expected provisional không bị render như executed final,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T02,FOX2-BRD-06,M1-A/B,M1,Disconnect chuyển STALE và hiển thị timestamp,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T03,FOX2-BRD-06,M1-A/B,M1,No-trade symbol không bị coi outage,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T04,FOX2-BRD-06,M1-A/B,M1,Missing amount không biến thành 0,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T05,FOX2-BRD-06,M1-A/B,M1,Không có broker-write API endpoints,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-07-T01,FOX2-BRD-07,LATER,LATER_M3_M4,Không sửa dữ liệu forecast sau outcome,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-07-T02,FOX2-BRD-07,LATER,LATER_M3_M4,In-sample tốt nhưng OOS fail phải REJECT/DEFER,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-07-T03,FOX2-BRD-07,LATER,LATER_M3_M4,Missed event tạo LearningCase,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-07-T04,FOX2-BRD-07,LATER,LATER_M3_M4,DEFER không tự trở thành ACCEPT,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T01,FOX2-BRD-08,M1-A/B,M1,localhost DSM/API thật hoặc explicit unavailable; fixture chỉ isolated tests,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T02,FOX2-BRD-08,M1-A/B,M1,Market/Stock/Watchlist điều hướng hoạt động,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T03,FOX2-BRD-08,M1-A/B,M1,"Chart gap, ATC provisional và stale rõ",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T04,FOX2-BRD-08,M1-A/B,M1,Không có nút live order hay private user leakage,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-00-T04,FOX2-BRD-00,M1-A/B,M1,"Chạy M1 không có DNSE entitlement, fixtures có trong tests",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T06,FOX2-BRD-06,M1-A/B,M1,LIVE WS fresh với quyền hợp lệ → source selection,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T07,FOX2-BRD-06,M1-A/B,M1,"WS mất kết nối, có local snapshot cũ",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T08,FOX2-BRD-06,M1-A/B,M1,Historical local có gap/revision sai,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T09,FOX2-BRD-06,M1-A/B,M1,"Entitlement deny/expired, Production credentials thiếu",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T10,FOX2-BRD-06,M1-A/B,M1,"Event out-of-order, duplicate, correction, changed price basis",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T11,FOX2-BRD-06,M1-A/B,M1,Replay có first_available_at sau simulated cutoff,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T12,FOX2-BRD-06,M1-A/B,M1,Local stored DNSE đọc lại sau 1 ngày,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T13,FOX2-BRD-06,M1-A/B,M1,Public UI gọi nguồn private account,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T14,FOX2-BRD-06,M1-A/B,M1,"Production feed bị chặn, test fixtures tồn tại",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-06-T15,FOX2-BRD-06,M1-A/B,M1,Tra source-selection diagnostics,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T05,FOX2-BRD-08,M1-A/B,M1,"WS thật up, DSM API trả LIVE verified",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T06,FOX2-BRD-08,M1-A/B,M1,"WS disconnect, store có snapshot cũ",Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T07,FOX2-BRD-08,M1-A/B,M1,Mất entitlement hoặc no market data,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T08,FOX2-BRD-08,M1-A/B,M1,UI inspector/search/chart,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-08-T09,FOX2-BRD-08,M1-A/B,M1,Design references mới có 1/4 ảnh,Theo expected trong owner BRD; UNKNOWN không PASS,NOT_RUN
+FOX2-00-T90,FOX2-BRD-00,DOCUMENT,M1_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-00-T91,FOX2-BRD-00,DOCUMENT,M1_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-01-T90,FOX2-BRD-01,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-01-T91,FOX2-BRD-01,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-02-T90,FOX2-BRD-02,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-02-T91,FOX2-BRD-02,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-03-T90,FOX2-BRD-03,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-03-T91,FOX2-BRD-03,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-04-T90,FOX2-BRD-04,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-04-T91,FOX2-BRD-04,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-05-T90,FOX2-BRD-05,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-05-T91,FOX2-BRD-05,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-06-T90,FOX2-BRD-06,DOCUMENT,M1_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-06-T91,FOX2-BRD-06,DOCUMENT,M1_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-07-T90,FOX2-BRD-07,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-07-T91,FOX2-BRD-07,DOCUMENT,LATER_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-08-T90,FOX2-BRD-08,DOCUMENT,M1_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-08-T91,FOX2-BRD-08,DOCUMENT,M1_DOC,FOX2-only authority; technical refs pinned; preserved IDs and no implicit DEV/release,No imported authority/no lost IDs/no false acceptance,NOT_RUN
+FOX2-00-T05,FOX2-BRD-00,M1-A/B,M1,M1-A PASS không đóng M1-B hoặc tuyên bố LIVE.,M1-A PASS không đóng M1-B hoặc tuyên bố LIVE.,NOT_RUN
+FOX2-00-T06,FOX2-BRD-00,M1-A/B,M1,chỉ chốt slice 00/06/08 không tự ACCEPT thuật toán 01..05/07.,chỉ chốt slice 00/06/08 không tự ACCEPT thuật toán 01..05/07.,NOT_RUN
+FOX2-00-T07,FOX2-BRD-00,M1-A/B,M1,native diagnostic không xuất hiện như normalized quote/analysis.,native diagnostic không xuất hiện như normalized quote/analysis.,NOT_RUN
+FOX2-06-T16,FOX2-BRD-06,M1-A/B,M1,public transport deny account/order/private channels; no secret logging.,public transport deny account/order/private channels; no secret logging.,NOT_RUN
+FOX2-06-T17,FOX2-BRD-06,M1-A/B,M1,request-local metadata không bị cross-request overwrite; store commit/revision atomic.,request-local metadata không bị cross-request overwrite; store commit/revision atomic.,NOT_RUN
+FOX2-06-T18,FOX2-BRD-06,M1-A/B,M1,schema unavailable timestamps null; semantic OHLC/time/rights guards; genuine zero volume giữ nguyên.,schema unavailable timestamps null; semantic OHLC/time/rights guards; genuine zero volume giữ nguyên.,NOT_RUN
+FOX2-06-T19,FOX2-BRD-06,M1-A/B,M1,"ACK rejection chặn readiness; reconnect normal8h re-auth/resubscribe, không worker trùng.","ACK rejection chặn readiness; reconnect normal8h re-auth/resubscribe, không worker trùng.",NOT_RUN
+FOX2-06-T20,FOX2-BRD-06,M1-A/B,M1,control heartbeat không bị slow consumers chặn; overflow/out-of-order ghi gap.,control heartbeat không bị slow consumers chặn; overflow/out-of-order ghi gap.,NOT_RUN
+FOX2-06-T21,FOX2-BRD-06,M1-A/B,M1,provisional/cumulative updates không double-count; final/correction giữ lineage.,provisional/cumulative updates không double-count; final/correction giữ lineage.,NOT_RUN
+FOX2-06-T22,FOX2-BRD-06,M1-A/B,M1,bars backfill không giả khôi phục tick continuity; bounded pagination dừng/no-progress.,bars backfill không giả khôi phục tick continuity; bounded pagination dừng/no-progress.,NOT_RUN
+FOX2-06-T23,FOX2-BRD-06,M1-A/B,M1,restart/expired rights không restamp hoặc dùng cache trái quyền.,restart/expired rights không restamp hoặc dùng cache trái quyền.,NOT_RUN
+FOX2-06-T24,FOX2-BRD-06,M1-A/B,M1,field/unit mapping không suy từ numerical example; epoch/nanos giữ semantic đúng.,field/unit mapping không suy từ numerical example; epoch/nanos giữ semantic đúng.,NOT_RUN
+FOX2-08-T10,FOX2-BRD-08,M1-A/B,M1,watchlist add/remove/restart và concurrent version conflict409 đúng; invalid/unknown ID422.,watchlist add/remove/restart và concurrent version conflict409 đúng; invalid/unknown ID422.,NOT_RUN
+FOX2-08-T11,FOX2-BRD-08,M1-A/B,M1,per-widget states/native labels/no fake quote; không lẫn history close với trade.,per-widget states/native labels/no fake quote; không lẫn history close với trade.,NOT_RUN
+FOX2-08-T12,FOX2-BRD-08,M1-A/B,M1,"1440/1024/390 responsive, chart gaps/provisional, browser console không error.","1440/1024/390 responsive, chart gaps/provisional, browser console không error.",NOT_RUN
+FOX2-08-T13,FOX2-BRD-08,M1-A/B,M1,"investor bundle/API không leak Fox synthetic analysis, private facts, DNSE secrets/direct calls.","investor bundle/API không leak Fox synthetic analysis, private facts, DNSE secrets/direct calls.",NOT_RUN
+FOX2-08-T14,FOX2-BRD-08,M1-A/B,M1,disabled upstream/manual UI refresh không network; no polling-triggered backfill storm.,disabled upstream/manual UI refresh không network; no polling-triggered backfill storm.,NOT_RUN
+FOX2-N1-T01,FOX2-BRD-06,M1-A/B,M1,"No observation → nullable timestamps, no generated_at substitution","No observation → nullable timestamps, no generated_at substitution",NOT_RUN
+FOX2-N1-T02,FOX2-BRD-06,M1-A/B,M1,LIVE with unknown rights/units/calendar rejected,LIVE with unknown rights/units/calendar rejected,NOT_RUN
+FOX2-N1-T03,FOX2-BRD-06,M1-A/B,M1,Missing amount null; true zero volume retained,Missing amount null; true zero volume retained,NOT_RUN
+FOX2-N1-T04,FOX2-BRD-06,M1-A/B,M1,Invalid OHLC/bounds/time rejected,Invalid OHLC/bounds/time rejected,NOT_RUN
+FOX2-N1-T05,FOX2-BRD-06,M1-A/B,M1,Raw/adjusted corrections never concatenated silently,Raw/adjusted corrections never concatenated silently,NOT_RUN
+FOX2-N1-T06,FOX2-BRD-06,M1-A/B,M1,Fetch today cannot appear before first_available_at,Fetch today cannot appear before first_available_at,NOT_RUN
+FOX2-N1-T07,FOX2-BRD-06,M1-A/B,M1,Retained-use revoked blocks unauthorized cache fallback,Retained-use revoked blocks unauthorized cache fallback,NOT_RUN
+FOX2-N1-T08,FOX2-BRD-06,M1-A/B,M1,FOUNDATION PASS never closes REAL-DATA,FOUNDATION PASS never closes REAL-DATA,NOT_RUN
+FOX2-N1-T09,FOX2-BRD-06,M1-A/B,M1,No-trade event age vs transport heartbeat,No-trade event age vs transport heartbeat,NOT_RUN
+FOX2-N1-T10,FOX2-BRD-06,M1-A/B,M1,"Partial overview per-widget gaps, no aggregate false LIVE","Partial overview per-widget gaps, no aggregate false LIVE",NOT_RUN
+FOX2-N1-T11,FOX2-BRD-06,M1-A/B,M1,404/422/503/unavailable sanitized semantics,404/422/503/unavailable sanitized semantics,NOT_RUN
+FOX2-N1-T12,FOX2-BRD-06,M1-A/B,M1,Investor fixture connector rejected,Investor fixture connector rejected,NOT_RUN
+FOX2-WS01,FOX2-BRD-06,M1-A/B,M1,Distinct REST/WS auth; rejected ACK blocks source,Distinct REST/WS auth; rejected ACK blocks source,NOT_RUN
+FOX2-WS02,FOX2-BRD-06,M1-A/B,M1,Application heartbeat independent slow callback/transport,Application heartbeat independent slow callback/transport,NOT_RUN
+FOX2-WS03,FOX2-BRD-06,M1-A/B,M1,Normal8h close recover/no duplicate workers,Normal8h close recover/no duplicate workers,NOT_RUN
+FOX2-WS04,FOX2-BRD-06,M1-A/B,M1,Explicit board/resolution subscription within verified stream accounting,Explicit board/resolution subscription within verified stream accounting,NOT_RUN
+FOX2-WS05,FOX2-BRD-06,M1-A/B,M1,Cumulative/provisional no double-count,Cumulative/provisional no double-count,NOT_RUN
+FOX2-WS06,FOX2-BRD-06,M1-A/B,M1,Out-of-order/overflow explicit gap,Out-of-order/overflow explicit gap,NOT_RUN
+FOX2-WS07,FOX2-BRD-06,M1-A/B,M1,Seconds/Nanos/bar start/update distinct,Seconds/Nanos/bar start/update distinct,NOT_RUN
+FOX2-WS08,FOX2-BRD-08,M1-A/B,M1,No Fox synthetic/private leak,No Fox synthetic/private leak,NOT_RUN
