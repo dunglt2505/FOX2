@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "method": "Manual scope inspection + high-signal credential pattern scan of all staged publication files, executed without exposing any matched secret",
+  "scope": "new docs,attributes and own evidence only",
+  "private_account_data": false,
+  "licensed_raw_dnse_feed": false,
+  "credentials_published": false,
+  "runtime_changed": false,
+  "main_push": false,
+  "merge": false,
+  "legacy_report_modified": false,
+  "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+  "scan_result": "NO_HIGH_SIGNAL_CREDENTIAL_PATTERNS"
+}

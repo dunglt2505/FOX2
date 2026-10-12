@@ -1,0 +1,42 @@
+[
+  {
+    "name": "main",
+    "commit": {
+      "sha": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+      "url": "https://api.github.com/repos/dunglt2505/FOX2/commits/f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8"
+    },
+    "protected": false
+  },
+  {
+    "name": "work/FOX2-GITFIRST-BOOTSTRAP-chat-20261012",
+    "commit": {
+      "sha": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+      "url": "https://api.github.com/repos/dunglt2505/FOX2/commits/f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8"
+    },
+    "protected": false
+  },
+  {
+    "name": "work/FOX2-GITFIRST-SYNC-RECOVERY-001-work-20261012",
+    "commit": {
+      "sha": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
+      "url": "https://api.github.com/repos/dunglt2505/FOX2/commits/bd44dc2bb2fa1ba43070ea1052764320a86507c3"
+    },
+    "protected": false
+  },
+  {
+    "name": "work/FOX2-M0-MAIN-SOURCE-DOCS-20261011",
+    "commit": {
+      "sha": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+      "url": "https://api.github.com/repos/dunglt2505/FOX2/commits/f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8"
+    },
+    "protected": false
+  },
+  {
+    "name": "work/FOX2-M0-SOURCE-MIRROR-20261011",
+    "commit": {
+      "sha": "60892265d752d773829139c50039f9d81530e849",
+      "url": "https://api.github.com/repos/dunglt2505/FOX2/commits/60892265d752d773829139c50039f9d81530e849"
+    },
+    "protected": false
+  }
+]

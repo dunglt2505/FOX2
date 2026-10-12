@@ -1,0 +1,185 @@
+{
+  "source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+  "readback": [
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.3.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v2.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": ".gitattributes",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/SOURCE_INDEX.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/source_manifest.json",
+      "exact": true,
+      "isError": false
+    }
+  ],
+  "pilot_task_read": {
+    "commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+    "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
+    "exact": true
+  },
+  "source_diff": [
+    {
+      "filename": ".gitattributes",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 0,
+      "changes": 8,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/source_manifest.json",
+      "status": "added",
+      "additions": 170,
+      "deletions": 0,
+      "changes": 170,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
+      "status": "added",
+      "additions": 80,
+      "deletions": 0,
+      "changes": 80,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "status": "added",
+      "additions": 973,
+      "deletions": 0,
+      "changes": 973,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
+      "status": "added",
+      "additions": 76,
+      "deletions": 0,
+      "changes": 76,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
+      "status": "added",
+      "additions": 35,
+      "deletions": 0,
+      "changes": 35,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v2.md",
+      "status": "added",
+      "additions": 32,
+      "deletions": 0,
+      "changes": 32,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/README.md",
+      "status": "added",
+      "additions": 12,
+      "deletions": 0,
+      "changes": 12,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/SOURCE_INDEX.json",
+      "status": "added",
+      "additions": 1618,
+      "deletions": 0,
+      "changes": 1618,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
+      "status": "added",
+      "additions": 13,
+      "deletions": 0,
+      "changes": 13,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/governance/FOX2_POLICY_V1.3.md",
+      "status": "added",
+      "additions": 585,
+      "deletions": 0,
+      "changes": 585,
+      "previous_filename": null
+    },
+    {
+      "filename": "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
+      "status": "added",
+      "additions": 86,
+      "deletions": 0,
+      "changes": 86,
+      "previous_filename": null
+    }
+  ],
+  "github_rulesets_error": {
+    "error": "GitHub API error 403: {\"message\":\"Upgrade to GitHub Pro or make this repository public to enable this feature.\",\"documentation_url\":\"https://docs.github.com/rest/repos/rules#get-all-repository-rulesets\",\"status\":\"403\"}",
+    "error_code": "FORBIDDEN",
+    "error_data": {
+      "message": "Upgrade to GitHub Pro or make this repository public to enable this feature.",
+      "documentation_url": "https://docs.github.com/rest/repos/rules#get-all-repository-rulesets",
+      "status": "403"
+    }
+  },
+  "workflow_runs": {
+    "total_count": 0,
+    "workflow_runs": []
+  },
+  "pr1_reviews": [],
+  "pr1_draft": true,
+  "pr1_merged": false,
+  "unrelated_branches_touched": false
+}

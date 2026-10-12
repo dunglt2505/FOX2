@@ -1,0 +1,120 @@
+[
+  {
+    "id": "DOC-T-ATTRS",
+    "status": "PASS",
+    "method": "isolated git init/add/check-attr/rev-parse; compare raw CRLF Git object hash",
+    "actual_blob": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+    "expected_blob": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+    "crlf_lines": 105,
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Scratch-only document staging test; no user worktree or runtime code changed; backend/example.py is only a path string for attribute lookup"
+  },
+  {
+    "id": "DOC-N-HASH",
+    "status": "PASS",
+    "actual": "BLOCK_SOURCE",
+    "expected": "BLOCK_SOURCE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-MISSING",
+    "status": "PASS",
+    "actual": "BLOCK_SOURCE",
+    "expected": "BLOCK_SOURCE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-NOPUSH",
+    "status": "PASS",
+    "actual": "LOCAL_ONLY_NOT_SUBMITTED",
+    "expected": "LOCAL_ONLY_NOT_SUBMITTED",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-CODE",
+    "status": "PASS",
+    "actual": "REJECT_CODE",
+    "expected": "REJECT_CODE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-MAIN",
+    "status": "PASS",
+    "actual": "DENY_MAIN_FORCE",
+    "expected": "DENY_MAIN_FORCE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-FORCE",
+    "status": "PASS",
+    "actual": "DENY_MAIN_FORCE",
+    "expected": "DENY_MAIN_FORCE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-PASS",
+    "status": "PASS",
+    "actual": "REJECT_UNPROVEN_PASS",
+    "expected": "REJECT_UNPROVEN_PASS",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-SELF",
+    "status": "PASS",
+    "actual": "REJECT_SELF_ACCEPTANCE",
+    "expected": "REJECT_SELF_ACCEPTANCE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-SECRET",
+    "status": "PASS",
+    "actual": "BLOCK_SECURITY",
+    "expected": "BLOCK_SECURITY",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-LEGACY",
+    "status": "PASS",
+    "actual": "KEEP_V1_PROVENANCE",
+    "expected": "KEEP_V1_PROVENANCE",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-ACCESS",
+    "status": "PASS",
+    "actual": "WORK_ACCESS_NOT_VERIFIED",
+    "expected": "WORK_ACCESS_NOT_VERIFIED",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  },
+  {
+    "id": "DOC-N-SAFETY",
+    "status": "PASS",
+    "actual": "STOP_PLATFORM",
+    "expected": "STOP_PLATFORM",
+    "method": "local decision simulation",
+    "run_at_utc": "2026-10-12T04:06:18.857394+00:00",
+    "notes": "Not GitHub enforcement or platform rule test"
+  }
+]

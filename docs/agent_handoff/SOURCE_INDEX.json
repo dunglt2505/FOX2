@@ -48,11 +48,16 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "ca005a2d9875afefa57d5a3621ca5b20073d70bb"
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT_PENDING_CURRENT_PUBLICATION",
-      "verified_source_commit": null
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
     },
     {
       "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
@@ -89,11 +94,16 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "dd787ffb1b2619962f5f2df54e62264927730542"
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT_PENDING_CURRENT_PUBLICATION",
-      "verified_source_commit": null
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
     },
     {
       "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.3.md",
@@ -130,11 +140,16 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "c309f7e395d17ca396e11e074735c81a46317542"
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT_PENDING_CURRENT_PUBLICATION",
-      "verified_source_commit": null
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
     },
     {
       "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
@@ -171,11 +186,16 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "b7617cc5c75c288c7997c64536a22fb836b8200b"
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT_PENDING_CURRENT_PUBLICATION",
-      "verified_source_commit": null
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
     },
     {
       "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
@@ -212,11 +232,16 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "aa3dd89a36207b0638eed1b8db23631268deb195"
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT_PENDING_CURRENT_PUBLICATION",
-      "verified_source_commit": null
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
     },
     {
       "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
@@ -253,11 +278,16 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "621db711d43df9763f8f8a55fceb586dc4d5583c"
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT_PENDING_CURRENT_PUBLICATION",
-      "verified_source_commit": null
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
     },
     {
       "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/FOX2_M1_0_SOURCE_MANIFEST_PREPARED_V1_2_20261012.json",
@@ -294,6 +324,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "6c1d8748c4a5720f242640e56651e43b41a5fd53"
         }
       },
       "classification": "HISTORICAL_PREPARED_NOT_DISPATCHED",
@@ -335,6 +370,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "da608704d9059b52565d0a767a07f340d0863e55"
         }
       },
       "classification": "HISTORICAL_PREPARED_NOT_DISPATCHED",
@@ -374,6 +414,11 @@
         },
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
+          "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
           "status": "MISSING_GIT",
           "blob_sha": null
         }
@@ -417,6 +462,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "6be9ec56cd29aea22ea3b6d6471ac4450914cb98"
         }
       },
       "classification": "HISTORICAL",
@@ -458,6 +508,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "cf0565fe653b0ebe48a8c40e5df8ca78afdd9751"
         }
       },
       "classification": "HISTORICAL",
@@ -499,6 +554,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "158ee245fbb818ab80fac8999169d7c1d805c5fa"
         }
       },
       "classification": "HISTORICAL",
@@ -538,6 +598,11 @@
         },
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
+          "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
           "status": "MISSING_GIT",
           "blob_sha": null
         }
@@ -581,6 +646,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "MISSING_GIT",
+          "blob_sha": null
         }
       },
       "classification": "HISTORICAL",
@@ -620,6 +690,11 @@
         },
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
+          "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
           "status": "MISSING_GIT",
           "blob_sha": null
         }
@@ -663,11 +738,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/01_BRD/FOX2_M1_V04_RELEASE_SUMMARY_AND_NEXT_GATE.md",
@@ -704,11 +785,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/05_Acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
@@ -745,11 +832,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/06_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
@@ -786,11 +879,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/05_Acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
@@ -827,11 +926,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/03_Data_Contracts/FOX2_MARKET_DATA_v0.4.schema.json",
@@ -868,11 +973,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-08_v0.4.md",
@@ -909,11 +1020,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-06_v0.4.md",
@@ -950,11 +1067,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/03_Data_Contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
@@ -991,11 +1114,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-00_v0.4.md",
@@ -1032,11 +1161,17 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "BLOCKED",
+          "blob_sha": null
         }
       },
       "classification": "PUBLISHED",
-      "sync_status": "MISSING_GIT",
-      "verified_source_commit": null
+      "sync_status": "BLOCKED",
+      "verified_source_commit": null,
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
     },
     {
       "library_path": "/Trading/FOX2/05_Acceptance/FOX2_MAIN_DOCUMENT_INTEGRATION_RECEIPT_20261011.json",
@@ -1071,6 +1206,11 @@
         },
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
+          "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
           "status": "MISSING_GIT",
           "blob_sha": null
         }
@@ -1114,6 +1254,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "MISSING_GIT",
+          "blob_sha": null
         }
       },
       "classification": "HISTORICAL",
@@ -1154,6 +1299,11 @@
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
           "blob_sha": null
         }
       },
@@ -1196,6 +1346,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
+          "blob_sha": null
         }
       },
       "classification": "EXCLUDED_REFERENCE",
@@ -1236,6 +1391,11 @@
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
           "blob_sha": null
         }
       },
@@ -1278,6 +1438,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
+          "blob_sha": null
         }
       },
       "classification": "EXCLUDED_REFERENCE",
@@ -1318,6 +1483,11 @@
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
           "blob_sha": null
         }
       },
@@ -1360,6 +1530,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
+          "blob_sha": null
         }
       },
       "classification": "EXCLUDED_REFERENCE",
@@ -1400,6 +1575,11 @@
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
+          "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
           "blob_sha": null
         }
       },
@@ -1442,6 +1622,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "MISSING_GIT",
           "blob_sha": null
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "CANDIDATE_EXCLUDED",
+          "blob_sha": null
         }
       },
       "classification": "EXCLUDED_REFERENCE",
@@ -1481,6 +1666,11 @@
         },
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "c1dab30a764161e0bf91c18ecbbd75dda6f34898"
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
           "status": "SYNC_VERIFIED",
           "blob_sha": "c1dab30a764161e0bf91c18ecbbd75dda6f34898"
         }
@@ -1524,6 +1714,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "SYNC_VERIFIED",
           "blob_sha": "9ad5d6e3fae038e0bf580a7287b16167761b774b"
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "9ad5d6e3fae038e0bf580a7287b16167761b774b"
         }
       },
       "classification": "HISTORICAL",
@@ -1563,6 +1758,11 @@
         },
         "work/FOX2-M0-SOURCE-MIRROR-20261011": {
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "2bd895599cdcbaacc7bea5b7ced8487fa070d5ce"
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
           "status": "SYNC_VERIFIED",
           "blob_sha": "2bd895599cdcbaacc7bea5b7ced8487fa070d5ce"
         }
@@ -1606,6 +1806,11 @@
           "commit_sha": "60892265d752d773829139c50039f9d81530e849",
           "status": "SYNC_VERIFIED",
           "blob_sha": "0a63bb46159d791c0df15a066c62dd7a72ec736c"
+        },
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "0a63bb46159d791c0df15a066c62dd7a72ec736c"
         }
       },
       "classification": "HISTORICAL",
@@ -1613,6 +1818,7 @@
       "verified_source_commit": "bd44dc2bb2fa1ba43070ea1052764320a86507c3"
     }
   ],
-  "mirror_completion": "PARTIAL; new6 pending remote readback; old M1 missing payloads not re-sent",
-  "candidate_rule": "No promotion or duplicate source authority"
+  "mirror_completion": "PARTIAL; six current V1.3/v2 artifacts verified on remote; ten current M1 release targets missing (8 required sources + receipt + summary)",
+  "candidate_rule": "No promotion or duplicate source authority",
+  "verification_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
 }

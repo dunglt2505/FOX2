@@ -1,0 +1,120 @@
+{
+  "wp_id": "FOX2-WP-GITFIRST-OFFICIAL-SYNC",
+  "scope": "Authoritative source bytes compared; actual new6 publication and prior9 exact blobs reused",
+  "policy_sha256": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641",
+  "verification_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+  "source_readback": "12/12 new source/workflow paths PASS",
+  "new_current_artifacts": "6/6 exact raw bytes match Library",
+  "official_all_exact": 15,
+  "official_total": 39,
+  "current_published_exact": 6,
+  "current_published_total": 16,
+  "m1_library": "8/8 exact release hashes PASS",
+  "m1_git": "0/8",
+  "source_push_observed": true,
+  "source_task_read_from_git": true,
+  "report_delivery": "Final host-provided pointer outside containing report; no self-reference",
+  "no_retry_denied_payload": true,
+  "missing_current_files": [
+    {
+      "library_path": "/Trading/FOX2/01_BRD/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json",
+      "library_file_id": "libfile_276242184e7c8191a94ba4dda1853f6c",
+      "bytes": 11114,
+      "sha256": "646b97efe2c1ce982ddbb95f823fcd283b9b802c50654cf42fc938548d213e3d",
+      "git_path": "docs/brd_mirror/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json",
+      "git_blob_sha": "27965a9aebe9a5be07fb9f539e7ba10b7633bb13",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/01_BRD/FOX2_M1_V04_RELEASE_SUMMARY_AND_NEXT_GATE.md",
+      "library_file_id": "libfile_2247567c12dc8191af2727ec57fdb235",
+      "bytes": 3683,
+      "sha256": "0b7a10dc42c84022907241441f744269b2083e0dc283204e9dbf16acc94bb178",
+      "git_path": "docs/brd_mirror/FOX2_M1_V04_RELEASE_SUMMARY_AND_NEXT_GATE.md",
+      "git_blob_sha": "2a233a92e031db4e0e08187bee4706a38069158d",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/05_Acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+      "library_file_id": "libfile_fbed6b70ac7481918f50cd7406c06cb6",
+      "bytes": 17289,
+      "sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+      "git_path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+      "git_blob_sha": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/06_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
+      "library_file_id": "libfile_95b55bc6b99881918355ae0213e7778c",
+      "bytes": 3158,
+      "sha256": "96e567e6743e5f4182b09737912a4e67b01cc7b0868a0499e1fa79e6181e14a8",
+      "git_path": "docs/roadmap/FOX2_M1_ROADMAP_v0.3.md",
+      "git_blob_sha": "43629d6fc37774cfc155740196fe084e98db4134",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/05_Acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+      "library_file_id": "libfile_215e81fc4ef48191a32512994ae86657",
+      "bytes": 3333,
+      "sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b",
+      "git_path": "docs/acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+      "git_blob_sha": "321bc0e2525befa8842f09edfc09ce20c2cbab09",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/03_Data_Contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+      "library_file_id": "libfile_7c53732b2f4081919d5df5964fdf97de",
+      "bytes": 22607,
+      "sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+      "git_path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+      "git_blob_sha": "fa395662b772658d782b46718b7eb8392f6bbf76",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-08_v0.4.md",
+      "library_file_id": "libfile_05cb1f9ba9e0819191611c2e722d1a22",
+      "bytes": 14697,
+      "sha256": "0e8b3c4206fee03f732588063eeb92ebb07af97d2164f06495a7f7539a893ca7",
+      "git_path": "docs/brd_mirror/FOX2-BRD-08_v0.4.md",
+      "git_blob_sha": "98a3cc700833f0f5e7af37a1f65e4d44c9823d03",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-06_v0.4.md",
+      "library_file_id": "libfile_c9a8c13742a88191a1d38f490bc37880",
+      "bytes": 24284,
+      "sha256": "be3ce2d664401b176019d063182684f3ae043690c16a4c83b38ff43eea24dd1e",
+      "git_path": "docs/brd_mirror/FOX2-BRD-06_v0.4.md",
+      "git_blob_sha": "92c57dd686b9dde61ace46287e8f1ac63ec3a553",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/03_Data_Contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "library_file_id": "libfile_07541244fdf48191a4417429111c8ab1",
+      "bytes": 7501,
+      "sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2",
+      "git_path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "git_blob_sha": "369a893a83dd140ce423c032784941a22d4a443e",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    },
+    {
+      "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-00_v0.4.md",
+      "library_file_id": "libfile_9b0f072173b48191a0ebff7a8756e5eb",
+      "bytes": 14779,
+      "sha256": "e13b00581ab04c4bb2aabbfb196aec06475c2b0fc44d5b366ca2e382444ebef8",
+      "git_path": "docs/brd_mirror/FOX2-BRD-00_v0.4.md",
+      "git_blob_sha": "bad3394adbb1566752b551fe56e9c90d15b91afc",
+      "sync_status": "BLOCKED",
+      "blocker": "Prior source-transfer batch safety refusal; per-file trigger unknown, payload not re-sent"
+    }
+  ]
+}
