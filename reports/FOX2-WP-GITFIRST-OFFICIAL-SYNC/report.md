@@ -50,3 +50,12 @@ Owner requested one simple consistent failed-upload checkpoint. Policy1.4 is act
 10source-ready decision simulations passed;actual required M1sources remain0/8onGit,so **M1 GIT_SOURCE_READY=NO / SOURCE_PENDING**. This is the new checkpoint working honestly,not a full-sync claim. Inventory is now282hashed sources:44official,76loose,162Candidate/reference. Source-ready clause B3/C1B.1/C5Aand operative guides are reconciled;pre-effectivity inherited lineage/operator wording corrected before release manifest.
 
 Current task/source manifest at the supplementary source commit binds Policy1.4. Final result delivery commit remains outside its committed report. CHAT independently reviews the new immutable submission;runtime/service remains BLOCKED,no main/merge/provider/LIVE.
+
+
+## Owner-authorized Policy V1.5 amendment — current operational authority
+
+CHAT owns routine source upload and recovery. CHAT must complete and verify all required source synchronization BEFORE assigning/issuing implementation prompts. NO remains internally SOURCE_PENDING. Agent integrity checks supplement completed delivery; they do not shift recovery to Agent/WORK. YES gives source readiness only. Result Contract/schema v2 unchanged.
+
+Actual new release: Policy1.5 + manifest + Protocol/Template/Intake4, Library and pinned remote byte readbacks5/5 PASS at f3f2f033076235fe195b886f7adfd142032763ce. Previous released revisions and v1 legacy reports untouched. This is the same WP scoped amendment executed by WORK under the current Owner instruction; future routine recovery remains CHAT's responsibility.
+
+Evidence: evidence/policy_v15_sync_receipt.json. Six local gate simulations PASS; not GitHub enforcement. New sources are published, while full rollout remains PARTIAL: M1 Git0/8 and receipt/summary remain missing, historical platform block undetermined. CHAT next action: obtain permitted diagnostic/remedy for that transfer, recover only missing authorized sources, readback, then release implementation task only at YES with separate execution grants. No denied payload retry performed. Independent CHAT review NOT_RUN; PUSHED_UNREVIEWED. No runtime/main/merge/provider changes.

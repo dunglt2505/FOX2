@@ -5,14 +5,14 @@
   "task_id": "FOX2-GITFIRST-OFFICIAL-ROLLOUT-001",
   "change_id": "FOX2-OFFICIAL-SYNC-V13-20261012",
   "submission_state": "PARTIAL",
-  "submitted_at_utc": "2026-10-12T04:30:24.036300+00:00",
+  "submitted_at_utc": "2026-10-12T05:06:48.882Z",
   "agent": {
     "product": "ChatGPT Work Mode / Codex assistant",
     "model": "NOT_EXPOSED",
     "mode": "NOT_EXPOSED",
     "host": "/workspace/scratch/66e7f833250b; connected Library/GitHub APIs; no Windows access",
     "started_at_utc": "2026-10-12T03:47:14Z",
-    "finished_at_utc": "2026-10-12T04:30:24.036300+00:00",
+    "finished_at_utc": "2026-10-12T05:06:48.882Z",
     "quota_observation": "NOT_EXPOSED"
   },
   "routing": {
@@ -30,15 +30,16 @@
     "routing_evidence": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md"
   },
   "source": {
-    "policy_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
-    "policy_version": "1.4.0",
+    "policy_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
+    "policy_version": "1.5.0",
     "task_commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
     "source_manifest_sha256": "bc7d0126cc74b3b3956719b77786c7cfafcb319a4f9f4f90c94b456422d2ba68",
     "approved_base_commit_sha": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
     "source_readback_status": "PARTIAL",
     "brd_revisions": [
       "Released M1 BRD00/06/08v0.4;Library bytes8/8verified;Git missing",
-      "Current Policy1.4/guides3 mirrored;ResultContractv2 unchanged"
+      "Current Policy1.4/guides3 mirrored;ResultContractv2 unchanged",
+      "Current Policy1.5 and guides4 exact5/5; CHAT upload/recovery ownership before dispatch"
     ],
     "previous_evidence_reused": [
       "PR1 legacy v1 submission unchanged",
@@ -67,11 +68,12 @@
     "report_path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
     "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": "https://github.com/dunglt2505/FOX2/pull/2",
-    "local_head_before_submission": "b32248816d37d2d71f8c957e14c1073065c0d909"
+    "local_head_before_submission": "f3f2f033076235fe195b886f7adfd142032763ce"
   },
   "scope": {
     "requested": [
-      "Full FOX2 authoritative sync + branch readiness audit + current Git-first workflow pilot"
+      "Full FOX2 authoritative sync + branch readiness audit + current Git-first workflow pilot",
+      "Owner requested CHAT recovery ownership and synchronization completed before Agent assignment"
     ],
     "completed": [
       "277 source byte hashes",
@@ -81,10 +83,11 @@
       "Actual same-WP remote report submission and14result files exact readback verified",
       "Policy1.4/manifest and3aligned guides actually released+mirrored",
       "Single GIT_SOURCE_READY checkpoint implemented in existingPolicy/index/task/receiver guidance",
-      "282scopedsource hashes;44officialmatrix;20officialexact;6/16currentpublishedexact"
+      "282scopedsource hashes;44officialmatrix;20officialexact;6/16currentpublishedexact",
+      "Policy1.5+guides4+release manifest actual Library publication/readback and source remote exact5/5; CHAT responsibility clarified"
     ],
     "partial": [
-      "20/44officialexact;6/16currentpublishedexact;M1Git0/8SOURCE_PENDING"
+      "M1 Git0/8 unchanged;8required + release receipt/summary missing; SOURCE_PENDING"
     ],
     "not_done": [
       "10 M1 release mirrors",
@@ -174,21 +177,21 @@
         "operation": "ADD",
         "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "4e672e86abd878d4192964cc274725b7ed5e0a5abb79376d00e0fc6a5b82fb95"
+        "new_sha256": "d6febb492b1e508abacaa880ffdbdbe20682e15dc0376c7262cb4a0ae9543904"
       },
       {
         "path": "docs/agent_handoff/SOURCE_INDEX.json",
         "operation": "ADD",
         "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "6a5956de74fb87f7c497c9b764249e021b6d026f9725264d8b81c268443fce54"
+        "new_sha256": "15359bf01482b94a1cd376d2c7778f0c8a98564e2f47c8c141bb50ce1db9143a"
       },
       {
         "path": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
         "operation": "ADD",
         "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "ee1350c4e18b490dac55685fec1b4878e8dc1134587624e5d53b0049b298723a"
+        "new_sha256": "3e2b45083a6e3daa76d83d65fefab37074c19ca090dc3dd905f3e408ba412e97"
       },
       {
         "path": "docs/governance/FOX2_POLICY_V1.3.md",
@@ -321,7 +324,7 @@
         "operation": "ADD",
         "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "6d39345cbe3eb75ab240dc40a14bbd14633bb73e19bc4f4a2c0c7661f4b9aedb"
+        "new_sha256": "6b186d526fdf9124e09ca16ac98365e179a85aa725e3406231551f8b42c64eaf"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
@@ -329,6 +332,48 @@
         "intent": "Requiredv2result;ownhash supplied byexternalremote verification",
         "within_allowed_paths": true,
         "new_sha256": null
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v15_sync_receipt.json",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "211eb80480d8cd4e39690ebbd0308a64083103929bdc30fa6f1c15270013dfff"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "89ccedf632b14f69a167b3d35d4fca611716802f4f8f6c7c44b8808f7e89d1c9"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "62cb1a4d35d5a137f8d27d9eb6b1591eafc133c1b8df975e229ccd622711e7e1"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "6300df0e521854a11229c60faa970c74a266b9818f22f30786a938402cd6e9c2"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.5.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "4701ad46409ba376038b927b9b9add8979058b1112675c4e6c3c8926a8a0fcb5"
       }
     ],
     "forbidden_paths_touched": false
@@ -516,6 +561,18 @@
         "E-POLICY14"
       ],
       "notes": "Local checks not platform enforcement;actual M1gateNO correctlyblocks implementation;5releasedsource/manifest Library readbacks and10supplementary remote paths exact"
+    },
+    {
+      "id": "SYNC-T-CHAT-OWNERSHIP",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "5released files Library+Git exactreadback;6executed local gate simulations",
+      "environment": "WORK connected Library/Git and local JS decision simulation",
+      "run_at_utc": "2026-10-12T05:06:48.882Z",
+      "evidence_ids": [
+        "E-POLICY15"
+      ],
+      "notes": "Simulation not GitHub enforcement; M1 remains source pending; future CHAT operational responsibility"
     }
   ],
   "acceptance": [
@@ -759,6 +816,18 @@
         "SYNC-A10-SOURCE-READY"
       ],
       "sanitized": true
+    },
+    {
+      "id": "E-POLICY15",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v15_sync_receipt.json",
+      "sha256": "211eb80480d8cd4e39690ebbd0308a64083103929bdc30fa6f1c15270013dfff",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T05:06:48.882Z",
+      "description": "Actual Policy1.5 release/remote receipts and local gate simulations",
+      "supports_ids": [
+        "SYNC-T-CHAT-OWNERSHIP"
+      ],
+      "sanitized": true
     }
   ],
   "risks": [
@@ -804,7 +873,7 @@
   },
   "next_step": {
     "requested_chat_decision": "REVIEW",
-    "action": "Read pinned submission;validate v2/source/diff/evidence and record independent partial decision;resolve missing-source platform route before DEV",
+    "action": "CHAT independently reviews this amended submission; owns supported recovery of missing M1 sources; completes exact remote readback before assigning any implementation task",
     "owner_role": "CHAT",
     "prerequisite_gate": "Actual immutable Git report readback and separate reviewer authority;no self-acceptance"
   }

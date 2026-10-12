@@ -1,8 +1,8 @@
 {
   "project": "FOX2",
   "index_version": "1.0",
-  "issued_at_utc": "2026-10-12T04:30:24.036300+00:00",
-  "policy_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
+  "issued_at_utc": "2026-10-12T05:06:48.882Z",
+  "policy_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
   "authority": "Library release receipts; Git index is a derived operational record",
   "baseline_commit": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
   "complete_inventory_pages": {
@@ -1916,20 +1916,120 @@
           "blob_sha": "03f986a3ab5ce3a9a710232fb6b5de32e050acce"
         }
       }
+    },
+    {
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.5.md",
+      "library_file_id": "libfile_5a89f29fe5b08191b4f2890995817147",
+      "version_id": null,
+      "bytes": 83266,
+      "sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
+      "git_path": "docs/governance/FOX2_POLICY_V1.5.md",
+      "git_blob_sha": "e75c20210e1813fe923c49c5c96c55ed6a03d1d2",
+      "name": "FOX2_POLICY_V1.5.md",
+      "classification": "PUBLISHED",
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+      "branches": {
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "f3f2f033076235fe195b886f7adfd142032763ce",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "e75c20210e1813fe923c49c5c96c55ed6a03d1d2"
+        }
+      }
+    },
+    {
+      "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "library_file_id": "libfile_aa357314e39481918b0eb3d43072bc4c",
+      "version_id": null,
+      "bytes": 5186,
+      "sha256": "89ccedf632b14f69a167b3d35d4fca611716802f4f8f6c7c44b8808f7e89d1c9",
+      "git_path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "git_blob_sha": "7e489818344c85e4b7fd6641417cdeb553c63620",
+      "name": "FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "classification": "PUBLISHED",
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+      "branches": {
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "f3f2f033076235fe195b886f7adfd142032763ce",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "7e489818344c85e4b7fd6641417cdeb553c63620"
+        }
+      }
+    },
+    {
+      "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+      "library_file_id": "libfile_b4c99a5ce6e08191ba1745ee8822e7de",
+      "version_id": null,
+      "bytes": 4915,
+      "sha256": "62cb1a4d35d5a137f8d27d9eb6b1591eafc133c1b8df975e229ccd622711e7e1",
+      "git_path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+      "git_blob_sha": "5f87f830ee4fadf509689232c54e29ea48ef82a4",
+      "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+      "classification": "PUBLISHED",
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+      "branches": {
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "f3f2f033076235fe195b886f7adfd142032763ce",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "5f87f830ee4fadf509689232c54e29ea48ef82a4"
+        }
+      }
+    },
+    {
+      "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+      "library_file_id": "libfile_ff4baa0f547c819180caf5b6eefeb7f9",
+      "version_id": null,
+      "bytes": 4385,
+      "sha256": "6300df0e521854a11229c60faa970c74a266b9818f22f30786a938402cd6e9c2",
+      "git_path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+      "git_blob_sha": "1e07473e2082c059e58ecd323503332d8cc21d06",
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+      "classification": "PUBLISHED",
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+      "branches": {
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "f3f2f033076235fe195b886f7adfd142032763ce",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "1e07473e2082c059e58ecd323503332d8cc21d06"
+        }
+      }
+    },
+    {
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+      "library_file_id": "libfile_ea1c496998a081919cd72c65ba94f531",
+      "version_id": null,
+      "bytes": 3212,
+      "sha256": "4701ad46409ba376038b927b9b9add8979058b1112675c4e6c3c8926a8a0fcb5",
+      "git_path": "docs/governance/FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+      "git_blob_sha": "c5fc564115194f5394c15924cf6aa2f27f15cd38",
+      "name": "FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+      "classification": "PUBLISHED",
+      "sync_status": "SYNC_VERIFIED",
+      "verified_source_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+      "branches": {
+        "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+          "commit_sha": "f3f2f033076235fe195b886f7adfd142032763ce",
+          "status": "SYNC_VERIFIED",
+          "blob_sha": "c5fc564115194f5394c15924cf6aa2f27f15cd38"
+        }
+      }
     }
   ],
-  "mirror_completion": "PARTIAL;current Policy1.4 and aligned guides v3 verified,ResultContractv2 unchanged;20/44official exact,6/16currentpublished exact,M1Git0/8",
+  "mirror_completion": "PARTIAL; Policy1.5/manifest + guides4 remote exact5/5; original M1Git0/8 unchanged; Result Contract/schema v2 unchanged",
   "candidate_rule": "No promotion or duplicate source authority",
-  "verification_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
-  "current_policy_version": "1.4.0",
-  "latest_owner_change": "FOX2-GIT-SOURCE-READY-GATE-20261012",
+  "verification_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+  "current_policy_version": "1.5.0",
+  "latest_owner_change": "CHAT owns upload/recovery and must complete sync before implementation assignment",
   "implementation_source_gate": {
     "wp": "FOX2-M1-IMPLEMENTATION",
     "git_source_ready": "NO",
     "task_state": "SOURCE_PENDING",
     "required_set": "8 released M1v0.4 files",
-    "reason": "Required8 Git mirrors missing; prior batch transfer safety refusal cause unknown; Publisher must use supported compliant recovery",
-    "next_actor": "Authorized Publisher after platform diagnostic; CHAT must not dispatch implementation before YES",
+    "reason": "Required8 M1 Git mirrors remain missing; historical safety block unresolved; CHAT owns supported recovery and keeps task internally SOURCE_PENDING",
+    "next_actor": "CHAT",
     "note": "Source-ready never grants DEV/main/merge/provider/LIVE"
   }
 }
