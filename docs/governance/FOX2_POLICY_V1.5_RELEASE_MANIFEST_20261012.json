@@ -1,0 +1,69 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.5.0",
+  "change_id": "FOX2-CHAT-SOURCE-DELIVERY-OWNERSHIP-20261012",
+  "source_policy": {
+    "version": "1.4.0",
+    "sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769"
+  },
+  "owner_decision": "CHAT owns upload/recovery; complete and verify sync BEFORE assigning implementation; keep SOURCE_PENDING internally if NO; Owner explicitly requested update and rollout",
+  "publication_operator": "ChatGPT WORK executing current Owner-authorized amendment; future routine synchronization/recovery assigned to CHAT, not WORK by default",
+  "actual_model_thinking_quota": "NOT_EXPOSED",
+  "issued_at_utc": "2026-10-12T05:04:07.910129+00:00",
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.5.md",
+    "bytes": 83266,
+    "sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
+    "readback": "PASS_EXACT_BYTES",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.5.md",
+    "library_file_id": "libfile_5a89f29fe5b08191b4f2890995817147",
+    "file_id": "file_0000000006048230b5a486b1a8cb11e5",
+    "version_id": null
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "bytes": 5186,
+      "sha256": "89ccedf632b14f69a167b3d35d4fca611716802f4f8f6c7c44b8808f7e89d1c9",
+      "readback": "PASS_EXACT_BYTES",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "library_file_id": "libfile_aa357314e39481918b0eb3d43072bc4c",
+      "file_id": "file_00000000616c81f8b19a1969b5eda318",
+      "version_id": null
+    },
+    {
+      "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+      "bytes": 4915,
+      "sha256": "62cb1a4d35d5a137f8d27d9eb6b1591eafc133c1b8df975e229ccd622711e7e1",
+      "readback": "PASS_EXACT_BYTES",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+      "library_file_id": "libfile_b4c99a5ce6e08191ba1745ee8822e7de",
+      "file_id": "file_00000000f4e081f694151297bfc0df80",
+      "version_id": null
+    },
+    {
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+      "bytes": 4385,
+      "sha256": "6300df0e521854a11229c60faa970c74a266b9818f22f30786a938402cd6e9c2",
+      "readback": "PASS_EXACT_BYTES",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+      "library_file_id": "libfile_ff4baa0f547c819180caf5b6eefeb7f9",
+      "file_id": "file_000000000c588230b70e9c37c8b34558",
+      "version_id": null
+    }
+  ],
+  "single_decision": "GIT_SOURCE_READY=YES/NO",
+  "schema_delta": "NONE; Result Contract/schema v2 unchanged",
+  "effectivity": "RELEASED_EFFECTIVE after observed publication/exact byte readback and this release manifest",
+  "dependent_M1": "NO / SOURCE_PENDING; 8 required Git mirrors plus release receipt/summary still missing; previous batch safety refusal cause undetermined; not retried or bypassed",
+  "controls": {
+    "CODE_ALLOWED": "NO",
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO"
+  },
+  "review": "NOT_RUN; publication is not independent CHAT acceptance"
+}
