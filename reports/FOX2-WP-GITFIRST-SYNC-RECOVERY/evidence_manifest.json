@@ -5,9 +5,9 @@
   "source_base_commit": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
   "branch": "work/FOX2-GITFIRST-SYNC-RECOVERY-001-work-20261012",
   "report_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/report.md",
-  "git_push_status": "LOCAL_ONLY",
-  "remote_commit_sha": null,
-  "pr_url": null,
+  "git_push_status": "PUSHED_UNREVIEWED",
+  "remote_commit_sha": "f4d6c0a15a0b6d213007995e3078bc0cb6b6889c",
+  "pr_url": "https://github.com/dunglt2505/FOX2/pull/1",
   "tests": [
     {
       "id": "N01_SOURCE_HASH",
@@ -71,11 +71,12 @@
   "code_allowed": false,
   "git_report_push_allowed": true,
   "limitations": [
-    "Report publication pending at manifest issuance; source publication already verified at 38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "remote_commit_sha binds already pushed and readback-verified report submission; later receipt update commit supplied in external Git ref/PR, not self-referential",
     "PARTIAL_RECOVERY; missing11/16 source objects; no denied content retry",
     "Negative controls local simulated decisions, not platform enforcement",
     "Actual model/thinking/quota NOT_EXPOSED; usage NOT_MEASURED",
     "API document publisher isolated staging; no claimed Windows worktree",
-    "No self-acceptance; independent CHAT review NOT_RUN"
+    "No self-acceptance; independent CHAT review NOT_RUN",
+    "Schema checked using a local checker for the actual schema keywords; third-party jsonschema library unavailable; no schema delta"
   ]
 }
