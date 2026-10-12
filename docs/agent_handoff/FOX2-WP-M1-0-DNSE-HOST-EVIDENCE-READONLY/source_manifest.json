@@ -1,26 +1,26 @@
 {
   "project": "FOX2",
-  "record_type": "FOX2_P1_V16_RESULT_RECOVERY_SOURCE_MANIFEST",
+  "record_type": "FOX2_P1_V171_STANDING_REPORT_RECOVERY_SOURCE_MANIFEST",
   "task_id": "FOX2-M1-P1-RESULT-RECOVERY-20261012",
   "wp_id": "FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY",
-  "state": "CURRENT_TASK_DRAFT_PUBLISHER_ONLY;_NOT_EXECUTABLE_UNTIL_REPORT_DELIVERY_GRANT_VERIFIED",
+  "state": "CURRENT_V171_RECOVERY_PENDING_HOST_TECHNICAL_CAPABILITY_AND_RESULT_DELIVERY",
   "policy_binding": {
     "policy_id": "FOX2-POLICY-V1",
-    "policy_version": "1.6.0",
-    "policy_raw_sha256": "8cf205ab2b3c8d0d5be9edaa81c0a3bcfb73644caaf2eaa25fd52a6491a62081",
+    "policy_version": "1.7.1",
+    "policy_raw_sha256": "9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d",
     "effective_status": "RELEASED_EFFECTIVE",
     "policy_git_repository": "dunglt2505/FOX2",
-    "policy_git_path": "docs/governance/FOX2_POLICY_V1.6.md",
-    "policy_git_commit_full_sha": "66b94ae274292a6f3046cf934f050b1ce15a1dbc",
-    "policy_library_release_manifest": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.6_RELEASE_MANIFEST_20261012.json",
-    "policy_git_release_manifest_path": "docs/governance/FOX2_POLICY_V1.6_RELEASE_MANIFEST_20261012.json",
+    "policy_git_path": "docs/governance/FOX2_POLICY_V1.7.1.md",
+    "policy_git_commit_full_sha": "ef3975952006868ef2fd4e64619ebdbf3cfc8411",
+    "policy_library_release_manifest": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.7.1_RELEASE_MANIFEST_20261012.json",
+    "policy_git_release_manifest_path": "docs/governance/FOX2_POLICY_V1.7.1_RELEASE_MANIFEST_20261012.json",
     "result_contract_version": "2.0",
-    "result_protocol_version": "5"
+    "result_protocol_version": "7"
   },
   "source_binding": {
     "git_source_ready": "YES_FOR_M1_V04_ONLY",
     "release_set_commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
-    "current_policy_and_sources_commit": "66b94ae274292a6f3046cf934f050b1ce15a1dbc",
+    "current_policy_and_sources_commit": "ef3975952006868ef2fd4e64619ebdbf3cfc8411",
     "sync_receipt_path": "docs/agent_handoff/FOX2_M1_V04_SOURCE_SYNC_RECEIPT_20261012.json",
     "official_release_receipt_path": "docs/brd_mirror/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json"
   },
@@ -34,14 +34,14 @@
     "schema_path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
     "required_result_receipt": true,
     "chat_remote_readback_required": true,
-    "approved_base_commit_sha": "66b94ae274292a6f3046cf934f050b1ce15a1dbc",
+    "approved_base_commit_sha": "ef3975952006868ef2fd4e64619ebdbf3cfc8411",
     "task_publication_commit": "EXTERNAL_POINTER_AFTER_COMMIT_TO_AVOID_SELF_REFERENCE"
   },
   "permissions": {
     "git_source_read": "VERIFY_ON_COPILOT_HOST",
-    "git_report_write": "NOT_YET_GRANTED_OR_VERIFIED",
-    "git_report_push": "NOT_YET_GRANTED_OR_VERIFIED",
-    "pr_create": "NOT_YET_GRANTED_OR_VERIFIED",
+    "git_report_write": "AUTHORIZED_BY_STANDING_C6F2A_ACTUAL_HOST_CHECK_REQUIRED",
+    "git_report_push": "AUTHORIZED_BY_STANDING_C6F2A_ACTUAL_HOST_CHECK_REQUIRED",
+    "pr_create": "NOT_GRANTED",
     "code_allowed": false,
     "git_code_push": false,
     "main_push": false,
@@ -55,19 +55,21 @@
   "routing": {
     "r0": "VERIFIED_OLD_V1.2_TASK_IS_STALE",
     "r1": "RESULT_RECOVERY_AND_DELIVERY_SETUP_NOT_DEV",
-    "r2": "REPORT_PUSH_GRANT_UNKNOWN",
+    "r2": "STANDING_INTERNAL_REPORT_ONLY_AUTHORIZATION_CONFIRMED_HOST_CAPABILITY_UNKNOWN",
     "r3": "COPILOT_HOST_MODEL_QUOTA_UNKNOWN",
     "r4": "COPILOT_EXCLUSIVE_LOCAL_P1_EVIDENCE_OWNER",
     "r5": "COPILOT_WIP_AND_WRITER_UNKNOWN",
-    "r6": "V1.6_POLICY_AND_M1_SOURCES_VERIFIED_AT_GIT_PIN",
-    "r7": "RETURN_LOCAL_RECEIPT_FIRST_IF_NO_REPORT_GRANT"
+    "r6": "V171_POLICY_AND_M1_SOURCES_VERIFIED_AT_GIT_PIN",
+    "r7": "REPORT_ONLY_IF_ACTUAL_HOST_WRITER_GIT_RIGHTS_PASS_ELSE_LOCAL_RECEIPT"
   },
   "stop": [
     "POLICY_OR_SHA_MISMATCH",
-    "NO_REPORT_WRITE_OR_PUSH_GRANT",
+    "NO_ACTUAL_GIT_REPORT_WRITE_OR_PUSH_ACCESS",
     "WRITER_COLLISION",
     "HOST_ACCESS_UNKNOWN",
     "UNSANITIZED_EVIDENCE",
     "CODE_OR_MAIN_EDIT"
-  ]
+  ],
+  "standing_report_authority": "FOX2 Policy V1.7.1 C6F.2A (one-time internal grant for eligible Copilot Pro role; subject to actual Git access)",
+  "previous_task_history": "V1.6 task and WP-specific grant retained in earlier Git history; new task published via separate CHAT full Git pointer"
 }
