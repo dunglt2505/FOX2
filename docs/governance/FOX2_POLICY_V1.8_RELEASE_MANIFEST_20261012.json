@@ -1,0 +1,74 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.8",
+  "change_id": "FOX2-C5B-LOCAL-AGENT-BRIDGE-DISPATCH-20261012",
+  "parent_release": {
+    "version": "1.7.1",
+    "sha256": "9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d",
+    "retention": "RETAINED_UNCHANGED_HISTORY"
+  },
+  "owner_decision": "Owner instructed FOX2 Policy to remove duplicated Bridge governance checks and add one-action Local Agent dispatch after an executable Agent prompt: EXECUTE_LOCAL_AGENT publishes a task-bound Git dispatch; Bridge performs runtime attestation only.",
+  "publication_operator": "CHAT; Library native upload + exact raw-byte readback",
+  "published_at_utc": "2026-10-12T10:05:18.744873+00:00",
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.8.md",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.md",
+    "file_id": "file_0000000024f48207b8d3538f819d769d",
+    "library_file_id": "libfile_0d8dc343812c81919e591f65b239c63b",
+    "bytes": 107055,
+    "sha256": "226fecb094843d492e87c4768f5741726a4651b7556d5ec0abf3739e9720dd7b",
+    "readback": "PASS_EXACT_BYTES"
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_AGENT_PROMPT_POLICY_V1_2_EFFECTIVE_ROUTING_INDEX_20261012.md",
+      "path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_EFFECTIVE_ROUTING_INDEX_20261012.md",
+      "file_id": "file_00000000ccc882069afdca02d6aeda70",
+      "library_file_id": "libfile_9bddf1eb09808191a8b5c91345bb41fa",
+      "bytes": 1925,
+      "sha256": "d1f331e9218652b7c5cfe3c485957048a8a6ad8a2d8274a0590e74c05f6bba16",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.md",
+      "file_id": "file_00000000375c8211a0a663c9324e14ab",
+      "library_file_id": "libfile_3b43637c1d588191ab5c2961d6de5457",
+      "bytes": 7952,
+      "sha256": "e67ea2e60daf9fb0f51b17b8570e977e947ed8ecb945c4916d64fd94b93c7945",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.json",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.json",
+      "file_id": "file_0000000026348211bf71549ef7f35dfa",
+      "library_file_id": "libfile_61653cb43cd48191a7ba9fbe24c9e561",
+      "bytes": 4861,
+      "sha256": "13b6a1187f53f9b7ac043f233d473631de274b081b0cf58180a8beba074a8d8c",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "decision_model": {
+    "stable_checks": "POLICY_CHECK + TASK_STATE_CHECK + R0-R7 + ASSIGNMENT_CHECK + source/execution authorization are single-pass per immutable WP revision",
+    "owner_selection": [
+      "EXECUTE_LOCAL_AGENT",
+      "SAVE_PROMPT_ONLY"
+    ],
+    "bridge_check": "LOCAL_RUNTIME_ATTESTATION only",
+    "duplicate_dispatch": "DISPATCH_DUPLICATE_IGNORED",
+    "result_contract": "v2 unchanged"
+  },
+  "ui_boundary": "Policy defines one-action selection semantics. A native visual button is not claimed unless the current ChatGPT client/integration actually exposes it; exact action-text selection is equivalent.",
+  "effectivity": "RELEASED_EFFECTIVE after observed Library readback and this release manifest readback; Git operational mirror remains a separate gate",
+  "git_mirror": "PENDING_REMOTE_VERIFICATION",
+  "controls": {
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO",
+    "BRIDGE_SELF_GRANT": "NO",
+    "BRIDGE_REROUTE": "NO"
+  }
+}
