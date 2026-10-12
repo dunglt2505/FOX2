@@ -1,0 +1,40 @@
+{
+  "project": "FOX2",
+  "record_type": "CHAT_PREPARED_M1_ROADMAP_V04_AND_P2_PLAN_CANDIDATE",
+  "created_date": "2026-10-12",
+  "status": "PREPARED_NOT_OWNER_APPROVED_NOT_EXECUTABLE",
+  "policy": {
+    "version": "1.7.1",
+    "id": "FOX2-POLICY-V1",
+    "sha256": "9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d",
+    "git_commit": "ef3975952006868ef2fd4e64619ebdbf3cfc8411"
+  },
+  "m1_authoritative_source_git_commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+  "p1_result_git_commit": "906adba0450781d1f8b05b0e9d471acf8a684f68",
+  "p1_status": "ACCEPTED_PARTIAL_EVIDENCE_DELTA_PENDING",
+  "prior_effective_roadmap_git_path": "docs/roadmap/FOX2_M1_ROADMAP_v0.3.md",
+  "prior_effective_roadmap_git_blob_sha": "43629d6fc37774cfc155740196fe084e98db4134",
+  "bcc": "FOX2-BCC-M1-DSM-20261011-v04",
+  "no_changes_to_brd_or_runtime": true,
+  "gates": {
+    "code_allowed": false,
+    "git_code_push": false,
+    "merge_allowed": false,
+    "pr_create": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  },
+  "files": [
+    {
+      "name": "FOX2_M1_ROADMAP_v0.4_CANDIDATE.md",
+      "bytes": 10726,
+      "sha256": "1bc6e2c60b23b2a3a465f0d1ba55cd0a0aabb2afc33a07c80ce50b051c308f13"
+    },
+    {
+      "name": "FOX2_M1_P2_WP_PLAN_v0.1_CANDIDATE.md",
+      "bytes": 11806,
+      "sha256": "c7814fdcc428cda2712bb74d466d91085553e2f940401ffbe947ca3393f21e45"
+    }
+  ]
+}
