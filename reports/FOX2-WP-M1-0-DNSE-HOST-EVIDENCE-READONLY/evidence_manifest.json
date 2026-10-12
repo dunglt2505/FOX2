@@ -5,14 +5,14 @@
   "task_id": "FOX2-M1-P1-RESULT-RECOVERY-20261012",
   "change_id": "FOX2-M1-P1-RESULT-RECOVERY-20261012",
   "submission_state": "PARTIAL",
-  "submitted_at_utc": "2026-10-12T08:51:48Z",
+  "submitted_at_utc": "2026-10-12T09:32:00Z",
   "agent": {
     "product": "GitHub Copilot Pro / VS Code",
     "model": "NOT_EXPOSED",
     "mode": "NOT_EXPOSED",
     "host": "FoxLe-PC",
-    "started_at_utc": "2026-10-12T08:45:45Z",
-    "finished_at_utc": "2026-10-12T08:51:48Z",
+    "started_at_utc": "2026-10-12T09:15:26Z",
+    "finished_at_utc": "2026-10-12T09:32:00Z",
     "quota_observation": "NOT_EXPOSED"
   },
   "routing": {
@@ -22,26 +22,27 @@
     "r1": "PASS",
     "r2": "PASS",
     "r3": "UNKNOWN",
-    "r4": "PARTIAL",
+    "r4": "PASS",
     "r5": "PARTIAL",
     "r6": "PASS",
     "r7": "PASS",
     "assignment_check": "PASS",
-    "routing_evidence": "Policy V1.7.1 exact raw SHA recomputed from pinned Git blob; task/source manifest read at def8985155db6329e42d480cc8c728ebbfa4d4f5; report-only destination and standing C6F.2A role authority confirmed. Model/quota and server-side writer lease are not exposed. See recovery_checks.md."
+    "routing_evidence": "Policy V1.7.1 exact raw SHA recomputed from pinned Git blob; task/source manifest read at def8985155db6329e42d480cc8c728ebbfa4d4f5; Issue #5 says prior result 906adba is CHAT-verified and ACCEPTED_PARTIAL for recovery only. Standing C6F.2A report authority applies. Model/quota and server-side writer lease are not exposed. See final_verification.md."
   },
   "source": {
     "policy_sha256": "9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d",
     "policy_version": "1.7.1",
     "task_commit_sha": "def8985155db6329e42d480cc8c728ebbfa4d4f5",
     "source_manifest_sha256": "6e3a90678ceba60b4cf20b2aef7c0834394243a30b0075457fcfff056576b38c",
-    "approved_base_commit_sha": "def8985155db6329e42d480cc8c728ebbfa4d4f5",
+    "approved_base_commit_sha": "906adba0450781d1f8b05b0e9d471acf8a684f68",
     "source_readback_status": "PARTIAL",
     "brd_revisions": [
       "FOX2 M1 v0.4",
       "FOX2 market-data contract v0.4"
     ],
     "previous_evidence_reused": [
-      "Conversation-recovered summary of prior P1 only; original logs/artifacts are NOT_RETAINED and claims remain NOT_VERIFIED."
+      "CHAT-verified prior recovery result at 906adba0450781d1f8b05b0e9d471acf8a684f68; accepted partial for report recovery/delivery only.",
+      "Original P1 logs remain NOT_RETAINED; historical execution claims remain NOT_VERIFIED."
     ]
   },
   "permissions": {
@@ -61,29 +62,31 @@
     "repository": "dunglt2505/FOX2",
     "branch": "work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot",
     "worktree": "C:\\Projects\\FOX2",
-    "writer_lease": "Designated branch at pinned task commit and sole local worktree observed; no server-side exclusive-writer lease interface available.",
+    "writer_lease": "Remote ref matched previously reviewed 906adba before amendment; one local worktree and no competing local writer observed. Server-side exclusive-writer lease is not exposed.",
     "report_path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md",
     "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": null,
-    "local_head_before_submission": "def8985155db6329e42d480cc8c728ebbfa4d4f5"
+    "local_head_before_submission": "906adba0450781d1f8b05b0e9d471acf8a684f68"
   },
   "scope": {
     "requested": [
-      "Recover existing P1 results and submit a Policy V1.7.1 Result Contract v2 report without rerunning P1."
+      "Capture only E01-E04 bounded P1 evidence delta, correct report timestamp/dry-run metadata without rerunning full P1, and submit a report-only amendment."
     ],
     "completed": [
       "Verified Policy V1.7.1 pinned raw SHA and task/source-manifest identity.",
       "Checked the current local Windows Git state and designated remote result branch.",
-      "Created a partial report, machine manifest, and sanitized evidence of current-session recovery checks."
+      "Captured Windows/toolchain/Git state, exact four-file legacy FOX parity, metadata-only market-cache evidence, and a readiness matrix.",
+      "Prepared the report amendment, Contract v2 manifest, and sanitized E01-E04 evidence."
     ],
     "partial": [
-      "Prior P1 details are conversation-recovered; original P1 logs and files were not retained.",
-      "Official Library bytes and all ten source blobs were not independently re-read during this recovery."
+      "Prior full-P1 detailed logs and files were not retained; those claims remain unverified.",
+      "Official Library bytes and all ten M1 source blobs were not independently re-read during this delta.",
+      "Cache snapshot shows 7 x 40 bars while the older pinned Git audit reports 7 x 39; snapshot discrepancy remains unresolved."
     ],
     "not_done": [
-      "No original P1 checks or M1 acceptance tests were rerun.",
-      "No DNSE/provider/Production access or rights verification.",
-      "No independent CHAT delivery verification or acceptance."
+      "No full P1 rerun and no 105 M1 acceptance tests.",
+      "No DNSE provider call or data-rights/retention verification.",
+      "No P2/P3/DEV work or Production access."
     ],
     "explicit_exclusions": [
       "Application/runtime code, FOX legacy files, main, merge, PR creation, DNSE Production, broker writes, and LIVE."
@@ -91,24 +94,24 @@
     "changed_paths": [
       {
         "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md",
-        "operation": "ADD",
-        "intent": "P1 result recovery report",
+        "operation": "MODIFY",
+        "intent": "Add E01-E04 evidence delta and reconcile earlier timestamp/dry-run description",
         "within_allowed_paths": true,
-        "new_sha256": "5959d28e1de55f55f466c0bf68a9d3dfa057aff1a77d5d83989cfcd08ef4e506"
+        "new_sha256": "62d723f68afed133fe315854ed21c4dff8b481211866a21bf8b2857a8ea8cffe"
       },
       {
         "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence_manifest.json",
-        "operation": "ADD",
-        "intent": "Result Contract v2 manifest",
+        "operation": "MODIFY",
+        "intent": "Update Result Contract v2 evidence mapping for E01-E04",
         "within_allowed_paths": true,
         "new_sha256": null
       },
       {
-        "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md",
+        "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/final_verification.md",
         "operation": "ADD",
-        "intent": "Sanitized current-session recovery checks",
+        "intent": "Sanitized E01-E04 evidence delta",
         "within_allowed_paths": true,
-        "new_sha256": "42278a40f791940b920a1d0c0dcc0dba3e4d49425061a2caca3e760652496988"
+        "new_sha256": "35e7b09cdf67873d62a4d857ca424950f8b3662dd97c348da742980de2514b81"
       }
     ],
     "forbidden_paths_touched": false
@@ -160,7 +163,7 @@
       "evidence_ids": [
         "RECOVERY-CHECKS"
       ],
-      "notes": "The draft manifest passed with 0 validation errors; revalidate after final edits."
+      "notes": "The original recovery manifest passed with 0 validation errors. This amendment is independently validated again before commit."
     },
     {
       "id": "RECOVERY-PUSH-NOOP-DRY-RUN",
@@ -172,7 +175,7 @@
       "evidence_ids": [
         "RECOVERY-CHECKS"
       ],
-      "notes": "No ref update was pending; this did not verify permission to update a remote ref."
+      "notes": "Command was executed at the recorded time and returned Everything up-to-date. As no ref update was pending, the permission probe objective was NOT_RUN."
     },
     {
       "id": "RECOVERY-PENDING-PUSH-DRY-RUN",
@@ -184,7 +187,7 @@
       "evidence_ids": [
         "RECOVERY-CHECKS"
       ],
-      "notes": "Dry-run proposed the expected fast-forward from def8985 to 60c2cc8. It did not update the ref; actual push and remote readback remain required."
+      "notes": "Dry-run proposed the expected fast-forward from def8985 to 60c2cc8. It did not update the ref. The prior actual push subsequently succeeded and CHAT verified result 906adba."
     },
     {
       "id": "ORIGINAL-P1-AND-M1-ACCEPTANCE",
@@ -195,6 +198,79 @@
       "run_at_utc": null,
       "evidence_ids": [],
       "notes": "Original P1 completion is reported, but original detailed outputs were not retained; 105 M1 acceptance tests remain unrun."
+    }
+    ,
+    {
+      "id": "E01-WINDOWS-TOOLCHAIN-GIT",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "Read-only Windows, Git, Python, Node/npm, FOX2 branch/HEAD/status/worktree/origin/ignored-WIP and operation-marker checks",
+      "environment": "FoxLe-PC / Windows NT 10.0.26300.0 / Git 2.56.0.windows.1 / Python 3.13.15",
+      "run_at_utc": "2026-10-12T09:18:07Z",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "notes": "Git/Python present; Node/npm unavailable; clean tracked/untracked state; one worktree; 1109 ignored .venv paths preserved."
+    },
+    {
+      "id": "E02-FOX-SOURCE-PARITY",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "SHA-256 local filesystem bytes compared with git show bytes at pinned dunglt2505/Fox commit 740051933ec4fbf29180d0f5fb698c34e8c91ece",
+      "environment": "FoxLe-PC / local FOX master 27fb4d643a9a27f9db80ae285f39622dff6c19ab",
+      "run_at_utc": "2026-10-12T09:18:49Z",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "notes": "All four requested files were byte-identical; no line-ending-only differences. Legacy repository remained unchanged."
+    },
+    {
+      "id": "E02-FOX-PATTERN-INSPECTION",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Read-only inspection and scoped search of the four requested files only",
+      "environment": "Pinned FOX source commit 740051933ec4fbf29180d0f5fb698c34e8c91ece",
+      "run_at_utc": "2026-10-12T09:18:49Z",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "notes": "GET/hash, stale/unknown, Vietnam timezone, and backend-served static/API with offline synthetic source patterns observed; no WebSocket found in this scope."
+    },
+    {
+      "id": "E03-CACHE-METADATA",
+      "kind": "OTHER",
+      "status": "PASS",
+      "command_or_method": "Local JSON metadata parse; emitted only environment, counts, timestamps, source/unit/freshness metadata",
+      "environment": "FoxLe-PC / D:\\Data\\Fox\\market\\production\\cache\\snapshot.json",
+      "run_at_utc": "2026-10-12T09:18:50Z",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "notes": "7 symbols x 40 bars for this 2026-10-08 snapshot, stale at observation; no OHLCV values or credentials emitted."
+    },
+    {
+      "id": "E04-P1-READINESS-AND-ISSUE-STATE",
+      "kind": "OTHER",
+      "status": "PASS",
+      "command_or_method": "Read current Issue #5 review state and derive bounded readiness matrix from E01-E03 and pinned FOX2 source receipt",
+      "environment": "GitHub Issue #5 / current FOX2 source and result evidence",
+      "run_at_utc": "2026-10-12T09:18:50Z",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "notes": "P1 recovery/delivery was already ACCEPTED_PARTIAL by CHAT; full readiness remains OPEN. This is not code or P2 authorization."
+    },
+    {
+      "id": "EVIDENCE-DELTA-SCHEMA-HASH-ALLOWLIST",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Draft 2020-12 schema validation with FormatChecker; verify evidence/report SHA-256 and compare modified, untracked and staged path sets with the exact report allowlist",
+      "environment": "FoxLe-PC / Python 3.13.15 / jsonschema 4.26.0 / pinned Result Contract schema v2",
+      "run_at_utc": "2026-10-12T09:32:00Z",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "notes": "Draft 2020-12 validation passed with 0 errors; both evidence hashes and report/final-evidence changed-path hashes matched; exact three-path allowlist matched the staged set with no unstaged or untracked paths. git diff --cached --check passed."
     }
   ],
   "acceptance": [
@@ -215,34 +291,74 @@
       "reason": "Pinned task/source manifest and designated report branch were read at their immutable commit."
     },
     {
-      "id": "P1-WINDOWS-ENVIRONMENT",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "Prior environment observations are conversation-recovered only; this recovery did not rerun P1."
+      "id": "E01-WINDOWS-TOOLCHAIN",
+      "status": "PASS",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "Current host, toolchain, Git branch, WIP and worktree observations are captured in FINAL-DELTA; Node/npm are absent and explicitly reported."
     },
     {
-      "id": "P1-FOX-REUSE-INVENTORY",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "Prior inventory summary is conversation-only and was not independently re-inspected."
+      "id": "E02-FOX-SOURCE-PARITY",
+      "status": "PASS",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "The four requested local files match raw bytes from the pinned FOX commit."
     },
     {
-      "id": "P1-DNSE-METADATA-AND-RIGHTS",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "No provider access or data-rights verification was performed; the prior cache summary is not retained evidence."
+      "id": "E03-CACHE-METADATA",
+      "status": "PASS",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "Metadata-only inspection completed for the specific local snapshot; freshness is stale and historical count discrepancy remains open."
     },
     {
-      "id": "P1-M1-READINESS",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "No acceptance tests were rerun; readiness findings remain conversation-only."
+      "id": "E03-DNSE-RIGHTS",
+      "status": "BLOCKED",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "Read/redisplay/retained-use rights and retention are not verified; no provider calls were made."
     },
     {
-      "id": "P1-RESULT-DELIVERY",
+      "id": "E04-M1-A-OFFLINE-READINESS",
+      "status": "BLOCKED",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "Readiness is partial but implementation is not authorized; a separate DEV work package, exclusive ownership and deterministic offline fixture/test gates are required."
+    },
+    {
+      "id": "E04-M1-B-REAL-DATA",
+      "status": "BLOCKED",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "DNSE data rights/retention and provider authorization remain unverified."
+    },
+    {
+      "id": "E04-105-M1-ACCEPTANCE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "Later milestone acceptance tests were not run and are not a blanket P1 acceptance gate."
+    },
+    {
+      "id": "P1-PRIOR-RESULT-DELIVERY",
+      "status": "PASS",
+      "evidence_ids": [
+        "FINAL-DELTA"
+      ],
+      "reason": "Issue #5 records CHAT RESULT_DELIVERY_VERIFIED=YES and ACCEPTED_PARTIAL at prior commit 906adba for result recovery only."
+    },
+    {
+      "id": "P1-AMENDMENT-DELIVERY",
       "status": "NOT_RUN",
       "evidence_ids": [],
-      "reason": "CHAT must independently read the immutable result commit and verify delivery."
+      "reason": "CHAT independent delivery verification remains pending; agent push/readback outcome is supplied in the external receipt."
     }
   ],
   "evidence": [
@@ -259,6 +375,25 @@
         "RECOVERY-POLICY-HASH",
         "RECOVERY-TASK-SOURCE-SCHEMA-HASHES",
         "RECOVERY-REMOTE-REF"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "FINAL-DELTA",
+      "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/final_verification.md",
+      "sha256": "35e7b09cdf67873d62a4d857ca424950f8b3662dd97c348da742980de2514b81",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-12T09:18:50Z",
+      "description": "Sanitized current-session evidence for E01-E04; includes only host/toolchain/Git facts, source hashes, market-cache metadata and readiness status.",
+      "supports_ids": [
+        "E01-WINDOWS-TOOLCHAIN",
+        "E02-FOX-SOURCE-PARITY",
+        "E03-CACHE-METADATA",
+        "E03-DNSE-RIGHTS",
+        "E04-M1-A-OFFLINE-READINESS",
+        "E04-M1-B-REAL-DATA",
+        "E04-105-M1-ACCEPTANCE",
+        "P1-PRIOR-RESULT-DELIVERY"
       ],
       "sanitized": true
     }
@@ -316,6 +451,6 @@
     "requested_chat_decision": "REVIEW",
     "action": "Read report and manifest at the same immutable remote result commit, recompute evidence hash, validate schema/source/grants/diff, and issue a separate delivery decision.",
     "owner_role": "CHAT",
-    "prerequisite_gate": "Actual remote push and same-commit report/manifest readback."
+    "prerequisite_gate": "CHAT independently reads and verifies the report, manifest and evidence at the immutable result SHA."
   }
 }
