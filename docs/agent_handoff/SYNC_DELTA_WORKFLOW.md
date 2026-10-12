@@ -11,3 +11,5 @@ Commit/publish only the task-owned non-main branch with expected remote head and
 CHAT intake: fetch mandatory report+manifest at final SHA; schema v2 check, source/grant/path diff, every PASS evidence/hash, missingness/security and actual vs simulated checks. Store independent reviewer decision separately. Acceptance does not grant integration/DEV/provider.
 
 Stop on safety/source drift/lease mismatch/secret risk. No global FOX/Silkworm/Mantis migration. No automatic background scheduler installed in this WP. This procedure is supported manual delta publication using connected APIs; it is not an unattended sync daemon.
+
+Policy1.4 C1B.1: reuse existing index/manifest/receipt for a single GIT_SOURCE_READY=YES|NO. No implementation prompt when NO;task SOURCE_PENDING. Failed upload stores path/operation/error/next Publisher action. Receiver checks pinned bytes independently. No separate approval layer or background daemon is added.

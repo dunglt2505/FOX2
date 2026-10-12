@@ -1,4 +1,4 @@
-# FOX2 official sync — Owner-assigned WORK task
+# FOX2 official sync — Owner-assigned WORK task,source-ready supplement
 
 ```json
 {
@@ -8,8 +8,8 @@
   "change_id": "FOX2-OFFICIAL-SYNC-V13-20261012",
   "assigned_role": "WORK Document Publisher / Synchronization Operator / Workflow Integrator",
   "owner_grant": "Current Owner master assignment in this conversation; transcription below is task input, not an independent CHAT approval",
-  "policy_version": "1.3.0",
-  "policy_sha256": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641",
+  "policy_version": "1.4.0",
+  "policy_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
   "approved_base_commit": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
   "branch": "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012",
   "api_publisher_staging": "fox2_full_audit/publication; no shared Windows worktree touched",
@@ -18,15 +18,15 @@
   "thinking": "NOT_EXPOSED",
   "quota": "NOT_EXPOSED",
   "allowed_paths": [
-    "docs/governance/FOX2_POLICY_V1.3.md",
-    "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
-    "docs/agent_handoff/*v2*",
     "docs/agent_handoff/README.md",
     "docs/agent_handoff/SOURCE_INDEX.json",
     "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
     "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/**",
     "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/**",
-    ".gitattributes"
+    ".gitattributes",
+    "docs/governance/FOX2_POLICY_V1.4.md",
+    "docs/governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+    "docs/agent_handoff/*v3*"
   ],
   "forbidden_paths": [
     "backend/**",
@@ -73,8 +73,13 @@
     "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
     "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json"
   ],
-  "independent_review": "CHAT NOT_RUN; no self-acceptance"
+  "independent_review": "CHAT NOT_RUN; no self-acceptance",
+  "supplemental_owner_instruction": "Continue current WORK scope;add one simple consistent failed-upload source gate to existing consolidated policy",
+  "supplemental_change_id": "FOX2-GIT-SOURCE-READY-GATE-20261012",
+  "git_source_ready": "NO_FOR_M1_DEPENDENT_IMPLEMENTATION",
+  "task_state": "AUTHORIZED_DOCUMENT_PUBLISHER_SOURCE_RECOVERY",
+  "source_sync_receipt": "SOURCE_INDEX + own source-ready receipt;document Publisher may use verified Library source while implementation remains SOURCE_PENDING"
 }
 ```
 
-Execute source/branch audit, authorized current delta publication and same-WP Git-read task/report pilot. Existing safety-blocked source contents must not be re-sent. Full sync remains PARTIAL if required released sources cannot be published legitimately; preserve their source hashes and precise blocker. No runtime implementation or integration.
+Current Policy1.4 supersedes1.3 for this re-scoped document task after actual release readback. Result Contract v2 unchanged. Publisher/recovery is allowed within verified Library/Git scope;dependent M1 implementation is SOURCE_PENDING/GIT_SOURCE_READY=NO. No runtime/main/merge/provider/LIVE. Earlier task/results remain available at prior immutable commits.
