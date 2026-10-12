@@ -1,0 +1,81 @@
+{
+  "wp_id": "FOX2-WP-GITFIRST-SYNC-RECOVERY",
+  "agent": "ChatGPT Work Mode / Codex assistant; actual model and thinking NOT_EXPOSED",
+  "policy_sha256": "bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350",
+  "source_base_commit": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+  "branch": "work/FOX2-GITFIRST-SYNC-RECOVERY-001-work-20261012",
+  "report_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/report.md",
+  "git_push_status": "LOCAL_ONLY",
+  "remote_commit_sha": null,
+  "pr_url": null,
+  "tests": [
+    {
+      "id": "N01_SOURCE_HASH",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N02_NO_PUSH",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N03_MAIN",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N04_LOCAL_ONLY",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N05_NO_ACTUAL_TESTS",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N06_CODE",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N07_SELF_ACCEPTANCE",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "N08_SAFETY",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json"
+    },
+    {
+      "id": "SOURCE_LIBRARY_RELEASE_8",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/source_matrix.json"
+    },
+    {
+      "id": "REMOTE_SOURCE_EXACT_5",
+      "status": "PASS",
+      "evidence_path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/source_matrix.json"
+    },
+    {
+      "id": "FULL_M1_SYNC",
+      "status": "BLOCKED"
+    },
+    {
+      "id": "SAME_WP_E2E_AND_CHAT_ACCEPTANCE",
+      "status": "NOT_RUN"
+    }
+  ],
+  "code_allowed": false,
+  "git_report_push_allowed": true,
+  "limitations": [
+    "Report publication pending at manifest issuance; source publication already verified at 38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "PARTIAL_RECOVERY; missing11/16 source objects; no denied content retry",
+    "Negative controls local simulated decisions, not platform enforcement",
+    "Actual model/thinking/quota NOT_EXPOSED; usage NOT_MEASURED",
+    "API document publisher isolated staging; no claimed Windows worktree",
+    "No self-acceptance; independent CHAT review NOT_RUN"
+  ]
+}

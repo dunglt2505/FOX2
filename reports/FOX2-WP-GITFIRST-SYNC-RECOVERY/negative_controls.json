@@ -1,0 +1,50 @@
+[
+  {
+    "id": "N01_SOURCE_HASH",
+    "status": "PASS",
+    "observed": "BLOCK_SOURCE",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N02_NO_PUSH",
+    "status": "PASS",
+    "observed": "BLOCK_PUSH_AUTHORITY",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N03_MAIN",
+    "status": "PASS",
+    "observed": "DENY_MAIN",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N04_LOCAL_ONLY",
+    "status": "PASS",
+    "observed": "NOT_PUBLISHED",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N05_NO_ACTUAL_TESTS",
+    "status": "PASS",
+    "observed": "NOT_RUN",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N06_CODE",
+    "status": "PASS",
+    "observed": "REJECT_CODE",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N07_SELF_ACCEPTANCE",
+    "status": "PASS",
+    "observed": "REJECT_SELF_ACCEPTANCE",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  },
+  {
+    "id": "N08_SAFETY",
+    "status": "PASS",
+    "observed": "STOP_PLATFORM",
+    "test_type": "LOCAL_DECISION_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+  }
+]
