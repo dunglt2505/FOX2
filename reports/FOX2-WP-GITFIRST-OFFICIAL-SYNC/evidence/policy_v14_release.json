@@ -1,0 +1,66 @@
+{
+  "change_id": "FOX2-GIT-SOURCE-READY-GATE-20261012",
+  "owner_scope": "Continue current official sync and add one simple policy source-ready checkpoint",
+  "policy_version": "1.4.0",
+  "policy_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
+  "library_policy_id": "libfile_ef49e7c66d348191a9a61b72e026389b",
+  "library_policy_version": 1,
+  "library_release_manifest_id": "libfile_1d924d538e648191963e2dfdbdd94423",
+  "library_exact_readback": "Policy+3guides+release_manifest5/5PASS",
+  "git_source_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
+  "remote_readback": [
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.4.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/SOURCE_INDEX.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/source_manifest.json",
+      "exact": true,
+      "isError": false
+    }
+  ],
+  "result_contract_schema": "v2 unchanged",
+  "m1_implementation_source_ready": "NO/SOURCE_PENDING",
+  "new_runtime_main_merge_permissions": false
+}

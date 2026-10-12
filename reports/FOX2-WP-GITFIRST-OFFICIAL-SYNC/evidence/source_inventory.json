@@ -3322,5 +3322,65 @@
     "git_blob_sha": "295dbca57bd0b69bae17c654b6695cb3783344ff",
     "classification": "CANDIDATE_EXCLUDED",
     "canonical_duplicate_of": null
+  },
+  {
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+    "library_file_id": "libfile_1d924d538e648191963e2dfdbdd94423",
+    "version_id": null,
+    "bytes": 4191,
+    "metadata_bytes": 4191,
+    "size_integrity": "PASS",
+    "sha256": "82ce76f9c4f1606f3dfb73a7e4098d2bfcf052a09828441422bc6bb3842f5ae1",
+    "git_blob_sha": "2563fc0b397a5a8b93730fe879fc6824b85358a9",
+    "classification": "OFFICIAL",
+    "canonical_duplicate_of": null
+  },
+  {
+    "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+    "library_file_id": "libfile_d3181524737481919c679bd88bdf4f8e",
+    "version_id": null,
+    "bytes": 4466,
+    "metadata_bytes": 4466,
+    "size_integrity": "PASS",
+    "sha256": "26edeeacc0c38ee4e19d0c734e05a905983e4da476c0f046530ebe5cc4025799",
+    "git_blob_sha": "39a0c9f3d81366d9e744d85aafc2b5f475b7e2b6",
+    "classification": "OFFICIAL",
+    "canonical_duplicate_of": null
+  },
+  {
+    "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+    "library_file_id": "libfile_974aa0baa1148191b5c452a30f986513",
+    "version_id": null,
+    "bytes": 4198,
+    "metadata_bytes": 4198,
+    "size_integrity": "PASS",
+    "sha256": "398525d18f1f435d7ec12065f2ced46452325b65ff53c51ce25cf73a27eb282d",
+    "git_blob_sha": "78c06c7992aa5640f3b5f49c129ec029fc429432",
+    "classification": "OFFICIAL",
+    "canonical_duplicate_of": null
+  },
+  {
+    "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+    "library_file_id": "libfile_aa3815cfee6c8191860cf91ab7cf9702",
+    "version_id": null,
+    "bytes": 3678,
+    "metadata_bytes": 3678,
+    "size_integrity": "PASS",
+    "sha256": "3b2e6f84e0d7dbca4962ef3611f6ef97197731744a8f2fe0acf5011e88e2fedb",
+    "git_blob_sha": "4dc45390da9de858f2592cbe0f25ef3d16d47853",
+    "classification": "OFFICIAL",
+    "canonical_duplicate_of": null
+  },
+  {
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.4.md",
+    "library_file_id": "libfile_ef49e7c66d348191a9a61b72e026389b",
+    "version_id": "1",
+    "bytes": 82580,
+    "metadata_bytes": 82580,
+    "size_integrity": "PASS",
+    "sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
+    "git_blob_sha": "03f986a3ab5ce3a9a710232fb6b5de32e050acce",
+    "classification": "OFFICIAL",
+    "canonical_duplicate_of": null
   }
 ]

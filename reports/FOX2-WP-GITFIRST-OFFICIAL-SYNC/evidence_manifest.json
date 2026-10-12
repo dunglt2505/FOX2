@@ -5,14 +5,14 @@
   "task_id": "FOX2-GITFIRST-OFFICIAL-ROLLOUT-001",
   "change_id": "FOX2-OFFICIAL-SYNC-V13-20261012",
   "submission_state": "PARTIAL",
-  "submitted_at_utc": "2026-10-12T04:14:30.331846+00:00",
+  "submitted_at_utc": "2026-10-12T04:30:24.036300+00:00",
   "agent": {
     "product": "ChatGPT Work Mode / Codex assistant",
     "model": "NOT_EXPOSED",
     "mode": "NOT_EXPOSED",
     "host": "/workspace/scratch/66e7f833250b; connected Library/GitHub APIs; no Windows access",
     "started_at_utc": "2026-10-12T03:47:14Z",
-    "finished_at_utc": "2026-10-12T04:14:30.331846+00:00",
+    "finished_at_utc": "2026-10-12T04:30:24.036300+00:00",
     "quota_observation": "NOT_EXPOSED"
   },
   "routing": {
@@ -30,19 +30,20 @@
     "routing_evidence": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md"
   },
   "source": {
-    "policy_sha256": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641",
-    "policy_version": "1.3.0",
-    "task_commit_sha": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
-    "source_manifest_sha256": "f4880857747a001898899b1d3156e3615d58c7ce22757f52ff76828a592e9685",
+    "policy_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
+    "policy_version": "1.4.0",
+    "task_commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "source_manifest_sha256": "bc7d0126cc74b3b3956719b77786c7cfafcb319a4f9f4f90c94b456422d2ba68",
     "approved_base_commit_sha": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
     "source_readback_status": "PARTIAL",
     "brd_revisions": [
       "Released M1 BRD00/06/08v0.4;Library bytes8/8verified;Git missing",
-      "Current Policy1.3/v2artifacts exact remote6/6"
+      "Current Policy1.4/guides3 mirrored;ResultContractv2 unchanged"
     ],
     "previous_evidence_reused": [
       "PR1 legacy v1 submission unchanged",
-      "9 exact existing docs reused by blob/bytehash"
+      "9 exact existing docs reused by blob/bytehash",
+      "Initial V1.3submission/source readbacks unchanged at prior commits;current1.4rescope adds source-ready checkpoint"
     ]
   },
   "permissions": {
@@ -56,7 +57,7 @@
     "dnse_production": false,
     "broker_write": false,
     "live": false,
-    "grant_evidence": "c016bd56ba70415910aaf39e220b40db4f5e4a4c:docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md; current Owner master task"
+    "grant_evidence": "b32248816d37d2d71f8c957e14c1073065c0d909:docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md;Owner master+supplemental directive"
   },
   "git": {
     "repository": "dunglt2505/FOX2",
@@ -66,7 +67,7 @@
     "report_path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
     "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": "https://github.com/dunglt2505/FOX2/pull/2",
-    "local_head_before_submission": "f775a65d3a5cfe608b5bcefb8a7585b270797a38"
+    "local_head_before_submission": "b32248816d37d2d71f8c957e14c1073065c0d909"
   },
   "scope": {
     "requested": [
@@ -77,10 +78,13 @@
       "current6V1.3/v2 source remote verified",
       "12source/workflow readbacks",
       "scoped workflow/task/attributes and actual Git task read",
-      "Actual same-WP remote report submission and14result files exact readback verified"
+      "Actual same-WP remote report submission and14result files exact readback verified",
+      "Policy1.4/manifest and3aligned guides actually released+mirrored",
+      "Single GIT_SOURCE_READY checkpoint implemented in existingPolicy/index/task/receiver guidance",
+      "282scopedsource hashes;44officialmatrix;20officialexact;6/16currentpublishedexact"
     ],
     "partial": [
-      "15/39 official exact;6/16currentpublished exact;M1 mirror blocked"
+      "20/44officialexact;6/16currentpublishedexact;M1Git0/8SOURCE_PENDING"
     ],
     "not_done": [
       "10 M1 release mirrors",
@@ -91,190 +95,240 @@
       "No runtime code/main/merge/Production/LIVE",
       "No Candidate promotion",
       "No denied payload retransmission",
-      "No global paused migration"
+      "No global paused migration",
+      "Schema v2 unchanged;no separate source-gate policy or new approval layer"
     ],
     "changed_paths": [
       {
         "path": ".gitattributes",
         "operation": "MODIFY",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "dd11e56d03edeaf9c48b3d53d10783eb56771ab25df13b2bdde7fbd8835c218c"
       },
       {
         "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/source_manifest.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "f4880857747a001898899b1d3156e3615d58c7ce22757f52ff76828a592e9685"
+        "new_sha256": "bc7d0126cc74b3b3956719b77786c7cfafcb319a4f9f4f90c94b456422d2ba68"
       },
       {
         "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "706cd9c4f4b03033a9e33b33dd5c624e72255c5f4af600fa1ff38667836bb98b"
+        "new_sha256": "24d66ce4e9b4231edc72ddbfb8399e22e10c301c1ef1619fbd0de4355654f08c"
       },
       {
         "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b"
       },
       {
         "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "f4e7be792648b3cb1b378cb82a45e05d627ee3f3d1f655f01d78c10e5b3cd557"
       },
       {
+        "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "26edeeacc0c38ee4e19d0c734e05a905983e4da476c0f046530ebe5cc4025799"
+      },
+      {
         "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "890527778ec37ada89491c71e7834494559789828ce5db0cc35f549783546f96"
       },
       {
+        "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "398525d18f1f435d7ec12065f2ced46452325b65ff53c51ce25cf73a27eb282d"
+      },
+      {
         "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v2.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "9a4e05ba1f85550f8fe1cf22ea90032d068cf02d17f5300e6c31c949391c2760"
       },
       {
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "3b2e6f84e0d7dbca4962ef3611f6ef97197731744a8f2fe0acf5011e88e2fedb"
+      },
+      {
         "path": "docs/agent_handoff/README.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "52f7fdf392224160e61fa61ba6e16b3385959ae66cf12fe43d84810494ef550d"
+        "new_sha256": "4e672e86abd878d4192964cc274725b7ed5e0a5abb79376d00e0fc6a5b82fb95"
       },
       {
         "path": "docs/agent_handoff/SOURCE_INDEX.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "68976cd8e1f1bbc017e773af332450e76cd1afc369f022a9c6060b694054dda8"
+        "new_sha256": "6a5956de74fb87f7c497c9b764249e021b6d026f9725264d8b81c268443fce54"
       },
       {
         "path": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "b9d42689d72f748abf22d00b628536b9fda165d6aa8699c6344fa1d5a69f0cc2"
+        "new_sha256": "ee1350c4e18b490dac55685fec1b4878e8dc1134587624e5d53b0049b298723a"
       },
       {
         "path": "docs/governance/FOX2_POLICY_V1.3.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641"
       },
       {
         "path": "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "330fc2ba60e647d1c03f45d52dac520ebeeb390615532eb60304605bdf039440"
       },
       {
+        "path": "docs/governance/FOX2_POLICY_V1.4.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "82ce76f9c4f1606f3dfb73a7e4098d2bfcf052a09828441422bc6bb3842f5ae1"
+      },
+      {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_inventory.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "11574401f25460f6fe6d9e417ac71c55450ee69f27de54ec1c836b5cbbcb6d85"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_readiness.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "180ada30de47a6e10f3bb8347442d470fe8bf9e0dec74cae235d93748908f72a"
       },
       {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/delivery_receipt.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "300e79bb0e870aefca3087cdaa739051125f2a5ff5ac0ae7e13849fc02e09ff3"
+      },
+      {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/doc_checks.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "0f7c487cca9ae398e2039e5fe42eab7581f0a5325ba8d51162b36e571105bee2"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_hash_matrix.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "ee8a2c5c2756e82056e6b8a08111c4d0ba0fa13b86b51b5468678daab896cd9d"
+        "new_sha256": "416f9b86aaeafa08e869a1bfb0b7f4533ef9a4ae4bc69efe2a26f5ef25564403"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_mapping.csv",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "827f761bb1119f1c971f046197daa514dee5d7abe19841406bb6a79aa6873ef7"
+        "new_sha256": "0b1b9ef3dbcfd4e5951eedc642e1d34b58561214bf613bcdf42d88f3f8fdb862"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v14_release.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "3e316a0554991fdff42c1dba684aae6bb6d85c9a1d01e80f23f259afe4ceee7e"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/remote_observations.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "b1517f9a196cfe30dcd91d42042d46aafdd0faff418805805ded4925ff0323e5"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "a4c2e2460856b2f150064d052e79204f15650d3b9edee3ddf3479fcd23b512e4"
+        "new_sha256": "767b7f1b05108b4949dc84622c46fd440fe9678d9a8e87feb7f0dd594b164b85"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/schema_validation.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "bcffc7fc232d40e6768f65b6cbc46bd20115bfd97fcb5471f516e16edd4582b0"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/security_check.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "5e4c88a6c17dd34e8a79500f826b15e5408a3f666896f3bcecb68380dc55ddfd"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_inventory.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "85845b57ac2f4ebffa7dc9e4f099b809a344a1effed71e6a5a23fe8a6761de80"
+        "new_sha256": "0fdb0c8fd11cc743168c85a490818342db1014aa9fcbfa508cd8976d184caa7f"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_ready_checks.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "698bb2aa7d8f605caeebaf73f5f1cdd5e5e0dc18ad734bc86b8dd272e3744922"
       },
       {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/sync_receipt.json",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
         "new_sha256": "5be766bc4ae913458739242a8ec9f59d972f79cc7be77cdaa84307eb81febfe9"
       },
       {
-        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
-        "operation": "ADD",
-        "intent": "Required Contract v2 result; own containing bytes hash is supplied externally after publication",
-        "within_allowed_paths": true,
-        "new_sha256": null
-      },
-      {
         "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
         "operation": "ADD",
-        "intent": "Owner-scoped current document/source publication or sanitized WP result",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
         "within_allowed_paths": true,
-        "new_sha256": "af050c42456d9796b0a7357c4694a8af72d59520dcfe412bbc081a88d7fd46bb"
+        "new_sha256": "6d39345cbe3eb75ab240dc40a14bbd14633bb73e19bc4f4a2c0c7661f4b9aedb"
       },
       {
-        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/delivery_receipt.json",
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
         "operation": "ADD",
-        "intent": "Observed prior submission receipt;final containing SHA stays external",
+        "intent": "Requiredv2result;ownhash supplied byexternalremote verification",
         "within_allowed_paths": true,
-        "new_sha256": "300e79bb0e870aefca3087cdaa739051125f2a5ff5ac0ae7e13849fc02e09ff3"
+        "new_sha256": null
       }
     ],
     "forbidden_paths_touched": false
@@ -290,7 +344,7 @@
       "evidence_ids": [
         "E-INVENTORY"
       ],
-      "notes": "39 official +76 loose +162 Candidate/reference; metadata versions null recorded, not invented; two transient zero-byte downloads recovered by one normal read-only retry"
+      "notes": "39 official +76 loose +162 Candidate/reference; metadata versions null recorded, not invented; two transient zero-byte downloads recovered by one normal read-only retry;supplement adds5actualLibrarypublishedsource files,282total"
     },
     {
       "id": "SYNC-T-POLICY",
@@ -449,6 +503,19 @@
         "E-DELIVERY"
       ],
       "notes": "Remote delivery actual;independent CHAT acceptance NOT_RUN;no containing commit SHA self-reference"
+    },
+    {
+      "id": "SYNC-T-SOURCE-READY",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "10local decision simulations plus actual M1missing-source matrix evaluation",
+      "environment": "WORK scoped scratch/connectedLibrary/Git",
+      "run_at_utc": "2026-10-12T04:30:24.036300+00:00",
+      "evidence_ids": [
+        "E-SOURCE-READY",
+        "E-POLICY14"
+      ],
+      "notes": "Local checks not platform enforcement;actual M1gateNO correctlyblocks implementation;5releasedsource/manifest Library readbacks and10supplementary remote paths exact"
     }
   ],
   "acceptance": [
@@ -458,7 +525,7 @@
       "evidence_ids": [
         "E-INVENTORY"
       ],
-      "reason": "Scope enumeration complete and277 byte hashes measured"
+      "reason": "282total hashes with44current official rows after legitimate source-ready supplement"
     },
     {
       "id": "SYNC-A02-POLICY",
@@ -467,7 +534,7 @@
         "E-MATRIX",
         "E-RECEIPT"
       ],
-      "reason": "Current6 V1.3/v2 artifacts synchronized"
+      "reason": "Current1.4policy/guides3 actually released and remote verified;initial1.3proof remains historical"
     },
     {
       "id": "SYNC-A03-M1",
@@ -525,13 +592,22 @@
         "E-SECURITY"
       ],
       "reason": "Scoped sanitized document publication"
+    },
+    {
+      "id": "SYNC-A10-SOURCE-READY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-SOURCE-READY",
+        "E-POLICY14"
+      ],
+      "reason": "One fail-closed sender/receiver implementation-source checkpoint;actual M1SOURCE_PENDING,not fullsync"
     }
   ],
   "evidence": [
     {
       "id": "E-INVENTORY",
       "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_inventory.json",
-      "sha256": "85845b57ac2f4ebffa7dc9e4f099b809a344a1effed71e6a5a23fe8a6761de80",
+      "sha256": "0fdb0c8fd11cc743168c85a490818342db1014aa9fcbfa508cd8976d184caa7f",
       "kind": "DATA_PROFILE",
       "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
       "description": "source_inventory.json actual scoped audit output",
@@ -543,7 +619,7 @@
     {
       "id": "E-MATRIX",
       "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_hash_matrix.json",
-      "sha256": "ee8a2c5c2756e82056e6b8a08111c4d0ba0fa13b86b51b5468678daab896cd9d",
+      "sha256": "416f9b86aaeafa08e869a1bfb0b7f4533ef9a4ae4bc69efe2a26f5ef25564403",
       "kind": "SOURCE_READBACK",
       "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
       "description": "official_hash_matrix.json actual scoped audit output",
@@ -611,7 +687,7 @@
     {
       "id": "E-ROUTING",
       "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md",
-      "sha256": "a4c2e2460856b2f150064d052e79204f15650d3b9edee3ddf3479fcd23b512e4",
+      "sha256": "767b7f1b05108b4949dc84622c46fd440fe9678d9a8e87feb7f0dd594b164b85",
       "kind": "REPORT",
       "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
       "description": "routing_precheck.md actual scoped audit output",
@@ -655,6 +731,32 @@
       "supports_ids": [
         "SYNC-T-PILOT-RESULT",
         "SYNC-A07-PILOT"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-SOURCE-READY",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_ready_checks.json",
+      "sha256": "698bb2aa7d8f605caeebaf73f5f1cdd5e5e0dc18ad734bc86b8dd272e3744922",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-12T04:30:24.036300+00:00",
+      "description": "Actual source-ready policy supplement and evidence",
+      "supports_ids": [
+        "SYNC-T-SOURCE-READY",
+        "SYNC-A10-SOURCE-READY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-POLICY14",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v14_release.json",
+      "sha256": "3e316a0554991fdff42c1dba684aae6bb6d85c9a1d01e80f23f259afe4ceee7e",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:30:24.036300+00:00",
+      "description": "Actual source-ready policy supplement and evidence",
+      "supports_ids": [
+        "SYNC-T-SOURCE-READY",
+        "SYNC-A10-SOURCE-READY"
       ],
       "sanitized": true
     }

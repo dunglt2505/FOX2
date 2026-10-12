@@ -41,7 +41,7 @@
         "blob_sha": "ca005a2d9875afefa57d5a3621ca5b20073d70bb"
       }
     },
-    "classification": "PUBLISHED",
+    "classification": "HISTORICAL",
     "sync_status": "SYNC_VERIFIED",
     "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
   },
@@ -87,7 +87,7 @@
         "blob_sha": "dd787ffb1b2619962f5f2df54e62264927730542"
       }
     },
-    "classification": "PUBLISHED",
+    "classification": "HISTORICAL",
     "sync_status": "SYNC_VERIFIED",
     "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
   },
@@ -133,7 +133,7 @@
         "blob_sha": "c309f7e395d17ca396e11e074735c81a46317542"
       }
     },
-    "classification": "PUBLISHED",
+    "classification": "HISTORICAL",
     "sync_status": "SYNC_VERIFIED",
     "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
   },
@@ -225,7 +225,7 @@
         "blob_sha": "aa3dd89a36207b0638eed1b8db23631268deb195"
       }
     },
-    "classification": "PUBLISHED",
+    "classification": "HISTORICAL",
     "sync_status": "SYNC_VERIFIED",
     "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
   },
@@ -271,7 +271,7 @@
         "blob_sha": "621db711d43df9763f8f8a55fceb586dc4d5583c"
       }
     },
-    "classification": "PUBLISHED",
+    "classification": "HISTORICAL",
     "sync_status": "SYNC_VERIFIED",
     "verified_source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c"
   },
@@ -1802,5 +1802,105 @@
     "classification": "HISTORICAL",
     "sync_status": "SYNC_VERIFIED",
     "verified_source_commit": "bd44dc2bb2fa1ba43070ea1052764320a86507c3"
+  },
+  {
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+    "library_file_id": "libfile_1d924d538e648191963e2dfdbdd94423",
+    "version_id": null,
+    "bytes": 4191,
+    "sha256": "82ce76f9c4f1606f3dfb73a7e4098d2bfcf052a09828441422bc6bb3842f5ae1",
+    "git_path": "docs/governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+    "git_blob_sha": "2563fc0b397a5a8b93730fe879fc6824b85358a9",
+    "name": "FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+    "classification": "PUBLISHED",
+    "sync_status": "SYNC_VERIFIED",
+    "verified_source_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "branches": {
+      "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+        "commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+        "status": "SYNC_VERIFIED",
+        "blob_sha": "2563fc0b397a5a8b93730fe879fc6824b85358a9"
+      }
+    }
+  },
+  {
+    "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+    "library_file_id": "libfile_d3181524737481919c679bd88bdf4f8e",
+    "version_id": null,
+    "bytes": 4466,
+    "sha256": "26edeeacc0c38ee4e19d0c734e05a905983e4da476c0f046530ebe5cc4025799",
+    "git_path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+    "git_blob_sha": "39a0c9f3d81366d9e744d85aafc2b5f475b7e2b6",
+    "name": "FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+    "classification": "PUBLISHED",
+    "sync_status": "SYNC_VERIFIED",
+    "verified_source_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "branches": {
+      "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+        "commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+        "status": "SYNC_VERIFIED",
+        "blob_sha": "39a0c9f3d81366d9e744d85aafc2b5f475b7e2b6"
+      }
+    }
+  },
+  {
+    "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+    "library_file_id": "libfile_974aa0baa1148191b5c452a30f986513",
+    "version_id": null,
+    "bytes": 4198,
+    "sha256": "398525d18f1f435d7ec12065f2ced46452325b65ff53c51ce25cf73a27eb282d",
+    "git_path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+    "git_blob_sha": "78c06c7992aa5640f3b5f49c129ec029fc429432",
+    "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+    "classification": "PUBLISHED",
+    "sync_status": "SYNC_VERIFIED",
+    "verified_source_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "branches": {
+      "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+        "commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+        "status": "SYNC_VERIFIED",
+        "blob_sha": "78c06c7992aa5640f3b5f49c129ec029fc429432"
+      }
+    }
+  },
+  {
+    "library_path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+    "library_file_id": "libfile_aa3815cfee6c8191860cf91ab7cf9702",
+    "version_id": null,
+    "bytes": 3678,
+    "sha256": "3b2e6f84e0d7dbca4962ef3611f6ef97197731744a8f2fe0acf5011e88e2fedb",
+    "git_path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+    "git_blob_sha": "4dc45390da9de858f2592cbe0f25ef3d16d47853",
+    "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+    "classification": "PUBLISHED",
+    "sync_status": "SYNC_VERIFIED",
+    "verified_source_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "branches": {
+      "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+        "commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+        "status": "SYNC_VERIFIED",
+        "blob_sha": "4dc45390da9de858f2592cbe0f25ef3d16d47853"
+      }
+    }
+  },
+  {
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.4.md",
+    "library_file_id": "libfile_ef49e7c66d348191a9a61b72e026389b",
+    "version_id": "1",
+    "bytes": 82580,
+    "sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
+    "git_path": "docs/governance/FOX2_POLICY_V1.4.md",
+    "git_blob_sha": "03f986a3ab5ce3a9a710232fb6b5de32e050acce",
+    "name": "FOX2_POLICY_V1.4.md",
+    "classification": "PUBLISHED",
+    "sync_status": "SYNC_VERIFIED",
+    "verified_source_commit": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "branches": {
+      "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": {
+        "commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+        "status": "SYNC_VERIFIED",
+        "blob_sha": "03f986a3ab5ce3a9a710232fb6b5de32e050acce"
+      }
+    }
   }
 ]
