@@ -1,0 +1,209 @@
+{
+  "type": "FOX2_M1_V04_OWNER_APPROVAL_AND_LIBRARY_RELEASE_RECEIPT",
+  "receipt_id": "FOX2-M1-V04-LIBRARY-RELEASE-20261011-001",
+  "project": "FOX2",
+  "revision": "0.4",
+  "change_id": "FOX2-BCC-M1-DSM-20261011-v04",
+  "released_at_observed_utc": "2026-10-11T15:16:05+00:00",
+  "document_publisher": "CHAT_OWNER_DELEGATED_ACTUAL_LIBRARY_WRITE_AND_READBACK",
+  "owner_decision": {
+    "source": "FOX2 Owner conversation: request to implement CHAT work after proposed approval of exact M1 v0.4 package, followed by owner delivery of the single source ZIP",
+    "owner_phrase": "CHAT làm đi; Đây nha",
+    "interpreted_grant": "APPROVE_M1_V04_DOCUMENT_SCOPE_AND_PUBLISH_EXACT_SOURCE_DERIVED_RELEASE_EDITIONS; PREPARE_READ_ONLY_WINDOWS_PREFLIGHT",
+    "scope": [
+      "BRD-00/06/08 v0.4 M1 business requirements",
+      "DSM/API/UI contract and schema v0.4",
+      "105 tests all NOT_RUN, traceability/BCC",
+      "roadmap M1 v0.3"
+    ],
+    "not_granted": [
+      "Windows DEV until observed source/host/worktree/quota",
+      "broker account/private/order access",
+      "Git write/merge/push",
+      "DNSE live provider entitlement",
+      "release deploy/LIVE"
+    ]
+  },
+  "policy": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.0.md",
+    "sha256": "d47a90cccca9f66dbe4d3923eae3900926c40fa32518d0f3f0fa8de9f37421e0",
+    "source_boundary": "FOX2 only"
+  },
+  "immutable_origin": {
+    "original_zip_name": "FOX2_M1_BRD_v0.4_20261011.zip",
+    "source_zip_library_path": "/Trading_Candidates/FOX2/20261011_M1_V04_EXACT_SOURCE/FOX2_M1_BRD_v0.4_20261011.zip",
+    "source_zip_library_file_id": "libfile_6c0367cc3d0481918d2dc752d4b42520",
+    "source_zip_file_id": "file_000000000ed08207ac90427c36910993",
+    "source_zip_sha256": "1b9fcbc3ad9c79b1c9451b97223862d9de931501309d3543f24fb8dac4125895",
+    "source_zip_bytes": 66590,
+    "contained_manifest_sha256": "0f3ad8f0231e5caef5e054a9ee6486471790b72f21aed1888eb0e10248f8845b",
+    "contained_manifest_entries": 16,
+    "CRC_test": "PASS",
+    "raw_manifest_entries_hashes": "16/16 PASS"
+  },
+  "release": {
+    "scope_status": "OWNER_APPROVED_LIBRARY_PUBLISHED",
+    "library_files": [
+      {
+        "logical": "BRD-00",
+        "source_path": "01_BRD/FOX2-BRD-00_CANDIDATE_v0.4.md",
+        "source_sha256": "31a448b7e17d81ff5b6e77ef31da6a0d25f09024331f8b1b5f28b9c354644849",
+        "release_relpath": "01_BRD/FOX2-BRD-00_v0.4.md",
+        "release_sha256": "e13b00581ab04c4bb2aabbfb196aec06475c2b0fc44d5b366ca2e382444ebef8",
+        "release_bytes": 14779,
+        "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-00_v0.4.md",
+        "library_file_id": "libfile_9b0f072173b48191a0ebff7a8756e5eb",
+        "observed_file_id": "file_0000000042e88207ac43931c68a08d4a",
+        "readback_bytes": 14779,
+        "readback_sha256": "e13b00581ab04c4bb2aabbfb196aec06475c2b0fc44d5b366ca2e382444ebef8",
+        "readback": "PASS"
+      },
+      {
+        "logical": "BRD-06",
+        "source_path": "01_BRD/FOX2-BRD-06_CANDIDATE_v0.4.md",
+        "source_sha256": "371bdf675584f45b0e51de0f58a9d0fefb6ad50f4088a4493ba1074001734a0c",
+        "release_relpath": "01_BRD/FOX2-BRD-06_v0.4.md",
+        "release_sha256": "be3ce2d664401b176019d063182684f3ae043690c16a4c83b38ff43eea24dd1e",
+        "release_bytes": 24284,
+        "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-06_v0.4.md",
+        "library_file_id": "libfile_c9a8c13742a88191a1d38f490bc37880",
+        "observed_file_id": "file_000000008b108211a99718fec9842fff",
+        "readback_bytes": 24284,
+        "readback_sha256": "be3ce2d664401b176019d063182684f3ae043690c16a4c83b38ff43eea24dd1e",
+        "readback": "PASS"
+      },
+      {
+        "logical": "BRD-08",
+        "source_path": "01_BRD/FOX2-BRD-08_CANDIDATE_v0.4.md",
+        "source_sha256": "31787eef1cedb89775a57ef618ca26268904d59a41c35157f011c3530276513b",
+        "release_relpath": "01_BRD/FOX2-BRD-08_v0.4.md",
+        "release_sha256": "0e8b3c4206fee03f732588063eeb92ebb07af97d2164f06495a7f7539a893ca7",
+        "release_bytes": 14697,
+        "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-08_v0.4.md",
+        "library_file_id": "libfile_05cb1f9ba9e0819191611c2e722d1a22",
+        "observed_file_id": "file_000000005c3c821186a3a79a9a670221",
+        "readback_bytes": 14697,
+        "readback_sha256": "0e8b3c4206fee03f732588063eeb92ebb07af97d2164f06495a7f7539a893ca7",
+        "readback": "PASS"
+      },
+      {
+        "logical": "DSM_API_CONTRACT",
+        "source_path": "03_Contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+        "source_sha256": "1f2ae309833a1753b6e4e6aa5ca6589888a77d88a4679d13598151f12f30b539",
+        "release_relpath": "03_Data_Contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+        "release_sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2",
+        "release_bytes": 7501,
+        "library_path": "/Trading/FOX2/03_Data_Contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+        "library_file_id": "libfile_07541244fdf48191a4417429111c8ab1",
+        "observed_file_id": "file_0000000080888207abd1cfe11289a447",
+        "readback_bytes": 7501,
+        "readback_sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2",
+        "readback": "PASS"
+      },
+      {
+        "logical": "DSM_JSON_SCHEMA",
+        "source_path": "03_Contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+        "source_sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+        "release_relpath": "03_Data_Contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+        "release_sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+        "release_bytes": 22607,
+        "library_path": "/Trading/FOX2/03_Data_Contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+        "library_file_id": "libfile_7c53732b2f4081919d5df5964fdf97de",
+        "observed_file_id": "file_0000000038fc8209804a20cdfa88697c",
+        "readback_bytes": 22607,
+        "readback_sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+        "readback": "PASS"
+      },
+      {
+        "logical": "ACCEPTANCE_REGISTRY",
+        "source_path": "05_Acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+        "source_sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+        "release_relpath": "05_Acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+        "release_sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+        "release_bytes": 17289,
+        "library_path": "/Trading/FOX2/05_Acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+        "library_file_id": "libfile_fbed6b70ac7481918f50cd7406c06cb6",
+        "observed_file_id": "file_00000000ed7c8207b68718624be6cf7c",
+        "readback_bytes": 17289,
+        "readback_sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+        "readback": "PASS"
+      },
+      {
+        "logical": "BCC_REQUIREMENT_TEST_MAP",
+        "source_path": "00_Governance/CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+        "source_sha256": "1c4f27d0970d91b2519f781d080f9d08e19503822993988ce804901db581d6f8",
+        "release_relpath": "05_Acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+        "release_sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b",
+        "release_bytes": 3333,
+        "library_path": "/Trading/FOX2/05_Acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+        "library_file_id": "libfile_215e81fc4ef48191a32512994ae86657",
+        "observed_file_id": "file_00000000996c820689c45a0fcb66f2b8",
+        "readback_bytes": 3333,
+        "readback_sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b",
+        "readback": "PASS"
+      },
+      {
+        "logical": "ROADMAP_M1",
+        "source_path": "02_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
+        "source_sha256": "9e6e4d9fa73aed9f110ed09a8d828e584fa665efb221ffc43ddb18b43b538e69",
+        "release_relpath": "06_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
+        "release_sha256": "96e567e6743e5f4182b09737912a4e67b01cc7b0868a0499e1fa79e6181e14a8",
+        "release_bytes": 3158,
+        "library_path": "/Trading/FOX2/06_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
+        "library_file_id": "libfile_95b55bc6b99881918355ae0213e7778c",
+        "observed_file_id": "file_00000000f2fc8211a14ca7c90ad10b65",
+        "readback_bytes": 3158,
+        "readback_sha256": "96e567e6743e5f4182b09737912a4e67b01cc7b0868a0499e1fa79e6181e14a8",
+        "readback": "PASS"
+      }
+    ],
+    "release_edition_changes": "Administrative publication-status labels + release banners. BRD requirement IDs, functional statements, API paths, schema, CSV runtime tests remain unchanged. The exact Candidate files remain in the frozen ZIP; historical prepublication T91 checks apply to Candidate-state evidence, not to runtime acceptance after publication.",
+    "prior_brd00": "/Trading/FOX2/01_BRD/FOX2-BRD-00_v0.2.md (retained historical; superseded as current M1 BRD by this v0.4 release)",
+    "brd06_08_prior": "0.2/0.3 were historical Candidates, not previously published"
+  },
+  "verification": {
+    "source_archive_readback_sha256": "1b9fcbc3ad9c79b1c9451b97223862d9de931501309d3543f24fb8dac4125895",
+    "release_documents_byte_hash_readback": "8/8 PASS",
+    "test_registry_rows": 105,
+    "duplicate_test_ids": 0,
+    "tests_executed": 0,
+    "tests_status": "105/105 NOT_RUN",
+    "schema_definition_Draft202012": "VALID_SCHEMA",
+    "schema_payload_validation": "NOT_RUN",
+    "real_provider_connection": "NOT_RUN",
+    "Windows_local_worktree": "UNKNOWN"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "remote_main_observed_commit": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+    "mirror_target": "docs/brd_mirror/**",
+    "mirror_current_status": "PENDING_NOT_WRITTEN",
+    "git_sha_for_v04": null,
+    "source_binding_receipt": "PENDING",
+    "write_permission": "NOT_GRANTED_FROM_DOCUMENT_RELEASE"
+  },
+  "agent_routing": {
+    "POLICY_CHECK": "PASS_FOX2_EFFECTIVE_V1",
+    "TASK_STATE_CHECK": "PASS_OLD_BRD00_V02_PRESERVED_AND_V04_NOT_PREVIOUSLY_PUBLISHED",
+    "R0": "SOURCE_PACKAGE_AND_EXISTING_RELEASE_CHECKED",
+    "R1": "L0_DOCUMENT_PUBLICATION; P1_WINDOWS_PREFLIGHT_NEXT",
+    "R2": "OWNER_DOCUMENT_GRANT_AND_LIB_ACCESS_VERIFIED; DEV_AND_PROVIDER_RIGHTS_UNKNOWN",
+    "R3": "CHAT_LIB_WRITE_ACCESS_CONFIRMED; COPILOT_CODEX_WORK_ACTUAL_MODEL_QUOTA_UNKNOWN",
+    "R4": "CHAT_LOWEST_COST_COMPLETED_L0; COPILOT_READ_ONLY_PREFLIGHT_CANDIDATE; CODEX_DATA_CONCURRENCY_LATER; WORK_TARGETED_REVIEW_ONLY",
+    "R5": "NO_GIT_MUTATION; WINDOWS_BRANCH_WORKTREE_WIP_UNKNOWN",
+    "R6": "8_LIBRARY_READBACK_MATCH; GIT_MIRROR_PENDING",
+    "R7": "CHAT · GPT-6 · DOCUMENT_ONLY; STOP_AT_GIT_AND_DEV_NO_GRANT"
+  },
+  "effective_boundary": {
+    "brd_scope": "FOX2 M1 BUSINESS_REQUIREMENTS_ONLY",
+    "library_published": true,
+    "git_mirror_verified": false,
+    "CODE_ALLOWED": "NO",
+    "DEV": "NOT_GRANTED",
+    "MERGE": "NOT_GRANTED",
+    "PUSH": "NOT_GRANTED",
+    "LIVE": "NOT_GRANTED",
+    "DNSE_REALDATA": "NOT_VERIFIED"
+  },
+  "historical_project": "Fox code cited READ_ONLY for technical design only; not governing FOX2"
+}
