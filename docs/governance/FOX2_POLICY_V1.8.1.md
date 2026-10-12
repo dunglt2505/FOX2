@@ -724,3 +724,4 @@ The publication manifest, stored alongside the released policy, must bind the ac
 - `DISPATCH_SCHEMA`: `FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.1.json`; dispatch binds the Owner-confirmed Agent configuration and the three-stage selection receipt. Bridge may not silently substitute Agent/model/mode.
 - `AGENT_PROMPT_POLICY_DECISION_CHECKS`: remain **SINGLE-PASS** for the exact immutable WP revision. Bridge performs runtime attestation only.
 - `RESULT_CONTRACT_V2`: unchanged; result publication and independent CHAT acceptance controls remain in force.
+
