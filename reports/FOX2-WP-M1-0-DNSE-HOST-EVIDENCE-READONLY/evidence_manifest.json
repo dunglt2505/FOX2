@@ -63,7 +63,7 @@
     "worktree": "C:\\Projects\\FOX2",
     "writer_lease": "Designated branch at pinned task commit and sole local worktree observed; no server-side exclusive-writer lease interface available.",
     "report_path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md",
-    "delivery_status": "LOCAL_ONLY",
+    "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": null,
     "local_head_before_submission": "def8985155db6329e42d480cc8c728ebbfa4d4f5"
   },
@@ -94,7 +94,7 @@
         "operation": "ADD",
         "intent": "P1 result recovery report",
         "within_allowed_paths": true,
-        "new_sha256": "87421da11bb3ed1d3cb07f72249bc6c85a3332f5aa134543df8ff549957e2eb3"
+        "new_sha256": "5959d28e1de55f55f466c0bf68a9d3dfa057aff1a77d5d83989cfcd08ef4e506"
       },
       {
         "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence_manifest.json",
@@ -108,7 +108,7 @@
         "operation": "ADD",
         "intent": "Sanitized current-session recovery checks",
         "within_allowed_paths": true,
-        "new_sha256": "3f8074a70768b3fb7be0dae073ebea038a6ebe00a07c36bc3f6d113badb199de"
+        "new_sha256": "42278a40f791940b920a1d0c0dcc0dba3e4d49425061a2caca3e760652496988"
       }
     ],
     "forbidden_paths_touched": false
@@ -163,7 +163,7 @@
       "notes": "The draft manifest passed with 0 validation errors; revalidate after final edits."
     },
     {
-      "id": "RECOVERY-PUSH-WRITE-PROBE",
+      "id": "RECOVERY-PUSH-NOOP-DRY-RUN",
       "kind": "READBACK",
       "status": "NOT_RUN",
       "command_or_method": "No-op git push --dry-run only",
@@ -173,6 +173,18 @@
         "RECOVERY-CHECKS"
       ],
       "notes": "No ref update was pending; this did not verify permission to update a remote ref."
+    },
+    {
+      "id": "RECOVERY-PENDING-PUSH-DRY-RUN",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "git push --dry-run origin HEAD:refs/heads/work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot with report commit pending",
+      "environment": "Windows / Git 2.56.0.windows.1",
+      "run_at_utc": "2026-10-12T08:54:47Z",
+      "evidence_ids": [
+        "RECOVERY-CHECKS"
+      ],
+      "notes": "Dry-run proposed the expected fast-forward from def8985 to 60c2cc8. It did not update the ref; actual push and remote readback remain required."
     },
     {
       "id": "ORIGINAL-P1-AND-M1-ACCEPTANCE",
@@ -237,7 +249,7 @@
     {
       "id": "RECOVERY-CHECKS",
       "path": "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md",
-      "sha256": "3f8074a70768b3fb7be0dae073ebea038a6ebe00a07c36bc3f6d113badb199de",
+      "sha256": "42278a40f791940b920a1d0c0dcc0dba3e4d49425061a2caca3e760652496988",
       "kind": "SOURCE_READBACK",
       "observed_at_utc": "2026-10-12T08:45:45Z",
       "description": "Sanitized record of current-session Policy/source identity, local Git, remote branch, and toolchain checks; not original P1 evidence.",

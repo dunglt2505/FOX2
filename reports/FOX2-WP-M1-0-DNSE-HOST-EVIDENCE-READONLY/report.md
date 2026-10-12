@@ -47,7 +47,7 @@
 |---|---|---|---|---|
 | `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md` | ADD | P1 recovery report | YES | Recorded in manifest; no self-hash |
 | `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence_manifest.json` | ADD | Result Contract v2 manifest | YES | Self-hash omitted by design |
-| `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md` | ADD | Sanitized current-session checks only | YES | `3f8074a70768b3fb7be0dae073ebea038a6ebe00a07c36bc3f6d113badb199de` |
+| `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md` | ADD | Sanitized current-session checks only | YES | Recorded in manifest |
 
 - Host worktree: `C:\Projects\FOX2`; before branch switch it was clean on `main` at `6662d5b61770291db4e493c0852fbc2f3b923a7b`, with one worktree and no merge/rebase markers. The initial P1 report directory was absent.
 - The designated result branch was observed at `def8985155db6329e42d480cc8c728ebbfa4d4f5`, fetched, and checked out from that exact commit. No other local worktree or result commit was observed. GitHub server-side exclusive lease is not exposed by the checked interfaces.
@@ -62,7 +62,8 @@
 | Recompute pinned task source-manifest/schema hashes | PASS | `RECOVERY-CHECKS`; hashes from `git show` raw bytes |
 | Read designated remote branch ref | PASS | `RECOVERY-CHECKS`; ref matched task commit |
 | Check initial and post-checkout local Git state | PASS | `RECOVERY-CHECKS`; clean worktree, one local worktree |
-| Test pending remote write authorization | NOT_RUN | No-op dry-run had no pending update; it does not prove ref-write permission |
+| No-op remote push dry-run | NOT_RUN | No update was pending; this did not test an update |
+| Pending report commit push dry-run | PASS | `RECOVERY-CHECKS`; Git accepted the proposed fast-forward in dry-run only; actual push/readback still required |
 | Recover or rerun original P1 checks / 105 M1 acceptance tests | NOT_RUN | Explicitly prohibited by recovery scope; original logs not retained |
 | DNSE REST/WebSocket/Production checks | NOT_RUN | No provider access in this task |
 | Secret scanner | NOT_RUN | No scanner invoked; report/evidence contain no credentials or raw provider/account data |
@@ -84,7 +85,7 @@
 
 | Evidence ID | Relative path | SHA-256 | Provenance | Supports |
 |---|---|---|---|---|
-| `RECOVERY-CHECKS` | `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md` | `314ddcf1abb9df9eae869aae705aafc2af6b5ccfd560c446eb18967ccdcfda3f` | Current recovery session; sanitized, observed command/tool results | Policy/task/source bindings, local Git state, target ref, toolchain, schema validation |
+| `RECOVERY-CHECKS` | `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/recovery_checks.md` | Recorded in manifest | Current recovery session; sanitized, observed command/tool results | Policy/task/source bindings, local Git state, target ref, toolchain, schema validation, pending push dry-run |
 
 No original P1 log, raw market data, account data, or other P1 evidence was retained.
 
@@ -93,7 +94,7 @@ No original P1 log, raw market data, account data, or other P1 evidence was reta
 - Repository: `dunglt2505/FOX2`
 - Result branch: `work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot`
 - Base / local HEAD before report changes: `def8985155db6329e42d480cc8c728ebbfa4d4f5`
-- Delivery status at this local snapshot: `LOCAL_ONLY`; after an actual successful push, the final report revision will state `PUSHED_UNREVIEWED`.
+- Delivery status: `PUSHED_UNREVIEWED` only after the actual push of the final report revision succeeds. This is not CHAT verification or acceptance.
 - PR: `NONE` (`PR_CREATE` not granted).
 - The full result commit SHA is supplied outside this committed report in the final receipt. CHAT must read back the report and manifest at that same immutable commit. No self-acceptance is claimed.
 

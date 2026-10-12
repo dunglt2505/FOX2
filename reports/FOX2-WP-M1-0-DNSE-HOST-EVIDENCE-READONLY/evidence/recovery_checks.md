@@ -50,6 +50,12 @@ and hash all ten source blobs or access the official Library.
   returned `Everything up-to-date` with exit code 0. Because no ref update was
   pending, this did not prove permission to update a ref; only the subsequent
   actual report push can establish that technical capability.
+- With report commit `60c2cc8ac759bb63afd21f3d5789b5b0faba543a` pending,
+  `git push --dry-run origin
+  HEAD:refs/heads/work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot`
+  returned `def8985..60c2cc8 HEAD -> ...` with exit code 0 at
+  `2026-10-12T08:54:47Z`. This is a non-mutating update preflight; actual
+  push and remote readback are still required.
 - The task manifest designates this branch for the Copilot result. No
   competing local worktree or report commit was observed. GitHub does not
   expose a server-side exclusive-writer lease in the checks performed here.
