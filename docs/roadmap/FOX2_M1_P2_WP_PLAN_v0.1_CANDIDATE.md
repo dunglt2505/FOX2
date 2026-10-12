@@ -14,7 +14,7 @@
 
 | WP | Deliverable | Proposed implementation scope (verify exact paths again before grant) | Prerequisites | Acceptance evidence | Status |
 | --- | --- | --- | --- | --- | --- |
-| `FOX2-M1-P2-01` | Backend foundation, typed public market DTO/contract validation, loopback safeguards, health diagnostics, configuration | `backend/**`, WP-specific `tests/**`, only mutually owned contract/fixture paths after source freeze | P1 host readiness, locked API contract, named single writer, exact DEV grant | Offline startup + contract/schema/negative tests; provider disabled/no network; no secret exposure | `SPEC_PREPARED_NO_DEV` |
+| `FOX2-M1-P2-01` | Backend foundation, typed public market DTO/contract validation, loopback safeguards, health diagnostics, configuration | `backend/**`, WP-specific `tests/**`, only mutually owned contract/fixture paths after source freeze | P1 evidence **ACCEPTED**; **fresh** coding-host/WIP/model/quota and code-writer checks, locked API contract, named single writer, separate exact DEV grant | Offline startup + contract/schema/negative tests; provider disabled/no network; no secret exposure | `SPEC_PREPARED_NO_DEV` |
 | `FOX2-M1-P2-02` | SQLite versioned observation store, immutable revisions, single writer, transaction and migration | scoped new `backend/**/store/**`, scoped `tests/**`; **must not overlap P2-01 active writer** | Accepted P2-01 interfaces + dedicated writer/worktree | atomic rollback/restart/UPSERT vs append revision/correction, no backdating, malformed input and race/one-writer negative tests | `SOURCE_PENDING_P2_01` |
 | `FOX2-M1-P2-03` | DSM source selection/capability gates and source diagnostics; offline stubs only | scoped `backend/**/dsm/**`, `tests/**`, sanitized fixtures | Accepted P2-02 store API + P2-01 DTOs | provider disabled, missing rights or mapping/freshness → UNKNOWN/UNAVAILABLE; no synthetic fallback, no provider network calls, audit decisions | `SOURCE_PENDING_P2_02` |
 | `FOX2-M1-P2-04` | Read-only API service wiring and local watchlist preference store + end-to-end offline negative tests | scoped `backend/**/api/**`, `tests/**`, local preference migration; no frontend changes | Accepted P2-03; contract endpoints frozen | response shapes/errors, sanitized 404/409/422/503, restart preferences, max100, origin/host loopback guards, no account/order endpoints | `SOURCE_PENDING_P2_03` |
@@ -57,14 +57,14 @@
 
 ## 4. Routing and handoff control (R0–R7)
 
-- **R0 Task State:** No P2 code accepted; P1 result received and CHAT delivery-verified at `906adba0450781d1f8b05b0e9d471acf8a684f68`, P1 acceptance still partial. Do not reopen P0 source recovery without evidence of drift.
+- **R0 Task State:** No P2 code accepted; bounded P1 E01–E04 read-only evidence **ACCEPTED** by CHAT at `0dba7673ee8ad3b2d64ceabfeacce21564f3bed3`; [Issue #5](https://github.com/dunglt2505/FOX2/issues/5) **CLOSED**. Historical P1 logs remain `NOT_RETAINED`; current P2 **DEV readiness still PARTIAL/UNKNOWN**. Do not reopen P0/P1 without proven source drift or new scoped need.
 - **R1 Stage:** Planning and candidate source publication only. Do not promote to implementation by a work-package label.
 - **R2 Policy/rights:** FOX2 Policy V1.7.1 effective, approved M1 v0.4 source exists, but `CODE_ALLOWED=NO` for P2 and no provider entitlement/merge/live grant. STOP on unknown rights for affected operation.
 - **R3 Agent eligibility:** Copilot VS Code Windows previously provided Git report push; current model/mode/quota and coder/writer permissions remain **UNKNOWN**. Codex repository/host availability and quota also **UNKNOWN** until verified. WORK audit access risk-based, CHAT available for drafting.
 - **R4 Comparison:** CHAT prepares/finalizes source/spec. COPILOT contender for P2-01 and P2-04 (routine Python/VS Code/Git, cost). CODEX contender for P2-02/03 (transactional state/invariants) but do not route by label alone; compare actual model, quotas, access, test competence and cost per safe acceptance, explicitly including both COPILOT and CODEX. WORK review only if concurrency/atomicity/security risk gate warrants; no blanket audit. No executable assignment in this candidate.
 - **R5 Writer:** Reserve one writer at a time; verify real branch, worktree, WIP (tracked/untracked/ignored), path lease and branch protection before code. Path patterns in §2 are not yet owner-approved allowlists.
 - **R6 Source/Handoff:** Effective Policy Git SHA+Library release, M1 BRD/contract/matrix source SHA, per-WP immutable task/source manifest, Report Contract v2 and report destination. A new task must record accepted upstream WP result commit and required dependencies.
-- **R7 Selected plan:** CHAT prepares 4 bounded WPs; first possible DEV candidate is P2-01 **only after** accepted P1 host gate, exact scoped Owner DEV decision, Copilot/Codex comparison and technical credentials/one-writer proof. STOP on missing mandatory gates, data-license unknown, WIP collision, source mismatch, failure of negative tests.
+- **R7 Selected plan:** CHAT prepares 4 bounded WPs; P1 evidence is already accepted. First possible DEV candidate is P2-01 **only after fresh code-worktree/one-writer/access/model/quota verification**, accepted contract, exact scoped Owner DEV decision and Copilot/Codex/WORK/CHAT comparison. STOP on missing mandatory gates, source mismatch, WIP collision, failed offline negative controls or unauthorized provider access.
 
 ## 5. Definition of Done for a future executable WP
 
@@ -76,7 +76,7 @@
 
 ## 6. Precise next administrative steps (not an Agent dispatch)
 
-1. Complete Issue #5's small FoxLe-PC P1 evidence delta; CHECK current branch/host/WIP/legacy hash parity. CHAT independently adjudicates P1 suitability for P2-01.
+1. **P1 completed:** CHAT accepted bounded E01–E04 evidence at `0dba7673ee8ad3b2d64ceabfeacce21564f3bed3` and closed Issue #5. Reuse evidence; do **not** request repeat P1. Fresh coding-worktree/WIP/Agent/one-writer state is a **P2 execution gate**, not an unfinished P1 requirement.
 2. Freeze exact P2-01 source/contract and acceptance subset, including tests folder ownership. Record candidate/task source manifest after actual approval, not before.
 3. Compare Copilot, Codex, CHAT, WORK on actual capability/access/model/quota and risk; document cost-based choice. This proposal does not itself approve either coding Agent.
 4. Ask Owner for a **separate narrowly scoped implementation authorization** when evidence is sufficient. No implicit CODE_ALLOWED, code push, merge, Production, broker or LIVE.

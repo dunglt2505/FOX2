@@ -10,8 +10,8 @@
     "git_commit": "ef3975952006868ef2fd4e64619ebdbf3cfc8411"
   },
   "m1_authoritative_source_git_commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
-  "p1_result_git_commit": "906adba0450781d1f8b05b0e9d471acf8a684f68",
-  "p1_status": "ACCEPTED_PARTIAL_EVIDENCE_DELTA_PENDING",
+  "p1_result_git_commit": "0dba7673ee8ad3b2d64ceabfeacce21564f3bed3",
+  "p1_status": "P1_READONLY_EVIDENCE_ACCEPTED_ISSUE_5_CLOSED__P2_DEV_READINESS_PARTIAL",
   "prior_effective_roadmap_git_path": "docs/roadmap/FOX2_M1_ROADMAP_v0.3.md",
   "prior_effective_roadmap_git_blob_sha": "43629d6fc37774cfc155740196fe084e98db4134",
   "bcc": "FOX2-BCC-M1-DSM-20261011-v04",
@@ -28,13 +28,25 @@
   "files": [
     {
       "name": "FOX2_M1_ROADMAP_v0.4_CANDIDATE.md",
-      "bytes": 10726,
-      "sha256": "1bc6e2c60b23b2a3a465f0d1ba55cd0a0aabb2afc33a07c80ce50b051c308f13"
+      "bytes": 11290,
+      "sha256": "93ac05b511f32fbcb80347f15d91fce24b8d9484c63901c98eab050d410b196b"
     },
     {
       "name": "FOX2_M1_P2_WP_PLAN_v0.1_CANDIDATE.md",
-      "bytes": 11806,
-      "sha256": "c7814fdcc428cda2712bb74d466d91085553e2f940401ffbe947ca3393f21e45"
+      "bytes": 12242,
+      "sha256": "109fdf3ff2cb2c2555a5244bf456d21f7f4e2c449d8bbdfe3b923e4ebfb8c307"
     }
-  ]
+  ],
+  "p1_evidence_accepted_issue": {
+    "url": "https://github.com/dunglt2505/FOX2/issues/5",
+    "state": "closed",
+    "decision": "P1_READONLY_EVIDENCE_DELIVERABLE=ACCEPTED",
+    "scope": "READ_ONLY_E01_E04_NOT_DEV"
+  },
+  "reconciliation": {
+    "date": "2026-10-12",
+    "purpose": "Correct stale P1 state in planning candidates only; no functional requirement, BRD, or implementation grant changed",
+    "supersedes_git_planning_commit": "0a5fc7a98934b0b91623c1c9a5054fa9368b435f",
+    "source": "CHAT reviewer Issue #5 and immutable P1 Copilot evidence commit"
+  }
 }

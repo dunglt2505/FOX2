@@ -5,7 +5,7 @@
 **Not an effective supersession:** The official M1 roadmap v0.3 and BRD-00/06/08 v0.4 remain the approved source until this specific roadmap candidate is accepted/published through the applicable FOX2 process.  
 **Applicable Policy:** FOX2 Policy V1.7.1 (`FOX2-POLICY-V1`), raw SHA-256 `9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d`, Git commit `ef3975952006868ef2fd4e64619ebdbf3cfc8411`.  
 **Official M1 source:** Git `955e74ff67e6b4ed184dc2c2dcd4260c51dc529b`; M1 v0.4 document set released to Library (8/8) and mirrored to Git (8 plus 2 companions). Source-only readiness is not DEV readiness.  
-**Status observation cutoff:** 2026-10-12, Git refs and Issue states checked when drafting; result branches may change after this immutable candidate is issued.
+**Status observation cutoff:** 2026-10-12; CHAT P1 acceptance reconciled against immutable result `0dba7673ee8ad3b2d64ceabfeacce21564f3bed3` and closed [Issue #5](https://github.com/dunglt2505/FOX2/issues/5). This candidate is still a planning draft; source/Agent/worktree states require fresh checks at handoff.
 
 ## 1. Goals and immutable scope
 
@@ -18,8 +18,8 @@ M1 delivers a **localhost equity market intelligence website** using the FOX2 Da
 | Step | Scope | Observed state at cutoff | Next gate |
 | --- | --- | --- | --- |
 | **P0** | Owner-approved M1 v0.4 BRD/contract/schema/acceptance source | `DOCS_LIBRARY_PUBLISHED / GIT_SOURCE_READBACK_VERIFIED` at M1 source commit; **NOT** application acceptance. Roadmap v0.3 itself remains effective | Preserve source/hash; reconcile stale Issue #3 only after actual receipt comparison |
-| **P1** | Windows/IDE/Git/reuse preflight and evidence | `RESULT_DELIVERY_VERIFIED=YES`, `ACCEPTED_PARTIAL` for recovery/delivery; historic Windows/FOX/DNSE observations unverified. Copilot result SHA `906adba0450781d1f8b05b0e9d471acf8a684f68`; Issue #5 OPEN | Minimal current FoxLe-PC evidence: host/WIP, four legacy-file SHA parity, market-only cache metadata, offline M1-A readiness. Reuse independent read-only Fox Git evidence; no wholesale P1 rerun |
-| **P2** | M1-A backend, DSM, transactional store and API | `NOT_STARTED / CODE_ALLOWED=NO` | Accept P1 host/worktree readiness, verify task source and scoped DEV rights separately; then execute P2-01 → P2-04 with tests |
+| **P1** | Windows/IDE/Git/reuse preflight and bounded E01–E04 evidence | `P1_READONLY_EVIDENCE_DELIVERABLE=ACCEPTED`; latest Copilot result `0dba7673ee8ad3b2d64ceabfeacce21564f3bed3` independently reviewed by CHAT; Issue #5 **CLOSED / completed**. Historical original P1 logs still `NOT_RETAINED` | **No P1 rerun.** Separate next-stage DEV readiness remains `PARTIAL`: validate current code-worktree/WIP, named writer, Agent model/quota and actual code permissions at P2 handoff; Node/npm absent affects frontend P3; DNSE rights remain unverified for P5/P6 |
+| **P2** | M1-A backend, DSM, transactional store and API | `NOT_STARTED / CODE_ALLOWED=NO` | Reuse **accepted P1 evidence**; independently recheck current coding-host WIP/one-writer, actual Agent access/model/quota, task source and separately authorized scoped DEV grant; then execute P2-01 → P2-04 with tests |
 | **P3** | M1-A local website | `NOT_STARTED` | Freeze accepted API DTOs, separate UI branch/worktree and scoped DEV grant; build responsive Overview/Watchlist/Stock360/Source Diagnostics |
 | **P4** | M1-A offline checkpoint | `NOT_RUN` | Tests of API/SQLite/prefs/UI security/gaps/state/restart; independent review risk-based; no real feed needed |
 | **P5** | M1-B DNSE REST historical market slice | `BLOCKED_RIGHTS_AND_MAPPING` | Verify read, redisplay, retained-use rights and expiry, source schema/time/unit/basis, safe host/credentials; grant capability-limited read-only network access separately |
@@ -28,7 +28,7 @@ M1 delivers a **localhost equity market intelligence website** using the FOX2 Da
 | **M2** | Coverage, point-in-time, corporate actions and soak | `NOT_STARTED` | Separate post-M1 acceptance and change approval |
 | **M3/M4** | Analytics, risk, capital, exit, shadow | `NOT_STARTED` | Own BRDs, safety/acceptance/rights and explicit task grants |
 
-**P0 and P1 are not equivalent to P2 DEV authorization.** No runtime code or tests of FOX2 M1 currently accepted. Source and Git evidence may be reused without recopying. P1 current host state can only be certified by an authorized observed host check; CHAT cannot infer FoxLe-PC WIP or quota from Git.
+**P0 and accepted P1 evidence are not equivalent to P2 DEV authorization.** No runtime code or tests of FOX2 M1 currently accepted. The E01–E04 host snapshot is time-bound, so current coding-worktree WIP, code-writer ownership and Agent quota/permissions must be freshly verified at implementation handoff; CHAT cannot infer them from the P1 Git report. Historical P1 logs are not reconstructed.
 
 ## 3. M1-A implementation milestones
 
@@ -48,7 +48,7 @@ M1 delivers a **localhost equity market intelligence website** using the FOX2 Da
 
 ## 5. Dependency/critical path and sequencing
 
-`P1 evidence gate → P2-01 contract/foundation → P2-02 store → P2-03 DSM → P2-04 API/prefs/tests → P3 UI → P4 M1-A acceptance → P5 REST + P6 WS gated separately → P7 M1-B acceptance`.
+`P1 evidence ACCEPTED → fresh P2 CODE/HOST/WRITER/DEV gates → P2-01 contract/foundation → P2-02 store → P2-03 DSM → P2-04 API/prefs/tests → P3 UI → P4 M1-A acceptance → P5 REST + P6 WS gated separately → P7 M1-B acceptance`.
 
 CHAT may in parallel do a **read-only documentary** DNSE rights matrix and UI screen-contract review; these do not trigger Production access. Parallel P2/P3 or multiple coding Agents is deferred until immutable shared API DTOs, verified non-overlapping worktrees and explicit writer leases. No calendar deadlines committed without actual effort capacity.
 
@@ -62,7 +62,7 @@ CHAT may in parallel do a **read-only documentary** DNSE rights matrix and UI sc
 6. `VALIDATION`: Result Contract v2, tests/negative evidence, 1 writer, full SHA remote readback, independent CHAT acceptance before next checkpoint. No source authority from FOX legacy.
 7. `PROVIDER`: P5/P6 need separate documented third-party data rights and scoped network grants; `BROKER_WRITE=NO`, `LIVE=NO`, `MERGE_ALLOWED=NO` by default.
 
-**Immediate next step:** Finish minimum P1 host evidence while CHAT freezes P2-01 spec and exact acceptance subset. When P1 host/readiness is actually accepted, assess Copilot vs Codex vs CHAT vs WORK (access, quota, quality, risk, total acceptance cost), and request the *separate* scoped code grant for the selected P2 WP. **STOP if branch owner/permissions or dev grant unknown.**
+**Immediate next step:** P1 report/evidence work is **closed**. CHAT freezes P2-01 spec and exact acceptance subset, incorporates risk-based WORK design audit, then reruns **fresh P2 execution precheck** (current host/WIP, code writer, Copilot vs Codex vs CHAT vs WORK, access/model/quota and total acceptance cost). A **separate scoped Owner DEV grant** is required for the selected WP. **STOP if branch owner/technical code permissions or DEV grant unknown.**
 
 ## 7. Publication and change control
 
