@@ -998,3 +998,589 @@ Conceptual schema:
   },
   "checks": {
     "intake": "PASS",
+    "scope": "PASS",
+    "diff": "PASS",
+    "tests": "PASS",
+    "acceptance": "PASS",
+    "security": "PASS"
+  },
+  "verdict": "ACCEPTED|ACCEPTED_PARTIAL|REWORK|BLOCKED",
+  "integration_eligible": false,
+  "merge_authorized": false,
+  "deployment_authorized": false
+}
+```
+
+Review receipt is immutable per `REVIEW_KEY`.
+
+---
+
+## 17. Queue lifecycle
+
+Operational labels:
+
+```text
+chat-review-ready
+  ↓
+chat-reviewing
+  ↓
+chat-reviewed-accepted
+chat-reviewed-rework
+chat-reviewed-blocked
+```
+
+Labels are operational UI only.
+
+Authority remains:
+
+```text
+immutable result commit
++
+CHAT review receipt
+```
+
+---
+
+## 18. Rework chain
+
+MVP rule:
+
+```text
+AUTO_REWORK_DISPATCH = NO
+```
+
+Example:
+
+```text
+Dispatch 001
+→ Result A
+→ CHAT Review A = REWORK
+→ Rework Prompt prepared
+→ Owner confirmation required
+→ Dispatch 002
+→ Result B
+→ CHAT Review B
+```
+
+Rework result should reference its predecessor.
+
+---
+
+## 19. Review dedupe and supersession
+
+Review dedupe key:
+
+```text
+FOX2:<WP_ID>:<RESULT_SHA>
+```
+
+If an identical authoritative receipt exists:
+
+```text
+ALREADY_REVIEWED
+```
+
+If a conflicting receipt exists for the same `REVIEW_KEY`:
+
+```text
+REVIEW_RECEIPT_CONFLICT
+```
+
+Do not overwrite. CHAT must resolve the conflict and preserve both evidence pointers.
+
+If multiple results arrive for the same WP:
+
+- do not automatically discard an older result;
+- a newer result may supersede an older unreviewed result only when lineage is proven;
+- otherwise review states remain separate.
+
+---
+
+## 20. State machines
+
+### 20.1 Dispatch/execution
+
+```text
+NEW
+→ VERIFIED
+→ RUNTIME_ATTESTED
+→ RUNNING
+→ AGENT_DONE
+→ RESULT_LOCAL_READY
+→ PUSHED_UNREVIEWED
+```
+
+Failure states:
+
+```text
+LOCAL_RUNTIME_BLOCKED
+AGENT_FAILED
+PUSH_BLOCKED
+CANCELLED
+DISPATCH_DUPLICATE_IGNORED
+```
+
+### 20.2 Review
+
+```text
+REVIEW_READY
+→ REVIEW_INTAKE
+→ CHAT_REVIEWING
+→ ACCEPTED | ACCEPTED_PARTIAL | REWORK | BLOCKED
+```
+
+Additional infrastructure states:
+
+```text
+REVIEW_EVENT_INVALID
+QUEUE_PUBLISH_FAILED
+BLOCKED_INTAKE
+REVIEW_DELIVERY_UNVERIFIED
+ALREADY_REVIEWED
+```
+
+---
+
+## 21. Failure behavior
+
+### 21.0 Crash/restart invariants
+
+- A claimed dispatch is never automatically relaunched merely because the Bridge restarted.
+- Non-terminal ledger state is reconciled against process identity, worktree Git state and remote refs.
+- Ambiguous ownership/state becomes `RECOVERY_REQUIRED`; human/CHAT resolution is required.
+- Verified remote result with unsent review event is recovered from `review_outbox`; review discovery must not be lost.
+- Review receipt write is idempotent/CAS and cannot silently overwrite a prior receipt.
+
+
+| Failure | Required state |
+|---|---|
+| Invalid dispatch schema | `LOCAL_RUNTIME_BLOCKED` |
+| Prompt hash mismatch | `LOCAL_RUNTIME_BLOCKED` |
+| Wrong repo/project | `LOCAL_RUNTIME_BLOCKED` |
+| Requested model unavailable | `LOCAL_RUNTIME_BLOCKED` |
+| Duplicate dispatch | `DISPATCH_DUPLICATE_IGNORED` |
+| Agent non-zero exit | `AGENT_FAILED` |
+| Forbidden diff | no result push / `PUSH_BLOCKED` or blocked result |
+| Remote SHA mismatch | `REMOTE_PUSH_UNVERIFIED` |
+| Review event invalid | `REVIEW_EVENT_INVALID` |
+| Review queue unavailable | event retained; queue degraded |
+| CHAT watch offline | durable event remains pending |
+| Report missing | `BLOCKED_INTAKE` |
+| Manifest invalid | `BLOCKED_INTAKE` |
+| Secret detected | `BLOCKED` |
+| Existing review receipt | `ALREADY_REVIEWED` |
+
+No failure state may become ACCEPTED implicitly.
+
+---
+
+## 22. Security boundaries
+
+### CHAT
+
+May:
+
+- publish authorized dispatch;
+- read result;
+- write review receipt;
+- update review queue.
+
+Not implied:
+
+- main merge;
+- deployment;
+- automatic rework dispatch;
+- LIVE/broker operation.
+
+### Bridge
+
+- use the minimum credential scope necessary for control-branch read, authorized result push and review-event publication;
+- separate Bridge/service credentials from Agent subprocess environment where possible;
+- never expose broad GitHub tokens, provider secrets or Owner credentials to the Agent prompt/stdout/stderr;
+- sanitize environment/logging and store only required identifiers/hashes;
+- process/worktree ownership must be attributable to the dispatch ledger entry.
+
+May:
+
+- read control branch;
+- create isolated worktree;
+- invoke selected Agent;
+- validate local/remote Git state;
+- push authorized task result;
+- publish review event.
+
+Not implied:
+
+- alter Policy/BRD;
+- re-route task;
+- change Agent/model silently;
+- push main;
+- merge;
+- deploy;
+- write CHAT review receipt.
+
+### Agent
+
+May operate only within its authorized task/worktree/path contract.
+
+Agent cannot self-accept.
+
+### GitHub Action
+
+Mechanical validator/queue publisher only.
+
+No semantic acceptance.
+
+---
+
+## 23. Token/credit efficiency
+
+Review Watch should not scan the full repo on every run.
+
+Preferred flow:
+
+```text
+read incremental review-event cursor
+  ↓
+read authoritative CHAT review receipts for candidate keys
+  ↓
+reconcile durable event ↔ receipt state
+  ↓
+unseen immutable result remains?
+  ├─ NO → STOP
+  └─ YES
+       ↓
+    intake exact RESULT_COMMIT_SHA / REVIEW_KEY
+       ↓
+    validate event + task/source/policy binding
+       ↓
+    read exact result files + authorized-base diff
+       ↓
+    load only necessary Policy/BRD sections
+```
+
+`Issue`/label state may accelerate discovery but is never the STOP condition. `NO → STOP` is permitted only **after durable review-event ↔ authoritative-receipt reconciliation** proves there is no unseen result. Implementations should use an incremental cursor/delta rather than scan the full repository.
+
+Do not reread the entire Policy when an exact Policy hash/version binding is already verified and only a scoped section is needed.
+
+---
+
+## 24. Implementation work packages
+
+### 24.0 Phase prerequisite rule
+
+A later phase cannot be certified solely because its code exists. Each phase requires the preceding gate evidence plus its own negative tests. In particular: receive-only trust/provenance precedes execution; durable claim/recovery precedes Agent launch certification; remote blob/ancestry verification precedes `REVIEW_READY`; durable review event reconciliation precedes queue automation; and background CHAT review capability must be piloted before closed-loop certification.
+
+
+### Phase 0 — Machine readiness
+
+**BRG-001 — Local prerequisite audit/install**
+
+- Git;
+- PowerShell;
+- Python;
+- gh;
+- Codex CLI;
+- Copilot CLI;
+- VS Code;
+- auth and PATH;
+- create Bridge root/venv/worktree root.
+
+No FOX2 source modification.
+
+### Phase 1 — Receive-only Bridge
+
+**BRG-010 — Bridge Core**
+- Python package;
+- config;
+- logging;
+- SQLite;
+- process lock.
+
+**BRG-020 — Dispatch Poller**
+- poll control branch;
+- discover immutable dispatch.
+
+**BRG-030 — Dispatch Validator**
+- Schema v1.2 Candidate;
+- hash/identity validation;
+- replay guard.
+
+**BRG-040 — Runtime Attestation**
+- CLI/auth/Git/repo/branch/base/model/WIP/writer checks.
+
+Checkpoint A result:
+
+```text
+CHAT → Git → Local Bridge
+```
+
+works, but Agent is not launched.
+
+### Phase 2 — Local Agent execution
+
+**BRG-050 — Worktree Manager**
+
+**BRG-060 — Codex/Copilot Adapters**
+
+**BRG-070 — Execution Supervisor**
+
+**BRG-080 — Result Inspector / Contract**
+
+Checkpoint B:
+
+```text
+Bridge → Agent → local result
+```
+
+works, initially without remote result delivery.
+
+### Phase 3 — Git result delivery
+
+**BRG-090 — Task result commit/push**
+
+**BRG-091 — Remote Push Verification**
+
+Checkpoint C:
+
+```text
+Agent → GitHub → PUSHED_UNREVIEWED
+```
+
+### Phase 4 — Review event and queue
+
+**BRG-092 — Review Event Schema**
+
+**BRG-093 — Review Event Emitter + branch**
+
+**BRG-094 — GitHub Action mechanical validator**
+
+**BRG-095 — GitHub Issue Review Queue**
+
+Checkpoint D:
+
+```text
+GitHub result → REVIEW_READY → queue
+```
+
+### Phase 5 — CHAT review loop
+
+**BRG-096 — CHAT Auto Review Intake Contract**
+
+**BRG-097 — Immutable-SHA Review Algorithm**
+
+**BRG-098 — Review Receipt Schema/Writer**
+
+**BRG-099 — REWORK/BLOCKED routing**
+
+### Phase 6 — Certification
+
+**BRG-100 — Independent closed-loop audit**
+
+**BRG-101 — E2E certification**
+
+**BRG-102 — Enable scheduled Review Watch / autostart**
+
+---
+
+
+### 24.1 Control acceptance ownership added by WORK redline
+
+- **BRG-010:** singleton/process ownership and durable ledger boundary; restart must not create a second active owner.
+- **BRG-030:** schema v1.2 Candidate, selected trust mechanism/provisioning, same `dispatch_id` with different payload negative case, raw-byte validation.
+- **BRG-050:** exact-base worktree creation, moving-branch race rejection, Windows path/junction collision and ownership checks.
+- **BRG-060/070:** requested/resolved/observed Agent configuration, sandbox/credential boundary, timeout/cancel/crash recovery and owned process-tree termination.
+- **BRG-080/090:** ResultInspector must pass before Bridge publication; Agent cannot bypass Inspector or directly push with publisher credentials.
+- **BRG-091:** repository/ref/base ancestry, exact remote commit and raw remote blob readback.
+- **BRG-093/095:** outbox retry/idempotency plus event↔queue↔receipt reconciliation without Issue dependence.
+- **BRG-096/098:** durable review claim, receipt CAS/conflict, full immutable binding and explicit supersession disposition.
+- **BRG-100/101:** negative evidence for trust, isolation, replay, branch race, claim race and missing-queue recovery; not happy-path-only.
+- **BRG-102:** capability pilot PASS for background read → exact review → authenticated receipt write → remote readback before closed-loop enablement.
+
+
+## 25. Release gates
+
+### Gate A — Transport / trust provenance
+
+```text
+CHAT → Git dispatch → Bridge receive/validate
+```
+
+No Agent launch.
+
+### Gate B — Local execution / durable claim and isolation
+
+```text
+Bridge → Agent → local result
+```
+
+No automatic result push initially.
+
+### Gate C — Result delivery / remote bytes and ancestry
+
+```text
+Agent → Git result → remote SHA verified
+```
+
+### Gate D — Review signal / durable outbox and reconciliation
+
+```text
+remote result → REVIEW_READY → queue
+```
+
+### Gate E — CHAT review dry-run / receipt CAS
+
+CHAT reviews result but does not write review receipt automatically.
+
+### Gate F — Closed-loop production / capability pilot
+
+Enable:
+
+- automatic review receipt;
+- queue state update;
+- scheduled Review Watch;
+- Bridge autostart.
+
+Still disabled:
+
+```text
+AUTO_REWORK_DISPATCH
+AUTO_MERGE
+AUTO_DEPLOY
+```
+
+---
+
+## 26. Core acceptance criteria
+
+- `AC-BRG-001`: Bridge accepts FOX2 only.
+- `AC-BRG-002`: No inbound local port required.
+- `AC-BRG-003`: Main FOX2 workspace is never used as Agent worktree.
+- `AC-BRG-004`: Dispatch hashes are verified before execution.
+- `AC-BRG-005`: Governance decision checks are not duplicated by Bridge.
+- `AC-BRG-006`: Requested Agent/model/mode cannot be silently substituted.
+- `AC-BRG-007`: A dispatch runs at most once.
+- `AC-BRG-008`: Actual Git diff is validated against authorized paths.
+- `AC-BRG-009`: Remote result full SHA is independently verified.
+- `AC-BRG-010`: Agent maximum pre-review state is `PUSHED_UNREVIEWED`.
+- `AC-BRG-011`: REVIEW_READY pins immutable remote result SHA.
+- `AC-BRG-012`: GitHub Action performs no semantic acceptance.
+- `AC-BRG-013`: CHAT reviews exact immutable SHA.
+- `AC-BRG-014`: Scheduled/manual CHAT reviews dedupe.
+- `AC-BRG-015`: REWORK never auto-dispatches.
+- `AC-BRG-016`: ACCEPTED never auto-merges.
+- `AC-BRG-017`: Review receipt remains distinct from Agent result.
+- `AC-BRG-018`: Queue outage cannot destroy the underlying review event.
+- `AC-BRG-019`: Bridge restart cannot replay a completed dispatch.
+- `AC-BRG-020`: No secret is written to queue/review receipts.
+
+---
+
+## 27. Mandatory negative tests
+
+1. Dispatch project != FOX2 → BLOCK.
+2. Repo != `dunglt2505/FOX2` → BLOCK.
+3. Policy hash mismatch → BLOCK.
+4. Prompt hash mismatch → BLOCK.
+5. Task/source hash mismatch → BLOCK.
+6. Branch points to main → BLOCK.
+7. Requested Agent CLI missing → BLOCK.
+8. Requested model unavailable → BLOCK.
+9. WIP/writer collision → BLOCK.
+10. Duplicate dispatch → IGNORE.
+11. Agent exits non-zero → FAILED.
+12. Agent touches forbidden path → no normal push.
+13. Agent claims PASS without executed evidence → CHAT does not accept claim.
+14. Remote result SHA differs from local → unverified.
+15. Fake REVIEW_READY SHA → reject.
+16. Missing `report.md` → BLOCKED_INTAKE.
+17. Invalid manifest → BLOCKED_INTAKE.
+18. Duplicate REVIEW_READY → dedupe.
+19. CHAT review receipt already exists → skip.
+20. Secret in result/evidence → BLOCKED.
+21. Agent writes `ACCEPTED` itself → ignored/violation.
+22. REWORK result auto-launch attempt → prohibited.
+23. ACCEPTED result attempts automatic main merge → prohibited.
+
+---
+
+## 28. Owner interaction model
+
+Execution Routing Selector remains:
+
+### Screen 1
+- `MANUAL_VSCODE`
+- `CONFIGURE_AUTOMATED_AGENT`
+
+Manual VS Code ends Bridge routing.
+
+### Screen 2
+Owner confirms:
+- Agent;
+- model;
+- Thinking/Optimize mode actually supported.
+
+### Screen 3
+- `DISPATCH_VIA_LOCAL_BRIDGE`
+- `BACK_TO_AGENT_CONFIGURATION`
+- `CANCEL_EXECUTION`
+
+Only explicit confirmed Bridge selection creates a dispatch.
+
+If native Intelligent UI is not actually rendered, the UI layer must use clearly identified text fallback semantics rather than pretending Unicode symbols are native controls.
+
+---
+
+## 29. Relationship to FOX2 Policy
+
+This Technical Specification is subordinate implementation design. It translates Policy requirements into concrete mechanisms but does not itself authorize execution.
+
+- Policy defines **what must be true**: authority, gates, evidence properties, state/verdict semantics, STOP/release boundaries.
+- BRD/Data Contract/Acceptance define **what the product must do**.
+- This specification defines **how the Bridge implements those constraints**.
+- If this specification conflicts with Policy or BRD, stop the affected implementation and correct the Technical Specification.
+- Technical version changes do not require Policy/BRD version changes unless their owned semantics change.
+- Candidate v0.3 is designed against the governance decisions in FOX2 Policy V1.8.2 Candidate REV3, but neither candidate is effective until separately approved/released. Released V1.8.1 remains the active Policy meanwhile.
+
+## 30. Candidate decision summary — v0.3
+
+v0.3 intentionally chooses:
+
+```text
+FOX2-only implementation
+single Windows host
+single active execution
+GitHub as outbound-only message bus
+Git control branch for CHAT → Bridge
+isolated Git worktrees
+Codex/Copilot CLI adapters
+Result Contract v2
+verified remote result SHA
+REVIEW_READY event branch
+GitHub Issue review queue
+scheduled CHAT independent review
+no auto-rework
+no auto-merge
+no auto-deploy
+```
+
+**This is deliberately not a generic Trading Bridge framework.**
+
+
+## 31. WORK audit finding closure map — Candidate design disposition
+
+| WORK finding | v0.3 disposition |
+|---|---|
+| F01 stale Policy/schema version coupling | Move Policy version to data-driven binding; require dispatch schema revision before Gate B. |
+| F02 self-declared publisher/Owner confirmation | Add TrustAnchorVerifier and authenticated decision provenance gate. |
+| F03 Agent/credential/push isolation | Add scoped credential/environment/process isolation requirements. |
+| F04 weak HEAD/SHA verification | Require authorized-base ancestry, remote exact blobs/hashes and actual diff verification. |
+| F05 crash between claim/launch | Add durable pre-spawn claim, recovery reconciliation and no automatic ambiguous replay. |
+| F06 state/verdict/receipt inconsistency | Add `ACCEPTED_PARTIAL`; separate delivery, review and authority states. |
+| F07 review receipt race/supersession | Add immutable per-REVIEW_KEY CAS receipt and explicit supersession lineage. |
+| F08 Issue-only discovery loss | Make immutable review event/outbox + reconciliation cursor durable source; Issue is index only. |
+| F09 unproven background review/write | Gate closed-loop on explicit capability pilot; manual fallback preserved. |
+| F10 requested vs actual model | Persist requested/resolved/observed configuration separately; mismatch blocks. |
+| F11 phase prerequisites | Add phase prerequisite rule and strengthen Gates A–F. |
+
+All items remain **design candidates / NOT RUN** until implemented and evidenced.
