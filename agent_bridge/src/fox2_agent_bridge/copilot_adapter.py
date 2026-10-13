@@ -20,8 +20,9 @@ from .paths import validate_path
 
 DEV_SHELL_CAPABILITIES: dict[str, tuple[str, ...]] = {
     "PYTEST": (
-        "shell(python -m pytest)",
-        "shell(python -m pytest:*)",
+        "shell(python -m pytest --version)",
+        "shell(python -m pytest -q)",
+        "shell(python -m pytest tests/m1_p2_01 -q)",
     ),
 }
 
