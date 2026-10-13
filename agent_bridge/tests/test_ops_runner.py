@@ -11,18 +11,29 @@ def test_auto_execute_identity_requires_explicit_opt_in() -> None:
     enabled = json.dumps(
         {
             "dispatch_id": "FOX2-OPS-001",
+            "agent": {"product": "CODEX"},
             "runtime_contract": {"auto_execute": True},
         }
     ).encode("utf-8")
     disabled = json.dumps(
         {
             "dispatch_id": "FOX2-OPS-002",
+            "agent": {"product": "CODEX"},
             "runtime_contract": {"auto_execute": False},
         }
     ).encode("utf-8")
 
     assert BridgeOps._auto_execute_identity(enabled) == (True, "FOX2-OPS-001")
+    copilot = json.dumps(
+        {
+            "dispatch_id": "FOX2-OPS-COPILOT",
+            "agent": {"product": "COPILOT"},
+            "runtime_contract": {"auto_execute": True},
+        }
+    ).encode("utf-8")
+
     assert BridgeOps._auto_execute_identity(disabled) == (False, None)
+    assert BridgeOps._auto_execute_identity(copilot) == (False, None)
     assert BridgeOps._auto_execute_identity(b"not-json") == (False, None)
 
 
