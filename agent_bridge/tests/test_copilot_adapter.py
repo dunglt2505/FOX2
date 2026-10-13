@@ -145,16 +145,18 @@ def test_copilot_e2e_adds_bounded_pytest_permission(
         allow_write=True,
         allow_git=True,
         allowed_shell_tools=(
-            "shell(python -m pytest)",
-            "shell(python -m pytest:*)",
+            "shell(python -m pytest --version)",
+            "shell(python -m pytest -q)",
+            "shell(python -m pytest tests/m1_p2_01 -q)",
         ),
         silent=True,
         no_ask_user=True,
     )
 
     command = observed["command"]
-    assert "--allow-tool=shell(python -m pytest)" in command
-    assert "--allow-tool=shell(python -m pytest:*)" in command
+    assert "--allow-tool=shell(python -m pytest --version)" in command
+    assert "--allow-tool=shell(python -m pytest -q)" in command
+    assert "--allow-tool=shell(python -m pytest tests/m1_p2_01 -q)" in command
     env = observed["env"]
     assert str(Path(__import__("sys").executable).resolve().parent) == env["PATH"].split(
         __import__("os").pathsep, 1
