@@ -1,0 +1,36 @@
+{
+  "document_type": "FOX2_GIT_SYNC_RECEIPT",
+  "project": "FOX2",
+  "date": "2026-10-13",
+  "status": "GIT_SOURCE_READY",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-20261013-RELEASE-SOURCE-SYNC-chat",
+  "library_release_status": "RELEASED_EFFECTIVE",
+  "active_policy_version": "1.8.2",
+  "source_set_commit_full_sha": "c9dc41b97ca8bc58f06cc2f3701832ba083422e3",
+  "source_lock_commit_full_sha": "62e550ae2ecdb89cc63a5c39c66bcb782db372e8",
+  "source_lock_path": "docs/release/FOX2_RELEASE_SOURCE_LOCK_20261013.json",
+  "source_lock_blob_sha": "e56383effe6a377591f21d9587def69dc0ea56ac",
+  "verification": {
+    "library_release_artifacts": "PASS_7_OF_7_EXACT_SHA256",
+    "git_release_artifacts_and_manifests": "PASS_14_OF_14_EXACT_GIT_BLOB",
+    "unchanged_contract_acceptance_roadmap_dependencies": "PASS_6_OF_6_EXACT_GIT_BLOB",
+    "source_lock_remote_readback": "PASS"
+  },
+  "GIT_SOURCE_READY": "YES",
+  "task_source_commit_full_sha": "c9dc41b97ca8bc58f06cc2f3701832ba083422e3",
+  "gates": {
+    "CODE_ALLOWED": "NO",
+    "DEV_GRANT": "NO",
+    "PR_CREATE": "NO",
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO",
+    "AUTOMATED_BRIDGE_GATE_A": "BLOCKED_CAPABILITY_UNAVAILABLE",
+    "CLOSED_LOOP_AUTOMATION": "NOT_VERIFIED"
+  },
+  "next_gate": "Fresh task-specific R0-R7 + exact WP DEV grant before any implementation."
+}
