@@ -1,4 +1,4 @@
-"""Minimal FOX2 dispatch -> worktree -> Copilot CLI -> pushed-result E2E runner."""
+"""FOX2 dispatch -> worktree -> selected local Agent CLI -> pushed-result E2E runner."""
 
 from __future__ import annotations
 
@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .config import REPOSITORY, BridgeConfig
+from .codex_adapter import CodexAdapter
 from .copilot_adapter import DEV_SHELL_CAPABILITIES, CopilotAdapter
 from .dispatch_poller import (
     FULL_SHA_PATTERN,
@@ -34,9 +35,14 @@ from .paths import validate_path
 from .result_store import write_execution_report
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
-_ALLOWED_EXECUTION_PATH = "BRIDGE_DIRECT_COPILOT_CLI"
-_ALLOWED_AGENT_PRODUCT = "COPILOT"
-_ALLOWED_AGENT_INTERFACE = "GITHUB_COPILOT_CLI"
+_AGENT_INTERFACES = {
+    "COPILOT": "GITHUB_COPILOT_CLI",
+    "CODEX": "OPENAI_CODEX_CLI",
+}
+_AGENT_EXECUTION_PATHS = {
+    "COPILOT": "BRIDGE_DIRECT_COPILOT_CLI",
+    "CODEX": "BRIDGE_DIRECT_CODEX_CLI",
+}
 
 
 @dataclass(frozen=True)
@@ -52,12 +58,13 @@ class E2EResult:
     before_head: str
     after_head: str
     changed_paths: tuple[str, ...]
-    copilot_exit_code: int
-    copilot_stdout: str
-    copilot_stderr: str
+    agent_product: str
+    agent_exit_code: int
+    agent_stdout: str
+    agent_stderr: str
 
     def as_dict(self) -> dict[str, object]:
-        return {
+        result: dict[str, object] = {
             "status": self.status,
             "dispatch_id": self.dispatch_id,
             "execution_id": self.execution_id,
@@ -69,14 +76,20 @@ class E2EResult:
             "before_head": self.before_head,
             "after_head": self.after_head,
             "changed_paths": list(self.changed_paths),
-            "copilot_exit_code": self.copilot_exit_code,
-            "copilot_stdout": self.copilot_stdout,
-            "copilot_stderr": self.copilot_stderr,
+            "agent_product": self.agent_product,
+            "agent_exit_code": self.agent_exit_code,
+            "agent_stdout": self.agent_stdout,
+            "agent_stderr": self.agent_stderr,
         }
+        prefix = self.agent_product.lower()
+        result[f"{prefix}_exit_code"] = self.agent_exit_code
+        result[f"{prefix}_stdout"] = self.agent_stdout
+        result[f"{prefix}_stderr"] = self.agent_stderr
+        return result
 
 
 class BridgeE2ERunner:
-    """Execute one immutable, single-use FOX2 Copilot dispatch."""
+    """Execute one immutable, single-use FOX2 Agent dispatch."""
 
     def __init__(
         self,
@@ -247,12 +260,19 @@ class BridgeE2ERunner:
             raise DispatchInvalid("base_sha must be a full immutable SHA")
 
         agent = self._required_mapping(payload, "agent")
-        if agent.get("product") != _ALLOWED_AGENT_PRODUCT:
-            raise DispatchInvalid("agent.product must be COPILOT")
-        if agent.get("interface") != _ALLOWED_AGENT_INTERFACE:
-            raise DispatchInvalid("agent.interface must be GITHUB_COPILOT_CLI")
-        if payload.get("execution_path") != _ALLOWED_EXECUTION_PATH:
-            raise DispatchInvalid("execution_path must be BRIDGE_DIRECT_COPILOT_CLI")
+        agent_product = self._required_string(agent, "product")
+        expected_interface = _AGENT_INTERFACES.get(agent_product)
+        if expected_interface is None:
+            raise DispatchInvalid("agent.product must be COPILOT or CODEX")
+        if agent.get("interface") != expected_interface:
+            raise DispatchInvalid(
+                f"agent.interface must be {expected_interface} for {agent_product}"
+            )
+        expected_execution_path = _AGENT_EXECUTION_PATHS[agent_product]
+        if payload.get("execution_path") != expected_execution_path:
+            raise DispatchInvalid(
+                f"execution_path must be {expected_execution_path} for {agent_product}"
+            )
 
         prompt = self._required_mapping(payload, "prompt")
         prompt_commit = self._required_string(prompt, "git_commit")
@@ -314,8 +334,14 @@ class BridgeE2ERunner:
         if not code_paths and not report_paths:
             raise DispatchInvalid("dispatch must allow at least one write path")
 
-        payload["_copilot_shell_tools"] = list(
-            self._resolve_dev_shell_tools(payload)
+        copilot_shell_tools = self._resolve_dev_shell_tools(payload)
+        if agent_product == "CODEX" and copilot_shell_tools:
+            raise DispatchInvalid(
+                "CODEX dispatch must not request Copilot dev_shell_capabilities"
+            )
+        payload["_agent_product"] = agent_product
+        payload["_copilot_shell_tools"] = (
+            list(copilot_shell_tools) if agent_product == "COPILOT" else []
         )
         payload["_observed_dispatch_blob_sha"] = observed_blob_sha
         payload["_payload_sha256"] = hashlib.sha256(raw).hexdigest()
