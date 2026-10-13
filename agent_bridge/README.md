@@ -1,36 +1,80 @@
 # FOX2 Local Agent Bridge
 
-BRG-010/020 provide the FOX2-specific local foundation: typed TOML
-configuration, structured redacted logs, a versioned SQLite ledger, a process
-singleton lock, runtime executable discovery, a health command, and read-only
-discovery of candidate dispatch files from the fixed FOX2 control branch.
-Discovered files remain unvalidated candidates; no agent is executed.
+The Bridge is the FOX2-only local relay between immutable Git dispatches and
+supported local agents. The current Operational MVP supports Git-backed
+dispatch discovery, exact worktree resolution, GitHub Copilot CLI execution,
+single-use replay protection, result verification, durable execution status,
+startup recovery of interrupted runs, and one-dispatch operational polling.
 
-## Environment
+## Source and runtime model
 
-Use only the project virtual environment:
+GitHub `dunglt2505/FOX2` under `agent_bridge/**` is the source of truth.
+Development happens in task worktrees under `C:\Projects\FOX2-worktrees`.
+`C:\Projects\FOX2-AgentBridge` is runtime state only: Python environment,
+SQLite ledger, logs, Git transport objects, lock file, and runtime result JSON.
+
+Do not develop directly in `C:\Projects\FOX2` or treat the runtime folder as
+authoritative source.
+
+## Operational commands
+
+From the Bridge source worktree:
 
 ```powershell
-C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe -m pip install -e "C:\Projects\FOX2-AgentBridge[dev]"
-C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe -m pytest "C:\Projects\FOX2-AgentBridge\tests"
-C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe -m fox2_agent_bridge health
-C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe -m fox2_agent_bridge poll-once
+.\agent_bridge\scripts\bridge_ops.ps1 status
+.\agent_bridge\scripts\bridge_ops.ps1 health
+.\agent_bridge\scripts\bridge_ops.ps1 poll-once
+.\agent_bridge\scripts\bridge_ops.ps1 run-next
 ```
 
-The optional configuration file can be copied from `config\bridge.example.toml`
-to `config\bridge.toml`, then supplied with `health --config <path>`. Do not put
-credentials or other secrets in configuration.
+`run-next` only executes a dispatch that explicitly opts in with:
 
-`poll-once` performs a read-only poll of
-`dunglt2505/FOX2` branch `work/FOX2-LOCAL-DISPATCH-chat`. Git objects and poll
-observations are stored under the Bridge `data` directory, not in the FOX2
-working tree. A missing branch is reported as `CONTROL_BRANCH_UNAVAILABLE`;
-the command does not create it.
+```json
+{
+  "runtime_contract": {
+    "auto_execute": true
+  }
+}
+```
 
-## Scope boundary
+Historical canaries and normal dispatches without that flag are never selected
+automatically. A selected dispatch remains single-use.
 
-This is a FOX2-only package. Project identity and repository are fixed to
-`FOX2` and `dunglt2505/FOX2`. Polling only inventories candidate paths and
-records immutable Git object identities; it does not validate dispatch
-authorization or content. Prompt execution, worktree creation, result pushes,
-and review events are not implemented.
+For one exact diagnostic dispatch, `e2e-once --dispatch-path ...` remains
+available, but normal operation should use `run-next`.
+
+## Execution states
+
+The SQLite ledger persists dispatch and execution state. Typical terminal
+states are:
+
+- `PUSHED_UNREVIEWED`: agent result was committed, pushed, and verified.
+- `FAILED`: execution or verification failed.
+- `INTERRUPTED`: execution was interrupted locally or recovered on next
+  Bridge startup after the previous Bridge process ended.
+
+An interrupted single-use dispatch is not automatically retried. A new
+dispatch id is required.
+
+Detailed successful results and failure information are persisted in SQLite.
+The Bridge also writes a best-effort runtime JSON snapshot under:
+
+`C:\Projects\FOX2-AgentBridge\data\results\<dispatch_id>.json`
+
+Use:
+
+```powershell
+.\agent_bridge\scripts\bridge_ops.ps1 status -DispatchId <dispatch_id>
+```
+
+to inspect one dispatch.
+
+## Safety boundary
+
+Operational MVP does not merge, open PRs, touch main, deploy, write to
+provider/broker/LIVE systems, or reevaluate FOX2 governance. It executes only
+an already-authorized immutable dispatch and verifies the result against the
+dispatch branch/path constraints.
+
+One writer owns one branch/worktree for one execution. VS Code Copilot,
+Bridge Copilot CLI, and Codex must not write concurrently to the same worktree.
