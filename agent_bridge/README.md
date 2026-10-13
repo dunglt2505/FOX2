@@ -58,10 +58,11 @@ A dispatch can opt into a Bridge-owned capability name:
 }
 ```
 
-`PYTEST` maps only to the documented Copilot CLI permissions for
-`python -m pytest` (with or without arguments). The Bridge rejects unknown
-capability names and the Copilot adapter independently rejects raw shell
-patterns outside its safe catalog. Arbitrary shell, PowerShell, package
+`PYTEST` maps only to a small exact command catalog: `python -m pytest --version`,
+`python -m pytest -q`, and `python -m pytest tests/m1_p2_01 -q`. The Bridge does
+not grant `shell(python:*)` or arbitrary pytest arguments. The Bridge rejects
+unknown capability names and the Copilot adapter independently rejects raw
+shell patterns outside its safe catalog. Arbitrary shell, PowerShell, package
 installation, provider/network tooling, broker commands, and LIVE operations
 are not granted by this capability.
 
@@ -82,7 +83,7 @@ states are:
 An interrupted single-use dispatch is not automatically retried. A new
 dispatch id is required.
 
-Detailed successful results and failure information are persisted in SQLite.
+Detailed successful results and failure information are persisted in SQLite. When Copilot exits but result verification fails, its captured stdout/stderr is also persisted so the next diagnosis does not lose the Agent's explanation.
 The Bridge also writes a best-effort runtime JSON snapshot under:
 
 `C:\Projects\FOX2-AgentBridge\data\results\<dispatch_id>.json`
