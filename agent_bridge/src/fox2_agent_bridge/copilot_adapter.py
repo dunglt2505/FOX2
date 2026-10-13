@@ -77,6 +77,11 @@ class CopilotAdapter:
         worktree: Path,
         prompt: str,
         timeout_seconds: int = 120,
+        allow_write: bool = False,
+        allow_git: bool = False,
+        allow_github_url: bool = False,
+        silent: bool = False,
+        no_ask_user: bool = False,
     ) -> CopilotRunResult:
         if not isinstance(prompt, str) or not prompt.strip():
             raise ToolExecFailed("Copilot prompt must be non-empty")
@@ -93,6 +98,16 @@ class CopilotAdapter:
             "--prompt",
             prompt,
         ]
+        if silent:
+            command.append("-s")
+        if no_ask_user:
+            command.append("--no-ask-user")
+        if allow_write:
+            command.append("--allow-tool=write")
+        if allow_git:
+            command.append("--allow-tool=shell(git:*)")
+        if allow_github_url:
+            command.append("--allow-url=github.com")
         environment = {
             **os.environ,
             "GIT_TERMINAL_PROMPT": "0",
