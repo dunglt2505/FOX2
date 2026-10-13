@@ -1,0 +1,41 @@
+# FOX2 M1-P2-03 delivery
+
+DSM offline source selection is implemented within the authorized scope. Delivery state is READY_FOR_BRIDGE_COMMIT_PUSH; review and canonical acceptance remain open. No Git mutation or remote action was performed.
+
+Worktree: `C:\Projects\FOX2-worktrees\FOX2-M1-P2-03-CODEX`. Branch: `work/FOX2-M1-P2-03-dsm-codex`. Clean initial HEAD/executable handoff: `b0b1168a51275b8c94940f455860bee24c0aff0f`. Accepted P2-02 base: `f70f0237356c4f27afb0e6760b01870228ba3739`. Design lock commit: `97b68bd67ef84675dabcfdd656f95ffb7d78511e`; verified blob: `22745ab75b804697db5cb4907ba77c266814f42b`. Both immutable task documents were read completely before editing. Source hashes and upstream preservation checks are in the evidence manifest and source readback. No governance/task document was changed.
+
+Agent: Codex, GPT-6 family identity; exact configured model variant, thinking effort and quota are NOT_EXPOSED. Single implementation writer; no agents were spawned. Initial clean status and exact attached worktree verified; external writer activity cannot be exhaustively observed. Final commit SHA and remote readback SHA: NOT_RUN / BRIDGE_OWNED, as explicitly instructed by the user. PUSHED_UNREVIEWED is a later Bridge boundary, not a claimed current state.
+
+`DataSourceManager` implements the frozen select signature. Each call reads only the requested capability at the trusted UTC clock, reevaluates rights and expiry, invokes the existing semantic validator, and requires explicit capability policy evidence. It never caches a positive decision or falls back across capabilities. Missing, unsafe, malformed, fixture, stale, native-unverified, rights-blocked and ambiguous candidates return existing typed unavailable reasons. Local reads always require retained-use rights as well as the exact use-context rights. Real SQLite revocation blocks subsequent selection.
+
+Frozen `CapabilityPolicy` inputs bind the freshness budget, policy version, calendar and session to the observation and supply mapping, coverage, relevant-gap, adjustment and transport/subscription evidence. No provider threshold is invented. Currency uses `as_of`; an old event can represent no trades when the current snapshot and explicit session/calendar/gap evidence are valid. Missing amounts remain null. Historical bars cannot satisfy quotes. Bars gaps, incomplete coverage, unknown sessions, unresolved adjustments and unsafe finality fail closed. Provider-native-unverified observations remain diagnostic-only.
+
+The runtime defaults to provider disabled and contains no transport, refresh, retry, scheduler or backfill path. Enabling the provider flag returns UNKNOWN with NOT_INTEGRATED audit diagnostics without a store read or network construction. Frozen SourceHealth remains UNKNOWN/UNAVAILABLE with NOT_INTEGRATED for all capabilities. INVESTOR rejects isolated-test, synthetic and fixture data. A test-only metadata candidate exercises the verified local-store branch without contacting or certifying a provider.
+
+Every returned decision has a fresh sanitized audit ID. Audit records are frozen and contain fixed reason codes, evaluation time, typed request context and SHA-256 identifiers for request/source/record identities; no raw provider identifiers, payloads or exception messages are logged. Positive observations receive audit metadata through a deep immutable DTO copy; persisted objects and nested lists remain untouched. Injected clock, policies, store and audit callback are trusted local dependencies. Invalid UTC clock configuration raises a sanitized configuration error; callback failure propagates rather than claiming a successfully recorded audit.
+
+Changed files are limited to `backend/src/fox2/dsm/**`, `tests/p2_03/**` and this result directory. The manifest lists exact paths and hashes. All frozen P2-01/P2-02 implementation/tests, pyproject, provider/API/frontend/Bridge and documents remain unchanged against accepted P2-02. Policy V1.8.5 and Routing V1.2.6 are absent from this checkout; their existing local Git blobs are verified at the separate source commit pinned by accepted P2-02's source receipt, without fetching or substituting newer sources.
+
+Verification: 98 P2-03 tests PASS; 175 upstream regression tests PASS, with two obsolete stage assertions deselected. The exploratory full upstream run had 175 PASS and two failures: P2-02's `test_domain_dependency_boundary_for_p2_02_stage` requires DSM to be absent, and P2-01's `test_domain_dependency_boundary` requires both store and DSM absent. Those frozen tests were preserved. DSM has its own current import-boundary test. Syntax/import checks, changed-path allowlist, upstream preservation, obvious-secret scan, evidence hash verification and `git diff --check` PASS. Untracked new files receive explicit trailing-whitespace/syntax checks during evidence sealing because Git diff does not inspect untracked content.
+
+Reproduce with the preinstalled system Python: `python -B reports/FOX2-M1-P2-03/evidence/run_checks.py`. Exact interpreter and pytest arguments are recorded in `evidence/quality.json`. Required suite is `python -B -m pytest tests/p2_03 -p no:cacheprovider -q --tb=short`, supplemented here by `-p temp_support` and a unique `--basetemp`; regression uses `tests/p2_02 tests/p2_01 -k "not test_domain_dependency_boundary"`. Set PYTHONPATH to `tests/p2_03` and `backend/src` for the compatibility plugin. Default Bridge Python lacked pydantic and repository venv lacked pytest; existing system Python already had all dependencies. No package was installed. Python 3.13 pytest mode-0700 directories replaced inherited Windows ACLs and denied the managed token; the explicit test-only plugin uses normal inherited permissions for newly created test temp directories. It does not change existing ACLs or sandbox authorization. Temporary SQLite databases are outside Git, as required by the frozen store's path safety policy.
+
+Zero socket/DNS attempts are asserted at teardown of every P2-03 test, including provider-disabled/enabled-without-integration cases. The fixture denies socket connect/connect_ex/bind/listen/send/sendall/sendto and connection/DNS helpers. AST import checks show no provider/API/frontend/Bridge or concrete store implementation dependency in DSM. This proves the executed offline boundary; it is not a provider transport certification.
+
+| Existing acceptance ID | Offline subcase | Remaining canonical status | Evidence tests |
+| --- | --- | --- | --- |
+| FOX2-06-T02 | PASS | PARTIAL | test_stale_snapshot; test_candidate_guards; test_live_transport_evidence_required |
+| FOX2-06-T03 | PASS | PARTIAL | test_no_trade_event_age_and_null_not_outage |
+| FOX2-06-T04 | PASS | PARTIAL | test_no_trade_event_age_and_null_not_outage |
+| FOX2-06-T07 | PASS | PARTIAL | test_stale_snapshot; test_live_transport_evidence_required |
+| FOX2-06-T08 | PASS | PARTIAL | test_bars_evidence; upstream bars correction/finality tests |
+| FOX2-06-T09 | PASS | PARTIAL | test_rights_matrix; test_expiry_rechecked_without_cache; test_missing_rights_evidence; test_provider_boundary |
+| FOX2-06-T15 | PASS | PARTIAL | test_all_health_diagnostic_only; test_positive_fresh_audit_immutable_copy |
+| FOX2-06-T16 | PASS | PARTIAL | test_import_boundary_and_syntax; test_investor_verified_local_candidate_and_sanitized_audit; no_network fixture; secret scan |
+| FOX2-06-T18 | PASS | PARTIAL | test_candidate_guards; test_policy_guards; test_malformed_candidate_and_store_failure_audited |
+| FOX2-N1-T01 | PASS | PARTIAL | test_absence_preserved_without_timestamps |
+| FOX2-N1-T02 | PASS | PARTIAL | test_rights_matrix; test_candidate_guards; test_live_transport_evidence_required |
+| FOX2-N1-T07 | PASS | PARTIAL | test_real_store_revocation_no_fallback; upstream rights revocation regressions |
+| FOX2-N1-T09 | PASS | PARTIAL | test_no_trade_event_age_and_null_not_outage |
+
+Provider credentials, licensing verification, real transport disconnect/session behavior, provider-native mappings, provider timing/gaps/revisions, API, UI, broker/account/orders, Production, LIVE and deployment are NOT_RUN. No canonical/provider/API/UI obligation is marked PASS. This implementation requires explicit local evidence and later authorized integration; it does not grant provider capability or wire application startup.

@@ -1,0 +1,102 @@
+{
+  "results": {
+    "p2_03": {
+      "command": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/p2_03",
+        "-p",
+        "temp_support",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "--tb=short",
+        "--basetemp",
+        "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\fox2-p203-f956fd37dacd4919bbcdcdf7bb72b8c5"
+      ],
+      "exit_code": 0,
+      "output": "p2_03.txt"
+    },
+    "upstream_regression": {
+      "command": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/p2_02",
+        "tests/p2_01",
+        "-p",
+        "temp_support",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "--tb=short",
+        "-k",
+        "not test_domain_dependency_boundary",
+        "--basetemp",
+        "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\fox2-p203-865b28e7bd0341759ee84c1e6d3275e7"
+      ],
+      "exit_code": 0,
+      "output": "upstream_regression.txt"
+    },
+    "diff_check": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": "diff_check.txt"
+    }
+  },
+  "changed_paths": [
+    "backend/src/fox2/dsm/__init__.py",
+    "backend/src/fox2/dsm/manager.py",
+    "reports/FOX2-M1-P2-03/evidence/diff_check.txt",
+    "reports/FOX2-M1-P2-03/evidence/p2_03.txt",
+    "reports/FOX2-M1-P2-03/evidence/quality.json",
+    "reports/FOX2-M1-P2-03/evidence/run_checks.py",
+    "reports/FOX2-M1-P2-03/evidence/upstream_regression.txt",
+    "reports/FOX2-M1-P2-03/report.md",
+    "tests/p2_03/conftest.py",
+    "tests/p2_03/temp_support.py",
+    "tests/p2_03/test_selection.py"
+  ],
+  "allowlist": "PASS",
+  "upstream_frozen_files_unchanged": "PASS",
+  "syntax_import_tests": [
+    "backend/src/fox2/dsm/manager.py",
+    "backend/src/fox2/dsm/__init__.py",
+    "tests/p2_03/conftest.py",
+    "tests/p2_03/temp_support.py",
+    "tests/p2_03/test_selection.py"
+  ],
+  "obvious_secret_scan": "PASS",
+  "scanned_files": [
+    "backend/src/fox2/dsm/manager.py",
+    "backend/src/fox2/dsm/__init__.py",
+    "tests/p2_03/conftest.py",
+    "tests/p2_03/temp_support.py",
+    "tests/p2_03/test_selection.py",
+    "reports/FOX2-M1-P2-03/report.md",
+    "reports/FOX2-M1-P2-03/evidence/diff_check.txt",
+    "reports/FOX2-M1-P2-03/evidence/p2_03.txt",
+    "reports/FOX2-M1-P2-03/evidence/quality.json",
+    "reports/FOX2-M1-P2-03/evidence/run_checks.py",
+    "reports/FOX2-M1-P2-03/evidence/upstream_regression.txt"
+  ],
+  "network": {
+    "socket_dns_attempts": 0,
+    "proof": "autouse denial fixture on every P2-03 test; teardown asserts zero",
+    "provider_construction_paths": 0,
+    "import_boundary": "AST assertions restrict DSM to stdlib/contracts/ports/validation"
+  },
+  "initial_failures": [
+    "Bridge Python missing pydantic; repository venv missing pytest; no installation performed.",
+    "Python 3.13 pytest mode 0700 temp directories denied managed token; inherited-ACL test plugin used.",
+    "Initial fixture serialization and import-boundary assertion errors fixed in P2-03 tests.",
+    "Full upstream exploratory run: 175 passed, 2 obsolete stage-boundary assertions failed; frozen tests unchanged."
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "work_package": "FOX2-M1-P2-03",
+  "state": "READY_FOR_BRIDGE_COMMIT_PUSH",
+  "initial_head": "b0b1168a51275b8c94940f455860bee24c0aff0f",
+  "accepted_upstream": "f70f0237356c4f27afb0e6760b01870228ba3739",
+  "branch": "work/FOX2-M1-P2-03-dsm-codex",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-P2-03-CODEX",
+  "final_commit_sha": null,
+  "remote_readback_sha": null,
+  "git_delivery": "BRIDGE_OWNED_NOT_RUN",
+  "model_variant": "NOT_EXPOSED",
+  "thinking": "NOT_EXPOSED",
+  "quota": "NOT_EXPOSED",
+  "tests": {
+    "p2_03": {
+      "command": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/p2_03",
+        "-p",
+        "temp_support",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "--tb=short",
+        "--basetemp",
+        "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\fox2-p203-f956fd37dacd4919bbcdcdf7bb72b8c5"
+      ],
+      "exit_code": 0,
+      "output": "p2_03.txt"
+    },
+    "upstream_regression": {
+      "command": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/p2_02",
+        "tests/p2_01",
+        "-p",
+        "temp_support",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "--tb=short",
+        "-k",
+        "not test_domain_dependency_boundary",
+        "--basetemp",
+        "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\fox2-p203-865b28e7bd0341759ee84c1e6d3275e7"
+      ],
+      "exit_code": 0,
+      "output": "upstream_regression.txt"
+    },
+    "diff_check": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": "diff_check.txt"
+    }
+  },
+  "checks": {
+    "changed_path_allowlist": "PASS",
+    "preexisting_tracked_files_unchanged": "PASS",
+    "secret_scan": "PASS",
+    "all_new_files_whitespace": "PASS",
+    "git_diff_check": "PASS",
+    "source_blob_readback": "PASS",
+    "network_attempts": 0,
+    "evidence_hashes": "SHA256 listed and independently reread during sealing"
+  },
+  "acceptance": [
+    {
+      "id": "FOX2-06-T02",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T03",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T04",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T07",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T08",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T09",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T15",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T16",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-06-T18",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-N1-T01",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-N1-T02",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-N1-T07",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    },
+    {
+      "id": "FOX2-N1-T09",
+      "offline_subcase": "PASS",
+      "canonical": "PARTIAL",
+      "provider_api_ui": "NOT_RUN",
+      "mapping": "report.md acceptance table"
+    }
+  ],
+  "not_run": [
+    "provider",
+    "API",
+    "frontend",
+    "LIVE",
+    "Production",
+    "broker/account",
+    "deployment",
+    "commit/push"
+  ],
+  "files": [
+    {
+      "path": "backend/src/fox2/dsm/__init__.py",
+      "sha256": "5a5b66b41f785d1d99da86a765e98e9296f2748b8f41c1fda3bc4b1ecfe914f1",
+      "bytes": 231
+    },
+    {
+      "path": "backend/src/fox2/dsm/manager.py",
+      "sha256": "5982cd52026e39f32417a5818352fff441f610ae6dda7b264288d14366a51ac9",
+      "bytes": 9878
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/diff_check.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/final_checks.json",
+      "sha256": "461253b9fb0d7f34926b1d877503e5808b24767470a9dfb6030c85e60982b294",
+      "bytes": 324
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/p2_03.txt",
+      "sha256": "656d21f764f5f0ef22e6fe668795a63c49d2c594f4659b89e1c9e58516d8cec2",
+      "bytes": 182
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/quality.json",
+      "sha256": "08e8300b4ffd05e6243fdc67206dd49fed3cff4936ce1039f2f242f52f93ddb8",
+      "bytes": 3415
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/run_checks.py",
+      "sha256": "1970163d0c578d064a30dce91bfdca4a47120c84abeaae74593796aa6ecb7af7",
+      "bytes": 4300
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/seal_evidence.py",
+      "sha256": "63ef75487f082cad34ff150bc1f7bd9ae3d496c349a9a89037695ca8892d6d9f",
+      "bytes": 5414
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/source_readback.json",
+      "sha256": "2ac1303229adc74555506eebea1a78f776f16f86ce3df6ddcebaed03725b47cc",
+      "bytes": 3383
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/evidence/upstream_regression.txt",
+      "sha256": "71a25c7a1f60cf4b2a7ab5cea5b2c3ab891b9f0b182fbf744ce5f31304549c87",
+      "bytes": 278
+    },
+    {
+      "path": "reports/FOX2-M1-P2-03/report.md",
+      "sha256": "87fd903f956660326405e58af8070d911cdde0e65786e817b9b7021cb89e01d4",
+      "bytes": 8320
+    },
+    {
+      "path": "tests/p2_03/conftest.py",
+      "sha256": "53a145eec88aa24636955ba6644280927b05d03d29ab8effc134aca3e176317e",
+      "bytes": 1066
+    },
+    {
+      "path": "tests/p2_03/temp_support.py",
+      "sha256": "4de7144945b627b579a9d954a04bc1be60b5364ac4c93aeae36b5098b48afce7",
+      "bytes": 646
+    },
+    {
+      "path": "tests/p2_03/test_selection.py",
+      "sha256": "2664cb99de47db7851e3479e17c1e2736e204cf604b20e6aa639969aba836b6e",
+      "bytes": 13465
+    }
+  ]
+}

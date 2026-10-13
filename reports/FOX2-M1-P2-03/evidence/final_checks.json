@@ -1,0 +1,10 @@
+{
+  "changed_path_allowlist": "PASS",
+  "preexisting_tracked_files_unchanged": "PASS",
+  "secret_scan": "PASS",
+  "all_new_files_whitespace": "PASS",
+  "git_diff_check": "PASS",
+  "source_blob_readback": "PASS",
+  "network_attempts": 0,
+  "evidence_hashes": "SHA256 listed and independently reread during sealing"
+}

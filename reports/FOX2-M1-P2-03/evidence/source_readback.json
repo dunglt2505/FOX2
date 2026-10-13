@@ -1,0 +1,77 @@
+[
+  {
+    "path": "docs/governance/FOX2_POLICY_V1.8.5.md",
+    "commit": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+    "blob": "5b38b6bd6776b5ef3a771ba2297f4565c2d9abed",
+    "location": "accepted_receipt_pinned_local_git_object",
+    "sha256": "c4fa7bd6759bbce160ab113d83f007d082a0f3d167e41256bb39570db358302e"
+  },
+  {
+    "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_6_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "commit": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+    "blob": "263966d1c5e0eb3900a73c2f1327312f2cf94ec9",
+    "location": "accepted_receipt_pinned_local_git_object",
+    "sha256": "bd9d66962782f552646a0ab93a5f121ca9d1fcff74d965495d3ce88dd001aa20"
+  },
+  {
+    "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "e4a95b97039d482085996afbfad232b789d1b236",
+    "location": "worktree",
+    "sha256": "65d9b36697b5333a9b1e5fcba88f3f4bbc786fc33cc6ed585288f4366057fb5f"
+  },
+  {
+    "path": "docs/roadmap/FOX2_M1_P2_WP_PLAN_v0.1.md",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "6612f7d05b4724be396214e5446eb685e58979c9",
+    "location": "worktree",
+    "sha256": "210e28fd7caeecaca6edf7b71c7f39d769ee2be2d51b399ffec989bd57e4180b"
+  },
+  {
+    "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "369a893a83dd140ce423c032784941a22d4a443e",
+    "location": "worktree",
+    "sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2"
+  },
+  {
+    "path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "fa395662b772658d782b46718b7eb8392f6bbf76",
+    "location": "worktree",
+    "sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52"
+  },
+  {
+    "path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+    "location": "worktree",
+    "sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92"
+  },
+  {
+    "path": "docs/brd_mirror/FOX2-BRD-06_v0.5.md",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "ee912b39cd009ba89a50cb28e4a3a6e76b52b5df",
+    "location": "worktree",
+    "sha256": "219bb65541787d7008de52b259260831f6284dbf830c40e013b77d92da80a8b9"
+  },
+  {
+    "path": "docs/brd_mirror/FOX2-BRD-08_v0.5.md",
+    "commit": "f70f0237356c4f27afb0e6760b01870228ba3739",
+    "blob": "66853c784c578c4cc75addd5bbf8ce565dd77d9e",
+    "location": "worktree",
+    "sha256": "86c096d09f5d06225d63dd220a357dd3b458e80f5d3de36f986ddd5cd917af45"
+  },
+  {
+    "path": "docs/agent_handoff/M1/P2-03/FOX2_M1_P2_03_DSM_SOURCE_DESIGN_LOCK_20261014.md",
+    "commit": "97b68bd67ef84675dabcfdd656f95ffb7d78511e",
+    "blob": "22745ab75b804697db5cb4907ba77c266814f42b",
+    "sha256": "b8733d5dcf5bcfd3b579ec692934ede114fd9087604e995da72654ef6b7c7c63"
+  },
+  {
+    "path": "docs/agent_handoff/M1/P2-03/FOX2_M1_P2_03_CODEX_EXECUTE_20261014.md",
+    "commit": "b0b1168a51275b8c94940f455860bee24c0aff0f",
+    "blob": "51a62d3206ba5671d30dbc23403195e8b3966f97",
+    "sha256": "7a062aa4dfbd848ab7e9f4ed9a8687ac3e5fc9f5e96d38e0663ed3e2d361c8cd"
+  }
+]
