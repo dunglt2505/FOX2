@@ -160,3 +160,64 @@ def test_dispatch_validation_rejects_unknown_dev_shell_capability(
             ),
             observed_blob_sha="e" * 40,
         )
+
+
+def test_dispatch_validation_accepts_codex_cli_route(
+    bridge_config, tmp_path: Path
+) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    runner = BridgeE2ERunner(bridge_config, ledger)
+    payload = _dispatch_payload(
+        bridge_config.worktree_root / "FOX2-BRIDGE-CODEX-CANARY-COPILOT"
+    )
+    payload["agent"] = {
+        "product": "CODEX",
+        "interface": "OPENAI_CODEX_CLI",
+    }
+    payload["execution_path"] = "BRIDGE_DIRECT_CODEX_CLI"
+    payload["runtime_contract"] = {"auto_execute": True}
+    raw = (json.dumps(payload, sort_keys=True) + "\n").encode("utf-8")
+
+    validated = runner._validate_dispatch(
+        raw,
+        dispatch_path=(
+            "docs/agent_handoff/FOX2-BRIDGE-E2E-CANARY/dispatch/"
+            "FOX2-BRIDGE-E2E-CANARY-001.json"
+        ),
+        observed_blob_sha="e" * 40,
+    )
+
+    assert validated["_agent_product"] == "CODEX"
+    assert validated["_copilot_shell_tools"] == []
+
+
+def test_dispatch_validation_rejects_copilot_shell_capability_for_codex(
+    bridge_config, tmp_path: Path
+) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    runner = BridgeE2ERunner(bridge_config, ledger)
+    payload = _dispatch_payload(
+        bridge_config.worktree_root / "FOX2-BRIDGE-CODEX-UNSAFE-COPILOT"
+    )
+    payload["agent"] = {
+        "product": "CODEX",
+        "interface": "OPENAI_CODEX_CLI",
+    }
+    payload["execution_path"] = "BRIDGE_DIRECT_CODEX_CLI"
+    payload["runtime_contract"] = {
+        "auto_execute": True,
+        "dev_shell_capabilities": ["PYTEST"],
+    }
+    raw = (json.dumps(payload, sort_keys=True) + "\n").encode("utf-8")
+
+    with pytest.raises(DispatchInvalid, match="must not request Copilot"):
+        runner._validate_dispatch(
+            raw,
+            dispatch_path=(
+                "docs/agent_handoff/FOX2-BRIDGE-E2E-CANARY/dispatch/"
+                "FOX2-BRIDGE-E2E-CANARY-001.json"
+            ),
+            observed_blob_sha="e" * 40,
+        )
