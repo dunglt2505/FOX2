@@ -98,6 +98,8 @@ def test_codex_exec_uses_workspace_write_and_never_approval(
     command = observed["command"]
     assert command == [
         str(executable.resolve()),
+        "-c",
+        'windows.sandbox="unelevated"',
         "--ask-for-approval",
         "never",
         "exec",
