@@ -1,0 +1,39 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "policy",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "PUBLISH_CHAT_FIRST_ALL_RELATED_DOCS",
+  "parent_release": "FOX2_POLICY_V1.8.2.md",
+  "change_scope": "Routing-only CHAT_FIRST_CAPABILITY_CHECK R0/R4, minimize Copilot/Codex delegations for GitHub/Library work that CHAT can perform; no broader DEV rights",
+  "release_artifact": {
+    "name": "FOX2_POLICY_V1.8.3.md",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.3.md",
+    "bytes": 106366,
+    "sha256": "892a44f414c8deb3754782b0d1c9998a88fa1116da33e76048ac8756005dee82"
+  },
+  "git_mirror": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-CHAT-FIRST-POLICY-RELEASE-chat-20261013",
+    "commit": "0ecce9f732e64742ca1309bbd7da6fe6cad4d137",
+    "path": "docs/governance/FOX2_POLICY_V1.8.3.md",
+    "blob_sha1": "96304b16cfa6437a540a68c14ee1a284a17ea195",
+    "remote_readback": "PASS"
+  },
+  "library_raw_readback": "PASS_BYTE_EXACT",
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "automatic_agent_execution": false,
+    "git_code_push": false,
+    "merge_allowed": false,
+    "broker_write": false,
+    "live": false
+  },
+  "cross_project": {
+    "this_policy_applies": "FOX2_ONLY",
+    "other_projects_policy_updated": false,
+    "paused_migration_resumed": false
+  }
+}
