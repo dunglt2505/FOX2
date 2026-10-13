@@ -122,11 +122,11 @@ class CodexAdapter:
         resolved_worktree = self._resolve_worktree(worktree)
         command = [
             str(executable),
+            "--ask-for-approval",
+            "never",
             "exec",
             "--sandbox",
             "workspace-write",
-            "--ask-for-approval",
-            "never",
             "-",
         ]
 
