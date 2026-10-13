@@ -50,7 +50,7 @@ New DEV dispatches can use `agent.product=CODEX`,
 `agent.interface=OPENAI_CODEX_CLI`, and
 `execution_path=BRIDGE_DIRECT_CODEX_CLI`.
 
-The Bridge launches Codex non-interactively as `codex -c windows.sandbox="unelevated" --ask-for-approval never exec --sandbox workspace-write -`. The approval flag is global and must appear before the `exec` subcommand. FOX2 pins the Windows sandbox implementation to `unelevated` because the installed Codex CLI 0.162.1 can fail its elevated sandbox setup refresh before any command starts; the outer Codex policy remains `workspace-write` with approval `never`. Codex is instructed to edit/test only; it does not
+The Bridge launches Codex non-interactively as `codex -c windows.sandbox="unelevated" --ask-for-approval never exec --sandbox workspace-write -`. The approval flag is global and must appear before the `exec` subcommand. FOX2 pins the Windows sandbox implementation to `unelevated` because the installed Codex CLI 0.162.1 can fail its elevated sandbox setup refresh before any command starts; the outer Codex policy remains `workspace-write` with approval `never`. On Windows, the Bridge also prefers the MSI/WiX PowerShell host at `C:\\Program Files\\PowerShell\\7\\pwsh.exe` ahead of WindowsApps/MSIX PowerShell when that executable exists. Codex is instructed to edit/test only; it does not
 need Git push authority. After Codex exits, the Bridge verifies that Codex did
 not change Git history, validates every dirty path against the immutable
 dispatch allowlist, validates required result files/markers, then the Bridge
