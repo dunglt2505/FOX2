@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/trading-starter/active-source-registry-schema-v1.json",
+  "title": "Trading new-project Active Source Registry materialized index v1",
+  "description": "REFERENCE ONLY. Valid structure is not publication or current authoritative release. Resolver must query live authorized Library before new handoff.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "authority_class",
+    "registry_generation",
+    "generated_at_utc",
+    "library_listing_exhaustive",
+    "operational_enforcement",
+    "heads"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority_class": {
+      "const": "NON_AUTHORITATIVE_MATERIALIZED_INDEX"
+    },
+    "registry_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "generated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "library_listing_exhaustive": {
+      "type": "boolean"
+    },
+    "operational_enforcement": {
+      "enum": [
+        "NOT_IMPLEMENTED",
+        "READ_ONLY_PILOT",
+        "TESTED_ACTIVE"
+      ]
+    },
+    "heads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "family_id",
+          "scope",
+          "release_id",
+          "version",
+          "state",
+          "supersedes",
+          "library",
+          "manifest",
+          "git",
+          "owner_decision_ref",
+          "verified_at_utc"
+        ],
+        "properties": {
+          "family_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "release_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "enum": [
+              "VERIFIED_CURRENT",
+              "SOURCE_PENDING",
+              "DIVERGED",
+              "REVOKED",
+              "SUPERSEDED",
+              "UNKNOWN"
+            ]
+          },
+          "supersedes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "owner_decision_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verified_at_utc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "library": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "file_id",
+              "path",
+              "raw_sha256",
+              "size_bytes",
+              "readback_verified"
+            ],
+            "properties": {
+              "file_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "raw_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "size_bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "readback_verified": {
+                "type": "boolean"
+              }
+            }
+          },
+          "manifest": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "raw_sha256",
+              "readback_verified"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "raw_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "readback_verified": {
+                "type": "boolean"
+              }
+            }
+          },
+          "git": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "repository",
+                  "full_commit_sha",
+                  "path",
+                  "blob_sha",
+                  "raw_sha256",
+                  "remote_readback_verified"
+                ],
+                "properties": {
+                  "status": {
+                    "const": "VERIFIED"
+                  },
+                  "repository": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "full_commit_sha": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{40}$"
+                  },
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "blob_sha": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{40}$"
+                  },
+                  "raw_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "remote_readback_verified": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "reason"
+                ],
+                "properties": {
+                  "status": {
+                    "const": "SOURCE_PENDING"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operational_enforcement": {
+            "const": "TESTED_ACTIVE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "library_listing_exhaustive": {
+            "const": true
+          }
+        }
+      }
+    }
+  ]
+}
