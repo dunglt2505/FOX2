@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.8.4",
+  "status": "RELEASED_EFFECTIVE",
+  "release_date": "2026-10-13",
+  "change_id": "FOX2-ARCH-STAGE-ALIGNMENT-20261013",
+  "scope": "FOX2 project-wide architecture-stage routing semantics; no DEV/merge/LIVE grant",
+  "supersedes": "FOX2_POLICY_V1.8.3.md",
+  "official_library": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.4.md",
+    "file_id": "file_0000000008e08211b685c8e280ee8ca7",
+    "library_file_id": "libfile_001000a166e88191b98c5cd4322c05b2",
+    "bytes": 115917,
+    "sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a",
+    "exact_byte_readback": "PASS"
+  },
+  "git_mirror": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-ARCH-STAGE-POLICY-RELEASE-chat-20261013",
+    "commit": "a366f509899cec97f64316cb111b29a3849325b5",
+    "path": "docs/governance/FOX2_POLICY_V1.8.4.md",
+    "blob_sha1": "483a74ff39339e653bbd7bbfba0feaf7b1c003e9",
+    "exact_byte_parity": "PASS"
+  },
+  "unchanged_sources": [
+    "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "FOX2_SFR010_OFFLINE_RESOLVER_TECH_SPEC_v0.1.md",
+    "FOX2 M1 BRDs/Data Contract/Acceptance/Roadmap/P2 Plan"
+  ],
+  "rights_created": {
+    "dev": false,
+    "git_code_push": false,
+    "bridge_dispatch": false,
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
