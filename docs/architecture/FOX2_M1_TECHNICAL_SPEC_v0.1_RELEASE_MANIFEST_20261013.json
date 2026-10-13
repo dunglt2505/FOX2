@@ -1,0 +1,28 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "m1tech",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "source_candidate": {
+    "name": "FOX2_M1_TECHNICAL_SPEC_v0.1_CANDIDATE_REV3.md",
+    "bytes": 13794,
+    "sha256": "a6029b085c5d89e8ca241490d451fd19629439e87c92c47de48ba438a02ad0be"
+  },
+  "release_artifact": {
+    "name": "FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+    "library_path": "/Trading/FOX2/02_Architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+    "bytes": 13761,
+    "sha256": "65d9b36697b5333a9b1e5fcba88f3f4bbc786fc33cc6ed585288f4366057fb5f"
+  },
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "git_source_ready": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
