@@ -1,4 +1,4 @@
-"""Command-line entry point for local Bridge health checks and smoke relays."""
+"""Command-line entry point for FOX2 Bridge."""
 
 from __future__ import annotations
 
@@ -7,7 +7,6 @@ import json
 import sys
 from pathlib import Path
 
-from .app import BridgeApp
 from .errors import BridgeError
 
 
@@ -31,17 +30,36 @@ def build_parser() -> argparse.ArgumentParser:
 
     e2e = subparsers.add_parser(
         "e2e-once",
-        help="execute one immutable FOX2 dispatch through Copilot CLI",
+        help="execute one exact immutable FOX2 dispatch path through Copilot CLI",
     )
     e2e.add_argument("--config", type=Path, help="optional TOML configuration file")
     e2e.add_argument("--dispatch-path", required=True, help="exact control-branch dispatch path")
     e2e.add_argument("--timeout", type=int, default=300, help="Copilot timeout in seconds")
+
+    run_next = subparsers.add_parser(
+        "run-next",
+        help="poll and execute one eligible runtime_contract.auto_execute dispatch",
+    )
+    run_next.add_argument("--config", type=Path, help="optional TOML configuration file")
+    run_next.add_argument("--timeout", type=int, default=300, help="Copilot timeout in seconds")
+
+    status = subparsers.add_parser(
+        "status",
+        help="show persisted dispatch/execution state",
+    )
+    status.add_argument("--config", type=Path, help="optional TOML configuration file")
+    status.add_argument("--dispatch-id", help="optional exact dispatch id")
+    status.add_argument("--limit", type=int, default=20, help="recent rows when no id is supplied")
 
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+
+    # Lazy import keeps --help independent from runtime/tool discovery imports.
+    from .app import BridgeApp
+
     try:
         with BridgeApp.from_file(args.config) as app:
             if args.command == "health":
@@ -68,19 +86,56 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 report = result.as_dict()
                 exit_code = 0 if result.status == "COPILOT_EXITED" else 4
-            else:
+            elif args.command == "e2e-once":
                 result = app.e2e_once(
                     dispatch_path=args.dispatch_path,
                     timeout_seconds=args.timeout,
                 )
                 report = result.as_dict()
                 exit_code = 0 if result.status == "PUSHED_UNREVIEWED" else 5
+            elif args.command == "run-next":
+                result = app.ops_run_next(timeout_seconds=args.timeout)
+                report = result.as_dict()
+                exit_code = (
+                    0
+                    if result.status in {"PUSHED_UNREVIEWED", "NO_ELIGIBLE_DISPATCH"}
+                    else 5
+                )
+            else:
+                report = app.ops_status(
+                    dispatch_id=args.dispatch_id,
+                    limit=args.limit,
+                )
+                exit_code = 0
 
         print(json.dumps(report, ensure_ascii=True, indent=2, sort_keys=True))
         return exit_code
     except BridgeError as exc:
-        print(json.dumps({"status": "BLOCKED", "error": exc.as_dict()}), file=sys.stderr)
+        print(
+            json.dumps(
+                {"status": "BLOCKED", "error": exc.as_dict()},
+                ensure_ascii=True,
+                sort_keys=True,
+            ),
+            file=sys.stderr,
+        )
         return 2
+    except KeyboardInterrupt:
+        print(
+            json.dumps(
+                {
+                    "status": "INTERRUPTED",
+                    "error": {
+                        "code": "USER_INTERRUPT",
+                        "message": "Bridge command interrupted by local user",
+                    },
+                },
+                ensure_ascii=True,
+                sort_keys=True,
+            ),
+            file=sys.stderr,
+        )
+        return 130
 
 
 if __name__ == "__main__":
