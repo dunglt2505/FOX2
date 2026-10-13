@@ -1,0 +1,30 @@
+{
+  "document_type": "FOX2_ROUTING_INDEX_RELEASE_RECEIPT",
+  "release_date": "2026-10-13",
+  "status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX",
+  "owner_instruction": "PUBLISH_CHAT_FIRST_ALL_RELATED_DOCS",
+  "current_document": {
+    "name": "FOX2_AGENT_PROMPT_POLICY_V1_2_3_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_3_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "bytes": 17203,
+    "sha256": "f8d7ba05b5d35c269f939f6aa580517072d3e8734eee1e23f59cfb769aba2bbd"
+  },
+  "git_reference": {
+    "repo": "dunglt2505/FOX2",
+    "commit": "c1841d6e43e8824673a511d0600a93e345e7e0ea",
+    "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_3_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "blob_sha1": "1fb6ad84d7f68c1c963e43643779e3474faf20e6",
+    "verified": "EXACT_REMOTE_BLOB",
+    "authority": "FOX2_OPERATING_MIRROR"
+  },
+  "library_readback": "BYTE_EXACT_PASS",
+  "supersedes_for_new_use": "FOX2_AGENT_PROMPT_POLICY_V1_2_2_EFFECTIVE_ROUTING_INDEX_20261013.md",
+  "normative_policy": "FOX2_POLICY_V1.8.3.md",
+  "permissions": {
+    "code_allowed": false,
+    "git_code_push": false,
+    "merge": false,
+    "live": false
+  },
+  "notes": "Existing immutable WPs not retroactively rewritten; update source locks for new/re-scoped tasks. Other project governance and paused migrations unaffected."
+}
