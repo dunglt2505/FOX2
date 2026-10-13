@@ -113,6 +113,25 @@ class BridgeOps:
         )
         poll = poller.poll_once()
         self._progress(f"OPS poll complete: {poll.status}")
+        safe_poll_states = {
+            "NO_CHANGE",
+            "INITIALIZED",
+            "ADVANCED",
+            "ALREADY_SEEN",
+            "CANDIDATES_DISCOVERED",
+        }
+        if poll.status not in safe_poll_states:
+            self._progress(f"OPS blocked by poll state: {poll.status}")
+            return OpsRunResult(
+                status="POLL_BLOCKED",
+                poll_status=poll.status,
+                dispatch_path=None,
+                dispatch_id=None,
+                execution={
+                    "error": poll.error,
+                    "reason": poll.reason,
+                },
+            )
 
         selected = self._eligible_dispatch()
         if selected is None:
@@ -152,9 +171,10 @@ class BridgeOps:
         limit: int = 20,
     ) -> dict[str, object]:
         if dispatch_id is not None:
+            dispatch = self.ledger.dispatch_status(dispatch_id)
             return {
-                "status": "FOUND" if self.ledger.dispatch_status(dispatch_id) else "NOT_FOUND",
-                "dispatch": self.ledger.dispatch_status(dispatch_id),
+                "status": "FOUND" if dispatch else "NOT_FOUND",
+                "dispatch": dispatch,
             }
         return {
             "status": "OK",
