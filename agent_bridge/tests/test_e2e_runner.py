@@ -4,7 +4,10 @@ import hashlib
 import json
 from pathlib import Path
 
+import pytest
+
 from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
+from fox2_agent_bridge.errors import DispatchInvalid
 from fox2_agent_bridge.ledger import SQLiteLedger, utc_now
 
 
@@ -100,3 +103,59 @@ def test_dispatch_claim_is_single_use(tmp_path: Path) -> None:
     assert first is True
     assert second is False
     assert ledger.dispatch_state("FOX2-BRIDGE-E2E-CANARY-001")["state"] == "CLAIMED"
+
+
+def test_dispatch_validation_maps_pytest_capability_to_safe_tools(
+    bridge_config, tmp_path: Path
+) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    runner = BridgeE2ERunner(bridge_config, ledger)
+    payload = _dispatch_payload(
+        bridge_config.worktree_root / "FOX2-BRIDGE-DEV-PYTEST-COPILOT"
+    )
+    payload["runtime_contract"] = {
+        "auto_execute": True,
+        "dev_shell_capabilities": ["PYTEST"],
+    }
+    raw = (json.dumps(payload, sort_keys=True) + "\n").encode("utf-8")
+
+    validated = runner._validate_dispatch(
+        raw,
+        dispatch_path=(
+            "docs/agent_handoff/FOX2-BRIDGE-E2E-CANARY/dispatch/"
+            "FOX2-BRIDGE-E2E-CANARY-001.json"
+        ),
+        observed_blob_sha="e" * 40,
+    )
+
+    assert validated["_copilot_shell_tools"] == [
+        "shell(python -m pytest)",
+        "shell(python -m pytest:*)",
+    ]
+
+
+def test_dispatch_validation_rejects_unknown_dev_shell_capability(
+    bridge_config, tmp_path: Path
+) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    runner = BridgeE2ERunner(bridge_config, ledger)
+    payload = _dispatch_payload(
+        bridge_config.worktree_root / "FOX2-BRIDGE-DEV-UNSAFE-COPILOT"
+    )
+    payload["runtime_contract"] = {
+        "auto_execute": True,
+        "dev_shell_capabilities": ["ARBITRARY_SHELL"],
+    }
+    raw = (json.dumps(payload, sort_keys=True) + "\n").encode("utf-8")
+
+    with pytest.raises(DispatchInvalid, match="unsupported"):
+        runner._validate_dispatch(
+            raw,
+            dispatch_path=(
+                "docs/agent_handoff/FOX2-BRIDGE-E2E-CANARY/dispatch/"
+                "FOX2-BRIDGE-E2E-CANARY-001.json"
+            ),
+            observed_blob_sha="e" * 40,
+        )
