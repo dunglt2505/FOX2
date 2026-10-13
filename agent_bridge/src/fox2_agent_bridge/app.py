@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -151,6 +152,9 @@ class BridgeApp:
             self.config,
             self.ledger,
             logger=self.logger,
+            progress=lambda message: print(
+                f"[E2E] {message}", file=sys.stderr, flush=True
+            ),
         )
         return runner.run_once(
             dispatch_path=dispatch_path,
