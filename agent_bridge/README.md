@@ -43,6 +43,32 @@ automatically. A selected dispatch remains single-use.
 For one exact diagnostic dispatch, `e2e-once --dispatch-path ...` remains
 available, but normal operation should use `run-next`.
 
+
+## Bounded DEV shell capabilities
+
+Real coding WPs may need deterministic test commands in addition to Git.
+A dispatch can opt into a Bridge-owned capability name:
+
+```json
+{
+  "runtime_contract": {
+    "auto_execute": true,
+    "dev_shell_capabilities": ["PYTEST"]
+  }
+}
+```
+
+`PYTEST` maps only to the documented Copilot CLI permissions for
+`python -m pytest` (with or without arguments). The Bridge rejects unknown
+capability names and the Copilot adapter independently rejects raw shell
+patterns outside its safe catalog. Arbitrary shell, PowerShell, package
+installation, provider/network tooling, broker commands, and LIVE operations
+are not granted by this capability.
+
+The Bridge prepends the directory containing its own runtime Python executable
+to the child `PATH`, so `python -m pytest` resolves to the controlled Bridge
+runtime environment rather than an arbitrary system Python.
+
 ## Execution states
 
 The SQLite ledger persists dispatch and execution state. Typical terminal
