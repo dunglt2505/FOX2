@@ -1,13 +1,13 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate`  
+**Version:** `0.7 Candidate REV2`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
 **Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation and product packaging while preserving the simple transport/launcher boundary.
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation and product packaging while preserving the simple transport/launcher boundary. REV2 locks GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model.
 
 > This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence.
 
@@ -35,13 +35,16 @@ Therefore v0.7 is **not** a rewrite of v0.6. Existing safe modules are reused an
 
 ```text
                        GitHub / configured Git remote
+                     durable control-ref mailbox
+                                  ^
+                                  | outbound Git/HTTPS only
+                                  | lightweight remote-ref poll
                                   |
-                         immutable dispatch ref
-                                  |
-                     +------------v-------------+
+                     +------------+-------------+
                      | AgentBridge Worker        |
                      | per-user background proc  |
                      |                           |
+                     | GitSignalWatcher          |
                      | DispatchWatcher           |
                      | DispatchValidator         |
                      | ReplayGuard / Ledger      |
@@ -215,7 +218,138 @@ Tool health checks use non-billable/non-task mechanisms where supported, such as
 
 Do not send a real Agent prompt merely to determine whether quota remains unless an explicit task authorizes that probe.
 
-## 7. Worker state model
+## 7. GitHub mailbox signaling and local pull protocol
+
+### 7.1 Authority model
+
+GitHub is the V1 durable task mailbox. The configured control ref is the only signal source that can lead to dispatch discovery.
+
+CHAT publishes:
+
+```text
+immutable prompt/source
++ immutable dispatch JSON
++ control-ref commit
+```
+
+The local Worker **pulls outward** to GitHub. There is no direct CHAT-to-PC socket and no inbound AgentBridge network listener in V1.
+
+Required V1 network shape:
+
+```text
+Local Windows PC
+      |
+      | outbound Git/HTTPS
+      v
+GitHub configured repository/control ref
+```
+
+Normal operation must work behind NAT and with dynamic IP.
+
+### 7.2 Lightweight signal probe
+
+The Worker maintains a durable `last_seen_control_sha`.
+
+Healthy loop:
+
+```text
+remote_sha = query configured remote control-ref SHA
+
+if remote_sha == last_seen_control_sha:
+    no full fetch
+    no dispatch parse
+    no Agent call
+    sleep healthy interval
+else:
+    fetch exact configured control ref at remote_sha
+    discover immutable dispatch delta
+    validate candidate(s)
+    persist new observation/cursor
+    execute only eligible auto_execute dispatch
+```
+
+Implementation may use `git ls-remote --refs origin refs/heads/<control-branch>` or an equivalent remote-ref query that does not update the worktree.
+
+The signal probe must not require Codex/Copilot invocation.
+
+### 7.3 Poll intervals and backoff
+
+Candidate defaults:
+
+```text
+healthy idle: 30 seconds
+manual Check now: immediate one-shot signal probe
+offline/error: 30s -> 60s -> 120s -> 300s max
+successful Git contact: reset to 30s
+```
+
+Add bounded jitter only if it materially reduces synchronized polling; it must never exceed configured safe bounds.
+
+The Worker must remain responsive to local Pause/Resume/Check-now/Exit while waiting.
+
+### 7.4 Durable cursor semantics
+
+Persist at minimum:
+
+- configured repository/project profile;
+- control ref;
+- last successfully observed remote SHA;
+- last successfully fetched/processed control SHA;
+- last poll timestamp;
+- current backoff state;
+- last transport error code.
+
+A remote SHA change is only a **hint that Git content changed**. It is not task authority by itself. Dispatch JSON still requires normal immutable identity, scope, replay and eligibility validation.
+
+Do not advance the durable processed cursor past an unprocessed control commit if doing so would make a valid dispatch unreachable. Poll/discovery and cursor persistence must remain transactionally consistent enough to survive Worker crash/restart.
+
+### 7.5 Offline, sleep and wake
+
+If the PC is offline/asleep:
+
+- GitHub retains the dispatch;
+- Worker sends no Agent prompt;
+- no inbound wake path is required.
+
+After wake/login/start:
+
+```text
+startup
+ -> recover ledger
+ -> reconcile non-terminal execution
+ -> signal probe
+ -> fetch changed control ref
+ -> process still-eligible pending dispatch
+```
+
+Wake-on-LAN/remote wake is outside v0.7 V1.
+
+### 7.6 Push/webhook future option
+
+Webhook/cloud relay is **not required** for Desktop-01.
+
+A later push path may emit only a wake/check hint:
+
+```text
+GitHub webhook -> optional relay -> local hint -> perform normal Git signal probe
+```
+
+It must not carry executable authority that bypasses the configured Git control ref, immutable dispatch validation or ReplayGuard.
+
+### 7.7 No inbound exposure in V1
+
+Do not require or expose:
+
+- public/static IP;
+- router port forwarding;
+- inbound HTTP server;
+- public WebSocket listener;
+- ngrok tunnel;
+- Tailscale/VPN dependency.
+
+Local Tray IPC remains local-user-only as defined separately and is not an Internet signaling endpoint.
+
+## 8. Worker state model
 
 Worker state:
 
@@ -252,7 +386,7 @@ NEEDS_RECONCILIATION
 
 Tray displays the user-level Worker state plus current dispatch state when relevant.
 
-## 8. Pause, Resume and Exit semantics
+## 9. Pause, Resume and Exit semantics
 
 ### Pause
 
@@ -275,7 +409,7 @@ If a task is active, UI should offer:
 
 No abrupt silent process kill.
 
-## 9. Restart/recovery reconciliation
+## 10. Restart/recovery reconciliation
 
 This is the highest-priority v0.7 reliability addition.
 
@@ -315,7 +449,7 @@ If execution outcome cannot be proven and remote result does not exist:
 
 Avoid heuristic replay based solely on elapsed time.
 
-## 10. Agent Adapter Registry
+## 11. Agent Adapter Registry
 
 Core exposes a common adapter boundary:
 
@@ -331,7 +465,7 @@ AgentAdapter:
 
 No requirement that every adapter exposes identical model/quota details.
 
-### 10.1 Codex
+### 11.1 Codex
 
 Current proven path is preserved:
 
@@ -345,7 +479,7 @@ Current proven path is preserved:
 
 Do not freeze current Codex CLI version/flag workarounds forever; adapter feature-detects supported behavior and tests changes.
 
-### 10.2 Copilot
+### 11.2 Copilot
 
 Current direct Copilot CLI E2E evidence is preserved.
 
@@ -353,7 +487,7 @@ Normal `run-next` may remain CODEX-only until an explicit product routing decisi
 
 No silent fallback from CODEX to COPILOT or vice versa.
 
-## 11. Worktree ownership and Git behavior
+## 12. Worktree ownership and Git behavior
 
 Before Agent launch:
 
@@ -377,9 +511,9 @@ After Agent exit:
 
 No main push or merge in Bridge v0.7.
 
-## 12. Tray technical behavior
+## 13. Tray technical behavior
 
-### 12.1 Required status
+### 13.1 Required status
 
 Tray obtains local state through a user-scoped IPC contract and displays:
 
@@ -395,7 +529,7 @@ Tray obtains local state through a user-scoped IPC contract and displays:
 - last material error;
 - Start-with-Windows state.
 
-### 12.2 Actions
+### 13.2 Actions
 
 IPC operations:
 
@@ -412,7 +546,7 @@ REQUEST_CANCEL_ACTIVE
 
 IPC never carries project secrets or arbitrary shell strings.
 
-### 12.3 IPC security
+### 13.3 IPC security
 
 Preferred Windows mechanism: local Named Pipe or equivalent user-local IPC.
 
@@ -423,7 +557,7 @@ Requirements:
 - validate protocol version and command enum;
 - no arbitrary code execution payload.
 
-## 13. Start with Windows
+## 14. Start with Windows
 
 Preferred initial mechanism:
 
@@ -443,7 +577,7 @@ Registration requirements:
 
 A simple Startup shortcut may be fallback if Task Scheduler proves unnecessarily brittle.
 
-## 14. First-run onboarding
+## 15. First-run onboarding
 
 First launch enters Setup when required config is absent.
 
@@ -461,7 +595,7 @@ Wizard stages:
 
 No package installation or credential login is silently performed. The wizard may guide the user to the official Agent login flow.
 
-## 15. Logs and diagnostics
+## 16. Logs and diagnostics
 
 Use structured, bounded local logging.
 
@@ -480,7 +614,7 @@ Rotation is bounded by file count/size or time.
 
 Diagnostic export, if added, must sanitize before packaging.
 
-## 16. Durable ledger extensions
+## 17. Durable ledger extensions
 
 Existing SQLite ledger remains the durable source for runtime state.
 
@@ -498,7 +632,7 @@ v0.7 additions may include:
 
 Schema migrations must preserve current execution evidence.
 
-## 17. Error taxonomy
+## 18. Error taxonomy
 
 Minimum user-facing categories:
 
@@ -527,9 +661,9 @@ Errors are actionable but sanitized.
 
 Do not invent `QUOTA_EXHAUSTED` from `NOT_EXPOSED`; use it only when the Agent/platform actually reports such failure.
 
-## 18. Packaging
+## 19. Packaging
 
-### 18.1 Desired user artifact
+### 19.1 Desired user artifact
 
 Target distribution:
 
@@ -542,7 +676,7 @@ Target distribution:
 
 Exact bundler/installer technology is an implementation choice to evaluate during packaging WP.
 
-### 18.2 Upgrade behavior
+### 19.2 Upgrade behavior
 
 Upgrade preserves:
 
@@ -555,7 +689,7 @@ Perform schema migration before normal polling begins.
 
 Failed upgrade/migration must fail closed without destroying prior data.
 
-## 19. Security boundary
+## 20. Security boundary
 
 v0.7 keeps v0.6's intentionally small authority model.
 
@@ -580,7 +714,7 @@ Bridge does **not**:
 - deploy;
 - enable provider/broker/LIVE.
 
-### 19.1 Current public bootstrap
+### 20.1 Current public bootstrap
 
 Current pinned-Git bootstrap trust may continue for public/offline FOX2 development.
 
@@ -590,7 +724,7 @@ This does not block v0.7 offline productization under current released bootstrap
 
 Before confidential/private/Production use where trusted publisher enforcement is required, create and certify a hardened publisher/control-ref design.
 
-## 20. Community/open-core separation
+## 21. Community/open-core separation
 
 Do not mechanically publish the FOX2 repository as the standalone product.
 
@@ -620,9 +754,19 @@ Before standalone public release:
 - confirm third-party redistribution/licensing;
 - document supported Agent CLI versions.
 
-## 21. Acceptance test plan
+## 22. Acceptance test plan
 
 BRD-09 acceptance IDs map to implementation tests.
+
+### Git mailbox signaling
+
+- `T23`: local PC behind NAT/dynamic IP discovers CHAT-published dispatch using outbound Git only.
+- `T24`: repeated unchanged remote-ref probes cause no full fetch and no Agent invocation; Check now probes immediately.
+- `T25`: sustained idle Worker generates zero Codex/Copilot task prompts.
+- `T26`: simulated Git offline state exercises 30/60/120/300 bounded backoff and resets after recovery.
+- `T27`: changing local IP does not change control-mailbox correctness.
+- `T28`: publish dispatch while Worker stopped; restart/reconcile then discovers and processes it once.
+- `T29`: optional push hint cannot bypass exact Git dispatch validation/replay guard.
 
 ### Background / Tray
 
@@ -667,22 +811,30 @@ BRD-09 acceptance IDs map to implementation tests.
 - `T21`: project profile switches repository/worktree/control config without Core source edit.
 - `T22`: standalone package scan/license/sanitization gate.
 
-## 22. Productization work packages
+## 23. Productization work packages
 
 Recommended sequence, runnable in parallel with FOX2 application work when writer paths are disjoint:
 
 ### `BRIDGE-DESKTOP-01 — Background Worker & Reconciliation`
 
 Scope:
+- GitHub mailbox signal probe using lightweight control-ref SHA comparison;
 - continuous watcher loop;
+- durable last-seen/processed control SHA;
+- healthy ~30s polling plus manual Check now;
 - pause state;
-- bounded backoff;
+- bounded offline backoff;
 - restart/crash reconciliation;
 - single-instance worker;
 - relevant ledger migration;
 - CLI commands for `start/stop/pause/resume/watch`.
 
 Exit:
+- remote-ref unchanged => no full fetch and zero Agent invocation;
+- control-ref change => exact dispatch discovered through outbound Git only;
+- dynamic IP/NAT causes no functional dependency;
+- offline/backoff/reconnect tests pass;
+- dispatch published while PC offline is discovered after restart/wake;
 - restart/no-replay fault tests pass;
 - no Tray required yet.
 
@@ -737,7 +889,7 @@ Scope:
 - public docs;
 - installer release process.
 
-## 23. Parallelism and writer boundaries
+## 24. Parallelism and writer boundaries
 
 Current FOX2 Policy permits up to two independent material writers.
 
@@ -750,7 +902,7 @@ Bridge Desktop work can run in parallel with application P2-02 only if:
 
 Technical Spec Candidate itself grants no writer.
 
-## 24. Definition of Ready for Desktop-01 implementation
+## 25. Definition of Ready for Desktop-01 implementation
 
 Before coding:
 
@@ -764,7 +916,7 @@ Before coding:
 8. no overlap with active FOX2 application writer;
 9. STOP conditions and result paths bound.
 
-## 25. Definition of Done for v0.7 productization
+## 26. Definition of Done for v0.7 productization
 
 v0.7 may be considered product-ready for the Owner's normal Windows use when:
 
@@ -783,7 +935,7 @@ v0.7 may be considered product-ready for the Owner's normal Windows use when:
 
 Installer/community extraction is a separate release boundary and need not block internal FOX2 v0.7 use if the local installed bundle is otherwise reliable.
 
-## 26. Non-effects
+## 27. Non-effects
 
 This Candidate does not:
 
@@ -798,4 +950,4 @@ This Candidate does not:
 - declare hardened publisher trust PASS;
 - declare BRD-09 acceptance tests PASS.
 
-`TECH_V0_7_STATUS=CANDIDATE / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV2 / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
