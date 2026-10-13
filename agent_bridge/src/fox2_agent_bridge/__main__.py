@@ -29,6 +29,14 @@ def build_parser() -> argparse.ArgumentParser:
     smoke.add_argument("--worktree", type=Path, required=True, help="exact FOX2 worktree path")
     smoke.add_argument("--timeout", type=int, default=120, help="timeout in seconds")
 
+    e2e = subparsers.add_parser(
+        "e2e-once",
+        help="execute one immutable FOX2 dispatch through Copilot CLI",
+    )
+    e2e.add_argument("--config", type=Path, help="optional TOML configuration file")
+    e2e.add_argument("--dispatch-path", required=True, help="exact control-branch dispatch path")
+    e2e.add_argument("--timeout", type=int, default=300, help="Copilot timeout in seconds")
+
     return parser
 
 
@@ -53,13 +61,20 @@ def main(argv: list[str] | None = None) -> int:
                     }
                     else 3
                 )
-            else:
+            elif args.command == "copilot-smoke":
                 result = app.copilot_smoke(
                     worktree=args.worktree,
                     timeout_seconds=args.timeout,
                 )
                 report = result.as_dict()
                 exit_code = 0 if result.status == "COPILOT_EXITED" else 4
+            else:
+                result = app.e2e_once(
+                    dispatch_path=args.dispatch_path,
+                    timeout_seconds=args.timeout,
+                )
+                report = result.as_dict()
+                exit_code = 0 if result.status == "PUSHED_UNREVIEWED" else 5
 
         print(json.dumps(report, ensure_ascii=True, indent=2, sort_keys=True))
         return exit_code
