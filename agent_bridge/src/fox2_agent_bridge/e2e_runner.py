@@ -431,6 +431,49 @@ class BridgeE2ERunner:
                 return True
         return False
 
+    def _prepare_required_parents(
+        self,
+        *,
+        payload: dict[str, object],
+        worktree: Path,
+    ) -> None:
+        acceptance = payload.get("acceptance")
+        if acceptance is None:
+            return
+        if not isinstance(acceptance, dict):
+            raise DispatchInvalid("acceptance must be an object when present")
+        required_paths = acceptance.get("required_paths", [])
+        if not isinstance(required_paths, list) or not all(
+            isinstance(item, str) and item for item in required_paths
+        ):
+            raise DispatchInvalid("acceptance.required_paths must be a string list")
+
+        allowed_patterns = tuple(
+            str(item)
+            for item in (
+                list(payload.get("allowed_code_paths", []))
+                + list(payload.get("allowed_report_paths", []))
+            )
+        )
+        for required_path in required_paths:
+            relative = Path(*required_path.split("/"))
+            if (
+                relative.is_absolute()
+                or ".." in relative.parts
+                or not self._path_allowed(required_path, allowed_patterns)
+            ):
+                raise DispatchInvalid(
+                    f"required E2E result path is outside dispatch scope: {required_path}"
+                )
+            target = (worktree / relative).resolve(strict=False)
+            try:
+                target.relative_to(worktree.resolve(strict=False))
+            except ValueError as exc:
+                raise DispatchInvalid(
+                    f"required E2E result path escapes worktree: {required_path}"
+                ) from exc
+            target.parent.mkdir(parents=True, exist_ok=True)
+
     def _verify_result(
         self,
         *,
@@ -565,6 +608,8 @@ class BridgeE2ERunner:
             )
 
         try:
+            self._progress("prepare authorized result parent directories")
+            self._prepare_required_parents(payload=payload, worktree=worktree)
             self._progress("launch Copilot CLI")
             agent_result = CopilotAdapter(self.config).run_prompt(
                 worktree=worktree,
@@ -572,7 +617,7 @@ class BridgeE2ERunner:
                 timeout_seconds=timeout_seconds,
                 allow_write=True,
                 allow_git=True,
-                allow_github_url=True,
+                allow_github_url=False,
                 silent=True,
                 no_ask_user=True,
                 progress=lambda stream, line: self._progress(
