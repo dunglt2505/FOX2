@@ -1,0 +1,43 @@
+{
+  "document_type": "FOX2_LIBRARY_TECHNICAL_SPEC_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "wp": "SFR-010",
+  "artifact_role": "offline_resolver_technical_spec",
+  "published_local_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE_FOR_SFR010_OFFLINE_DESIGN",
+  "owner_instruction": "CHOT_TRIEN_KHAI_PARALLEL_EXECUTION_20261013",
+  "release_artifact": {
+    "name": "FOX2_SFR010_OFFLINE_RESOLVER_TECH_SPEC_v0.1.md",
+    "library_path": "/Trading/FOX2/02_Architecture/FOX2_SFR010_OFFLINE_RESOLVER_TECH_SPEC_v0.1.md",
+    "bytes": 12010,
+    "sha256": "04ff3beeb7872bfb24740b1e1828ce074cd24a1968109bcde34303edf22a8af0"
+  },
+  "git_mirror": {
+    "repository": "dunglt2505/FOX2",
+    "commit": "940dbdf1136000bc65bf051b0cd7a1738e30b62c",
+    "path": "docs/architecture/FOX2_SFR010_OFFLINE_RESOLVER_TECH_SPEC_v0.1.md",
+    "blob_sha1": "98709654a3cda349fe87f61e80f4b333688da42a"
+  },
+  "authoritative_governance": {
+    "policy_version": "1.8.3",
+    "policy_library_sha256": "892a44f414c8deb3754782b0d1c9998a88fa1116da33e76048ac8756005dee82",
+    "agent_routing_index": "1.2.3",
+    "index_library_sha256": "f8d7ba05b5d35c269f939f6aa580517072d3e8734eee1e23f59cfb769aba2bbd"
+  },
+  "limits": {
+    "scope": "SFR-010 offline resolver only; source released, no runtime implemented",
+    "code_allowed": false,
+    "git_code_push": false,
+    "merge": false,
+    "auto_agent_dispatch": false,
+    "gate_a": "BLOCKED_CAPABILITY_UNAVAILABLE",
+    "live": false,
+    "parent_sfr_v0_1": "CANDIDATE_NOT_PROMOTED"
+  },
+  "evidence": {
+    "library_upload_and_raw_byte_readback": "PASS",
+    "git_immutable_blob_readback": "PASS",
+    "library_manifest_readback": "PENDING_UNTIL_PUBLISHED",
+    "source_release": "SOURCE_RELEASE_ONLY_NOT_DEV"
+  }
+}
