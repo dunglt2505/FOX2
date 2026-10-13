@@ -1,0 +1,73 @@
+# TSG-NEW-PROJECT-PROFILE-v1 — REFERENCE ONLY / NOT AN EFFECTIVE PROJECT POLICY
+# Copy into the NEW PROJECT's own controlled governance folder after Owner explicitly adopts.
+# Fields marked REPLACE_ME must be grounded by actual Owner/host/platform evidence.
+schema_version: 1
+status: TEMPLATE_NOT_ADOPTED
+project:
+  id: REPLACE_ME_PROJECT_ID
+  owner_decision_ref: REPLACE_ME_OWNER_DECISION_RECEIPT
+  scope: REPLACE_ME_PROJECT_ONLY
+  effective_governance: NOT_RELEASED
+  library:
+    root: REPLACE_ME_AUTHORIZED_LIBRARY_PATH
+    governance_folder: REPLACE_ME_POLICY_FOLDER
+    brd_folder: REPLACE_ME_BRD_FOLDER
+    architecture_folder: REPLACE_ME_TECH_FOLDER
+    manifest_folder: REPLACE_ME_MANIFEST_FOLDER
+    access_capability: UNKNOWN # VERIFIED | UNKNOWN | UNAVAILABLE
+  git:
+    repository: REPLACE_ME_REPO_OR_NOT_APPLICABLE
+    allowed_default_ref: REPLACE_ME_VERIFIED_REF_OR_UNKNOWN
+    source_mirror_prefix: REPLACE_ME_MIRROR_PREFIX
+    exact_repo_acl_enforced: UNKNOWN
+    branch_protection_enforced: UNKNOWN
+    reporter_writer_identity: UNKNOWN
+    implementation_writer_identity: UNKNOWN
+    source_sync_state: SOURCE_PENDING
+  source_families:
+    - family_id: POLICY
+      required_for_new_task: true
+      release_state: NOT_RELEASED
+    - family_id: BRD
+      required_for_new_task: PER_TASK
+      release_state: NOT_RELEASED
+    - family_id: TECHNICAL
+      required_for_new_task: PER_TASK
+      release_state: NOT_RELEASED
+    - family_id: ACCEPTANCE
+      required_for_new_task: PER_TASK
+      release_state: NOT_RELEASED
+  resolver:
+    authority: AUTHORITATIVE_LIBRARY_RELEASE_AND_MANIFEST
+    library_reader: UNKNOWN
+    release_event_capability: UNKNOWN
+    handoff_recheck: REQUIRED_EACH_NEW_HANDOFF
+    before_dispatch_recheck: REQUIRED_FOR_EXECUTABLE_TASK
+    missing_head_action: BLOCKED_SOURCE_VERSION
+    newest_release_selection: EXPLICIT_EFFECTIVITY_AND_SUPERSESSION
+    registry_authoritative: false
+    registry_generation: 0
+    production_enforcement: NOT_IMPLEMENTED
+  security:
+    allow_unattended_agent: false
+    code_allowed: false
+    git_code_push: false
+    merge_allowed: false
+    production_provider: false
+    broker_write: false
+    live: false
+    ignore_private_keys: true
+    exclude_patterns:
+      - '**/.env*'
+      - '**/*secret*'
+      - '**/*credential*'
+      - '**/data/**'
+      - '**/logs/**'
+      - '**/.venv/**'
+  adoption:
+    owner_approved: false
+    project_policy_release_verified: false
+    release_manifest_sha256: UNKNOWN
+    scoped_writer_and_worktree_verified: false
+    negative_tests_passed: false
+    adoption_receipt: NOT_ISSUED
