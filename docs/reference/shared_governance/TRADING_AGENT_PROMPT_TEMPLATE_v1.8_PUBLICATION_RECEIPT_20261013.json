@@ -1,0 +1,30 @@
+{
+  "document_type": "TRADING_SHARED_TEMPLATE_PUBLICATION_RECEIPT",
+  "release_date": "2026-10-13",
+  "status": "OWNER_DIRECTED_EFFECTIVE_TEMPLATE",
+  "owner_instruction": "PUBLISH_CHAT_FIRST_ALL_RELATED_DOCS",
+  "current_document": {
+    "name": "TRADING_AGENT_PROMPT_TEMPLATE_v1.8.md",
+    "library_path": "/Trading/00_Governance/TRADING_AGENT_PROMPT_TEMPLATE_v1.8.md",
+    "bytes": 8842,
+    "sha256": "7f09dbe411608d7d7e9ca72a7883463cbd621078ca6b4a10f356994e4285ed2b"
+  },
+  "git_reference": {
+    "repo": "dunglt2505/FOX2",
+    "commit": "b6561aea14092cdf7af4b0fa8f7b398f4bc70e4b",
+    "path": "docs/reference/shared_governance/TRADING_AGENT_PROMPT_TEMPLATE_v1.8.md",
+    "blob_sha1": "01a71c8a834a45aafd301f1f7355adbb42562e0f",
+    "verified": "EXACT_REMOTE_BLOB",
+    "authority": "REFERENCE_ONLY_NON_GLOBAL_TRADING_GIT_AUTHORITY"
+  },
+  "library_readback": "BYTE_EXACT_PASS",
+  "supersedes_for_new_use": "TRADING_AGENT_PROMPT_TEMPLATE_v1.7.md",
+  "normative_policy": "EACH_PROJECT_LATEST_EFFECTIVE_POLICY",
+  "permissions": {
+    "code_allowed": false,
+    "git_code_push": false,
+    "merge": false,
+    "live": false
+  },
+  "notes": "Existing immutable WPs not retroactively rewritten; update source locks for new/re-scoped tasks. Other project governance and paused migrations unaffected."
+}
