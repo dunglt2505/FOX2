@@ -1,0 +1,61 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.2.0",
+  "scope": "FOX2_ONLY_INTERNAL_POLICY_AND_AGENT_ROUTING",
+  "change_id": "FOX2-GIT-FIRST-WP-EVIDENCE-20261012",
+  "owner_decision": "Owner 2026-10-12: upgrade FOX2 to Git-first task dispatch + branch-pushed Agent results/evidence and CHAT reviews Git; update Agent Prompt Policy accordingly.",
+  "official_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.2.md",
+  "library_file_id": "libfile_77be678a25488191865e09576d04a328",
+  "provider_file_id": "file_00000000b2cc8207b6c633ba38e68d2e",
+  "raw_bytes": 66882,
+  "sha256_raw": "bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350",
+  "publication_observation": {
+    "operation": "files.manage_library.upload",
+    "result": "succeeded",
+    "destination_listing": "PASS_EXACT_NAME_PATH_SIZE",
+    "exact_byte_readback": "PASS",
+    "readback_sha256": "bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350",
+    "readback_bytes": 66882,
+    "last_modified_utc": "2026-10-12T02:58:51.332916+00:00",
+    "proof_type": "Library provider upload+readback, not protected signature"
+  },
+  "source_lineage": {
+    "supersedes_version": "1.1.0",
+    "superseded_official_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.1.md",
+    "superseded_sha256": "5091e431716a55d7898d1c58996925493e2d88ed48fdc345d12d3341d3d01037",
+    "old_files_immutable": true
+  },
+  "rules_activated": [
+    "A+B unchanged except version-neutral publisher step",
+    "C1B Git operational system of record",
+    "C4A Git report vs code vs merge permissions",
+    "C5A mandatory task/push handoff fields",
+    "C6A branch push and CHAT independent readback",
+    "C1A WORK full access preserved"
+  ],
+  "effectivity": "RELEASED_EFFECTIVE_FOX2_INTERNAL_GOVERNANCE_AFTER_MANIFEST_PUBLICATION_READBACK",
+  "git_technical_state": {
+    "repo": "dunglt2505/FOX2",
+    "last_observed_main_commit": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+    "git_policy_v1_2_mirror": "NOT_PUBLISHED",
+    "git_agent_handoff_folders": "NOT_CREATED",
+    "github_main_branch_protected": false,
+    "git_agent_report_push": "NOT_GRANTED",
+    "git_m1_v0_4_mirror": "PENDING",
+    "code_allowed_for_policy_task": false,
+    "provider_production": "NOT_GRANTED",
+    "broker_write": false,
+    "live": false
+  },
+  "not_claimed": [
+    "Git branch created",
+    "Git push receipt",
+    "Agent host quota/model/access",
+    "WIP or single writer lease",
+    "DEV scope granted",
+    "M1-0 PASS",
+    "PR/merge/release/deploy"
+  ],
+  "manifest_note": "Manifest itself requires successful Library upload and exact readback; never infer Git publish from Library publish."
+}

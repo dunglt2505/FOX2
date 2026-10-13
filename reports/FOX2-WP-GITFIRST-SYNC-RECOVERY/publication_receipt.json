@@ -1,0 +1,55 @@
+{
+  "task_id": "FOX2-GITFIRST-SYNC-RECOVERY-001",
+  "conclusion": "PARTIAL_RECOVERY",
+  "full_sync": "BLOCKED_PLATFORM",
+  "root_cause": "UNDETERMINED_PLATFORM_BLOCK",
+  "source_commit": "38114631df5dd0a62e55d1122c35aca7bbbc8271",
+  "report_submission_commit": "f4d6c0a15a0b6d213007995e3078bc0cb6b6889c",
+  "branch": "work/FOX2-GITFIRST-SYNC-RECOVERY-001-work-20261012",
+  "pr_url": "https://github.com/dunglt2505/FOX2/pull/1",
+  "draft": true,
+  "merge_allowed": false,
+  "main_unchanged": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+  "chat_bootstrap_unchanged": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+  "source_exact_matches": 5,
+  "source_set_total": 16,
+  "source_objects_missing": 11,
+  "library_m1_verified": "8/8",
+  "runtime_tests": "NOT_RUN",
+  "independent_chat_acceptance": "NOT_RUN",
+  "negative_controls": "8 local simulated decisions PASS; platform enforcement NOT_RUN",
+  "files": [
+    {
+      "path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/negative_controls.json",
+      "bytes": 1293,
+      "sha256": "5cc45391439094c3a0faf77bcc1f920050066c9125bed9b32ffa8507142aebe8",
+      "remote_commit": "f4d6c0a15a0b6d213007995e3078bc0cb6b6889c",
+      "readback": "PASS_EXACT_CONTENT"
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/report.md",
+      "bytes": 10527,
+      "sha256": "9ed84396c4abc2166c4eb206daa944418135a5b5c24095ccca9517275b072647",
+      "remote_commit": "f4d6c0a15a0b6d213007995e3078bc0cb6b6889c",
+      "readback": "PASS_EXACT_CONTENT"
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/routing_precheck.md",
+      "bytes": 3607,
+      "sha256": "b6ec083415b78e5be9c4e1268790b508dab514a354d0389d7758f41541eba555",
+      "remote_commit": "f4d6c0a15a0b6d213007995e3078bc0cb6b6889c",
+      "readback": "PASS_EXACT_CONTENT"
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-SYNC-RECOVERY/source_matrix.json",
+      "bytes": 7523,
+      "sha256": "76a67a4d0685b44bcd4ab138a7e44257b5fc574c1f716bedf81d7cb909a25051",
+      "remote_commit": "f4d6c0a15a0b6d213007995e3078bc0cb6b6889c",
+      "readback": "PASS_EXACT_CONTENT"
+    }
+  ],
+  "evidence_schema_validation": "LOCAL_KEYWORD_CHECK_PASS; NO_SCHEMA_DELTA",
+  "publication_method": "GitHub object API create tree/commit + non-force expected-SHA ref update",
+  "no_denied_payload_retry": true,
+  "receipt_closure": "This receipt attests earlier immutable source/report commits; final receipt commit readback reported by branch/PR and final response"
+}
