@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "purpose": "desired GitHub branch ruleset for Gate A public bootstrap",
+  "repository": "dunglt2505/FOX2",
+  "target_branch": "work/FOX2-LOCAL-DISPATCH-chat",
+  "ruleset": {
+    "name": "FOX2 Dispatch Control Trust",
+    "target": "branch",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "include": [
+          "refs/heads/work/FOX2-LOCAL-DISPATCH-chat"
+        ],
+        "exclude": []
+      }
+    },
+    "desired_rules": [
+      "creation",
+      "update",
+      "deletion",
+      "non_fast_forward"
+    ],
+    "bypass": {
+      "actor_type": "Integration",
+      "actor_identity": "EXACT_GITHUB_APP_BACKING_CURRENT_CHAT_CONNECTOR_TO_BE_SELECTED_IN_UI_AND_READ_BACK",
+      "routine_user_or_admin_bypass": false
+    }
+  },
+  "canary": {
+    "path": "docs/agent_handoff/GATE_A_CANARY/dispatch/GATE-A-CANARY-001.json",
+    "type": "TRUST_CANARY_ONLY",
+    "agent_launch": false,
+    "code_allowed": false
+  },
+  "current_observation": {
+    "repository_visibility": "public",
+    "rulesets_count": 0,
+    "connector_installation_id": 169139119,
+    "connector_repository_selection": "all",
+    "connector_accesses": [
+      "dunglt2505/Fox",
+      "dunglt2505/FOX2"
+    ],
+    "raw_commit_performed_via_github_app": "NOT_EXPOSED",
+    "gate_a": "BLOCKED_ADMIN_CONFIG"
+  }
+}
