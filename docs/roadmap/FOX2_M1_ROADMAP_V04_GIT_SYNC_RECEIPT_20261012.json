@@ -1,0 +1,31 @@
+{
+  "document_type": "FOX2_M1_ROADMAP_V04_GIT_SYNC_RECEIPT",
+  "project": "FOX2",
+  "policy_version": "1.8",
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-M1-V04-ROADMAP-RELEASE-chat-20261012",
+  "verified_source_commit": "282fe0654de13e8d9c679e171e7ac81f29a545ca",
+  "base_commit": "d23fdfb4c89c8317eddbe43523c1896d3c03d3a1",
+  "verification": "PASS_REMOTE_READBACK_EXACT_GIT_BLOBS_AND_THREE_PATH_DIFF",
+  "files": [
+    {
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "git_blob_sha": "ed842860259628cb1404b3a9fa7ad9e28eaa326c",
+      "library_sha256": "df1bb83701c774644d3cc664f350134e40caeda73ca77cd61a987a7ecf2e8ee4"
+    },
+    {
+      "path": "docs/roadmap/FOX2_M1_P2_WP_PLAN_v0.1.md",
+      "git_blob_sha": "6612f7d05b4724be396214e5446eb685e58979c9",
+      "library_sha256": "210e28fd7caeecaca6edf7b71c7f39d769ee2be2d51b399ffec989bd57e4180b"
+    },
+    {
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_V0.4_RELEASE_MANIFEST_20261012.json",
+      "git_blob_sha": "f8a0adef6de700f0af577b249148f24d89b2dc41",
+      "library_sha256": "74f793e18165c68cfa2a2cbc2f0871e24381ad1078fc73fdc0674641c988fbbc"
+    }
+  ],
+  "scope": "ROADMAP_AND_P2_DESIGN_DOCUMENT_MIRROR_ONLY",
+  "effect": "GIT_MIRROR_VERIFIED; no CODE_ALLOWED/main/merge/provider/live grant",
+  "main_push": "NO",
+  "merge": "NO"
+}
