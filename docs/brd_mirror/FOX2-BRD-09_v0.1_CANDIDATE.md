@@ -1,10 +1,10 @@
 # FOX2-BRD-09 — AgentBridge Desktop & Local Orchestration
 
-**Version:** `0.1 Candidate`  
+**Version:** `0.1 Candidate REV2`  
 **Status:** `CANDIDATE / OWNER_REVIEW / NO_DEV_GRANT`  
 **Project:** FOX2 initially; product direction supports a later generic AgentBridge distribution  
 **Date:** 2026-10-14  
-**Owner direction:** continue Bridge productization in parallel with FOX2 application development.  
+**Owner direction:** continue Bridge productization in parallel with FOX2 application development. REV2 locks GitHub-as-mailbox + local outbound pull as the V1 signaling model.  
 **Technical counterpart:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md`  
 **Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
 **Current runtime evidence:** Bridge Core is assessed `OPERATIONAL_MVP`; direct Copilot CLI and Codex CLI canaries have immutable Git result evidence.  
@@ -95,6 +95,13 @@ Windows is the first supported desktop platform. Multi-platform support is a lat
 | `FOX2-09-R22` | Initial FOX2 build may remain project-bound; multi-project simultaneous scheduling is not required until separately accepted. | P2 | SPECIFIED_CANDIDATE | T21 |
 | `FOX2-09-R23` | A future community/open-source distribution must separate generic Bridge Core/adapters from FOX2-specific policies/configuration and remove owner paths, credentials and private/proprietary content. | P1 | SPECIFIED_CANDIDATE | T22 |
 | `FOX2-09-R24` | Public/community release requires an explicit software license and release-sanitization decision; current public visibility alone is not that decision. | P1 | SPECIFIED_CANDIDATE | T22 |
+| `FOX2-09-R25` | V1 task signaling uses GitHub as the durable mailbox: CHAT publishes an immutable dispatch to the configured control ref; the local Bridge discovers it by outbound Git access. No direct inbound CHAT-to-PC connection is required. | P0 | SPECIFIED_CANDIDATE | T23 |
+| `FOX2-09-R26` | Bridge detects signal changes by comparing the configured control-ref remote SHA with its durable last-seen SHA; unchanged SHA must not trigger full fetch or Agent execution. | P0 | SPECIFIED_CANDIDATE | T23,T24 |
+| `FOX2-09-R27` | Healthy background polling is lightweight and does not consume Codex/Copilot prompts or credits; a manual **Check now** action can request an immediate poll. | P0 | SPECIFIED_CANDIDATE | T24,T25 |
+| `FOX2-09-R28` | When Git/network is unavailable, polling uses bounded backoff and resumes automatically after connectivity returns without launching from stale/unverified dispatch data. | P0 | SPECIFIED_CANDIDATE | T26 |
+| `FOX2-09-R29` | Dynamic IP, NAT and inbound firewall restrictions must not prevent normal V1 operation; AgentBridge V1 requires only outbound Git/HTTPS connectivity and does not require an inbound port, public IP, Tailscale or ngrok. | P0 | SPECIFIED_CANDIDATE | T23,T27 |
+| `FOX2-09-R30` | If the local PC is asleep/offline, the dispatch remains durable on GitHub; after wake/login/startup the Worker reconciles state and processes still-eligible pending dispatches. Wake-on-task is not required in V1. | P0 | SPECIFIED_CANDIDATE | T28 |
+| `FOX2-09-R31` | A future webhook/cloud-relay/push optimization may reduce latency, but it must remain optional and cannot bypass immutable dispatch validation, replay protection or local authority checks. | P2 | SPECIFIED_CANDIDATE | T29 |
 
 ## 5. System Tray UX
 
@@ -169,7 +176,82 @@ When Git/network is unavailable:
 - retry uses bounded backoff;
 - no Agent is started from stale/unverified new dispatch data.
 
-## 8. Resource and credit behavior
+## 8. V1 signaling model — GitHub durable mailbox
+
+The V1 signaling contract is intentionally **pull-based**:
+
+```text
+Owner -> CHAT
+        -> immutable dispatch commit
+        -> configured GitHub control ref
+        -> Local AgentBridge Worker polls outbound
+        -> detects new control-ref SHA
+        -> fetches/validates new dispatch
+        -> claims only eligible auto-execute task
+        -> Codex/Copilot CLI
+        -> authorized Git result
+        -> CHAT remote review
+```
+
+GitHub is therefore the durable task mailbox. CHAT does not need a socket, VPN tunnel or direct network route to the local PC.
+
+### 8.1 Signal detection
+
+Normal healthy loop:
+
+```text
+remote_sha = lightweight query of configured control ref
+
+if remote_sha == durable_last_seen_sha:
+    sleep
+    do not full-fetch
+    do not call Agent
+else:
+    fetch exact control ref
+    discover immutable dispatch delta
+    validate -> claim -> execute only when eligible
+```
+
+The implementation may use `git ls-remote` or an equivalent lightweight remote-ref query. The product requirement is the behavior, not a specific Git command.
+
+### 8.2 Polling / manual check
+
+Candidate V1 operational default is approximately 30 seconds while healthy. Exact safe bounds belong to Technical Spec.
+
+**Check now** requests an immediate poll without changing task authority.
+
+Polling Git is transport work only. It must not send Codex/Copilot prompts merely to determine whether work exists.
+
+### 8.3 Offline / sleep behavior
+
+When the PC is offline or asleep, no inbound wake signal is required. Dispatch remains in GitHub.
+
+After wake/login/startup:
+
+```text
+Worker starts
+ -> reconcile durable ledger
+ -> query control ref
+ -> discover still-pending eligible dispatch
+ -> continue normal execution
+```
+
+No task is lost merely because the local PC was unavailable at publication time.
+
+### 8.4 Network boundary
+
+V1 normal operation requires outbound Git/HTTPS only. It does not require:
+
+- public/static IP;
+- router port forwarding;
+- inbound HTTP/WebSocket listener;
+- Tailscale;
+- ngrok;
+- public cloud relay.
+
+A later webhook/cloud relay may be evaluated only as a latency optimization. Git immutable dispatch remains the authority-bearing source and the local Worker still performs normal validation/replay checks.
+
+## 9. Resource and credit behavior
 
 AgentBridge must not fabricate an exact token/credit balance if the Agent product does not expose one.
 
@@ -185,7 +267,7 @@ A missing numeric quota display is not itself a failure when the Agent can execu
 
 No background test prompt may be sent solely to estimate quota unless explicitly requested and authorized.
 
-## 9. Security and privacy requirements
+## 10. Security and privacy requirements
 
 - Operate under the interactive Windows user's identity by default.
 - Do not default to SYSTEM/service-account execution where user Git/Agent credentials may not be available.
@@ -197,7 +279,7 @@ No background test prompt may be sent solely to estimate quota unless explicitly
 - Tray/IPC/control surfaces are local-user scoped.
 - Public FOX2 bootstrap trust may use current pinned-Git development rules, but hardened publisher/control-ref trust is required before a later confidential/private/Production operation if that operation depends on it.
 
-## 10. Generic/community direction
+## 11. Generic/community direction
 
 The desired long-term product shape is:
 
@@ -217,7 +299,7 @@ FOX2-specific requirements, policy texts, trading logic and proprietary project 
 
 A later standalone repository should be created from a sanitized product boundary rather than automatically publishing FOX2 Git history.
 
-## 11. Acceptance scenarios
+## 12. Acceptance scenarios
 
 These are BRD-09-specific acceptance IDs. They do **not** modify or mark PASS in the existing M1 Market Acceptance Matrix.
 
@@ -245,10 +327,17 @@ These are BRD-09-specific acceptance IDs. They do **not** modify or mark PASS in
 | `FOX2-09-T20` | Tray process unavailable | Diagnostic CLI can still health/status/start worker as supported |
 | `FOX2-09-T21` | Project profile configuration changes | Core behavior uses profile data without FOX2 business logic hardcoding |
 | `FOX2-09-T22` | Standalone/community release candidate | Sanitization/license review proves no FOX2-specific secret/proprietary baggage is implicitly published |
+| `FOX2-09-T23` | CHAT publishes a new immutable dispatch while local Bridge is behind NAT/dynamic IP | Local outbound polling discovers it without any inbound port/tunnel |
+| `FOX2-09-T24` | Control-ref SHA remains unchanged across multiple healthy polls | No full dispatch fetch and no Agent invocation occurs; Check now can poll immediately |
+| `FOX2-09-T25` | Bridge runs idle for a sustained interval | Zero Codex/Copilot task prompts are generated by polling alone |
+| `FOX2-09-T26` | Git/network becomes unavailable then recovers | Bounded backoff occurs; after recovery polling resumes and no stale unverified task launches |
+| `FOX2-09-T27` | Local IP changes / NAT blocks inbound connections | Normal outbound mailbox workflow continues |
+| `FOX2-09-T28` | Dispatch is published while PC is asleep/offline, then PC wakes/logs in | Worker reconciles and processes the still-eligible dispatch without duplicate execution |
+| `FOX2-09-T29` | Optional future push/webhook hint is received | Hint alone grants no authority; exact Git dispatch validation/replay rules still apply |
 
 All scenarios are `NOT_RUN` until implementation evidence exists.
 
-## 12. Out of scope for BRD-09 v0.1
+## 13. Out of scope for BRD-09 v0.1
 
 - semantic code review or acceptance inside Bridge;
 - automatic task decomposition/prioritization;
@@ -260,11 +349,11 @@ All scenarios are `NOT_RUN` until implementation evidence exists.
 - mobile AgentBridge client;
 - multi-user server mode;
 - macOS/Linux release;
-- guaranteed real-time webhook delivery;
+- guaranteed real-time webhook delivery in V1; webhook/cloud relay remains an optional later latency optimization;
 - simultaneous arbitrary multi-project scheduling;
 - automatic purchase of Agent credits/subscriptions.
 
-## 13. Current evidence and product gap
+## 14. Current evidence and product gap
 
 Observed Bridge development evidence already demonstrates:
 
@@ -289,10 +378,10 @@ continuous background watcher
 -> packaging/installer
 ```
 
-## 14. Revision disposition
+## 15. Revision disposition
 
 This is a **new BRD Candidate**. It does not supersede BRD-00/06/08 and does not change market-data/product semantics.
 
 Owner approval/publication may later promote BRD-09 to a released version. Until then:
 
-`BRD09_STATUS=CANDIDATE / ACCEPTANCE=NOT_RUN / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT`.
+`BRD09_STATUS=CANDIDATE_REV2 / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / ACCEPTANCE=NOT_RUN / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT`.
