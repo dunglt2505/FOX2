@@ -665,6 +665,7 @@ class BridgeE2ERunner:
                 f"dispatch {dispatch_id} was already claimed: {existing}"
             )
 
+        agent_result = None
         try:
             self._progress("prepare authorized result parent directories")
             self._prepare_required_parents(payload=payload, worktree=worktree)
@@ -764,12 +765,23 @@ class BridgeE2ERunner:
             else:
                 error_code = "UNEXPECTED_ERROR"
                 error_message = f"{type(exc).__name__}: {exc}"
+            failure_result: dict[str, object] = {
+                "dispatch_id": dispatch_id,
+                "execution_id": execution_id,
+                "branch": str(payload["branch"]),
+                "worktree": str(worktree),
+                "before_head": before_head,
+            }
+            if agent_result is not None:
+                failure_result["copilot"] = agent_result.as_dict()
+
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
                 dispatch_state="FAILED",
                 execution_state="FAILED",
                 finished_at_utc=finished,
+                result=failure_result,
                 error_code=error_code,
                 error_message=error_message[:4000],
             )
@@ -779,6 +791,7 @@ class BridgeE2ERunner:
                     "status": "FAILED",
                     "dispatch_id": dispatch_id,
                     "execution_id": execution_id,
+                    "result": failure_result,
                     "error": {
                         "code": error_code,
                         "message": error_message[:4000],
