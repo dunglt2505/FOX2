@@ -122,6 +122,8 @@ class CodexAdapter:
         resolved_worktree = self._resolve_worktree(worktree)
         command = [
             str(executable),
+            "-c",
+            'windows.sandbox="unelevated"',
             "--ask-for-approval",
             "never",
             "exec",
