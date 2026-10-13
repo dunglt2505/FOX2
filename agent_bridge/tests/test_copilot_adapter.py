@@ -42,7 +42,7 @@ def test_copilot_smoke_builds_cli_command(
     monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
 ):
     worktree = bridge_config.worktree_root / "COPILOT-SMOKE"
-    worktree.mkdir(parents=True)
+    worktree.mkdir(parents=True, exist_ok=True)
     (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
 
     adapter, executable = _configured_adapter(bridge_config, tmp_path)
@@ -86,7 +86,7 @@ def test_copilot_e2e_adds_documented_programmatic_permissions(
     monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
 ):
     worktree = bridge_config.worktree_root / "COPILOT-E2E"
-    worktree.mkdir(parents=True)
+    worktree.mkdir(parents=True, exist_ok=True)
     (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
 
     adapter, _executable = _configured_adapter(bridge_config, tmp_path)
@@ -123,7 +123,7 @@ def test_copilot_e2e_adds_bounded_pytest_permission(
     monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
 ):
     worktree = bridge_config.worktree_root / "COPILOT-PYTEST"
-    worktree.mkdir(parents=True)
+    worktree.mkdir(parents=True, exist_ok=True)
     (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
 
     adapter, _executable = _configured_adapter(bridge_config, tmp_path)
@@ -165,7 +165,7 @@ def test_copilot_rejects_shell_permission_outside_safe_catalog(
     bridge_config, tmp_path: Path
 ):
     worktree = bridge_config.worktree_root / "COPILOT-UNSAFE"
-    worktree.mkdir(parents=True)
+    worktree.mkdir(parents=True, exist_ok=True)
     (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
 
     adapter, _executable = _configured_adapter(bridge_config, tmp_path)
