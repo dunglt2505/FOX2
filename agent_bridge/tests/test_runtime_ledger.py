@@ -133,3 +133,51 @@ def test_review_key_uniqueness_is_enforced(tmp_path: Path) -> None:
             pass
         else:
             raise AssertionError("duplicate review_key was accepted")
+
+
+def test_finish_execution_persists_result_and_status(tmp_path: Path) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    now = utc_now()
+    assert ledger.claim_dispatch(
+        dispatch_id="dispatch-result",
+        payload_hash="a" * 64,
+        execution_id="execution-result",
+        observed_at_utc=now,
+    )
+
+    ledger.finish_execution(
+        dispatch_id="dispatch-result",
+        execution_id="execution-result",
+        dispatch_state="PUSHED_UNREVIEWED",
+        execution_state="PUSHED_UNREVIEWED",
+        finished_at_utc=utc_now(),
+        result={"after_head": "b" * 40, "changed_paths": ["reports/x.txt"]},
+    )
+
+    status = ledger.dispatch_status("dispatch-result")
+    assert status is not None
+    assert status["dispatch_state"] == "PUSHED_UNREVIEWED"
+    assert status["execution_state"] == "PUSHED_UNREVIEWED"
+    assert status["result"]["after_head"] == "b" * 40
+
+
+def test_recover_interrupted_executions_terminalizes_running_rows(tmp_path: Path) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    now = utc_now()
+    assert ledger.claim_dispatch(
+        dispatch_id="dispatch-stale",
+        payload_hash="c" * 64,
+        execution_id="execution-stale",
+        observed_at_utc=now,
+    )
+
+    recovered = ledger.recover_interrupted_executions(finished_at_utc=utc_now())
+
+    assert recovered == 1
+    status = ledger.dispatch_status("dispatch-stale")
+    assert status is not None
+    assert status["dispatch_state"] == "INTERRUPTED"
+    assert status["execution_state"] == "INTERRUPTED"
+    assert status["error_code"] == "STALE_EXECUTION"
