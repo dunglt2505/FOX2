@@ -137,13 +137,10 @@ class CopilotAdapter:
         if no_ask_user:
             command.append("--no-ask-user")
 
-        allowed_tools: list[str] = []
         if allow_write:
-            allowed_tools.extend(["read", "write"])
+            command.append("--allow-tool=write")
         if allow_git:
-            allowed_tools.append("shell(git:*)")
-        if allowed_tools:
-            command.append("--allow-tool=" + ",".join(dict.fromkeys(allowed_tools)))
+            command.append("--allow-tool=shell(git:*)")
         if allow_github_url:
             command.append("--allow-url=github.com")
 
