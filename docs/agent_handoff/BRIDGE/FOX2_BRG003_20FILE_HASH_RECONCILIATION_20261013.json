@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "project": "FOX2",
+  "task_id": "BRG-003",
+  "report_type": "CHAT_CROSS_REPORT_HASH_RECONCILIATION",
+  "created_date": "2026-10-13",
+  "provenance": {
+    "baseline": "Copilot BRG-002 source manifest in Owner-supplied Pasted text(20261013-042845).txt",
+    "comparison": "Copilot BRG-003 precommit report in Owner-supplied Pasted text(20261013-062752).txt",
+    "limitations": "This is an independent comparison of two Copilot-reported manifests, not a direct Windows-disk verification; CHAT has not inspected file contents or test fixtures."
+  },
+  "inventory": {
+    "include_count": 20,
+    "review_required_count": 3,
+    "original_runtime_excludes": 3,
+    "generated_excludes": 52,
+    "additional_sqlite_sidecars": 2,
+    "venv_excluded_file_count": 2482
+  },
+  "results": {
+    "path_count": 20,
+    "full_sha256_match": 20,
+    "size_match": 20,
+    "sha_mismatch": 0,
+    "missing": 0,
+    "verdict": "ACCEPTED_AS_REPORT_TO_REPORT_SOURCE_IDENTITY_EVIDENCE",
+    "is_git_backup": false,
+    "real_secret_review": "OPEN",
+    "exclusive_writer": "UNKNOWN",
+    "git_code_import_grant": "NO",
+    "git_code_push": "NO",
+    "automated_gate_a": "BLOCKED_CAPABILITY_UNAVAILABLE"
+  },
+  "include_files": [
+    {
+      "path": "pyproject.toml",
+      "size_bytes": 579,
+      "sha256": "813c11dcf89525809afedcb2b50ca0e545e062f07c46036c5ba87f0f886345fb"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 1754,
+      "sha256": "7636d69a47268506558111829c9ccc02e41c119c29b1048e07e9018472186f98"
+    },
+    {
+      "path": "src/fox2_agent_bridge/__init__.py",
+      "size_bytes": 67,
+      "sha256": "61c9f73d15394ea5356c7642b5f81ce9611b98de2086d4b0f678adcad3544b8b"
+    },
+    {
+      "path": "src/fox2_agent_bridge/__main__.py",
+      "size_bytes": 1900,
+      "sha256": "87f9625fec99efc080e10a3a4d9c0dade6ecaf94f646e1b6d5bd3219a0c3bc00"
+    },
+    {
+      "path": "src/fox2_agent_bridge/app.py",
+      "size_bytes": 4862,
+      "sha256": "99809f40df3938a6d5d1480213e4730e7d23b01ab0aeb8ddf52e7603e003b195"
+    },
+    {
+      "path": "src/fox2_agent_bridge/config.py",
+      "size_bytes": 7145,
+      "sha256": "38036a7be28bd2701e78bcb34f83adaecaa12ebe860cdcead43920b2265535ea"
+    },
+    {
+      "path": "src/fox2_agent_bridge/dispatch_poller.py",
+      "size_bytes": 25027,
+      "sha256": "a432d8cbffba82d515d5b096201bfb6c2805c2e7bbe5ec846d811d377fe6331d"
+    },
+    {
+      "path": "src/fox2_agent_bridge/errors.py",
+      "size_bytes": 1536,
+      "sha256": "7e71ddb8932f25e225e443ac59fb1719b194a1f4c644d85867870b270a803a2d"
+    },
+    {
+      "path": "src/fox2_agent_bridge/hashing.py",
+      "size_bytes": 1003,
+      "sha256": "7c311c7bf024d33b17113dd9e55bf2d4e4bbb0badcc3c2ed976d95e2cd74aa23"
+    },
+    {
+      "path": "src/fox2_agent_bridge/ledger.py",
+      "size_bytes": 12187,
+      "sha256": "e1d32c6bdc76500c05db02164a0924b37261b8167da341c5e9de167c4af95f3b"
+    },
+    {
+      "path": "src/fox2_agent_bridge/logging_config.py",
+      "size_bytes": 3034,
+      "sha256": "ee7532c03e7a8ddc93f138a46fa2c2d09eb1ff359f54e504bda1453a409561ed"
+    },
+    {
+      "path": "src/fox2_agent_bridge/models.py",
+      "size_bytes": 2060,
+      "sha256": "2aed48ff0d35262cba78f000bd671f78a2901c3ca92863a7146cde6e0d03d919"
+    },
+    {
+      "path": "src/fox2_agent_bridge/paths.py",
+      "size_bytes": 1319,
+      "sha256": "9169e5f59fdc8f3cccbdf52cc3c2af4e8bf920b1c349bf421b5b0997adfefbe8"
+    },
+    {
+      "path": "src/fox2_agent_bridge/process_lock.py",
+      "size_bytes": 3248,
+      "sha256": "a8dd02c060d405c7ac0b146e65263cab0e23ea2bb1b63ecbc46001983bd23944"
+    },
+    {
+      "path": "src/fox2_agent_bridge/runtime_tools.py",
+      "size_bytes": 7281,
+      "sha256": "07cd48bf95f42cbd782943f290fd77ee285a049ac613cd686111e3e3d137b900"
+    },
+    {
+      "path": "tests/conftest.py",
+      "size_bytes": 379,
+      "sha256": "0aac9462c7e76890bcabbea9d78fc901df71d16692744d07425ee561a93b2d30"
+    },
+    {
+      "path": "tests/test_config_paths.py",
+      "size_bytes": 2947,
+      "sha256": "42793b73aafef6aeac994506603a3bdf57b46a4bfdae17c8192d0a35bafb2b13"
+    },
+    {
+      "path": "tests/test_dispatch_poller.py",
+      "size_bytes": 18113,
+      "sha256": "93bbea8ae9c466ff56c17329b5f8df9d9ebb34aeffac1bc3def4897980164efd"
+    },
+    {
+      "path": "tests/test_lock_logging_health.py",
+      "size_bytes": 6479,
+      "sha256": "1910ee0e72ad1f2d3eba585c0fcd1a187cb575cbe0d140e0af119e0ecf546e90"
+    },
+    {
+      "path": "tests/test_runtime_ledger.py",
+      "size_bytes": 4956,
+      "sha256": "4e65029f40697b34349d975feb1f3e1b3e565243505daa26104d31b937d862db"
+    }
+  ],
+  "deferred_files": [
+    "config/bridge.example.toml",
+    "reports/BRG-010.md",
+    "reports/BRG-020.md"
+  ],
+  "sensitive_findings_to_resolve": [
+    "Code/config.py and tests/test_config_paths.py contain user-specific absolute Windows paths; do not push unsanitized copies.",
+    "Two tests contain ghp_-shaped token fixtures, not yet human-verified as purely synthetic; redact/replace safely before Git publication.",
+    "tests/test_dispatch_poller.py has credential-in-URL and email-like fixtures; confirm fake/test-only before Git publication.",
+    "REVIEW_REQUIRED reports and config include personal/host paths; DEFER from initial source commit, preserve locally.",
+    "Do not open or delete SQLite DB, WAL/SHM sidecars, control.git, logs, .venv or generated cache."
+  ],
+  "next_step": "Narrow BRG-003 security/readiness read-only review; then separate scoped Owner grant for sanitized source-only import on isolated non-main branch, one-writer and remote blob readback. No per-commit reapproval within approved WP."
+}
