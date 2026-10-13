@@ -9,6 +9,7 @@ from typing import Any
 from .config import BridgeConfig, load_config
 from .copilot_adapter import CopilotAdapter, CopilotRunResult
 from .dispatch_poller import DispatchPoller, PollResult
+from .e2e_runner import BridgeE2ERunner, E2EResult
 from .errors import BridgeError, StartupBlocked
 from .ledger import SQLiteLedger, utc_now
 from .logging_config import configure_logging, log_event
@@ -89,7 +90,7 @@ class BridgeApp:
                 "stale_owner_metadata_recovered": self.lock.stale_owner_detected,
             },
             "tools": tools,
-            "scope": "BRG-010/020 core, read-only dispatch discovery, and bounded Copilot CLI smoke relay",
+            "scope": "BRG-010/020 core, immutable dispatch discovery, bounded Copilot CLI smoke relay, and single-use E2E dispatch execution",
         }
 
     def poll_once(self) -> PollResult:
@@ -137,6 +138,24 @@ class BridgeApp:
             },
         )
         return result
+
+    def e2e_once(
+        self,
+        *,
+        dispatch_path: str,
+        timeout_seconds: int = 300,
+    ) -> E2EResult:
+        if not self._started:
+            raise StartupBlocked("E2E execution requires a started Bridge")
+        runner = BridgeE2ERunner(
+            self.config,
+            self.ledger,
+            logger=self.logger,
+        )
+        return runner.run_once(
+            dispatch_path=dispatch_path,
+            timeout_seconds=timeout_seconds,
+        )
 
     def shutdown(self) -> None:
         try:
