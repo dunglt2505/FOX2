@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-003",
+  "wp_id": "FOX2-BRIDGE-E2E-CANARY-003",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "COPILOT",
+    "interface": "GITHUB_COPILOT_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_SUPPORTED_CONFIGURED_DEFAULT",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_COPILOT_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-E2E-CANARY-003-COPILOT",
+  "branch": "work/FOX2-BRIDGE-E2E-CANARY-003-copilot",
+  "base_sha": "7dff84ba2eca4aeeb1db5d8d0cdecdbd432515ad",
+  "prompt": {
+    "git_commit": "caa85e22fbf38cd791d920a90d1a9c4d234bf799",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_E2E_CANARY_003_PROMPT_20261013.md",
+    "git_blob_sha1": "7a2b15b4b7b03243656d5072763025499b3751f5",
+    "sha256": "0ba7f031e0e562ec8c7854295ba8d869809c995711b6e9ae5dc802015a94d246"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-E2E-CANARY-003/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-E2E-CANARY-003/bridge_called_copilot.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_E2E_CANARY_003_OK"
+  },
+  "runtime_contract": {
+    "invoke_via": "copilot_cli_programmatic",
+    "working_directory_must_equal_worktree": true,
+    "minimum_permissions_only": true,
+    "max_active_agent_executions": 2,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "vscode_existing_session_not_required": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 180,
+    "parent_directory_precreated_by_bridge": true
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-13",
+    "text": "triển khai E2E",
+    "scope": "Retry E2E after canary 002 exposed Copilot CLI permission mismatch."
+  }
+}
