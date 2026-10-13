@@ -373,6 +373,29 @@ class GitTransport:
         return candidates
 
 
+    def read_dispatch_blob(self, commit_sha: str, dispatch_path: str) -> tuple[bytes, str]:
+        """Read one immutable dispatch blob from the fetched control commit."""
+        if not FULL_SHA_PATTERN.fullmatch(commit_sha):
+            raise TransportFailure("dispatch control commit is not a full immutable SHA")
+        try:
+            raw_path = dispatch_path.encode("utf-8")
+        except UnicodeEncodeError as exc:
+            raise TransportFailure("dispatch path is not valid UTF-8") from exc
+        if not _candidate_path(raw_path):
+            raise TransportFailure("dispatch path is outside the FOX2 dispatch namespace")
+
+        identity = self._run(
+            ["rev-parse", "--verify", f"{commit_sha}:{dispatch_path}"]
+        ).stdout.strip()
+        if not FULL_SHA_PATTERN.fullmatch(identity):
+            raise TransportFailure("Git returned an invalid dispatch blob identity")
+        content = self._run(
+            ["show", f"{commit_sha}:{dispatch_path}"],
+            binary=True,
+        ).stdout
+        return content, identity
+
+
 @dataclass(frozen=True)
 class PollResult:
     status: str
