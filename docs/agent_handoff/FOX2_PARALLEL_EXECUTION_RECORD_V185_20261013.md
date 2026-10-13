@@ -9,10 +9,10 @@ WP: `FOX2-BRIDGE-RELAY-MVP`
 Role: Bridge transport/launcher implementation.
 
 Prompt:
-`docs/agent_handoff/BRIDGE/FOX2_BRIDGE_RELAY_MVP_COPILOT_EXECUTE_20261013.md`
+`docs/agent_handoff/BRIDGE/FOX2_BRIDGE_RELAY_MVP_COPILOT_CLI_EXECUTE_V2_20261013.md`
 
 Prompt publication commit:
-`ff2aef2c7b3e672f4c403eafacfdb9933f595710`
+`ec934afe6757e461958ee36ee392af77e9093dac`
 
 Code baseline:
 `58efb364098b69e1723dcf2097bb1b77192e7415`
@@ -28,7 +28,10 @@ Write scope:
 - canonical result paths under `reports/FOX2-BRIDGE-RELAY-MVP/**`
 
 Execution path:
-`MANUAL_LOCAL / VSCODE_ONE_CLICK` for bootstrap if direct Bridge session injection is not yet proven.
+`BRIDGE_DIRECT_COPILOT_CLI`
+
+Execution rule:
+Bridge invokes the installed GitHub Copilot CLI programmatically from the exact isolated worktree. Existing VS Code Copilot Agent session injection is not required. VS Code may provide editor/workspace context but is not the authority for this execution path.
 
 Stop:
 `PUSHED_UNREVIEWED | genuine material blocker`
