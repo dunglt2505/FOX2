@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-AGENT-PROMPT-ROUTING-INDEX",
+  "revision": "V1.2.5",
+  "status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX",
+  "date": "2026-10-13",
+  "policy": {
+    "version": "V1.8.4",
+    "sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a",
+    "git_commit": "a366f509899cec97f64316cb111b29a3849325b5",
+    "git_blob": "483a74ff39339e653bbd7bbfba0feaf7b1c003e9"
+  },
+  "bridge_technical": {
+    "version": "v0.5",
+    "sha256": "2d182972b5edd6ccfd72c83b07d97907fa7fb63ed6eaa4de68b03b7e5165740a",
+    "git_commit": "8010a121e1d8b3f244da7dd856931b1bce41da21",
+    "git_blob": "1ce788e84628764f1b58459e93aecd5c7fde641e"
+  },
+  "routing_index": {
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_5_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "file_id": "file_00000000ed84821199de1533446ae3ae",
+    "library_file_id": "libfile_1cbf09820d8c8191a4811c5182d1ffde",
+    "size_bytes": 22484,
+    "sha256": "bd3332e6e6e783362cd5b3992145a2c216d4050a05e3b905ab957d129ece66a0",
+    "library_exact_byte_readback": "PASS",
+    "git_commit": "7b6e30e0712071da3a576e1ebda2dce364aa7dff",
+    "git_path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_5_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "git_blob": "3ea18c06af93cd059b7e29c6f09914ac4a0298a7",
+    "git_exact_byte_match": true
+  },
+  "routing_change": {
+    "bootstrap_trust": "BOOTSTRAP_PINNED_GIT",
+    "hardened_trust": "HARDENED_PUBLISHER",
+    "github_app_ruleset_required_for_bootstrap": false,
+    "hardening_required_before_confidential_private_or_live": true
+  },
+  "rights": {
+    "dev_grant": false,
+    "auto_agent_launch": false,
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
