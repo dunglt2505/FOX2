@@ -1,0 +1,28 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "bridge",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "source_candidate": {
+    "name": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.3_CANDIDATE_REV3.md",
+    "bytes": 43194,
+    "sha256": "3faa2afc085a8343bf4f2e927c2335f2a6b556baf67675ea096bf53e575e4056"
+  },
+  "release_artifact": {
+    "name": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.3.md",
+    "library_path": "/Trading/FOX2/02_Architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.3.md",
+    "bytes": 43131,
+    "sha256": "42fea364a28678da472b0d5296c083ceeada424e413d4b9731f533313a58c07f"
+  },
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "git_source_ready": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
