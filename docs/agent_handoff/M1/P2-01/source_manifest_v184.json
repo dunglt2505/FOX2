@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-M1-P2-01",
+  "generated_at": "2026-10-13",
+  "status": "PREDEV_REBOUND_CONDITIONAL",
+  "policy": {
+    "version": "V1.8.4",
+    "library_sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a",
+    "git_commit": "a366f509899cec97f64316cb111b29a3849325b5",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.4.md",
+    "git_blob": "483a74ff39339e653bbd7bbfba0feaf7b1c003e9"
+  },
+  "routing_index": {
+    "version": "V1.2.4",
+    "git_commit": "43c3d240615bce7279f2665fa1c1c0afb7f49021",
+    "git_path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_4_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "git_blob": "ff039df00a5dd449077974fd9d3ee68307176be4"
+  },
+  "business_source": {
+    "m1_source_commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+    "market_contract_blob": "369a893a83dd140ce423c032784941a22d4a443e",
+    "acceptance_blob": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+    "requirement_map_blob": "321bc0e2525befa8842f09edfc09ce20c2cbab09",
+    "roadmap_commit": "282fe0654de13e8d9c679e171e7ac81f29a545ca",
+    "roadmap_blob": "ed842860259628cb1404b3a9fa7ad9e28eaa326c",
+    "p2_plan_blob": "6612f7d05b4724be396214e5446eb685e58979c9"
+  },
+  "task_records": [
+    {
+      "kind": "rebind",
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/agent_handoff/M1/P2-01/FOX2_M1_P2_01_PREDEV_REBIND_V184_20261013.md",
+      "blob": "031c02fc420f9156e809a6f0e77b864b6ad09c23"
+    },
+    {
+      "kind": "local_setup",
+      "commit": "1ec878c300b126c66bab35c2a933578f57b43f8b",
+      "path": "docs/agent_handoff/M1/P2-01/FOX2_M1_P2_01_CODEX_MINIMAL_LOCAL_SETUP_20261013.md",
+      "blob": "e60ad775bca334bc27ce6f13cc840009cde452db"
+    },
+    {
+      "kind": "conditional_dev_auth",
+      "commit": "ffaa449f1b142bf339553985c09bd4163f1857a7",
+      "path": "docs/agent_handoff/M1/P2-01/FOX2_M1_P2_01_CONDITIONAL_DEV_AUTH_20261013.md",
+      "blob": "8b0ec8670457da76a02f8e9d9c5f0a0013f8d4f7"
+    }
+  ],
+  "execution": {
+    "branch": "work/FOX2-M1-P2-01-foundation-codex",
+    "base_commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+    "allowed_paths": [
+      "backend/**",
+      "tests/p2_01/**"
+    ],
+    "code_allowed": "CONDITIONAL_NOT_ACTIVE",
+    "git_code_push": "CONDITIONAL_NOT_ACTIVE",
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
