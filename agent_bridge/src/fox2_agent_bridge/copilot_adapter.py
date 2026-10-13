@@ -1,12 +1,16 @@
-"""Minimal GitHub Copilot CLI relay used by the Bridge smoke pilot."""
+"""GitHub Copilot CLI relay used by FOX2 Bridge."""
 
 from __future__ import annotations
 
 import os
+import queue
 import shutil
 import subprocess
+import threading
+import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Callable, TextIO
 
 from .config import BridgeConfig
 from .errors import PathInvalid, ToolExecFailed, ToolNotFound
@@ -66,10 +70,36 @@ class CopilotAdapter:
         )
         if not resolved.exists() or not resolved.is_dir():
             raise PathInvalid("copilot_worktree does not exist")
-        git_marker = resolved / ".git"
-        if not git_marker.exists():
+        if not (resolved / ".git").exists():
             raise PathInvalid("copilot_worktree is not a Git worktree")
         return resolved
+
+    @staticmethod
+    def _reader(
+        stream: TextIO,
+        name: str,
+        events: queue.Queue[tuple[str, str | None]],
+    ) -> None:
+        try:
+            for line in iter(stream.readline, ""):
+                events.put((name, line))
+        finally:
+            events.put((name, None))
+
+    @staticmethod
+    def _kill_process_tree(process: subprocess.Popen[str]) -> None:
+        if process.poll() is not None:
+            return
+        if os.name == "nt":
+            subprocess.run(
+                ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=15,
+            )
+        else:
+            process.kill()
 
     def run_prompt(
         self,
@@ -82,11 +112,15 @@ class CopilotAdapter:
         allow_github_url: bool = False,
         silent: bool = False,
         no_ask_user: bool = False,
+        progress: Callable[[str, str], None] | None = None,
+        heartbeat_seconds: int = 10,
     ) -> CopilotRunResult:
         if not isinstance(prompt, str) or not prompt.strip():
             raise ToolExecFailed("Copilot prompt must be non-empty")
         if timeout_seconds < 1 or timeout_seconds > 900:
             raise ToolExecFailed("Copilot timeout must be between 1 and 900 seconds")
+        if heartbeat_seconds < 1:
+            raise ToolExecFailed("heartbeat_seconds must be positive")
 
         executable = self._resolve_executable()
         resolved_worktree = self._resolve_worktree(worktree)
@@ -102,12 +136,17 @@ class CopilotAdapter:
             command.append("-s")
         if no_ask_user:
             command.append("--no-ask-user")
+
+        allowed_tools: list[str] = []
         if allow_write:
-            command.append("--allow-tool=write")
+            allowed_tools.extend(["read", "write"])
         if allow_git:
-            command.append("--allow-tool=shell(git:*)")
+            allowed_tools.append("shell(git:*)")
+        if allowed_tools:
+            command.append("--allow-tool=" + ",".join(dict.fromkeys(allowed_tools)))
         if allow_github_url:
             command.append("--allow-url=github.com")
+
         environment = {
             **os.environ,
             "GIT_TERMINAL_PROMPT": "0",
@@ -115,28 +154,95 @@ class CopilotAdapter:
         }
 
         try:
-            result = subprocess.run(
+            process = subprocess.Popen(
                 command,
                 cwd=resolved_worktree,
-                capture_output=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
                 text=True,
                 encoding="utf-8",
                 errors="replace",
-                timeout=timeout_seconds,
-                check=False,
                 env=environment,
             )
-        except (OSError, subprocess.TimeoutExpired) as exc:
+        except OSError as exc:
             raise ToolExecFailed(
-                f"Copilot CLI failed to start or timed out: {type(exc).__name__}"
+                f"Copilot CLI failed to start: {type(exc).__name__}"
             ) from exc
 
-        status = "COPILOT_EXITED" if result.returncode == 0 else "COPILOT_FAILED"
+        assert process.stdout is not None
+        assert process.stderr is not None
+
+        events: queue.Queue[tuple[str, str | None]] = queue.Queue()
+        threads = [
+            threading.Thread(
+                target=self._reader,
+                args=(process.stdout, "stdout", events),
+                daemon=True,
+            ),
+            threading.Thread(
+                target=self._reader,
+                args=(process.stderr, "stderr", events),
+                daemon=True,
+            ),
+        ]
+        for thread in threads:
+            thread.start()
+
+        stdout_parts: list[str] = []
+        stderr_parts: list[str] = []
+        closed_streams: set[str] = set()
+        started = time.monotonic()
+        next_heartbeat = started + heartbeat_seconds
+
+        try:
+            while True:
+                now = time.monotonic()
+                elapsed = now - started
+                if elapsed >= timeout_seconds:
+                    self._kill_process_tree(process)
+                    raise ToolExecFailed(
+                        f"Copilot CLI timed out after {timeout_seconds}s"
+                    )
+
+                if progress is not None and now >= next_heartbeat:
+                    progress("heartbeat", f"Copilot CLI RUNNING {int(elapsed)}s")
+                    next_heartbeat = now + heartbeat_seconds
+
+                try:
+                    stream_name, line = events.get(timeout=0.5)
+                except queue.Empty:
+                    if process.poll() is not None and len(closed_streams) == 2:
+                        break
+                    continue
+
+                if line is None:
+                    closed_streams.add(stream_name)
+                else:
+                    if stream_name == "stdout":
+                        stdout_parts.append(line)
+                    else:
+                        stderr_parts.append(line)
+                    if progress is not None:
+                        progress(stream_name, line.rstrip("\r\n"))
+
+                if process.poll() is not None and len(closed_streams) == 2:
+                    break
+        except BaseException:
+            self._kill_process_tree(process)
+            raise
+        finally:
+            for thread in threads:
+                thread.join(timeout=2)
+
+        return_code = process.wait(timeout=5)
+        stdout = "".join(stdout_parts)[-12000:]
+        stderr = "".join(stderr_parts)[-12000:]
+        status = "COPILOT_EXITED" if return_code == 0 else "COPILOT_FAILED"
         return CopilotRunResult(
             status=status,
-            exit_code=result.returncode,
-            stdout=result.stdout[-12000:],
-            stderr=result.stderr[-12000:],
+            exit_code=return_code,
+            stdout=stdout,
+            stderr=stderr,
             executable=str(executable),
             worktree=str(resolved_worktree),
         )
