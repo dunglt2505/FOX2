@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from io import StringIO
 from pathlib import Path
-from types import SimpleNamespace
 
 import pytest
 
@@ -9,30 +9,54 @@ from fox2_agent_bridge.copilot_adapter import CopilotAdapter
 from fox2_agent_bridge.errors import PathInvalid
 
 
-def test_copilot_smoke_builds_cli_command(monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path):
-    worktree = bridge_config.worktree_root / "COPILOT-SMOKE"
-    worktree.mkdir(parents=True)
-    (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
+class FakeProcess:
+    def __init__(self, *, stdout: str, stderr: str, returncode: int = 0) -> None:
+        self.stdout = StringIO(stdout)
+        self.stderr = StringIO(stderr)
+        self.returncode = returncode
+        self.pid = 4242
 
+    def poll(self):
+        return self.returncode
+
+    def wait(self, timeout=None):
+        return self.returncode
+
+    def kill(self):
+        self.returncode = -9
+
+
+def _configured_adapter(bridge_config, tmp_path: Path):
     executable = tmp_path / "copilot.exe"
     executable.write_text("", encoding="utf-8")
-
     tool_paths = dict(bridge_config.tool_paths or {})
     tool_paths["copilot"] = executable
     config = type(bridge_config)(
         bridge_root=bridge_config.bridge_root,
         tool_paths=tool_paths,
     )
-    adapter = CopilotAdapter(config)
+    return CopilotAdapter(config), executable
 
+
+def test_copilot_smoke_builds_cli_command(
+    monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
+):
+    worktree = bridge_config.worktree_root / "COPILOT-SMOKE"
+    worktree.mkdir(parents=True)
+    (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
+
+    adapter, executable = _configured_adapter(bridge_config, tmp_path)
     observed: dict[str, object] = {}
 
-    def fake_run(command, **kwargs):
+    def fake_popen(command, **kwargs):
         observed["command"] = command
         observed["cwd"] = kwargs["cwd"]
-        return SimpleNamespace(returncode=0, stdout="FOX2_BRIDGE_COPILOT_SMOKE_OK\n", stderr="")
+        return FakeProcess(stdout="FOX2_BRIDGE_COPILOT_SMOKE_OK\n", stderr="")
 
-    monkeypatch.setattr("fox2_agent_bridge.copilot_adapter.subprocess.run", fake_run)
+    monkeypatch.setattr(
+        "fox2_agent_bridge.copilot_adapter.subprocess.Popen",
+        fake_popen,
+    )
 
     result = adapter.run_prompt(
         worktree=worktree,
@@ -58,36 +82,31 @@ def test_copilot_smoke_rejects_non_worktree(bridge_config):
         )
 
 
-def test_copilot_e2e_adds_bounded_programmatic_permissions(
+def test_copilot_e2e_adds_documented_programmatic_permissions(
     monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
 ):
     worktree = bridge_config.worktree_root / "COPILOT-E2E"
     worktree.mkdir(parents=True)
     (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
 
-    executable = tmp_path / "copilot.exe"
-    executable.write_text("", encoding="utf-8")
-
-    tool_paths = dict(bridge_config.tool_paths or {})
-    tool_paths["copilot"] = executable
-    config = type(bridge_config)(
-        bridge_root=bridge_config.bridge_root,
-        tool_paths=tool_paths,
-    )
+    adapter, _executable = _configured_adapter(bridge_config, tmp_path)
     observed: dict[str, object] = {}
 
-    def fake_run(command, **kwargs):
+    def fake_popen(command, **kwargs):
         observed["command"] = command
-        return SimpleNamespace(returncode=0, stdout="OK\n", stderr="")
+        return FakeProcess(stdout="OK\n", stderr="")
 
-    monkeypatch.setattr("fox2_agent_bridge.copilot_adapter.subprocess.run", fake_run)
+    monkeypatch.setattr(
+        "fox2_agent_bridge.copilot_adapter.subprocess.Popen",
+        fake_popen,
+    )
 
-    CopilotAdapter(config).run_prompt(
+    adapter.run_prompt(
         worktree=worktree,
         prompt="E2E",
         allow_write=True,
         allow_git=True,
-        allow_github_url=True,
+        allow_github_url=False,
         silent=True,
         no_ask_user=True,
     )
@@ -95,5 +114,6 @@ def test_copilot_e2e_adds_bounded_programmatic_permissions(
     command = observed["command"]
     assert "-s" in command
     assert "--no-ask-user" in command
-    assert "--allow-tool=read,write,shell(git:*)" in command
-    assert "--allow-url=github.com" in command
+    assert "--allow-tool=write" in command
+    assert "--allow-tool=shell(git:*)" in command
+    assert "--allow-url=github.com" not in command
