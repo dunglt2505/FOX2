@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=80,<90"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fox2-agent-bridge"
+version = "0.1.0"
+description = "FOX2-only local agent bridge foundation"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9"]
+
+[project.scripts]
+fox2-bridge = "fox2_agent_bridge.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
