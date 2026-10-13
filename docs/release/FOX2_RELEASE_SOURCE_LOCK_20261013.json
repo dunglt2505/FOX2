@@ -1,0 +1,136 @@
+{
+  "document_type": "FOX2_RELEASE_SOURCE_LOCK",
+  "project": "FOX2",
+  "date": "2026-10-13",
+  "status": "SOURCE_SET_LOCKED",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "active_policy_version": "1.8.2",
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-20261013-RELEASE-SOURCE-SYNC-chat",
+  "source_set_commit_full_sha": "c9dc41b97ca8bc58f06cc2f3701832ba083422e3",
+  "source_set_base_commit_full_sha": "ba9714b697f26172fbbcd67704698bc1aae43b70",
+  "library_publication_readback": "PASS_7_OF_7",
+  "git_release_mirror_readback": "PASS_14_OF_14",
+  "unchanged_dependency_readback": "PASS_6_OF_6",
+  "release_artifacts": [
+    {
+      "role": "policy",
+      "version": "1.8.2",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.2.md",
+      "sha256": "552d36d910a020de4475b1994975d09a30dd09a138476b03a4a2250d543181dc",
+      "git_path": "docs/governance/FOX2_POLICY_V1.8.2.md",
+      "git_blob": "0783c024d19f96a0b87ab770dad80bab449fa21f"
+    },
+    {
+      "role": "brd00",
+      "version": "0.5",
+      "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-00_v0.5.md",
+      "sha256": "210d63e9dfd3bac31ca128b8c5f42b2fea7b5c7de48ba54d4887a419f71e42ca",
+      "git_path": "docs/brd_mirror/FOX2-BRD-00_v0.5.md",
+      "git_blob": "e353e6fe6d0aea3fd8cef21c8b12d9986d5160e8"
+    },
+    {
+      "role": "brd06",
+      "version": "0.5",
+      "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-06_v0.5.md",
+      "sha256": "219bb65541787d7008de52b259260831f6284dbf830c40e013b77d92da80a8b9",
+      "git_path": "docs/brd_mirror/FOX2-BRD-06_v0.5.md",
+      "git_blob": "ee912b39cd009ba89a50cb28e4a3a6e76b52b5df"
+    },
+    {
+      "role": "brd08",
+      "version": "0.5",
+      "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-08_v0.5.md",
+      "sha256": "86c096d09f5d06225d63dd220a357dd3b458e80f5d3de36f986ddd5cd917af45",
+      "git_path": "docs/brd_mirror/FOX2-BRD-08_v0.5.md",
+      "git_blob": "66853c784c578c4cc75addd5bbf8ce565dd77d9e"
+    },
+    {
+      "role": "m1_technical",
+      "version": "0.1",
+      "library_path": "/Trading/FOX2/02_Architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+      "sha256": "65d9b36697b5333a9b1e5fcba88f3f4bbc786fc33cc6ed585288f4366057fb5f",
+      "git_path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+      "git_blob": "e4a95b97039d482085996afbfad232b789d1b236"
+    },
+    {
+      "role": "mapping",
+      "version": "0.1",
+      "library_path": "/Trading/FOX2/02_Architecture/FOX2_M1_BRD_TECH_MAPPING_v0.1.md",
+      "sha256": "c603836ae343077fe37520f42e3867b0ad5b78d23ef35c48c0d0e5728c658f34",
+      "git_path": "docs/architecture/FOX2_M1_BRD_TECH_MAPPING_v0.1.md",
+      "git_blob": "b9e860af21bb2bc04ba53b1ec2ce0ed70ccd76e3"
+    },
+    {
+      "role": "bridge_technical",
+      "version": "0.3",
+      "library_path": "/Trading/FOX2/02_Architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.3.md",
+      "sha256": "42fea364a28678da472b0d5296c083ceeada424e413d4b9731f533313a58c07f",
+      "git_path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.3.md",
+      "git_blob": "db38c9f0291ac3b4c6184e5a97f957a9b608f0cb"
+    }
+  ],
+  "unchanged_dependencies": [
+    {
+      "role": "market_data_contract",
+      "version": "0.4",
+      "sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2",
+      "git_path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "git_blob": "369a893a83dd140ce423c032784941a22d4a443e"
+    },
+    {
+      "role": "market_data_schema",
+      "version": "0.4",
+      "sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+      "git_path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+      "git_blob": "fa395662b772658d782b46718b7eb8392f6bbf76"
+    },
+    {
+      "role": "m1_acceptance",
+      "version": "0.4",
+      "sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+      "git_path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+      "git_blob": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193"
+    },
+    {
+      "role": "m1_requirement_acceptance_map",
+      "version": "0.4",
+      "sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b",
+      "git_path": "docs/acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+      "git_blob": "321bc0e2525befa8842f09edfc09ce20c2cbab09"
+    },
+    {
+      "role": "m1_roadmap",
+      "version": "0.4",
+      "sha256": "df1bb83701c774644d3cc664f350134e40caeda73ca77cd61a987a7ecf2e8ee4",
+      "git_path": "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "git_blob": "ed842860259628cb1404b3a9fa7ad9e28eaa326c"
+    },
+    {
+      "role": "m1_p2_plan",
+      "version": "0.1",
+      "sha256": "210e28fd7caeecaca6edf7b71c7f39d769ee2be2d51b399ffec989bd57e4180b",
+      "git_path": "docs/roadmap/FOX2_M1_P2_WP_PLAN_v0.1.md",
+      "git_blob": "6612f7d05b4724be396214e5446eb685e58979c9"
+    }
+  ],
+  "gates": {
+    "GIT_SOURCE_READY": "YES",
+    "CODE_ALLOWED": "NO",
+    "DEV_GRANT": "NO",
+    "PR_CREATE": "NO",
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO",
+    "AUTOMATED_BRIDGE_GATE_A": "BLOCKED_CAPABILITY_UNAVAILABLE",
+    "CLOSED_LOOP_AUTOMATION": "NOT_VERIFIED"
+  },
+  "notes": [
+    "GIT_SOURCE_READY applies only to this exact released document/source set and is not a DEV grant.",
+    "Document effectivity and Git handoff readiness are separate lifecycles.",
+    "Historical V1.8.1 and BRD v0.4 releases remain immutable history.",
+    "Manual DEV remains a separately routed and granted WP action."
+  ]
+}
