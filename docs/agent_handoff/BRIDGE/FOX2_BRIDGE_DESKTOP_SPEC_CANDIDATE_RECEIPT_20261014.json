@@ -1,0 +1,69 @@
+{
+  "project": "FOX2",
+  "package_id": "FOX2-BRIDGE-DESKTOP-SPEC-CANDIDATE-20261014",
+  "status": "CANDIDATE_READBACK_PASS_NO_DEV_GRANT",
+  "created_at": "2026-10-14",
+  "governance": {
+    "policy": {
+      "version": "V1.8.5",
+      "commit": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+      "path": "docs/governance/FOX2_POLICY_V1.8.5.md",
+      "blob": "5b38b6bd6776b5ef3a771ba2297f4565c2d9abed"
+    },
+    "routing_index": {
+      "version": "V1.2.6",
+      "commit": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_6_EFFECTIVE_ROUTING_INDEX_20261013.md",
+      "blob": "263966d1c5e0eb3900a73c2f1327312f2cf94ec9"
+    },
+    "bridge_predecessor": {
+      "version": "v0.6",
+      "commit": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.6.md",
+      "blob": "ad4f118f6d32408d3e39c2e71fafc81b4f571956"
+    }
+  },
+  "evidence_refs": {
+    "bridge_core_source": "398bebf9c48e7694c69c3416a5780715f025e7b5",
+    "copilot_e2e_result": "198c40e53034382e76dfc06ed5ea3950ec7dba30",
+    "codex_e2e_result": "6706206fca18421b428f8e89da05610dcb1ad3b2",
+    "bridge_status_review_issue_comment": "https://github.com/dunglt2505/FOX2/issues/10#issuecomment-6151702374"
+  },
+  "branch": "work/FOX2-BRIDGE-DESKTOP-SPEC-chat-20261014",
+  "base_commit": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+  "documents": [
+    {
+      "document_id": "FOX2-BRD-09",
+      "version": "0.1 Candidate",
+      "path": "docs/brd_mirror/FOX2-BRD-09_v0.1_CANDIDATE.md",
+      "blob": "a525d55912935639fa317471f9b85cee6c42ceca",
+      "state": "CANDIDATE_OWNER_REVIEW"
+    },
+    {
+      "document_id": "FOX2-LOCAL-AGENT-BRIDGE-SPEC",
+      "version": "0.7 Candidate",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "blob": "d5b576d0698c0c332a7d1c3819b7c10180f3deda",
+      "state": "CANDIDATE_DESKTOP_BACKGROUND_PRODUCTIZATION"
+    }
+  ],
+  "routing": {
+    "r0": "PASS_REUSE_OPERATIONAL_MVP_EVIDENCE",
+    "r1": "DOCUMENT_PRODUCTIZATION_SPEC",
+    "r2": "PASS_CURRENT_GOVERNANCE_NO_CODE_RIGHTS",
+    "r3": "CHAT_DOC_WRITER_ELIGIBLE",
+    "r4": "CHAT_SELECTED_NO_AGENT_CREDITS_REQUIRED",
+    "r5": "DEDICATED_DOC_BRANCH_NON_OVERLAP_WITH_P2_02",
+    "r6": "GIT_READBACK_PASS",
+    "r7": "STOP_BEFORE_IMPLEMENTATION"
+  },
+  "permissions": {
+    "code_allowed": false,
+    "git_code_push": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "next_candidate_wp": "BRIDGE-DESKTOP-01_BACKGROUND_WORKER_RECONCILIATION"
+}
