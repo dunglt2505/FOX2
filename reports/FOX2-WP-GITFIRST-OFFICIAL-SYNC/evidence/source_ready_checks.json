@@ -1,0 +1,82 @@
+{
+  "gate": "GIT_SOURCE_READY",
+  "checks": [
+    {
+      "case": "VALID",
+      "status": "PASS",
+      "expected": "YES",
+      "actual": "YES",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "BLOB_ONLY",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "NO_READBACK",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "MISSING",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "HASH_MISMATCH",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "STALE",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "CANDIDATE",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "PARTIAL",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "UPLOAD_FAILURE",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    },
+    {
+      "case": "EMPTY_SET",
+      "status": "PASS",
+      "expected": "NO",
+      "actual": "NO",
+      "kind": "LOCAL_SIMULATION_NOT_PLATFORM_ENFORCEMENT"
+    }
+  ],
+  "actual_m1_decision": "NO",
+  "actual_m1_state": "SOURCE_PENDING",
+  "code_permission_with_source_ready": "NO;source readiness never grants DEV",
+  "run_at_utc": "2026-10-12T04:28:16.169602+00:00",
+  "schema_v2_unchanged": true,
+  "method": "Deterministic required-source row/receipt check; actual M1 matrix has missing required sources",
+  "notes": "Local source-ready decision simulations;actual remote content matching recorded separately in v14source observation. Sender must compare required release digest to observed remote digest before setting readback true."
+}

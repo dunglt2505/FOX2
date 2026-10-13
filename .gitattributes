@@ -19,3 +19,11 @@
 
 # Released BRD mirrors must retain source bytes exactly.
 docs/brd_mirror/** -text
+
+# FOX2 scoped document publication: preserve released snapshot bytes.
+docs/governance/** -text
+docs/data_contracts/** -text
+docs/acceptance/** -text
+docs/roadmap/** -text
+docs/agent_handoff/** -text
+reports/** -text

@@ -1,0 +1,172 @@
+{
+  "wp_id": "FOX2-WP-GITFIRST-OFFICIAL-SYNC",
+  "publication_method": "GitHub object APIs and expected-SHA non-force ref updates",
+  "source_commit": "c016bd56ba70415910aaf39e220b40db4f5e4a4c",
+  "report_submission_commit": "f775a65d3a5cfe608b5bcefb8a7585b270797a38",
+  "source_readbacks": [
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.3.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v2.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": ".gitattributes",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/SOURCE_INDEX.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/source_manifest.json",
+      "exact": true,
+      "isError": false
+    }
+  ],
+  "report_readbacks": [
+    {
+      "path": "docs/agent_handoff/SOURCE_INDEX.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_inventory.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_readiness.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/doc_checks.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_hash_matrix.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_mapping.csv",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/remote_observations.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/schema_validation.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/security_check.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_inventory.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/sync_receipt.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
+      "exact": true,
+      "isError": false
+    },
+    {
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
+      "exact": true,
+      "isError": false
+    }
+  ],
+  "branch_preservation": [
+    {
+      "branch": "main",
+      "head": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8"
+    },
+    {
+      "branch": "work/FOX2-GITFIRST-BOOTSTRAP-chat-20261012",
+      "head": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8"
+    },
+    {
+      "branch": "work/FOX2-GITFIRST-SYNC-RECOVERY-001-work-20261012",
+      "head": "bd44dc2bb2fa1ba43070ea1052764320a86507c3"
+    },
+    {
+      "branch": "work/FOX2-M0-MAIN-SOURCE-DOCS-20261011",
+      "head": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8"
+    },
+    {
+      "branch": "work/FOX2-M0-SOURCE-MIRROR-20261011",
+      "head": "60892265d752d773829139c50039f9d81530e849"
+    },
+    {
+      "branch": "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012",
+      "head": "f775a65d3a5cfe608b5bcefb8a7585b270797a38"
+    }
+  ],
+  "pr_url": "https://github.com/dunglt2505/FOX2/pull/2",
+  "pr_draft": true,
+  "strict_chat_independent_acceptance": "NOT_RUN",
+  "pilot": "Actual Git task read -> WORK scope execution -> remote report+v2 manifest -> readable immutable files; no self-acceptance",
+  "full_sync": "PARTIAL; M1 8/8 mirrors missing; no previously denied payload re-send",
+  "self_reference_rule": "Receipt binds prior observed commits; containing receipt commit supplied externally"
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FOX2 Work Package Git evidence receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "wp_id",
+    "agent",
+    "policy_sha256",
+    "source_base_commit",
+    "branch",
+    "report_path",
+    "git_push_status",
+    "tests",
+    "code_allowed",
+    "git_report_push_allowed"
+  ],
+  "properties": {
+    "wp_id": {
+      "type": "string",
+      "pattern": "^FOX2-[A-Za-z0-9_-]+$"
+    },
+    "agent": {
+      "type": "string"
+    },
+    "policy_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source_base_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_path": {
+      "type": "string",
+      "pattern": "^reports/[^/]+/report\\.md$"
+    },
+    "git_push_status": {
+      "enum": [
+        "NOT_AUTHORIZED",
+        "BLOCKED",
+        "LOCAL_ONLY",
+        "PUSHED_UNREVIEWED",
+        "REVIEWED"
+      ]
+    },
+    "remote_commit_sha": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "pr_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN",
+              "BLOCKED"
+            ]
+          },
+          "evidence_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "code_allowed": {
+      "type": "boolean"
+    },
+    "git_report_push_allowed": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "git_push_status": {
+            "const": "PUSHED_UNREVIEWED"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "remote_commit_sha"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "git_push_status": {
+            "const": "REVIEWED"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "remote_commit_sha"
+        ]
+      }
+    }
+  ]
+}

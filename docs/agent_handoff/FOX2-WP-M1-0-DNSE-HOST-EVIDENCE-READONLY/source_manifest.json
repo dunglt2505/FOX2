@@ -1,0 +1,21 @@
+{
+  "project": "FOX2",
+  "wp_id": "FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY",
+  "record_status": "PREPARED_LIBRARY_ONLY_GIT_MIRROR_PENDING",
+  "policy_library": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.2.md",
+  "policy_sha256": "bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350",
+  "source_set_sha256": "160892e7132072f54526500ca2b1d9e44bce4b48c2eeb7b35b16efeea39f8285",
+  "source_snapshots": "8/8_RELEASED_IN_LIBRARY_RECEIVER_GIT_READBACK_NOT_RUN",
+  "prior_observed_git_main": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+  "approved_git_task_commit": null,
+  "report_branch": "work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot",
+  "git_report_write_grant": "NOT_GRANTED",
+  "git_report_push_grant": "NOT_GRANTED",
+  "code_allowed": false,
+  "merge_allowed": false,
+  "dnse_production_allowed": false,
+  "broker_write_allowed": false,
+  "live_allowed": false,
+  "expected_report_paths": ["reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md", "reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence_manifest.json"],
+  "stop": "R3/LOCAL_SOURCE/WIP/RIGHTS_OR_WRITER_NOT_VERIFIED"
+}

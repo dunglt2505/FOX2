@@ -1,0 +1,88 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.4.0",
+  "scope": "FOX2_ONLY_SINGLE_GIT_SOURCE_READY_CHECKPOINT",
+  "change_id": "FOX2-GIT-SOURCE-READY-GATE-20261012",
+  "owner_decision": "2026-10-12: continue WORK official sync and add one simple consistent checkpoint for failed source upload before implementation; Simple is the best",
+  "publisher_delegation": "Owner master assignment explicitly appoints WORK Document Publisher; latest supplemental instruction authorizes this scoped governance amendment",
+  "publication_operator": "ChatGPT WORK with actual Library upload/replace/readback access; actual model/mode/quota NOT_EXPOSED",
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.4.md",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.4.md",
+    "library_file_id": "libfile_ef49e7c66d348191a9a61b72e026389b",
+    "provider_file_id": "file_000000006b8482079397136c0b679d4f",
+    "version_id": "1",
+    "bytes": 82580,
+    "sha256_raw": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769",
+    "readback": "PASS_EXACT_BYTES"
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+      "library_file_id": "libfile_d3181524737481919c679bd88bdf4f8e",
+      "provider_file_id": "file_0000000045d481f8aca358f18988f200",
+      "version_id": null,
+      "bytes": 4466,
+      "sha256_raw": "26edeeacc0c38ee4e19d0c734e05a905983e4da476c0f046530ebe5cc4025799",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+      "library_file_id": "libfile_974aa0baa1148191b5c452a30f986513",
+      "provider_file_id": "file_00000000cf2881f59cc7654c68a91212",
+      "version_id": null,
+      "bytes": 4198,
+      "sha256_raw": "398525d18f1f435d7ec12065f2ced46452325b65ff53c51ce25cf73a27eb282d",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+      "library_file_id": "libfile_aa3815cfee6c8191860cf91ab7cf9702",
+      "provider_file_id": "file_00000000fd288230870240e9163127c9",
+      "version_id": null,
+      "bytes": 3678,
+      "sha256_raw": "3b2e6f84e0d7dbca4962ef3611f6ef97197731744a8f2fe0acf5011e88e2fedb",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "source_lineage": {
+    "supersedes_version": "1.3.0",
+    "supersedes_sha256": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641",
+    "old_policy_and_git_evidence_preserved": true,
+    "pre_effectivity_correction": "Current version1 corrected inherited lineage/operator wording before issuing this manifest; earlier non-effective upload version retained"
+  },
+  "verification": {
+    "actual_library_write": "SUCCEEDED",
+    "raw_byte_readback": "4/4_PASS",
+    "source_ready_rule": "One GIT_SOURCE_READY=YES|NO;SOURCE_PENDING on upload/mirror/readback failure;no implementation dispatch",
+    "schema_change": "NONE;Result Contract v2 unchanged",
+    "main_merge_runtime_grant": "NONE"
+  },
+  "effectivity": "RELEASED_EFFECTIVE_FOX2_INTERNAL_GOVERNANCE_AFTER_THIS_MANIFEST_PUBLICATION_AND_READBACK",
+  "git_state_at_issuance": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012",
+    "observed_prior_head": "e61d02874dc2c901ac872d8b264f0226bba5de32",
+    "v1_4_mirror": "PENDING",
+    "m1_implementation_source_ready": "NO/SOURCE_PENDING",
+    "code_allowed": false,
+    "main_push": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  },
+  "observed_at_utc": "2026-10-12T04:24:24.112504+00:00",
+  "not_claimed": [
+    "Containing commit SHA",
+    "CHAT independent acceptance",
+    "M1 source full sync",
+    "Runtime service readiness",
+    "Server-enforced branch protection"
+  ],
+  "manifest_note": "Library publication receipt,not protected signature or Git sync receipt;manifest own hash is not self-embedded"
+}

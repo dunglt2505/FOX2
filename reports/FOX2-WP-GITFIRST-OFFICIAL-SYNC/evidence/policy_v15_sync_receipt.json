@@ -1,0 +1,118 @@
+{
+  "project": "FOX2",
+  "change_id": "FOX2-CHAT-SOURCE-DELIVERY-OWNERSHIP-20261012",
+  "observed_at_utc": "2026-10-12T05:06:48.882Z",
+  "source_commit": "f3f2f033076235fe195b886f7adfd142032763ce",
+  "source_readbacks": [
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.5.md",
+      "status": "PASS_EXACT_BYTES",
+      "commit": "f3f2f033076235fe195b886f7adfd142032763ce"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+      "status": "PASS_EXACT_BYTES",
+      "commit": "f3f2f033076235fe195b886f7adfd142032763ce"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+      "status": "PASS_EXACT_BYTES",
+      "commit": "f3f2f033076235fe195b886f7adfd142032763ce"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "status": "PASS_EXACT_BYTES",
+      "commit": "f3f2f033076235fe195b886f7adfd142032763ce"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+      "status": "PASS_EXACT_BYTES",
+      "commit": "f3f2f033076235fe195b886f7adfd142032763ce"
+    }
+  ],
+  "library_readback": "5/5 PASS_EXACT_BYTES",
+  "policy_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
+  "source_gate": "NO",
+  "dependent_state": "SOURCE_PENDING",
+  "recovery_owner": "CHAT",
+  "old_block": "UNDETERMINED_PLATFORM_BLOCK; prior denied payload not retried",
+  "routing": {
+    "policy": "V1.4 verified before amendment; V1.5 released",
+    "r0": "Reuse remote PR2; preserve previous evidence",
+    "r1": "documents only",
+    "r2": "Owner explicitly authorized amendment/docs push",
+    "r3": "Library/Git read/write observed; model/thinking/quota NOT_EXPOSED",
+    "r4": "single WORK scoped amendment; CHAT routine synchronization",
+    "r5": "sole writer task-owned branch; expected_sha; no force; no runtime WIP touched",
+    "r6": "new5 Library and remote bytes exact",
+    "r7": "safe delta only; stop mismatch/safety",
+    "assignment": "WORK executes current amendment; CHAT owns future uploads"
+  },
+  "tests": [
+    {
+      "id": "missing-source",
+      "ready": false,
+      "permission": true,
+      "expected": "SOURCE_PENDING",
+      "actual": "SOURCE_PENDING",
+      "status": "PASS",
+      "kind": "LOCAL_SIMULATION"
+    },
+    {
+      "id": "upload-error",
+      "ready": false,
+      "permission": true,
+      "expected": "SOURCE_PENDING",
+      "actual": "SOURCE_PENDING",
+      "status": "PASS",
+      "kind": "LOCAL_SIMULATION"
+    },
+    {
+      "id": "hash-mismatch",
+      "ready": false,
+      "permission": true,
+      "expected": "SOURCE_PENDING",
+      "actual": "SOURCE_PENDING",
+      "status": "PASS",
+      "kind": "LOCAL_SIMULATION"
+    },
+    {
+      "id": "verified-without-dev",
+      "ready": true,
+      "permission": false,
+      "expected": "SOURCE_READY_NO_DEV_GRANT",
+      "actual": "SOURCE_READY_NO_DEV_GRANT",
+      "status": "PASS",
+      "kind": "LOCAL_SIMULATION"
+    },
+    {
+      "id": "verified-with-dev",
+      "ready": true,
+      "permission": true,
+      "expected": "ELIGIBLE_FOR_SEPARATELY_AUTHORIZED_DISPATCH",
+      "actual": "ELIGIBLE_FOR_SEPARATELY_AUTHORIZED_DISPATCH",
+      "status": "PASS",
+      "kind": "LOCAL_SIMULATION"
+    },
+    {
+      "id": "safety-refusal",
+      "ready": false,
+      "permission": false,
+      "safety": true,
+      "expected": "STOP_TRANSFER_SOURCE_PENDING",
+      "actual": "STOP_TRANSFER_SOURCE_PENDING",
+      "status": "PASS",
+      "kind": "LOCAL_SIMULATION"
+    }
+  ],
+  "negative_controls_type": "LOCAL_SIMULATION_ONLY; not configured/tested GitHub enforcement",
+  "controls": {
+    "CODE_ALLOWED": "NO",
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO"
+  },
+  "acceptance": "PUSHED_UNREVIEWED; independent CHAT review NOT_RUN"
+}

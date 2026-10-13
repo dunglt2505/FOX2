@@ -1,0 +1,880 @@
+{
+  "contract_version": "2.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-WP-GITFIRST-OFFICIAL-SYNC",
+  "task_id": "FOX2-GITFIRST-OFFICIAL-ROLLOUT-001",
+  "change_id": "FOX2-OFFICIAL-SYNC-V13-20261012",
+  "submission_state": "PARTIAL",
+  "submitted_at_utc": "2026-10-12T05:06:48.882Z",
+  "agent": {
+    "product": "ChatGPT Work Mode / Codex assistant",
+    "model": "NOT_EXPOSED",
+    "mode": "NOT_EXPOSED",
+    "host": "/workspace/scratch/66e7f833250b; connected Library/GitHub APIs; no Windows access",
+    "started_at_utc": "2026-10-12T03:47:14Z",
+    "finished_at_utc": "2026-10-12T05:06:48.882Z",
+    "quota_observation": "NOT_EXPOSED"
+  },
+  "routing": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PARTIAL",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "assignment_check": "PASS",
+    "routing_evidence": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md"
+  },
+  "source": {
+    "policy_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
+    "policy_version": "1.5.0",
+    "task_commit_sha": "b32248816d37d2d71f8c957e14c1073065c0d909",
+    "source_manifest_sha256": "bc7d0126cc74b3b3956719b77786c7cfafcb319a4f9f4f90c94b456422d2ba68",
+    "approved_base_commit_sha": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
+    "source_readback_status": "PARTIAL",
+    "brd_revisions": [
+      "Released M1 BRD00/06/08v0.4;Library bytes8/8verified;Git missing",
+      "Current Policy1.4/guides3 mirrored;ResultContractv2 unchanged",
+      "Current Policy1.5 and guides4 exact5/5; CHAT upload/recovery ownership before dispatch"
+    ],
+    "previous_evidence_reused": [
+      "PR1 legacy v1 submission unchanged",
+      "9 exact existing docs reused by blob/bytehash",
+      "Initial V1.3submission/source readbacks unchanged at prior commits;current1.4rescope adds source-ready checkpoint"
+    ]
+  },
+  "permissions": {
+    "git_source_read": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "git_code_push": false,
+    "code_allowed": false,
+    "pr_create": true,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false,
+    "grant_evidence": "b32248816d37d2d71f8c957e14c1073065c0d909:docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md;Owner master+supplemental directive"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012",
+    "worktree": "Isolated API publisher staging fox2_full_audit/publication; no local Git/Windows worktree claimed",
+    "writer_lease": "Fresh branch created atomically for current WORK; every ref update expected head + force=false",
+    "report_path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
+    "delivery_status": "PUSHED_UNREVIEWED",
+    "pr_url": "https://github.com/dunglt2505/FOX2/pull/2",
+    "local_head_before_submission": "f3f2f033076235fe195b886f7adfd142032763ce"
+  },
+  "scope": {
+    "requested": [
+      "Full FOX2 authoritative sync + branch readiness audit + current Git-first workflow pilot",
+      "Owner requested CHAT recovery ownership and synchronization completed before Agent assignment"
+    ],
+    "completed": [
+      "277 source byte hashes",
+      "current6V1.3/v2 source remote verified",
+      "12source/workflow readbacks",
+      "scoped workflow/task/attributes and actual Git task read",
+      "Actual same-WP remote report submission and14result files exact readback verified",
+      "Policy1.4/manifest and3aligned guides actually released+mirrored",
+      "Single GIT_SOURCE_READY checkpoint implemented in existingPolicy/index/task/receiver guidance",
+      "282scopedsource hashes;44officialmatrix;20officialexact;6/16currentpublishedexact",
+      "Policy1.5+guides4+release manifest actual Library publication/readback and source remote exact5/5; CHAT responsibility clarified"
+    ],
+    "partial": [
+      "M1 Git0/8 unchanged;8required + release receipt/summary missing; SOURCE_PENDING"
+    ],
+    "not_done": [
+      "10 M1 release mirrors",
+      "CHAT independent acceptance",
+      "trading runtime/service implementation/deployment"
+    ],
+    "explicit_exclusions": [
+      "No runtime code/main/merge/Production/LIVE",
+      "No Candidate promotion",
+      "No denied payload retransmission",
+      "No global paused migration",
+      "Schema v2 unchanged;no separate source-gate policy or new approval layer"
+    ],
+    "changed_paths": [
+      {
+        "path": ".gitattributes",
+        "operation": "MODIFY",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "dd11e56d03edeaf9c48b3d53d10783eb56771ab25df13b2bdde7fbd8835c218c"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/source_manifest.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "bc7d0126cc74b3b3956719b77786c7cfafcb319a4f9f4f90c94b456422d2ba68"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2-WP-GITFIRST-OFFICIAL-SYNC/task.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "24d66ce4e9b4231edc72ddbfb8399e22e10c301c1ef1619fbd0de4355654f08c"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "f4e7be792648b3cb1b378cb82a45e05d627ee3f3d1f655f01d78c10e5b3cd557"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "26edeeacc0c38ee4e19d0c734e05a905983e4da476c0f046530ebe5cc4025799"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "890527778ec37ada89491c71e7834494559789828ce5db0cc35f549783546f96"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "398525d18f1f435d7ec12065f2ced46452325b65ff53c51ce25cf73a27eb282d"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v2.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "9a4e05ba1f85550f8fe1cf22ea90032d068cf02d17f5300e6c31c949391c2760"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "3b2e6f84e0d7dbca4962ef3611f6ef97197731744a8f2fe0acf5011e88e2fedb"
+      },
+      {
+        "path": "docs/agent_handoff/README.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "d6febb492b1e508abacaa880ffdbdbe20682e15dc0376c7262cb4a0ae9543904"
+      },
+      {
+        "path": "docs/agent_handoff/SOURCE_INDEX.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "15359bf01482b94a1cd376d2c7778f0c8a98564e2f47c8c141bb50ce1db9143a"
+      },
+      {
+        "path": "docs/agent_handoff/SYNC_DELTA_WORKFLOW.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "3e2b45083a6e3daa76d83d65fefab37074c19ca090dc3dd905f3e408ba412e97"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.3.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "330fc2ba60e647d1c03f45d52dac520ebeeb390615532eb60304605bdf039440"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.4.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "6222f0a8f14cbb767ac5dd16a6449e1b0a854279a7f6c6ac41d7f0cf3f34b769"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.4_RELEASE_MANIFEST_20261012.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "82ce76f9c4f1606f3dfb73a7e4098d2bfcf052a09828441422bc6bb3842f5ae1"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_inventory.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "11574401f25460f6fe6d9e417ac71c55450ee69f27de54ec1c836b5cbbcb6d85"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_readiness.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "180ada30de47a6e10f3bb8347442d470fe8bf9e0dec74cae235d93748908f72a"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/delivery_receipt.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "300e79bb0e870aefca3087cdaa739051125f2a5ff5ac0ae7e13849fc02e09ff3"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/doc_checks.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "0f7c487cca9ae398e2039e5fe42eab7581f0a5325ba8d51162b36e571105bee2"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_hash_matrix.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "416f9b86aaeafa08e869a1bfb0b7f4533ef9a4ae4bc69efe2a26f5ef25564403"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_mapping.csv",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "0b1b9ef3dbcfd4e5951eedc642e1d34b58561214bf613bcdf42d88f3f8fdb862"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v14_release.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "3e316a0554991fdff42c1dba684aae6bb6d85c9a1d01e80f23f259afe4ceee7e"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/remote_observations.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "b1517f9a196cfe30dcd91d42042d46aafdd0faff418805805ded4925ff0323e5"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "767b7f1b05108b4949dc84622c46fd440fe9678d9a8e87feb7f0dd594b164b85"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/schema_validation.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "bcffc7fc232d40e6768f65b6cbc46bd20115bfd97fcb5471f516e16edd4582b0"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/security_check.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "5e4c88a6c17dd34e8a79500f826b15e5408a3f666896f3bcecb68380dc55ddfd"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_inventory.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "0fdb0c8fd11cc743168c85a490818342db1014aa9fcbfa508cd8976d184caa7f"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_ready_checks.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "698bb2aa7d8f605caeebaf73f5f1cdd5e5e0dc18ad734bc86b8dd272e3744922"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/sync_receipt.json",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "5be766bc4ae913458739242a8ec9f59d972f79cc7be77cdaa84307eb81febfe9"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/report.md",
+        "operation": "ADD",
+        "intent": "Owner-scoped document/source publication;oldpolicy/sourcehistory preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "6b186d526fdf9124e09ca16ac98365e179a85aa725e3406231551f8b42c64eaf"
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence_manifest.json",
+        "operation": "ADD",
+        "intent": "Requiredv2result;ownhash supplied byexternalremote verification",
+        "within_allowed_paths": true,
+        "new_sha256": null
+      },
+      {
+        "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v15_sync_receipt.json",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "211eb80480d8cd4e39690ebbd0308a64083103929bdc30fa6f1c15270013dfff"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "89ccedf632b14f69a167b3d35d4fca611716802f4f8f6c7c44b8808f7e89d1c9"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v4.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "62cb1a4d35d5a137f8d27d9eb6b1591eafc133c1b8df975e229ccd622711e7e1"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v4.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "6300df0e521854a11229c60faa970c74a266b9818f22f30786a938402cd6e9c2"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.5.md",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd"
+      },
+      {
+        "path": "docs/governance/FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+        "operation": "ADD",
+        "intent": "Owner-authorized Policy1.5/current operational guidance and receipt; immutable previous revisions preserved",
+        "within_allowed_paths": true,
+        "new_sha256": "4701ad46409ba376038b927b9b9add8979058b1112675c4e6c3c8926a8a0fcb5"
+      }
+    ],
+    "forbidden_paths_touched": false
+  },
+  "tests": [
+    {
+      "id": "SYNC-T-INVENTORY",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Complete scoped list pagination + materialized byte/SHA256 inventory277 files",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-INVENTORY"
+      ],
+      "notes": "39 official +76 loose +162 Candidate/reference; metadata versions null recorded, not invented; two transient zero-byte downloads recovered by one normal read-only retry;supplement adds5actualLibrarypublishedsource files,282total"
+    },
+    {
+      "id": "SYNC-T-POLICY",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Policy V1.3 + manifest support artifact raw hashes/bytes compare",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-RECEIPT",
+        "E-MATRIX"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "SYNC-T-M1-LIBRARY",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Compare all8 M1 released files to release receipt SHA/byte count",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-RECEIPT",
+        "E-MATRIX"
+      ],
+      "notes": "No runtime acceptance;105/105 NOT_RUN"
+    },
+    {
+      "id": "SYNC-T-REMOTE",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "GitHub immutable file reads12/12 at source commit; compare exact UTF8 content to authoritative raw-byte sources",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-REMOTE",
+        "E-RECEIPT"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "SYNC-T-BRANCH",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "List5 branches,empty continuation;recursive untruncated trees;compare ancestry and PR1 reviews",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-BRANCH",
+        "E-REMOTE"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "SYNC-T-PILOT-TASK",
+      "kind": "INTEGRATION",
+      "status": "PASS",
+      "command_or_method": "WORK fetched its own task and source manifest from pinned source commit before report execution",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-REMOTE"
+      ],
+      "notes": "Owner-created task transcribed by authorized WORK; no independent CHAT-issued approval or CHAT acceptance fabricated"
+    },
+    {
+      "id": "SYNC-T-ATTRS",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "python fox2_full_audit/run_doc_checks.py; isolated git add/check-attr/rev-parse for CRLF CSV",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-CHECKS"
+      ],
+      "notes": "No shared project worktree touched"
+    },
+    {
+      "id": "SYNC-T-NEGATIVE",
+      "kind": "NEGATIVE",
+      "status": "PASS",
+      "command_or_method": "12 local decision simulations in run_doc_checks.py",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-CHECKS"
+      ],
+      "notes": "Simulation only; GitHub main/force enforcement and platform rule detection NOT_RUN"
+    },
+    {
+      "id": "SYNC-T-SECURITY",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "Inspect new6 source contents + scoped diff/evidence; pattern scan and metadata-only minimization",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-SECURITY"
+      ],
+      "notes": "No secret/private/licensed raw data; no full private source or other-project content published"
+    },
+    {
+      "id": "SYNC-T-M1-GIT",
+      "kind": "READBACK",
+      "status": "BLOCKED",
+      "command_or_method": "Required8 current M1 Git source blobs absent; prior source batch safety refusal preserved",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": null,
+      "evidence_ids": [
+        "E-RECEIPT"
+      ],
+      "notes": "Per-file trigger not known; not re-sent or declared individually rejected"
+    },
+    {
+      "id": "SYNC-T-SERVICE",
+      "kind": "INTEGRATION",
+      "status": "NOT_RUN",
+      "command_or_method": "Service startup/API/UI/provider tests not authorized and runtime absent",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": null,
+      "evidence_ids": [
+        "E-BRANCH"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "SYNC-T-CHAT",
+      "kind": "INTEGRATION",
+      "status": "NOT_RUN",
+      "command_or_method": "Independent CHAT intake/review; reviewer receipt not authored by WORK",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": null,
+      "evidence_ids": [],
+      "notes": ""
+    },
+    {
+      "id": "SYNC-T-V2",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "python fox2_full_audit/validate_v2.py manifest publication; exact-schema keyword check + evidence hash links",
+      "environment": "WORK scoped scratch + connected Library/Git APIs",
+      "run_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "evidence_ids": [
+        "E-SCHEMA"
+      ],
+      "notes": "Local exact-schema checker; independent CHAT may use standard Draft202012 validator"
+    },
+    {
+      "id": "SYNC-T-PILOT-RESULT",
+      "kind": "INTEGRATION",
+      "status": "PASS",
+      "command_or_method": "Observed ref/source/task commit; read report and v2 manifest+all14result files at immutable report submission; compare expected content",
+      "environment": "Connected GitHub API",
+      "run_at_utc": "2026-10-12T04:14:30.331846+00:00",
+      "evidence_ids": [
+        "E-DELIVERY"
+      ],
+      "notes": "Remote delivery actual;independent CHAT acceptance NOT_RUN;no containing commit SHA self-reference"
+    },
+    {
+      "id": "SYNC-T-SOURCE-READY",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "10local decision simulations plus actual M1missing-source matrix evaluation",
+      "environment": "WORK scoped scratch/connectedLibrary/Git",
+      "run_at_utc": "2026-10-12T04:30:24.036300+00:00",
+      "evidence_ids": [
+        "E-SOURCE-READY",
+        "E-POLICY14"
+      ],
+      "notes": "Local checks not platform enforcement;actual M1gateNO correctlyblocks implementation;5releasedsource/manifest Library readbacks and10supplementary remote paths exact"
+    },
+    {
+      "id": "SYNC-T-CHAT-OWNERSHIP",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "5released files Library+Git exactreadback;6executed local gate simulations",
+      "environment": "WORK connected Library/Git and local JS decision simulation",
+      "run_at_utc": "2026-10-12T05:06:48.882Z",
+      "evidence_ids": [
+        "E-POLICY15"
+      ],
+      "notes": "Simulation not GitHub enforcement; M1 remains source pending; future CHAT operational responsibility"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "SYNC-A01-INVENTORY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-INVENTORY"
+      ],
+      "reason": "282total hashes with44current official rows after legitimate source-ready supplement"
+    },
+    {
+      "id": "SYNC-A02-POLICY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-MATRIX",
+        "E-RECEIPT"
+      ],
+      "reason": "Current1.4policy/guides3 actually released and remote verified;initial1.3proof remains historical"
+    },
+    {
+      "id": "SYNC-A03-M1",
+      "status": "BLOCKED",
+      "evidence_ids": [
+        "E-RECEIPT"
+      ],
+      "reason": "Library8/8 verified;Git0/8; no denied content retry"
+    },
+    {
+      "id": "SYNC-A04-REMOTE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-REMOTE"
+      ],
+      "reason": "Actual task/source remote commit and12 file readbacks observed"
+    },
+    {
+      "id": "SYNC-A05-BRANCH",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-BRANCH"
+      ],
+      "reason": "All observed branch scopes/ancestry assessed; no main or other-writer mutation"
+    },
+    {
+      "id": "SYNC-A06-V2",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-SCHEMA"
+      ],
+      "reason": "Exact-schema assertion checker and cross-file links checked before push; independent CHAT review separate"
+    },
+    {
+      "id": "SYNC-A07-PILOT",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-REMOTE",
+        "E-DELIVERY"
+      ],
+      "reason": "Actual same-WP Git task read,WORK execution,remote report/v2manifest readback and CHAT-readable result;CHAT decision remains NOT_RUN"
+    },
+    {
+      "id": "SYNC-A08-NEGATIVE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-CHECKS"
+      ],
+      "reason": "12 local simulations and CRLF test run; no server-enforcement claim"
+    },
+    {
+      "id": "SYNC-A09-SECURITY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-SECURITY"
+      ],
+      "reason": "Scoped sanitized document publication"
+    },
+    {
+      "id": "SYNC-A10-SOURCE-READY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E-SOURCE-READY",
+        "E-POLICY14"
+      ],
+      "reason": "One fail-closed sender/receiver implementation-source checkpoint;actual M1SOURCE_PENDING,not fullsync"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-INVENTORY",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_inventory.json",
+      "sha256": "0fdb0c8fd11cc743168c85a490818342db1014aa9fcbfa508cd8976d184caa7f",
+      "kind": "DATA_PROFILE",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "source_inventory.json actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-INVENTORY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-MATRIX",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/official_hash_matrix.json",
+      "sha256": "416f9b86aaeafa08e869a1bfb0b7f4533ef9a4ae4bc69efe2a26f5ef25564403",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "official_hash_matrix.json actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-POLICY",
+        "SYNC-T-M1-LIBRARY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-RECEIPT",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/sync_receipt.json",
+      "sha256": "5be766bc4ae913458739242a8ec9f59d972f79cc7be77cdaa84307eb81febfe9",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "sync_receipt.json actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-POLICY",
+        "SYNC-T-M1-LIBRARY",
+        "SYNC-T-REMOTE",
+        "SYNC-T-M1-GIT"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-BRANCH",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/branch_readiness.md",
+      "sha256": "180ada30de47a6e10f3bb8347442d470fe8bf9e0dec74cae235d93748908f72a",
+      "kind": "REPORT",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "branch_readiness.md actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-BRANCH",
+        "SYNC-T-SERVICE"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-REMOTE",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/remote_observations.json",
+      "sha256": "b1517f9a196cfe30dcd91d42042d46aafdd0faff418805805ded4925ff0323e5",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "remote_observations.json actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-REMOTE",
+        "SYNC-T-BRANCH",
+        "SYNC-T-PILOT-TASK"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-CHECKS",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/doc_checks.json",
+      "sha256": "0f7c487cca9ae398e2039e5fe42eab7581f0a5325ba8d51162b36e571105bee2",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "doc_checks.json actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-ATTRS",
+        "SYNC-T-NEGATIVE"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-ROUTING",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/routing_precheck.md",
+      "sha256": "767b7f1b05108b4949dc84622c46fd440fe9678d9a8e87feb7f0dd594b164b85",
+      "kind": "REPORT",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "routing_precheck.md actual scoped audit output",
+      "supports_ids": [
+        "SYNC-A01-INVENTORY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-SECURITY",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/security_check.json",
+      "sha256": "5e4c88a6c17dd34e8a79500f826b15e5408a3f666896f3bcecb68380dc55ddfd",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "security_check.json actual scoped audit output",
+      "supports_ids": [
+        "SYNC-T-SECURITY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-SCHEMA",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/schema_validation.json",
+      "sha256": "bcffc7fc232d40e6768f65b6cbc46bd20115bfd97fcb5471f516e16edd4582b0",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-12T04:11:22.630894+00:00",
+      "description": "Exact released v2 schema validation and negative mutations",
+      "supports_ids": [
+        "SYNC-T-V2",
+        "SYNC-A06-V2"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-DELIVERY",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/delivery_receipt.json",
+      "sha256": "300e79bb0e870aefca3087cdaa739051125f2a5ff5ac0ae7e13849fc02e09ff3",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:14:30.331846+00:00",
+      "description": "Actual remote source/report commits and exact readbacks observed before this receipt",
+      "supports_ids": [
+        "SYNC-T-PILOT-RESULT",
+        "SYNC-A07-PILOT"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-SOURCE-READY",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/source_ready_checks.json",
+      "sha256": "698bb2aa7d8f605caeebaf73f5f1cdd5e5e0dc18ad734bc86b8dd272e3744922",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-12T04:30:24.036300+00:00",
+      "description": "Actual source-ready policy supplement and evidence",
+      "supports_ids": [
+        "SYNC-T-SOURCE-READY",
+        "SYNC-A10-SOURCE-READY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-POLICY14",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v14_release.json",
+      "sha256": "3e316a0554991fdff42c1dba684aae6bb6d85c9a1d01e80f23f259afe4ceee7e",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T04:30:24.036300+00:00",
+      "description": "Actual source-ready policy supplement and evidence",
+      "supports_ids": [
+        "SYNC-T-SOURCE-READY",
+        "SYNC-A10-SOURCE-READY"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E-POLICY15",
+      "path": "reports/FOX2-WP-GITFIRST-OFFICIAL-SYNC/evidence/policy_v15_sync_receipt.json",
+      "sha256": "211eb80480d8cd4e39690ebbd0308a64083103929bdc30fa6f1c15270013dfff",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-12T05:06:48.882Z",
+      "description": "Actual Policy1.5 release/remote receipts and local gate simulations",
+      "supports_ids": [
+        "SYNC-T-CHAT-OWNERSHIP"
+      ],
+      "sanitized": true
+    }
+  ],
+  "risks": [
+    {
+      "id": "R-M1",
+      "severity": "HIGH",
+      "state": "BLOCKED",
+      "impact": "Current M1 Git source not complete;full sync and DEV handoff blocked",
+      "next_action": "Platform owner investigate old batch safety refusal; establish supported compliant publication before missing source transfer",
+      "owner_role": "Platform safety owner + CHAT publisher coordination"
+    },
+    {
+      "id": "R-PROTECTION",
+      "severity": "HIGH",
+      "state": "OPEN",
+      "impact": "protected=false;rulesets403;operational main prohibition lacks verified server enforcement",
+      "next_action": "Authorized repository owner evaluates private-repo plan/protection options; no plan or settings change in this task",
+      "owner_role": "Repository owner"
+    },
+    {
+      "id": "R-SERVICE",
+      "severity": "HIGH",
+      "state": "BLOCKED",
+      "impact": "No runtime/CI/test execution;service cannot start from observed branches",
+      "next_action": "After complete sources and CHAT review,scope separate DEV/host/provider-disabled build and tests",
+      "owner_role": "CHAT + authorized implementer"
+    }
+  ],
+  "security": {
+    "secret_scan": "PASS",
+    "private_account_data_in_git": false,
+    "licensed_raw_feed_in_git": false,
+    "evidence_redacted": true,
+    "check_notes": "Sanitized metadata and current governance docs only; pattern scan + manual scope inspection;no credentials/provider calls"
+  },
+  "usage": {
+    "attempts": 1,
+    "retries": 1,
+    "usage_status": "NOT_MEASURED",
+    "tokens_used": null,
+    "credits_used": null,
+    "escalation_reason": "No actual mode switch;model/thinking unexposed"
+  },
+  "next_step": {
+    "requested_chat_decision": "REVIEW",
+    "action": "CHAT independently reviews this amended submission; owns supported recovery of missing M1 sources; completes exact remote readback before assigning any implementation task",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Actual immutable Git report readback and separate reviewer authority;no self-acceptance"
+  }
+}
