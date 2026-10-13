@@ -195,17 +195,17 @@
     {
       "path": "reports/FOX2-M1-P2-03/evidence/final_checks.json",
       "sha256": "461253b9fb0d7f34926b1d877503e5808b24767470a9dfb6030c85e60982b294",
-      "bytes": 324
+      "bytes": 315
     },
     {
       "path": "reports/FOX2-M1-P2-03/evidence/p2_03.txt",
       "sha256": "656d21f764f5f0ef22e6fe668795a63c49d2c594f4659b89e1c9e58516d8cec2",
-      "bytes": 182
+      "bytes": 179
     },
     {
       "path": "reports/FOX2-M1-P2-03/evidence/quality.json",
       "sha256": "08e8300b4ffd05e6243fdc67206dd49fed3cff4936ce1039f2f242f52f93ddb8",
-      "bytes": 3415
+      "bytes": 3314
     },
     {
       "path": "reports/FOX2-M1-P2-03/evidence/run_checks.py",
@@ -220,12 +220,12 @@
     {
       "path": "reports/FOX2-M1-P2-03/evidence/source_readback.json",
       "sha256": "2ac1303229adc74555506eebea1a78f776f16f86ce3df6ddcebaed03725b47cc",
-      "bytes": 3383
+      "bytes": 3307
     },
     {
       "path": "reports/FOX2-M1-P2-03/evidence/upstream_regression.txt",
       "sha256": "71a25c7a1f60cf4b2a7ab5cea5b2c3ab891b9f0b182fbf744ce5f31304549c87",
-      "bytes": 278
+      "bytes": 274
     },
     {
       "path": "reports/FOX2-M1-P2-03/report.md",
