@@ -1,0 +1,911 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "request_id",
+    "generated_at",
+    "data"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "market-data-v0.4-candidate"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "instrument_id",
+        "symbol",
+        "instrument_type",
+        "venue",
+        "board_id",
+        "record_id",
+        "revision",
+        "source_id",
+        "origin_provider",
+        "source_revision",
+        "retrieval_channel",
+        "event_at",
+        "as_of",
+        "received_at",
+        "first_available_at",
+        "data_mode",
+        "freshness_state",
+        "quality",
+        "mapping_state",
+        "completeness",
+        "price_basis",
+        "price_unit",
+        "volume_unit",
+        "turnover_unit",
+        "adjustment_version",
+        "calendar_version",
+        "session",
+        "freshness_policy_version",
+        "rights",
+        "selection_audit_id",
+        "selection_reason",
+        "missing_fields",
+        "payload"
+      ],
+      "properties": {
+        "profile": {
+          "enum": [
+            "INVESTOR",
+            "ISOLATED_TEST"
+          ]
+        },
+        "instrument_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "symbol": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instrument_type": {
+          "enum": [
+            "STOCK",
+            "INDEX",
+            "UNKNOWN"
+          ]
+        },
+        "venue": {
+          "enum": [
+            "HOSE",
+            "HNX",
+            "UPCOM",
+            "UNKNOWN"
+          ]
+        },
+        "board_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "record_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revision": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "source_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "origin_provider": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retrieval_channel": {
+          "enum": [
+            "WEBSOCKET",
+            "HISTORICAL_API",
+            "LOCAL_STORE",
+            "TEST_FIXTURE",
+            "UNAVAILABLE"
+          ]
+        },
+        "event_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "as_of": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "received_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "first_available_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "data_mode": {
+          "enum": [
+            "VERIFIED_PROVIDER",
+            "PROVIDER_NATIVE_UNVERIFIED",
+            "UNAVAILABLE",
+            "SYNTHETIC"
+          ]
+        },
+        "freshness_state": {
+          "enum": [
+            "LIVE",
+            "PERIODIC_LIVE",
+            "LATEST_VALID",
+            "EOD_CONFIRMED",
+            "STALE",
+            "GAP_RECOVERING",
+            "DELAYED",
+            "ENTITLEMENT_BLOCKED",
+            "UNAVAILABLE"
+          ]
+        },
+        "quality": {
+          "enum": [
+            "VALID",
+            "PARTIAL",
+            "INVALID",
+            "UNKNOWN"
+          ]
+        },
+        "mapping_state": {
+          "enum": [
+            "VERIFIED",
+            "UNKNOWN",
+            "BLOCKED"
+          ]
+        },
+        "completeness": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "UNKNOWN"
+          ]
+        },
+        "price_basis": {
+          "enum": [
+            "RAW",
+            "ADJUSTED",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "price_unit": {
+          "enum": [
+            "VND_PER_SHARE",
+            "INDEX_POINTS",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "volume_unit": {
+          "enum": [
+            "SHARES",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "turnover_unit": {
+          "enum": [
+            "VND",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "adjustment_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "calendar_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "session": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "freshness_policy_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "read",
+            "redisplay",
+            "retained_use",
+            "evidence_ref",
+            "verified_until"
+          ],
+          "properties": {
+            "read": {
+              "enum": [
+                "VERIFIED",
+                "BLOCKED",
+                "UNKNOWN"
+              ]
+            },
+            "redisplay": {
+              "enum": [
+                "VERIFIED",
+                "BLOCKED",
+                "UNKNOWN"
+              ]
+            },
+            "retained_use": {
+              "enum": [
+                "VERIFIED",
+                "BLOCKED",
+                "UNKNOWN"
+              ]
+            },
+            "evidence_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "verified_until": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            }
+          }
+        },
+        "selection_audit_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "selection_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "missing_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "payload": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "last_price",
+                "reference_price",
+                "ceiling_price",
+                "floor_price",
+                "cumulative_volume",
+                "cumulative_turnover"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "quote"
+                },
+                "last_price": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "reference_price": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "ceiling_price": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "floor_price": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "cumulative_volume": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "cumulative_turnover": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "timeframe",
+                "from",
+                "to",
+                "items",
+                "gaps"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "bars"
+                },
+                "timeframe": {
+                  "enum": [
+                    "1D"
+                  ]
+                },
+                "from": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "to": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "start_at",
+                      "end_at",
+                      "update_at",
+                      "open",
+                      "high",
+                      "low",
+                      "close",
+                      "volume",
+                      "turnover",
+                      "provisional",
+                      "revision"
+                    ],
+                    "properties": {
+                      "start_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "end_at": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
+                      },
+                      "update_at": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
+                      },
+                      "open": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "high": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "low": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "close": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "volume": {
+                        "type": [
+                          "number",
+                          "null"
+                        ],
+                        "minimum": 0
+                      },
+                      "turnover": {
+                        "type": [
+                          "number",
+                          "null"
+                        ],
+                        "minimum": 0
+                      },
+                      "provisional": {
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    }
+                  }
+                },
+                "gaps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "from",
+                      "to",
+                      "reason",
+                      "capability"
+                    ],
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "to": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "capability": {
+                        "enum": [
+                          "BARS",
+                          "TICKS",
+                          "QUOTE",
+                          "INDEX"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "value",
+                "change_value",
+                "change_percent",
+                "up_count",
+                "down_count",
+                "unchanged_count",
+                "volume",
+                "turnover"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "index_summary"
+                },
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "change_value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "change_percent": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "up_count": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "down_count": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "unchanged_count": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "volume": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "turnover": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "profile": {
+                "const": "INVESTOR"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "data_mode": {
+                "not": {
+                  "const": "SYNTHETIC"
+                }
+              },
+              "retrieval_channel": {
+                "not": {
+                  "const": "TEST_FIXTURE"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "freshness_state": {
+                "enum": [
+                  "LIVE",
+                  "PERIODIC_LIVE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "data_mode": {
+                "const": "VERIFIED_PROVIDER"
+              },
+              "mapping_state": {
+                "const": "VERIFIED"
+              },
+              "quality": {
+                "const": "VALID"
+              },
+              "completeness": {
+                "const": "COMPLETE"
+              },
+              "payload": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "calendar_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "session": {
+                "type": "string",
+                "minLength": 1
+              },
+              "freshness_policy_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "as_of": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "received_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "rights": {
+                "properties": {
+                  "read": {
+                    "const": "VERIFIED"
+                  },
+                  "redisplay": {
+                    "const": "VERIFIED"
+                  },
+                  "evidence_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verified_until": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "event_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "source_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "origin_provider": {
+                "type": "string",
+                "minLength": 1
+              },
+              "instrument_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "price_unit": {
+                "not": {
+                  "const": "UNKNOWN"
+                }
+              },
+              "volume_unit": {
+                "not": {
+                  "const": "UNKNOWN"
+                }
+              },
+              "turnover_unit": {
+                "not": {
+                  "const": "UNKNOWN"
+                }
+              },
+              "price_basis": {
+                "not": {
+                  "const": "UNKNOWN"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "data_mode": {
+                "const": "UNAVAILABLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null"
+              },
+              "freshness_state": {
+                "enum": [
+                  "UNAVAILABLE",
+                  "ENTITLEMENT_BLOCKED"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "freshness_state": {
+                "const": "ENTITLEMENT_BLOCKED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "data_mode": {
+                "const": "PROVIDER_NATIVE_UNVERIFIED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "mapping_state": {
+                "const": "UNKNOWN"
+              },
+              "quality": {
+                "enum": [
+                  "PARTIAL",
+                  "UNKNOWN"
+                ]
+              },
+              "freshness_state": {
+                "not": {
+                  "enum": [
+                    "LIVE",
+                    "PERIODIC_LIVE",
+                    "EOD_CONFIRMED"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "price_basis": {
+                "const": "ADJUSTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "adjustment_version": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "payload": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source_id": {
+                "type": "null"
+              },
+              "record_id": {
+                "type": "null"
+              },
+              "revision": {
+                "type": "null"
+              },
+              "event_at": {
+                "type": "null"
+              },
+              "as_of": {
+                "type": "null"
+              },
+              "received_at": {
+                "type": "null"
+              },
+              "first_available_at": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "payload": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "origin_provider": {
+                "type": "string",
+                "minLength": 1
+              },
+              "received_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "first_available_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FOX2 M1 envelope v0.4 Candidate",
+  "$comment": "Shape only. Semantic validator and runtime rights/freshness checks separately required; not executed."
+}

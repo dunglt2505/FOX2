@@ -1,0 +1,118 @@
+{
+  "observed_at_utc": "2026-10-13T13:18:38.227874+00:00",
+  "library_status": "CHAT_ATTESTED_NOT_INDEPENDENT",
+  "sources": [
+    {
+      "commit": "1e37dc5252837f861e23641e11a1ffaad27d251e",
+      "path": "docs/agent_handoff/M1/P2-01/FOX2_M1_P2_01_CODEX_EXECUTE_PARALLEL_20261013.md",
+      "blob": "182d5600843d19ad5f64af67eadc7149f7c55c13",
+      "bytes": 11160,
+      "sha256": "da7aa8cd701a306f6ea769c5b1ba9367885866494102b540b1118220d619742d"
+    },
+    {
+      "commit": "a366f509899cec97f64316cb111b29a3849325b5",
+      "path": "docs/governance/FOX2_POLICY_V1.8.4.md",
+      "blob": "483a74ff39339e653bbd7bbfba0feaf7b1c003e9",
+      "bytes": 115917,
+      "sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a"
+    },
+    {
+      "commit": "7b6e30e0712071da3a576e1ebda2dce364aa7dff",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_5_EFFECTIVE_ROUTING_INDEX_20261013.md",
+      "blob": "3ea18c06af93cd059b7e29c6f09914ac4a0298a7",
+      "bytes": 22484,
+      "sha256": "bd3332e6e6e783362cd5b3992145a2c216d4050a05e3b905ab957d129ece66a0"
+    },
+    {
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/agent_handoff/M1/P2-01/FOX2_M1_P2_01_PREDEV_REBIND_V184_20261013.md",
+      "blob": "031c02fc420f9156e809a6f0e77b864b6ad09c23",
+      "bytes": 5065,
+      "sha256": "30a7c1b9c3a0962869ee41a7b2e1ad0e52709d6cb8b6e1d774bdf4404c92192a"
+    },
+    {
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+      "blob": "e4a95b97039d482085996afbfad232b789d1b236",
+      "bytes": 13761,
+      "sha256": "65d9b36697b5333a9b1e5fcba88f3f4bbc786fc33cc6ed585288f4366057fb5f"
+    },
+    {
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1_RELEASE_MANIFEST_20261013.json",
+      "blob": "a34cf5f6b62b69901330d05e14540defb97c295a",
+      "bytes": 889,
+      "sha256": "0509d03a9e380c206dd750c8d38eb539dddcbbef0b95db235fce970e96065fa7"
+    },
+    {
+      "commit": "282fe0654de13e8d9c679e171e7ac81f29a545ca",
+      "path": "docs/roadmap/FOX2_M1_P2_WP_PLAN_v0.1.md",
+      "blob": "6612f7d05b4724be396214e5446eb685e58979c9",
+      "bytes": 24111,
+      "sha256": "210e28fd7caeecaca6edf7b71c7f39d769ee2be2d51b399ffec989bd57e4180b"
+    },
+    {
+      "commit": "282fe0654de13e8d9c679e171e7ac81f29a545ca",
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "blob": "ed842860259628cb1404b3a9fa7ad9e28eaa326c",
+      "bytes": 13322,
+      "sha256": "df1bb83701c774644d3cc664f350134e40caeda73ca77cd61a987a7ecf2e8ee4"
+    },
+    {
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_V0.4_RELEASE_MANIFEST_20261012.json",
+      "blob": "f8a0adef6de700f0af577b249148f24d89b2dc41",
+      "bytes": 3506,
+      "sha256": "74f793e18165c68cfa2a2cbc2f0871e24381ad1078fc73fdc0674641c988fbbc"
+    },
+    {
+      "commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "blob": "369a893a83dd140ce423c032784941a22d4a443e",
+      "bytes": 7501,
+      "sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2"
+    },
+    {
+      "commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+      "blob": "fa395662b772658d782b46718b7eb8392f6bbf76",
+      "bytes": 22607,
+      "sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52"
+    },
+    {
+      "commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+      "path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+      "blob": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+      "bytes": 17289,
+      "sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92"
+    },
+    {
+      "commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+      "path": "docs/acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+      "blob": "321bc0e2525befa8842f09edfc09ce20c2cbab09",
+      "bytes": 3333,
+      "sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b"
+    },
+    {
+      "commit": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+      "path": "docs/agent_handoff/FOX2_M1_V04_SOURCE_SYNC_RECEIPT_20261012.json",
+      "blob": "673805c6d2566372b1bd0a5c8afa01e7507c6fc7",
+      "bytes": 4368,
+      "sha256": "609898c4fc4613626b0d027f285ed932854bf77a600a202eb7b0de1632cb7af9"
+    },
+    {
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.md",
+      "blob": "ff4678808dde66733ca472d5f24c04c3b19b0670",
+      "bytes": 7952,
+      "sha256": "e67ea2e60daf9fb0f51b17b8570e977e947ed8ecb945c4916d64fd94b93c7945"
+    },
+    {
+      "commit": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "blob": "b7617cc5c75c288c7997c64536a22fb836b8200b",
+      "bytes": 21696,
+      "sha256": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b"
+    }
+  ]
+}

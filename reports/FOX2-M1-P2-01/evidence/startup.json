@@ -1,0 +1,51 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-B",
+    "-m",
+    "uvicorn",
+    "fox2.main:app",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "49776",
+    "--no-access-log"
+  ],
+  "health_status": 200,
+  "health": {
+    "contract_version": "market-data-v0.4-candidate",
+    "status": "OK",
+    "provider_enabled": false
+  },
+  "sources": [
+    {
+      "capability": "QUOTE",
+      "readiness": "UNAVAILABLE",
+      "state": "UNKNOWN",
+      "gap_state": "UNKNOWN",
+      "rights_state": "UNKNOWN",
+      "verified_until": null,
+      "reason": "NOT_INTEGRATED"
+    },
+    {
+      "capability": "BARS",
+      "readiness": "UNAVAILABLE",
+      "state": "UNKNOWN",
+      "gap_state": "UNKNOWN",
+      "rights_state": "UNKNOWN",
+      "verified_until": null,
+      "reason": "NOT_INTEGRATED"
+    },
+    {
+      "capability": "INDEX",
+      "readiness": "UNAVAILABLE",
+      "state": "UNKNOWN",
+      "gap_state": "UNKNOWN",
+      "rights_state": "UNKNOWN",
+      "verified_until": null,
+      "reason": "NOT_INTEGRATED"
+    }
+  ],
+  "server_log": "INFO:     Started server process [17436]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:49776 (Press CTRL+C to quit)\n",
+  "note": "Real loopback bind and local HTTP only. Provider/external denial proven separately by offline suite."
+}

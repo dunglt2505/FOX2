@@ -1,0 +1,26 @@
+{
+  "run_at_utc": "2026-10-13T13:19:15.209804+00:00",
+  "execution_state": "BLOCKED_SCOPE",
+  "tests_exit_code": 0,
+  "test_summary": "80 passed in 1.40s",
+  "syntax_files": 25,
+  "syntax": "PASS",
+  "allowed_paths": "PASS",
+  "diff_check": "PASS: tracked diff and every untracked file checked against empty file",
+  "obvious_secret_scan": "PASS: synthetic TEST_SENTINEL_SECRET in test-only cases explicitly classified",
+  "application_network_attempts": 0,
+  "provider_transport_constructions": 0,
+  "harness_note": "Windows asyncio internal loopback wakeup socketpair initialized before application network-denial region.",
+  "initial_test_run": "69 passed, 9 failed, 9 teardown errors; all caused by Windows harness socketpair initialization. Fixed harness before application denial; no provider/external activity.",
+  "commit": "NOT_CREATED",
+  "push": "NOT_ATTEMPTED",
+  "blocker": {
+    "protocol": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.md",
+    "schema": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+    "required_report_path": "reports/FOX2-M1-P2-01/report.md",
+    "allowed_report_path": "tests/p2_01/P2_01_RESULT.md",
+    "schema_report_path_pattern": "^reports/FOX2-[A-Za-z0-9_-]+/report\\.md$",
+    "resolution_owner": "CHAT",
+    "resolution": "Reconcile pinned delivery contract and task allowlist. CODEX must not broaden write permission."
+  }
+}

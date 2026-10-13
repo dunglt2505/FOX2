@@ -1,0 +1,580 @@
+{
+  "contract_version": "2.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-M1-P2-01",
+  "task_id": "M1-P2-01",
+  "change_id": "P2-01-delivery-resume",
+  "submission_state": "READY_FOR_CHAT_REVIEW",
+  "submitted_at_utc": "2026-10-13T17:05:36.610509+00:00",
+  "agent": {
+    "product": "CODEX",
+    "model": "GPT-6; exact variant NOT_EXPOSED",
+    "mode": "MANUAL_LOCAL",
+    "host": "Windows",
+    "started_at_utc": "2026-10-13T17:05:36.610509+00:00",
+    "finished_at_utc": "2026-10-13T17:05:36.610509+00:00",
+    "quota_observation": "NOT_EXPOSED"
+  },
+  "routing": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PASS",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "assignment_check": "PASS",
+    "routing_evidence": "Owner issuecomment-6150626605; current release readback; original conditional runtime gates passed; existing WIP reused."
+  },
+  "source": {
+    "policy_sha256": "c4fa7bd6759bbce160ab113d83f007d082a0f3d167e41256bb39570db358302e",
+    "policy_version": "V1.8.5; frozen implementation V1.8.4 retained",
+    "task_commit_sha": "5f8f79713c291a346dd6ae84ecf8b52aaf702f1e",
+    "source_manifest_sha256": "909fe34bb1a922971a81ece7acce813fe9dc33ff3e8c3a6afa26de044320f7ba",
+    "approved_base_commit_sha": "588da7b1c1a642ddfd935ff6372af83a35acaa2f",
+    "source_readback_status": "PASS",
+    "brd_revisions": [
+      "M1 frozen v0.4 source set"
+    ],
+    "previous_evidence_reused": [
+      "tests/p2_01/P2_01_RESULT.md",
+      "tests/p2_01/SOURCE_READBACK.json"
+    ]
+  },
+  "permissions": {
+    "git_source_read": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "git_code_push": true,
+    "code_allowed": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false,
+    "grant_evidence": "Original prompt section 0 conditional grant + passed current runtime check; delivery-only rebind section 4; current user resume authorization."
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-M1-P2-01-foundation-codex",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-P2-01-CODEX",
+    "writer_lease": "CODEX ONLY; no conflicting P2-01 writer observed",
+    "report_path": "reports/FOX2-M1-P2-01/report.md",
+    "delivery_status": "PUSHED_UNREVIEWED",
+    "pr_url": null,
+    "local_head_before_submission": "588da7b1c1a642ddfd935ff6372af83a35acaa2f"
+  },
+  "scope": {
+    "requested": [
+      "P2-01 foundation and canonical delivery"
+    ],
+    "completed": [
+      "Existing typed DTOs, separate validators, ports, local health, offline tests, real loopback startup"
+    ],
+    "partial": [
+      "Canonical acceptance remains PARTIAL"
+    ],
+    "not_done": [
+      "CHAT independent review",
+      "Integrated provider/store/DSM/frontend acceptance"
+    ],
+    "explicit_exclusions": [
+      "Bridge",
+      "SFR",
+      "frontend",
+      "store/migrations",
+      "DSM implementation",
+      "provider/broker",
+      "merge/deploy/LIVE"
+    ],
+    "changed_paths": [
+      {
+        "path": "backend/pyproject.toml",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "00d820a9796514473e75da81531b14e8937ef95ca0ec3a9b5db77d02ddda710c"
+      },
+      {
+        "path": "backend/src/fox2/__init__.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "c50339bd0cd38a6f7c2840108ee8ab454d7f0754731c9c56a26c597f26266a82"
+      },
+      {
+        "path": "backend/src/fox2/api/__init__.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "c50339bd0cd38a6f7c2840108ee8ab454d7f0754731c9c56a26c597f26266a82"
+      },
+      {
+        "path": "backend/src/fox2/api/health.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "48ef51d632dbc09df3864e13080997cf882430cc5a88cbb8dd98ecbd5d27274c"
+      },
+      {
+        "path": "backend/src/fox2/config.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "99f7497f92b774be103cdc89bf243de5a30746a7698f3732578d9402acfe07ee"
+      },
+      {
+        "path": "backend/src/fox2/contracts/__init__.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "c50339bd0cd38a6f7c2840108ee8ab454d7f0754731c9c56a26c597f26266a82"
+      },
+      {
+        "path": "backend/src/fox2/contracts/base.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "4dce77b229150b4f8419f7646fccc563749171e224eed77aaf3f90d6228f9850"
+      },
+      {
+        "path": "backend/src/fox2/contracts/health.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "75061fccc8f5c647b4c8cfc7eb6d9aa3e488c9d480f73e508e65179277c493d7"
+      },
+      {
+        "path": "backend/src/fox2/contracts/instruments.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "bc201b72121801f2faeabb7c0833202e94f8f31af8f4be7c2c2b0d30eb8507a0"
+      },
+      {
+        "path": "backend/src/fox2/contracts/market.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "27ee5a008e332bad94448731a48fe902e5cea7d9f1a4229c1c6c2d6a47c4a46c"
+      },
+      {
+        "path": "backend/src/fox2/contracts/market_schema.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "acf97374b8968895d82903fa673f4724b11effeb30fc1438e3f22e780d89b828"
+      },
+      {
+        "path": "backend/src/fox2/contracts/market_v0_4.schema.json",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52"
+      },
+      {
+        "path": "backend/src/fox2/contracts/watchlist.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "b0146af2c8bbe7e694af321ab6739cb241a40dcc7d175d3bbfd030cd92ca12c4"
+      },
+      {
+        "path": "backend/src/fox2/main.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "79d69f606bb88e9f990147dd9233a43e27ccce7a570bad5c9710e28e46d39652"
+      },
+      {
+        "path": "backend/src/fox2/ports/__init__.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "c50339bd0cd38a6f7c2840108ee8ab454d7f0754731c9c56a26c597f26266a82"
+      },
+      {
+        "path": "backend/src/fox2/ports/dsm.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "388867e195f287902c2ffe8c83497f2b519c0b3e52e6f2b846b16c82652fd86f"
+      },
+      {
+        "path": "backend/src/fox2/ports/outcomes.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "ece425a4b6de652d7dba4745f4ba8707cd11e5e4675fa8ba7c020151a6effd15"
+      },
+      {
+        "path": "backend/src/fox2/ports/preferences.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "2520abbf51e41e5f08812b6e65ad59d2ee55e19d431fcf89a90265a9fae0c721"
+      },
+      {
+        "path": "backend/src/fox2/ports/store.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "9a83a934ffce1068bf960ecd84f7bffe6739582171a7cd6aee761c468c83424b"
+      },
+      {
+        "path": "backend/src/fox2/validation/__init__.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "c50339bd0cd38a6f7c2840108ee8ab454d7f0754731c9c56a26c597f26266a82"
+      },
+      {
+        "path": "backend/src/fox2/validation/schema.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "99d5435e7b936afc1ef451a566c1876edd9a105d43e5ec2a393fdf65575acb99"
+      },
+      {
+        "path": "backend/src/fox2/validation/semantics.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "09946c74eaa532cd90c2f50e6d23c1bc642985e7cc3ecdc10528dff338ad6a85"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-01/evidence/quality.json",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "329c657c42042013a7198ee63b7214237302d9fc34108c5fd22dfee59387e0c3"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-01/evidence/source_readback.json",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "909fe34bb1a922971a81ece7acce813fe9dc33ff3e8c3a6afa26de044320f7ba"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-01/evidence/startup.json",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "3d82479d004130f98aa25e8189612c96c6d99766a365c859e0140bbba56b070b"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-01/evidence/tests.txt",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "affeb523be5a5fe6426c9223d3cfcf1968cfedf7487fd9b24730058564a119e0"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-01/evidence/validate_delivery.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "115ff0fc7c72c3b147142b5f8dbb61b24e75dac9d7763007d408759639d6ca79"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-01/report.md",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "8c35bbbd9eaa6bc246959ce2e8ea672bc3aa39c3d9b5de921510af4288d130d7"
+      },
+      {
+        "path": "tests/p2_01/P2_01_RESULT.md",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "e8531c1486258c39f9da21564f957e755075a94440374ad5b8e7e81afa1dc2a5"
+      },
+      {
+        "path": "tests/p2_01/QUALITY_CHECKS.json",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "3f8580624da387ae2086053a9c199ac3d00becda5b693c176ccfda5e0ca272d3"
+      },
+      {
+        "path": "tests/p2_01/SOURCE_READBACK.json",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "157e87e799a95d09fe8e9c1b88dca4cbf38932d6272bbdd408175fa094942b9c"
+      },
+      {
+        "path": "tests/p2_01/TEST_OUTPUT.txt",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "1734724a7da4c67eb59c8af8c49c2feef6eeeea27ed6bb841160f57bc0fbba7c"
+      },
+      {
+        "path": "tests/p2_01/conftest.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "cfd94caf0d722df5913ee40da568f4c3908bd2813a569708b4d35a89f9798759"
+      },
+      {
+        "path": "tests/p2_01/test_contract_schema.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "6d67f977bbf370d48578ebca29d2c8226ffd541d8af65bb656ccc5633f0d6a36"
+      },
+      {
+        "path": "tests/p2_01/test_offline_startup.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "7e92b14f35956b59ab172de08bac4a4b3418487d6d2c9f43ad4ca7fbae9fac8e"
+      },
+      {
+        "path": "tests/p2_01/test_security_boundary.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "17281f79d5a086468745e77a9f9d729f2706dc9fac39800ccc2b12476b392326"
+      },
+      {
+        "path": "tests/p2_01/test_semantics.py",
+        "operation": "ADD",
+        "intent": "P2-01 implementation/test or authorized delivery evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "c360241bd5a727679b2c3322c968acb4422cc4dd7c2e21f682ddde6180218bd4"
+      }
+    ],
+    "forbidden_paths_touched": false
+  },
+  "tests": [
+    {
+      "id": "P2-01-validation",
+      "kind": "OTHER",
+      "status": "PASS",
+      "command_or_method": "python -B reports/FOX2-M1-P2-01/evidence/validate_delivery.py",
+      "environment": "Windows; installed Python/FastAPI/Pydantic/pytest/uvicorn; no install",
+      "run_at_utc": "2026-10-13T17:05:36.610509+00:00",
+      "evidence_ids": [
+        "tests",
+        "startup",
+        "quality",
+        "source_readback"
+      ],
+      "notes": "80 offline tests; actual loopback health; source, syntax, scope and secret checks"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "FOX2-00-T01",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-00-T02",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-00-T03",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-00-T04",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-06-T05",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-06-T13",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-06-T14",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-06-T16",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-06-T18",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-N1-T01",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-N1-T02",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-N1-T03",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-N1-T04",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    },
+    {
+      "id": "FOX2-N1-T12",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "tests"
+      ],
+      "reason": "Canonical integrated scenario PARTIAL; offline subcase PASS as mapped in report. Schema has no PARTIAL enum; NOT_RUN conservatively represents remaining integrated execution."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "quality",
+      "path": "reports/FOX2-M1-P2-01/evidence/quality.json",
+      "sha256": "329c657c42042013a7198ee63b7214237302d9fc34108c5fd22dfee59387e0c3",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:05:36.610509+00:00",
+      "description": "quality.json",
+      "supports_ids": [
+        "P2-01-validation"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "source_readback",
+      "path": "reports/FOX2-M1-P2-01/evidence/source_readback.json",
+      "sha256": "909fe34bb1a922971a81ece7acce813fe9dc33ff3e8c3a6afa26de044320f7ba",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:05:36.610509+00:00",
+      "description": "source_readback.json",
+      "supports_ids": [
+        "P2-01-validation"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "startup",
+      "path": "reports/FOX2-M1-P2-01/evidence/startup.json",
+      "sha256": "3d82479d004130f98aa25e8189612c96c6d99766a365c859e0140bbba56b070b",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:05:36.610509+00:00",
+      "description": "startup.json",
+      "supports_ids": [
+        "P2-01-validation"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "tests",
+      "path": "reports/FOX2-M1-P2-01/evidence/tests.txt",
+      "sha256": "affeb523be5a5fe6426c9223d3cfcf1968cfedf7487fd9b24730058564a119e0",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-13T17:05:36.610509+00:00",
+      "description": "tests.txt",
+      "supports_ids": [
+        "P2-01-validation"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "validate_delivery",
+      "path": "reports/FOX2-M1-P2-01/evidence/validate_delivery.py",
+      "sha256": "115ff0fc7c72c3b147142b5f8dbb61b24e75dac9d7763007d408759639d6ca79",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:05:36.610509+00:00",
+      "description": "validate_delivery.py",
+      "supports_ids": [
+        "P2-01-validation"
+      ],
+      "sanitized": true
+    }
+  ],
+  "risks": [
+    {
+      "id": "integration",
+      "severity": "MEDIUM",
+      "state": "OPEN",
+      "impact": "Foundation only; canonical integrated acceptance incomplete",
+      "next_action": "CHAT review before downstream WPs",
+      "owner_role": "CHAT"
+    }
+  ],
+  "security": {
+    "secret_scan": "PASS",
+    "private_account_data_in_git": false,
+    "licensed_raw_feed_in_git": false,
+    "evidence_redacted": true,
+    "check_notes": "Obvious pattern scan; synthetic sentinel explicitly test-only"
+  },
+  "usage": {
+    "attempts": 1,
+    "retries": 0,
+    "usage_status": "NOT_MEASURED",
+    "tokens_used": null,
+    "credits_used": null,
+    "escalation_reason": "None"
+  },
+  "next_step": {
+    "requested_chat_decision": "REVIEW",
+    "action": "Independent immutable remote SHA review",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Successful push and independent remote SHA readback"
+  }
+}

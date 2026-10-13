@@ -1,0 +1,13 @@
+{
+  "run_at_utc": "2026-10-13T17:05:36.610509+00:00",
+  "tests": "........................................................................ [ 90%]\n........                                                                 [100%]\n80 passed in 1.56s",
+  "syntax": "PASS",
+  "scope": "PASS",
+  "secret_scan": "PASS obvious-pattern scan; synthetic test sentinel only",
+  "writer": "CODEX exclusive task grant. Copilot runtime observed; read-only Bridge ledger showed only four terminal Bridge executions, no P2-01 dispatch. No conflicting task writer observed.",
+  "model": "GPT-6; exact variant NOT_EXPOSED",
+  "thinking": "NOT_EXPOSED",
+  "quota": "NOT_EXPOSED",
+  "prior_failures": "Prior Windows asyncio test harness failure corrected in previous run; historical report preserved. Two mistyped source URL readbacks returned 404 during resume; exact supplied URL subsequently passed. Two local current-release object reads missed before authorized source fetch; readback then passed. Initial resume secret scan flagged the known synthetic TEST_SENTINEL_SECRET; exact test-only sentinel classified and scan rerun.",
+  "delivery_corrections": "Manifest previous_evidence_reused changed from boolean to required array; first staged check caught report CRLF whitespace, normalized report artifacts to LF and rechecked."
+}
