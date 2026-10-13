@@ -542,24 +542,170 @@ class BridgeE2ERunner:
                 ) from exc
             target.parent.mkdir(parents=True, exist_ok=True)
 
+    @staticmethod
+    def _allowed_patterns(payload: dict[str, object]) -> tuple[str, ...]:
+        return tuple(
+            str(item)
+            for item in (
+                list(payload.get("allowed_code_paths", []))
+                + list(payload.get("allowed_report_paths", []))
+            )
+        )
+
+    def _verify_changed_paths(
+        self,
+        *,
+        payload: dict[str, object],
+        changed: tuple[str, ...],
+    ) -> None:
+        if not changed:
+            raise WorkspaceBlocked("Agent did not create any result file changes")
+        allowed_patterns = self._allowed_patterns(payload)
+        unexpected = [
+            path for path in changed if not self._path_allowed(path, allowed_patterns)
+        ]
+        if unexpected:
+            raise WorkspaceBlocked(
+                "result changed path(s) outside dispatch scope: " + ", ".join(unexpected)
+            )
+
+    @staticmethod
+    def _verify_acceptance(
+        *,
+        payload: dict[str, object],
+        worktree: Path,
+        agent_stdout: str,
+        agent_label: str,
+    ) -> None:
+        acceptance = payload.get("acceptance")
+        if acceptance is None:
+            return
+        if not isinstance(acceptance, dict):
+            raise DispatchInvalid("acceptance must be an object when present")
+        required_paths = acceptance.get("required_paths", [])
+        if not isinstance(required_paths, list) or not all(
+            isinstance(item, str) for item in required_paths
+        ):
+            raise DispatchInvalid("acceptance.required_paths must be a string list")
+        for required_path in required_paths:
+            target = worktree / Path(*required_path.split("/"))
+            if not target.is_file():
+                raise WorkspaceBlocked(
+                    f"required E2E result path is missing: {required_path}"
+                )
+        stdout_contains = acceptance.get("stdout_contains")
+        if stdout_contains is not None:
+            if not isinstance(stdout_contains, str) or not stdout_contains:
+                raise DispatchInvalid(
+                    "acceptance.stdout_contains must be a non-empty string"
+                )
+            if stdout_contains not in agent_stdout:
+                raise WorkspaceBlocked(
+                    f"{agent_label} stdout did not contain the required E2E marker"
+                )
+
+    def _dirty_changed_paths(self, worktree: Path) -> tuple[str, ...]:
+        paths: set[str] = set()
+        commands = (
+            ["diff", "--name-only"],
+            ["diff", "--cached", "--name-only"],
+            ["ls-files", "--others", "--exclude-standard"],
+        )
+        for command in commands:
+            result = self._git(["-C", str(worktree), *command])
+            for line in result.stdout.splitlines():
+                value = line.strip().replace("\\", "/")
+                if value:
+                    paths.add(value)
+        return tuple(sorted(paths))
+
+    def _commit_and_push_codex_result(
+        self,
+        *,
+        payload: dict[str, object],
+        worktree: Path,
+        before_head: str,
+        agent_stdout: str,
+    ) -> tuple[str, tuple[str, ...]]:
+        local_head = self._git(
+            ["-C", str(worktree), "rev-parse", "HEAD"]
+        ).stdout.strip()
+        if local_head != before_head:
+            raise WorkspaceBlocked(
+                "Codex changed Git history; Bridge requires Codex to leave commit/push to Bridge"
+            )
+        remote_head = self._remote_branch_head(str(payload["branch"]))
+        if remote_head != before_head:
+            raise WorkspaceBlocked(
+                "task branch changed remotely during Codex execution"
+            )
+
+        changed = self._dirty_changed_paths(worktree)
+        self._verify_changed_paths(payload=payload, changed=changed)
+        self._verify_acceptance(
+            payload=payload,
+            worktree=worktree,
+            agent_stdout=agent_stdout,
+            agent_label="Codex",
+        )
+
+        self._git(["-C", str(worktree), "diff", "--check"])
+        self._git(["-C", str(worktree), "add", "-A", "--", *changed])
+        self._git(["-C", str(worktree), "diff", "--cached", "--check"])
+        dispatch_id = str(payload["dispatch_id"])
+        self._git(
+            [
+                "-C",
+                str(worktree),
+                "-c",
+                "user.name=FOX2 Bridge",
+                "-c",
+                "user.email=fox2-bridge@local.invalid",
+                "commit",
+                "-m",
+                f"FOX2 Bridge result: {dispatch_id}",
+            ]
+        )
+        after_head = self._git(
+            ["-C", str(worktree), "rev-parse", "HEAD"]
+        ).stdout.strip()
+        self._git(
+            [
+                "-C",
+                str(worktree),
+                "push",
+                "origin",
+                f"HEAD:refs/heads/{payload['branch']}",
+            ]
+        )
+
+        return self._verify_result(
+            payload=payload,
+            worktree=worktree,
+            before_head=before_head,
+            agent_stdout=agent_stdout,
+            agent_label="Codex",
+        )
+
     def _verify_result(
         self,
         *,
         payload: dict[str, object],
         worktree: Path,
         before_head: str,
-        copilot_stdout: str,
+        agent_stdout: str,
+        agent_label: str,
     ) -> tuple[str, tuple[str, ...]]:
         if self._git(
             ["-C", str(worktree), "status", "--porcelain"]
         ).stdout.strip():
-            raise WorkspaceBlocked("Copilot exited with a dirty worktree")
+            raise WorkspaceBlocked(f"{agent_label} result left a dirty worktree")
 
         after_head = self._git(
             ["-C", str(worktree), "rev-parse", "HEAD"]
         ).stdout.strip()
         if after_head == before_head:
-            raise WorkspaceBlocked("Copilot did not create a result commit")
+            raise WorkspaceBlocked(f"{agent_label} did not create a result commit")
 
         remote_head = self._remote_branch_head(str(payload["branch"]))
         if remote_head != after_head:
@@ -574,47 +720,13 @@ class BridgeE2ERunner:
             ).stdout.splitlines()
             if line.strip()
         )
-        allowed_patterns = tuple(
-            str(item)
-            for item in (
-                list(payload.get("allowed_code_paths", []))
-                + list(payload.get("allowed_report_paths", []))
-            )
+        self._verify_changed_paths(payload=payload, changed=changed)
+        self._verify_acceptance(
+            payload=payload,
+            worktree=worktree,
+            agent_stdout=agent_stdout,
+            agent_label=agent_label,
         )
-        unexpected = [
-            path for path in changed if not self._path_allowed(path, allowed_patterns)
-        ]
-        if unexpected:
-            raise WorkspaceBlocked(
-                "result changed path(s) outside dispatch scope: " + ", ".join(unexpected)
-            )
-
-        acceptance = payload.get("acceptance")
-        if acceptance is not None:
-            if not isinstance(acceptance, dict):
-                raise DispatchInvalid("acceptance must be an object when present")
-            required_paths = acceptance.get("required_paths", [])
-            if not isinstance(required_paths, list) or not all(
-                isinstance(item, str) for item in required_paths
-            ):
-                raise DispatchInvalid("acceptance.required_paths must be a string list")
-            for required_path in required_paths:
-                target = worktree / Path(*required_path.split("/"))
-                if not target.is_file():
-                    raise WorkspaceBlocked(
-                        f"required E2E result path is missing: {required_path}"
-                    )
-            stdout_contains = acceptance.get("stdout_contains")
-            if stdout_contains is not None:
-                if not isinstance(stdout_contains, str) or not stdout_contains:
-                    raise DispatchInvalid(
-                        "acceptance.stdout_contains must be a non-empty string"
-                    )
-                if stdout_contains not in copilot_stdout:
-                    raise WorkspaceBlocked(
-                        "Copilot stdout did not contain the required E2E marker"
-                    )
-
         return after_head, changed
 
     def _write_runtime_report_best_effort(
