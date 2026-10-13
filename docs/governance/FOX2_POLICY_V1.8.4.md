@@ -814,3 +814,4 @@ The Owner explicitly ordered publication of the reviewed REV4-derived Policy. Th
 - **Unchanged owned semantics:** Bridge Technical Spec v0.4, SFR-010 Technical Spec, M1 BRDs/Data Contract/Acceptance, Roadmap/P2 design, accepted evidence, Result Contract and release gates are not mechanically version-bumped. Their implementation/business semantics did not change.
 - **No retrospective rewrite:** already accepted immutable results remain historical evidence. Open/non-executed WPs must use V1.8.4 routing on their next re-scope/executable handoff.
 - **No rights created:** this release creates no DEV, Git code push, Bridge dispatch, merge, Production/provider/broker write or LIVE authority.
+
