@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import BridgeConfig, load_config
+from .copilot_adapter import CopilotAdapter, CopilotRunResult
 from .dispatch_poller import DispatchPoller, PollResult
 from .errors import BridgeError, StartupBlocked
 from .ledger import SQLiteLedger, utc_now
@@ -88,7 +89,7 @@ class BridgeApp:
                 "stale_owner_metadata_recovered": self.lock.stale_owner_detected,
             },
             "tools": tools,
-            "scope": "BRG-010/020 core and read-only dispatch discovery; validation and agent execution are not implemented",
+            "scope": "BRG-010/020 core, read-only dispatch discovery, and bounded Copilot CLI smoke relay",
         }
 
     def poll_once(self) -> PollResult:
@@ -100,6 +101,42 @@ class BridgeApp:
             logger=self.logger,
         )
         return poller.poll_once()
+
+    def copilot_smoke(
+        self,
+        *,
+        worktree: Path,
+        timeout_seconds: int = 120,
+    ) -> CopilotRunResult:
+        if not self._started:
+            raise StartupBlocked("Copilot smoke relay requires a started Bridge")
+        prompt = (
+            "Return exactly FOX2_BRIDGE_COPILOT_SMOKE_OK. "
+            "Do not edit files. Do not run tools. Do not make Git changes."
+        )
+        adapter = CopilotAdapter(self.config)
+        log_event(
+            self.logger,
+            component="copilot_adapter",
+            event="copilot_smoke_started",
+            context={"worktree": str(worktree)},
+        )
+        result = adapter.run_prompt(
+            worktree=worktree,
+            prompt=prompt,
+            timeout_seconds=timeout_seconds,
+        )
+        log_event(
+            self.logger,
+            component="copilot_adapter",
+            event="copilot_smoke_finished",
+            context={
+                "worktree": result.worktree,
+                "status": result.status,
+                "exit_code": result.exit_code,
+            },
+        )
+        return result
 
     def shutdown(self) -> None:
         try:
