@@ -804,41 +804,69 @@ class BridgeE2ERunner:
             )
 
         agent_result = None
+        agent_product = str(payload["_agent_product"])
         try:
             self._progress("prepare authorized result parent directories")
             self._prepare_required_parents(payload=payload, worktree=worktree)
-            self._progress("launch Copilot CLI")
-            agent_result = CopilotAdapter(self.config).run_prompt(
-                worktree=worktree,
-                prompt=prompt_text,
-                timeout_seconds=timeout_seconds,
-                allow_write=True,
-                allow_git=True,
-                allow_github_url=False,
-                allowed_shell_tools=tuple(
-                    str(item) for item in payload.get("_copilot_shell_tools", [])
-                ),
-                silent=True,
-                no_ask_user=True,
-                progress=lambda stream, line: self._progress(
-                    f"copilot[{stream}]: {line}"
-                ),
-                heartbeat_seconds=10,
-            )
-            if agent_result.exit_code != 0:
-                raise ToolExecFailed(
-                    "Copilot CLI returned non-zero exit code "
-                    f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
+
+            if agent_product == "CODEX":
+                self._progress("launch Codex CLI")
+                agent_result = CodexAdapter(self.config).run_prompt(
+                    worktree=worktree,
+                    prompt=prompt_text,
+                    timeout_seconds=timeout_seconds,
+                    progress=lambda stream, line: self._progress(
+                        f"codex[{stream}]: {line}"
+                    ),
+                    heartbeat_seconds=10,
+                )
+                if agent_result.exit_code != 0:
+                    raise ToolExecFailed(
+                        "Codex CLI returned non-zero exit code "
+                        f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
+                    )
+                self._progress(f"Codex exited: {agent_result.exit_code}")
+                self._progress("Bridge verifies, commits, and pushes Codex result")
+                after_head, changed_paths = self._commit_and_push_codex_result(
+                    payload=payload,
+                    worktree=worktree,
+                    before_head=before_head,
+                    agent_stdout=agent_result.stdout,
+                )
+            else:
+                self._progress("launch Copilot CLI")
+                agent_result = CopilotAdapter(self.config).run_prompt(
+                    worktree=worktree,
+                    prompt=prompt_text,
+                    timeout_seconds=timeout_seconds,
+                    allow_write=True,
+                    allow_git=True,
+                    allow_github_url=False,
+                    allowed_shell_tools=tuple(
+                        str(item) for item in payload.get("_copilot_shell_tools", [])
+                    ),
+                    silent=True,
+                    no_ask_user=True,
+                    progress=lambda stream, line: self._progress(
+                        f"copilot[{stream}]: {line}"
+                    ),
+                    heartbeat_seconds=10,
+                )
+                if agent_result.exit_code != 0:
+                    raise ToolExecFailed(
+                        "Copilot CLI returned non-zero exit code "
+                        f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
+                    )
+                self._progress(f"Copilot exited: {agent_result.exit_code}")
+                self._progress("verify pushed result")
+                after_head, changed_paths = self._verify_result(
+                    payload=payload,
+                    worktree=worktree,
+                    before_head=before_head,
+                    agent_stdout=agent_result.stdout,
+                    agent_label="Copilot",
                 )
 
-            self._progress(f"Copilot exited: {agent_result.exit_code}")
-            self._progress("verify pushed result")
-            after_head, changed_paths = self._verify_result(
-                payload=payload,
-                worktree=worktree,
-                before_head=before_head,
-                copilot_stdout=agent_result.stdout,
-            )
             self._progress(f"result verified: {after_head}")
             result = E2EResult(
                 status="PUSHED_UNREVIEWED",
@@ -852,9 +880,10 @@ class BridgeE2ERunner:
                 before_head=before_head,
                 after_head=after_head,
                 changed_paths=changed_paths,
-                copilot_exit_code=agent_result.exit_code,
-                copilot_stdout=agent_result.stdout,
-                copilot_stderr=agent_result.stderr,
+                agent_product=agent_product,
+                agent_exit_code=agent_result.exit_code,
+                agent_stdout=agent_result.stdout,
+                agent_stderr=agent_result.stderr,
             )
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
@@ -911,7 +940,8 @@ class BridgeE2ERunner:
                 "before_head": before_head,
             }
             if agent_result is not None:
-                failure_result["copilot"] = agent_result.as_dict()
+                failure_result["agent_product"] = agent_product
+                failure_result[agent_product.lower()] = agent_result.as_dict()
 
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
