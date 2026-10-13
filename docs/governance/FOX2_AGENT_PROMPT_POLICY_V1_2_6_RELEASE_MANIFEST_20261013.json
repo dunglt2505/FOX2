@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-AGENT-PROMPT-ROUTING-INDEX",
+  "version": "1.2.6",
+  "status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX",
+  "release_date": "2026-10-13",
+  "policy_version": "1.8.5",
+  "bridge_spec_version": "0.6",
+  "library": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_6_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "file_id": "file_000000003ce881f4aac6aca8560871bf",
+    "library_file_id": "libfile_0f6ee8ef5e9081918198e3acb5490408",
+    "bytes": 3901,
+    "sha256": "bd9d66962782f552646a0ab93a5f121ca9d1fcff74d965495d3ce88dd001aa20",
+    "exact_byte_readback": "PASS"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-SIMPLIFIED-BRIDGE-V185-V06-RELEASE-chat-20261013",
+    "source_commit": "772a7e137c4257e46cf2ae14680a72324eb07dec",
+    "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_6_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "blob": "263966d1c5e0eb3900a73c2f1327312f2cf94ec9"
+  },
+  "supersedes": "V1.2.5",
+  "rights_created": {
+    "dev": false,
+    "merge": false,
+    "live": false
+  }
+}
