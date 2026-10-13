@@ -1,0 +1,28 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "mapping",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "source_candidate": {
+    "name": "FOX2_M1_BRD_TECH_MAPPING_v0.1_CANDIDATE_REV3.md",
+    "bytes": 18017,
+    "sha256": "f87afd6b118decc2043053f8f29185edd1c76134133af32e6c539e752f4ee243"
+  },
+  "release_artifact": {
+    "name": "FOX2_M1_BRD_TECH_MAPPING_v0.1.md",
+    "library_path": "/Trading/FOX2/02_Architecture/FOX2_M1_BRD_TECH_MAPPING_v0.1.md",
+    "bytes": 17317,
+    "sha256": "c603836ae343077fe37520f42e3867b0ad5b78d23ef35c48c0d0e5728c658f34"
+  },
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "git_source_ready": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
