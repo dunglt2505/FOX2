@@ -2,7 +2,8 @@
 
 The Bridge is the FOX2-only local relay between immutable Git dispatches and
 supported local agents. The current Operational MVP supports Git-backed
-dispatch discovery, exact worktree resolution, GitHub Copilot CLI execution,
+dispatch discovery, exact worktree resolution, selected local Agent CLI execution
+(Codex CLI for current DEV tasks; Copilot CLI retained for historical compatibility),
 single-use replay protection, result verification, durable execution status,
 startup recovery of interrupted runs, and one-dispatch operational polling.
 
@@ -44,7 +45,23 @@ For one exact diagnostic dispatch, `e2e-once --dispatch-path ...` remains
 available, but normal operation should use `run-next`.
 
 
-## Bounded DEV shell capabilities
+## Codex CLI DEV execution
+
+New DEV dispatches can use `agent.product=CODEX`,
+`agent.interface=OPENAI_CODEX_CLI`, and
+`execution_path=BRIDGE_DIRECT_CODEX_CLI`.
+
+The Bridge launches `codex exec` non-interactively with `workspace-write` and
+`--ask-for-approval never`. Codex is instructed to edit/test only; it does not
+need Git push authority. After Codex exits, the Bridge verifies that Codex did
+not change Git history, validates every dirty path against the immutable
+dispatch allowlist, validates required result files/markers, then the Bridge
+itself stages, commits and pushes the authorized result branch. Main/merge,
+provider, broker and LIVE rights remain false unless separately authorized.
+
+The historical Copilot path remains available for already-published dispatches.
+
+## Bounded DEV shell capabilities (Copilot compatibility)
 
 Real coding WPs may need deterministic test commands in addition to Git.
 A dispatch can opt into a Bridge-owned capability name:
@@ -104,4 +121,5 @@ an already-authorized immutable dispatch and verifies the result against the
 dispatch branch/path constraints.
 
 One writer owns one branch/worktree for one execution. VS Code Copilot,
-Bridge Copilot CLI, and Codex must not write concurrently to the same worktree.
+Bridge Copilot CLI, Codex CLI, and Codex desktop/IDE sessions must not write
+concurrently to the same worktree.
