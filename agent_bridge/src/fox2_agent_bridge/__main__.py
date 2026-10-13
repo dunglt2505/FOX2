@@ -30,18 +30,18 @@ def build_parser() -> argparse.ArgumentParser:
 
     e2e = subparsers.add_parser(
         "e2e-once",
-        help="execute one exact immutable FOX2 dispatch path through Copilot CLI",
+        help="execute one exact immutable FOX2 dispatch path through its selected Agent CLI",
     )
     e2e.add_argument("--config", type=Path, help="optional TOML configuration file")
     e2e.add_argument("--dispatch-path", required=True, help="exact control-branch dispatch path")
-    e2e.add_argument("--timeout", type=int, default=300, help="Copilot timeout in seconds")
+    e2e.add_argument("--timeout", type=int, default=300, help="Agent timeout in seconds")
 
     run_next = subparsers.add_parser(
         "run-next",
         help="poll and execute one eligible runtime_contract.auto_execute dispatch",
     )
     run_next.add_argument("--config", type=Path, help="optional TOML configuration file")
-    run_next.add_argument("--timeout", type=int, default=300, help="Copilot timeout in seconds")
+    run_next.add_argument("--timeout", type=int, default=300, help="Agent timeout in seconds")
 
     status = subparsers.add_parser(
         "status",
