@@ -1,7 +1,7 @@
 {
   "project": "FOX2",
   "package_id": "FOX2-BRIDGE-DESKTOP-SPEC-CANDIDATE-20261014",
-  "status": "CANDIDATE_READBACK_PASS_NO_DEV_GRANT",
+  "status": "CANDIDATE_REV2_READBACK_PASS_NO_DEV_GRANT",
   "created_at": "2026-10-14",
   "governance": {
     "policy": {
@@ -34,27 +34,27 @@
   "documents": [
     {
       "document_id": "FOX2-BRD-09",
-      "version": "0.1 Candidate",
+      "version": "0.1 Candidate REV2",
       "path": "docs/brd_mirror/FOX2-BRD-09_v0.1_CANDIDATE.md",
-      "blob": "a525d55912935639fa317471f9b85cee6c42ceca",
-      "state": "CANDIDATE_OWNER_REVIEW"
+      "blob": "c6f3cafd7c9bdba97fd413c6a9a891bde82d0699",
+      "state": "CANDIDATE_REV2_OWNER_REVIEW"
     },
     {
       "document_id": "FOX2-LOCAL-AGENT-BRIDGE-SPEC",
-      "version": "0.7 Candidate",
+      "version": "0.7 Candidate REV2",
       "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
-      "blob": "d5b576d0698c0c332a7d1c3819b7c10180f3deda",
-      "state": "CANDIDATE_DESKTOP_BACKGROUND_PRODUCTIZATION"
+      "blob": "dc4b28e12a7824771c22733682c8409e67127701",
+      "state": "CANDIDATE_REV2_GITHUB_MAILBOX_LOCAL_PULL"
     }
   ],
   "routing": {
-    "r0": "PASS_REUSE_OPERATIONAL_MVP_EVIDENCE",
-    "r1": "DOCUMENT_PRODUCTIZATION_SPEC",
+    "r0": "PASS_REUSE_OPERATIONAL_MVP_AND_CURRENT_DOC_BRANCH",
+    "r1": "DOCUMENT_REV2_SIGNALING_LOCK",
     "r2": "PASS_CURRENT_GOVERNANCE_NO_CODE_RIGHTS",
     "r3": "CHAT_DOC_WRITER_ELIGIBLE",
     "r4": "CHAT_SELECTED_NO_AGENT_CREDITS_REQUIRED",
-    "r5": "DEDICATED_DOC_BRANCH_NON_OVERLAP_WITH_P2_02",
-    "r6": "GIT_READBACK_PASS",
+    "r5": "DEDICATED_DOC_BRANCH_NON_OVERLAP_WITH_BRIDGE_HOTFIX_AND_APP_LANE",
+    "r6": "GIT_READBACK_PASS_AFTER_REV2",
     "r7": "STOP_BEFORE_IMPLEMENTATION"
   },
   "permissions": {
@@ -65,5 +65,23 @@
     "broker_write": false,
     "live": false
   },
-  "next_candidate_wp": "BRIDGE-DESKTOP-01_BACKGROUND_WORKER_RECONCILIATION"
+  "next_candidate_wp": "BRIDGE-DESKTOP-01_GITHUB_MAILBOX_BACKGROUND_WORKER_RECONCILIATION",
+  "updated_at": "2026-10-14",
+  "design_decision": {
+    "signaling_model": "GITHUB_DURABLE_MAILBOX_LOCAL_OUTBOUND_PULL",
+    "control_ref": "work/FOX2-LOCAL-DISPATCH-chat",
+    "inbound_listener_required": false,
+    "public_or_static_ip_required": false,
+    "vpn_or_tunnel_required": false,
+    "healthy_poll_seconds_candidate": 30,
+    "offline_backoff_seconds_candidate": [
+      30,
+      60,
+      120,
+      300
+    ],
+    "manual_check_now": true,
+    "webhook_cloud_relay": "OPTIONAL_FUTURE_LATENCY_OPTIMIZATION_ONLY",
+    "authority_note": "Remote-ref change is a signal hint only; immutable Git dispatch validation and replay protection remain mandatory."
+  }
 }
