@@ -1,34 +1,54 @@
-# FOX2 — M1-0 Windows Preflight | Git-first task record
+# FOX2 — P1 (existing work) RESULT RECOVERY · Current Git-first Task V1.6
 
-**Record status:** `PREPARED_IN_LIBRARY / NOT_DISPATCHED / GIT_TASK_MIRROR_PENDING`  
-**Policy:** `FOX2_POLICY_V1.2.md` (released Library SHA-256 `bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350`)  
-**Task ID:** `FOX2-M1-0-DNSE-REALDATA-PREFLIGHT`  
-**WP ID:** `FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY`  
-**Owner:** CHAT (coordination) | **Candidate executor:** COPILOT on Windows, model/mode/quota `UNKNOWN/NOT_VERIFIED`
+**Record status:** `CURRENT_V1_6_TRANSITION / RESULT_DELIVERY_SETUP_PENDING / NO_NEW_P1_EXECUTION`  
+**WP_ID:** `FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY`  
+**TASK_ID:** `FOX2-M1-P1-RESULT-RECOVERY-20261012`  
+**Tracking Issue:** `https://github.com/dunglt2505/FOX2/issues/5`  
+**Owner decision:** FOX2 Owner explicitly asked CHAT to implement C6F/C6F.0 and obtain Copilot's existing P1 results; this is a report/intake operation only, no DEV/merge grant.
 
-## R0: Reuse evidence, do not redo
+## Authority and Policy Binding — STOP if mismatch
 
-The previous Windows readiness returned `BLOCKED`, **not PASS**. The Windows host was observed; local Git WIP, Policy/local source bytes, Copilot model/quota, data rights and DNSE market-store metadata remain unknown. Published M1 v0.4 8-file Library source set stays authoritative; M1 v0.4.1 / M2 v0.4.2 remain Candidates. Existing M1-0 prompt V1.1 is history; this Git-first task/policy V1.2 is its successor **when mirrored and dispatched**.
+- Policy family: `FOX2-POLICY-V1`; **Policy:** `FOX2_POLICY_V1.6.md`, version **`1.6.0`**, status `RELEASED_EFFECTIVE` after Library publication/readback receipt.
+- **Policy raw SHA-256:** `8cf205ab2b3c8d0d5be9edaa81c0a3bcfb73644caaf2eaa25fd52a6491a62081`.
+- **Policy Git commit SHA:** `66b94ae274292a6f3046cf934f050b1ce15a1dbc`.
+- Policy path: `docs/governance/FOX2_POLICY_V1.6.md`.
+- Release manifest: `docs/governance/FOX2_POLICY_V1.6_RELEASE_MANIFEST_20261012.json`.
+- Result Contract v2 remains unchanged: `docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json`.
+- **Protocol v5:** `docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v5.md`; intake v5.
+- **M1 authoritative source/sync receipt:** `955e74ff67e6b4ed184dc2c2dcd4260c51dc529b`; 8/8 official released M1 source files and 2/2 companions were exact remote readback at this commit; source index later evolved on authorized CHAT branch.
+- Task/source manifest actual containing Git SHA is provided by **CHAT's external immutable task pointer after commit**; this file cannot reference its own commit SHA.
+- Historical V1.2 P1 `task.md` and `source_manifest.json` on older commits are **superseded as current routing** only by this observed V1.6 transition; never backdate or erase their Git provenance.
 
-## Read sources from Git/local only
+## Scope — recover only work already performed
 
-- Expected future Git task: `docs/agent_handoff/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/task.md` plus `source_manifest.json` at a **pinned full commit** — `GIT_MIRROR_PENDING` now.
-- Policy V1.2 exact Library SHA above; receiving Agent must verify the mirror/local bytes, not browse ChatGPT Trading Library.
-- Prior remote `main` observation: `f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8` (recheck; NOT an approved task baseline).
-- Source-set manifest from M1-0 preflight ZIP: SHA-256 `160892e7132072f54526500ca2b1d9e44bce4b48c2eeb7b35b16efeea39f8285` (receiver check still NOT_RUN). Verify 8/8 frozen snapshots.
+COPILOT is reported by Owner to have finished P1 on Windows. Do not repeat tests, install packages, checkout/reset/rebase/clean WIP, edit source, connect to DNSE Production, copy Fox old project, or start P2/P3. Inspect existing Copilot chat/local report files and known command outputs **read-only**, using actual Windows host if available, and honestly distinguish DONE/PARTIAL/NOT_RUN/UNKNOWN. If original evidence was not saved, note `NOT_RETAINED`; do **not** reconstruct fabricated PASS logs.
 
-## Allowed behavior — conditional read-only inspection
+Check or report: Windows host identity (non-sensitive), local `C:\Projects\FOX2` origin/HEAD/branch/worktrees/tracked/untracked/ignored WIP without content disclosure, local/source Policy mismatch, Python/Node/Git environment, legacy `C:\Projects\Fox` reuse inventory (metadata only), model/mode/quota observation, DNSE provider rights/retention status and risk/next step. Source binding is proof for docs **only**, not DEV/host/rights readiness.
 
-After `POLICY_CHECK → TASK_STATE_CHECK → R0–R7 → ASSIGNMENT_CHECK` and successful actual model/host/quota/source/rights/WIP checks: inspect Git `C:\Projects\FOX2`, legacy `C:\Projects\Fox` technical reference read-only, local public-market DNSE connector/store **metadata only**. Do not query Production, authorize credentials, read private account data, open WebSocket, install tools, edit code, run provider tests or manipulate Git state.
+## CHAT-owned deterministic destination (Result Contract v2)
 
-## Git result destination and rights separation
+- Repository: `dunglt2505/FOX2`
+- Tracking Issue: `#5`
+- Designated Agent result branch: `work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot` (exclusive one-writer target; existence/lease must be observed before any write).
+- Report path: `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md`
+- Machine manifest path: `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence_manifest.json`
+- Evidence folder: `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/evidence/` (sanitized minimum only).
+- Required schema: `docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json`.
+- Agent final receipt in response is mandatory and must include full **observed** remote commit/PR pointer if truly pushed. Do not embed own commit SHA in in-commit files.
 
-Proposed result: `reports/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/report.md` and `evidence_manifest.json` on an isolated branch `work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot` **only after** writer ownership, branch and `GIT_REPORT_WRITE/ GIT_REPORT_PUSH` independently PASS.
+## Permission matrix (separate, no implicit grants)
 
-`GIT_SOURCE_READ=UNKNOWN` · `GIT_REPORT_WRITE=NO` · `GIT_REPORT_PUSH=NO` · `CODE_ALLOWED=NO` · `GIT_CODE_PUSH=NO` · `MERGE_ALLOWED=NO` · `DNSE_PRODUCTION=NO` · `BROKER_WRITE=NO` · `LIVE=NO` for the current preparatory checkpoint.
+- `GIT_SOURCE_READ`: verify on actual Copilot host.
+- `GIT_REPORT_WRITE`: `NOT_YET_VERIFIED_FOR_COPILOT`; permissible only with an explicit WP-bound grant **and** observed host rights/branch writer ownership.
+- `GIT_REPORT_PUSH`: `NOT_YET_VERIFIED_FOR_COPILOT`; permissible only with an explicit WP-bound grant **and** observed host Git permission, target/lease/remote readback.
+- `PR_CREATE`: `NOT_YET_VERIFIED_FOR_COPILOT`.
+- `CODE_ALLOWED=NO`, `GIT_CODE_PUSH=NO`, `MAIN_PUSH=NO`, `MERGE_ALLOWED=NO`, `DNSE_PRODUCTION=NO`, `BROKER_WRITE=NO`, `LIVE=NO`.
+- `REPORT_DELIVERY_PATH_READY=UNKNOWN/NO` until CHAT confirms separate report grants and actual Copilot host+writer permission; merely having a branch or report path does not make this YES. Therefore this is a **status-only recovery/capability request until gates pass**, not an executable Git-push command.
 
-**Do not infer** report-push approval from this file or from a read-only preflight prompt. If no push authority, return `REPORT_LOCAL_ONLY/PUSH_BLOCKED` and let CHAT route an authorized evidence-only writer. A chat response alone is not evidence published to Git.
+## Precheck and mandatory final receipt
 
-## Required report and STOP
+Follow `POLICY_CHECK → TASK_STATE_CHECK → R0...R7 → ASSIGNMENT_CHECK`; verify V1.6 Policy and source bytes from pinned Git. Before reporting `PUSHED_UNREVIEWED`, BOTH required files must have been pushed to authorized branch and observed on a single full remote commit. If no report write/push grant, stop before modifying Git and send `PUSH_BLOCKED` / `LOCAL_ONLY` receipt with exactly what was done earlier and what access/approval is needed; do **not** call the task delivered. CHAT will own a permitted report publication and independent review.
 
-Supply R0–R7, Policy/hash, actual Copilot model/mode/quota (or observed UNKNOWN), Git origin/HEAD/tracked/untracked/ignored WIP/writer, source 8/8, DNSE existing metadata, rights/retention, real-data slice or NOT_VERIFIED, risk/negative checks, STOP and precise next action. Never claim `ACCEPTED` or `M1-0 PASS` without independent CHAT review of immutable Git evidence and separate scoped authority.
+Return `FOX2_AGENT_DELIVERY_RECEIPT` with WP/Task ID, actual product/model/mode/host/quota or `NOT_EXPOSED`, Policy version/SHA/full commit, task commit, source commit, DONE/PARTIAL/NOT_RUN, report and manifest absolute local or repo-relative paths, branch, observed remote SHA or NONE, PR URL or NONE, Git error/grant state, evidence count and next action. **No self-acceptance.**
+
+**STOP:** Policy mismatch, source drift, writer/WIP collision, missing report grant, unsafe provider/private data, or branch/main/merge permission issues. No DEV as part of P1 recovery.
