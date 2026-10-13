@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-AGENT-PROMPT-ROUTING-INDEX",
+  "revision": "V1.2.4",
+  "status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX",
+  "date": "2026-10-13",
+  "supersedes": "FOX2_AGENT_PROMPT_POLICY_V1_2_3_EFFECTIVE_ROUTING_INDEX_20261013.md",
+  "governing_policy": {
+    "version": "1.8.4",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.4.md",
+    "sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a",
+    "git_commit": "a366f509899cec97f64316cb111b29a3849325b5",
+    "git_blob_sha1": "483a74ff39339e653bbd7bbfba0feaf7b1c003e9"
+  },
+  "routing_index": {
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_4_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "file_id": "file_00000000a6b482079e25a0461ef1eb1b",
+    "library_file_id": "libfile_a07e492d808c8191a96b666492742206",
+    "bytes": 21694,
+    "sha256": "c3db8a16627539eb4bf0388a5828f43a835a65668d016e04eaae48a87c73da34",
+    "git_repository": "dunglt2505/FOX2",
+    "git_branch": "work/FOX2-ARCH-STAGE-POLICY-RELEASE-chat-20261013",
+    "git_commit": "43c3d240615bce7279f2665fa1c1c0afb7f49021",
+    "git_path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_4_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "git_blob_sha1": "ff039df00a5dd449077974fd9d3ee68307176be4",
+    "library_exact_byte_readback": "PASS",
+    "git_exact_byte_parity": "PASS"
+  },
+  "mandatory_delta": [
+    "ARCHITECTURE_STAGE_ALIGNMENT_PRECHECK before Agent/execution-path selection",
+    "target architecture != actual operational capability",
+    "explicit TARGET_PATH/BOOTSTRAP_PATH/FALLBACK_PATH classification",
+    "bootstrap paradox protection",
+    "fallback retirement/transition condition",
+    "materiality check for blockers",
+    "Agent comparison only after stage/dependency alignment"
+  ],
+  "no_version_bump": [
+    "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "FOX2_SFR010_OFFLINE_RESOLVER_TECH_SPEC_v0.1.md",
+    "FOX2 BRD/Data Contract/Acceptance/Roadmap/P2 technical sources"
+  ],
+  "rights_created": {
+    "dev": false,
+    "git_code_push": false,
+    "bridge_dispatch": false,
+    "merge": false,
+    "live": false
+  }
+}
