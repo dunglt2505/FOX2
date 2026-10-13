@@ -133,11 +133,16 @@ class CodexAdapter:
         ]
 
         runtime_scripts = str(Path(sys.executable).resolve().parent)
+        powershell_msi = Path(r"C:\Program Files\PowerShell\7")
+        path_parts = [runtime_scripts]
+        if (powershell_msi / "pwsh.exe").is_file():
+            path_parts.append(str(powershell_msi))
         original_path = os.environ.get("PATH", "")
+        if original_path:
+            path_parts.append(original_path)
         environment = {
             **os.environ,
-            "PATH": runtime_scripts
-            + (os.pathsep + original_path if original_path else ""),
+            "PATH": os.pathsep.join(path_parts),
             "GIT_TERMINAL_PROMPT": "0",
             "GCM_INTERACTIVE": "Never",
         }
