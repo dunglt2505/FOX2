@@ -98,11 +98,11 @@ def test_codex_exec_uses_workspace_write_and_never_approval(
     command = observed["command"]
     assert command == [
         str(executable.resolve()),
+        "--ask-for-approval",
+        "never",
         "exec",
         "--sandbox",
         "workspace-write",
-        "--ask-for-approval",
-        "never",
         "-",
     ]
     process = observed["process"]
