@@ -1,0 +1,92 @@
+# TSG-NEW-PROJECT-HANDOFF-v1 — REFERENCE ONLY / NOT_EXECUTABLE
+# An Agent cannot self-complete UNKNOWN or REPLACE_ME fields and claim authorization.
+schema_version: 1
+status: TEMPLATE_NOT_EXECUTABLE
+project_id: REPLACE_ME_PROJECT_ID
+task_id: REPLACE_ME_TASK_ID
+wp_id: REPLACE_ME_WP_ID
+change_id: REPLACE_ME_CHANGE_ID
+source_resolution:
+  resolved_at_utc: UNKNOWN
+  library_query_method: UNKNOWN
+  library_cursor_exhausted: false
+  observed_registry_generation: UNKNOWN
+  effective_family_heads_freshly_checked: false
+  source_freshness: SOURCE_ACCESS_UNKNOWN # VERIFIED_CURRENT only when independently evidenced
+  source_lock_sha256: UNKNOWN
+  sources:
+    - family_id: POLICY
+      release_id: UNKNOWN
+      version: UNKNOWN
+      status: UNKNOWN
+      library_file_id: UNKNOWN
+      library_path: UNKNOWN
+      library_raw_sha256: UNKNOWN
+      release_manifest_path: UNKNOWN
+      release_manifest_sha256: UNKNOWN
+      git_repository: UNKNOWN
+      git_full_commit_sha: UNKNOWN
+      git_path: UNKNOWN
+      git_blob_sha: UNKNOWN
+      git_raw_sha256: UNKNOWN
+      supersedes: UNKNOWN
+    - family_id: TASK_SPEC
+      release_id: UNKNOWN
+      version: UNKNOWN
+      status: UNKNOWN
+      library_file_id: UNKNOWN
+      library_path: UNKNOWN
+      library_raw_sha256: UNKNOWN
+      release_manifest_path: UNKNOWN
+      release_manifest_sha256: UNKNOWN
+      git_repository: UNKNOWN
+      git_full_commit_sha: UNKNOWN
+      git_path: UNKNOWN
+      git_blob_sha: UNKNOWN
+      git_raw_sha256: UNKNOWN
+      supersedes: UNKNOWN
+routing:
+  policy_check: NOT_RUN
+  task_state_check: NOT_RUN
+  routing_r0_r7: NOT_RUN
+  assignment_check: NOT_RUN
+  role: UNKNOWN
+  agent_product: UNKNOWN
+  engine_model: UNKNOWN
+  thinking_or_optimize_for: UNKNOWN
+  actual_quota: UNKNOWN
+  host: UNKNOWN
+  task_authorization_receipt: NOT_ISSUED
+execution:
+  phase: READ_ONLY # default until new-project authority is verified
+  intended_worktree: UNKNOWN
+  approved_git_base_sha: UNKNOWN
+  branch: UNKNOWN
+  exclusive_writer: UNKNOWN
+  allowed_paths: []
+  denied_paths: ['**/*secret*', '**/.env*', '**/data/**', '**/logs/**']
+  code_allowed: false
+  git_report_push: false
+  git_code_push: false
+  pr_create: false
+  merge_allowed: false
+  production_provider: false
+  broker_write: false
+  live: false
+verification:
+  required_tests: []
+  checkout_preflight: NOT_RUN
+  latest_effective_before_dispatch: NOT_RUN
+  source_digest_match: NOT_RUN
+  result_evidence_destination: UNKNOWN
+  stop_if:
+    - BLOCKED_SOURCE_VERSION
+    - SOURCE_PENDING
+    - SOURCE_ACCESS_UNKNOWN
+    - AMBIGUOUS_ACTIVE_HEAD
+    - LIBRARY_CURSOR_INCOMPLETE
+    - SHA_MISMATCH
+    - UNTRUSTED_PUBLICATION
+    - TASK_AUTHORITY_MISSING
+    - WORKTREE_WRITER_COLLISION
+    - CAPABILITY_OR_QUOTA_UNKNOWN
