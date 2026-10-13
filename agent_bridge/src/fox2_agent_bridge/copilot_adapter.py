@@ -6,6 +6,7 @@ import os
 import queue
 import shutil
 import subprocess
+import sys
 import threading
 import time
 from dataclasses import dataclass
@@ -15,6 +16,14 @@ from typing import Callable, TextIO
 from .config import BridgeConfig
 from .errors import PathInvalid, ToolExecFailed, ToolNotFound
 from .paths import validate_path
+
+
+DEV_SHELL_CAPABILITIES: dict[str, tuple[str, ...]] = {
+    "PYTEST": (
+        "shell(python -m pytest)",
+        "shell(python -m pytest:*)",
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -110,6 +119,7 @@ class CopilotAdapter:
         allow_write: bool = False,
         allow_git: bool = False,
         allow_github_url: bool = False,
+        allowed_shell_tools: tuple[str, ...] = (),
         silent: bool = False,
         no_ask_user: bool = False,
         progress: Callable[[str, str], None] | None = None,
@@ -141,11 +151,31 @@ class CopilotAdapter:
             command.append("--allow-tool=write")
         if allow_git:
             command.append("--allow-tool=shell(git:*)")
+        known_shell_tools = {
+            tool
+            for tools in DEV_SHELL_CAPABILITIES.values()
+            for tool in tools
+        }
+        unknown_shell_tools = [
+            tool for tool in allowed_shell_tools if tool not in known_shell_tools
+        ]
+        if unknown_shell_tools:
+            raise ToolExecFailed(
+                "Copilot shell permission is outside the Bridge safe catalog: "
+                + ", ".join(unknown_shell_tools)
+            )
+        for tool in dict.fromkeys(allowed_shell_tools):
+            command.append(f"--allow-tool={tool}")
+
         if allow_github_url:
             command.append("--allow-url=github.com")
 
+        runtime_scripts = str(Path(sys.executable).resolve().parent)
+        original_path = os.environ.get("PATH", "")
         environment = {
             **os.environ,
+            "PATH": runtime_scripts
+            + (os.pathsep + original_path if original_path else ""),
             "GIT_TERMINAL_PROMPT": "0",
             "GCM_INTERACTIVE": "Never",
         }
