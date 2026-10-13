@@ -10,7 +10,7 @@ import subprocess
 import uuid
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from .config import REPOSITORY, BridgeConfig
 from .copilot_adapter import CopilotAdapter
@@ -82,6 +82,7 @@ class BridgeE2ERunner:
         *,
         logger: Any = None,
         transport: GitTransport | None = None,
+        progress: Callable[[str], None] | None = None,
     ) -> None:
         self.config = config
         self.ledger = ledger
@@ -90,6 +91,11 @@ class BridgeE2ERunner:
             git_executable=(config.tool_paths or {})["git"] or Path("git"),
             store_path=config.bridge_root / "data" / "control.git",
         )
+        self.progress = progress
+
+    def _progress(self, message: str) -> None:
+        if self.progress is not None:
+            self.progress(message)
 
     @property
     def git_executable(self) -> str:
@@ -373,9 +379,23 @@ class BridgeE2ERunner:
         expected_blob = str(prompt["git_blob_sha1"])
         expected_sha256 = str(prompt["sha256"])
 
+        self._progress("fetch prompt authority from control branch")
         self._git(
-            ["-C", str(self.config.local_repo), "fetch", "--no-tags", "origin", commit]
+            [
+                "-C",
+                str(self.config.local_repo),
+                "fetch",
+                "--no-tags",
+                "origin",
+                self.config.control_branch,
+            ]
         )
+        exists = self._git(
+            ["-C", str(self.config.local_repo), "cat-file", "-e", f"{commit}^{{commit}}"],
+            check=False,
+        )
+        if exists.returncode != 0:
+            raise DispatchInvalid("prompt commit is not available after control-branch fetch")
         blob = self._git(
             ["-C", str(self.config.local_repo), "rev-parse", "--verify", f"{commit}:{path}"]
         ).stdout.strip()
@@ -492,6 +512,7 @@ class BridgeE2ERunner:
         dispatch_path: str,
         timeout_seconds: int = 300,
     ) -> E2EResult:
+        self._progress("poll control branch")
         poller = DispatchPoller(
             self.config,
             self.ledger,
@@ -500,6 +521,8 @@ class BridgeE2ERunner:
         )
         poll = poller.poll_once()
 
+        self._progress(f"poll complete: {poll.status}")
+        self._progress("read immutable dispatch")
         control_sha = self.transport.query_control_sha(self.config.control_branch)
         if control_sha is None:
             raise TransportFailure(
@@ -512,17 +535,23 @@ class BridgeE2ERunner:
             control_sha,
             dispatch_path,
         )
+        self._progress("validate dispatch")
         payload = self._validate_dispatch(
             raw_dispatch,
             dispatch_path=dispatch_path,
             observed_blob_sha=dispatch_blob_sha,
         )
 
+        self._progress("resolve/create exact worktree")
         worktree, before_head = self._resolve_worktree(payload)
+        self._progress(f"worktree ready: {worktree}")
+        self._progress("resolve immutable prompt")
         prompt_text = self._resolve_prompt(payload)
+        self._progress("prompt verified")
 
         dispatch_id = str(payload["dispatch_id"])
         execution_id = str(uuid.uuid4())
+        self._progress(f"claim dispatch {dispatch_id}")
         claimed = self.ledger.claim_dispatch(
             dispatch_id=dispatch_id,
             payload_hash=str(payload["_payload_sha256"]),
@@ -536,6 +565,7 @@ class BridgeE2ERunner:
             )
 
         try:
+            self._progress("launch Copilot CLI")
             agent_result = CopilotAdapter(self.config).run_prompt(
                 worktree=worktree,
                 prompt=prompt_text,
@@ -545,6 +575,10 @@ class BridgeE2ERunner:
                 allow_github_url=True,
                 silent=True,
                 no_ask_user=True,
+                progress=lambda stream, line: self._progress(
+                    f"copilot[{stream}]: {line}"
+                ),
+                heartbeat_seconds=10,
             )
             if agent_result.exit_code != 0:
                 raise ToolExecFailed(
@@ -552,12 +586,15 @@ class BridgeE2ERunner:
                     f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                 )
 
+            self._progress(f"Copilot exited: {agent_result.exit_code}")
+            self._progress("verify pushed result")
             after_head, changed_paths = self._verify_result(
                 payload=payload,
                 worktree=worktree,
                 before_head=before_head,
                 copilot_stdout=agent_result.stdout,
             )
+            self._progress(f"result verified: {after_head}")
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
@@ -565,6 +602,7 @@ class BridgeE2ERunner:
                 execution_state="PUSHED_UNREVIEWED",
                 finished_at_utc=utc_now(),
             )
+            self._progress("E2E state = PUSHED_UNREVIEWED")
             return E2EResult(
                 status="PUSHED_UNREVIEWED",
                 dispatch_id=dispatch_id,
