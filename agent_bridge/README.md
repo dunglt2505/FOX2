@@ -28,7 +28,7 @@ From the Bridge source worktree:
 .\agent_bridge\scripts\bridge_ops.ps1 run-next
 ```
 
-`run-next` only executes a dispatch that explicitly opts in with:
+`run-next` only auto-executes a **Codex** dispatch that explicitly opts in with:
 
 ```json
 {
@@ -38,8 +38,7 @@ From the Bridge source worktree:
 }
 ```
 
-Historical canaries and normal dispatches without that flag are never selected
-automatically. A selected dispatch remains single-use.
+Copilot dispatches are no longer selected by `run-next`; they remain available only through explicit diagnostic execution if needed. Dispatches without the opt-in flag are never selected automatically. A selected dispatch remains single-use.
 
 For one exact diagnostic dispatch, `e2e-once --dispatch-path ...` remains
 available, but normal operation should use `run-next`.
@@ -100,7 +99,7 @@ states are:
 An interrupted single-use dispatch is not automatically retried. A new
 dispatch id is required.
 
-Detailed successful results and failure information are persisted in SQLite. When Copilot exits but result verification fails, its captured stdout/stderr is also persisted so the next diagnosis does not lose the Agent's explanation.
+Detailed successful results and failure information are persisted in SQLite. When the selected Agent exits but result verification fails, its captured stdout/stderr is also persisted so the next diagnosis does not lose the Agent's explanation.
 The Bridge also writes a best-effort runtime JSON snapshot under:
 
 `C:\Projects\FOX2-AgentBridge\data\results\<dispatch_id>.json`
