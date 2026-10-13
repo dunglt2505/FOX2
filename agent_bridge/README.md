@@ -50,8 +50,7 @@ New DEV dispatches can use `agent.product=CODEX`,
 `agent.interface=OPENAI_CODEX_CLI`, and
 `execution_path=BRIDGE_DIRECT_CODEX_CLI`.
 
-The Bridge launches `codex exec` non-interactively with `workspace-write` and
-`--ask-for-approval never`. Codex is instructed to edit/test only; it does not
+The Bridge launches Codex non-interactively as `codex --ask-for-approval never exec --sandbox workspace-write -`. The approval flag is global and must appear before the `exec` subcommand for the installed Windows CLI line used by FOX2. Codex is instructed to edit/test only; it does not
 need Git push authority. After Codex exits, the Bridge verifies that Codex did
 not change Git history, validates every dirty path against the immutable
 dispatch allowlist, validates required result files/markers, then the Bridge
