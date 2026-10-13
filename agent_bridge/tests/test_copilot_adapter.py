@@ -95,6 +95,5 @@ def test_copilot_e2e_adds_bounded_programmatic_permissions(
     command = observed["command"]
     assert "-s" in command
     assert "--no-ask-user" in command
-    assert "--allow-tool=write" in command
-    assert "--allow-tool=shell(git:*)" in command
+    assert "--allow-tool=read,write,shell(git:*)" in command
     assert "--allow-url=github.com" in command
