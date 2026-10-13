@@ -21,6 +21,8 @@ from .dispatch_poller import (
     _safe_error_text,
 )
 from .errors import (
+    BridgeError,
+    DatabaseError,
     DispatchInvalid,
     ReplayBlocked,
     ToolExecFailed,
@@ -29,6 +31,7 @@ from .errors import (
 )
 from .ledger import SQLiteLedger, utc_now
 from .paths import validate_path
+from .result_store import write_execution_report
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
 _ALLOWED_EXECUTION_PATH = "BRIDGE_DIRECT_COPILOT_CLI"
@@ -549,6 +552,22 @@ class BridgeE2ERunner:
 
         return after_head, changed
 
+    def _write_runtime_report_best_effort(
+        self,
+        *,
+        dispatch_id: str,
+        payload: dict[str, object],
+    ) -> None:
+        try:
+            path = write_execution_report(
+                bridge_root=self.config.bridge_root,
+                dispatch_id=dispatch_id,
+                payload=payload,
+            )
+            self._progress(f"runtime report: {path}")
+        except DatabaseError as exc:
+            self._progress(f"runtime report warning: {exc.message}")
+
     def run_once(
         self,
         *,
@@ -640,15 +659,7 @@ class BridgeE2ERunner:
                 copilot_stdout=agent_result.stdout,
             )
             self._progress(f"result verified: {after_head}")
-            self.ledger.finish_execution(
-                dispatch_id=dispatch_id,
-                execution_id=execution_id,
-                dispatch_state="PUSHED_UNREVIEWED",
-                execution_state="PUSHED_UNREVIEWED",
-                finished_at_utc=utc_now(),
-            )
-            self._progress("E2E state = PUSHED_UNREVIEWED")
-            return E2EResult(
+            result = E2EResult(
                 status="PUSHED_UNREVIEWED",
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
@@ -664,12 +675,73 @@ class BridgeE2ERunner:
                 copilot_stdout=agent_result.stdout,
                 copilot_stderr=agent_result.stderr,
             )
-        except Exception:
+            self.ledger.finish_execution(
+                dispatch_id=dispatch_id,
+                execution_id=execution_id,
+                dispatch_state="PUSHED_UNREVIEWED",
+                execution_state="PUSHED_UNREVIEWED",
+                finished_at_utc=utc_now(),
+                result=result.as_dict(),
+            )
+            self._write_runtime_report_best_effort(
+                dispatch_id=dispatch_id,
+                payload={"status": "PUSHED_UNREVIEWED", "result": result.as_dict()},
+            )
+            self._progress("E2E state = PUSHED_UNREVIEWED")
+            return result
+        except KeyboardInterrupt:
+            finished = utc_now()
+            self.ledger.finish_execution(
+                dispatch_id=dispatch_id,
+                execution_id=execution_id,
+                dispatch_state="INTERRUPTED",
+                execution_state="INTERRUPTED",
+                finished_at_utc=finished,
+                error_code="USER_INTERRUPT",
+                error_message="Execution interrupted by local user",
+            )
+            self._write_runtime_report_best_effort(
+                dispatch_id=dispatch_id,
+                payload={
+                    "status": "INTERRUPTED",
+                    "dispatch_id": dispatch_id,
+                    "execution_id": execution_id,
+                    "error": {
+                        "code": "USER_INTERRUPT",
+                        "message": "Execution interrupted by local user",
+                    },
+                    "finished_at_utc": finished,
+                },
+            )
+            raise
+        except Exception as exc:
+            finished = utc_now()
+            if isinstance(exc, BridgeError):
+                error_code = exc.code
+                error_message = exc.message
+            else:
+                error_code = "UNEXPECTED_ERROR"
+                error_message = f"{type(exc).__name__}: {exc}"
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
                 dispatch_state="FAILED",
                 execution_state="FAILED",
-                finished_at_utc=utc_now(),
+                finished_at_utc=finished,
+                error_code=error_code,
+                error_message=error_message[:4000],
+            )
+            self._write_runtime_report_best_effort(
+                dispatch_id=dispatch_id,
+                payload={
+                    "status": "FAILED",
+                    "dispatch_id": dispatch_id,
+                    "execution_id": execution_id,
+                    "error": {
+                        "code": error_code,
+                        "message": error_message[:4000],
+                    },
+                    "finished_at_utc": finished,
+                },
             )
             raise
