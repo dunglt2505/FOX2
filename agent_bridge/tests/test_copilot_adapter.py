@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 from fox2_agent_bridge.copilot_adapter import CopilotAdapter
-from fox2_agent_bridge.errors import PathInvalid
+from fox2_agent_bridge.errors import PathInvalid, ToolExecFailed
 
 
 class FakeProcess:
@@ -117,3 +117,62 @@ def test_copilot_e2e_adds_documented_programmatic_permissions(
     assert "--allow-tool=write" in command
     assert "--allow-tool=shell(git:*)" in command
     assert "--allow-url=github.com" not in command
+
+
+def test_copilot_e2e_adds_bounded_pytest_permission(
+    monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
+):
+    worktree = bridge_config.worktree_root / "COPILOT-PYTEST"
+    worktree.mkdir(parents=True)
+    (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
+
+    adapter, _executable = _configured_adapter(bridge_config, tmp_path)
+    observed: dict[str, object] = {}
+
+    def fake_popen(command, **kwargs):
+        observed["command"] = command
+        observed["env"] = kwargs["env"]
+        return FakeProcess(stdout="PYTEST_OK\n", stderr="")
+
+    monkeypatch.setattr(
+        "fox2_agent_bridge.copilot_adapter.subprocess.Popen",
+        fake_popen,
+    )
+
+    adapter.run_prompt(
+        worktree=worktree,
+        prompt="Run python -m pytest --version.",
+        allow_write=True,
+        allow_git=True,
+        allowed_shell_tools=(
+            "shell(python -m pytest)",
+            "shell(python -m pytest:*)",
+        ),
+        silent=True,
+        no_ask_user=True,
+    )
+
+    command = observed["command"]
+    assert "--allow-tool=shell(python -m pytest)" in command
+    assert "--allow-tool=shell(python -m pytest:*)" in command
+    env = observed["env"]
+    assert str(Path(__import__("sys").executable).resolve().parent) == env["PATH"].split(
+        __import__("os").pathsep, 1
+    )[0]
+
+
+def test_copilot_rejects_shell_permission_outside_safe_catalog(
+    bridge_config, tmp_path: Path
+):
+    worktree = bridge_config.worktree_root / "COPILOT-UNSAFE"
+    worktree.mkdir(parents=True)
+    (worktree / ".git").write_text("gitdir: test", encoding="utf-8")
+
+    adapter, _executable = _configured_adapter(bridge_config, tmp_path)
+
+    with pytest.raises(ToolExecFailed, match="outside the Bridge safe catalog"):
+        adapter.run_prompt(
+            worktree=worktree,
+            prompt="unsafe",
+            allowed_shell_tools=("shell(powershell:*)",),
+        )
