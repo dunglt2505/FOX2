@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .config import REPOSITORY, BridgeConfig
-from .copilot_adapter import CopilotAdapter
+from .copilot_adapter import DEV_SHELL_CAPABILITIES, CopilotAdapter
 from .dispatch_poller import (
     FULL_SHA_PATTERN,
     DispatchPoller,
@@ -162,6 +162,42 @@ class BridgeE2ERunner:
             raise DispatchInvalid(f"{key} must be boolean")
         return value
 
+    @staticmethod
+    def _resolve_dev_shell_tools(payload: dict[str, object]) -> tuple[str, ...]:
+        runtime = payload.get("runtime_contract")
+        if runtime is None:
+            return ()
+        if not isinstance(runtime, dict):
+            raise DispatchInvalid("runtime_contract must be an object when present")
+
+        capabilities = runtime.get("dev_shell_capabilities", [])
+        if not isinstance(capabilities, list) or not all(
+            isinstance(item, str) and item for item in capabilities
+        ):
+            raise DispatchInvalid(
+                "runtime_contract.dev_shell_capabilities must be a string list"
+            )
+        if len(capabilities) != len(set(capabilities)):
+            raise DispatchInvalid(
+                "runtime_contract.dev_shell_capabilities must not contain duplicates"
+            )
+
+        unknown = [
+            capability
+            for capability in capabilities
+            if capability not in DEV_SHELL_CAPABILITIES
+        ]
+        if unknown:
+            raise DispatchInvalid(
+                "unsupported runtime_contract.dev_shell_capabilities: "
+                + ", ".join(unknown)
+            )
+
+        tools: list[str] = []
+        for capability in capabilities:
+            tools.extend(DEV_SHELL_CAPABILITIES[capability])
+        return tuple(dict.fromkeys(tools))
+
     def _validate_dispatch(
         self,
         raw: bytes,
@@ -278,6 +314,9 @@ class BridgeE2ERunner:
         if not code_paths and not report_paths:
             raise DispatchInvalid("dispatch must allow at least one write path")
 
+        payload["_copilot_shell_tools"] = list(
+            self._resolve_dev_shell_tools(payload)
+        )
         payload["_observed_dispatch_blob_sha"] = observed_blob_sha
         payload["_payload_sha256"] = hashlib.sha256(raw).hexdigest()
         return payload
@@ -637,6 +676,9 @@ class BridgeE2ERunner:
                 allow_write=True,
                 allow_git=True,
                 allow_github_url=False,
+                allowed_shell_tools=tuple(
+                    str(item) for item in payload.get("_copilot_shell_tools", [])
+                ),
                 silent=True,
                 no_ask_user=True,
                 progress=lambda stream, line: self._progress(
