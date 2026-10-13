@@ -15,6 +15,7 @@ from .errors import BridgeError, StartupBlocked
 from .ledger import SQLiteLedger, utc_now
 from .logging_config import configure_logging, log_event
 from .models import Status, ToolRecord
+from .ops_runner import BridgeOps, OpsRunResult
 from .process_lock import ProcessLock
 from .runtime_tools import discover_all
 
@@ -40,6 +41,9 @@ class BridgeApp:
             self.logger = configure_logging(self.config.log_directory)
             self.lock.acquire()
             self._schema_version = self.ledger.initialize()
+            recovered = self.ledger.recover_interrupted_executions(
+                finished_at_utc=utc_now()
+            )
             self._tools = discover_all(self.config)
             self._started = True
             log_event(
@@ -50,6 +54,7 @@ class BridgeApp:
                     "project_id": self.config.project_id,
                     "schema_version": self._schema_version,
                     "stale_lock_metadata_recovered": self.lock.stale_owner_detected,
+                    "interrupted_executions_recovered": recovered,
                 },
             )
         except (OSError, BridgeError) as exc:
@@ -91,7 +96,7 @@ class BridgeApp:
                 "stale_owner_metadata_recovered": self.lock.stale_owner_detected,
             },
             "tools": tools,
-            "scope": "BRG-010/020 core, immutable dispatch discovery, bounded Copilot CLI smoke relay, and single-use E2E dispatch execution",
+            "scope": "FOX2 Bridge Operational MVP: immutable dispatch discovery, single-use Copilot CLI execution, stale recovery, status, and run-next",
         }
 
     def poll_once(self) -> PollResult:
@@ -160,6 +165,32 @@ class BridgeApp:
             dispatch_path=dispatch_path,
             timeout_seconds=timeout_seconds,
         )
+
+    def ops_run_next(self, *, timeout_seconds: int = 300) -> OpsRunResult:
+        if not self._started:
+            raise StartupBlocked("OPS run-next requires a started Bridge")
+        return BridgeOps(
+            self.config,
+            self.ledger,
+            logger=self.logger,
+            progress=lambda message: print(
+                f"[OPS] {message}", file=sys.stderr, flush=True
+            ),
+        ).run_next(timeout_seconds=timeout_seconds)
+
+    def ops_status(
+        self,
+        *,
+        dispatch_id: str | None = None,
+        limit: int = 20,
+    ) -> dict[str, object]:
+        if not self._started:
+            raise StartupBlocked("OPS status requires a started Bridge")
+        return BridgeOps(
+            self.config,
+            self.ledger,
+            logger=self.logger,
+        ).status(dispatch_id=dispatch_id, limit=limit)
 
     def shutdown(self) -> None:
         try:
