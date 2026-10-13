@@ -67,6 +67,9 @@ class BridgeOps:
         runtime = payload.get("runtime_contract")
         if not isinstance(runtime, dict) or runtime.get("auto_execute") is not True:
             return False, None
+        agent = payload.get("agent")
+        if not isinstance(agent, dict) or agent.get("product") != "CODEX":
+            return False, None
         dispatch_id = payload.get("dispatch_id")
         if not isinstance(dispatch_id, str) or not dispatch_id:
             return False, None
