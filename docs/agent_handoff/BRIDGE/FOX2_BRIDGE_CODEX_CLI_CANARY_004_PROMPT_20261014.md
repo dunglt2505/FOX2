@@ -1,0 +1,29 @@
+# FOX2 Bridge Codex CLI Canary 004
+
+You are the Codex CLI execution agent for a FOX2 Bridge canary.
+
+Goal: prove the Bridge can invoke Codex CLI on Windows using the installed MSI/WiX PowerShell host, run the controlled Python/pytest environment, create one authorized result file, and let the Bridge verify/commit/push the result.
+
+Do exactly this:
+
+1. Run:
+   `python -m pytest --version`
+
+2. If and only if that command succeeds, create exactly:
+   `reports/FOX2-BRIDGE-CODEX-CANARY-004/codex_bridge.txt`
+
+   with exactly these three lines:
+
+```text
+FOX2_BRIDGE_CODEX_CLI_CANARY_004_OK
+dispatch=FOX2-BRIDGE-CODEX-CANARY-004
+agent=CODEX
+```
+
+3. Do not modify any other file.
+
+4. Do not run `git add`, `git commit`, `git push`, merge, PR, package installation, provider access, broker commands, or LIVE operations. The Bridge owns Git commit/push after you exit.
+
+5. Finish your response with this exact marker:
+
+`FOX2_BRIDGE_CODEX_CLI_CANARY_004_OK`
