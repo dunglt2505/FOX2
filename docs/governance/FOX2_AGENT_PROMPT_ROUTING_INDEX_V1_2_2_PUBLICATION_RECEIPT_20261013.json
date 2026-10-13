@@ -1,0 +1,46 @@
+{
+  "document_type": "FOX2_DERIVATIVE_ROUTING_INDEX_PUBLICATION_RECEIPT",
+  "project": "FOX2",
+  "date": "2026-10-13",
+  "index_version": "V1.2.2",
+  "index_status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX_NOT_SEPARATE_POLICY",
+  "supersedes_for_new_prompts": "V1.2.1",
+  "normative_policy": {
+    "version": "V1.8.2",
+    "status": "RELEASED_EFFECTIVE",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.2.md",
+    "raw_sha256": "552d36d910a020de4475b1994975d09a30dd09a138476b03a4a2250d543181dc"
+  },
+  "current_bridge_technical": {
+    "version": "v0.4",
+    "status": "RELEASED_EFFECTIVE",
+    "library_path": "/Trading/FOX2/02_Architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "raw_sha256": "8a7d5e55239c07fb32834f856fbe59b33cbc90d92768a7804c9a70236907cd9e",
+    "caveat": "recheck latest release at each new handoff"
+  },
+  "index_library": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_2_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "raw_sha256": "fe44b6d53e893e59365c692a85e99e2adf719fed98c7f36b3a6dcde65e305226",
+    "bytes": 14349,
+    "exact_byte_readback_verified": true
+  },
+  "index_git_mirror": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-AGENT-PROMPT-SOURCE-FRESHNESS-chat-20261013",
+    "commit": "e24d4b56f1bc8c0b649f30da0e460cf2dcefeafc",
+    "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_2_EFFECTIVE_ROUTING_INDEX_20261013.md",
+    "blob_sha1": "7d697a8db00a0ebbbb6eb68285fbf5ed2eade5ab",
+    "exact_byte_readback_verified": true
+  },
+  "controls": {
+    "policy_core_changed": false,
+    "latest_effective_family_gate": true,
+    "old_prompts_auto_updated": false,
+    "code_allowed": false,
+    "git_code_push": false,
+    "bridge_automated_gate_a": "BLOCKED_CAPABILITY_UNAVAILABLE",
+    "main_merge_allowed": false,
+    "live": false
+  },
+  "negative_test_matrix": "APIX-01..12 DESIGN_ONLY_NOT_EXECUTED"
+}
