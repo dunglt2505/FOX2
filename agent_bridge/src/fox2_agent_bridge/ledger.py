@@ -303,3 +303,91 @@ class SQLiteLedger:
             return tuple(dict(row) for row in rows)
         except sqlite3.Error as exc:
             raise DatabaseError(f"cannot list candidate discoveries: {exc}") from exc
+
+
+    def claim_dispatch(
+        self,
+        *,
+        dispatch_id: str,
+        payload_hash: str,
+        execution_id: str,
+        observed_at_utc: str,
+    ) -> bool:
+        """Atomically claim a dispatch exactly once and create its execution row."""
+        try:
+            with self.connect() as connection:
+                connection.execute("BEGIN IMMEDIATE")
+                existing = connection.execute(
+                    "SELECT payload_hash FROM dispatches WHERE dispatch_id = ?",
+                    (dispatch_id,),
+                ).fetchone()
+                if existing is not None:
+                    return False
+                connection.execute(
+                    """
+                    INSERT INTO dispatches (
+                        dispatch_id, state, payload_hash, created_at_utc, updated_at_utc
+                    ) VALUES (?, 'CLAIMED', ?, ?, ?)
+                    """,
+                    (dispatch_id, payload_hash, observed_at_utc, observed_at_utc),
+                )
+                connection.execute(
+                    """
+                    INSERT INTO executions (
+                        execution_id, dispatch_id, state, started_at_utc, finished_at_utc
+                    ) VALUES (?, ?, 'RUNNING', ?, NULL)
+                    """,
+                    (execution_id, dispatch_id, observed_at_utc),
+                )
+            return True
+        except sqlite3.Error as exc:
+            raise DatabaseError(f"cannot claim dispatch: {exc}") from exc
+
+    def finish_execution(
+        self,
+        *,
+        dispatch_id: str,
+        execution_id: str,
+        dispatch_state: str,
+        execution_state: str,
+        finished_at_utc: str,
+    ) -> None:
+        try:
+            with self.connect() as connection:
+                connection.execute("BEGIN IMMEDIATE")
+                updated_dispatch = connection.execute(
+                    """
+                    UPDATE dispatches
+                    SET state = ?, updated_at_utc = ?
+                    WHERE dispatch_id = ?
+                    """,
+                    (dispatch_state, finished_at_utc, dispatch_id),
+                )
+                updated_execution = connection.execute(
+                    """
+                    UPDATE executions
+                    SET state = ?, finished_at_utc = ?
+                    WHERE execution_id = ? AND dispatch_id = ?
+                    """,
+                    (execution_state, finished_at_utc, execution_id, dispatch_id),
+                )
+                if updated_dispatch.rowcount != 1 or updated_execution.rowcount != 1:
+                    raise DatabaseError("dispatch or execution row disappeared before completion")
+        except DatabaseError:
+            raise
+        except sqlite3.Error as exc:
+            raise DatabaseError(f"cannot finish dispatch execution: {exc}") from exc
+
+    def dispatch_state(self, dispatch_id: str) -> dict[str, object] | None:
+        try:
+            with self.connect() as connection:
+                row = connection.execute(
+                    """
+                    SELECT dispatch_id, state, payload_hash, created_at_utc, updated_at_utc
+                    FROM dispatches WHERE dispatch_id = ?
+                    """,
+                    (dispatch_id,),
+                ).fetchone()
+            return dict(row) if row else None
+        except sqlite3.Error as exc:
+            raise DatabaseError(f"cannot read dispatch state: {exc}") from exc
