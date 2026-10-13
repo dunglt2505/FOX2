@@ -66,3 +66,15 @@ class TransportFailure(BridgeError):
         if self.reason:
             result["reason"] = self.reason
         return result
+
+
+class DispatchInvalid(BridgeError):
+    code = "DISPATCH_INVALID"
+
+
+class ReplayBlocked(BridgeError):
+    code = "REPLAY_BLOCKED"
+
+
+class WorkspaceBlocked(BridgeError):
+    code = "WORKSPACE_BLOCKED"
