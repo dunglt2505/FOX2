@@ -96,7 +96,7 @@ class BridgeApp:
                 "stale_owner_metadata_recovered": self.lock.stale_owner_detected,
             },
             "tools": tools,
-            "scope": "FOX2 Bridge Operational MVP: immutable dispatch discovery, single-use Copilot CLI execution, stale recovery, status, and run-next",
+            "scope": "FOX2 Bridge Operational MVP: immutable dispatch discovery, single-use selected Agent CLI execution (Codex/Copilot), stale recovery, status, and run-next",
         }
 
     def poll_once(self) -> PollResult:
