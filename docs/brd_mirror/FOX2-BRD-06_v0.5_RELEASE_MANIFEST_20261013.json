@@ -1,0 +1,28 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "brd06",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "source_candidate": {
+    "name": "FOX2-BRD-06_v0.5_CANDIDATE_REV2.md",
+    "bytes": 9184,
+    "sha256": "9493337ff2f684dcde31a123bfa2dc7063cf467fa8cfea66e9fec03559bcf39a"
+  },
+  "release_artifact": {
+    "name": "FOX2-BRD-06_v0.5.md",
+    "library_path": "/Trading/FOX2/01_BRD/FOX2-BRD-06_v0.5.md",
+    "bytes": 9132,
+    "sha256": "219bb65541787d7008de52b259260831f6284dbf830c40e013b77d92da80a8b9"
+  },
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "git_source_ready": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
