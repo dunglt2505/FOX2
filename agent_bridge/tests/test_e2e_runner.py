@@ -130,8 +130,9 @@ def test_dispatch_validation_maps_pytest_capability_to_safe_tools(
     )
 
     assert validated["_copilot_shell_tools"] == [
-        "shell(python -m pytest)",
-        "shell(python -m pytest:*)",
+        "shell(python -m pytest --version)",
+        "shell(python -m pytest -q)",
+        "shell(python -m pytest tests/m1_p2_01 -q)",
     ]
 
 
