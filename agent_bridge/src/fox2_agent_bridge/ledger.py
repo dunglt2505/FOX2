@@ -1,7 +1,8 @@
-"""Versioned SQLite ledger for future dispatch and execution workflows."""
+"""Versioned SQLite ledger for FOX2 Bridge dispatch and execution workflows."""
 
 from __future__ import annotations
 
+import json
 import sqlite3
 import uuid
 from datetime import UTC, datetime
@@ -10,7 +11,7 @@ from typing import Iterable
 
 from .errors import DatabaseError
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 MIGRATIONS: dict[int, tuple[str, ...]] = {
     1: (
         """
@@ -92,6 +93,16 @@ MIGRATIONS: dict[int, tuple[str, ...]] = {
         "ON candidate_discoveries (repository, dispatch_path, observed_at_utc)",
         """
         UPDATE bridge_meta SET value = '2' WHERE key = 'schema_version'
+        """,
+    ),
+    3: (
+        "ALTER TABLE executions ADD COLUMN result_json TEXT",
+        "ALTER TABLE executions ADD COLUMN error_code TEXT",
+        "ALTER TABLE executions ADD COLUMN error_message TEXT",
+        "CREATE INDEX executions_by_dispatch_started "
+        "ON executions (dispatch_id, started_at_utc DESC)",
+        """
+        UPDATE bridge_meta SET value = '3' WHERE key = 'schema_version'
         """,
     ),
 }
@@ -286,7 +297,11 @@ class SQLiteLedger:
         self,
         repository: str,
         control_branch: str,
+        *,
+        limit: int = 200,
     ) -> tuple[dict[str, object], ...]:
+        if limit < 1 or limit > 5000:
+            raise DatabaseError("candidate discovery limit must be between 1 and 5000")
         try:
             with self.connect() as connection:
                 rows = connection.execute(
@@ -296,14 +311,14 @@ class SQLiteLedger:
                            trust_state, observed_at_utc
                     FROM candidate_discoveries
                     WHERE repository = ? AND control_branch = ?
-                    ORDER BY control_commit_sha, dispatch_path
+                    ORDER BY observed_at_utc DESC, rowid DESC
+                    LIMIT ?
                     """,
-                    (repository, control_branch),
+                    (repository, control_branch, limit),
                 ).fetchall()
             return tuple(dict(row) for row in rows)
         except sqlite3.Error as exc:
             raise DatabaseError(f"cannot list candidate discoveries: {exc}") from exc
-
 
     def claim_dispatch(
         self,
@@ -351,7 +366,15 @@ class SQLiteLedger:
         dispatch_state: str,
         execution_state: str,
         finished_at_utc: str,
+        result: dict[str, object] | None = None,
+        error_code: str | None = None,
+        error_message: str | None = None,
     ) -> None:
+        result_json = (
+            json.dumps(result, ensure_ascii=True, sort_keys=True)
+            if result is not None
+            else None
+        )
         try:
             with self.connect() as connection:
                 connection.execute("BEGIN IMMEDIATE")
@@ -366,10 +389,19 @@ class SQLiteLedger:
                 updated_execution = connection.execute(
                     """
                     UPDATE executions
-                    SET state = ?, finished_at_utc = ?
+                    SET state = ?, finished_at_utc = ?, result_json = ?,
+                        error_code = ?, error_message = ?
                     WHERE execution_id = ? AND dispatch_id = ?
                     """,
-                    (execution_state, finished_at_utc, execution_id, dispatch_id),
+                    (
+                        execution_state,
+                        finished_at_utc,
+                        result_json,
+                        error_code,
+                        error_message,
+                        execution_id,
+                        dispatch_id,
+                    ),
                 )
                 if updated_dispatch.rowcount != 1 or updated_execution.rowcount != 1:
                     raise DatabaseError("dispatch or execution row disappeared before completion")
@@ -377,6 +409,45 @@ class SQLiteLedger:
             raise
         except sqlite3.Error as exc:
             raise DatabaseError(f"cannot finish dispatch execution: {exc}") from exc
+
+    def recover_interrupted_executions(self, *, finished_at_utc: str) -> int:
+        """Terminalize RUNNING rows left behind by a previous Bridge process.
+
+        This is safe only after the current process owns the singleton Bridge lock.
+        Single-use dispatches remain terminal and are never automatically retried.
+        """
+        try:
+            with self.connect() as connection:
+                connection.execute("BEGIN IMMEDIATE")
+                rows = connection.execute(
+                    """
+                    SELECT execution_id, dispatch_id
+                    FROM executions
+                    WHERE state = 'RUNNING'
+                    """
+                ).fetchall()
+                for row in rows:
+                    connection.execute(
+                        """
+                        UPDATE executions
+                        SET state = 'INTERRUPTED', finished_at_utc = ?,
+                            error_code = 'STALE_EXECUTION',
+                            error_message = 'Recovered after prior Bridge process ended'
+                        WHERE execution_id = ? AND state = 'RUNNING'
+                        """,
+                        (finished_at_utc, row["execution_id"]),
+                    )
+                    connection.execute(
+                        """
+                        UPDATE dispatches
+                        SET state = 'INTERRUPTED', updated_at_utc = ?
+                        WHERE dispatch_id = ? AND state = 'CLAIMED'
+                        """,
+                        (finished_at_utc, row["dispatch_id"]),
+                    )
+            return len(rows)
+        except sqlite3.Error as exc:
+            raise DatabaseError(f"cannot recover interrupted executions: {exc}") from exc
 
     def dispatch_state(self, dispatch_id: str) -> dict[str, object] | None:
         try:
@@ -391,3 +462,63 @@ class SQLiteLedger:
             return dict(row) if row else None
         except sqlite3.Error as exc:
             raise DatabaseError(f"cannot read dispatch state: {exc}") from exc
+
+    def dispatch_status(self, dispatch_id: str) -> dict[str, object] | None:
+        try:
+            with self.connect() as connection:
+                row = connection.execute(
+                    """
+                    SELECT d.dispatch_id, d.state AS dispatch_state, d.payload_hash,
+                           d.created_at_utc, d.updated_at_utc,
+                           e.execution_id, e.state AS execution_state,
+                           e.started_at_utc, e.finished_at_utc,
+                           e.result_json, e.error_code, e.error_message
+                    FROM dispatches d
+                    LEFT JOIN executions e ON e.execution_id = (
+                        SELECT e2.execution_id
+                        FROM executions e2
+                        WHERE e2.dispatch_id = d.dispatch_id
+                        ORDER BY e2.started_at_utc DESC, e2.rowid DESC
+                        LIMIT 1
+                    )
+                    WHERE d.dispatch_id = ?
+                    """,
+                    (dispatch_id,),
+                ).fetchone()
+            if row is None:
+                return None
+            result = dict(row)
+            raw = result.pop("result_json", None)
+            result["result"] = json.loads(raw) if raw else None
+            return result
+        except (sqlite3.Error, json.JSONDecodeError) as exc:
+            raise DatabaseError(f"cannot read dispatch status: {exc}") from exc
+
+    def recent_status(self, *, limit: int = 20) -> tuple[dict[str, object], ...]:
+        if limit < 1 or limit > 200:
+            raise DatabaseError("status limit must be between 1 and 200")
+        try:
+            with self.connect() as connection:
+                rows = connection.execute(
+                    """
+                    SELECT d.dispatch_id, d.state AS dispatch_state,
+                           d.created_at_utc, d.updated_at_utc,
+                           e.execution_id, e.state AS execution_state,
+                           e.started_at_utc, e.finished_at_utc,
+                           e.error_code, e.error_message
+                    FROM dispatches d
+                    LEFT JOIN executions e ON e.execution_id = (
+                        SELECT e2.execution_id
+                        FROM executions e2
+                        WHERE e2.dispatch_id = d.dispatch_id
+                        ORDER BY e2.started_at_utc DESC, e2.rowid DESC
+                        LIMIT 1
+                    )
+                    ORDER BY d.updated_at_utc DESC, d.rowid DESC
+                    LIMIT ?
+                    """,
+                    (limit,),
+                ).fetchall()
+            return tuple(dict(row) for row in rows)
+        except sqlite3.Error as exc:
+            raise DatabaseError(f"cannot list dispatch status: {exc}") from exc
