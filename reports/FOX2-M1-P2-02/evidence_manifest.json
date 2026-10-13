@@ -1,0 +1,463 @@
+{
+  "contract_version": "2.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-M1-P2-02",
+  "task_id": "M1-P2-02",
+  "change_id": "P2-02-SQLite-store",
+  "submission_state": "READY_FOR_CHAT_REVIEW",
+  "submitted_at_utc": "2026-10-13T17:43:02.475891+00:00",
+  "agent": {
+    "product": "CODEX",
+    "model": "GPT-6; exact variant NOT_EXPOSED",
+    "mode": "MANUAL_LOCAL / bounded task execution",
+    "host": "Windows",
+    "started_at_utc": "2026-10-13T17:42:47.578676+00:00",
+    "finished_at_utc": "2026-10-13T17:43:02.475891+00:00",
+    "quota_observation": "NOT_EXPOSED"
+  },
+  "routing": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PASS",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "assignment_check": "PASS",
+    "routing_evidence": "P2-02 precheck PASS reused; exact handoff task grant; immediate race checks PASS; no observed writer collision."
+  },
+  "source": {
+    "policy_sha256": "c4fa7bd6759bbce160ab113d83f007d082a0f3d167e41256bb39570db358302e",
+    "policy_version": "V1.8.5",
+    "task_commit_sha": "a99d50dd76af29deaf21e9a1a6a882b7e8047ca6",
+    "source_manifest_sha256": "8bd19398bcc70d26c95becab5d0549d8f9aa01ac3639eed3a725f2cf1bea9fb2",
+    "approved_base_commit_sha": "a99d50dd76af29deaf21e9a1a6a882b7e8047ca6",
+    "source_readback_status": "PASS",
+    "brd_revisions": [
+      "BRD-06 v0.5; Market/Acceptance v0.4; M1 Technical v0.1"
+    ],
+    "previous_evidence_reused": [
+      "P2-01 accepted 4bbbdf02387727e7d3c6900f163d7b1eedc5e2b3",
+      "Read-only P2-02 precheck PASS"
+    ]
+  },
+  "permissions": {
+    "git_source_read": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "git_code_push": true,
+    "code_allowed": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false,
+    "grant_evidence": "P2-02 executable handoff a99d50dd76af29deaf21e9a1a6a882b7e8047ca6 section 0 plus user execution authorization; race check PASS; no PR/merge/deployment/provider/broker/LIVE."
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-M1-P2-02-store-codex",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-P2-02-CODEX",
+    "writer_lease": "CODEX-only task lane; no material P2-02 collision observed",
+    "report_path": "reports/FOX2-M1-P2-02/report.md",
+    "delivery_status": "PUSHED_UNREVIEWED",
+    "pr_url": null,
+    "local_head_before_submission": "a99d50dd76af29deaf21e9a1a6a882b7e8047ca6"
+  },
+  "scope": {
+    "requested": [
+      "Complete bounded P2-02 SQLite store and result delivery"
+    ],
+    "completed": [
+      "Versioned checked migration",
+      "Immutable receipt/market lineage and idempotency",
+      "Trusted availability and PIT",
+      "Deterministic promotion/quarantine",
+      "Atomic rollback/restart/concurrency",
+      "Rights retained-use boundary",
+      "Watchlist CAS",
+      "Offline tests and P2-01 regression subset"
+    ],
+    "partial": [
+      "Canonical integrated acceptance"
+    ],
+    "not_done": [
+      "Independent CHAT review",
+      "Integrated provider/API/DSM/frontend acceptance"
+    ],
+    "explicit_exclusions": [
+      "Frozen P2-01 files and pyproject",
+      "API/DSM/provider/frontend/Bridge/SFR/docs/.github",
+      "PR/main/merge/deployment/Production/broker/LIVE"
+    ],
+    "changed_paths": [
+      {
+        "path": "backend/src/fox2/store/README.md",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "efe1439cdf4b424d247a9f8bea38bae03780879c17d867a8ce437ca67e4b9f50"
+      },
+      {
+        "path": "backend/src/fox2/store/__init__.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "62a32f1da29eb78585bb9d615cb989b063b83f143e9589e901ab2149e718cfb4"
+      },
+      {
+        "path": "backend/src/fox2/store/database.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "5c81acd7032438b8da6c70fa1a6f852101a69dcdadedf2e81dfec10e5664efaa"
+      },
+      {
+        "path": "backend/src/fox2/store/evidence.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "f63785a829598df85a5b90f45c21275f11be7db80dbc84657465d209b809c892"
+      },
+      {
+        "path": "backend/src/fox2/store/migrations.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "42085a7721d1d94e500db98931c710facd56ababc78692ecb9715aa2543ff277"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/integrity.json",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "a79e11c223b123ac2a5f4e5d0e8e39d8061206f975593223a732775ea2e8c475"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/p2_01_regression.txt",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "93c694acc974aeba5e1642b80336dae4d25e6ccc379f4be3f60a3264c4938ed3"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/p2_01_regression.xml",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "20198cb284760a7ec57eb9c5f4452afb10529aac4e1593647c60eaf1a22e50b7"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/p2_02.txt",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "98e025f931b15d8875565911a503c80be9a78620237f909a76410fd562df6b44"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/p2_02.xml",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "96137dbc05a22746ad85d321b069be6cf1bc4c76a6783a284f16a2ab4ac481c2"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/quality.json",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "ff9c038aebdc234e034ab6fab59792f451b98bfde5516b521750d2595e7e6236"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/source_readback.json",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "8bd19398bcc70d26c95becab5d0549d8f9aa01ac3639eed3a725f2cf1bea9fb2"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/evidence/verify_delivery.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "14f4153975558760a382f96849b9bb447705afa2ceaa501d623d9223699632a7"
+      },
+      {
+        "path": "reports/FOX2-M1-P2-02/report.md",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "2864a9ab61cc5a2143be6ec1e9935f8d360624efd74a4dc70ef46b343d2c0e41"
+      },
+      {
+        "path": "tests/p2_02/conftest.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "64dff4b6f87287bfe735c71b03f0ef859a8b69eb20a738cff696bccef626630d"
+      },
+      {
+        "path": "tests/p2_02/test_boundaries.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "7c4c10d193b4b4b9238300f279bf7b2793d0db03cfd2c82cf9b2b14ff32d1561"
+      },
+      {
+        "path": "tests/p2_02/test_concurrency_preferences.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "a952ba16da2808ae045ed3d845f291ea8da6d1162cdd989cd44403512109d93a"
+      },
+      {
+        "path": "tests/p2_02/test_store.py",
+        "operation": "ADD",
+        "intent": "P2-02 SQLite store, isolated offline tests or authorized result evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "1f0977e9891362295815dcfa9cd06b6a7442d7434900be9e6d9250a5af2bad82"
+      }
+    ],
+    "forbidden_paths_touched": false
+  },
+  "tests": [
+    {
+      "id": "p2_02",
+      "kind": "OTHER",
+      "status": "PASS",
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -B -m pytest tests/p2_02 -p no:cacheprovider -q --tb=short --junitxml=reports\\FOX2-M1-P2-02\\evidence\\p2_02.xml",
+      "environment": "Windows; installed Python/pytest/SQLite; offline socket/DNS denial",
+      "run_at_utc": "2026-10-13T17:42:58.879414+00:00",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "notes": "........................................................................ [ 74%]\n.........................                                                [100%]\n- generated xml file: C:\\Projects\\FOX2-worktrees\\FOX2-M1-P2-02-CODEX\\reports\\FOX2-M1-P2-02\\evidence\\p2_02.xml -\n97 passed in 8.37s"
+    },
+    {
+      "id": "p2_01_regression",
+      "kind": "OTHER",
+      "status": "PASS",
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -B -m pytest tests/p2_01 -k not test_domain_dependency_boundary -p no:cacheprovider -q --tb=short --junitxml=reports\\FOX2-M1-P2-02\\evidence\\p2_01_regression.xml",
+      "environment": "Windows; installed Python/pytest/SQLite; offline socket/DNS denial",
+      "run_at_utc": "2026-10-13T17:43:01.208702+00:00",
+      "evidence_ids": [
+        "p2_01_regression"
+      ],
+      "notes": "........................................................................ [ 91%]\n.......                                                                  [100%]\n- generated xml file: C:\\Projects\\FOX2-worktrees\\FOX2-M1-P2-02-CODEX\\reports\\FOX2-M1-P2-02\\evidence\\p2_01_regression.xml -\n79 passed, 1 deselected in 1.96s"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "FOX2-06-T10",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_poll_idempotency_receipt_identity_and_restart; test_correction_lineage_pit_replacement_and_exact_history; test_out_of_order_and_same_time_events_do_not_choose_arrival; test_series_isolation_and_ambiguous_read. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-06-T11",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_correction_lineage_pit_replacement_and_exact_history; test_backdated_or_future_availability_rejected; test_trusted_receipt_processing_lag_does_not_backdate_verification. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-06-T12",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_migration_reopen_and_integrity; test_committed_ingest_survives_process_restart; test_process_crash_rolls_back_hot_journal. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-06-T17",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_each_ingest_stage_failure_rolls_back; test_reader_snapshot_is_old_until_writer_commits; test_second_bar_failure_rolls_back_entire_batch. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-06-T21",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_correction_lineage_pit_replacement_and_exact_history; test_provisional_to_final_requires_lineage; test_ambiguous_finality_or_order_quarantines. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-06-T23",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_rights_expiry_revocation_restart_and_no_fallback; test_changed_rights_are_not_a_market_revision. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-N1-T05",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_series_isolation_and_ambiguous_read; test_cross_series_predecessor_rejected_atomically; test_unknown_basis_quarantine_not_merged. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-N1-T06",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_backdated_receipt_and_clock_regression_rejected; test_correction_lineage_pit_replacement_and_exact_history. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    },
+    {
+      "id": "FOX2-N1-T07",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "p2_02"
+      ],
+      "reason": "Offline subcase PASS: test_rights_expiry_revocation_restart_and_no_fallback; test_blocked_candidate_cannot_displace_verified_projection. Canonical integrated/provider scenario PARTIAL/NOT_RUN; no schema PARTIAL enum."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "integrity",
+      "path": "reports/FOX2-M1-P2-02/evidence/integrity.json",
+      "sha256": "a79e11c223b123ac2a5f4e5d0e8e39d8061206f975593223a732775ea2e8c475",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "integrity.json",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "p2_01_regression",
+      "path": "reports/FOX2-M1-P2-02/evidence/p2_01_regression.txt",
+      "sha256": "93c694acc974aeba5e1642b80336dae4d25e6ccc379f4be3f60a3264c4938ed3",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "p2_01_regression.txt",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "p2_01_regression_junit",
+      "path": "reports/FOX2-M1-P2-02/evidence/p2_01_regression.xml",
+      "sha256": "20198cb284760a7ec57eb9c5f4452afb10529aac4e1593647c60eaf1a22e50b7",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "p2_01_regression.xml",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "p2_02",
+      "path": "reports/FOX2-M1-P2-02/evidence/p2_02.txt",
+      "sha256": "98e025f931b15d8875565911a503c80be9a78620237f909a76410fd562df6b44",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "p2_02.txt",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "p2_02_junit",
+      "path": "reports/FOX2-M1-P2-02/evidence/p2_02.xml",
+      "sha256": "96137dbc05a22746ad85d321b069be6cf1bc4c76a6783a284f16a2ab4ac481c2",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "p2_02.xml",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "quality",
+      "path": "reports/FOX2-M1-P2-02/evidence/quality.json",
+      "sha256": "ff9c038aebdc234e034ab6fab59792f451b98bfde5516b521750d2595e7e6236",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "quality.json",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "source_readback",
+      "path": "reports/FOX2-M1-P2-02/evidence/source_readback.json",
+      "sha256": "8bd19398bcc70d26c95becab5d0549d8f9aa01ac3639eed3a725f2cf1bea9fb2",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "source_readback.json",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "verify_delivery",
+      "path": "reports/FOX2-M1-P2-02/evidence/verify_delivery.py",
+      "sha256": "14f4153975558760a382f96849b9bb447705afa2ceaa501d623d9223699632a7",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-13T17:43:02.475891+00:00",
+      "description": "verify_delivery.py",
+      "supports_ids": [
+        "p2_02",
+        "p2_01_regression"
+      ],
+      "sanitized": true
+    }
+  ],
+  "risks": [
+    {
+      "id": "integration",
+      "severity": "MEDIUM",
+      "state": "OPEN",
+      "impact": "Offline foundation only; provider ordering and integrated acceptance remain unverified",
+      "next_action": "CHAT independent SHA review before downstream WP",
+      "owner_role": "CHAT"
+    }
+  ],
+  "security": {
+    "secret_scan": "PASS",
+    "private_account_data_in_git": false,
+    "licensed_raw_feed_in_git": false,
+    "evidence_redacted": true,
+    "check_notes": "Obvious-pattern changed-file scan and synthetic-fixture review; no private/licensed/credential material."
+  },
+  "usage": {
+    "attempts": 1,
+    "retries": 0,
+    "usage_status": "NOT_MEASURED",
+    "tokens_used": null,
+    "credits_used": null,
+    "escalation_reason": "None; development failures corrected in scope, recorded in quality evidence"
+  },
+  "next_step": {
+    "requested_chat_decision": "REVIEW",
+    "action": "Independently read remote SHA and review P2-02 result before acceptance",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Successful designated-branch push and exact remote SHA readback"
+  }
+}

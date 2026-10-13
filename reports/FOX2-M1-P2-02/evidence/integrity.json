@@ -1,0 +1,22 @@
+{
+  "run_at_utc": "2026-10-13T17:42:47.578676+00:00",
+  "source_commit": "a99d50dd76af29deaf21e9a1a6a882b7e8047ca6",
+  "sqlite_runtime": "3.50.4",
+  "migration_version": 1,
+  "migration_checksum": "83e240072f775c894033ad458230c1041acf7651c0b9cc7e3e513fdbe1d5f468",
+  "checks": {
+    "integrity_check": "ok",
+    "foreign_key_check": [],
+    "migration": [
+      [
+        1,
+        "83e240072f775c894033ad458230c1041acf7651c0b9cc7e3e513fdbe1d5f468"
+      ]
+    ],
+    "journal_mode": "delete",
+    "synchronous": 2
+  },
+  "temporary_database": "outside Git; removed by TemporaryDirectory",
+  "network_provider_activity": 0,
+  "network_proof": "autouse socket/DNS attempt assertions; fresh-process forbidden-import/socket tests; crash subprocess denial. No provider/broker implementation."
+}

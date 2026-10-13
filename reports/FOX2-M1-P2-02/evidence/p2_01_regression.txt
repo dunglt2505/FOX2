@@ -1,0 +1,4 @@
+........................................................................ [ 91%]
+.......                                                                  [100%]
+- generated xml file: C:\Projects\FOX2-worktrees\FOX2-M1-P2-02-CODEX\reports\FOX2-M1-P2-02\evidence\p2_01_regression.xml -
+79 passed, 1 deselected in 1.96s

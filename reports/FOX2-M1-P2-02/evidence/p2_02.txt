@@ -1,0 +1,4 @@
+........................................................................ [ 74%]
+.........................                                                [100%]
+- generated xml file: C:\Projects\FOX2-worktrees\FOX2-M1-P2-02-CODEX\reports\FOX2-M1-P2-02\evidence\p2_02.xml -
+97 passed in 8.37s

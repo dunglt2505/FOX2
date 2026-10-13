@@ -1,0 +1,36 @@
+{
+  "run_at_utc": "2026-10-13T17:42:47.578676+00:00",
+  "syntax": "PASS",
+  "syntax_files": [
+    "backend/src/fox2/store/__init__.py",
+    "backend/src/fox2/store/database.py",
+    "backend/src/fox2/store/evidence.py",
+    "backend/src/fox2/store/migrations.py",
+    "reports/FOX2-M1-P2-02/evidence/verify_delivery.py",
+    "tests/p2_02/conftest.py",
+    "tests/p2_02/test_boundaries.py",
+    "tests/p2_02/test_concurrency_preferences.py",
+    "tests/p2_02/test_store.py"
+  ],
+  "scope": "PASS",
+  "secret_scan": "PASS obvious patterns plus synthetic-fixture review",
+  "frozen_files": "PASS; entire preexisting tracked tree unchanged",
+  "git_diff_check": "PASS; staged additions checked again before commit",
+  "versions": {
+    "python": "3.13.15",
+    "pytest": "8.3.5",
+    "sqlite": "3.50.4",
+    "fastapi": "0.115.12",
+    "pydantic": "2.14.0",
+    "git": "git version 2.56.0.windows.1"
+  },
+  "failures_resolved": [
+    "Initial run: 43 failed/16 passed; frozen DTO assignments and test datetime serialization corrected using immutable copies.",
+    "Next run: 1 failed/58 passed; same-batch chronological bars could not advance with equal verified source order; bar ordering rule corrected.",
+    "Combined run: 2 failed/173 passed; missing adapter now quarantines contextual evidence gaps; obsolete P2-01 no-store stage assertion remains unchanged and is deselected with a P2-02 replacement dependency test.",
+    "Default shell temporarily missing during execution; explicit installed Windows PowerShell ran successfully; no security refusal or bypass."
+  ],
+  "model": "GPT-6 session identity; exact variant NOT_EXPOSED",
+  "thinking": "NOT_EXPOSED",
+  "quota": "NOT_EXPOSED"
+}
