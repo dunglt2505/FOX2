@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.1",
+  "project": "FOX2",
+  "wp_id": "FOX2-M1-A-APP-BATCH-B",
+  "checked_at": "2026-10-14T17:21:18.9587816+07:00",
+  "status": "BLOCKED",
+  "branch": "work/FOX2-M1-A-APP-BATCH-B",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-A-APP-BATCH-B",
+  "source_head": "1e3993ed854e3bf576f4e195d96d58f0abbf3292",
+  "blockers": [
+    "NO_AGENT_CURRENT_EXECUTION_PROOF"
+  ],
+  "capabilities": {
+    "node": {
+      "status": "PASS",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "version": "v24.20.0"
+    },
+    "npm": {
+      "status": "PASS",
+      "executable": "C:\\Program Files\\nodejs\\npm.ps1",
+      "version": "11.19.0"
+    },
+    "npx": {
+      "status": "PASS",
+      "executable": "C:\\Program Files\\nodejs\\npx.ps1",
+      "version": "11.19.0"
+    },
+    "npm_registry": {
+      "status": "PASS",
+      "exit_code": 0
+    },
+    "copilot": {
+      "status": "FAIL",
+      "version": "GitHub Copilot CLI 1.0.97.\r\nRun 'copilot update' to check for updates.",
+      "exit_code": 1,
+      "failure_class": "AUTH_REQUIRED"
+    },
+    "codex": {
+      "status": "FAIL",
+      "version": "codex-cli 0.162.1",
+      "exit_code": 1,
+      "failure_class": "CLI_NONZERO"
+    }
+  },
+  "execution_authorized": "NO_FROM_PREFLIGHT",
+  "r5_worktree": {
+    "status": "PASS",
+    "competing_writer": "NONE_OBSERVED",
+    "stale_receipt_cleanup": "SAFE_ONLY"
+  }
+}
