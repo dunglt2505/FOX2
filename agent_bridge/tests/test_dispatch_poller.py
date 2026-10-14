@@ -37,6 +37,35 @@ def run_git(cwd: Path, *arguments: str, check: bool = True) -> str:
     return result.stdout.strip()
 
 
+def copy_new(source, destination):
+    if not Path(destination).exists():
+        shutil.copyfile(source, destination)
+    return destination
+
+
+def publish(working: Path, remote: Path) -> None:
+    shutil.copytree(working / ".git" / "objects", remote / "objects", dirs_exist_ok=True, copy_function=copy_new)
+    run_git(remote, "update-ref", f"refs/heads/{CONTROL_BRANCH}", run_git(working, "rev-parse", "HEAD"))
+
+
+class LocalGitTransport(GitTransport):
+    """Local bare plumbing avoids Git-for-Windows shell transport in the sandbox."""
+
+    def query_control_sha(self, branch):
+        value = run_git(Path(self.remote_url), "rev-parse", "--verify", f"refs/heads/{branch}", check=False)
+        return value if len(value) == 40 else None
+
+    def fetch_control(self, branch, expected_sha):
+        from fox2_agent_bridge.dispatch_poller import CONTROL_REF, OBSERVED_REF_PREFIX
+        shutil.copytree(Path(self.remote_url) / "objects", self.store_path / "objects", dirs_exist_ok=True, copy_function=copy_new)
+        actual = self.query_control_sha(branch)
+        if actual != expected_sha:
+            raise TransportFailure("local control ref changed during fetch")
+        self._run(["update-ref", CONTROL_REF, actual])
+        self._run(["update-ref", f"{OBSERVED_REF_PREFIX}/{actual}", actual])
+        return actual
+
+
 @dataclass
 class GitFixture:
     config: object
@@ -52,7 +81,7 @@ class GitFixture:
         run_git(self.working, "add", "--", relative_path)
         run_git(self.working, "commit", "-m", f"update {relative_path}")
         sha = run_git(self.working, "rev-parse", "HEAD")
-        run_git(self.working, "push", "origin", f"HEAD:{CONTROL_BRANCH}")
+        publish(self.working, self.remote)
         return sha
 
     def poller(self, logger=None) -> DispatchPoller:
@@ -78,12 +107,12 @@ def git_fixture(tmp_path: Path, bridge_config) -> GitFixture:
     seed.write_text("fixture\n", encoding="utf-8")
     run_git(working, "add", "README.txt")
     run_git(working, "commit", "-m", "initial fixture")
-    run_git(working, "push", "-u", "origin", CONTROL_BRANCH)
+    publish(working, remote)
 
     ledger = SQLiteLedger(bridge_config.database_path)
     assert ledger.initialize() == SCHEMA_VERSION
     git_executable = Path(shutil.which("git") or "git")
-    transport = GitTransport(
+    transport = LocalGitTransport(
         git_executable=git_executable,
         store_path=bridge_config.bridge_root / "data" / "control.git",
         remote_url=str(remote),
@@ -213,7 +242,7 @@ def test_deleted_dispatch_path_is_anomaly(git_fixture: GitFixture) -> None:
     run_git(git_fixture.working, "add", "-A")
     run_git(git_fixture.working, "commit", "-m", "delete dispatch")
     deleted_commit = run_git(git_fixture.working, "rev-parse", "HEAD")
-    run_git(git_fixture.working, "push", "origin", f"HEAD:{CONTROL_BRANCH}")
+    publish(git_fixture.working, git_fixture.remote)
 
     result = git_fixture.poller().poll_once()
 
@@ -233,13 +262,7 @@ def test_non_fast_forward_history_is_not_accepted(git_fixture: GitFixture) -> No
     run_git(git_fixture.working, "add", "rewritten.txt")
     run_git(git_fixture.working, "commit", "-m", "rewrite control history")
     rewritten = run_git(git_fixture.working, "rev-parse", "HEAD")
-    run_git(
-        git_fixture.working,
-        "push",
-        "--force",
-        "origin",
-        f"HEAD:{CONTROL_BRANCH}",
-    )
+    publish(git_fixture.working, git_fixture.remote)
 
     result = git_fixture.poller().poll_once()
 
@@ -251,7 +274,7 @@ def test_non_fast_forward_history_is_not_accepted(git_fixture: GitFixture) -> No
 
 
 def test_failed_fetch_does_not_advance_cursor(git_fixture: GitFixture, monkeypatch) -> None:
-    class FailedFetch(GitTransport):
+    class FailedFetch(LocalGitTransport):
         def fetch_control(self, branch: str, expected_sha: str) -> str:
             raise TransportFailure("fixture fetch interrupted")
 
@@ -435,6 +458,7 @@ def test_poller_never_invokes_agent_or_remote_push(git_fixture: GitFixture, monk
             and "--bare" in call
             and str(git_fixture.transport.store_path) in call
         )
+        or call[1:] == ["-C", str(git_fixture.remote), "rev-parse", "--verify", f"refs/heads/{CONTROL_BRANCH}"]
         for call in calls
     )
 

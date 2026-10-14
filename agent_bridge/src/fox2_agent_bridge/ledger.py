@@ -5,11 +5,12 @@ from __future__ import annotations
 import json
 import sqlite3
 import uuid
+from contextlib import closing
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Iterable
 
-from .errors import DatabaseError
+from .errors import DatabaseError, WorkspaceBlocked
 
 SCHEMA_VERSION = 3
 MIGRATIONS: dict[int, tuple[str, ...]] = {
@@ -122,6 +123,70 @@ class SQLiteLedger:
         connection.execute("PRAGMA foreign_keys = ON")
         connection.execute("PRAGMA busy_timeout = 10000")
         return connection
+
+    def worker_state(self, **updates: object) -> dict[str, object]:
+        """Atomic partial update in existing metadata; controls cannot clobber cursors.
+
+        This boundary never migrates: startup must initialize under the runtime lock.
+        """
+        defaults: dict[str, object] = {
+            "paused": False, "observed_sha": None, "processed_sha": None,
+            "failures": 0, "delay_seconds": 30, "wake_sequence": 0,
+            "stop_sequence": 0, "poll_status": "NOT_POLLED",
+        }
+        if not updates.keys() <= defaults.keys():
+            raise DatabaseError("unknown Worker state field")
+        try:
+            with closing(self.connect()) as connection, connection:
+                connection.execute("BEGIN IMMEDIATE")
+                schema = connection.execute(
+                    "SELECT value FROM bridge_meta WHERE key = 'schema_version'"
+                ).fetchone()
+                if schema is None or int(schema["value"]) != SCHEMA_VERSION:
+                    raise DatabaseError("Worker requires initialized supported ledger schema")
+                row = connection.execute(
+                    "SELECT value FROM bridge_meta WHERE key = 'desktop_worker'"
+                ).fetchone()
+                state = {**defaults, **(json.loads(row["value"]) if row else {})}
+                state.update(updates)
+                if updates:
+                    connection.execute(
+                        "INSERT INTO bridge_meta(key, value) VALUES('desktop_worker', ?) "
+                        "ON CONFLICT(key) DO UPDATE SET value=excluded.value",
+                        (json.dumps(state),),
+                    )
+                return state
+        except (sqlite3.Error, ValueError, TypeError) as exc:
+            raise DatabaseError(f"cannot access Worker state: {exc}") from exc
+
+    def worker_control(self, command: str) -> dict[str, object]:
+        if command not in {"pause", "resume", "check-now", "stop"}:
+            raise DatabaseError("unknown Worker control")
+        try:
+            with closing(self.connect()) as connection, connection:
+                connection.execute("BEGIN IMMEDIATE")
+                # Keep read/modify/write under this transaction, including increments.
+                schema = connection.execute(
+                    "SELECT value FROM bridge_meta WHERE key='schema_version'"
+                ).fetchone()
+                if schema is None or int(schema["value"]) != SCHEMA_VERSION:
+                    raise DatabaseError("Worker requires initialized supported ledger schema")
+                row = connection.execute(
+                    "SELECT value FROM bridge_meta WHERE key='desktop_worker'"
+                ).fetchone()
+                state = json.loads(row["value"]) if row else {}
+                if command in {"pause", "resume"}:
+                    state["paused"] = command == "pause"
+                state["wake_sequence"] = int(state.get("wake_sequence", 0)) + 1
+                if command == "stop":
+                    state["stop_sequence"] = int(state.get("stop_sequence", 0)) + 1
+                connection.execute(
+                    "INSERT INTO bridge_meta(key,value) VALUES('desktop_worker', ?) "
+                    "ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(state),)
+                )
+            return self.worker_state()
+        except (sqlite3.Error, ValueError, TypeError) as exc:
+            raise DatabaseError(f"cannot control Worker: {exc}") from exc
 
     def initialize(self) -> int:
         try:
@@ -298,9 +363,9 @@ class SQLiteLedger:
         repository: str,
         control_branch: str,
         *,
-        limit: int = 200,
+        limit: int | None = 200,
     ) -> tuple[dict[str, object], ...]:
-        if limit < 1 or limit > 5000:
+        if limit is not None and (limit < 1 or limit > 5000):
             raise DatabaseError("candidate discovery limit must be between 1 and 5000")
         try:
             with self.connect() as connection:
@@ -314,7 +379,7 @@ class SQLiteLedger:
                     ORDER BY observed_at_utc DESC, rowid DESC
                     LIMIT ?
                     """,
-                    (repository, control_branch, limit),
+                    (repository, control_branch, -1 if limit is None else limit),
                 ).fetchall()
             return tuple(dict(row) for row in rows)
         except sqlite3.Error as exc:
@@ -327,11 +392,19 @@ class SQLiteLedger:
         payload_hash: str,
         execution_id: str,
         observed_at_utc: str,
+        worker_stop_sequence: int | None = None,
     ) -> bool:
         """Atomically claim a dispatch exactly once and create its execution row."""
         try:
             with self.connect() as connection:
                 connection.execute("BEGIN IMMEDIATE")
+                if worker_stop_sequence is not None:
+                    row = connection.execute(
+                        "SELECT value FROM bridge_meta WHERE key='desktop_worker'"
+                    ).fetchone()
+                    state = json.loads(row["value"]) if row else {}
+                    if state.get("paused", False) or int(state.get("stop_sequence", 0)) != worker_stop_sequence:
+                        raise WorkspaceBlocked("Worker paused or stopping before dispatch claim")
                 existing = connection.execute(
                     "SELECT payload_hash FROM dispatches WHERE dispatch_id = ?",
                     (dispatch_id,),

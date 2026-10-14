@@ -1,0 +1,36 @@
+{
+  "baseline": {
+    "command": "python -m pytest agent_bridge/tests -q",
+    "exit_code": 0,
+    "summary": "99 passed, 1 pytest cache warning in 51.57s",
+    "note": "Mandatory Step A gate passed before Worker production edits. Final test-local pytest.ini disables nonessential cache; final runs have no warnings."
+  },
+  "final": [
+    {
+      "name": "focused",
+      "command": "python -m pytest agent_bridge/tests/test_worker.py -q",
+      "exit_code": 0,
+      "output": "..........................                                               [100%]\r\n26 passed in 13.38s\r\n"
+    },
+    {
+      "name": "full",
+      "command": "python -m pytest agent_bridge/tests -q",
+      "exit_code": 0,
+      "output": "........................................................................ [ 57%]\r\n.....................................................                    [100%]\r\n125 passed in 45.57s\r\n"
+    },
+    {
+      "name": "hotfix",
+      "command": "python -m pytest agent_bridge/tests/test_delivery_hotfix.py -q",
+      "exit_code": 0,
+      "output": "......................                                                   [100%]\r\n22 passed in 4.78s\r\n"
+    },
+    {
+      "name": "syntax",
+      "command": "python -c \"from pathlib import Path; import ast,importlib,sys; root=Path('agent_bridge/src'); sys.path.insert(0,str(root)); files=list((root/'fox2_agent_bridge').glob('*.py')); [ast.parse(p.read_text(encoding='utf-8'),filename=str(p)) for p in files]; [importlib.import_module('fox2_agent_bridge.'+p.stem) for p in files if p.stem!='__init__']; print(str(len(files))+' source modules parsed and imported')\"",
+      "exit_code": 0,
+      "output": "19 source modules parsed and imported\r\n"
+    }
+  ],
+  "migration": "NOT_REQUIRED: schema version remains 3; existing migration/recovery regressions run in full suite.",
+  "validation_note": "Focused/full suites rerun after tightening pause-during-RUNNING proof; no production edits after syntax/import and Hotfix regression checks."
+}

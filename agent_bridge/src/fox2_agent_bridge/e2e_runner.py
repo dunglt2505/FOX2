@@ -888,26 +888,31 @@ class BridgeE2ERunner:
         *,
         dispatch_path: str,
         timeout_seconds: int = 300,
+        control_sha: str | None = None,
+        worker_stop_sequence: int | None = None,
     ) -> E2EResult:
-        self._progress("poll control branch")
-        poller = DispatchPoller(
-            self.config,
-            self.ledger,
-            logger=self.logger,
-            transport=self.transport,
-        )
-        poll = poller.poll_once()
-
-        self._progress(f"poll complete: {poll.status}")
-        self._progress("read immutable dispatch")
-        control_sha = self.transport.query_control_sha(self.config.control_branch)
+        poll_status = "WORKER_DISCOVERED"
         if control_sha is None:
-            raise TransportFailure(
-                "configured control branch is unavailable",
-                status="CONTROL_BRANCH_UNAVAILABLE",
-                reason="CONTROL_BRANCH_UNAVAILABLE",
+            self._progress("poll control branch")
+            poller = DispatchPoller(
+                self.config,
+                self.ledger,
+                logger=self.logger,
+                transport=self.transport,
             )
-        self.transport.fetch_control(self.config.control_branch, control_sha)
+            poll = poller.poll_once()
+            poll_status = poll.status
+
+            self._progress(f"poll complete: {poll.status}")
+            self._progress("read immutable dispatch")
+            control_sha = self.transport.query_control_sha(self.config.control_branch)
+            if control_sha is None:
+                raise TransportFailure(
+                    "configured control branch is unavailable",
+                    status="CONTROL_BRANCH_UNAVAILABLE",
+                    reason="CONTROL_BRANCH_UNAVAILABLE",
+                )
+            self.transport.fetch_control(self.config.control_branch, control_sha)
         raw_dispatch, dispatch_blob_sha = self.transport.read_dispatch_blob(
             control_sha,
             dispatch_path,
@@ -934,6 +939,7 @@ class BridgeE2ERunner:
             payload_hash=str(payload["_payload_sha256"]),
             execution_id=execution_id,
             observed_at_utc=utc_now(),
+            **({"worker_stop_sequence": worker_stop_sequence} if worker_stop_sequence is not None else {}),
         )
         if not claimed:
             existing = self.ledger.dispatch_state(dispatch_id)
@@ -1018,7 +1024,7 @@ class BridgeE2ERunner:
                 status="PUSHED_UNREVIEWED",
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
-                poll_status=poll.status,
+                poll_status=poll_status,
                 control_commit_sha=control_sha,
                 dispatch_blob_sha=dispatch_blob_sha,
                 worktree=str(worktree),

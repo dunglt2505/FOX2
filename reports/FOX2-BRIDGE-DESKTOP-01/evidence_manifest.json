@@ -1,0 +1,187 @@
+{
+  "work_package": "FOX2-BRIDGE-DESKTOP-01",
+  "date": "2026-10-14",
+  "status": "DELIVERY_READY",
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-01-worker-codex",
+  "base_sha": "308edc7bdabbc541216a97318590d2394acc9096",
+  "final_local_head": "308edc7bdabbc541216a97318590d2394acc9096",
+  "schema_version": 3,
+  "schema_bump": false,
+  "acceptance_verdicts": {
+    "D01": "PASS",
+    "D02": "PASS",
+    "D03": "PASS",
+    "D04": "PASS",
+    "D05": "PASS",
+    "D06": "PASS",
+    "D07": "PASS",
+    "D08": "PASS",
+    "D09": "PASS",
+    "D10": "PASS",
+    "D11": "PASS",
+    "D12": "PASS",
+    "D13": "PASS",
+    "D14": "PASS",
+    "D15": "PASS",
+    "D16": "PASS",
+    "D17": "PASS",
+    "D18": "PASS",
+    "D19": "PASS",
+    "D20": "PASS",
+    "D21": "PASS"
+  },
+  "changed_paths": [
+    "agent_bridge/src/fox2_agent_bridge/__main__.py",
+    "agent_bridge/src/fox2_agent_bridge/app.py",
+    "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+    "agent_bridge/src/fox2_agent_bridge/ledger.py",
+    "agent_bridge/src/fox2_agent_bridge/ops_runner.py",
+    "agent_bridge/src/fox2_agent_bridge/worker.py",
+    "agent_bridge/tests/conftest.py",
+    "agent_bridge/tests/pytest.ini",
+    "agent_bridge/tests/test_codex_adapter.py",
+    "agent_bridge/tests/test_copilot_adapter.py",
+    "agent_bridge/tests/test_dispatch_poller.py",
+    "agent_bridge/tests/test_worker.py",
+    "reports/FOX2-BRIDGE-DESKTOP-01/evidence/acceptance.json",
+    "reports/FOX2-BRIDGE-DESKTOP-01/evidence/checks.json",
+    "reports/FOX2-BRIDGE-DESKTOP-01/evidence/test_results.json",
+    "reports/FOX2-BRIDGE-DESKTOP-01/evidence_manifest.json",
+    "reports/FOX2-BRIDGE-DESKTOP-01/report.md"
+  ],
+  "source_test_snapshots": [
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/__main__.py",
+      "sha256": "48669f5f4b70166d91958a06c9ccc8c989bd3ead0803d2d10d51fbf107d01ecc",
+      "bytes": 6697
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/app.py",
+      "sha256": "3c70a8d7a72271afc02e77a9ba7122f785937b1e516eab456940666a123cd3ee",
+      "bytes": 8149
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "sha256": "5ecfa4a55749c689d8c2cb7f414a8d274df6ff2eb27ad63c0e53284f9f1e5524",
+      "bytes": 48057
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
+      "sha256": "c253f619ec3c539f048cd96e6f2da2129438f908264189bf6be35b654f8cc162",
+      "bytes": 25912
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/ops_runner.py",
+      "sha256": "92d0e732146aaee4e8cb8231d501cb800e73c4c83b6bf842157727bc0613d8a1",
+      "bytes": 7434
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/worker.py",
+      "sha256": "9a9b8b001568138f1d7f010ccb0c54acacb29b0eba449e2911ee7583df24c4b0",
+      "bytes": 7273
+    },
+    {
+      "path": "agent_bridge/tests/conftest.py",
+      "sha256": "e43a8b6c76abb53043d8b0da7b3eafe45141369f57dccb1d4cd7be4a3fc6d9d3",
+      "bytes": 1454
+    },
+    {
+      "path": "agent_bridge/tests/pytest.ini",
+      "sha256": "533b31c22f6df364e300baacb8d1201c2291ccf4dc4b80ab465c7023f5bfefbd",
+      "bytes": 201
+    },
+    {
+      "path": "agent_bridge/tests/test_codex_adapter.py",
+      "sha256": "6eace27f01b5bdba9a3d5024fc0a13604728a770d9b04edde662d174bb0cac71",
+      "bytes": 3256
+    },
+    {
+      "path": "agent_bridge/tests/test_copilot_adapter.py",
+      "sha256": "9b37f8dad5ff9b9a2eb96f789a07764733c76f13bd3f20787de24ac0bf9ac478",
+      "bytes": 5815
+    },
+    {
+      "path": "agent_bridge/tests/test_dispatch_poller.py",
+      "sha256": "47ae25a389f69e4f52e8cefc28d779810d4683f182cf0c19a6df381ef9126658",
+      "bytes": 19672
+    },
+    {
+      "path": "agent_bridge/tests/test_worker.py",
+      "sha256": "8628eba5c2aeae99b09cf3acf1856f75d11c0e16c4a36ee593bf4658c21955a0",
+      "bytes": 15916
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/FOX2-BRIDGE-DESKTOP-01/report.md",
+      "sha256": "5808d7a82ae3b694c5afb7a37a9db90b136c72fe369bc90ef15a6466c6eb3c1e",
+      "bytes": 14776
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-DESKTOP-01/evidence/test_results.json",
+      "sha256": "14319286dd52f1bb13abd2cab11e2b8f9047c70e9e0932b1de702eee4a63146c",
+      "bytes": 2021
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-DESKTOP-01/evidence/checks.json",
+      "sha256": "924c6426fd34264dbd735efd6c66ba75430b97d9d19bab76816e40c9f20a21ef",
+      "bytes": 4720
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-DESKTOP-01/evidence/acceptance.json",
+      "sha256": "5b2ddc973499bc3642e87645b3e28eede8b8dbae0431cf0d9c7fbd3dea463332",
+      "bytes": 5287
+    }
+  ],
+  "hash_note": "SHA256 is over raw working-file bytes; manifest intentionally does not hash itself.",
+  "tests": [
+    {
+      "name": "focused",
+      "command": "python -m pytest agent_bridge/tests/test_worker.py -q",
+      "exit_code": 0
+    },
+    {
+      "name": "full",
+      "command": "python -m pytest agent_bridge/tests -q",
+      "exit_code": 0
+    },
+    {
+      "name": "hotfix",
+      "command": "python -m pytest agent_bridge/tests/test_delivery_hotfix.py -q",
+      "exit_code": 0
+    },
+    {
+      "name": "syntax",
+      "command": "python -c \"from pathlib import Path; import ast,importlib,sys; root=Path('agent_bridge/src'); sys.path.insert(0,str(root)); files=list((root/'fox2_agent_bridge').glob('*.py')); [ast.parse(p.read_text(encoding='utf-8'),filename=str(p)) for p in files]; [importlib.import_module('fox2_agent_bridge.'+p.stem) for p in files if p.stem!='__init__']; print(str(len(files))+' source modules parsed and imported')\"",
+      "exit_code": 0
+    }
+  ],
+  "not_run": [
+    "Live GitHub/Agent/deployment validation",
+    "Task Git staging/commit/push",
+    "Remote delivery readback",
+    "Live network/process inspection",
+    "Inaccessible generated-directory contents inspection/cleanup"
+  ],
+  "not_implemented": [
+    "Tray",
+    "Windows startup/scheduler",
+    "Installer",
+    "GUI onboarding",
+    "Webhook/cloud relay",
+    "Remote desktop",
+    "Multi-user service",
+    "T29 push hint"
+  ],
+  "open_delivery_gates": [
+    "Bridge final verification, commit, push and remote readback",
+    "Bridge cleanup/inspection of inaccessible generated pytest directories; exclude from staging"
+  ],
+  "limitations": [
+    "Git enumeration cannot inspect owner-only generated pytest directories from early attempts; scope/secret verdicts cover deliverable files.",
+    "Automatic approval review rejected ACL-reset/recursive cleanup as blocked by policy; no further reason was supplied. Accessible artifacts were cleaned by a narrower action.",
+    "worker-status reports durable state, not live process ownership; controls require initialized supported ledger."
+  ],
+  "git_ownership": "Codex performed no task staging/commit/push; Bridge owns final delivery."
+}

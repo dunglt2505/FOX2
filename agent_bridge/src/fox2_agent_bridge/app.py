@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 import sys
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,7 @@ class BridgeApp:
         self.ledger = SQLiteLedger(config.database_path)
         self.logger = None
         self._started = False
+        self._worker_guard = threading.Lock()
         self._schema_version: int | None = None
         self._tools: tuple[ToolRecord, ...] = ()
 

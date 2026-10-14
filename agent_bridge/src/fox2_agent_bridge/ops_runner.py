@@ -75,16 +75,18 @@ class BridgeOps:
             return False, None
         return True, dispatch_id
 
-    def _eligible_dispatch(self) -> tuple[str, str] | None:
-        control_sha = self.transport.query_control_sha(self.config.control_branch)
+    def _eligible_dispatch(self, control_sha: str | None = None) -> tuple[str, str] | None:
+        already_fetched = control_sha is not None
         if control_sha is None:
-            return None
-        self.transport.fetch_control(self.config.control_branch, control_sha)
+            control_sha = self.transport.query_control_sha(self.config.control_branch)
+            if control_sha is None:
+                return None
+            self.transport.fetch_control(self.config.control_branch, control_sha)
 
         rows = self.ledger.list_candidate_discoveries(
             self.config.repository,
             self.config.control_branch,
-            limit=500,
+            limit=None,
         )
         seen_paths: set[str] = set()
         for row in rows:
@@ -97,6 +99,10 @@ class BridgeOps:
             try:
                 raw, _blob = self.transport.read_dispatch_blob(control_sha, path)
             except Exception:
+                if already_fetched:
+                    # A transient local blob/read failure must not let the Worker
+                    # checkpoint all discoveries as safely processed.
+                    raise
                 continue
             auto_execute, dispatch_id = self._auto_execute_identity(raw)
             if not auto_execute or dispatch_id is None:
@@ -136,17 +142,27 @@ class BridgeOps:
                 },
             )
 
-        selected = self._eligible_dispatch()
+        return self.run_discovered(poll_status=poll.status, timeout_seconds=timeout_seconds)
+
+    def run_discovered(
+        self, *, poll_status: str, control_sha: str | None = None,
+        timeout_seconds: int = 300, may_launch: Callable[[], bool] | None = None,
+        worker_stop_sequence: int | None = None,
+    ) -> OpsRunResult:
+        """Use durable discoveries; the Worker has already fetched this control SHA."""
+        selected = self._eligible_dispatch(control_sha)
         if selected is None:
             self._progress("OPS no eligible auto_execute dispatch")
             return OpsRunResult(
                 status="NO_ELIGIBLE_DISPATCH",
-                poll_status=poll.status,
+                poll_status=poll_status,
                 dispatch_path=None,
                 dispatch_id=None,
                 execution=None,
             )
 
+        if may_launch is not None and not may_launch():
+            return OpsRunResult("PAUSED", poll_status, None, None, None)
         dispatch_path, dispatch_id = selected
         self._progress(f"OPS selected {dispatch_id}")
         result: E2EResult = BridgeE2ERunner(
@@ -158,10 +174,12 @@ class BridgeOps:
         ).run_once(
             dispatch_path=dispatch_path,
             timeout_seconds=timeout_seconds,
+            **({"control_sha": control_sha} if control_sha is not None else {}),
+            **({"worker_stop_sequence": worker_stop_sequence} if worker_stop_sequence is not None else {}),
         )
         return OpsRunResult(
             status=result.status,
-            poll_status=poll.status,
+            poll_status=poll_status,
             dispatch_path=dispatch_path,
             dispatch_id=dispatch_id,
             execution=result.as_dict(),

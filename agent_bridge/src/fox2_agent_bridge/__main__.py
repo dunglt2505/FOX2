@@ -55,6 +55,12 @@ def build_parser() -> argparse.ArgumentParser:
     status.add_argument("--dispatch-id", help="optional exact dispatch id")
     status.add_argument("--limit", type=int, default=20, help="recent rows when no id is supplied")
 
+    for name in ("start", "pause", "resume", "check-now", "status", "stop"):
+        worker = subparsers.add_parser(f"worker-{name}", help=f"background Worker {name}")
+        worker.add_argument("--config", type=Path)
+        if name == "start":
+            worker.add_argument("--timeout", type=int, default=300)
+
     return parser
 
 
@@ -65,8 +71,18 @@ def main(argv: list[str] | None = None) -> int:
     from .app import BridgeApp
 
     try:
+        if args.command.startswith("worker-") and args.command != "worker-start":
+            from .worker import control_worker
+            report = control_worker(BridgeApp.from_file(args.config), args.command.removeprefix("worker-"))
+            print(json.dumps(report, ensure_ascii=True, indent=2, sort_keys=True))
+            return 0
         with BridgeApp.from_file(args.config) as app:
-            if args.command == "health":
+            if args.command == "worker-start":
+                from .worker import BackgroundWorker
+                BackgroundWorker(app, timeout_seconds=args.timeout).run()
+                report = {"status": "STOPPED"}
+                exit_code = 0
+            elif args.command == "health":
                 report = app.health_report()
                 exit_code = 0 if report["status"] == "READY" else 1
             elif args.command == "poll-once":

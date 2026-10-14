@@ -1,0 +1,156 @@
+{
+  "assertions": [
+    {
+      "id": "D01",
+      "assertion": "Deterministic state and controls",
+      "verdict": "PASS",
+      "evidence": "test_worker_controls_cli_operate_while_runtime_lock_held; test_worker_state_preserves_existing_rows_and_future_schema_refusal"
+    },
+    {
+      "id": "D02",
+      "assertion": "Unchanged SHA: zero full fetch",
+      "verdict": "PASS",
+      "evidence": "test_idle_unchanged_zero_fetch_scan_and_agent"
+    },
+    {
+      "id": "D03",
+      "assertion": "Unchanged SHA: zero Agent call",
+      "verdict": "PASS",
+      "evidence": "test_idle_unchanged_zero_fetch_scan_and_agent"
+    },
+    {
+      "id": "D04",
+      "assertion": "Changed SHA: exact fetch/discovery",
+      "verdict": "PASS",
+      "evidence": "test_changed_exact_fetch_then_execute_once_and_terminal_resume; test_production_git_fetch_is_exact_control_ref_and_pinned"
+    },
+    {
+      "id": "D05",
+      "assertion": "Changed SHA without opt-in: no Agent",
+      "verdict": "PASS",
+      "evidence": "test_changed_without_opt_in_never_executes"
+    },
+    {
+      "id": "D06",
+      "assertion": "Eligible dispatch executes once",
+      "verdict": "PASS",
+      "evidence": "test_changed_exact_fetch_then_execute_once_and_terminal_resume; test_worker_reuses_real_e2e_hotfix_route"
+    },
+    {
+      "id": "D07",
+      "assertion": "Healthy cadence deterministic",
+      "verdict": "PASS",
+      "evidence": "test_fake_clock_healthy_wait_check_now_and_graceful_stop"
+    },
+    {
+      "id": "D08",
+      "assertion": "30/60/120/300 capped backoff",
+      "verdict": "PASS",
+      "evidence": "test_backoff_capped_persisted_and_contact_resets"
+    },
+    {
+      "id": "D09",
+      "assertion": "Successful Git contact resets cadence",
+      "verdict": "PASS",
+      "evidence": "test_backoff_capped_persisted_and_contact_resets"
+    },
+    {
+      "id": "D10",
+      "assertion": "Check-now wakes promptly",
+      "verdict": "PASS",
+      "evidence": "test_fake_clock_healthy_wait_check_now_and_graceful_stop; test_windows_local_wake_cross_handle_no_listener"
+    },
+    {
+      "id": "D11",
+      "assertion": "Pause blocks new claim/launch",
+      "verdict": "PASS",
+      "evidence": "test_control_inside_claim_transaction_blocks_launch; test_pause_persists_and_resume_discovers_pending_without_fetch"
+    },
+    {
+      "id": "D12",
+      "assertion": "Resume does not replay terminal dispatch",
+      "verdict": "PASS",
+      "evidence": "test_changed_exact_fetch_then_execute_once_and_terminal_resume; test_pause_does_not_abandon_already_claimed_task"
+    },
+    {
+      "id": "D13",
+      "assertion": "Required durable state survives restart",
+      "verdict": "PASS",
+      "evidence": "test_pause_persists_and_resume_discovers_pending_without_fetch; test_backoff_capped_persisted_and_contact_resets; test_successful_ref_observation_survives_offline_contact"
+    },
+    {
+      "id": "D14",
+      "assertion": "Stopped Worker finds later publication",
+      "verdict": "PASS",
+      "evidence": "test_task_published_while_stopped_discovered_on_restart"
+    },
+    {
+      "id": "D15",
+      "assertion": "Pre-Agent interruption reconciles safely",
+      "verdict": "PASS",
+      "evidence": "test_restart_reconciliation_never_relaunches_claimed_dispatch[INTERRUPTED]; existing runtime-ledger recovery regression"
+    },
+    {
+      "id": "D16",
+      "assertion": "Delivery recovery never relaunches Agent",
+      "verdict": "PASS",
+      "evidence": "test_restart_reconciliation_never_relaunches_claimed_dispatch[DELIVERY_RECOVERY_REQUIRED]; Hotfix recovery regressions"
+    },
+    {
+      "id": "D17",
+      "assertion": "One Worker per profile",
+      "verdict": "PASS",
+      "evidence": "test_second_worker_profile_cannot_start; test_two_workers_in_same_runtime_cannot_run; existing second-process lock regression"
+    },
+    {
+      "id": "D18",
+      "assertion": "Cursor crashes lose no valid dispatch",
+      "verdict": "PASS",
+      "evidence": "test_cursor_discovery_transaction_failure_is_retryable; test_crash_after_discovery_cursor_commit_loses_no_dispatch; test_crash_after_execution_before_processed_checkpoint_never_replays; test_transient_blob_read_failure_cannot_checkpoint_away_valid_dispatch; existing transaction rollback regression"
+    },
+    {
+      "id": "D19",
+      "assertion": "No inbound Internet listener/server",
+      "verdict": "PASS",
+      "evidence": "worker imports/static listener scan; test_windows_local_wake_cross_handle_no_listener"
+    },
+    {
+      "id": "D20",
+      "assertion": "Full Bridge suite passes in sandbox",
+      "verdict": "PASS",
+      "evidence": "python -m pytest agent_bridge/tests -q: 125 passed"
+    },
+    {
+      "id": "D21",
+      "assertion": "No main/merge/Production/provider/broker/LIVE authority",
+      "verdict": "PASS",
+      "evidence": "Local HEAD/branch unchanged; changed-file scope check; no task Git delivery or remote source verification"
+    }
+  ],
+  "brd_mapping": {
+    "T23": [
+      "D02",
+      "D04",
+      "D19"
+    ],
+    "T24": [
+      "D02",
+      "D03",
+      "D10"
+    ],
+    "T25": [
+      "D03"
+    ],
+    "T26": [
+      "D08",
+      "D09"
+    ],
+    "T27": [
+      "D19"
+    ],
+    "T28": [
+      "D14"
+    ],
+    "T29": "NOT_IMPLEMENTED: future push-hint"
+  }
+}

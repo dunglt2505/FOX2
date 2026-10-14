@@ -33,6 +33,7 @@ def _configured_adapter(bridge_config, tmp_path: Path):
     tool_paths["copilot"] = executable
     config = type(bridge_config)(
         bridge_root=bridge_config.bridge_root,
+        worktree_root=bridge_config.worktree_root,
         tool_paths=tool_paths,
     )
     return CopilotAdapter(config), executable
