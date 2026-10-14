@@ -1,0 +1,5 @@
+........................................................................ [ 43%]
+........................................................................ [ 87%]
+....................                                                     [100%]
+- generated xml file: C:\Projects\FOX2-worktrees\FOX2-BRIDGE-DESKTOP-BATCH-A-CODEX\reports\BRIDGE-DESKTOP-BATCH-A\evidence\pytest.xml -
+164 passed in 42.29s

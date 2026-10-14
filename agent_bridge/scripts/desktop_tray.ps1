@@ -43,6 +43,10 @@ try {
     $Status = $Menu.Items.Add('Starting'); $Status.Enabled = $false
     $Task = $Menu.Items.Add('Task: none'); $Task.Enabled = $false
     $Last = $Menu.Items.Add('Last result: none'); $Last.Enabled = $false
+    $Model = $Menu.Items.Add('Requested / observed model: unavailable'); $Model.Enabled = $false
+    $Permission = $Menu.Items.Add('Permission: unavailable'); $Permission.Enabled = $false
+    $Usage = $Menu.Items.Add('Usage: NOT_EXPOSED'); $Usage.Enabled = $false
+    $Capacity = $Menu.Items.Add('Capacity: NOT_EXPOSED'); $Capacity.Enabled = $false
     $Pause = $Menu.Items.Add('Pause new tasks'); $Pause.add_Click({ try { Invoke-BridgeControl pause | Out-Null } catch { $Status.Text = 'Error: control failed' } })
     $Resume = $Menu.Items.Add('Resume'); $Resume.add_Click({ try { Invoke-BridgeControl resume | Out-Null } catch { $Status.Text = 'Error: control failed' } })
     $Check = $Menu.Items.Add('Check now'); $Check.add_Click({ try { Invoke-BridgeControl check-now | Out-Null } catch { $Status.Text = 'Error: control failed' } })
@@ -78,6 +82,12 @@ try {
             $Icon.Text = ('FOX2 Bridge: ' + $Display)
             $Task.Text = 'Task: ' + $State.current_dispatch
             $Last.Text = 'Last result: ' + $State.last_result.status
+            $Execution = $State.execution_display
+            $Observed = if ($Execution.metadata.observed_model) { $Execution.metadata.observed_model } else { 'NOT_EXPOSED' }
+            $Model.Text = 'Requested / observed model: ' + $Execution.requested.product + ' ' + $Execution.requested.model + ' / ' + $Observed + ' / tier: ' + $Execution.requested.auto_tier + ' / reasoning: ' + $Execution.requested.reasoning_effort
+            $Permission.Text = 'Permission requested / applied / observed: ' + $Execution.requested.permission_profile + ' / ' + $Execution.metadata.applied_permission.profile + ' / ' + $Execution.metadata.observed_permission_profile
+            $Usage.Text = 'Usage: ' + $(if ($null -ne $Execution.metadata.usage) { $Execution.metadata.usage | ConvertTo-Json -Compress } else { 'NOT_EXPOSED' })
+            $Capacity.Text = 'Capacity: ' + $(if ($null -ne $Execution.metadata.capacity) { $Execution.metadata.capacity | ConvertTo-Json -Compress } else { 'NOT_EXPOSED' })
             $Startup.Checked = $State.start_with_windows -eq $true
             if ($State.stop_requested -and $State.state -eq 'STOPPED') { [System.Windows.Forms.Application]::Exit() }
         } catch { $Status.Text = 'Error: status unavailable'; $Icon.Text = 'FOX2 Bridge: Error' }

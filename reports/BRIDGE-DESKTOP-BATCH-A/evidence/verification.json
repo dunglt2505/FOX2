@@ -1,0 +1,110 @@
+{
+  "acceptance": {
+    "CANONICAL_GENERATED_ARTIFACT_PIPELINE": "PASS",
+    "CHANGED_PATH_ALLOWLIST": "PASS",
+    "CODEX_EXACT_CONFIG": "PASS",
+    "COPILOT_EXACT_POLICY": "PASS",
+    "FULL_ACCESS_CODEX": "PASS",
+    "FULL_ACCESS_COPILOT": "PASS",
+    "FULL_BRIDGE_TESTS": "PASS",
+    "GIT_DELIVERY_POLICY_ALIGNED": "PASS",
+    "GIT_DIFF_CHECK": "PASS",
+    "MATERIAL_CAPABILITY_MISSING_BLOCKS": "PASS",
+    "MATERIAL_TOOL_COMPATIBILITY": "PASS",
+    "NON_MATERIAL_VERSION_MISMATCH_CONTINUES": "PASS",
+    "NO_AGENT_SUBSTITUTION": "PASS",
+    "NO_DUPLICATE_PUBLICATION_PATH": "PASS",
+    "NO_REPLAY": "PASS",
+    "PERMISSION_PREFLIGHT": "PASS",
+    "POST_START_QUOTA_RECONCILIATION": "PASS",
+    "SECRET_SCAN": "PASS",
+    "TEXT_ARTIFACT_HYGIENE": "PASS",
+    "TRAY_READ_ONLY_USAGE_DISPLAY": "PASS",
+    "USAGE_PERSISTENCE": "PASS",
+    "WORKER_RECOVERY": "PASS"
+  },
+  "accepted_base_sha": "ef9f290e73c4f4500900528656212c38acf43a4f",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex",
+  "evidence_classes": {
+    "agent_execution": "FAKE_CLI_AND_REAL_LOCAL_CHILD",
+    "cli_capabilities": "REAL_HELP_AND_VERSION_WITHOUT_AGENT_EXECUTION",
+    "desktop": "REAL_HEADLESS_POWERSHELL_AND_MOCKED_STARTUP",
+    "git_publication": "REAL_LOCAL_BARE_REMOTE"
+  },
+  "pytest": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 164
+  },
+  "python": "3.13.15",
+  "start_head": "efdf1f53f83a8eac3251660a588a447f50908fef",
+  "status": "PASS",
+  "support_tests": {
+    "CANONICAL_GENERATED_ARTIFACT_PIPELINE": [
+      "test_batch_canonical_artifacts_and_logs"
+    ],
+    "CODEX_EXACT_CONFIG": [
+      "test_batch_exact_policies_and_material_compatibility",
+      "test_codex_adapter_passes_model_and_keeps_safety"
+    ],
+    "COPILOT_EXACT_POLICY": [
+      "test_batch_exact_policies_and_material_compatibility"
+    ],
+    "FULL_ACCESS_CODEX": [
+      "test_codex_exec_uses_full_access_and_never_approval",
+      "test_batch_streamed_telemetry_survives_output_tail"
+    ],
+    "FULL_ACCESS_COPILOT": [
+      "test_batch_streamed_telemetry_survives_output_tail"
+    ],
+    "GIT_DELIVERY_POLICY_ALIGNED": [
+      "test_batch_real_git_delivery_has_one_publication_path"
+    ],
+    "MATERIAL_CAPABILITY_MISSING_BLOCKS": [
+      "test_batch_full_access_preflight_blocks_before_spawn",
+      "test_batch_exact_policies_and_material_compatibility"
+    ],
+    "MATERIAL_TOOL_COMPATIBILITY": [
+      "test_batch_exact_policies_and_material_compatibility"
+    ],
+    "NON_MATERIAL_VERSION_MISMATCH_CONTINUES": [
+      "test_batch_exact_policies_and_material_compatibility"
+    ],
+    "NO_AGENT_SUBSTITUTION": [
+      "test_full_runner_exact_routing_and_failure_no_fallback",
+      "test_batch_post_start_zero_exit_capacity_never_publishes"
+    ],
+    "NO_DUPLICATE_PUBLICATION_PATH": [
+      "test_batch_real_git_delivery_has_one_publication_path"
+    ],
+    "NO_REPLAY": [
+      "test_batch_claim_race_consumes_once",
+      "test_restart_stages_never_replay",
+      "test_batch_real_git_delivery_has_one_publication_path"
+    ],
+    "PERMISSION_PREFLIGHT": [
+      "test_batch_full_access_preflight_blocks_before_spawn",
+      "test_batch_dispatch_permission_and_owner_fail_closed"
+    ],
+    "POST_START_QUOTA_RECONCILIATION": [
+      "test_batch_post_start_zero_exit_capacity_never_publishes",
+      "test_nonzero_after_agent_start_needs_reconciliation"
+    ],
+    "TRAY_READ_ONLY_USAGE_DISPLAY": [
+      "test_batch_tray_usage_controls_are_read_only",
+      "test_powershell_scripts_parse_and_startup_mock_is_idempotent"
+    ],
+    "USAGE_PERSISTENCE": [
+      "test_batch_immutable_tuple_and_usage_survive_restart",
+      "test_batch_streamed_telemetry_survives_output_tail"
+    ],
+    "WORKER_RECOVERY": [
+      "test_restart_stages_never_replay",
+      "test_backoff_bounded_and_resets",
+      "test_controls_work_while_singleton_owned",
+      "test_idle_pause_resume_check_now_durable"
+    ]
+  },
+  "work_package": "BRIDGE-DESKTOP-BATCH-A"
+}

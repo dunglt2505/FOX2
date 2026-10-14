@@ -1,0 +1,52 @@
+{
+  "CODEX": {
+    "applied_intent": {
+      "approval_policy": "never",
+      "profile": "FULL_ACCESS",
+      "sandbox": "danger-full-access",
+      "status": "APPLIED"
+    },
+    "capability_preflight": "PASS",
+    "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.EXE",
+    "observed_model": null,
+    "observed_quota": null,
+    "paid_execution": "NOT_RUN",
+    "permission_arguments": [
+      "--ask-for-approval",
+      "never"
+    ],
+    "selection_arguments": [
+      "--model",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=\"high\""
+    ],
+    "version": "codex-cli 0.162.1"
+  },
+  "COPILOT": {
+    "applied_intent": {
+      "profile": "FULL_ACCESS",
+      "status": "APPLIED"
+    },
+    "capability_preflight": "PASS",
+    "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.EXE",
+    "observed_model": null,
+    "observed_quota": null,
+    "paid_execution": "NOT_RUN",
+    "permission_arguments": [
+      "--allow-all-tools",
+      "--allow-all-paths",
+      "--allow-all-urls"
+    ],
+    "selection_arguments": [
+      "--model",
+      "auto",
+      "--no-ask-user",
+      "--output-format",
+      "json",
+      "--auto-tier",
+      "balance"
+    ],
+    "version": "GitHub Copilot CLI 1.0.95."
+  }
+}

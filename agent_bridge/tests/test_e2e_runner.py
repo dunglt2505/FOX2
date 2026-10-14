@@ -263,7 +263,7 @@ def execution_harness(bridge_config, monkeypatch):
         monkeypatch.setattr(alternate, 'run_prompt',
                             lambda *args, **kwargs: pytest.fail('alternate Agent substitution'))
         module = f'fox2_agent_bridge.{product.lower()}_adapter'
-        monkeypatch.setattr(module + '.help_text', lambda *_: '--model --no-ask-user')
+        monkeypatch.setattr(module + '.help_text', lambda *_: __import__('conftest').FAKE_CLI_HELP)
         return runner, ledger, payload, dispatch_path, selected, module
     return make
 
@@ -280,7 +280,7 @@ def test_nonzero_after_agent_start_needs_reconciliation(
         'from pathlib import Path\n'
         'database, dispatch_id, product, exit_code, diagnostic = sys.argv[1:]\n'
         'if product == "CODEX":\n'
-        '    assert sys.stdin.read().strip() == "immutable local fixture prompt"\n'
+        '    assert sys.stdin.read().startswith("immutable local fixture prompt")\n'
         'with sqlite3.connect(database) as connection:\n'
         '    state, stage, execution_id = connection.execute(\n'
         '        "SELECT state, stage, execution_id FROM executions WHERE dispatch_id=?",\n'
@@ -304,7 +304,7 @@ def test_nonzero_after_agent_start_needs_reconciliation(
         )
     monkeypatch.setattr(module + '.subprocess.Popen', launch_local_child)
 
-    with pytest.raises(ToolExecFailed, match=f'non-zero exit code {exit_code}'):
+    with pytest.raises(ToolExecFailed, match=f'exit={exit_code}'):
         runner.run_once(dispatch_path=dispatch_path)
 
     status = ledger.dispatch_status(payload['dispatch_id'])

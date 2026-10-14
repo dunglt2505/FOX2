@@ -16,7 +16,7 @@ from typing import Callable, TextIO
 from .config import BridgeConfig
 from .errors import AgentNotStarted, PathInvalid, ToolExecFailed, ToolNotFound
 from .paths import validate_path
-from .agent_policy import help_text, policy_arguments, observe_metadata
+from .agent_policy import help_text, policy_arguments, observe_metadata, permission_arguments, require_capabilities, version_text, tool_compatibility
 from .logging_config import redact_context
 
 
@@ -115,6 +115,7 @@ class CodexAdapter:
         progress: Callable[[str, str], None] | None = None,
         heartbeat_seconds: int = 10,
         selection: dict[str, object] | None = None,
+        configuration: Callable[[dict[str, object]], None] | None = None,
     ) -> CodexRunResult:
         if not isinstance(prompt, str) or not prompt.strip():
             raise ToolExecFailed("Codex prompt must be non-empty")
@@ -125,23 +126,19 @@ class CodexAdapter:
 
         executable = self._resolve_executable()
         resolved_worktree = self._resolve_worktree(worktree)
-        command = [
-            str(executable),
-            "-c",
-            'windows.sandbox="unelevated"',
-            "--ask-for-approval",
-            "never",
-            "exec",
-            "--sandbox",
-            "workspace-write",
-            "-",
-        ]
-        metadata = None
-        if selection is not None:
-            if selection.get('product') != 'CODEX':
-                raise ToolExecFailed('Codex adapter cannot substitute for another Agent')
-            extra, metadata = policy_arguments(selection, help_text(executable, 'exec'))
-            command[-1:-1] = extra
+        selection = selection or {'product': 'CODEX'}
+        if selection.get('product') != 'CODEX':
+            raise AgentNotStarted('Codex adapter cannot substitute for another Agent')
+        exec_help = help_text(executable, 'exec')
+        permission, applied = permission_arguments(selection, exec_help + '\n' + help_text(executable))
+        require_capabilities(exec_help, ('--json',))
+        extra, metadata = policy_arguments(selection, exec_help)
+        metadata.update(applied_permission=applied, executable=str(executable))
+        metadata['tool_compatibility'] = tool_compatibility(version_text(executable),
+            selection.get('expected_cli_version'), exec_help, ('--sandbox', '--json'))
+        command = [str(executable), *permission, 'exec', '--sandbox', 'danger-full-access', '--json', *extra, '-']
+        if configuration:
+            configuration(metadata)
 
         runtime_scripts = str(Path(sys.executable).resolve().parent)
         powershell_msi = Path(r"C:\Program Files\PowerShell\7")
@@ -236,6 +233,9 @@ class CodexAdapter:
                 else:
                     if stream_name == "stdout":
                         stdout_parts.append(line)
+                        observe_metadata(metadata, line)
+                        if configuration:
+                            configuration(metadata)
                     else:
                         stderr_parts.append(line)
                     if progress is not None:

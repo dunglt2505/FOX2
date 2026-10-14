@@ -9,6 +9,7 @@ from datetime import UTC, datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from typing import Any
+from .artifacts import canonical_text
 
 SECRET_KEY_PARTS = ("TOKEN", "SECRET", "PASSWORD", "API_KEY", "AUTHORIZATION")
 SECRET_VALUE_PATTERNS = (
@@ -31,6 +32,9 @@ def _redact_string(value: str) -> str:
 
 def redact_context(value: Any, key: str = "") -> Any:
     upper_key = key.upper()
+    # Numeric usage counters are evidence, never credential strings.
+    if key in {'input_tokens', 'output_tokens', 'cached_input_tokens', 'total_tokens'} and type(value) in {int, float}:
+        return value
     if any(part in upper_key for part in SECRET_KEY_PARTS):
         return "<REDACTED>"
     if isinstance(value, dict):
@@ -58,6 +62,14 @@ class JsonFormatter(logging.Formatter):
         return json.dumps(payload, ensure_ascii=True, sort_keys=True)
 
 
+class CanonicalLogHandler(RotatingFileHandler):
+    def _open(self):
+        return open(self.baseFilename, self.mode, encoding='utf-8', newline='\n')
+
+    def format(self, record):
+        return canonical_text(super().format(record)).rstrip('\n')
+
+
 def configure_logging(log_directory: Path) -> logging.Logger:
     log_directory.mkdir(parents=True, exist_ok=True)
     logger = logging.getLogger("fox2_agent_bridge")
@@ -66,7 +78,7 @@ def configure_logging(log_directory: Path) -> logging.Logger:
     for handler in tuple(logger.handlers):
         logger.removeHandler(handler)
         handler.close()
-    handler = RotatingFileHandler(
+    handler = CanonicalLogHandler(
         log_directory / "bridge.log",
         maxBytes=2_000_000,
         backupCount=3,

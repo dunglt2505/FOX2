@@ -107,7 +107,7 @@ def test_restart_stages_never_replay(bridge_config, stage, remote, outcome):
     payload = {'worktree': str(bridge_config.worktree_root/'exact'), '_agent_product': 'CODEX',
                'agent': {'product': 'CODEX'}, 'branch': 'work/exact'}
     if stage != 'UNKNOWN':
-        ledger.checkpoint('e', stage, {'payload': payload, 'before_head': 'a'*40, 'agent_stdout': 'marker'})
+        ledger.checkpoint('e', stage, {'payload': payload, 'before_head': 'a'*40, 'agent_stdout': 'marker', 'agent_exit_code': 0})
     calls = []
     def verify(**kwargs):
         calls.append(kwargs)
@@ -146,9 +146,9 @@ def test_exact_ops_selection(product):
 
 
 def test_model_commands_and_no_fabricated_observation():
-    args, metadata = policy_arguments({'product':'COPILOT'}, '--model --no-ask-user --output-format')
-    assert args == ['--model','auto','--no-ask-user','--output-format','json']
-    assert metadata['auto_tier_status'] == 'AUTO_TIER_NOT_ENFORCED'
+    args, metadata = policy_arguments({'product':'COPILOT'}, '--model --no-ask-user --output-format --auto-tier')
+    assert args == ['--model','auto','--no-ask-user','--output-format','json','--auto-tier','balance']
+    assert metadata['auto_tier_status'] == 'APPLIED_TASK_LOCAL'
     assert metadata['requested']['auto_tier'] == 'balance'
     assert metadata['observed_model'] is None and metadata['quota'] == 'NOT_EXPOSED'
     assert 'allow-all' not in str(args) and 'yolo' not in str(args)
@@ -337,7 +337,7 @@ def test_codex_adapter_passes_model_and_keeps_safety(bridge_config, monkeypatch,
     (worktree/'.git').write_text('fixture')
     adapter = CodexAdapter(bridge_config)
     monkeypatch.setattr(adapter,'_resolve_executable',lambda:executable)
-    monkeypatch.setattr('fox2_agent_bridge.codex_adapter.help_text',lambda *_:'--model --config')
+    monkeypatch.setattr('fox2_agent_bridge.codex_adapter.help_text',lambda *_: __import__('conftest').FAKE_CLI_HELP)
     commands=[]
     monkeypatch.setattr('fox2_agent_bridge.codex_adapter.subprocess.Popen',
                         lambda cmd,**kwargs:commands.append(cmd) or FakeProcess(stdout='{"model":"observed"}\n',stderr=''))
@@ -345,7 +345,7 @@ def test_codex_adapter_passes_model_and_keeps_safety(bridge_config, monkeypatch,
     command=commands[0]
     assert command[command.index('--model')+1] == 'pinned'
     assert 'model_reasoning_effort="high"' in command
-    assert command[command.index('--sandbox')+1] == 'workspace-write'
+    assert command[command.index('--sandbox')+1] == 'danger-full-access'
     assert command[command.index('--ask-for-approval')+1] == 'never'
     assert result.metadata['observed_model'] == 'observed'
 

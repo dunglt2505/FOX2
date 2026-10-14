@@ -19,6 +19,7 @@ from .ops_runner import BridgeOps
 from .process_lock import ProcessLock
 from .runtime_tools import discover_all
 from .paths import BRIDGE_ROOT
+from .agent_policy import configuration_mismatch
 
 STATES = frozenset({'STOPPED', 'STARTING', 'RECONCILING', 'IDLE', 'POLLING',
                     'EXECUTING', 'PUBLISHING', 'PAUSED', 'DEGRADED', 'ERROR', 'STOPPING'})
@@ -56,7 +57,10 @@ def reconcile(ledger: SQLiteLedger, runner: BridgeE2ERunner | None) -> list[dict
             # Durable launch intent is written before spawning. Preserve the claim;
             # elapsed time never grants a replay and max_runs=1 remains enforced.
             state = 'SAFE_NOT_STARTED'
-        elif row['stage'] in {'AGENT_EXITED', 'PUBLISHING'} and context.get('agent_exit_code', 0) == 0:
+        elif (row['stage'] in {'AGENT_EXITED', 'PUBLISHING'} and context.get('agent_exit_code') == 0
+              and not (context.get('agent_metadata') and (
+                  context['agent_metadata'].get('post_start_failure') or
+                  configuration_mismatch(context['agent_metadata'])))):
             try:
                 if runner is None:
                     raise ValueError('remote verifier unavailable')

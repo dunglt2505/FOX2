@@ -151,6 +151,8 @@ class SQLiteLedger:
     def control(self, command: str) -> dict[str, object]:
         if command not in {'status', 'pause', 'resume', 'check-now', 'request-exit'}:
             raise ValueError('unsupported fixed control command')
+        if command == 'status':
+            return self.worker_state()
         with self.connect() as connection:
             connection.execute('BEGIN IMMEDIATE')
             state = json.loads(connection.execute(
@@ -170,6 +172,14 @@ class SQLiteLedger:
         if stage not in {'CLAIMED', 'RUNNING', 'AGENT_EXITED', 'PUBLISHING'}:
             raise ValueError('invalid execution checkpoint')
         with self.connect() as connection:
+            connection.execute('BEGIN IMMEDIATE')
+            row = connection.execute('SELECT checkpoint_json FROM executions WHERE execution_id=?',
+                                     (execution_id,)).fetchone()
+            if row is None:
+                raise DatabaseError('execution checkpoint identity missing')
+            previous = json.loads(row[0] or '{}')
+            if previous.get('execution_tuple') is not None and previous['execution_tuple'] != context.get('execution_tuple'):
+                raise DatabaseError('immutable execution tuple cannot change')
             connection.execute('UPDATE executions SET stage=?, checkpoint_json=? WHERE execution_id=?',
                                (stage, json.dumps(redact_context(context)), execution_id))
 

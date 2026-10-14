@@ -170,17 +170,29 @@ quota diagnostics grant neither replay nor Agent substitution. After a zero exit
 recovery verifies the exact branch, local cleanliness, base ancestry, remote HEAD,
 write scope and acceptance evidence. A durable expected publication SHA must match.
 
-CODEX supports CURRENT_CONFIG or PINNED model and low/medium/high reasoning;
-the existing dispatch spelling PINNED_PREFERRED is treated as an exact pin,
-with no model fallback. Approval remains never and sandbox workspace-write.
-COPILOT supports NATIVE_AUTO (model auto) or PINNED with feature-detected CLI
-support, explicit write/catalogued shell permissions and no Git wildcard grant
-in dispatched execution. Bridge publishes both products' uncommitted results.
-Task prompts must leave Git publication to Bridge. Auto tier defaults to balance;
-it is reported `AUTO_TIER_NOT_ENFORCED` until safe task-local enforcement is proven.
-Global Copilot settings and credentials are never rewritten. Explicit credit bounds
-fail closed when unsupported. Actual model/effort fields come only from structured
-CLI output; unavailable observations and quota remain NOT_EXPOSED/unknown.
+CODEX accepts exact PINNED model and low/medium/high reasoning (legacy CURRENT_CONFIG
+remains supported). Normal coding always requests FULL_ACCESS, sandbox
+danger-full-access and approval never. COPILOT uses task-local Native Auto with
+CHAT-selected efficiency/balance/intelligence tier, or an exact pin. The adapters
+preflight the required CLI flags before spawning. Missing/unknown capabilities
+and permission mismatches fail closed; versions are recorded without equality gates.
+Copilot receives allow-all tools, paths and URLs. Technical access grants no
+PR/main/merge/deploy/provider/broker/LIVE authority. Global settings are not changed.
+
+Dispatch `delivery_owner` selects AGENT or BRIDGE. AGENT commits/pushes and Bridge
+only verifies; BRIDGE requires uncommitted results and publishes once. Legacy
+schema 0.6 dispatches without this field retain BRIDGE ownership. An immutable
+execution tuple binds routing, permissions, prompt digest, worktree, branch and
+delivery owner in SQLite. Requested/applied configuration and explicit structured
+model, reasoning, usage and capacity observations survive restart. Missing actual
+fields remain null/NOT_EXPOSED. Post-start quota/auth/capacity and configuration
+mismatch require reconciliation even on exit zero. Claims are never replayed and
+no alternate Agent is selected. Tray model/permission/usage/capacity entries are
+read-only. Status reads do not mutate worker controls.
+
+Generated runtime JSON and logs use the shared canonical UTF-8/LF pipeline.
+Batch evidence generation uses the same helper and checks hygiene after writing.
+Raw/binary evidence has a separate byte-preservation contract.
 
 Deterministic tests use fake Agents and mocked startup registration. Poller tests
 use real local Git histories with simulated file-remote transport in the managed

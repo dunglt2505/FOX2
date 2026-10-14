@@ -1,0 +1,148 @@
+{
+  "acceptance": {
+    "CANONICAL_GENERATED_ARTIFACT_PIPELINE": "PASS",
+    "CHANGED_PATH_ALLOWLIST": "PASS",
+    "CODEX_EXACT_CONFIG": "PASS",
+    "COPILOT_EXACT_POLICY": "PASS",
+    "FULL_ACCESS_CODEX": "PASS",
+    "FULL_ACCESS_COPILOT": "PASS",
+    "FULL_BRIDGE_TESTS": "PASS",
+    "GIT_DELIVERY_POLICY_ALIGNED": "PASS",
+    "GIT_DIFF_CHECK": "PASS",
+    "MATERIAL_CAPABILITY_MISSING_BLOCKS": "PASS",
+    "MATERIAL_TOOL_COMPATIBILITY": "PASS",
+    "NON_MATERIAL_VERSION_MISMATCH_CONTINUES": "PASS",
+    "NO_AGENT_SUBSTITUTION": "PASS",
+    "NO_DUPLICATE_PUBLICATION_PATH": "PASS",
+    "NO_REPLAY": "PASS",
+    "PERMISSION_PREFLIGHT": "PASS",
+    "POST_START_QUOTA_RECONCILIATION": "PASS",
+    "SECRET_SCAN": "PASS",
+    "TEXT_ARTIFACT_HYGIENE": "PASS",
+    "TRAY_READ_ONLY_USAGE_DISPLAY": "PASS",
+    "USAGE_PERSISTENCE": "PASS",
+    "WORKER_RECOVERY": "PASS"
+  },
+  "allowed_scope": [
+    "agent_bridge/**",
+    "reports/BRIDGE-DESKTOP-BATCH-A/**"
+  ],
+  "base_sha": "ef9f290e73c4f4500900528656212c38acf43a4f",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex",
+  "delivery_owner": "AGENT",
+  "delivery_status": "VALIDATED_FOR_AGENT_PUBLICATION_UNREVIEWED",
+  "files": [
+    {
+      "path": "agent_bridge/README.md",
+      "sha256": "d4f376ed10f4ddb173ca314f0dbdcff2646582030ea7539fdb2a75a5705623ef"
+    },
+    {
+      "path": "agent_bridge/scripts/desktop_tray.ps1",
+      "sha256": "5bd6297ad24e5d273baa7e53f9a36a42d4e24f2ed7e2be39b3218eafa50c7ddc"
+    },
+    {
+      "path": "agent_bridge/scripts/validate_batch_a.py",
+      "sha256": "1f26f21ba9764b3009c38f37c656a5924e54b6b590f04ca37bad58da134940ae"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/agent_policy.py",
+      "sha256": "49890641b1c5d544159b09cae1923b51803c06ec8893fabaec0bb99fc21a8fee"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/artifacts.py",
+      "sha256": "50123cd9be170eb55fdc228d6ec75675137240238cdf723179794483941aefdb"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
+      "sha256": "23f777879345f2615a0e42428e357c6a7fc21663d6e0c081df2162bf37ded294"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
+      "sha256": "e7ed2bde20394c061e3e8aa073e39cfbdfd056c0e30967d282e3707e0acae45e"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "sha256": "de00331bf01bdc2bb99904bbbb6e071dc08ede59efb549b671eae56ed1fe9412"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "sha256": "7c2895519b2439ca70d61cce3320b49ca19125071d31b042b57ad5a19d25972f"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
+      "sha256": "c0566e7c5f6352c91a1832751ab156c07478495854acbfe25b90cbbdd8e101fd"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/logging_config.py",
+      "sha256": "ec3895fd5a81b6e8bedb44c3f3fafffba5ccf9cb457b3f18dc67cc5d7342b6c0"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/result_store.py",
+      "sha256": "a582ccf140c4faa87cb45311a7db2dde9a63a42e4d13b070b0c51ce82f6b48b6"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/runtime_tools.py",
+      "sha256": "5bc3689270f6c523d25b3d3ce2dcb944673b297373cb41ff2363e79cb0873a95"
+    },
+    {
+      "path": "agent_bridge/tests/conftest.py",
+      "sha256": "15fe154540693f39ce6e953a07f0257daf7e8097860ca259697d5b1f3230193c"
+    },
+    {
+      "path": "agent_bridge/tests/test_batch_a.py",
+      "sha256": "a641e53b27751dc183265d1916e3a7bdf14deac0c23a26fbadacd9c4359cae88"
+    },
+    {
+      "path": "agent_bridge/tests/test_codex_adapter.py",
+      "sha256": "2dc1915de9b5d01942bb45a45e26ad331434812e0e4a333d8fa2433de7895539"
+    },
+    {
+      "path": "agent_bridge/tests/test_desktop.py",
+      "sha256": "22f99d423cd94021afe8ad9863b61defc819bbeb206aa8210d692f74e7efe2ba"
+    },
+    {
+      "path": "agent_bridge/tests/test_e2e_runner.py",
+      "sha256": "3765e3f7e534520bae1197baaa373eaa26cba4c2bee5a4c74d6143f4fb7d1142"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/cli_capabilities.json",
+      "sha256": "c8f980f91700a2386c17e2374f5b6437c19826a4455eebbca87da2d1939ab934"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/codex_help.txt",
+      "sha256": "e5d40237bd51d1d492362c4bbc69fefbef03b28c686b59aae3ef183248061ae1"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/copilot_help.txt",
+      "sha256": "aba443be298305579f1113450d0cd80a714572b6b8f744e1db341b19a893e45c"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/pytest.txt",
+      "sha256": "e36a4b4cfaa6512854f149c8936d0dcdad93d97aabb274438ef32241e0a32af4"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/pytest.xml",
+      "sha256": "58bf6e323b39ce94836f9ded70ffeaba54ff0d1ba493fe3c8e9e15ce1f04653e"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/verification.json",
+      "sha256": "c041d6b83116a59a1f944098a795e04f1dfd2e7ada9495f44dc897b79c3bfbbf"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/report.md",
+      "sha256": "ef7b0d1f689a6462d2def80a1e446c527c535c799e3807974b5ec80d3752a01d"
+    }
+  ],
+  "live_model_and_quota_observations": "NOT_EXPOSED",
+  "manifest_self_hash": "EXCLUDED",
+  "manual_paid_execution": "NOT_RUN",
+  "pytest": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 164
+  },
+  "schema_version": 1,
+  "start_head": "efdf1f53f83a8eac3251660a588a447f50908fef",
+  "work_package": "BRIDGE-DESKTOP-BATCH-A"
+}

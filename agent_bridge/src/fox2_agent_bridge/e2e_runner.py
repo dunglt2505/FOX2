@@ -36,18 +36,13 @@ from .errors import (
 from .ledger import SQLiteLedger, utc_now
 from .paths import validate_path
 from .result_store import write_execution_report
-from .agent_policy import validate_selection
+from .agent_policy import validate_selection, ADAPTER_REGISTRY, ExecutionTuple, configuration_mismatch
 from .logging_config import redact_context
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
-_AGENT_INTERFACES = {
-    "COPILOT": "GITHUB_COPILOT_CLI",
-    "CODEX": "OPENAI_CODEX_CLI",
-}
-_AGENT_EXECUTION_PATHS = {
-    "COPILOT": "BRIDGE_DIRECT_COPILOT_CLI",
-    "CODEX": "BRIDGE_DIRECT_CODEX_CLI",
-}
+_AGENT_INTERFACES = {product: route[0] for product, route in ADAPTER_REGISTRY.items()}
+_AGENT_EXECUTION_PATHS = {product: route[1] for product, route in ADAPTER_REGISTRY.items()}
+_ADAPTERS = {"CODEX": CodexAdapter, "COPILOT": CopilotAdapter}
 
 
 @dataclass(frozen=True)
@@ -68,6 +63,7 @@ class E2EResult:
     agent_stdout: str
     agent_stderr: str
     agent_metadata: dict[str, object] | None = None
+    execution_tuple: dict[str, object] | None = None
 
     def as_dict(self) -> dict[str, object]:
         result: dict[str, object] = {
@@ -87,6 +83,7 @@ class E2EResult:
             "agent_stdout": self.agent_stdout,
             "agent_stderr": self.agent_stderr,
             "agent_metadata": self.agent_metadata,
+            "execution_tuple": self.execution_tuple,
         }
         prefix = self.agent_product.lower()
         result[f"{prefix}_exit_code"] = self.agent_exit_code
@@ -310,7 +307,17 @@ class BridgeE2ERunner:
             label="dispatch.worktree",
         )
 
+        delivery_owner = payload.get('delivery_owner', 'BRIDGE')
+        if delivery_owner not in {'AGENT', 'BRIDGE'}:
+            raise DispatchInvalid('delivery_owner must be AGENT or BRIDGE')
+        payload['delivery_owner'] = delivery_owner
+        profile = payload.get('permission_profile', payload['agent']['permission_profile'])
+        if profile != payload['agent']['permission_profile']:
+            raise DispatchInvalid('dispatch/Agent permission profile mismatch')
+        payload['permission_profile'] = profile
         permissions = self._required_mapping(payload, "permissions")
+        if permissions.get('permission_profile', profile) != profile:
+            raise DispatchInvalid('permissions/Agent permission profile mismatch')
         required_true = (
             "code_allowed",
             "git_code_push",
@@ -637,12 +644,17 @@ class BridgeE2ERunner:
         before_head: str,
         agent_stdout: str,
     ) -> tuple[str, tuple[str, ...]]:
+        if payload.get('delivery_owner', 'BRIDGE') != 'BRIDGE':
+            raise WorkspaceBlocked('Bridge publication forbidden for Agent-owned delivery')
+        current_branch = self._git(['-C', str(worktree), 'branch', '--show-current']).stdout.strip()
+        if current_branch != payload['branch']:
+            raise WorkspaceBlocked('publication worktree no longer matches exact task branch')
         local_head = self._git(
             ["-C", str(worktree), "rev-parse", "HEAD"]
         ).stdout.strip()
         if local_head != before_head:
             raise WorkspaceBlocked(
-                "Codex changed Git history; Bridge requires Codex to leave commit/push to Bridge"
+                "Agent changed Git history; dispatch assigns commit/push to Bridge"
             )
         remote_head = self._remote_branch_head(str(payload["branch"]))
         if remote_head != before_head:
@@ -830,83 +842,65 @@ class BridgeE2ERunner:
         agent_result = None
         payload['_execution_id'] = execution_id
         agent_product = str(payload["_agent_product"])
-        checkpoint = {'payload': payload, 'before_head': before_head}
+        execution_tuple = ExecutionTuple(dispatch_id, str(payload['branch']), str(worktree),
+                                         str(payload.get('prompt', {}).get('sha256', 'NOT_EXPOSED')),
+                                         json.dumps(payload['agent'], sort_keys=True),
+                                         str(payload.get('delivery_owner', 'BRIDGE')))
+        checkpoint = {'payload': payload, 'before_head': before_head,
+                      'execution_tuple': execution_tuple.as_dict()}
+        self.ledger.update_worker(execution_display={'dispatch_id': dispatch_id,
+            'requested': payload['agent'], 'metadata': None,
+            'delivery_owner': payload.get('delivery_owner', 'BRIDGE')})
         self.ledger.checkpoint(execution_id, 'CLAIMED', checkpoint)
         try:
             self._progress("prepare authorized result parent directories")
             self._prepare_required_parents(payload=payload, worktree=worktree)
             self.ledger.checkpoint(execution_id, 'RUNNING', checkpoint)
 
-            if agent_product == "CODEX":
-                self._progress("launch Codex CLI")
-                agent_result = CodexAdapter(self.config).run_prompt(
-                    worktree=worktree,
-                    prompt=prompt_text,
-                    timeout_seconds=timeout_seconds,
-                    progress=lambda stream, line: self._progress(
-                        f"codex[{stream}]: {line}"
-                    ),
-                    heartbeat_seconds=10,
-                    selection=payload['agent'],
-                )
-                checkpoint.update(agent_stdout=agent_result.stdout,
-                                  agent_stderr=agent_result.stderr,
-                                  agent_exit_code=agent_result.exit_code,
-                                  agent_metadata=getattr(agent_result, 'metadata', None))
-                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
-                if agent_result.exit_code != 0:
-                    raise ToolExecFailed(
-                        "Codex CLI returned non-zero exit code "
-                        f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
-                    )
-                self._progress(f"Codex exited: {agent_result.exit_code}")
-                self._progress("Bridge verifies, commits, and pushes Codex result")
+            def persist_configuration(metadata):
+                checkpoint['agent_metadata'] = metadata
+                self.ledger.checkpoint(execution_id, 'RUNNING', checkpoint)
+                self.ledger.update_worker(execution_display={
+                    'dispatch_id': dispatch_id, 'requested': payload['agent'],
+                    'metadata': metadata, 'delivery_owner': payload.get('delivery_owner', 'BRIDGE')})
+
+            options = {}
+            if agent_product == 'COPILOT':
+                options = dict(allow_write=True, allow_git=payload.get('delivery_owner', 'BRIDGE') == 'AGENT',
+                               allow_github_url=payload.get('delivery_owner', 'BRIDGE') == 'AGENT',
+                               allowed_shell_tools=tuple(payload.get('_copilot_shell_tools', [])),
+                               silent=False, no_ask_user=True)
+            owner = payload.get('delivery_owner', 'BRIDGE')
+            delivery_instruction = ('Commit and push only the exact authorized task branch; verify remote SHA.'
+                                    if owner == 'AGENT' else
+                                    'Leave commit and push to Bridge. Do not change Git history or publish.')
+            self._progress(f'launch {agent_product} CLI')
+            agent_result = _ADAPTERS[agent_product](self.config).run_prompt(
+                worktree=worktree, prompt=prompt_text + '\n\nDispatch delivery owner: ' + owner +
+                '\n' + delivery_instruction + '\nNo PR/main/merge/deploy/provider/broker/LIVE authority.',
+                timeout_seconds=timeout_seconds, progress=lambda stream, line: self._progress(
+                    f'{agent_product.lower()}[{stream}]: {line}'), heartbeat_seconds=10,
+                selection=payload['agent'], configuration=persist_configuration, **options)
+            checkpoint.update(agent_stdout=agent_result.stdout, agent_stderr=agent_result.stderr,
+                              agent_exit_code=agent_result.exit_code,
+                              agent_metadata=getattr(agent_result, 'metadata', None))
+            self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
+            metadata = getattr(agent_result, 'metadata', None)
+            if agent_result.exit_code != 0 or (metadata and (
+                    metadata.get('post_start_failure') or configuration_mismatch(metadata))):
+                raise ToolExecFailed(f'{agent_product} post-start failure/configuration mismatch: '
+                                     f'exit={agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}')
+            if owner == 'BRIDGE':
+                self._progress(f'Bridge verifies, commits, and pushes {agent_product} result')
                 self.ledger.checkpoint(execution_id, 'PUBLISHING', checkpoint)
                 after_head, changed_paths = self._commit_and_push_codex_result(
-                    payload=payload,
-                    worktree=worktree,
-                    before_head=before_head,
-                    agent_stdout=agent_result.stdout,
-                )
+                    payload=payload, worktree=worktree, before_head=before_head,
+                    agent_stdout=agent_result.stdout)
             else:
-                self._progress("launch Copilot CLI")
-                agent_result = CopilotAdapter(self.config).run_prompt(
-                    worktree=worktree,
-                    prompt=prompt_text,
-                    timeout_seconds=timeout_seconds,
-                    allow_write=True,
-                    allow_git=False,
-                    allow_github_url=False,
-                    allowed_shell_tools=tuple(
-                        str(item) for item in payload.get("_copilot_shell_tools", [])
-                    ),
-                    silent=True,
-                    no_ask_user=True,
-                    progress=lambda stream, line: self._progress(
-                        f"copilot[{stream}]: {line}"
-                    ),
-                    heartbeat_seconds=10,
-                    selection=payload['agent'],
-                )
-                checkpoint.update(agent_stdout=agent_result.stdout,
-                                  agent_stderr=agent_result.stderr,
-                                  agent_exit_code=agent_result.exit_code,
-                                  agent_metadata=getattr(agent_result, 'metadata', None))
-                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
-                if agent_result.exit_code != 0:
-                    raise ToolExecFailed(
-                        "Copilot CLI returned non-zero exit code "
-                        f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
-                    )
-                self._progress(f"Copilot exited: {agent_result.exit_code}")
-                self._progress("Bridge verifies, commits, and pushes Copilot result")
-                self.ledger.checkpoint(execution_id, 'PUBLISHING', checkpoint)
-                after_head, changed_paths = self._commit_and_push_codex_result(
-                    payload=payload,
-                    worktree=worktree,
-                    before_head=before_head,
-                    agent_stdout=agent_result.stdout,
-                )
+                self._progress('verify pushed result owned by Agent')
+                after_head, changed_paths = self._verify_result(
+                    payload=payload, worktree=worktree, before_head=before_head,
+                    agent_stdout=agent_result.stdout, agent_label=agent_product)
 
             self._progress(f"result verified: {after_head}")
             result = E2EResult(
@@ -926,6 +920,7 @@ class BridgeE2ERunner:
                 agent_stdout=agent_result.stdout,
                 agent_stderr=agent_result.stderr,
                 agent_metadata=getattr(agent_result, 'metadata', None),
+                execution_tuple=execution_tuple.as_dict(),
             )
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
@@ -980,6 +975,8 @@ class BridgeE2ERunner:
                 "branch": str(payload["branch"]),
                 "worktree": str(worktree),
                 "before_head": before_head,
+                "execution_tuple": execution_tuple.as_dict(),
+                "agent_metadata": checkpoint.get("agent_metadata"),
             }
             if agent_result is not None:
                 failure_result["agent_product"] = agent_product
@@ -987,8 +984,10 @@ class BridgeE2ERunner:
 
             pending = self.ledger.pending_executions()
             stage = next((row['stage'] for row in pending if row['execution_id'] == execution_id), 'UNKNOWN')
-            nonzero_after_start = agent_result is not None and agent_result.exit_code != 0
-            uncertain = nonzero_after_start or stage == 'PUBLISHING' or (agent_result is None and not isinstance(exc, (AgentNotStarted, ToolNotFound, AuthUnavailable)))
+            metadata = getattr(agent_result, 'metadata', None)
+            nonzero_after_start = agent_result is not None and (agent_result.exit_code != 0 or
+                bool(metadata and (metadata.get('post_start_failure') or configuration_mismatch(metadata))))
+            uncertain = agent_result is not None or stage == 'PUBLISHING' or (agent_result is None and not isinstance(exc, (AgentNotStarted, ToolNotFound, AuthUnavailable)))
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,

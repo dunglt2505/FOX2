@@ -63,7 +63,7 @@ def _configured_adapter(bridge_config, tmp_path: Path):
     return CodexAdapter(config), executable
 
 
-def test_codex_exec_uses_workspace_write_and_never_approval(
+def test_codex_exec_uses_full_access_and_never_approval(
     monkeypatch: pytest.MonkeyPatch, bridge_config, tmp_path: Path
 ):
     worktree = bridge_config.worktree_root / "CODEX-E2E"
@@ -99,13 +99,12 @@ def test_codex_exec_uses_workspace_write_and_never_approval(
     command = observed["command"]
     assert command == [
         str(executable.resolve()),
-        "-c",
-        'windows.sandbox="unelevated"',
         "--ask-for-approval",
         "never",
         "exec",
         "--sandbox",
-        "workspace-write",
+        "danger-full-access",
+        "--json",
         "-",
     ]
     process = observed["process"]

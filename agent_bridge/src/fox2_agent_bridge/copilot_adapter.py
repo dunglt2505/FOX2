@@ -16,7 +16,7 @@ from typing import Callable, TextIO
 from .config import BridgeConfig
 from .errors import AgentNotStarted, PathInvalid, ToolExecFailed, ToolNotFound
 from .paths import validate_path
-from .agent_policy import help_text, policy_arguments, observe_metadata
+from .agent_policy import help_text, policy_arguments, observe_metadata, permission_arguments, require_capabilities, version_text, tool_compatibility
 from .logging_config import redact_context
 
 
@@ -130,6 +130,7 @@ class CopilotAdapter:
         progress: Callable[[str, str], None] | None = None,
         heartbeat_seconds: int = 10,
         selection: dict[str, object] | None = None,
+        configuration: Callable[[dict[str, object]], None] | None = None,
     ) -> CopilotRunResult:
         if not isinstance(prompt, str) or not prompt.strip():
             raise ToolExecFailed("Copilot prompt must be non-empty")
@@ -152,12 +153,20 @@ class CopilotAdapter:
             command.append("-s")
         if no_ask_user:
             command.append("--no-ask-user")
-        metadata = None
-        if selection is not None:
-            if selection.get('product') != 'COPILOT':
-                raise ToolExecFailed('Copilot adapter cannot substitute for another Agent')
-            extra, metadata = policy_arguments(selection, help_text(executable))
-            command.extend(item for item in extra if item != '--no-ask-user' or item not in command)
+        selection = selection or {'product': 'COPILOT'}
+        if selection.get('product') != 'COPILOT':
+            raise AgentNotStarted('Copilot adapter cannot substitute for another Agent')
+        cli_help = help_text(executable)
+        require_capabilities(cli_help, ('--prompt', '-C', '--output-format'))
+        permission, applied = permission_arguments(selection, cli_help)
+        extra, metadata = policy_arguments(selection, cli_help)
+        command.extend(permission)
+        command.extend(item for item in extra if item != '--no-ask-user' or item not in command)
+        metadata.update(applied_permission=applied, executable=str(executable))
+        metadata['tool_compatibility'] = tool_compatibility(version_text(executable),
+            selection.get('expected_cli_version'), cli_help, ('--prompt', '-C', '--output-format'))
+        if configuration:
+            configuration(metadata)
 
         if allow_write:
             command.append("--allow-tool=write")
@@ -190,6 +199,7 @@ class CopilotAdapter:
             + (os.pathsep + original_path if original_path else ""),
             "GIT_TERMINAL_PROMPT": "0",
             "GCM_INTERACTIVE": "Never",
+            "COPILOT_ASSISTED_APPROVAL": "false",
         }
 
         try:
@@ -259,6 +269,9 @@ class CopilotAdapter:
                 else:
                     if stream_name == "stdout":
                         stdout_parts.append(line)
+                        observe_metadata(metadata, line)
+                        if configuration:
+                            configuration(metadata)
                     else:
                         stderr_parts.append(line)
                     if progress is not None:
