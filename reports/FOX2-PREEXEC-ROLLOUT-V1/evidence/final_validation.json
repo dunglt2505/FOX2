@@ -12,7 +12,8 @@
   "GIT_DIFF_CHECK": "PASS",
   "PROJECT_DICTIONARY_BINDING": "PASS",
   "canonical_new_receipts": "UTF-8 / LF / final newline / no BOM",
-  "publication": "LOCAL_ONLY_AT_REPORT_AUTHORING; exact SHA is submitted externally after push/readback",
+  "implementation_remote_sha": "78ea9a3245638900f4606026e60b6e095167f16f",
+  "publication": "PUSHED_UNREVIEWED_IMPLEMENTATION_VERIFIED; final report SHA submitted externally after its readback",
   "result_contract": "Schema v2; validated by report generator before final write",
   "snapshot_cli_regression": {
     "passed": 3,

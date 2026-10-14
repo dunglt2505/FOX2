@@ -2,7 +2,7 @@
 
 ## R01 — Identification and submission
 
-FOX2 / FOX2-PREEXEC-ROLLOUT-V1 / FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002. Submission: LOCAL_ONLY at authoring; ready for CHAT review after verified publication. Bound route: CODEX / PINNED / gpt-6.1-sol / medium / FULL_ACCESS / MANUAL_LOCAL / AGENT. The host's actual implementation-model telemetry is not exposed; a minimal CLI probe with the exact bound settings passed. Started 2026-10-14T15:38:52.331119+00:00; report 2026-10-14T15:56:49.044267+00:00.
+FOX2 / FOX2-PREEXEC-ROLLOUT-V1 / FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002. Submission: READY_FOR_CHAT_REVIEW after verified implementation publication. Bound route: CODEX / PINNED / gpt-6.1-sol / medium / FULL_ACCESS / MANUAL_LOCAL / AGENT. The host's actual implementation-model telemetry is not exposed; a minimal CLI probe with the exact bound settings passed. Started 2026-10-14T15:38:52.331119+00:00; report 2026-10-14T15:56:49.044267+00:00.
 
 ## R02 — Authority and grants
 
@@ -43,7 +43,7 @@ All 28 Dispatch acceptance items map to executed tests or recorded audits in [ac
 
 ## R09 — Git delivery
 
-Repository `dunglt2505/FOX2`; task branch `work/FOX2-PREEXEC-ROLLOUT-V1`; exact worktree `C:\Projects\FOX2-worktrees\FOX2-PREEXEC-ROLLOUT-V1`. Publication is LOCAL_ONLY at report authoring. Commit, push and exact remote SHA readback follow generation. The observed final SHA and PUSHED_UNREVIEWED delivery state are submitted outside this committed report after readback, as the result contract requires. CHAT has not accepted this delivery.
+Repository `dunglt2505/FOX2`; task branch `work/FOX2-PREEXEC-ROLLOUT-V1`; exact worktree `C:\Projects\FOX2-worktrees\FOX2-PREEXEC-ROLLOUT-V1`. Implementation and initial evidence publication were pushed and remote-read back at `78ea9a3245638900f4606026e60b6e095167f16f`: PUSHED_UNREVIEWED. See [publication evidence](evidence/publication_readback.json). This final report update is a separate report-only commit. Its observed final remote SHA is submitted outside this committed report after readback, as the result contract requires. CHAT has not accepted this delivery.
 
 ## R10 — Blockers and boundaries
 

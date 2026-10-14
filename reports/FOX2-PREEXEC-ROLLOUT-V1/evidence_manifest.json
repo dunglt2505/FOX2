@@ -378,7 +378,7 @@
       "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
       "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/final_validation.json",
       "sanitized": true,
-      "sha256": "31ca7c8e3b7900b7c7406e45b4c6b88572be86b06697d95ca2cce5c2d5a5f00b",
+      "sha256": "c94abb49255d7606601f0cb27057f41c06b6f98de445068fce6f4d3c94672df5",
       "supports_ids": [
         "PROJECT_DICTIONARY_BINDING",
         "PREFLIGHT_RECEIPT_SCHEMA",
@@ -924,7 +924,7 @@
       "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
       "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/report.md",
       "sanitized": true,
-      "sha256": "3a11513968d9b99ac01542756d07adc468ded8e5c5c9d6c1e983ad65f66d4163",
+      "sha256": "8aeda8cf7a4647125e5dc04d4d2f31641fa5afa5f9c9c1bdd1791def92dbaddf",
       "supports_ids": [
         "PROJECT_DICTIONARY_BINDING",
         "PREFLIGHT_RECEIPT_SCHEMA",
@@ -955,12 +955,25 @@
         "RECOVERY_DISPATCH_SINGLE_USE",
         "FULL_BRIDGE_TESTS"
       ]
+    },
+    {
+      "description": "Observed exact implementation task-branch push, fetch and evidence readback before review-report finalization",
+      "id": "E018",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-14T16:01:00.327790+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/publication_readback.json",
+      "sanitized": true,
+      "sha256": "486cdb174ca8ceea2f782ea90b2455b55ccd8485c73842c25096b4f56037a8a8",
+      "supports_ids": [
+        "REMOTE_READBACK_REQUIRED",
+        "NO_FALSE_PUSHED_MARKER"
+      ]
     }
   ],
   "git": {
     "branch": "work/FOX2-PREEXEC-ROLLOUT-V1",
-    "delivery_status": "LOCAL_ONLY",
-    "local_head_before_submission": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "delivery_status": "PUSHED_UNREVIEWED",
+    "local_head_before_submission": "78ea9a3245638900f4606026e60b6e095167f16f",
     "pr_url": null,
     "report_path": "reports/FOX2-PREEXEC-ROLLOUT-V1/report.md",
     "repository": "dunglt2505/FOX2",
@@ -970,7 +983,7 @@
   "next_step": {
     "action": "Review rollout at externally submitted final remote SHA; reconcile Batch-B sources separately",
     "owner_role": "CHAT",
-    "prerequisite_gate": "Authorized exact branch push/readback then independent CHAT acceptance",
+    "prerequisite_gate": "Implementation push/readback PASS; final report remote readback then independent CHAT acceptance",
     "requested_chat_decision": "REVIEW"
   },
   "permissions": {
@@ -1142,7 +1155,7 @@
       },
       {
         "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
-        "new_sha256": "31ca7c8e3b7900b7c7406e45b4c6b88572be86b06697d95ca2cce5c2d5a5f00b",
+        "new_sha256": "c94abb49255d7606601f0cb27057f41c06b6f98de445068fce6f4d3c94672df5",
         "operation": "ADD",
         "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/final_validation.json",
         "within_allowed_paths": true
@@ -1247,9 +1260,16 @@
       },
       {
         "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
-        "new_sha256": "3a11513968d9b99ac01542756d07adc468ded8e5c5c9d6c1e983ad65f66d4163",
+        "new_sha256": "8aeda8cf7a4647125e5dc04d4d2f31641fa5afa5f9c9c1bdd1791def92dbaddf",
         "operation": "ADD",
         "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/report.md",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Observed authorized implementation publication and exact remote readback",
+        "new_sha256": "486cdb174ca8ceea2f782ea90b2455b55ccd8485c73842c25096b4f56037a8a8",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/publication_readback.json",
         "within_allowed_paths": true
       }
     ],
@@ -1299,8 +1319,8 @@
     "source_readback_status": "PASS",
     "task_commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314"
   },
-  "submission_state": "LOCAL_ONLY",
-  "submitted_at_utc": "2026-10-14T15:58:32.257274+00:00",
+  "submission_state": "READY_FOR_CHAT_REVIEW",
+  "submitted_at_utc": "2026-10-14T16:01:00.327790+00:00",
   "task_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002",
   "tests": [
     {
@@ -1340,6 +1360,18 @@
       "kind": "STATIC",
       "notes": "PASS; audited synthetic test-only sanitization literals explicitly documented",
       "run_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "Exact task-branch git push / ls-remote / fetch SHA equality and committed report/evidence byte-hash readback",
+      "environment": "GitHub origin and exact authorized Windows task worktree",
+      "evidence_ids": [
+        "E018"
+      ],
+      "id": "IMPLEMENTATION_REMOTE_READBACK",
+      "kind": "READBACK",
+      "notes": "Observed SHA 78ea9a3245638900f4606026e60b6e095167f16f; final report SHA is outside its own committed manifest",
+      "run_at_utc": "2026-10-14T16:01:00.327790+00:00",
       "status": "PASS"
     }
   ],

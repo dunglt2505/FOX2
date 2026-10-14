@@ -1,0 +1,11 @@
+{
+  "branch": "work/FOX2-PREEXEC-ROLLOUT-V1",
+  "checked_at_utc": "2026-10-14T16:01:00.327790+00:00",
+  "fetch_head_sha": "78ea9a3245638900f4606026e60b6e095167f16f",
+  "final_review_report_sha": "Submitted externally after the subsequent report-only commit/push/readback; no self-reference",
+  "local_sha": "78ea9a3245638900f4606026e60b6e095167f16f",
+  "phase": "implementation_and_initial_evidence_publication",
+  "receipt_and_evidence_hash_readback": "PASS_ALL_INITIAL_MANIFEST_EVIDENCE",
+  "remote_sha": "78ea9a3245638900f4606026e60b6e095167f16f",
+  "status": "PUSHED_UNREVIEWED"
+}
