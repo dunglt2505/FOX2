@@ -1,5 +1,7 @@
 param(
-    [switch]$SkipAuthRecovery
+    [switch]$SkipAuthRecovery,
+    [ValidateSet("CODEX","COPILOT")]
+    [string]$PinnedAgent
 )
 
 $ErrorActionPreference = "Stop"
@@ -102,7 +104,7 @@ function Probe-Copilot {
     $cmd = Get-Command copilot -ErrorAction SilentlyContinue
     if (-not $cmd) {
         return [ordered]@{
-            capability = (New-Capability -Status "MISSING" -Material $true -Version $null -Executable $null -ExitCode $null -FailureClass "TOOL_MISSING" -Evidence "copilot executable not found")
+            capability = (New-Capability -Status "MISSING" -Material $false -Version $null -Executable $null -ExitCode $null -FailureClass "TOOL_MISSING" -Evidence "Copilot candidate unavailable; alternative route may still satisfy readiness")
             raw_class = "TOOL_MISSING"
         }
     }
@@ -124,14 +126,14 @@ function Probe-Copilot {
     $marker = ($out -match "FOX2_PREFLIGHT_OK")
     if ($code -eq 0 -and $marker) {
         return [ordered]@{
-            capability = (New-Capability -Status "PASS" -Material $true -Version $version -Executable $cmd.Source -ExitCode 0 -FailureClass $null -Evidence "minimal no-write FULL_ACCESS probe returned expected marker")
+            capability = (New-Capability -Status "PASS" -Material $false -Version $version -Executable $cmd.Source -ExitCode 0 -FailureClass $null -Evidence "Copilot candidate probe passed; CHAT still selects the final route")
             raw_class = $null
         }
     }
 
     $class = Classify-AgentFailure -Text $out -ExitCode $code -Marker $marker
     return [ordered]@{
-        capability = (New-Capability -Status "FAIL" -Material $true -Version $version -Executable $cmd.Source -ExitCode $code -FailureClass $class -Evidence "minimal no-write FULL_ACCESS probe failed; raw output not persisted")
+        capability = (New-Capability -Status "FAIL" -Material $false -Version $version -Executable $cmd.Source -ExitCode $code -FailureClass $class -Evidence "Agent candidate probe failed; alternative route may still satisfy readiness; raw output not persisted")
         raw_class = $class
     }
 }
@@ -140,7 +142,7 @@ function Probe-Codex {
     $cmd = Get-Command codex -ErrorAction SilentlyContinue
     if (-not $cmd) {
         return [ordered]@{
-            capability = (New-Capability -Status "MISSING" -Material $true -Version $null -Executable $null -ExitCode $null -FailureClass "TOOL_MISSING" -Evidence "codex executable not found")
+            capability = (New-Capability -Status "MISSING" -Material $false -Version $null -Executable $null -ExitCode $null -FailureClass "TOOL_MISSING" -Evidence "Codex candidate unavailable; alternative route may still satisfy readiness")
             raw_class = "TOOL_MISSING"
         }
     }
@@ -163,7 +165,7 @@ function Probe-Codex {
     $marker = ($out -match "FOX2_PREFLIGHT_OK")
     if ($code -eq 0 -and $marker) {
         return [ordered]@{
-            capability = (New-Capability -Status "PASS" -Material $true -Version $version -Executable $cmd.Source -ExitCode 0 -FailureClass $null -Evidence "minimal no-write PINNED/FULL_ACCESS probe returned expected marker")
+            capability = (New-Capability -Status "PASS" -Material $false -Version $version -Executable $cmd.Source -ExitCode 0 -FailureClass $null -Evidence "Codex candidate probe passed; CHAT still selects the final route")
             raw_class = $null
         }
     }
@@ -277,7 +279,34 @@ if ($codex.capability.status -eq "FAIL" -and $codex.raw_class -eq "CLI_NONZERO")
 $capabilities["codex"] = $codex.capability
 
 $candidate = $null
-if ($copilot.capability.status -eq "PASS") {
+
+if ($PinnedAgent) {
+    if ($PinnedAgent -eq "COPILOT") {
+        $capabilities["copilot"].material = $true
+        if ($copilot.capability.status -eq "PASS") {
+            $candidate = [ordered]@{
+                product = "COPILOT"
+                model_policy = "NATIVE_AUTO"
+                model = "auto"
+                auto_tier = "balance"
+                reasoning_effort = $null
+                permission_profile = "FULL_ACCESS"
+            }
+        }
+    } elseif ($PinnedAgent -eq "CODEX") {
+        $capabilities["codex"].material = $true
+        if ($codex.capability.status -eq "PASS") {
+            $candidate = [ordered]@{
+                product = "CODEX"
+                model_policy = "PINNED"
+                model = "gpt-6.1-sol"
+                auto_tier = $null
+                reasoning_effort = "medium"
+                permission_profile = "FULL_ACCESS"
+            }
+        }
+    }
+} elseif ($copilot.capability.status -eq "PASS") {
     $candidate = [ordered]@{
         product = "COPILOT"
         model_policy = "NATIVE_AUTO"
@@ -297,12 +326,33 @@ if ($copilot.capability.status -eq "PASS") {
     }
 }
 
-if (-not $candidate) {
+if ($candidate) {
+    $capabilities["eligible_agent_route"] = New-Capability -Status "PASS" -Material $true -Version $null -Executable $null -ExitCode 0 -FailureClass $null -Evidence ("eligible implementation route proven: " + $candidate.product)
+} else {
+    $capabilities["eligible_agent_route"] = New-Capability -Status "FAIL" -Material $true -Version $null -Executable $null -ExitCode $null -FailureClass "NO_ELIGIBLE_AGENT_ROUTE" -Evidence "no allowed Agent route proved current execution readiness"
+
+    $blockers += [ordered]@{
+        code = "NO_ELIGIBLE_AGENT_ROUTE"
+        class = "CAPABILITY"
+        material = $true
+        sanitized_detail = $(if($PinnedAgent){ "pinned Agent did not prove current execution readiness" }else{ "no allowed candidate passed current execution probe" })
+    }
+
     if ($copilot.capability.status -ne "PASS") {
-        $blockers += [ordered]@{code="COPILOT_EXECUTION_NOT_PROVEN";class=$(if($copilot.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($copilot.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"});material=$true;sanitized_detail=$copilot.capability.failure_class}
+        $blockers += [ordered]@{
+            code = "COPILOT_EXECUTION_NOT_PROVEN"
+            class = $(if($copilot.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($copilot.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"})
+            material = ($PinnedAgent -eq "COPILOT")
+            sanitized_detail = $copilot.capability.failure_class
+        }
     }
     if ($codex.capability.status -ne "PASS") {
-        $blockers += [ordered]@{code="CODEX_EXECUTION_NOT_PROVEN";class=$(if($codex.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($codex.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"});material=$true;sanitized_detail=$codex.capability.failure_class}
+        $blockers += [ordered]@{
+            code = "CODEX_EXECUTION_NOT_PROVEN"
+            class = $(if($codex.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($codex.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"})
+            material = ($PinnedAgent -eq "CODEX")
+            sanitized_detail = $codex.capability.failure_class
+        }
     }
 }
 
@@ -311,7 +361,8 @@ foreach ($k in @("git","python","pwsh")) {
     if ($capabilities[$k].status -ne "PASS") { $hostMaterialFailed = $true }
 }
 
-$status = if (-not $hostMaterialFailed -and $candidate) { "PASS" } else { "BLOCKED" }
+$agentRouteReady = ($capabilities["eligible_agent_route"].status -eq "PASS")
+$status = if (-not $hostMaterialFailed -and $agentRouteReady -and $candidate) { "PASS" } else { "BLOCKED" }
 
 $taskHash = (Get-FileHash -Algorithm SHA256 $taskPath).Hash.ToLowerInvariant()
 $receipt = [ordered]@{
@@ -358,6 +409,13 @@ if ($receipt.task_branch -ne $Branch) { throw "receipt task_branch mismatch" }
 if ($receipt.source_head -ne $sourceHead) { throw "receipt source_head mismatch" }
 if ($receipt.status -notin @("PASS","BLOCKED","INFRA_FAILED")) { throw "invalid receipt status" }
 if ($receipt.blockers -isnot [System.Array]) { throw "receipt blockers must be an array" }
+if (-not $receipt.capabilities.Contains("eligible_agent_route")) { throw "eligible_agent_route capability missing" }
+if ($receipt.capabilities["eligible_agent_route"].material -ne $true) { throw "eligible_agent_route must be material" }
+if (-not $PinnedAgent) {
+    if ($receipt.capabilities["copilot"].material -ne $false) { throw "Copilot candidate must be non-material when not pinned" }
+    if ($receipt.capabilities["codex"].material -ne $false) { throw "Codex candidate must be non-material when not pinned" }
+}
+
 foreach ($capabilityName in $receipt.capabilities.Keys) {
     $fc = $receipt.capabilities[$capabilityName].failure_class
     if ($null -ne $fc -and [string]::IsNullOrWhiteSpace([string]$fc)) {
