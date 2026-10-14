@@ -50,6 +50,17 @@ function Require-Command {
     return $cmd.Source
 }
 
+function Classify-AgentFailure {
+    param([string]$Text,[int]$ExitCode,[bool]$Marker)
+    $t = $Text.ToLowerInvariant()
+    if ($t -match "auth|login|unauthorized|forbidden") { return "AUTH_REQUIRED" }
+    if ($t -match "quota|rate.?limit|capacity|exhaust|insufficient") { return "CAPACITY_OR_QUOTA" }
+    if ($t -match "unknown model|unsupported model|invalid.*model|model_reasoning") { return "MODEL_OR_CONFIG_UNSUPPORTED" }
+    if ($t -match "sandbox|approval|allow-all|permission|unknown option|unrecognized option") { return "PERMISSION_OR_CLI_ARGS" }
+    if ($ExitCode -eq 0 -and -not $Marker) { return "RESPONSE_MARKER_MISSING" }
+    return "CLI_NONZERO"
+}
+
 function Write-Receipt {
     param([object]$Receipt,[string]$Path)
     $parent = Split-Path -Parent $Path
@@ -108,9 +119,12 @@ if ($codex) {
     $codexResult.version = ((& $codex.Source --version 2>&1 | Out-String).Trim())
     $codexArgs = @("--ask-for-approval","never","exec","--sandbox","danger-full-access","--json","--model","gpt-6.1-sol","-c","model_reasoning_effort=`"low`"","-")
     $out = ($probePrompt | & $codex.Source @codexArgs 2>&1 | Out-String)
-    $ok = ($LASTEXITCODE -eq 0 -and $out -match "FOX2_PREFLIGHT_OK")
+    $codexExit = $LASTEXITCODE
+    $ok = ($codexExit -eq 0 -and $out -match "FOX2_PREFLIGHT_OK")
     $codexResult.status = if ($ok) { "PASS" } else { "FAIL" }
     $codexResult.output_marker = $ok
+    $codexResult.exit_code = $codexExit
+    $codexResult.failure_class = if ($ok) { $null } else { Classify-AgentFailure -Text $out -ExitCode $codexExit -Marker $ok }
     if ($ok) {
         $selected = "CODEX"
         $route = [ordered]@{ model_policy="PINNED"; auto_tier=$null; model="gpt-6.1-sol"; reasoning_effort="medium"; permission_profile="FULL_ACCESS" }
@@ -121,9 +135,12 @@ if (-not $selected -and $copilot) {
     $copilotResult.version = ((& $copilot.Source --version 2>&1 | Out-String).Trim())
     $copilotArgs = @("-C",$Worktree,"--prompt",$probePrompt,"--allow-all-tools","--allow-all-paths","--allow-all-urls","--model","auto","--no-ask-user","--output-format","json","--auto-tier","balance")
     $out = (& $copilot.Source @copilotArgs 2>&1 | Out-String)
-    $ok = ($LASTEXITCODE -eq 0 -and $out -match "FOX2_PREFLIGHT_OK")
+    $copilotExit = $LASTEXITCODE
+    $ok = ($copilotExit -eq 0 -and $out -match "FOX2_PREFLIGHT_OK")
     $copilotResult.status = if ($ok) { "PASS" } else { "FAIL" }
     $copilotResult.output_marker = $ok
+    $copilotResult.exit_code = $copilotExit
+    $copilotResult.failure_class = if ($ok) { $null } else { Classify-AgentFailure -Text $out -ExitCode $copilotExit -Marker $ok }
     if ($ok) {
         $selected = "COPILOT"
         $route = [ordered]@{ model_policy="NATIVE_AUTO"; auto_tier="balance"; model="auto"; reasoning_effort=$null; permission_profile="FULL_ACCESS" }
