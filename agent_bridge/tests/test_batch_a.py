@@ -100,11 +100,13 @@ def test_batch_post_start_zero_exit_capacity_never_publishes(bridge_config, monk
         from test_project_dictionary import bound_dispatch
         payload = bound_dispatch(payload, schema)
     raw = json.dumps(payload).encode()
+    dispatch_id = payload['dispatch_id']
+    dispatch_path = 'docs/agent_handoff/DISPATCH/' + dispatch_id + '.json'
     transport = SimpleNamespace(query_control_sha=lambda _: 'c'*40,fetch_control=lambda *_:None,
         read_dispatch_blob=lambda *_:(raw,'d'*40))
     runner=BridgeE2ERunner(bridge_config,ledger,transport=transport)
     monkeypatch.setattr('fox2_agent_bridge.e2e_runner.DispatchPoller.poll_once',lambda _:SimpleNamespace(status='NO_CHANGE'))
-    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+    payload = runner._validate_dispatch(raw, dispatch_path=dispatch_path, observed_blob_sha='d'*40)
     monkeypatch.setattr(runner,'_resolve_worktree',lambda _:(Path(payload['worktree']),'a'*40))
     monkeypatch.setattr(runner,'_resolve_prompt',lambda _:'fixture')
     monkeypatch.setattr(runner,'_prepare_required_parents',lambda **_:None)
@@ -122,13 +124,13 @@ def test_batch_post_start_zero_exit_capacity_never_publishes(bridge_config, monk
     monkeypatch.setattr(CopilotAdapter if product=='CODEX' else CodexAdapter,'run_prompt',
                         lambda *_a,**_k:pytest.fail('Agent substitution'))
     with pytest.raises(ToolExecFailed,match='post-start'):
-        runner.run_once(dispatch_path='docs/agent_handoff/DISPATCH/exact.json')
-    state=SQLiteLedger(bridge_config.database_path).dispatch_status('exact')
+        runner.run_once(dispatch_path=dispatch_path)
+    state=SQLiteLedger(bridge_config.database_path).dispatch_status(dispatch_id)
     assert state['dispatch_state']==state['execution_state']=='NEEDS_RECONCILIATION'
     assert state['checkpoint']['agent_metadata']['usage']['output_tokens']==7
     assert reconcile(ledger,runner)==[]
     with pytest.raises(ReplayBlocked):
-        runner.run_once(dispatch_path='docs/agent_handoff/DISPATCH/exact.json')
+        runner.run_once(dispatch_path=dispatch_path)
     assert calls==[product]
 
 

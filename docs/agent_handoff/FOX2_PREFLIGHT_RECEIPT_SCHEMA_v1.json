@@ -1,0 +1,325 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fox2.local/schemas/preflight-receipt-v1.json",
+  "title": "FOX2 Preflight Receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_type",
+    "project",
+    "wp_id",
+    "checked_at",
+    "task_branch",
+    "source_head",
+    "status",
+    "capabilities",
+    "blockers",
+    "worktree",
+    "dispatch_state",
+    "agent_execution_started"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "receipt_type": {
+      "const": "FOX2_PREEXEC_RECEIPT"
+    },
+    "project": {
+      "const": "FOX2"
+    },
+    "wp_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "task_branch": {
+      "type": "string",
+      "pattern": "^work/FOX2-[A-Za-z0-9._/-]+$",
+      "maxLength": 240
+    },
+    "receipt_path": {
+      "type": "string",
+      "pattern": "^reports/.+/preexec/.+\\.json$",
+      "maxLength": 300
+    },
+    "source_head": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "task_source": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "git_path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "git_commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "INFRA_FAILED"
+      ]
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "MISSING",
+              "UNKNOWN",
+              "NOT_RUN",
+              "DEGRADED"
+            ]
+          },
+          "material": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 240
+          },
+          "executable": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "exit_code": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "failure_class": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Z0-9_:-]{1,120}$"
+          },
+          "evidence": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "class",
+          "material"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[A-Z0-9_:-]{1,120}$"
+          },
+          "class": {
+            "enum": [
+              "CAPABILITY",
+              "AUTH",
+              "CAPACITY",
+              "PERMISSION",
+              "WORKTREE",
+              "SOURCE",
+              "GIT",
+              "SERIALIZATION",
+              "TOOLING",
+              "OTHER"
+            ]
+          },
+          "material": {
+            "type": "boolean"
+          },
+          "sanitized_detail": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "worktree": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "path",
+        "competing_writer"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "BLOCKED",
+            "UNKNOWN",
+            "INFRA_FAILED"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "competing_writer": {
+          "enum": [
+            "NONE_OBSERVED",
+            "PRESENT",
+            "UNKNOWN"
+          ]
+        },
+        "stale_receipt_cleanup": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "SAFE_ONLY",
+            "NOT_NEEDED",
+            "NOT_RUN",
+            null
+          ]
+        }
+      }
+    },
+    "candidate_route": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "product",
+        "model_policy",
+        "permission_profile"
+      ],
+      "properties": {
+        "product": {
+          "enum": [
+            "CODEX",
+            "COPILOT"
+          ]
+        },
+        "model_policy": {
+          "enum": [
+            "PINNED",
+            "NATIVE_AUTO",
+            "CURRENT_CONFIG",
+            "PINNED_PREFERRED"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 120
+        },
+        "auto_tier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "efficiency",
+            "balance",
+            "intelligence",
+            null
+          ]
+        },
+        "reasoning_effort": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            null
+          ]
+        },
+        "permission_profile": {
+          "enum": [
+            "FULL_ACCESS",
+            "BOUNDED_EXPLICIT"
+          ]
+        }
+      }
+    },
+    "dispatch_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "executable_dispatch_published",
+        "dispatch_consumed"
+      ],
+      "properties": {
+        "executable_dispatch_published": {
+          "const": false
+        },
+        "dispatch_consumed": {
+          "const": false
+        }
+      }
+    },
+    "agent_execution_started": {
+      "const": false
+    },
+    "notes": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      },
+      "maxItems": 20
+    }
+  }
+}

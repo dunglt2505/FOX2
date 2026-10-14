@@ -25,7 +25,9 @@ def bound_dispatch(legacy, schema='3.0'):
     policy = registry.CURRENT['policy'] if schema == '3.0' else {
         'version': '1.8.6', 'path': 'docs/governance/FOX2_POLICY_V1.8.6.md'}
     return {'schema_version': schema, 'project': registry.PROJECT_ID,
-            'dispatch_id': legacy['dispatch_id'], 'wp_id': legacy['wp_id'],
+            'dispatch_id': ('FOX2-DISPATCH-' + legacy['dispatch_id']
+                            if schema == '3.0' and not legacy['dispatch_id'].startswith('FOX2-DISPATCH-')
+                            else legacy['dispatch_id']), 'wp_id': legacy['wp_id'],
             'dispatch_action': 'EXECUTE_LOCAL_AGENT', 'workspace_id': registry.WORKSPACE_ID,
             'target_agent': product, 'routing': routing, 'execution_path': 'BRIDGE',
             'delivery_owner': legacy.get('delivery_owner', 'BRIDGE'), 'max_runs': 1,
@@ -91,7 +93,7 @@ def validation(bridge_config):
     runner = BridgeE2ERunner(bridge_config, ledger)
     def validate(payload, filename=None):
         return runner._validate_dispatch(json.dumps(payload).encode(),
-            dispatch_path='docs/agent_handoff/DISPATCH/' + (filename or payload['dispatch_id']) + '.json',
+            dispatch_path='docs/agent_handoff/DISPATCH/' + (filename or payload.get('dispatch_id', 'FOX2-DISPATCH-MISSING')) + '.json',
             observed_blob_sha='e'*40)
     return validate
 

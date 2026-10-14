@@ -1,0 +1,415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+  "title": "FOX2 Local Agent Dispatch v3 — Project Dictionary Bound",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project",
+    "dispatch_id",
+    "dispatch_action",
+    "wp_id",
+    "target_agent",
+    "workspace_id",
+    "dictionary",
+    "policy",
+    "task",
+    "prompt",
+    "source",
+    "routing",
+    "execution_path",
+    "delivery_owner",
+    "permissions",
+    "decision_receipt",
+    "runtime_contract",
+    "required_tests",
+    "created_by",
+    "created_at",
+    "max_runs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "project": {
+      "const": "FOX2"
+    },
+    "dispatch_id": {
+      "type": "string",
+      "pattern": "^FOX2-DISPATCH-[A-Za-z0-9._-]+$"
+    },
+    "dispatch_action": {
+      "const": "EXECUTE_LOCAL_AGENT"
+    },
+    "wp_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_agent": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "workspace_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "dictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "git_path",
+        "git_commit_sha",
+        "sha256"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "git_path": {
+          "const": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json"
+        },
+        "git_commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "sha256",
+        "git_path",
+        "git_commit_sha"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "git_path": {
+          "type": "string",
+          "pattern": "^docs/governance/FOX2_POLICY_V[0-9A-Za-z._-]+\\.md$"
+        },
+        "git_commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "commit_sha",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^docs/agent_handoff/.+/task\\.md$"
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "git_commit",
+        "git_blob_sha1",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^docs/agent_handoff/.+"
+        },
+        "git_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "git_blob_sha1": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "commit_sha",
+        "git_source_ready"
+      ],
+      "properties": {
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "git_source_ready": {
+          "const": "YES"
+        }
+      }
+    },
+    "routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_policy",
+        "permission_profile"
+      ],
+      "properties": {
+        "model_policy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "auto_tier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 64
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 256
+        },
+        "reasoning_effort": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 64
+        },
+        "permission_profile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    },
+    "execution_path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "delivery_owner": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code_allowed",
+        "git_code_push",
+        "git_report_write",
+        "git_report_push",
+        "pr_create",
+        "merge_allowed",
+        "production_provider",
+        "broker_write",
+        "live"
+      ],
+      "properties": {
+        "code_allowed": {
+          "type": "boolean"
+        },
+        "git_code_push": {
+          "type": "boolean"
+        },
+        "git_report_write": {
+          "type": "boolean"
+        },
+        "git_report_push": {
+          "type": "boolean"
+        },
+        "pr_create": {
+          "const": false
+        },
+        "merge_allowed": {
+          "const": false
+        },
+        "production_provider": {
+          "const": false
+        },
+        "broker_write": {
+          "const": false
+        },
+        "live": {
+          "const": false
+        }
+      }
+    },
+    "decision_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_check",
+        "task_state_check",
+        "source_binding_check",
+        "routing_r0_r7",
+        "assignment_check",
+        "material_capability_check",
+        "execution_authorized",
+        "code_allowed",
+        "dev_grant_ref"
+      ],
+      "properties": {
+        "policy_check": {
+          "const": "PASS"
+        },
+        "task_state_check": {
+          "const": "PASS"
+        },
+        "source_binding_check": {
+          "const": "PASS"
+        },
+        "routing_r0_r7": {
+          "const": "PASS"
+        },
+        "assignment_check": {
+          "const": "PASS"
+        },
+        "material_capability_check": {
+          "enum": [
+            "PASS",
+            "PASS_NON_MATERIAL_DEVIATION"
+          ]
+        },
+        "execution_authorized": {
+          "const": "YES"
+        },
+        "code_allowed": {
+          "const": "YES"
+        },
+        "dev_grant_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "runtime_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repo",
+        "branch",
+        "worktree",
+        "base_sha",
+        "allowed_code_paths",
+        "allowed_report_paths",
+        "required_capabilities",
+        "stop_conditions"
+      ],
+      "properties": {
+        "repo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "branch": {
+          "type": "string",
+          "pattern": "^work/[A-Za-z0-9._/-]+$"
+        },
+        "worktree": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "allowed_code_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "allowed_report_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "required_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "stop_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "required_tests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "created_by": {
+      "const": "CHAT"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "max_runs": {
+      "const": 1
+    },
+    "retry_of_dispatch_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^FOX2-DISPATCH-[A-Za-z0-9._-]+$"
+    }
+  }
+}
