@@ -91,9 +91,11 @@ The SQLite ledger persists dispatch and execution state. Typical terminal
 states are:
 
 - `PUSHED_UNREVIEWED`: agent result was committed, pushed, and verified.
-- `FAILED`: execution or verification failed.
-- `INTERRUPTED`: execution was interrupted locally or recovered on next
-  Bridge startup after the previous Bridge process ended.
+- `FAILED`: a definitive pre-spawn failure proves the Agent never started.
+- `NEEDS_RECONCILIATION`: execution started or is uncertain, including an Agent
+  returning non-zero after launch. The consumed dispatch cannot be replayed and
+  another Agent is never substituted.
+- `SAFE_NOT_STARTED`: restart recovery found a proven pre-launch claim.
 
 An interrupted single-use dispatch is not automatically retried. A new
 dispatch id is required.
@@ -162,7 +164,9 @@ current-user interactive logon task with Limited privileges and no password.
 Recovery never grants replay based on age. A pre-launch checkpoint becomes
 `SAFE_NOT_STARTED` with the original claim retained. Uncertain execution becomes
 `NEEDS_RECONCILIATION`; use a fresh authorized dispatch or explicit safe recovery
-review, never delete the ledger or reuse a consumed identity. After Agent exit,
+review, never delete the ledger or reuse a consumed identity. Non-zero exits retain
+stdout, stderr, exit code, metadata and worktree identity in the checkpoint/result;
+quota diagnostics grant neither replay nor Agent substitution. After a zero exit,
 recovery verifies the exact branch, local cleanliness, base ancestry, remote HEAD,
 write scope and acceptance evidence. A durable expected publication SHA must match.
 
@@ -182,4 +186,3 @@ Deterministic tests use fake Agents and mocked startup registration. Poller test
 use real local Git histories with simulated file-remote transport in the managed
 Windows sandbox. Manual Tray usability, real Windows logon and paid Agent canaries
 must be recorded separately; these unit tests do not certify them.
-

@@ -56,7 +56,7 @@ def reconcile(ledger: SQLiteLedger, runner: BridgeE2ERunner | None) -> list[dict
             # Durable launch intent is written before spawning. Preserve the claim;
             # elapsed time never grants a replay and max_runs=1 remains enforced.
             state = 'SAFE_NOT_STARTED'
-        elif row['stage'] in {'AGENT_EXITED', 'PUBLISHING'}:
+        elif row['stage'] in {'AGENT_EXITED', 'PUBLISHING'} and context.get('agent_exit_code', 0) == 0:
             try:
                 if runner is None:
                     raise ValueError('remote verifier unavailable')

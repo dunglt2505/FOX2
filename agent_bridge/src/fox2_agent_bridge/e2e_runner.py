@@ -849,15 +849,17 @@ class BridgeE2ERunner:
                     heartbeat_seconds=10,
                     selection=payload['agent'],
                 )
+                checkpoint.update(agent_stdout=agent_result.stdout,
+                                  agent_stderr=agent_result.stderr,
+                                  agent_exit_code=agent_result.exit_code,
+                                  agent_metadata=getattr(agent_result, 'metadata', None))
+                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
                 if agent_result.exit_code != 0:
                     raise ToolExecFailed(
                         "Codex CLI returned non-zero exit code "
                         f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                     )
                 self._progress(f"Codex exited: {agent_result.exit_code}")
-                checkpoint.update(agent_stdout=agent_result.stdout,
-                                  agent_metadata=getattr(agent_result, 'metadata', None))
-                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
                 self._progress("Bridge verifies, commits, and pushes Codex result")
                 self.ledger.checkpoint(execution_id, 'PUBLISHING', checkpoint)
                 after_head, changed_paths = self._commit_and_push_codex_result(
@@ -886,15 +888,17 @@ class BridgeE2ERunner:
                     heartbeat_seconds=10,
                     selection=payload['agent'],
                 )
+                checkpoint.update(agent_stdout=agent_result.stdout,
+                                  agent_stderr=agent_result.stderr,
+                                  agent_exit_code=agent_result.exit_code,
+                                  agent_metadata=getattr(agent_result, 'metadata', None))
+                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
                 if agent_result.exit_code != 0:
                     raise ToolExecFailed(
                         "Copilot CLI returned non-zero exit code "
                         f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                     )
                 self._progress(f"Copilot exited: {agent_result.exit_code}")
-                checkpoint.update(agent_stdout=agent_result.stdout,
-                                  agent_metadata=getattr(agent_result, 'metadata', None))
-                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
                 self._progress("Bridge verifies, commits, and pushes Copilot result")
                 self.ledger.checkpoint(execution_id, 'PUBLISHING', checkpoint)
                 after_head, changed_paths = self._commit_and_push_codex_result(
@@ -983,12 +987,14 @@ class BridgeE2ERunner:
 
             pending = self.ledger.pending_executions()
             stage = next((row['stage'] for row in pending if row['execution_id'] == execution_id), 'UNKNOWN')
-            uncertain = stage == 'PUBLISHING' or (agent_result is None and not isinstance(exc, (AgentNotStarted, ToolNotFound, AuthUnavailable)))
+            nonzero_after_start = agent_result is not None and agent_result.exit_code != 0
+            uncertain = nonzero_after_start or stage == 'PUBLISHING' or (agent_result is None and not isinstance(exc, (AgentNotStarted, ToolNotFound, AuthUnavailable)))
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
                 dispatch_state="NEEDS_RECONCILIATION" if uncertain else "FAILED",
-                execution_state="RUNNING" if uncertain else "FAILED",
+                execution_state=("NEEDS_RECONCILIATION" if nonzero_after_start
+                                 else "RUNNING" if uncertain else "FAILED"),
                 finished_at_utc=finished,
                 result=failure_result,
                 error_code=error_code,

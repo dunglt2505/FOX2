@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Callable, TextIO
 
 from .config import BridgeConfig
-from .errors import PathInvalid, ToolExecFailed, ToolNotFound
+from .errors import AgentNotStarted, PathInvalid, ToolExecFailed, ToolNotFound
 from .paths import validate_path
 from .agent_policy import help_text, policy_arguments, observe_metadata
 from .logging_config import redact_context
@@ -171,7 +171,7 @@ class CodexAdapter:
                 env=environment,
             )
         except OSError as exc:
-            raise ToolExecFailed(
+            raise AgentNotStarted(
                 f"Codex CLI failed to start: {type(exc).__name__}"
             ) from exc
 

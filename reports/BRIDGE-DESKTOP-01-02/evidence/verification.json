@@ -1,0 +1,56 @@
+{
+  "verified_at_utc": "2026-10-14T07:11:05.207326+00:00",
+  "status": "PASS",
+  "head": "ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex",
+  "work_package": "BRIDGE-DESKTOP-01-02-FIX-01",
+  "source_lock_blob": "6683781beb03a9c7deea9260c2d6553798e298ad",
+  "changed_path_allowlist": "PASS",
+  "changed_paths": [
+    "agent_bridge/README.md",
+    "agent_bridge/scripts/validate_desktop_delivery.py",
+    "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
+    "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
+    "agent_bridge/src/fox2_agent_bridge/desktop.py",
+    "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+    "agent_bridge/tests/test_e2e_runner.py",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/pytest-preliminary.txt",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.txt",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+    "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json",
+    "reports/BRIDGE-DESKTOP-01-02/report.md"
+  ],
+  "git_diff_check": "PASS",
+  "task_index_unstaged": "PASS",
+  "report_secret_scan": "PASS",
+  "secret_scan_files": [
+    "reports/BRIDGE-DESKTOP-01-02/evidence/pytest-preliminary.txt",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.txt",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml",
+    "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+    "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json",
+    "reports/BRIDGE-DESKTOP-01-02/report.md"
+  ],
+  "python_runtime": "3.13.15",
+  "python_executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "fix_01_checks": {
+    "FULL_TESTS": "PASS",
+    "NONZERO_AFTER_AGENT_START": "NEEDS_RECONCILIATION",
+    "DISPATCH_REPLAY_AFTER_NONZERO": "BLOCKED",
+    "NO_AGENT_SUBSTITUTION": "PASS",
+    "PRESPAWN_FAILURE_SEMANTICS": "PASS",
+    "GIT_DIFF_CHECK": "PASS",
+    "DELIVERY_VALIDATOR": "PASS",
+    "EVIDENCE_MANIFEST": "PRESENT_VALID",
+    "VERIFICATION_JSON": "PRESENT_VALID",
+    "REPORT_STATE": "CONSISTENT",
+    "OUT_OF_SCOPE_CHANGES": 0
+  },
+  "pytest": {
+    "tests": "134",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  }
+}

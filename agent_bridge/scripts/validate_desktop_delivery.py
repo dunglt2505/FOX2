@@ -5,11 +5,14 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
 REPORT = ROOT / 'reports/BRIDGE-DESKTOP-01-02'
-EXPECTED_HEAD = '4778d78a11e844b6938157fcb0532664169a68d3'
+EXPECTED_HEAD = 'ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a'
+EXPECTED_BRANCH = 'work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex'
+PARENT_RECOVERY_PUBLICATION_SHA = '3497356d5fc74785ab3377c1a49ea5330c0dab13'
 LOCK = 'docs/agent_handoff/BRIDGE/FOX2_BRIDGE_DESKTOP_01_02_SOURCE_DESIGN_LOCK_20261014.md'
 EXPECTED_BLOB = '6683781beb03a9c7deea9260c2d6553798e298ad'
 ALLOW = ('agent_bridge/', 'reports/BRIDGE-DESKTOP-01-02/')
@@ -26,10 +29,15 @@ def sha(path):
 def main():
     changed = set(filter(None, git('diff','--name-only','-z').decode().split('\0')))
     changed.update(filter(None,git('ls-files','--others','--exclude-standard','-z').decode().split('\0')))
+    # Required evidence remains in the manifest even if an artifact is unchanged.
+    for name in ('report.md', 'evidence/pytest.xml', 'evidence/pytest.txt'):
+        assert (REPORT / name).is_file(), f'missing required evidence: {name}'
+        changed.add((REPORT / name).relative_to(ROOT).as_posix())
     changed.add('reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json')
     changed.add('reports/BRIDGE-DESKTOP-01-02/evidence/verification.json')
     assert all(path.startswith(ALLOW) for path in changed), 'changed path outside exact allowlist'
     assert git('rev-parse','HEAD').decode().strip() == EXPECTED_HEAD
+    assert git('branch','--show-current').decode().strip() == EXPECTED_BRANCH
     assert git('hash-object',LOCK).decode().strip() == EXPECTED_BLOB
     assert not git('diff','--cached','--name-only'), 'task index must remain unstaged'
     git('diff','--check')
@@ -48,24 +56,46 @@ def main():
     suite=ET.parse(REPORT/'evidence/pytest.xml').getroot().find('testsuite')
     assert suite is not None and suite.attrib['failures'] == '0' and suite.attrib['errors'] == '0'
     assert suite.attrib['skipped'] == '0'
+    assert int(suite.attrib['tests']) >= 134, 'full Bridge suite evidence required'
+    for name, count in (('test_nonzero_after_agent_start_needs_reconciliation', 4),
+                        ('test_proven_prespawn_failure_remains_terminal', 6),
+                        ('test_restart_after_nonzero_exit_checkpoint_never_publishes', 4)):
+        assert sum(case.attrib['name'].split('[')[0] == name
+                   for case in suite.findall('testcase')) == count, f'missing FIX-01 regressions: {name}'
+    report = (REPORT / 'report.md').read_text(encoding='utf-8')
+    for identity in (EXPECTED_HEAD, EXPECTED_BRANCH, PARENT_RECOVERY_PUBLICATION_SHA,
+                     'BRIDGE-DESKTOP-01-02-FIX-01'):
+        assert identity in report, 'FIX-01 report identity mismatch'
+    assert f"Final full-suite outcome: **{suite.attrib['tests']} passed**" in report, 'report test count mismatch'
     now=datetime.now(UTC).isoformat()
-    verification={'verified_at_utc':now,'status':'PASS','head':EXPECTED_HEAD,'source_lock_blob':EXPECTED_BLOB,
+    verification={'verified_at_utc':now,'status':'PASS','head':EXPECTED_HEAD,'branch':EXPECTED_BRANCH,
+                  'work_package':'BRIDGE-DESKTOP-01-02-FIX-01','source_lock_blob':EXPECTED_BLOB,
                   'changed_path_allowlist':'PASS','changed_paths':sorted(changed),'git_diff_check':'PASS',
                   'task_index_unstaged':'PASS','report_secret_scan':'PASS','secret_scan_files':sorted(scanned),
+                  'python_runtime':sys.version.split()[0], 'python_executable':sys.executable,
+                  'fix_01_checks':{'FULL_TESTS':'PASS',
+                      'NONZERO_AFTER_AGENT_START':'NEEDS_RECONCILIATION',
+                      'DISPATCH_REPLAY_AFTER_NONZERO':'BLOCKED', 'NO_AGENT_SUBSTITUTION':'PASS',
+                      'PRESPAWN_FAILURE_SEMANTICS':'PASS', 'GIT_DIFF_CHECK':'PASS',
+                      'DELIVERY_VALIDATOR':'PASS', 'EVIDENCE_MANIFEST':'PRESENT_VALID',
+                      'VERIFICATION_JSON':'PRESENT_VALID', 'REPORT_STATE':'CONSISTENT',
+                      'OUT_OF_SCOPE_CHANGES':0},
                   'pytest':{key:suite.attrib[key] for key in ('tests','failures','errors','skipped')}}
-    (REPORT/'evidence/verification.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8')
+    (REPORT/'evidence/verification.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8',newline='\n')
     files=[{'path':path,'sha256':sha(ROOT/path)} for path in sorted(changed)
            if (ROOT/path).is_file() and path != 'reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json']
-    manifest={'schema_version':1,'dispatch_id':'FOX2-BRIDGE-DESKTOP-01-02-CODEX-002',
-              'work_package':'BRIDGE-DESKTOP-01-02','delivery_status':'LOCAL_DELIVERY_READY_BRIDGE_PUBLICATION_PENDING',
-              'generated_at_utc':now,'base_sha':EXPECTED_HEAD,'source_lock_blob':EXPECTED_BLOB,
+    manifest={'schema_version':1,
+              'work_package':'BRIDGE-DESKTOP-01-02-FIX-01','delivery_status':'LOCAL_DELIVERY_READY_BRIDGE_PUBLICATION_PENDING',
+              'generated_at_utc':now,'base_sha':EXPECTED_HEAD,'branch':EXPECTED_BRANCH,
+              'parent_recovery_publication_sha':PARENT_RECOVERY_PUBLICATION_SHA,
+              'source_lock_blob':EXPECTED_BLOB,
               'allowed_write_scope':['agent_bridge/**','reports/BRIDGE-DESKTOP-01-02/**'],
               'verification':verification,'files':files,'manifest_self_hash':'EXCLUDED',
               'evidence_classes':{'regression':'UNIT_LOCAL','poller_remote_transport':'SIMULATED_WITH_REAL_GIT_HISTORY',
-                                 'agent_execution':'FAKE_AGENT','recovery_remote_result':'SIMULATED_VERIFIER',
+                                 'agent_execution':'FAKE_AGENT_WITH_REAL_LOCAL_CHILD_NONZERO_REGRESSIONS','recovery_remote_result':'SIMULATED_VERIFIER',
                                  'powershell_dotnet':'REAL_HEADLESS_CONSTRUCTION_AND_PARSE',
                                  'startup':'MOCKED_SCHEDULER_CMDS_EXECUTED_IN_POWERSHELL'},
-              'not_run':['REAL_WINDOWS_LOGON','MANUAL_TRAY_INTERACTION','NORMAL_HIDDEN_LAUNCH_USABILITY',
+              'not_run':['DECLARED_PYTHON_3_13_RUNTIME_VALIDATION','REAL_WINDOWS_LOGON','MANUAL_TRAY_INTERACTION','NORMAL_HIDDEN_LAUNCH_USABILITY',
                          'MANUAL_PAID_AGENT_CANARIES','ACTUAL_CLI_AUTO_MODEL_TIER_CREDIT_CANARY',
                          'DESKTOP_03_SETUP_INSTALL_UPDATE_UNINSTALL','T21_T22_GENERIC_COMMUNITY_RELEASE'],
               'auto_tier_status':'AUTO_TIER_NOT_ENFORCED','quota_status':'NOT_EXPOSED',
@@ -73,7 +103,7 @@ def main():
                                         'T13','T14','T15','T16','T17','T20'],
               'acceptance_real_world_certification':'NOT_CLAIMED','git_publication_owner':'BRIDGE',
               'post_delivery_review_owner':'CHAT'}
-    (REPORT/'evidence_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+    (REPORT/'evidence_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
     # Scan the completed outputs too, including the manifest and verification.
     for name in scanned:
         content=(ROOT/name).read_text(encoding='utf-8')

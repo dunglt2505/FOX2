@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "work_package": "BRIDGE-DESKTOP-01-02-FIX-01",
+  "delivery_status": "LOCAL_DELIVERY_READY_BRIDGE_PUBLICATION_PENDING",
+  "generated_at_utc": "2026-10-14T07:11:05.207326+00:00",
+  "base_sha": "ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex",
+  "parent_recovery_publication_sha": "3497356d5fc74785ab3377c1a49ea5330c0dab13",
+  "source_lock_blob": "6683781beb03a9c7deea9260c2d6553798e298ad",
+  "allowed_write_scope": [
+    "agent_bridge/**",
+    "reports/BRIDGE-DESKTOP-01-02/**"
+  ],
+  "verification": {
+    "verified_at_utc": "2026-10-14T07:11:05.207326+00:00",
+    "status": "PASS",
+    "head": "ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex",
+    "work_package": "BRIDGE-DESKTOP-01-02-FIX-01",
+    "source_lock_blob": "6683781beb03a9c7deea9260c2d6553798e298ad",
+    "changed_path_allowlist": "PASS",
+    "changed_paths": [
+      "agent_bridge/README.md",
+      "agent_bridge/scripts/validate_desktop_delivery.py",
+      "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
+      "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
+      "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "agent_bridge/tests/test_e2e_runner.py",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest-preliminary.txt",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.txt",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+      "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json",
+      "reports/BRIDGE-DESKTOP-01-02/report.md"
+    ],
+    "git_diff_check": "PASS",
+    "task_index_unstaged": "PASS",
+    "report_secret_scan": "PASS",
+    "secret_scan_files": [
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest-preliminary.txt",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.txt",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+      "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json",
+      "reports/BRIDGE-DESKTOP-01-02/report.md"
+    ],
+    "python_runtime": "3.13.15",
+    "python_executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "fix_01_checks": {
+      "FULL_TESTS": "PASS",
+      "NONZERO_AFTER_AGENT_START": "NEEDS_RECONCILIATION",
+      "DISPATCH_REPLAY_AFTER_NONZERO": "BLOCKED",
+      "NO_AGENT_SUBSTITUTION": "PASS",
+      "PRESPAWN_FAILURE_SEMANTICS": "PASS",
+      "GIT_DIFF_CHECK": "PASS",
+      "DELIVERY_VALIDATOR": "PASS",
+      "EVIDENCE_MANIFEST": "PRESENT_VALID",
+      "VERIFICATION_JSON": "PRESENT_VALID",
+      "REPORT_STATE": "CONSISTENT",
+      "OUT_OF_SCOPE_CHANGES": 0
+    },
+    "pytest": {
+      "tests": "134",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  },
+  "files": [
+    {
+      "path": "agent_bridge/README.md",
+      "sha256": "601bc9952a9e1ace96ef05eceb4c88fb3d4e5f301b498a551f07d68cdc668aed"
+    },
+    {
+      "path": "agent_bridge/scripts/validate_desktop_delivery.py",
+      "sha256": "9e8fbf7c266d930cd491de3249f69b17cde1bab0c072827c6dfe0e950c327738"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
+      "sha256": "b81b8dd6c97b097c4cabd6bda84b870e9a2f5ab0419335c89b661c416e13497e"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
+      "sha256": "a1aa3bd429e15697bf4ab2901a16c35af26eddcaa8d2dee8b822d1f776b7e5db"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "sha256": "088d04145bb8c3f4c0746046d55d5cd63aa1e0f90975dcee9a752ce131d0e258"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "sha256": "409d744e12cc933396530cf586000255720b5875b098e780fb536e031f48e633"
+    },
+    {
+      "path": "agent_bridge/tests/test_e2e_runner.py",
+      "sha256": "2fa71c1493dbbca417b34386766192306e25c88c5337f36de8f487183418e121"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-01-02/evidence/pytest-preliminary.txt",
+      "sha256": "91c4edac00b7374958bfdfa1c18adc0c4b711588750e740ffb1a005157866988"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.txt",
+      "sha256": "12c3ab2891f081fca82d62691d05ced876ccf251688c1fc69e6f705056e539a3"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml",
+      "sha256": "8796f1ee368313f0ef9bdfe420928df7c32fb3b69d08632a1a3ad43f6b18407c"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+      "sha256": "e4d38149c04f5e26ffe238bb348d45dbe6a35bb3f3bb9d04b8a76dcf3964662d"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-01-02/report.md",
+      "sha256": "01604a4e785bc2cc3edaa48467176aa1bde23f8a74570afdf4d4d8898705ee8d"
+    }
+  ],
+  "manifest_self_hash": "EXCLUDED",
+  "evidence_classes": {
+    "regression": "UNIT_LOCAL",
+    "poller_remote_transport": "SIMULATED_WITH_REAL_GIT_HISTORY",
+    "agent_execution": "FAKE_AGENT_WITH_REAL_LOCAL_CHILD_NONZERO_REGRESSIONS",
+    "recovery_remote_result": "SIMULATED_VERIFIER",
+    "powershell_dotnet": "REAL_HEADLESS_CONSTRUCTION_AND_PARSE",
+    "startup": "MOCKED_SCHEDULER_CMDS_EXECUTED_IN_POWERSHELL"
+  },
+  "not_run": [
+    "DECLARED_PYTHON_3_13_RUNTIME_VALIDATION",
+    "REAL_WINDOWS_LOGON",
+    "MANUAL_TRAY_INTERACTION",
+    "NORMAL_HIDDEN_LAUNCH_USABILITY",
+    "MANUAL_PAID_AGENT_CANARIES",
+    "ACTUAL_CLI_AUTO_MODEL_TIER_CREDIT_CANARY",
+    "DESKTOP_03_SETUP_INSTALL_UPDATE_UNINSTALL",
+    "T21_T22_GENERIC_COMMUNITY_RELEASE"
+  ],
+  "auto_tier_status": "AUTO_TIER_NOT_ENFORCED",
+  "quota_status": "NOT_EXPOSED",
+  "acceptance_support_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T20"
+  ],
+  "acceptance_real_world_certification": "NOT_CLAIMED",
+  "git_publication_owner": "BRIDGE",
+  "post_delivery_review_owner": "CHAT"
+}
