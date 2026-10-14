@@ -6,7 +6,7 @@ from pathlib import Path
 import pprint
 import subprocess
 
-SOURCE_COMMIT = '28866ee6a61bde3fc3837ebd999c7b470afc7486'
+SOURCE_COMMIT = 'b6918cced1d118dbedbd7cdf86676c16331b9314'
 SOURCE_PATH = 'docs/governance/FOX2_PROJECT_DICTIONARY_v1.json'
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / 'agent_bridge/src/fox2_agent_bridge/project_dictionary.py'
@@ -28,6 +28,18 @@ def generate(raw: bytes) -> bytes:
         'REPOSITORY': dictionary['project']['repository'],
         'WORKSPACE_ID': dictionary['project']['workspace_id'],
         'CURRENT': dictionary['current'],
+        'CURRENT_CONTRACT_SHA256': {
+            key: hashlib.sha256(subprocess.run(
+                ['git', '-C', str(ROOT), 'show',
+                 f'{SOURCE_COMMIT}:{dictionary["current"][key]["path"]}'],
+                capture_output=True, check=True).stdout).hexdigest()
+            for key in ('policy', 'routing_index', 'git_first_protocol',
+                        'preexec_evidence_protocol', 'preflight_receipt_schema', 'chat_preflight_intake')
+        },
+        'PREFLIGHT_RECEIPT_SCHEMA': json.loads(subprocess.run(
+            ['git', '-C', str(ROOT), 'show',
+             f'{SOURCE_COMMIT}:{dictionary["current"]["preflight_receipt_schema"]["path"]}'],
+            capture_output=True, check=True).stdout),
         'CONTROL_BRANCH': dictionary['compatibility']['control_branch']['current'],
         'SUPPORTED_CONTROL_BRANCHES': tuple(dictionary['compatibility']['control_branch']['supported']),
         'CURRENT_DISPATCH_SCHEMA': dictionary['compatibility']['dispatch_schema']['current'],

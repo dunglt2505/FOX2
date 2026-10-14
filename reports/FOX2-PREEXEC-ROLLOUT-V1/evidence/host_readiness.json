@@ -1,0 +1,39 @@
+{
+  "codex": {
+    "evidence": "Bounded readiness observation; raw output omitted.",
+    "exit_code": 0,
+    "failure_class": null,
+    "material": false,
+    "status": "PASS"
+  },
+  "git": {
+    "evidence": "Bounded readiness observation; raw output omitted.",
+    "exit_code": 0,
+    "failure_class": null,
+    "material": true,
+    "status": "PASS"
+  },
+  "purpose": "Minimal host readiness only; no implementation prompt or raw CLI output",
+  "pwsh": {
+    "evidence": "Bounded readiness observation; raw output omitted.",
+    "exit_code": 0,
+    "failure_class": null,
+    "material": true,
+    "status": "PASS"
+  },
+  "python": {
+    "evidence": "Bounded readiness observation; raw output omitted.",
+    "exit_code": 0,
+    "failure_class": null,
+    "material": true,
+    "status": "PASS"
+  },
+  "requested": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "fresh_receipts": [
+    "preexec/app_batch_b.json",
+    "preexec/bridge_batch_b.json"
+  ],
+  "full_suite": "340 passed, zero failures, 179.63 seconds; includes 60 shared PreExec cases",
+  "receipt_limit": "INFRA_FAILED diagnostic snapshots; no task-branch readiness/publication claim",
+  "required_acceptance_evidence": {
+    "ALTERNATIVE_AGENT_ROUTE_MATERIALITY": [
+      "tests/test_preexec.py::test_alternative_agent_route_materiality"
+    ],
+    "APP_THIN_ADAPTER": [
+      "tests/test_preexec.py::test_thin_adapters[FOX2-M1-A-APP-BATCH-B-app]"
+    ],
+    "BRIDGE_THIN_ADAPTER": [
+      "tests/test_preexec.py::test_thin_adapters[FOX2-BRIDGE-DESKTOP-BATCH-B-bridge]"
+    ],
+    "CANONICAL_RECEIPT_TEXT": [
+      "tests/test_preexec.py::test_preflight_durable_statuses",
+      "tests/test_preexec.py::test_cli_failure_snapshot_has_no_pushed_marker"
+    ],
+    "CHANGED_PATH_ALLOWLIST": [
+      "evidence/recovery_security_audit.json"
+    ],
+    "CONCURRENT_WRITER_LOCK_EXCLUSIVITY": [
+      "tests/test_preexec.py::test_concurrent_writer_lock",
+      "tests/test_preexec.py::test_cross_process_lock_exclusivity_and_release",
+      "tests/test_preexec.py::test_lock_release_after_body_failure",
+      "tests/test_preexec.py::test_lock_os_failure_is_safe_and_handle_closes"
+    ],
+    "DISPATCH_V3_FIXTURE_ID_CONFORMANCE": [
+      "evidence/dispatch_fixture_classification.json",
+      "tests/test_project_dictionary.py::test_dictionary_schema_exact_normalized_tuple",
+      "tests/test_project_dictionary.py::test_dictionary_v3_required_fields_fail_closed",
+      "tests/test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed"
+    ],
+    "FULL_BRIDGE_TESTS": [
+      "evidence/full_bridge_tests_final.txt"
+    ],
+    "FULL_SHARED_PREEXEC_TESTS": [
+      "evidence/full_bridge_tests_final.txt"
+    ],
+    "GIT_DIFF_CHECK": [
+      "evidence/final_validation.json"
+    ],
+    "NO_AGENT_SUBSTITUTION": [
+      "tests/test_preexec.py::test_no_agent_substitution_exact_probe_arguments",
+      "tests/test_preexec.py::test_success_marker_cannot_override_structured_probe_failure"
+    ],
+    "NO_DISPATCH_BEFORE_PASS": [
+      "tests/test_preexec.py::test_preflight_durable_statuses"
+    ],
+    "NO_FALSE_PUSHED_MARKER": [
+      "tests/test_preexec.py::test_no_false_pushed_marker_on_publication_failure",
+      "tests/test_preexec.py::test_cli_snapshot_cannot_return_durable_publication_exit_code",
+      "tests/test_preexec.py::test_commit_hook_mutation_never_reaches_push"
+    ],
+    "NO_IMPLEMENTATION_AGENT_START": [
+      "tests/test_preexec.py::test_preflight_durable_statuses",
+      "tests/test_preexec.py::test_unsafe_worktree_never_probes_or_publishes"
+    ],
+    "PINNED_AGENT_MATERIALITY": [
+      "tests/test_preexec.py::test_pinned_agent_materiality"
+    ],
+    "PREFLIGHT_BLOCKED_DURABLE": [
+      "tests/test_preexec.py::test_preflight_durable_statuses[BLOCKED-20]"
+    ],
+    "PREFLIGHT_INFRA_FAILED_SAFE": [
+      "tests/test_preexec.py::test_preflight_durable_statuses[INFRA_FAILED-30]",
+      "tests/test_preexec.py::test_cli_failure_snapshot_has_no_pushed_marker"
+    ],
+    "PREFLIGHT_PASS_DURABLE": [
+      "tests/test_preexec.py::test_preflight_durable_statuses[PASS-0]"
+    ],
+    "PREFLIGHT_RECEIPT_SCHEMA": [
+      "tests/test_preexec.py::test_schema_rejects_nested_unknown_status_and_fields",
+      "tests/test_preexec.py::test_missing_source_contract_emits_safe_schema_receipt_without_probe"
+    ],
+    "PRESTART_DISPATCH_NOT_CONSUMED": [
+      "tests/test_preexec.py::test_preflight_durable_statuses"
+    ],
+    "PRIOR_DISPATCH_NO_REPLAY": [
+      "implementation_attempt.json",
+      "recovery_attempt.json",
+      "evidence/recovery_security_audit.json"
+    ],
+    "PROJECT_DICTIONARY_BINDING": [
+      "tests/test_project_dictionary.py::test_project_dictionary_binding_deterministic_drift"
+    ],
+    "RECOVERY_DISPATCH_SINGLE_USE": [
+      "evidence/recovery_security_audit.json"
+    ],
+    "RECOVERY_WIP_PRESERVATION": [
+      "recovery_attempt.json",
+      "evidence/recovery_security_audit.json"
+    ],
+    "REMOTE_READBACK_REQUIRED": [
+      "tests/test_preexec.py::test_remote_readback_mismatch",
+      "tests/test_preexec.py::test_no_false_pushed_marker_on_publication_failure"
+    ],
+    "SANITIZED_FAILURE_CLASSIFICATION": [
+      "tests/test_preexec.py::test_sanitized_failure_classification",
+      "tests/test_preexec.py::test_preflight_durable_statuses"
+    ],
+    "SECRET_SCAN": [
+      "evidence/recovery_security_audit.json"
+    ],
+    "STALE_RECEIPT_ONLY_CLEANUP": [
+      "tests/test_preexec.py::test_stale_receipt_only_cleanup",
+      "tests/test_preexec.py::test_cleanup_requires_objective_proof"
+    ]
+  },
+  "state": "PASS_ALL_28_ROLLOUT_ACCEPTANCE_REQUIREMENTS",
+  "test_scope": "agent_bridge/tests"
+}

@@ -1,0 +1,1355 @@
+{
+  "acceptance": [
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PROJECT_DICTIONARY_BINDING",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PREFLIGHT_RECEIPT_SCHEMA",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PINNED_AGENT_MATERIALITY",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PREFLIGHT_PASS_DURABLE",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PREFLIGHT_BLOCKED_DURABLE",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PREFLIGHT_INFRA_FAILED_SAFE",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "NO_DISPATCH_BEFORE_PASS",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PRESTART_DISPATCH_NOT_CONSUMED",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "NO_IMPLEMENTATION_AGENT_START",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "NO_AGENT_SUBSTITUTION",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "SANITIZED_FAILURE_CLASSIFICATION",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "CANONICAL_RECEIPT_TEXT",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "STALE_RECEIPT_ONLY_CLEANUP",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "NO_FALSE_PUSHED_MARKER",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "REMOTE_READBACK_REQUIRED",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "APP_THIN_ADAPTER",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "BRIDGE_THIN_ADAPTER",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "FULL_SHARED_PREEXEC_TESTS",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "CHANGED_PATH_ALLOWLIST",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "SECRET_SCAN",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "GIT_DIFF_CHECK",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "RECOVERY_WIP_PRESERVATION",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "PRIOR_DISPATCH_NO_REPLAY",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "RECOVERY_DISPATCH_SINGLE_USE",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E005",
+        "E008",
+        "E001"
+      ],
+      "id": "FULL_BRIDGE_TESTS",
+      "reason": "Detailed executed test/audit map recorded; Batch-B snapshots are failure evidence and confer no readiness.",
+      "status": "PASS"
+    }
+  ],
+  "agent": {
+    "finished_at_utc": "2026-10-14T15:58:32.257274+00:00",
+    "host": "Windows Codex workspace",
+    "mode": "MANUAL_LOCAL / PINNED medium / FULL_ACCESS",
+    "model": "NOT_EXPOSED; bound gpt-6.1-sol CLI probe PASS",
+    "product": "CODEX",
+    "quota_observation": "NOT_MEASURED; bound minimal execution probe PASS",
+    "started_at_utc": "2026-10-14T15:38:52.331119+00:00"
+  },
+  "change_id": "RECOVERY-002-WHOLE-WP",
+  "contract_version": "2.0",
+  "evidence": [
+    {
+      "description": "evidence/acceptance_mapping.json",
+      "id": "E001",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/acceptance_mapping.json",
+      "sanitized": true,
+      "sha256": "1c71b562b7fba03d90e0897d37e3c35c80f5b3208e42e08cd15ddbae2fb7547d",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/dispatch_fixture_classification.json",
+      "id": "E002",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/dispatch_fixture_classification.json",
+      "sanitized": true,
+      "sha256": "70affa1b0b4e456dcfe1761f8e6f35273d5f65e0963fffe20124a9625a36f3ec",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/final_validation.json",
+      "id": "E003",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/final_validation.json",
+      "sanitized": true,
+      "sha256": "31ca7c8e3b7900b7c7406e45b4c6b88572be86b06697d95ca2cce5c2d5a5f00b",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/full_bridge_tests.txt",
+      "id": "E004",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/full_bridge_tests.txt",
+      "sanitized": true,
+      "sha256": "af4a78b0ca7bc966e3c55b8e7f990bd4ab8b3ce357f22da96dd5506712ba32ed",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/full_bridge_tests_final.txt",
+      "id": "E005",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/full_bridge_tests_final.txt",
+      "sanitized": true,
+      "sha256": "e6a30b95afbfe3890f16d7161f70035daa546f225e945e2e78018b2ef7d2b6c0",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/host_readiness.json",
+      "id": "E006",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/host_readiness.json",
+      "sanitized": true,
+      "sha256": "f906eea422720eb598ba20f31a708af86ea604a39c5bee6b1502fdfd285be477",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/recovery_dispatch.json",
+      "id": "E007",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/recovery_dispatch.json",
+      "sanitized": true,
+      "sha256": "b46839ad137438c7ae7fa2ac0a1a41f24d1861a460d3f5123faefe3f1382e3d1",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/recovery_security_audit.json",
+      "id": "E008",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/recovery_security_audit.json",
+      "sanitized": true,
+      "sha256": "fb335cc43c41a88b240a2b62e33a9f438dedbbe2f0acd76fe4c9b45eb6a7a891",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/shared_preexec.txt",
+      "id": "E009",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/shared_preexec.txt",
+      "sanitized": true,
+      "sha256": "5dc18d834ace6a7c5a282f2236fbfcc58a6d99cc8b8a4c795ad7641ba48bb36a",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/source_binding.json",
+      "id": "E010",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/source_binding.json",
+      "sanitized": true,
+      "sha256": "157a4e86995511223f2051ec5c1874ce67f6b93bf2cbbeeb4346b2e591fb91e0",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/targeted_after.txt",
+      "id": "E011",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/targeted_after.txt",
+      "sanitized": true,
+      "sha256": "98992e79ebbfefb000faa254ca069e08dc78f02002873d8fd32892063e4bd360",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "evidence/targeted_before.txt",
+      "id": "E012",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/targeted_before.txt",
+      "sanitized": true,
+      "sha256": "6accd8c9ba71a3d9aeb767514ea3b7eba2d4e87bd4fbea9a5b83b5a02d261031",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "implementation_attempt.json",
+      "id": "E013",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/implementation_attempt.json",
+      "sanitized": true,
+      "sha256": "1951957ea416820447e23dc309fbcaa08e27b3d060d8912730e769214d9f1a80",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "preexec/app_batch_b.json",
+      "id": "E014",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/app_batch_b.json",
+      "sanitized": true,
+      "sha256": "dcd2330ebec645bc2450b70dd88f5eecfacd7ee838586c5cf1749c1efbf60996",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "preexec/bridge_batch_b.json",
+      "id": "E015",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/bridge_batch_b.json",
+      "sanitized": true,
+      "sha256": "e98a5cb79570586f65aed75597458ef4a3ed57ad1ec1a5af98a81e56d07b0879",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "recovery_attempt.json",
+      "id": "E016",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/recovery_attempt.json",
+      "sanitized": true,
+      "sha256": "c5af77c8ce66ed6881abf3226c2ebf90d6bb4c33c5382f25d78e5f5c1dd23a53",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    },
+    {
+      "description": "report.md",
+      "id": "E017",
+      "kind": "REPORT",
+      "observed_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/report.md",
+      "sanitized": true,
+      "sha256": "3a11513968d9b99ac01542756d07adc468ded8e5c5c9d6c1e983ad65f66d4163",
+      "supports_ids": [
+        "PROJECT_DICTIONARY_BINDING",
+        "PREFLIGHT_RECEIPT_SCHEMA",
+        "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+        "PINNED_AGENT_MATERIALITY",
+        "PREFLIGHT_PASS_DURABLE",
+        "PREFLIGHT_BLOCKED_DURABLE",
+        "PREFLIGHT_INFRA_FAILED_SAFE",
+        "NO_DISPATCH_BEFORE_PASS",
+        "PRESTART_DISPATCH_NOT_CONSUMED",
+        "NO_IMPLEMENTATION_AGENT_START",
+        "NO_AGENT_SUBSTITUTION",
+        "SANITIZED_FAILURE_CLASSIFICATION",
+        "CANONICAL_RECEIPT_TEXT",
+        "STALE_RECEIPT_ONLY_CLEANUP",
+        "NO_FALSE_PUSHED_MARKER",
+        "REMOTE_READBACK_REQUIRED",
+        "APP_THIN_ADAPTER",
+        "BRIDGE_THIN_ADAPTER",
+        "FULL_SHARED_PREEXEC_TESTS",
+        "CHANGED_PATH_ALLOWLIST",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "DISPATCH_V3_FIXTURE_ID_CONFORMANCE",
+        "CONCURRENT_WRITER_LOCK_EXCLUSIVITY",
+        "RECOVERY_WIP_PRESERVATION",
+        "PRIOR_DISPATCH_NO_REPLAY",
+        "RECOVERY_DISPATCH_SINGLE_USE",
+        "FULL_BRIDGE_TESTS"
+      ]
+    }
+  ],
+  "git": {
+    "branch": "work/FOX2-PREEXEC-ROLLOUT-V1",
+    "delivery_status": "LOCAL_ONLY",
+    "local_head_before_submission": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "pr_url": null,
+    "report_path": "reports/FOX2-PREEXEC-ROLLOUT-V1/report.md",
+    "repository": "dunglt2505/FOX2",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-PREEXEC-ROLLOUT-V1",
+    "writer_lease": "Held recovery OS lock and atomic single-use Dispatch-002 ledger; no competing writer observed"
+  },
+  "next_step": {
+    "action": "Review rollout at externally submitted final remote SHA; reconcile Batch-B sources separately",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Authorized exact branch push/readback then independent CHAT acceptance",
+    "requested_chat_decision": "REVIEW"
+  },
+  "permissions": {
+    "broker_write": false,
+    "code_allowed": true,
+    "dnse_production": false,
+    "git_code_push": true,
+    "git_report_push": true,
+    "git_report_write": true,
+    "git_source_read": true,
+    "grant_evidence": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/recovery_dispatch.json at 7dc9f7a77516c8c0df8fdb5d65655368f2c42f50",
+    "live": false,
+    "merge_allowed": false,
+    "pr_create": false
+  },
+  "project": "FOX2",
+  "risks": [
+    {
+      "id": "BATCH_B_SOURCE_RECONCILIATION",
+      "impact": "Current local and remote Batch-B source sets lack Dictionary v1.2; no readiness claim",
+      "next_action": "CHAT reconciles sources, separately publishes and intakes shared PreExec receipts before assignment",
+      "owner_role": "CHAT",
+      "severity": "MEDIUM",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "CHAT_ACCEPTANCE",
+      "impact": "Rollout remains unreviewed",
+      "next_action": "Independent exact remote SHA/source/evidence review",
+      "owner_role": "CHAT",
+      "severity": "LOW",
+      "state": "OPEN"
+    }
+  ],
+  "routing": {
+    "assignment_check": "PASS",
+    "policy_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PASS",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "routing_evidence": "CHAT decision_receipt in immutable Dispatch 002; source/permission revalidation and bound readiness probe; no rerouting",
+    "task_state_check": "PASS"
+  },
+  "scope": {
+    "changed_paths": [
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "2ce7a30f0e39708362211aee4da7581b58ef05aa4bdb06a2af81d17c6db9e8b4",
+        "operation": "MODIFY",
+        "path": "agent_bridge/pyproject.toml",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "1033967c37bab918a85bc36de9b3dd33363f04692befaa9792b734e9ad419777",
+        "operation": "MODIFY",
+        "path": "agent_bridge/scripts/generate_project_dictionary.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "46556418363f26ea46c6384b3a61d85bf1022482814961365a5021ed746e3f22",
+        "operation": "ADD",
+        "path": "agent_bridge/scripts/preexec.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "51222f065d7b0a84a8bf7a28c2a0ccce0194088024062827727d47ed7890c017",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/preexec/__init__.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "fb708d65b84c993696eb7a271638cbfe5c224fb87ef8f2726ba40ae4dae4fe52",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "35ab2a878ed9cff72c3d2afe9e2981c645e60ef46d15d2c5bcb53a208fdb49bf",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/preexec/probes.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "d6a083a70486169892da1c9a37b386131cb1a6e7bf782d572c56ac7248c9be57",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "a957e17e4720888150dd9e3ee8e59307597b18ef7a70e08014443e30004d44d6",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "c351451ca5f74ed5a05f4d73f094eb0844087242bf0c8daf72503c3fb251bc20",
+        "operation": "MODIFY",
+        "path": "agent_bridge/tests/test_batch_a.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "cee378320dd5991569bba168997da183ef0773d2ce76f910943f54506d2b44f3",
+        "operation": "ADD",
+        "path": "agent_bridge/tests/test_preexec.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "84320f66993431b603e17eed16261bacef40bda59f530eaceab6f57ea4228c8b",
+        "operation": "MODIFY",
+        "path": "agent_bridge/tests/test_project_dictionary.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "0adf0a41496530467aa824ee3d6ef13092e4a5b2d91783c98c7a9195ac44cfd8",
+        "operation": "ADD",
+        "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/preflight.ps1",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "4fca680050baf0be548b385f5eb81df3bb975dd2aeceba92a77430c026ed3478",
+        "operation": "ADD",
+        "path": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/preflight.ps1",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "1e37908e1dcf495868a16053a6207c051180a5dba433c2cbf98064a3218e0c03",
+        "operation": "MODIFY",
+        "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/recover_and_preflight.ps1",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "dfc93b922e9d15e9b877a4ea94198e1b5f76f279e69f37badc25b2197a4f77f2",
+        "operation": "ADD",
+        "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/shared_preexec_usage.md",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "1c71b562b7fba03d90e0897d37e3c35c80f5b3208e42e08cd15ddbae2fb7547d",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/acceptance_mapping.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "70affa1b0b4e456dcfe1761f8e6f35273d5f65e0963fffe20124a9625a36f3ec",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/dispatch_fixture_classification.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "31ca7c8e3b7900b7c7406e45b4c6b88572be86b06697d95ca2cce5c2d5a5f00b",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/final_validation.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "af4a78b0ca7bc966e3c55b8e7f990bd4ab8b3ce357f22da96dd5506712ba32ed",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/full_bridge_tests.txt",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "e6a30b95afbfe3890f16d7161f70035daa546f225e945e2e78018b2ef7d2b6c0",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/full_bridge_tests_final.txt",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "f906eea422720eb598ba20f31a708af86ea604a39c5bee6b1502fdfd285be477",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/host_readiness.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "b46839ad137438c7ae7fa2ac0a1a41f24d1861a460d3f5123faefe3f1382e3d1",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/recovery_dispatch.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "fb335cc43c41a88b240a2b62e33a9f438dedbbe2f0acd76fe4c9b45eb6a7a891",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/recovery_security_audit.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "5dc18d834ace6a7c5a282f2236fbfcc58a6d99cc8b8a4c795ad7641ba48bb36a",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/shared_preexec.txt",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "157a4e86995511223f2051ec5c1874ce67f6b93bf2cbbeeb4346b2e591fb91e0",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/source_binding.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "98992e79ebbfefb000faa254ca069e08dc78f02002873d8fd32892063e4bd360",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/targeted_after.txt",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "6accd8c9ba71a3d9aeb767514ea3b7eba2d4e87bd4fbea9a5b83b5a02d261031",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence/targeted_before.txt",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": null,
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/evidence_manifest.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "1951957ea416820447e23dc309fbcaa08e27b3d060d8912730e769214d9f1a80",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/implementation_attempt.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "dcd2330ebec645bc2450b70dd88f5eecfacd7ee838586c5cf1749c1efbf60996",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/app_batch_b.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "e98a5cb79570586f65aed75597458ef4a3ed57ad1ec1a5af98a81e56d07b0879",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/bridge_batch_b.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "c5af77c8ce66ed6881abf3226c2ebf90d6bb4c33c5382f25d78e5f5c1dd23a53",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/recovery_attempt.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "Shared PreExec implementation, thin adapter, regression test or sanitized recovery evidence",
+        "new_sha256": "3a11513968d9b99ac01542756d07adc468ded8e5c5c9d6c1e983ad65f66d4163",
+        "operation": "ADD",
+        "path": "reports/FOX2-PREEXEC-ROLLOUT-V1/report.md",
+        "within_allowed_paths": true
+      }
+    ],
+    "completed": [
+      "Shared engine/CLI and Dictionary-resolved contract hashes/schema",
+      "Thin APP/Bridge/rollout adapters and retired old rollout state machine",
+      "Corrected 27 invalid fixture/test-harness failures without runtime schema changes",
+      "OS writer exclusivity/release/error tests",
+      "Source/probe/path/publication security checks",
+      "340 passing final tests including 60 shared PreExec cases",
+      "Fresh Schema-v1 Batch-B failure receipts and all 28 acceptance mappings"
+    ],
+    "explicit_exclusions": [
+      "Dispatch 001 replay",
+      "Bridge Batch B implementation",
+      "PR/main/merge/deploy/Production/provider/broker/LIVE"
+    ],
+    "forbidden_paths_touched": false,
+    "not_done": [
+      "Batch-B task-branch receipt publication; only rollout branch push is authorized"
+    ],
+    "partial": [
+      "Both Batch-B source sets lack current Dictionary; fresh receipts are INFRA_FAILED diagnostic snapshots"
+    ],
+    "requested": [
+      "Continue the existing whole-WP shared PreExec implementation under immutable Recovery Dispatch 002"
+    ]
+  },
+  "security": {
+    "check_notes": "No unrestricted Agent output persisted; contextual scan exceptions are synthetic test-only literals. Normative/business/provider sources unchanged.",
+    "evidence_redacted": true,
+    "licensed_raw_feed_in_git": false,
+    "private_account_data_in_git": false,
+    "secret_scan": "PASS"
+  },
+  "source": {
+    "approved_base_commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "brd_revisions": [
+      "READ_ONLY; no business semantic changes"
+    ],
+    "policy_sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "policy_version": "1.8.9",
+    "previous_evidence_reused": [
+      "Consumed-001 attempt record and implementation WIP only; all material tests rerun"
+    ],
+    "source_manifest_sha256": "157a4e86995511223f2051ec5c1874ce67f6b93bf2cbbeeb4346b2e591fb91e0",
+    "source_readback_status": "PASS",
+    "task_commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314"
+  },
+  "submission_state": "LOCAL_ONLY",
+  "submitted_at_utc": "2026-10-14T15:58:32.257274+00:00",
+  "task_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002",
+  "tests": [
+    {
+      "command_or_method": "PYTHONPATH=agent_bridge/src python -m pytest agent_bridge/tests -q --tb=short",
+      "environment": "Windows / Python 3.13 / actual local bare Git remotes and subprocess locks",
+      "evidence_ids": [
+        "E005"
+      ],
+      "id": "FULL_BRIDGE_TESTS",
+      "kind": "INTEGRATION",
+      "notes": "340 passed / 0 failed / 179.63 seconds; includes 60 shared PreExec cases",
+      "run_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "Exact 28 prior failed node IDs rerun before and after fixes",
+      "environment": "Windows / Python 3.13",
+      "evidence_ids": [
+        "E012",
+        "E011"
+      ],
+      "id": "TARGETED_RECOVERY",
+      "kind": "INTEGRATION",
+      "notes": "28 initial failures reproduced, then 28 passed; expanded targeted suite 185 passed; final snapshot regression 3 passed",
+      "run_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "Full schema/source hashes, original backup hashes, single-use/guard checks, allowlist/secret scan, generator drift and git diff --check",
+      "environment": "Pinned Git sources and Windows worktree metadata",
+      "evidence_ids": [
+        "E008",
+        "E010",
+        "E003"
+      ],
+      "id": "RECOVERY_SECURITY_SOURCE_AUDIT",
+      "kind": "STATIC",
+      "notes": "PASS; audited synthetic test-only sanitization literals explicitly documented",
+      "run_at_utc": "2026-10-14T15:58:32.257274+00:00",
+      "status": "PASS"
+    }
+  ],
+  "usage": {
+    "attempts": 1,
+    "credits_used": null,
+    "escalation_reason": "None; ordinary test corrections within one authorized recovery execution",
+    "retries": 0,
+    "tokens_used": null,
+    "usage_status": "NOT_MEASURED"
+  },
+  "wp_id": "FOX2-PREEXEC-ROLLOUT-V1"
+}

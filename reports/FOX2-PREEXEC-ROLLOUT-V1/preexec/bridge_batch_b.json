@@ -1,0 +1,48 @@
+{
+  "agent_execution_started": false,
+  "blockers": [
+    {
+      "class": "OTHER",
+      "code": "SOURCE_CONTRACT_UNAVAILABLE",
+      "material": true,
+      "sanitized_detail": "Safe preflight could not be established; no publication attempted."
+    }
+  ],
+  "candidate_route": null,
+  "capabilities": {
+    "shared_preexec": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": null,
+      "failure_class": "SOURCE_CONTRACT_UNAVAILABLE",
+      "material": true,
+      "status": "UNKNOWN"
+    }
+  },
+  "checked_at": "2026-10-14T15:45:01.341133+00:00",
+  "dispatch_state": {
+    "dispatch_consumed": false,
+    "executable_dispatch_published": false
+  },
+  "notes": [
+    "Local diagnostic evidence only. No durable task-branch readiness claim."
+  ],
+  "project": "FOX2",
+  "receipt_path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/bridge_batch_b.json",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "schema_version": "1.0",
+  "source_head": "fe25d29d8536264e1f61ee0f2606d26c744c6fd4",
+  "status": "INFRA_FAILED",
+  "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "task_source": {
+    "git_commit_sha": "fe25d29d8536264e1f61ee0f2606d26c744c6fd4",
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "sha256": "d5822c29e483f1c78713d3d5c8c208d1c94821fc19a231c07508b4a7c2ec0b8b"
+  },
+  "worktree": {
+    "competing_writer": "UNKNOWN",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "stale_receipt_cleanup": "NOT_RUN",
+    "status": "INFRA_FAILED"
+  },
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B"
+}

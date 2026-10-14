@@ -1,0 +1,48 @@
+{
+  "agent_execution_started": false,
+  "blockers": [
+    {
+      "class": "OTHER",
+      "code": "SOURCE_CONTRACT_UNAVAILABLE",
+      "material": true,
+      "sanitized_detail": "Safe preflight could not be established; no publication attempted."
+    }
+  ],
+  "candidate_route": null,
+  "capabilities": {
+    "shared_preexec": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": null,
+      "failure_class": "SOURCE_CONTRACT_UNAVAILABLE",
+      "material": true,
+      "status": "UNKNOWN"
+    }
+  },
+  "checked_at": "2026-10-14T15:45:00.986446+00:00",
+  "dispatch_state": {
+    "dispatch_consumed": false,
+    "executable_dispatch_published": false
+  },
+  "notes": [
+    "Local diagnostic evidence only. No durable task-branch readiness claim."
+  ],
+  "project": "FOX2",
+  "receipt_path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/app_batch_b.json",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "schema_version": "1.0",
+  "source_head": "5644bba8f50c481cde856f926493e04550558f5a",
+  "status": "INFRA_FAILED",
+  "task_branch": "work/FOX2-M1-A-APP-BATCH-B",
+  "task_source": {
+    "git_commit_sha": "5644bba8f50c481cde856f926493e04550558f5a",
+    "git_path": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/task.md",
+    "sha256": "18f46a087d2622b7a1209fe71f1fb28eb3fd1127b325a658a9f02bca8f3dec07"
+  },
+  "worktree": {
+    "competing_writer": "UNKNOWN",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-A-APP-BATCH-B",
+    "stale_receipt_cleanup": "NOT_RUN",
+    "status": "INFRA_FAILED"
+  },
+  "wp_id": "FOX2-M1-A-APP-BATCH-B"
+}

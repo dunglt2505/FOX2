@@ -1,0 +1,26 @@
+{
+  "base_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+  "control_sha": "7dc9f7a77516c8c0df8fdb5d65655368f2c42f50",
+  "dispatch_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002",
+  "launch_gates": "PASS_FULL_SCHEMA_SOURCE_GOVERNANCE_OWNERSHIP_SINGLE_USE",
+  "preserved_wip_sha256": {
+    "agent_bridge/pyproject.toml": "2ce7a30f0e39708362211aee4da7581b58ef05aa4bdb06a2af81d17c6db9e8b4",
+    "agent_bridge/scripts/generate_project_dictionary.py": "bbfad3ef5b181c57e48b3f961e605a2285e5c975802d827a98db809dcaddb699",
+    "agent_bridge/scripts/preexec.py": "3d94646c31b528e9fa606d0708e9e029ccee9567264581343c137f60fd1eabc7",
+    "agent_bridge/src/fox2_agent_bridge/preexec/__init__.py": "51222f065d7b0a84a8bf7a28c2a0ccce0194088024062827727d47ed7890c017",
+    "agent_bridge/src/fox2_agent_bridge/preexec/engine.py": "4778806a056f364da3bb7a79c8b747a6402a622b989c89feb9c58cde8714ada0",
+    "agent_bridge/src/fox2_agent_bridge/preexec/probes.py": "0688048f2c36d2b592600a4dcd162bca29c37a7ef39f248f5771f1b7e06ea5e8",
+    "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py": "d6a083a70486169892da1c9a37b386131cb1a6e7bf782d572c56ac7248c9be57",
+    "agent_bridge/src/fox2_agent_bridge/project_dictionary.py": "b4ac8a942546f48b7cf6aa55acef8023d41eeff6a2e5fdb327131cbb1fdc4101",
+    "agent_bridge/tests/test_preexec.py": "55bd9d0a3961217cb8e184498cae5b0fabdfaa54e4b36642a34b04b94d99bdf3",
+    "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/preflight.ps1": "0adf0a41496530467aa824ee3d6ef13092e4a5b2d91783c98c7a9195ac44cfd8",
+    "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/preflight.ps1": "4fca680050baf0be548b385f5eb81df3bb975dd2aeceba92a77430c026ed3478",
+    "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/recover_and_preflight.ps1": "1e37908e1dcf495868a16053a6207c051180a5dba433c2cbf98064a3218e0c03",
+    "reports/FOX2-PREEXEC-ROLLOUT-V1/implementation_attempt.json": "1951957ea416820447e23dc309fbcaa08e27b3d060d8912730e769214d9f1a80"
+  },
+  "prior_dispatch_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-001",
+  "prior_dispatch_replayed": false,
+  "started_at": "2026-10-14T15:38:52.331119+00:00",
+  "writer_pid": 29840
+}

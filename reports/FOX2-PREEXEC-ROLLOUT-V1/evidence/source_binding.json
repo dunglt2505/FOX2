@@ -1,0 +1,85 @@
+{
+  "control_branch": "work/FOX2-DISPATCH-chat",
+  "control_sha": "7dc9f7a77516c8c0df8fdb5d65655368f2c42f50",
+  "delivery_owner": "AGENT",
+  "dispatch_blob_sha1": "5e9cfd70ce36e0c0b3261f8cdf9b8785fe1dcbbd",
+  "dispatch_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002",
+  "dispatch_path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-002.json",
+  "dispatch_sha256": "b46839ad137438c7ae7fa2ac0a1a41f24d1861a460d3f5123faefe3f1382e3d1",
+  "execution_route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "full_schema_v3": "PASS_JSONSCHEMA_AND_RUNTIME_VALIDATOR",
+  "git_target": "work/FOX2-PREEXEC-ROLLOUT-V1",
+  "identities": {
+    "chat_preflight_intake": {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "1.1"
+    },
+    "dictionary": {
+      "commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "status": "PASS"
+    },
+    "dispatch_schema": {
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+      "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "3.0"
+    },
+    "git_first_protocol": {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "12"
+    },
+    "policy": {
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "1.8.9"
+    },
+    "preexec_evidence_protocol": {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "1.1"
+    },
+    "preflight_receipt_schema": {
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "1"
+    },
+    "prompt": {
+      "commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+      "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/task.md",
+      "sha256": "5d0e155fd6caa3f17ee4f3954ded360372c438f948ce2404f97efb9edb53b40c",
+      "status": "PASS"
+    },
+    "routing_index": {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "status": "PASS_UNCHANGED_CANONICAL_SOURCE",
+      "version": "1.3.0"
+    },
+    "task": {
+      "commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+      "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/task.md",
+      "sha256": "5d0e155fd6caa3f17ee4f3954ded360372c438f948ce2404f97efb9edb53b40c",
+      "status": "PASS"
+    }
+  },
+  "max_runs": 1,
+  "permission_semantics": "danger-full-access / approval never",
+  "retry_of_dispatch_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-001",
+  "source_head": "b6918cced1d118dbedbd7cdf86676c16331b9314"
+}

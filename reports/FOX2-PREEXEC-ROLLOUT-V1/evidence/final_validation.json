@@ -1,0 +1,25 @@
+{
+  "DISPATCH_V3_SCHEMA_BINDING": "PASS",
+  "FULL_BRIDGE_TESTS": {
+    "failed": 0,
+    "passed": 340,
+    "seconds": 179.63
+  },
+  "FULL_SHARED_PREEXEC_TESTS": {
+    "cases_in_final_suite": 60,
+    "status": "PASS"
+  },
+  "GIT_DIFF_CHECK": "PASS",
+  "PROJECT_DICTIONARY_BINDING": "PASS",
+  "canonical_new_receipts": "UTF-8 / LF / final newline / no BOM",
+  "publication": "LOCAL_ONLY_AT_REPORT_AUTHORING; exact SHA is submitted externally after push/readback",
+  "result_contract": "Schema v2; validated by report generator before final write",
+  "snapshot_cli_regression": {
+    "passed": 3,
+    "status": "PASS"
+  },
+  "targeted_original_failures": {
+    "after_passed": 28,
+    "before_failed": 28
+  }
+}

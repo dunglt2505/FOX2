@@ -1,0 +1,16 @@
+{
+  "canonical_schema_unchanged": true,
+  "dispatch_v3_failures": 27,
+  "invalid_dispatch_id_fixtures": 26,
+  "invalid_ids_rejected": [
+    "exact",
+    "FOX2-BRIDGE-E2E-CANARY-001",
+    "FOX2-DISPATCH-../escape"
+  ],
+  "missing_id_test_helper_keyerror": 1,
+  "reproduced_failures": 28,
+  "root_cause": "Windows contender read locked byte before ownership; contention now maps to COMPETING_WRITER and unrelated OS failures remain infrastructure failures.",
+  "runtime_writer_lock_defects": 1,
+  "targeted_after": "28 passed",
+  "valid_recovery_dispatch": "PASS"
+}

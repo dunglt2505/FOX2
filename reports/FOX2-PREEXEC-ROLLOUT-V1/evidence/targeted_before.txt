@@ -1,0 +1,526 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFF                                             [100%]
+================================== FAILURES ===================================
+_ test_batch_post_start_zero_exit_capacity_never_publishes[3.0-CODEX-authentication_error] _
+agent_bridge\tests\test_batch_a.py:107: in test_batch_post_start_zero_exit_capacity_never_publishes
+    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_ test_batch_post_start_zero_exit_capacity_never_publishes[3.0-CODEX-capacity_unavailable] _
+agent_bridge\tests\test_batch_a.py:107: in test_batch_post_start_zero_exit_capacity_never_publishes
+    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_ test_batch_post_start_zero_exit_capacity_never_publishes[3.0-CODEX-quota_exceeded] _
+agent_bridge\tests\test_batch_a.py:107: in test_batch_post_start_zero_exit_capacity_never_publishes
+    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_ test_batch_post_start_zero_exit_capacity_never_publishes[3.0-COPILOT-authentication_error] _
+agent_bridge\tests\test_batch_a.py:107: in test_batch_post_start_zero_exit_capacity_never_publishes
+    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_ test_batch_post_start_zero_exit_capacity_never_publishes[3.0-COPILOT-capacity_unavailable] _
+agent_bridge\tests\test_batch_a.py:107: in test_batch_post_start_zero_exit_capacity_never_publishes
+    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_ test_batch_post_start_zero_exit_capacity_never_publishes[3.0-COPILOT-quota_exceeded] _
+agent_bridge\tests\test_batch_a.py:107: in test_batch_post_start_zero_exit_capacity_never_publishes
+    payload = runner._validate_dispatch(raw, dispatch_path='docs/agent_handoff/DISPATCH/exact.json', observed_blob_sha='d'*40)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+___ test_batch_real_git_delivery_has_one_publication_path[3.0-AGENT-CODEX] ____
+agent_bridge\tests\test_batch_a.py:190: in test_batch_real_git_delivery_has_one_publication_path
+    result=runner.run_once(dispatch_path=dispatch_path)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:810: in run_once
+    payload = self._validate_dispatch(
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+__ test_batch_real_git_delivery_has_one_publication_path[3.0-AGENT-COPILOT] ___
+agent_bridge\tests\test_batch_a.py:190: in test_batch_real_git_delivery_has_one_publication_path
+    result=runner.run_once(dispatch_path=dispatch_path)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:810: in run_once
+    payload = self._validate_dispatch(
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+___ test_batch_real_git_delivery_has_one_publication_path[3.0-BRIDGE-CODEX] ___
+agent_bridge\tests\test_batch_a.py:190: in test_batch_real_git_delivery_has_one_publication_path
+    result=runner.run_once(dispatch_path=dispatch_path)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:810: in run_once
+    payload = self._validate_dispatch(
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+__ test_batch_real_git_delivery_has_one_publication_path[3.0-BRIDGE-COPILOT] __
+agent_bridge\tests\test_batch_a.py:190: in test_batch_real_git_delivery_has_one_publication_path
+    result=runner.run_once(dispatch_path=dispatch_path)
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:810: in run_once
+    payload = self._validate_dispatch(
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_________________________ test_concurrent_writer_lock _________________________
+agent_bridge\tests\test_preexec.py:151: in test_concurrent_writer_lock
+    assert engine(config).run().failure == 'COMPETING_WRITER'
+E   AssertionError: assert 'PREFLIGHT_INFRA_FAILED' == 'COMPETING_WRITER'
+E
+E     - COMPETING_WRITER
+E     + PREFLIGHT_INFRA_FAILED
+____________ test_dictionary_codex_nullable_routing_preserved[3.0] ____________
+agent_bridge\tests\test_project_dictionary.py:182: in test_dictionary_codex_nullable_routing_preserved
+    normalized = validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_________ test_dictionary_non_bridge_never_spawned[MANUAL_LOCAL-3.0] __________
+agent_bridge\tests\test_project_dictionary.py:161: in test_dictionary_non_bridge_never_spawned
+    runner.run_once(dispatch_path='docs/agent_handoff/DISPATCH/' + payload['dispatch_id'] + '.json')
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:810: in run_once
+    payload = self._validate_dispatch(
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:160: in test_dictionary_non_bridge_never_spawned
+    with pytest.raises(DispatchInvalid, match='auto-execution'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'auto-execution'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+_______ test_dictionary_non_bridge_never_spawned[VSCODE_ONE_CLICK-3.0] ________
+agent_bridge\tests\test_project_dictionary.py:161: in test_dictionary_non_bridge_never_spawned
+    runner.run_once(dispatch_path='docs/agent_handoff/DISPATCH/' + payload['dispatch_id'] + '.json')
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:810: in run_once
+    payload = self._validate_dispatch(
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:160: in test_dictionary_non_bridge_never_spawned
+    with pytest.raises(DispatchInvalid, match='auto-execution'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'auto-execution'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+_______ test_dictionary_schema_exact_normalized_tuple[AGENT-CODEX-3.0] ________
+agent_bridge\tests\test_project_dictionary.py:111: in test_dictionary_schema_exact_normalized_tuple
+    normalized = validation(external)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+______ test_dictionary_schema_exact_normalized_tuple[AGENT-COPILOT-3.0] _______
+agent_bridge\tests\test_project_dictionary.py:111: in test_dictionary_schema_exact_normalized_tuple
+    normalized = validation(external)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+_______ test_dictionary_schema_exact_normalized_tuple[BRIDGE-CODEX-3.0] _______
+agent_bridge\tests\test_project_dictionary.py:111: in test_dictionary_schema_exact_normalized_tuple
+    normalized = validation(external)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+______ test_dictionary_schema_exact_normalized_tuple[BRIDGE-COPILOT-3.0] ______
+agent_bridge\tests\test_project_dictionary.py:111: in test_dictionary_schema_exact_normalized_tuple
+    normalized = validation(external)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+___ test_dictionary_v3_additional_properties_fail_closed[decision_receipt] ____
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+______ test_dictionary_v3_additional_properties_fail_closed[dictionary] _______
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+______ test_dictionary_v3_additional_properties_fail_closed[permissions] ______
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+________ test_dictionary_v3_additional_properties_fail_closed[policy] _________
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+________ test_dictionary_v3_additional_properties_fail_closed[prompt] _________
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+________ test_dictionary_v3_additional_properties_fail_closed[routing] ________
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+___ test_dictionary_v3_additional_properties_fail_closed[runtime_contract] ____
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+________ test_dictionary_v3_additional_properties_fail_closed[source] _________
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+_________ test_dictionary_v3_additional_properties_fail_closed[task] __________
+agent_bridge\tests\test_project_dictionary.py:237: in test_dictionary_v3_additional_properties_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:93: in validate
+    return runner._validate_dispatch(json.dumps(payload).encode(),
+agent_bridge\src\fox2_agent_bridge\e2e_runner.py:236: in _validate_dispatch
+    payload = normalize_dispatch(payload, self.config.control_branch)
+agent_bridge\src\fox2_agent_bridge\dispatch_normalizer.py:52: in normalize_dispatch
+    validate_json_schema(external, DISPATCH_SCHEMA_V3)
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:104: in validate_json_schema
+    validate_json_schema(item, subschema, path=f"{path}.{key}")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:79: in validate_json_schema
+    _fail(path, "string does not match required pattern")
+agent_bridge\src\fox2_agent_bridge\schema_validation.py:26: in _fail
+    raise DispatchInvalid(f"{path}: {message}")
+E   fox2_agent_bridge.errors.DispatchInvalid: dispatch.dispatch_id: string does not match required pattern
+
+During handling of the above exception, another exception occurred:
+agent_bridge\tests\test_project_dictionary.py:236: in test_dictionary_v3_additional_properties_fail_closed
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+E   AssertionError: Regex pattern did not match.
+E    Regex: 'unexpected field'
+E    Input: 'dispatch.dispatch_id: string does not match required pattern'
+_________ test_dictionary_v3_required_fields_fail_closed[dispatch_id] _________
+agent_bridge\tests\test_project_dictionary.py:225: in test_dictionary_v3_required_fields_fail_closed
+    validation(payload)
+agent_bridge\tests\test_project_dictionary.py:94: in validate
+    dispatch_path='docs/agent_handoff/DISPATCH/' + (filename or payload['dispatch_id']) + '.json',
+E   KeyError: 'dispatch_id'
+=========================== short test summary info ===========================
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_post_start_zero_exit_capacity_never_publishes[3.0-CODEX-authentication_error]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_post_start_zero_exit_capacity_never_publishes[3.0-CODEX-capacity_unavailable]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_post_start_zero_exit_capacity_never_publishes[3.0-CODEX-quota_exceeded]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_post_start_zero_exit_capacity_never_publishes[3.0-COPILOT-authentication_error]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_post_start_zero_exit_capacity_never_publishes[3.0-COPILOT-capacity_unavailable]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_post_start_zero_exit_capacity_never_publishes[3.0-COPILOT-quota_exceeded]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_real_git_delivery_has_one_publication_path[3.0-AGENT-CODEX]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_real_git_delivery_has_one_publication_path[3.0-AGENT-COPILOT]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_real_git_delivery_has_one_publication_path[3.0-BRIDGE-CODEX]
+FAILED agent_bridge\tests\test_batch_a.py::test_batch_real_git_delivery_has_one_publication_path[3.0-BRIDGE-COPILOT]
+FAILED agent_bridge\tests\test_preexec.py::test_concurrent_writer_lock - Asse...
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_codex_nullable_routing_preserved[3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_non_bridge_never_spawned[MANUAL_LOCAL-3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_non_bridge_never_spawned[VSCODE_ONE_CLICK-3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_schema_exact_normalized_tuple[AGENT-CODEX-3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_schema_exact_normalized_tuple[AGENT-COPILOT-3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_schema_exact_normalized_tuple[BRIDGE-CODEX-3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_schema_exact_normalized_tuple[BRIDGE-COPILOT-3.0]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[decision_receipt]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[dictionary]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[permissions]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[policy]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[prompt]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[routing]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[runtime_contract]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[source]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_additional_properties_fail_closed[task]
+FAILED agent_bridge\tests\test_project_dictionary.py::test_dictionary_v3_required_fields_fail_closed[dispatch_id]
+28 failed in 6.01s
