@@ -1,11 +1,11 @@
 # FOX2-BRIDGE-DESKTOP-BATCH-B — Whole-WP Task
 
-**Status:** SOURCE_READY / PREEXEC_HOLD  
+**Status:** SOURCE_READY / CURRENT_BASELINE_REBIND / PREEXEC_HOLD  
 **Project phase:** Bridge second execution phase  
-**Governance:** Project Dictionary v1 -> Policy V1.8.7 -> Routing Index V1.2.8  
-**Protocol:** Dispatch Schema v3 + Git-first Protocol v10  
-**Final Agent assignment:** PENDING R3/R5 MATERIAL PREFLIGHT  
-**Execution path:** MANUAL_LOCAL candidate for implementation; installed Bridge path is the certification target  
+**Governance:** Project Dictionary v1.2 -> Policy V1.8.9 -> Routing Index V1.3.0  
+**Protocol:** PreExec Evidence v1.1 + Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dispatch Schema v3 + Git-first Protocol v12  
+**Final Agent assignment:** PENDING fresh current-baseline R3/R5 receipt + CHAT Intake  
+**Execution path:** MANUAL_LOCAL candidate for implementation; installed Bridge path is the certification target; Bridge is now the Owner-priority active product lane  
 **Delivery owner:** AGENT candidate
 
 ## Source binding
@@ -13,12 +13,28 @@
 - Owner-accepted Batch-A code head: `3013f34d7ad91d1462e44495c873a84c41297b6b`
 - Parent validated Batch-A result: `b2de4a10f259c4baf40a83372783e11fc7edd64a` with 243 PASS / 0 fail / 0 skip.
 - Owner waiver record: Issue #10 comment `6165391726`.
-- Current Master Plan: `f109d16f78da4a412cc30b512f152f79616b872c:docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md`
-- Project Dictionary/source set: `544cd7003972e6a29ff25de1062231c3769affbf`
-- Bridge Technical Spec v0.7 Candidate REV8;
+- Current Master Plan: `01bdb9cbbac7d49938d24c0b1a665a3d7cad36bd:docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md`
+- Current Project Dictionary: v1.2 / `docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`
+- Bridge Technical Spec v0.7 Candidate REV10;
 - Usage/CHAT Routing Contract Candidate REV5.
+- Current project-wide PreExec semantics: alternative Agent candidates are routing evidence; `eligible_agent_route` is the material aggregate unless this task explicitly pins one Agent.
 
 Batch A's separate post-patch Windows rerun was waived by Owner. Do not falsify it as PASS and do not reopen Batch A. Batch B final certification carries the current-schema validation debt once, as part of the final installed-runtime certification.
+
+## Owner priority — Bridge first
+
+Owner has explicitly ordered FOX2 execution as:
+
+```text
+fresh shared PreExec evidence
+ -> BRIDGE-DESKTOP-BATCH-B
+ -> INTERNAL_FOX2_BRIDGE_READY
+ -> resume Website/APP-BATCH-B
+```
+
+Website source is frozen while this Bridge batch is active. Do not create a parallel frontend/product writer until Bridge acceptance.
+
+The previous Bridge preflight receipt is historical evidence only because it predates the current Dictionary v1.2 / Policy V1.8.9 / Routing V1.3.0 / PreExec v1.1 baseline. Regenerate current-schema/current-source evidence before executable Dispatch.
 
 ## Whole-WP objective
 
@@ -98,6 +114,13 @@ Exit target:
 `INTERNAL_FOX2_BRIDGE_READY`.
 
 ## Material pre-execution gates
+
+Current state before regeneration:
+- prior Windows host prerequisites were PASS;
+- prior Bridge worktree was clean with no competing writer;
+- project-wide shared preflight has demonstrated CODEX can execute with `gpt-6.1-sol` / FULL_ACCESS;
+- however those observations are not a fresh Bridge-task receipt under the current source baseline.
+
 
 Before executable Dispatch v3:
 
