@@ -237,7 +237,7 @@ if ($dictionary.current.git_first_protocol.version -ne "11") { throw "Protocol v
 if ($dictionary.current.preflight_receipt_schema.version -ne "1") { throw "Preflight Receipt Schema v1 required" }
 
 $capabilities = [ordered]@{}
-$blockers = New-Object System.Collections.Generic.List[object]
+$blockers = @()
 
 foreach ($name in @("git","python","pwsh")) {
     $cmd = Get-Command $name -ErrorAction SilentlyContinue
@@ -251,7 +251,7 @@ foreach ($name in @("git","python","pwsh")) {
         $capabilities[$name] = New-Capability -Status "PASS" -Material $true -Version $version -Executable $cmd.Source -ExitCode 0 -FailureClass $null -Evidence "required rollout host tool available"
     } else {
         $capabilities[$name] = New-Capability -Status "MISSING" -Material $true -Version $null -Executable $null -ExitCode $null -FailureClass "TOOL_MISSING" -Evidence "required rollout host tool missing"
-        $blockers.Add([ordered]@{code=("MISSING_" + $name.ToUpperInvariant());class="CAPABILITY";material=$true;sanitized_detail="$name is required for rollout preflight/implementation"})
+        $blockers += [ordered]@{code=("MISSING_" + $name.ToUpperInvariant());class="CAPABILITY";material=$true;sanitized_detail="$name is required for rollout preflight/implementation"}
     }
 }
 
@@ -297,10 +297,10 @@ if ($copilot.capability.status -eq "PASS") {
 
 if (-not $candidate) {
     if ($copilot.capability.status -ne "PASS") {
-        $blockers.Add([ordered]@{code="COPILOT_EXECUTION_NOT_PROVEN";class=$(if($copilot.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($copilot.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"});material=$true;sanitized_detail=$copilot.capability.failure_class})
+        $blockers += [ordered]@{code="COPILOT_EXECUTION_NOT_PROVEN";class=$(if($copilot.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($copilot.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"});material=$true;sanitized_detail=$copilot.capability.failure_class}
     }
     if ($codex.capability.status -ne "PASS") {
-        $blockers.Add([ordered]@{code="CODEX_EXECUTION_NOT_PROVEN";class=$(if($codex.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($codex.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"});material=$true;sanitized_detail=$codex.capability.failure_class})
+        $blockers += [ordered]@{code="CODEX_EXECUTION_NOT_PROVEN";class=$(if($codex.capability.failure_class -eq "AUTH_REQUIRED"){"AUTH"}elseif($codex.capability.failure_class -eq "CAPACITY_OR_QUOTA"){"CAPACITY"}else{"TOOLING"});material=$true;sanitized_detail=$codex.capability.failure_class}
     }
 }
 
@@ -328,7 +328,7 @@ $receipt = [ordered]@{
     }
     status = $status
     capabilities = $capabilities
-    blockers = @($blockers)
+    blockers = $blockers
     worktree = [ordered]@{
         status = "PASS"
         path = $Worktree
@@ -347,6 +347,18 @@ $receipt = [ordered]@{
         "Raw Agent probe output is intentionally not persisted."
     )
 }
+
+# Local structural self-check before any Git publication.
+if ($receipt.schema_version -ne "1.0") { throw "receipt schema_version mismatch" }
+if ($receipt.receipt_type -ne "FOX2_PREEXEC_RECEIPT") { throw "receipt_type mismatch" }
+if ($receipt.project -ne "FOX2") { throw "receipt project mismatch" }
+if ($receipt.task_branch -ne $Branch) { throw "receipt task_branch mismatch" }
+if ($receipt.source_head -ne $sourceHead) { throw "receipt source_head mismatch" }
+if ($receipt.status -notin @("PASS","BLOCKED","INFRA_FAILED")) { throw "invalid receipt status" }
+if ($receipt.blockers -isnot [System.Array]) { throw "receipt blockers must be an array" }
+if ($receipt.dispatch_state.executable_dispatch_published -ne $false) { throw "preflight cannot publish executable dispatch" }
+if ($receipt.dispatch_state.dispatch_consumed -ne $false) { throw "preflight cannot consume dispatch" }
+if ($receipt.agent_execution_started -ne $false) { throw "preflight cannot start implementation Agent" }
 
 $published = Publish-Receipt -Receipt $receipt
 Write-Host ("FOX2_PREEXEC_ROLLOUT_STATUS=" + $status)
