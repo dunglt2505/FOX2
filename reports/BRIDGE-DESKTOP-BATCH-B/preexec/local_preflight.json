@@ -1,52 +1,97 @@
 {
-  "schema_version": "1.0",
-  "project": "FOX2",
-  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
-  "checked_at": "2026-10-14T17:21:40.2059444+07:00",
-  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
-  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
-  "source_head": "3af16d002139314b7302e8f483836b4ce54c8c1e",
-  "r3_material_capability": {
-    "python": {
-      "status": "PASS",
-      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
-      "version": "Python 3.13.15"
-    },
-    "powershell7": {
-      "status": "PASS",
-      "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-      "version": "7.6.6"
-    },
-    "task_scheduler": {
-      "status": "PASS",
-      "executable": "C:\\WINDOWS\\system32\\schtasks.exe"
-    },
-    "local_appdata_per_user_write": "PASS",
+  "agent_execution_started": false,
+  "blockers": [],
+  "candidate_route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "capabilities": {
     "codex": {
-      "status": "FAIL",
-      "version": "codex-cli 0.162.1",
-      "output_marker": false,
-      "exit_code": 1,
-      "failure_class": "CLI_NONZERO"
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": false,
+      "status": "PASS"
     },
     "copilot": {
-      "status": "FAIL",
-      "version": "GitHub Copilot CLI 1.0.97.\r\nRun 'copilot update' to check for updates.",
-      "output_marker": false,
+      "evidence": "Bounded readiness observation; raw output omitted.",
       "exit_code": 1,
-      "failure_class": "AUTH_REQUIRED"
+      "failure_class": "AUTH_REQUIRED",
+      "material": false,
+      "status": "FAIL"
     },
-    "selected_agent": null,
-    "selected_route": null
+    "eligible_agent_route": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "git": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "local_appdata_per_user_write": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "pwsh": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "schtasks.exe": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    }
   },
-  "r5_worktree": {
-    "status": "PASS",
-    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
-    "clean_before_probe": true,
-    "competing_writer": "NONE_OBSERVED"
+  "checked_at": "2026-10-14T16:15:30.825620+00:00",
+  "dispatch_state": {
+    "dispatch_consumed": false,
+    "executable_dispatch_published": false
   },
-  "status": "BLOCKED",
-  "blockers": "NO_AGENT_CURRENT_EXECUTION_PROOF",
-  "execution_authorized": "NO_FROM_PREFLIGHT",
-  "note": "Preflight evidence only. CHAT must publish the canonical Dispatch v3 before implementation."
+  "notes": [
+    "Routing evidence only. CHAT selects the final implementation Agent."
+  ],
+  "project": "FOX2",
+  "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "schema_version": "1.0",
+  "source_head": "e13820c05ec0c7e97853daa61f6f5fb6b73391cc",
+  "status": "PASS",
+  "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "task_source": {
+    "git_commit_sha": "e13820c05ec0c7e97853daa61f6f5fb6b73391cc",
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "worktree": {
+    "competing_writer": "NONE_OBSERVED",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "stale_receipt_cleanup": "NOT_NEEDED",
+    "status": "PASS"
+  },
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B"
 }
