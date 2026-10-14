@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "checked_at": "2026-10-14T17:21:40.2059444+07:00",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "source_head": "3af16d002139314b7302e8f483836b4ce54c8c1e",
+  "r3_material_capability": {
+    "python": {
+      "status": "PASS",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "version": "Python 3.13.15"
+    },
+    "powershell7": {
+      "status": "PASS",
+      "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "version": "7.6.6"
+    },
+    "task_scheduler": {
+      "status": "PASS",
+      "executable": "C:\\WINDOWS\\system32\\schtasks.exe"
+    },
+    "local_appdata_per_user_write": "PASS",
+    "codex": {
+      "status": "FAIL",
+      "version": "codex-cli 0.162.1",
+      "output_marker": false,
+      "exit_code": 1,
+      "failure_class": "CLI_NONZERO"
+    },
+    "copilot": {
+      "status": "FAIL",
+      "version": "GitHub Copilot CLI 1.0.97.\r\nRun 'copilot update' to check for updates.",
+      "output_marker": false,
+      "exit_code": 1,
+      "failure_class": "AUTH_REQUIRED"
+    },
+    "selected_agent": null,
+    "selected_route": null
+  },
+  "r5_worktree": {
+    "status": "PASS",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "clean_before_probe": true,
+    "competing_writer": "NONE_OBSERVED"
+  },
+  "status": "BLOCKED",
+  "blockers": "NO_AGENT_CURRENT_EXECUTION_PROOF",
+  "execution_authorized": "NO_FROM_PREFLIGHT",
+  "note": "Preflight evidence only. CHAT must publish the canonical Dispatch v3 before implementation."
+}
