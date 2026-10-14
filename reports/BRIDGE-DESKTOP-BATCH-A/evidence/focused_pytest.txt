@@ -1,0 +1,4 @@
+........................................................................ [ 66%]
+.....................................                                    [100%]
+- generated xml file: C:\Projects\FOX2-worktrees\FOX2-BRIDGE-DESKTOP-BATCH-A-CODEX\reports\BRIDGE-DESKTOP-BATCH-A\evidence\focused_pytest.xml -
+109 passed in 27.60s

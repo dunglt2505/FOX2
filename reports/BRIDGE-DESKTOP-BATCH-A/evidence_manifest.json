@@ -3,7 +3,9 @@
     "CANONICAL_GENERATED_ARTIFACT_PIPELINE": "PASS",
     "CHANGED_PATH_ALLOWLIST": "PASS",
     "CODEX_EXACT_CONFIG": "PASS",
+    "CONTROL_BRANCH_REGISTRY": "PASS",
     "COPILOT_EXACT_POLICY": "PASS",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": "PASS",
     "FULL_ACCESS_CODEX": "PASS",
     "FULL_ACCESS_COPILOT": "PASS",
     "FULL_BRIDGE_TESTS": "PASS",
@@ -17,10 +19,16 @@
     "NO_REPLAY": "PASS",
     "PERMISSION_PREFLIGHT": "PASS",
     "POST_START_QUOTA_RECONCILIATION": "PASS",
+    "PROJECT_DICTIONARY_BINDING": "PASS",
+    "PROJECT_DICTIONARY_DRIFT_CHECK": "PASS",
     "SECRET_SCAN": "PASS",
+    "SINGLE_NORMALIZED_EXECUTION_PATH": "PASS",
+    "STABLE_DISPATCH_PATH": "PASS",
     "TEXT_ARTIFACT_HYGIENE": "PASS",
     "TRAY_READ_ONLY_USAGE_DISPLAY": "PASS",
     "USAGE_PERSISTENCE": "PASS",
+    "V06_COMPATIBILITY": "PASS",
+    "V2_COMPATIBILITY": "PASS",
     "WORKER_RECOVERY": "PASS"
   },
   "allowed_scope": [
@@ -41,12 +49,16 @@
       "sha256": "5bd6297ad24e5d273baa7e53f9a36a42d4e24f2ed7e2be39b3218eafa50c7ddc"
     },
     {
+      "path": "agent_bridge/scripts/generate_project_dictionary.py",
+      "sha256": "5ee9e0b219f60547811e5fd39aa99f250517942ed472963668b2273b5d75eed7"
+    },
+    {
       "path": "agent_bridge/scripts/validate_batch_a.py",
-      "sha256": "1f26f21ba9764b3009c38f37c656a5924e54b6b590f04ca37bad58da134940ae"
+      "sha256": "32cdc90be27eca37c1b3e8b6f3b9d99a63c954e04adb1ef98f538a77b023aac3"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/agent_policy.py",
-      "sha256": "49890641b1c5d544159b09cae1923b51803c06ec8893fabaec0bb99fc21a8fee"
+      "sha256": "05affc20a9b1d981ca144fdf39a15648db11699c44ab604d96c3d6f5ab04a37f"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/artifacts.py",
@@ -57,6 +69,10 @@
       "sha256": "23f777879345f2615a0e42428e357c6a7fc21663d6e0c081df2162bf37ded294"
     },
     {
+      "path": "agent_bridge/src/fox2_agent_bridge/config.py",
+      "sha256": "48c1079971cabd3d5abfcda81a5eae96b31e1f242749df8745ad97033ce1797d"
+    },
+    {
       "path": "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
       "sha256": "e7ed2bde20394c061e3e8aa073e39cfbdfd056c0e30967d282e3707e0acae45e"
     },
@@ -65,8 +81,16 @@
       "sha256": "de00331bf01bdc2bb99904bbbb6e071dc08ede59efb549b671eae56ed1fe9412"
     },
     {
+      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_normalizer.py",
+      "sha256": "ccad668c2b47e807415edd6ffe10be441d5a3829245136bba329c2ed3f0e3f84"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+      "sha256": "de74dba0e86dee3c5574fa7950549e7de83285a573b084959e696e28b614fdf4"
+    },
+    {
       "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
-      "sha256": "7c2895519b2439ca70d61cce3320b49ca19125071d31b042b57ad5a19d25972f"
+      "sha256": "aad2e44d0d66079d32f6a35b9b6dbdc833a168e07f1d7a0441184adfbb5f5d59"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
@@ -75,6 +99,10 @@
     {
       "path": "agent_bridge/src/fox2_agent_bridge/logging_config.py",
       "sha256": "ec3895fd5a81b6e8bedb44c3f3fafffba5ccf9cb457b3f18dc67cc5d7342b6c0"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "sha256": "5963aad8004e8e312648f040ca99b80f89180a0ac94aad3b1e9d78891b3df55f"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/result_store.py",
@@ -90,11 +118,15 @@
     },
     {
       "path": "agent_bridge/tests/test_batch_a.py",
-      "sha256": "a641e53b27751dc183265d1916e3a7bdf14deac0c23a26fbadacd9c4359cae88"
+      "sha256": "ef24f9c64612613a59a1467f89ff6b6cfc807849e72b26b3f142a2f383a66c27"
     },
     {
       "path": "agent_bridge/tests/test_codex_adapter.py",
       "sha256": "2dc1915de9b5d01942bb45a45e26ad331434812e0e4a333d8fa2433de7895539"
+    },
+    {
+      "path": "agent_bridge/tests/test_config_paths.py",
+      "sha256": "d19216750d7d641023e92ab4a815504b42550a1e293260a3827dd54ab7430c50"
     },
     {
       "path": "agent_bridge/tests/test_desktop.py",
@@ -102,7 +134,11 @@
     },
     {
       "path": "agent_bridge/tests/test_e2e_runner.py",
-      "sha256": "3765e3f7e534520bae1197baaa373eaa26cba4c2bee5a4c74d6143f4fb7d1142"
+      "sha256": "5f93a2486d089ec74a23b53f5655d29f6418c3928e85367b3d259f55c5e2d1e5"
+    },
+    {
+      "path": "agent_bridge/tests/test_project_dictionary.py",
+      "sha256": "2a5f21aa3167edfae7da2b30aed8d81fa57ca0905d6b9ad53cd0915feab127be"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/cli_capabilities.json",
@@ -117,20 +153,28 @@
       "sha256": "aba443be298305579f1113450d0cd80a714572b6b8f744e1db341b19a893e45c"
     },
     {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/focused_pytest.txt",
+      "sha256": "53b6709c42e5e0774a6ce90e0aa1d50e05553582f1aaa000ea3a2986016d115c"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/focused_pytest.xml",
+      "sha256": "3fbcdd98d6248276dd38c10ded2a5cd6a43f6e805b020774aba838f8f2ea664f"
+    },
+    {
       "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/pytest.txt",
-      "sha256": "e36a4b4cfaa6512854f149c8936d0dcdad93d97aabb274438ef32241e0a32af4"
+      "sha256": "24dbd9c8317c0a89d5fedb8c229cd92423d21d5699e817bd9429a16964014975"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/pytest.xml",
-      "sha256": "58bf6e323b39ce94836f9ded70ffeaba54ff0d1ba493fe3c8e9e15ce1f04653e"
+      "sha256": "82fd0da165133e392edb017f22f8d44e3005787ef11f27300db87e70c7b45a25"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-A/evidence/verification.json",
-      "sha256": "c041d6b83116a59a1f944098a795e04f1dfd2e7ada9495f44dc897b79c3bfbbf"
+      "sha256": "5e60f31132e11f0f36c5cf59f7d3049a0288504454719b602229133ca05f02e7"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-A/report.md",
-      "sha256": "ef7b0d1f689a6462d2def80a1e446c527c535c799e3807974b5ec80d3752a01d"
+      "sha256": "b4e0edf100a81724404068716f6fb99b7ecc56ce1c25b622592c9e984f3e0f9f"
     }
   ],
   "live_model_and_quota_observations": "NOT_EXPOSED",
@@ -140,9 +184,9 @@
     "errors": 0,
     "failures": 0,
     "skipped": 0,
-    "tests": 164
+    "tests": 243
   },
   "schema_version": 1,
-  "start_head": "efdf1f53f83a8eac3251660a588a447f50908fef",
+  "start_head": "9224b144f704964907162e77ebec520aa9b09f77",
   "work_package": "BRIDGE-DESKTOP-BATCH-A"
 }

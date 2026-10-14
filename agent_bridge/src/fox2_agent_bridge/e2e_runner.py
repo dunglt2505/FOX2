@@ -38,6 +38,8 @@ from .paths import validate_path
 from .result_store import write_execution_report
 from .agent_policy import validate_selection, ADAPTER_REGISTRY, ExecutionTuple, configuration_mismatch
 from .logging_config import redact_context
+from .dispatch_normalizer import normalize_dispatch
+from .project_dictionary import PROJECT_ID, IDENTIFIERS, PROTECTED_AUTHORITY_DEFAULTS
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
 _AGENT_INTERFACES = {product: route[0] for product, route in ADAPTER_REGISTRY.items()}
@@ -231,9 +233,12 @@ class BridgeE2ERunner:
         if not isinstance(payload, dict):
             raise DispatchInvalid("dispatch root must be an object")
 
-        if payload.get("schema_version") != "0.6":
-            raise DispatchInvalid("schema_version must be 0.6")
-        if payload.get("project") != "FOX2":
+        payload = normalize_dispatch(payload, self.config.control_branch)
+        return self._validate_normalized_dispatch(payload, raw=raw,
+            dispatch_path=dispatch_path, observed_blob_sha=observed_blob_sha)
+
+    def _validate_normalized_dispatch(self, payload, *, raw, dispatch_path, observed_blob_sha):
+        if payload.get("project") != PROJECT_ID:
             raise DispatchInvalid("project must be FOX2")
         if payload.get("type") != "NORMAL_AGENT_DISPATCH":
             raise DispatchInvalid("unsupported dispatch type")
@@ -242,7 +247,7 @@ class BridgeE2ERunner:
         expected_control = f"refs/heads/{self.config.control_branch}"
         if payload.get("control_ref") != expected_control:
             raise DispatchInvalid("control_ref mismatch")
-        if payload.get("max_runs") != 1:
+        if type(payload.get("max_runs")) is not int or payload.get("max_runs") != 1:
             raise DispatchInvalid("max_runs must equal 1")
 
         dispatch_id = self._required_string(payload, "dispatch_id")
@@ -308,7 +313,7 @@ class BridgeE2ERunner:
         )
 
         delivery_owner = payload.get('delivery_owner', 'BRIDGE')
-        if delivery_owner not in {'AGENT', 'BRIDGE'}:
+        if not isinstance(delivery_owner, str) or delivery_owner not in IDENTIFIERS['delivery_owners']:
             raise DispatchInvalid('delivery_owner must be AGENT or BRIDGE')
         payload['delivery_owner'] = delivery_owner
         profile = payload.get('permission_profile', payload['agent']['permission_profile'])
@@ -327,13 +332,7 @@ class BridgeE2ERunner:
         for key in required_true:
             if not self._required_bool(permissions, key):
                 raise DispatchInvalid(f"permissions.{key} must be true")
-        forbidden_true = (
-            "pr_create",
-            "merge_allowed",
-            "production_provider",
-            "broker_write",
-            "live",
-        )
+        forbidden_true = PROTECTED_AUTHORITY_DEFAULTS
         for key in forbidden_true:
             if self._required_bool(permissions, key):
                 raise DispatchInvalid(f"permissions.{key} must be false")

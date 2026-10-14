@@ -15,15 +15,20 @@ from .config import REPOSITORY, BridgeConfig
 from .errors import DatabaseError, TransportFailure
 from .ledger import SQLiteLedger, utc_now
 from .logging_config import log_event, redact_context
+from .project_dictionary import DISPATCH_PATH_PATTERNS
 
 CONTROL_REF = "refs/bridge/control"
 OBSERVED_REF_PREFIX = "refs/bridge/observed"
 FULL_SHA_PATTERN = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
-CANDIDATE_PATH_PATTERN = re.compile(
-    rb"^docs/agent_handoff/([A-Za-z0-9][A-Za-z0-9._-]*)/dispatch/"
-    rb"([A-Za-z0-9][A-Za-z0-9._-]*\.json)$"
-)
-CANONICAL_REMOTE_URL = "https://github.com/dunglt2505/FOX2.git"
+
+
+def _path_pattern(pattern: str):
+    safe = r'[A-Za-z0-9][A-Za-z0-9._-]*'
+    return re.compile(re.escape(pattern).replace('<dispatch_id>', safe).replace('<wp_segment>', safe).encode('ascii'))
+
+
+CANDIDATE_PATH_PATTERNS = tuple(_path_pattern(pattern) for pattern in DISPATCH_PATH_PATTERNS)
+CANONICAL_REMOTE_URL = f"https://github.com/{REPOSITORY}.git"
 
 
 def canonical_repository_url(url: str) -> str:
@@ -93,7 +98,7 @@ def _decode_git_path(value: bytes) -> str:
 
 
 def _candidate_path(path: bytes) -> bool:
-    return CANDIDATE_PATH_PATTERN.fullmatch(path) is not None
+    return any(pattern.fullmatch(path) is not None for pattern in CANDIDATE_PATH_PATTERNS)
 
 
 def _parse_tree_listing(output: bytes, commit_sha: str) -> list[dict[str, str | None]]:

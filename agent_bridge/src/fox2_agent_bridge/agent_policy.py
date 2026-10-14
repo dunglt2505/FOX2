@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from .errors import DispatchInvalid, AgentNotStarted
+from .project_dictionary import IDENTIFIERS
 
 ADAPTER_REGISTRY = {'CODEX': ('OPENAI_CODEX_CLI', 'BRIDGE_DIRECT_CODEX_CLI'),
                     'COPILOT': ('GITHUB_COPILOT_CLI', 'BRIDGE_DIRECT_COPILOT_CLI')}
@@ -46,8 +47,8 @@ def tool_compatibility(version: str | None, expected_version: str | None,
 
 def validate_selection(agent: dict[str, object]) -> dict[str, object]:
     product = agent.get('product')
-    permission = agent.get('permission_profile', 'FULL_ACCESS')
-    if permission != 'FULL_ACCESS':
+    permission = agent.get('permission_profile', IDENTIFIERS['normal_coding_permission_profile'])
+    if permission != IDENTIFIERS['normal_coding_permission_profile']:
         raise DispatchInvalid('exact requested permission_profile must be FULL_ACCESS; no downgrade')
     if product == 'CODEX' and (agent.get('sandbox', 'danger-full-access') != 'danger-full-access'
                                or agent.get('approval_policy', 'never') != 'never'):
@@ -55,7 +56,7 @@ def validate_selection(agent: dict[str, object]) -> dict[str, object]:
     policy = agent.get('model_policy', 'CURRENT_CONFIG' if product == 'CODEX' else 'NATIVE_AUTO')
     allowed = {'CODEX': {'PINNED', 'CURRENT_CONFIG', 'PINNED_PREFERRED'},
                'COPILOT': {'NATIVE_AUTO', 'PINNED'}}
-    if not isinstance(product, str) or product not in allowed or not isinstance(policy, str) or policy not in allowed[product]:
+    if not isinstance(product, str) or product not in IDENTIFIERS['agent_products'] or product not in allowed or not isinstance(policy, str) or policy not in IDENTIFIERS['model_policies'] or policy not in allowed[product]:
         raise DispatchInvalid('unsupported exact Agent/model policy')
     model = agent.get('model')
     if model is not None and (not isinstance(model, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._/-]*', model)):
@@ -67,10 +68,12 @@ def validate_selection(agent: dict[str, object]) -> dict[str, object]:
     if policy == 'CURRENT_CONFIG' and model is not None:
         raise DispatchInvalid('CURRENT_CONFIG must not request a model override')
     effort = agent.get('reasoning_effort')
-    if effort is not None and (not isinstance(effort, str) or product != 'CODEX' or effort not in {'low', 'medium', 'high'}):
+    if effort is not None and (not isinstance(effort, str) or product != 'CODEX' or effort not in IDENTIFIERS['codex_reasoning_efforts']):
         raise DispatchInvalid('unsupported reasoning_effort')
-    tier = agent.get('auto_tier', 'balance')
-    if not isinstance(tier, str) or tier not in {'efficiency', 'balance', 'intelligence'}:
+    tier = agent.get('auto_tier')
+    if policy == 'NATIVE_AUTO' and tier is None:
+        tier = 'balance'
+    if tier is not None and (not isinstance(tier, str) or tier not in IDENTIFIERS['copilot_auto_tiers']):
         raise DispatchInvalid('unsupported auto_tier')
     if policy == 'NATIVE_AUTO' and model not in {None, 'auto'}:
         raise DispatchInvalid('native Auto requires model auto')

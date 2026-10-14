@@ -1,10 +1,10 @@
 # BRIDGE-DESKTOP-BATCH-A
 
 Implemented as one work package on `work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex`, based on accepted FIX-01 `ef9f290e73c4f4500900528656212c38acf43a4f`.
-Execution start HEAD: `efdf1f53f83a8eac3251660a588a447f50908fef`. Delivery owner: AGENT.
+Execution start HEAD: `9224b144f704964907162e77ebec520aa9b09f77`. Delivery owner: AGENT.
 State: VALIDATED_FOR_AGENT_PUBLICATION_UNREVIEWED.
 
-Final full-suite outcome: **164 passed** on Python 3.13.15.
+Final full-suite outcome: **243 passed** on Python 3.13.15.
 
 The background Worker retains its Git durable mailbox, pause/resume/check-now,
 bounded backoff and singleton. Recovery requires an explicit zero exit and valid
@@ -28,6 +28,14 @@ whitespace removal and post-write hygiene. Runtime logs use the shared canonical
 text routine. Tray model/permission/usage/capacity entries are disabled read-only
 items. Fixed controls and per-user startup remain covered by headless PowerShell.
 
+- PROJECT_DICTIONARY_BINDING=PASS
+- PROJECT_DICTIONARY_DRIFT_CHECK=PASS
+- DISPATCH_V3_RUNTIME_COMPATIBILITY=PASS
+- V2_COMPATIBILITY=PASS
+- V06_COMPATIBILITY=PASS
+- STABLE_DISPATCH_PATH=PASS
+- CONTROL_BRANCH_REGISTRY=PASS
+- SINGLE_NORMALIZED_EXECUTION_PATH=PASS
 - WORKER_RECOVERY=PASS
 - CODEX_EXACT_CONFIG=PASS
 - COPILOT_EXACT_POLICY=PASS
@@ -60,9 +68,25 @@ PowerShell; no paid Agent invocation, manual Tray interaction, real Windows logo
 PR/main/merge/deploy/provider/broker/LIVE was performed. Actual live model, usage
 and quota remain unknown; fixture observations are not live account telemetry.
 
-Task source authority was accepted as CHAT-verified. The two candidate spec paths
-were absent at the task-cited commit; implementation follows the executable task's
-explicit contracts and accepted code base without source-release rediscovery.
+Project Dictionary rollup follows the exact CHAT same-WP plan. The deterministic
+binding is generated from exact bytes at
+`28866ee6a61bde3fc3837ebd999c7b470afc7486:docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`.
+A byte drift gate checks identity, versions, paths and registry identifiers before
+publication. Default polling selects the Dictionary current control branch;
+explicit legacy selection remains supported, with one branch per profile.
+
+Discovery uses the Dictionary canonical DISPATCH path and its two legacy patterns.
+External v3 and v2 shapes normalize into the existing common validator and execution
+engine. Current v3 binds Dictionary hash/version/path/commit and current Policy;
+immutable v2 records retain their own Policy identity. Non-BRIDGE execution paths,
+invalid routing, protected authority expansion and malformed runtime identities
+fail closed before spawn. Required capabilities/tests and exact owners are preserved.
+Legacy 0.6 retains its historical missing-owner default. Publication/replay and
+quota/auth/capacity reconciliation run against all three schemas, both Agents and
+both owners through the same engine. Focused evidence is in focused_pytest.xml/txt.
+The Dictionary contains machine identity only; no Policy/BRD semantics were moved.
+The pinned release names a v3 schema path whose file is absent at that commit;
+v3 follows the CHAT plan's Dictionary block over the bound external dispatch shape.
 
 Agent will publish only allowed paths to this task branch and verify the remote
 SHA after commit. This pre-publication manifest excludes its own hash and does

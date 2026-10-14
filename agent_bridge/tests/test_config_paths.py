@@ -20,7 +20,7 @@ def test_default_configuration_loads_fixed_fox2_identity() -> None:
     assert config.bridge_root == BRIDGE_ROOT
     assert config.worktree_root == WORKTREE_ROOT
     assert config.max_active_executions == 1
-    assert config.control_branch == "work/FOX2-LOCAL-DISPATCH-chat"
+    assert config.control_branch == "work/FOX2-DISPATCH-chat"
     assert config.tool_paths["codex"] == (
         local_app_data / "Programs" / "OpenAI" / "Codex" / "bin" / "codex.exe"
     )

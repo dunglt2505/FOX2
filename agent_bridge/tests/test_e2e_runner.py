@@ -22,7 +22,7 @@ def _dispatch_payload(worktree: Path) -> dict[str, object]:
         "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-001",
         "wp_id": "FOX2-BRIDGE-E2E-CANARY",
         "repository": "dunglt2505/FOX2",
-        "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+        "control_ref": "refs/heads/work/FOX2-DISPATCH-chat",
         "agent": {
             "product": "COPILOT",
             "interface": "GITHUB_COPILOT_CLI",

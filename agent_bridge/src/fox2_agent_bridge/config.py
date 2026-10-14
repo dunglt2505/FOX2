@@ -9,10 +9,8 @@ from typing import Any
 
 from .errors import BridgeError, ConfigInvalid, PathInvalid
 from .paths import BRIDGE_ROOT, PROJECT_ROOT, WORKTREE_ROOT, canonical, validate_path
+from .project_dictionary import PROJECT_ID, REPOSITORY, CONTROL_BRANCH, SUPPORTED_CONTROL_BRANCHES
 
-PROJECT_ID = "FOX2"
-REPOSITORY = "dunglt2505/FOX2"
-CONTROL_BRANCH = "work/FOX2-LOCAL-DISPATCH-chat"
 REVIEW_EVENT_BRANCH = "work/FOX2-REVIEW-EVENTS-bridge"
 REVIEW_BRANCH = "work/FOX2-CHAT-REVIEWS"
 MAX_ACTIVE_EXECUTIONS = 1
@@ -81,8 +79,8 @@ class BridgeConfig:
             raise ConfigInvalid(f"project_id must be {PROJECT_ID}")
         if self.repository != REPOSITORY:
             raise ConfigInvalid(f"repository must be {REPOSITORY}")
-        if self.control_branch != CONTROL_BRANCH:
-            raise ConfigInvalid(f"control_branch must be {CONTROL_BRANCH}")
+        if self.control_branch not in SUPPORTED_CONTROL_BRANCHES:
+            raise ConfigInvalid(f"control_branch must be one of {SUPPORTED_CONTROL_BRANCHES}")
         if (
             isinstance(self.poll_interval_seconds, bool)
             or not isinstance(self.poll_interval_seconds, int)

@@ -17,10 +17,18 @@ from fox2_agent_bridge.agent_policy import help_text, permission_arguments, poli
 
 REPORT = ROOT / 'reports/BRIDGE-DESKTOP-BATCH-A'
 BASE = 'ef9f290e73c4f4500900528656212c38acf43a4f'
-START = 'efdf1f53f83a8eac3251660a588a447f50908fef'
+START = '9224b144f704964907162e77ebec520aa9b09f77'
 BRANCH = 'work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex'
 ALLOW = ('agent_bridge/', 'reports/BRIDGE-DESKTOP-BATCH-A/')
 SUPPORT = {
+    'PROJECT_DICTIONARY_BINDING': ['test_project_dictionary_binding_deterministic_drift'],
+    'PROJECT_DICTIONARY_DRIFT_CHECK': ['test_project_dictionary_binding_deterministic_drift'],
+    'DISPATCH_V3_RUNTIME_COMPATIBILITY': ['test_dictionary_schema_exact_normalized_tuple', 'test_dictionary_v3_fails_closed', 'test_dictionary_non_bridge_never_spawned'],
+    'V2_COMPATIBILITY': ['test_dictionary_schema_exact_normalized_tuple', 'test_dictionary_filename_and_legacy_bound_policy'],
+    'V06_COMPATIBILITY': ['test_dispatch_validation_accepts_minimal_canary', 'test_dictionary_schema_exact_normalized_tuple'],
+    'STABLE_DISPATCH_PATH': ['test_dictionary_stable_dispatch_discovery'],
+    'CONTROL_BRANCH_REGISTRY': ['test_dictionary_control_branch_registry'],
+    'SINGLE_NORMALIZED_EXECUTION_PATH': ['test_batch_real_git_delivery_has_one_publication_path', 'test_batch_post_start_zero_exit_capacity_never_publishes'],
     'WORKER_RECOVERY': ['test_restart_stages_never_replay', 'test_backoff_bounded_and_resets',
                         'test_controls_work_while_singleton_owned', 'test_idle_pause_resume_check_now_durable'],
     'CODEX_EXACT_CONFIG': ['test_batch_exact_policies_and_material_compatibility', 'test_codex_adapter_passes_model_and_keeps_safety'],
@@ -96,6 +104,14 @@ def main():
     evidence = REPORT / 'evidence'
     evidence.mkdir(parents=True, exist_ok=True)
     environment = {**os.environ, 'PYTHONPATH': str(ROOT / 'agent_bridge/src')}
+    focused = subprocess.run([sys.executable, '-m', 'pytest',
+        str(ROOT / 'agent_bridge/tests/test_project_dictionary.py'),
+        str(ROOT / 'agent_bridge/tests/test_batch_a.py'), '-q',
+        '--junitxml=' + str(evidence / 'focused_pytest.xml')], cwd=ROOT, env=environment,
+        capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300)
+    write_text(evidence / 'focused_pytest.txt', focused.stdout + focused.stderr)
+    assert focused.returncode == 0, 'focused Dictionary/runtime regressions failed'
+    write_text(evidence / 'focused_pytest.xml', (evidence / 'focused_pytest.xml').read_text(encoding='utf-8'))
     result = subprocess.run([sys.executable, '-m', 'pytest', str(ROOT / 'agent_bridge/tests'), '-q',
         '--junitxml=' + str(evidence / 'pytest.xml')], cwd=ROOT, env=environment, capture_output=True,
         text=True, encoding='utf-8', errors='replace', timeout=300)
@@ -168,9 +184,25 @@ PowerShell; no paid Agent invocation, manual Tray interaction, real Windows logo
 PR/main/merge/deploy/provider/broker/LIVE was performed. Actual live model, usage
 and quota remain unknown; fixture observations are not live account telemetry.
 
-Task source authority was accepted as CHAT-verified. The two candidate spec paths
-were absent at the task-cited commit; implementation follows the executable task's
-explicit contracts and accepted code base without source-release rediscovery.
+Project Dictionary rollup follows the exact CHAT same-WP plan. The deterministic
+binding is generated from exact bytes at
+`28866ee6a61bde3fc3837ebd999c7b470afc7486:docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`.
+A byte drift gate checks identity, versions, paths and registry identifiers before
+publication. Default polling selects the Dictionary current control branch;
+explicit legacy selection remains supported, with one branch per profile.
+
+Discovery uses the Dictionary canonical DISPATCH path and its two legacy patterns.
+External v3 and v2 shapes normalize into the existing common validator and execution
+engine. Current v3 binds Dictionary hash/version/path/commit and current Policy;
+immutable v2 records retain their own Policy identity. Non-BRIDGE execution paths,
+invalid routing, protected authority expansion and malformed runtime identities
+fail closed before spawn. Required capabilities/tests and exact owners are preserved.
+Legacy 0.6 retains its historical missing-owner default. Publication/replay and
+quota/auth/capacity reconciliation run against all three schemas, both Agents and
+both owners through the same engine. Focused evidence is in focused_pytest.xml/txt.
+The Dictionary contains machine identity only; no Policy/BRD semantics were moved.
+The pinned release names a v3 schema path whose file is absent at that commit;
+v3 follows the CHAT plan's Dictionary block over the bound external dispatch shape.
 
 Agent will publish only allowed paths to this task branch and verify the remote
 SHA after commit. This pre-publication manifest excludes its own hash and does
@@ -189,7 +221,10 @@ not claim a post-commit SHA before Git creates it.
         if path.is_file():
             text_hygiene(path)
     git('diff', '--check'); git('diff', '--cached', '--check')
-    files = [{'path': name, 'sha256': hashlib.sha256((ROOT / name).read_bytes()).hexdigest()} for name in paths
+    prior_manifest = json.loads(git('show', START + ':reports/BRIDGE-DESKTOP-BATCH-A/evidence_manifest.json'))
+    evidence_paths = sorted(set(paths) | {entry['path'] for entry in prior_manifest['files']})
+    assert all(name.startswith(ALLOW) for name in evidence_paths)
+    files = [{'path': name, 'sha256': hashlib.sha256((ROOT / name).read_bytes()).hexdigest()} for name in evidence_paths
              if (ROOT / name).is_file() and name != 'reports/BRIDGE-DESKTOP-BATCH-A/evidence_manifest.json']
     write_json(REPORT / 'evidence_manifest.json', {'schema_version': 1, 'work_package': 'BRIDGE-DESKTOP-BATCH-A',
         'delivery_status': 'VALIDATED_FOR_AGENT_PUBLICATION_UNREVIEWED', 'delivery_owner': 'AGENT',

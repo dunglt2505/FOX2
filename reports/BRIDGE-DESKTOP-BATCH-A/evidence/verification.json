@@ -3,7 +3,9 @@
     "CANONICAL_GENERATED_ARTIFACT_PIPELINE": "PASS",
     "CHANGED_PATH_ALLOWLIST": "PASS",
     "CODEX_EXACT_CONFIG": "PASS",
+    "CONTROL_BRANCH_REGISTRY": "PASS",
     "COPILOT_EXACT_POLICY": "PASS",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": "PASS",
     "FULL_ACCESS_CODEX": "PASS",
     "FULL_ACCESS_COPILOT": "PASS",
     "FULL_BRIDGE_TESTS": "PASS",
@@ -17,10 +19,16 @@
     "NO_REPLAY": "PASS",
     "PERMISSION_PREFLIGHT": "PASS",
     "POST_START_QUOTA_RECONCILIATION": "PASS",
+    "PROJECT_DICTIONARY_BINDING": "PASS",
+    "PROJECT_DICTIONARY_DRIFT_CHECK": "PASS",
     "SECRET_SCAN": "PASS",
+    "SINGLE_NORMALIZED_EXECUTION_PATH": "PASS",
+    "STABLE_DISPATCH_PATH": "PASS",
     "TEXT_ARTIFACT_HYGIENE": "PASS",
     "TRAY_READ_ONLY_USAGE_DISPLAY": "PASS",
     "USAGE_PERSISTENCE": "PASS",
+    "V06_COMPATIBILITY": "PASS",
+    "V2_COMPATIBILITY": "PASS",
     "WORKER_RECOVERY": "PASS"
   },
   "accepted_base_sha": "ef9f290e73c4f4500900528656212c38acf43a4f",
@@ -35,10 +43,10 @@
     "errors": 0,
     "failures": 0,
     "skipped": 0,
-    "tests": 164
+    "tests": 243
   },
   "python": "3.13.15",
-  "start_head": "efdf1f53f83a8eac3251660a588a447f50908fef",
+  "start_head": "9224b144f704964907162e77ebec520aa9b09f77",
   "status": "PASS",
   "support_tests": {
     "CANONICAL_GENERATED_ARTIFACT_PIPELINE": [
@@ -48,8 +56,16 @@
       "test_batch_exact_policies_and_material_compatibility",
       "test_codex_adapter_passes_model_and_keeps_safety"
     ],
+    "CONTROL_BRANCH_REGISTRY": [
+      "test_dictionary_control_branch_registry"
+    ],
     "COPILOT_EXACT_POLICY": [
       "test_batch_exact_policies_and_material_compatibility"
+    ],
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": [
+      "test_dictionary_schema_exact_normalized_tuple",
+      "test_dictionary_v3_fails_closed",
+      "test_dictionary_non_bridge_never_spawned"
     ],
     "FULL_ACCESS_CODEX": [
       "test_codex_exec_uses_full_access_and_never_approval",
@@ -91,6 +107,19 @@
       "test_batch_post_start_zero_exit_capacity_never_publishes",
       "test_nonzero_after_agent_start_needs_reconciliation"
     ],
+    "PROJECT_DICTIONARY_BINDING": [
+      "test_project_dictionary_binding_deterministic_drift"
+    ],
+    "PROJECT_DICTIONARY_DRIFT_CHECK": [
+      "test_project_dictionary_binding_deterministic_drift"
+    ],
+    "SINGLE_NORMALIZED_EXECUTION_PATH": [
+      "test_batch_real_git_delivery_has_one_publication_path",
+      "test_batch_post_start_zero_exit_capacity_never_publishes"
+    ],
+    "STABLE_DISPATCH_PATH": [
+      "test_dictionary_stable_dispatch_discovery"
+    ],
     "TRAY_READ_ONLY_USAGE_DISPLAY": [
       "test_batch_tray_usage_controls_are_read_only",
       "test_powershell_scripts_parse_and_startup_mock_is_idempotent"
@@ -98,6 +127,14 @@
     "USAGE_PERSISTENCE": [
       "test_batch_immutable_tuple_and_usage_survive_restart",
       "test_batch_streamed_telemetry_survives_output_tail"
+    ],
+    "V06_COMPATIBILITY": [
+      "test_dispatch_validation_accepts_minimal_canary",
+      "test_dictionary_schema_exact_normalized_tuple"
+    ],
+    "V2_COMPATIBILITY": [
+      "test_dictionary_schema_exact_normalized_tuple",
+      "test_dictionary_filename_and_legacy_bound_policy"
     ],
     "WORKER_RECOVERY": [
       "test_restart_stages_never_replay",
