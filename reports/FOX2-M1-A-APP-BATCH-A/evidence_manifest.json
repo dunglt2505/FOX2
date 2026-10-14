@@ -1,0 +1,155 @@
+{
+  "task": "FOX2-M1-A-APP-BATCH-A",
+  "status": "IMPLEMENTED_UNREVIEWED",
+  "created_at": "2026-10-14T08:11:29.340584+00:00",
+  "branch": "work/FOX2-M1-A-APP-BATCH-A-codex",
+  "gates": {
+    "APP_BATCH_A_TESTS": "PASS",
+    "P2_01_FUNCTIONAL_REGRESSION": "PASS",
+    "P2_02_FUNCTIONAL_REGRESSION": "PASS",
+    "P2_03_FUNCTIONAL_REGRESSION": "PASS",
+    "OFFLINE_NO_NETWORK": "PASS",
+    "NO_SYNTHETIC_INVESTOR_VALUES": "PASS",
+    "WATCHLIST_CAS": "PASS",
+    "LOOPBACK_SECURITY": "PASS",
+    "API_ERROR_SANITIZATION": "PASS",
+    "CHANGED_PATH_ALLOWLIST": "PASS",
+    "SECRET_SCAN": "PASS",
+    "GIT_DIFF_CHECK": "PASS",
+    "RESULT_EVIDENCE": "PASS"
+  },
+  "commands": [
+    {
+      "name": "app_batch_a",
+      "argv": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "temp_support",
+        "tests/app_batch_a",
+        "-q"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/app_batch_a.txt"
+    },
+    {
+      "name": "p2_01",
+      "argv": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "temp_support",
+        "tests/p2_01",
+        "--deselect=tests/p2_01/test_security_boundary.py::test_route_allowlist",
+        "--deselect=tests/p2_01/test_security_boundary.py::test_domain_dependency_boundary",
+        "-q"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/p2_01.txt"
+    },
+    {
+      "name": "p2_02",
+      "argv": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "temp_support",
+        "tests/p2_02",
+        "--deselect=tests/p2_02/test_boundaries.py::test_domain_dependency_boundary_for_p2_02_stage",
+        "-q"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/p2_02.txt"
+    },
+    {
+      "name": "p2_03",
+      "argv": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "temp_support",
+        "tests/p2_03",
+        "-q"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/p2_03.txt"
+    },
+    {
+      "name": "combined",
+      "argv": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "temp_support",
+        "tests/app_batch_a",
+        "tests/p2_01",
+        "tests/p2_02",
+        "tests/p2_03",
+        "--deselect=tests/p2_01/test_security_boundary.py::test_route_allowlist",
+        "--deselect=tests/p2_01/test_security_boundary.py::test_domain_dependency_boundary",
+        "--deselect=tests/p2_02/test_boundaries.py::test_domain_dependency_boundary_for_p2_02_stage",
+        "-q"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/combined.txt"
+    }
+  ],
+  "deselections": [
+    "tests/p2_01/test_security_boundary.py::test_route_allowlist",
+    "tests/p2_01/test_security_boundary.py::test_domain_dependency_boundary",
+    "tests/p2_02/test_boundaries.py::test_domain_dependency_boundary_for_p2_02_stage"
+  ],
+  "evidence_files": {
+    "evidence/app_batch_a.txt": {
+      "bytes": 179,
+      "sha256": "3ab6848b5962b9918086a664900e5c96f39cf4d4f5d379c7bc95c45cd90af697"
+    },
+    "evidence/combined.txt": {
+      "bytes": 515,
+      "sha256": "788dcf15d16b152178fcfeca702b2fe4d91761cb59586294be06bbb930eae88a"
+    },
+    "evidence/commands.json": {
+      "bytes": 2128,
+      "sha256": "3290fb0082bc3af0b205299d617cb99e9410fa601cba70106ff6a9304ba28716"
+    },
+    "evidence/environment.json": {
+      "bytes": 795,
+      "sha256": "98b20611ec4acca1499d5ec9fca7d10dbe913e27c5a0a7a3f7989b7636ebea22"
+    },
+    "evidence/p2_01.txt": {
+      "bytes": 193,
+      "sha256": "c7ee614125ff5e28611ba98f126182c2c92594c9c8a3f4f543f370a34dc30115"
+    },
+    "evidence/p2_02.txt": {
+      "bytes": 193,
+      "sha256": "b504ef0ee9dd66191e103ae7b0ba95b1b04902b7d913ea950d891b56eca9588f"
+    },
+    "evidence/p2_03.txt": {
+      "bytes": 179,
+      "sha256": "b7b388cc3c1b7d3c428ca87d9c23eb593ad7d4bab5c5bb75a6726a6b49b16cea"
+    },
+    "evidence/path_and_security_checks.json": {
+      "bytes": 3702,
+      "sha256": "f0e06ceae873021d46a59ca6c7611441be1c9182eb8f15c4baeb31453b9afa7f"
+    },
+    "report.md": {
+      "bytes": 7795,
+      "sha256": "4185a4392c1bbc9e7f45b02e5e04d5c1ee184bdebe5b3eab283b0a1ad6e6ecb6"
+    },
+    "evidence/final_staging_checks.json": {
+      "bytes": 1426,
+      "sha256": "843743a9d8a11d779a8518eaa94c7948c0649c375dfbb09686bfac71b360fea5"
+    }
+  },
+  "publication": "Agent must push own task branch and separately read back exact commit SHA."
+}

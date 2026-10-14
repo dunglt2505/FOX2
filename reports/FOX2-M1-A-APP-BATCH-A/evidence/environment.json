@@ -1,0 +1,20 @@
+{
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-A-APP-BATCH-A-CODEX",
+  "branch": "work/FOX2-M1-A-APP-BATCH-A-codex",
+  "starting_head": "0b559eb057c741977069fd527af1a512b8ddb007",
+  "accepted_application_base": "d90987afd861a41aef01059d95ca039509ede09c",
+  "packages": {
+    "pytest": "8.3.5",
+    "fastapi": "0.115.12",
+    "pydantic": "2.14.0",
+    "starlette": "0.46.2",
+    "httpx": "0.28.1",
+    "jsonschema": "4.26.0"
+  },
+  "test_env": {
+    "PYTHONPATH": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-A-APP-BATCH-A-CODEX\\backend\\src;C:\\Projects\\FOX2-worktrees\\FOX2-M1-A-APP-BATCH-A-CODEX\\tests\\p2_03",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}

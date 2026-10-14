@@ -1,0 +1,32 @@
+{
+  "command": "git diff --cached --check; staged allowlist and secret pattern scan; index evidence hash readback",
+  "staged_path_allowlist": "PASS",
+  "staged_secret_scan": "PASS",
+  "staged_diff_check": "PASS",
+  "staged_evidence_hash_readback": "PASS",
+  "changed_paths": [
+    "backend/src/fox2/api/health.py",
+    "backend/src/fox2/api/market.py",
+    "backend/src/fox2/application/__init__.py",
+    "backend/src/fox2/application/registry.py",
+    "backend/src/fox2/application/services.py",
+    "backend/src/fox2/config.py",
+    "backend/src/fox2/main.py",
+    "backend/src/fox2/runtime/__init__.py",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/app_batch_a.txt",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/combined.txt",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/commands.json",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/environment.json",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/p2_01.txt",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/p2_02.txt",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/p2_03.txt",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence/path_and_security_checks.json",
+    "reports/FOX2-M1-A-APP-BATCH-A/evidence_manifest.json",
+    "reports/FOX2-M1-A-APP-BATCH-A/report.md",
+    "tests/app_batch_a/conftest.py",
+    "tests/app_batch_a/test_api.py",
+    "tests/app_batch_a/test_app_boundaries.py",
+    "tests/app_batch_a/test_watchlist_security.py",
+    "tests/app_batch_a/verify_delivery.py"
+  ]
+}

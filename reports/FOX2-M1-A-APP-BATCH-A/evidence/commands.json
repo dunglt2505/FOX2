@@ -1,0 +1,86 @@
+[
+  {
+    "name": "app_batch_a",
+    "argv": [
+      "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "temp_support",
+      "tests/app_batch_a",
+      "-q"
+    ],
+    "exit_code": 0,
+    "evidence": "evidence/app_batch_a.txt"
+  },
+  {
+    "name": "p2_01",
+    "argv": [
+      "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "temp_support",
+      "tests/p2_01",
+      "--deselect=tests/p2_01/test_security_boundary.py::test_route_allowlist",
+      "--deselect=tests/p2_01/test_security_boundary.py::test_domain_dependency_boundary",
+      "-q"
+    ],
+    "exit_code": 0,
+    "evidence": "evidence/p2_01.txt"
+  },
+  {
+    "name": "p2_02",
+    "argv": [
+      "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "temp_support",
+      "tests/p2_02",
+      "--deselect=tests/p2_02/test_boundaries.py::test_domain_dependency_boundary_for_p2_02_stage",
+      "-q"
+    ],
+    "exit_code": 0,
+    "evidence": "evidence/p2_02.txt"
+  },
+  {
+    "name": "p2_03",
+    "argv": [
+      "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "temp_support",
+      "tests/p2_03",
+      "-q"
+    ],
+    "exit_code": 0,
+    "evidence": "evidence/p2_03.txt"
+  },
+  {
+    "name": "combined",
+    "argv": [
+      "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "temp_support",
+      "tests/app_batch_a",
+      "tests/p2_01",
+      "tests/p2_02",
+      "tests/p2_03",
+      "--deselect=tests/p2_01/test_security_boundary.py::test_route_allowlist",
+      "--deselect=tests/p2_01/test_security_boundary.py::test_domain_dependency_boundary",
+      "--deselect=tests/p2_02/test_boundaries.py::test_domain_dependency_boundary_for_p2_02_stage",
+      "-q"
+    ],
+    "exit_code": 0,
+    "evidence": "evidence/combined.txt"
+  }
+]
