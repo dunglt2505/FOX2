@@ -1,4 +1,5 @@
 $ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $false
 Set-StrictMode -Version Latest
 function Invoke-Git {
     param([Parameter(ValueFromRemainingArguments=$true)][string[]]$Args)
@@ -31,7 +32,13 @@ function Ensure-TaskWorktree {
     $actual = (& git -C $Worktree branch --show-current).Trim()
     if ($actual -ne $Branch) { throw "wrong worktree branch: $actual" }
     $dirty = & git -C $Worktree status --porcelain
-    if ($dirty) { throw ("worktree is not clean before preflight:" + [Environment]::NewLine + ($dirty | Out-String)) }
+    $receiptDirty = @(& git -C $Worktree status --porcelain --untracked-files=all -- $ReceiptRel)
+    if ($dirty) {
+        if ($receiptDirty.Count -eq 0 -or ((@($dirty) -join "`n") -ne ($receiptDirty -join "`n"))) { throw ("worktree has non-preflight WIP:" + "`n" + ($dirty | Out-String)) }
+        & git -C $Worktree reset --quiet HEAD -- $ReceiptRel 2>$null
+        $stale = Join-Path $Worktree $ReceiptRel
+        if (Test-Path $stale) { Remove-Item -Force $stale }
+    }
     Invoke-Git -Args @("-C",$Worktree,"pull","--ff-only","origin",$Branch) | Out-Null
     return (& git -C $Worktree rev-parse HEAD).Trim()
 }
@@ -47,8 +54,9 @@ function Write-Receipt {
     param([object]$Receipt,[string]$Path)
     $parent = Split-Path -Parent $Path
     New-Item -ItemType Directory -Force -Path $parent | Out-Null
-    $json = $Receipt | ConvertTo-Json -Depth 12
-    [IO.File]::WriteAllText($Path, $json + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
+    $json = ($Receipt | ConvertTo-Json -Depth 12) -replace "`r`n","`n"
+    $json = ($json -replace "`r","`n").TrimEnd() + "`n"
+    [IO.File]::WriteAllText($Path, $json, [Text.UTF8Encoding]::new($false))
 }
 
 function Publish-Receipt {
@@ -122,7 +130,7 @@ if (-not $selected -and $copilot) {
     }
 }
 
-if (-not $selected) { throw "no eligible Agent demonstrated current execution capacity; Codex=$($codexResult.status), Copilot=$($copilotResult.status)" }
+$blocked = -not $selected
 
 $receipt = [ordered]@{
     schema_version = "1.0"
@@ -143,6 +151,8 @@ $receipt = [ordered]@{
         selected_route = $route
     }
     r5_worktree = [ordered]@{ status="PASS"; branch=$Branch; clean_before_probe=$true; competing_writer="NONE_OBSERVED" }
+    status = $(if ($blocked) { "BLOCKED" } else { "PASS" })
+    blockers = $(if ($blocked) { @("NO_AGENT_CURRENT_EXECUTION_PROOF") } else { @() })
     execution_authorized = "NO_FROM_PREFLIGHT"
     note = "Preflight evidence only. CHAT must publish the canonical Dispatch v3 before implementation."
 }
@@ -150,6 +160,8 @@ $receipt = [ordered]@{
 $receiptPath = Join-Path $Worktree $ReceiptRel
 Write-Receipt -Receipt $receipt -Path $receiptPath
 $published = Publish-Receipt -Worktree $Worktree -Branch $Branch -RelativePath $ReceiptRel -Message "preflight: record Bridge Batch B local readiness"
-Write-Host "FOX2_BRIDGE_BATCH_B_PREFLIGHT_PUSHED"
+Write-Host "FOX2_BRIDGE_BATCH_B_PREFLIGHT_RECEIPT_PUSHED"
 Write-Host "REMOTE_SHA=$published"
+Write-Host ("STATUS=" + $receipt.status)
 Write-Host "SELECTED_AGENT=$selected"
+if ($blocked) { exit 20 }
