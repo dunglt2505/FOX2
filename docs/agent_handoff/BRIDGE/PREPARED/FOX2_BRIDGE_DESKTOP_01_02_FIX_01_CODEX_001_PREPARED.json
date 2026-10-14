@@ -1,0 +1,85 @@
+{
+  "schema_version": "prepared-dispatch-v1",
+  "status": "PREPARED_NOT_PUBLISHED",
+  "activation_gate": "OWNER_CONFIRMS_CODEX_TOKEN_AVAILABLE",
+  "live_dispatch_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-CODEX-001/dispatch/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-CODEX-001.json",
+  "note": "This file is deliberately outside the Bridge dispatch discovery namespace. When Owner confirms Codex token is available, CHAT must publish intended_dispatch unchanged to live_dispatch_path, then perform remote readback before instructing run-next.",
+  "intended_dispatch": {
+    "schema_version": "0.6",
+    "project": "FOX2",
+    "type": "NORMAL_AGENT_DISPATCH",
+    "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-FIX-01-CODEX-001",
+    "wp_id": "BRIDGE-DESKTOP-01-02-FIX-01",
+    "repository": "dunglt2505/FOX2",
+    "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+    "agent": {
+      "product": "CODEX",
+      "interface": "OPENAI_CODEX_CLI",
+      "requested_model_or_mode": "GPT-6.1-SOL_IF_AVAILABLE; HIGH_REASONING_PREFERRED",
+      "model_policy": "PINNED_PREFERRED",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high"
+    },
+    "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-01-02-FIX-01-CODEX",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex",
+    "base_sha": "ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a",
+    "prompt": {
+      "git_commit": "ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a",
+      "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_DESKTOP_01_02_FIX_01_CODEX_BRIDGE_PROMPT_20261014.md",
+      "git_blob_sha1": "59c435eed9c556a81038cfaf29f6933b65098b63",
+      "sha256": "5e7d754b984e13027410969f52ccf5f7ee833c44bfca924f408e13a18cd7dc9f"
+    },
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-01-02/**"
+    ],
+    "permissions": {
+      "code_allowed": true,
+      "git_code_push": true,
+      "git_report_write": true,
+      "git_report_push": true,
+      "pr_create": false,
+      "merge_allowed": false,
+      "production_provider": false,
+      "broker_write": false,
+      "live": false
+    },
+    "acceptance": {
+      "required_paths": [
+        "reports/BRIDGE-DESKTOP-01-02/report.md",
+        "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json",
+        "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+        "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml"
+      ],
+      "stdout_contains": "FOX2_BRIDGE_DESKTOP_01_02_FIX_01_DELIVERY_READY"
+    },
+    "runtime_contract": {
+      "auto_execute": true,
+      "invoke_via": "codex_cli_exec",
+      "working_directory_must_equal_worktree": true,
+      "sandbox": "workspace-write",
+      "windows_sandbox": "unelevated",
+      "preferred_shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "approval_policy": "never",
+      "requested_model": "gpt-6.1-sol",
+      "requested_reasoning_effort": "high",
+      "bridge_owns_git_commit_push": true,
+      "no_duplicate_governance": true,
+      "no_silent_substitution": true,
+      "owner_workspace_read_only": true,
+      "heartbeat_seconds": 10,
+      "hard_timeout_seconds": 1800
+    },
+    "corrective_parent_sha": "3497356d5fc74785ab3377c1a49ea5330c0dab13",
+    "replacement_for_review_reject": true,
+    "max_runs": 1,
+    "owner_decision": {
+      "date": "2026-10-14",
+      "text": "Chat chuẩn bị trước đi, Khi nào có token sẽ chạy",
+      "scope": "Prepare BRIDGE-DESKTOP-01-02-FIX-01 and a fresh Codex dispatch now; do not execute/publish it into the live dispatch namespace until Owner confirms Codex token is available."
+    }
+  }
+}
