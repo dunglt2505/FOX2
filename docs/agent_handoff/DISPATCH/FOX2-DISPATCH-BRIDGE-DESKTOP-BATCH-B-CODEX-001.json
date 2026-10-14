@@ -1,0 +1,138 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "git_commit": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+    "git_blob_sha1": "33f81d5022cef498cc9ac105a0a9ddffe0870010",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "source": {
+    "commit_sha": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "FOX2 Owner direct in-thread instruction (2026-10-14): 'do it' to complete CHAT Intake and publish one whole-WP executable Bridge Batch B Dispatch for installer/first-run/update/uninstall/tray/worker/E2E/certification. Bounded to immutable docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md on task branch and agent_bridge/** + reports/BRIDGE-DESKTOP-BATCH-B/** only; no main/PR/merge/provider/broker/LIVE. Project Technical Spec v0.7 remains CANDIDATE; this owner task authorization does not release it. Published PASS preflight at fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b. Required native host prerequisites git/python/pwsh/schtasks.exe/LocalAppData PASS; exact bundler selection and installer proof required during execution and STOP on missing material dependency."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "local_appdata_per_user_write",
+      "eligible_agent_route",
+      "codex_cli",
+      "full_access_mode",
+      "windows_user_installer_capability_gate_at_launch",
+      "exclusive_bridge_task_worktree",
+      "source_schema_v3_dictionary_binding"
+    ],
+    "stop_conditions": [
+      "source_or_task_binding_mismatch",
+      "wrong_branch_or_worktree",
+      "unrelated_worktree_wip_or_competing_material_writer",
+      "dispatch_replay_or_already_consumed",
+      "unauthorized_path_change",
+      "missing_or_unsupported_installer_packaging_dependency",
+      "failed_windows_install_or_upgrade_uninstall_safety",
+      "unsafe_replay_or_concurrent_execution",
+      "agent_auth_quota_or_full_access_failure",
+      "schema_or_dictionary_drift",
+      "required_test_failure",
+      "secret_or_sensitive_data_exposure",
+      "git_push_or_exact_readback_failure",
+      "agent_substitution",
+      "provider_broker_or_live_access"
+    ]
+  },
+  "required_tests": [
+    "FIRST_RUN_SETUP",
+    "PER_USER_INSTALL",
+    "INSTALLER_PACKAGE",
+    "UPDATE_PATH",
+    "UNINSTALL_PATH",
+    "STARTUP_SINGLE_INSTANCE",
+    "SANITIZED_DIAGNOSTICS_BUNDLE",
+    "INSTALLED_TRAY_WORKER",
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "REAL_ELIGIBLE_FOX2_DISPATCH",
+    "EXACT_AGENT_CONFIGURATION",
+    "FULL_ACCESS_PERMISSION",
+    "RESULT_REMOTE_READBACK",
+    "USAGE_SNAPSHOT",
+    "RESTART_NO_REPLAY",
+    "FULL_BRIDGE_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-14T23:16:00+07:00",
+  "max_runs": 1
+}
