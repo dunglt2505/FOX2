@@ -1,13 +1,13 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate REV3`  
+**Version:** `0.7 Candidate REV4`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
 **Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature.
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch.
 
 > This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence. The normative routing/telemetry requirements are defined by `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`; that contract is integrated into the Desktop plan and is **not** a separate DEV round.
 
@@ -177,6 +177,41 @@ Exact file format may remain TOML to reuse current code.
 Configuration must not contain passwords, access tokens or embedded Agent subscription credentials.
 
 Per-task Agent/model selection is **dispatch-owned**, not global-config-owned. Global config may enable/locate an Agent, but MUST NOT silently choose or override a task's `model_policy`, Copilot `auto_tier`, Codex `model`, or Codex `reasoning_effort`.
+### 5.x CLI-first permission baseline
+
+For normal coding execution, Codex CLI and Copilot CLI are the primary implementation engines. Bridge is the local supervisor/launcher/evidence layer.
+
+Permission authority is split as follows:
+
+```text
+OWNER / CHAT
+  -> decides task authority
+  -> selects Agent/model/tier/reasoning
+  -> selects permission_profile
+  -> publishes immutable dispatch
+
+BRIDGE
+  -> reads exact immutable permission_profile
+  -> performs AGENT_PERMISSION_PREFLIGHT
+  -> translates the profile into exact CLI launch flags/config
+  -> verifies no silent downgrade/substitution
+  -> launches the selected CLI
+  -> supervises/result-checks/replay-protects
+
+CODEX CLI / COPILOT CLI
+  -> executes the task with the granted technical permissions
+```
+
+Default for normal coding tasks after this REV4 baseline:
+
+```text
+permission_profile = FULL_ACCESS
+```
+
+This is **technical runtime permission**, not project authority. Immutable task controls still govern branch/worktree, intended scope, Git publication, merge/deploy/Production/provider/broker/LIVE rights and STOP conditions.
+
+Bridge MUST NOT invent, broaden, reduce or substitute the permission profile. If the requested Full Access profile cannot be applied because the installed CLI, enterprise policy, authentication state or host configuration blocks it, Bridge returns a pre-launch permission error to CHAT and does not silently continue with reduced permissions.
+
 
 Initial v0.7 only needs **one actively scheduled project profile at a time**. Data structures should avoid hardcoding FOX2 so a later generic Core can enable additional profiles.
 
@@ -487,7 +522,9 @@ Current proven direct Codex CLI path is preserved, with the Desktop completion a
 - non-interactive prompt input;
 - bounded timeout;
 - workspace-write;
-- current Windows sandbox workaround where still required by installed CLI;
+- `permission_profile = FULL_ACCESS` by default for normal coding execution;
+- Full Access maps to Codex `sandbox_mode = danger-full-access` plus `approval_policy = never` (or the exact supported CLI equivalent);
+- current Windows host/sandbox implementation details may still be feature-detected, but MUST NOT silently downgrade the requested permission profile;
 - `model_policy = PINNED`;
 - exact `model` from dispatch;
 - exact `reasoning_effort` from dispatch;
@@ -521,9 +558,29 @@ Required Desktop completion behavior:
 - usage/credit extraction when officially exposed;
 - no mutation of normal user-global Copilot settings per task;
 - process-scoped profile/isolation mechanism only after a host canary proves auth/session behavior;
-- existing bounded `--allow-tool` safety retained.
+- `permission_profile = FULL_ACCESS` by default for normal coding execution;
+- Full Access maps to Copilot `--allow-all` / equivalent all-tools+paths+URLs permission semantics;
+- `--no-ask-user` may be used for non-interactive execution as separately required by the dispatch/runtime contract;
+- Copilot Autopilot is an execution mode and is NOT implied merely by Full Access.
 
-Copilot Autopilot/YOLO/full-permission mode remains out of scope.
+Copilot permission Full Access is approved by this baseline. Autopilot remains a separate CHAT decision and is not enabled implicitly.
+
+### 11.2A Permission preflight
+
+Before Agent launch, Bridge performs `AGENT_PERMISSION_PREFLIGHT` against the immutable dispatch.
+
+Required behavior:
+
+- requested profile is read from dispatch; default coding baseline is `FULL_ACCESS`;
+- Codex: verify the installed CLI/config path can honor `danger-full-access` + `never` semantics;
+- Copilot: verify the installed CLI can honor `--allow-all` semantics;
+- detect managed/enterprise/host restrictions when observable;
+- never ask CHAT to re-decide unchanged permissions merely because Bridge is launching them;
+- never silently downgrade to workspace-write/manual/limited permissions;
+- never silently change Agent;
+- on mismatch, stop before Agent execution and return `AGENT_PERMISSION_PROFILE_MISMATCH` / equivalent evidence to CHAT.
+
+The preflight is technical enforcement, not governance or routing.
 
 ### 11.3 Usage snapshot and runtime failure
 
@@ -860,7 +917,10 @@ BRD-09 acceptance IDs map to implementation tests.
 - success and quota-failure results persist available usage telemetry.
 - Codex known five-hour reset is normalized by CHAT without resetting weekly state.
 - post-start quota failure becomes NEEDS_RECONCILIATION with no blind replay/substitution.
-- Tray renders usage/model state read-only and contains no routing logic.
+- FULL_ACCESS permission profile is applied exactly for both Agent products.
+- requested/effective permission profile is recorded; mismatch blocks before launch.
+- no silent permission downgrade occurs.
+- Tray renders usage/model/permission state read-only and contains no routing logic.
 - Copilot process-scoped profile behavior passes one real-host canary before trusted use.
 - Copilot Autopilot/YOLO/full-permission mode remains disabled.
 
@@ -914,7 +974,10 @@ Implement together because these features share the same runtime paths:
 - Tray IPC/status/startup behavior;
 - Tray read-only usage/model display;
 - Copilot runtime-profile canary;
-- bounded permissions, no Autopilot/YOLO.
+- CLI-FIRST permission profile handling;
+- Full Access by default for Codex/Copilot coding execution;
+- `AGENT_PERMISSION_PREFLIGHT` with fail-closed no-downgrade behavior;
+- Autopilot remains separately controlled and is not implied by Full Access.
 
 Exit Batch A only when Worker/recovery, both Agent paths, model policy, telemetry persistence and Tray status pass together. Do not close only the UI while adapter/ledger behavior remains pending.
 
@@ -989,7 +1052,9 @@ v0.7 may be considered product-ready for the Owner's normal Windows use when:
 - requested/observed Agent configuration is persisted correctly;
 - available usage telemetry is persisted for both Agent result paths;
 - post-start quota failure reconciles without replay/substitution;
-- Tray shows model/usage state read-only without routing authority;
+- Tray shows model/usage/permission state read-only without routing authority;
+- Codex/Copilot coding launches use the immutable Full Access profile unless an explicit future dispatch overrides it;
+- permission-profile mismatch fails before Agent execution with no downgrade;
 - no visible PowerShell is required for normal operation;
 - first-run setup reports Ready/Degraded accurately;
 - secrets/logging/path boundaries pass;
@@ -1013,4 +1078,4 @@ This Candidate does not:
 - declare BRD-09 acceptance tests PASS;
 - create a separate DEV round for `FOX2-AGENT-USAGE-TELEMETRY-01`; its requirements are absorbed into Batch A.
 
-`TECH_V0_7_STATUS=CANDIDATE_REV3 / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV4 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
