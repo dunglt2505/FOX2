@@ -81,8 +81,21 @@ def canonical_repository_url(url: str) -> str:
 def _safe_error_text(value: str) -> str:
     safe = str(redact_context(value, "details"))
     safe = re.sub(r"https?://[^/\s:@]+:[^@\s/]+@", "https://<REDACTED>@", safe)
-    safe = re.sub(r"(?i)(authorization:\s*)\S+", r"\1<REDACTED>", safe)
+    safe = re.sub(r"(?i)(authorization:\s*)[^\r\n]+", r"\1<REDACTED>", safe)
+    safe = re.sub(r"(?i)([a-z][a-z0-9+.-]*://)[^/\s]*@", r"\1<REDACTED>@", safe)
+    safe = re.sub(r"(?i)\b((?:access[_-]?)?token|password|secret|api[_-]?key)=([^\s&]+)", r"\1=<REDACTED>", safe)
     return safe[:2000]
+
+
+def _git_error_text(result: subprocess.CompletedProcess[Any]) -> str:
+    def decode(value: str | bytes | None) -> str:
+        return value.decode("utf-8", "replace") if isinstance(value, bytes) else (value or "")
+
+    stdout = _safe_error_text(decode(result.stdout)).strip()
+    stderr = _safe_error_text(decode(result.stderr)).strip()
+    if stdout and stderr:
+        return ("stdout: " + stdout[:980] + "\nstderr: " + stderr[:980])[:2000]
+    return stdout or stderr or f"Git exited with code {result.returncode} without diagnostics"
 
 
 def _decode_git_path(value: bytes) -> str:
@@ -206,7 +219,7 @@ class GitTransport:
                 f"Git transport command failed to start or timed out: {type(exc).__name__}"
             ) from exc
         if check and result.returncode != 0:
-            detail = _safe_error_text(result.stderr.decode("utf-8", "replace") if binary else result.stderr)
+            detail = _git_error_text(result)
             raise TransportFailure(
                 f"Git transport command failed with exit code {result.returncode}"
                 + (f": {detail}" if detail else "")
@@ -234,7 +247,7 @@ class GitTransport:
             if init.returncode:
                 raise TransportFailure(
                     "cannot initialize Bridge-owned bare Git store: "
-                    + _safe_error_text(init.stderr)
+                    + _git_error_text(init)
                 )
         bare = self._run(["rev-parse", "--is-bare-repository"])
         if bare.stdout.strip() != "true":
@@ -268,7 +281,7 @@ class GitTransport:
             check=False,
         )
         if result.returncode != 0:
-            detail = _safe_error_text(result.stderr)
+            detail = _git_error_text(result)
             raise TransportFailure(
                 f"cannot query remote control branch (exit {result.returncode})"
                 + (f": {detail}" if detail else "")
@@ -316,7 +329,7 @@ class GitTransport:
             return True
         if result.returncode == 1:
             return False
-        detail = _safe_error_text(result.stderr)
+        detail = _git_error_text(result)
         raise TransportFailure(
             "cannot verify control history ancestry"
             + (f": {detail}" if detail else "")

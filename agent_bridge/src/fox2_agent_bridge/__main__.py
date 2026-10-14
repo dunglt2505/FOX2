@@ -36,6 +36,10 @@ def build_parser() -> argparse.ArgumentParser:
     e2e.add_argument("--dispatch-path", required=True, help="exact control-branch dispatch path")
     e2e.add_argument("--timeout", type=int, default=300, help="Agent timeout in seconds")
 
+    recovery = subparsers.add_parser("recover-delivery", help="recover delivery without launching an Agent")
+    recovery.add_argument("--config", type=Path)
+    recovery.add_argument("--dispatch-path", required=True)
+
     run_next = subparsers.add_parser(
         "run-next",
         help="poll and execute one eligible runtime_contract.auto_execute dispatch",
@@ -91,6 +95,10 @@ def main(argv: list[str] | None = None) -> int:
                     dispatch_path=args.dispatch_path,
                     timeout_seconds=args.timeout,
                 )
+                report = result.as_dict()
+                exit_code = 0 if result.status == "PUSHED_UNREVIEWED" else 5
+            elif args.command == "recover-delivery":
+                result = app.recover_delivery(dispatch_path=args.dispatch_path)
                 report = result.as_dict()
                 exit_code = 0 if result.status == "PUSHED_UNREVIEWED" else 5
             elif args.command == "run-next":

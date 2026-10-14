@@ -20,6 +20,8 @@ from .dispatch_poller import (
     DispatchPoller,
     GitTransport,
     _safe_error_text,
+    _git_error_text,
+    canonical_repository_url,
 )
 from .errors import (
     BridgeError,
@@ -35,6 +37,7 @@ from .paths import validate_path
 from .result_store import write_execution_report
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
+_WHITESPACE = "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol"
 _AGENT_INTERFACES = {
     "COPILOT": "GITHUB_COPILOT_CLI",
     "CODEX": "OPENAI_CODEX_CLI",
@@ -144,13 +147,8 @@ class BridgeE2ERunner:
                 f"Git workspace command failed to start or timed out: {type(exc).__name__}"
             ) from exc
         if check and result.returncode != 0:
-            stderr = (
-                result.stderr.decode("utf-8", "replace")
-                if binary
-                else result.stderr
-            )
             raise WorkspaceBlocked(
-                "Git workspace command failed: " + _safe_error_text(stderr)
+                "Git workspace command failed: " + _git_error_text(result)
             )
         return result
 
@@ -588,7 +586,12 @@ class BridgeE2ERunner:
         ):
             raise DispatchInvalid("acceptance.required_paths must be a string list")
         for required_path in required_paths:
-            target = worktree / Path(*required_path.split("/"))
+            relative = Path(*required_path.split("/"))
+            target = (worktree / relative).resolve()
+            if relative.is_absolute() or ".." in relative.parts or not BridgeE2ERunner._path_allowed(
+                required_path, BridgeE2ERunner._allowed_patterns(payload)
+            ) or not target.is_relative_to(worktree.resolve()):
+                raise DispatchInvalid("required result path escapes dispatch scope")
             if not target.is_file():
                 raise WorkspaceBlocked(
                     f"required E2E result path is missing: {required_path}"
@@ -627,6 +630,7 @@ class BridgeE2ERunner:
         before_head: str,
         agent_stdout: str,
     ) -> tuple[str, tuple[str, ...]]:
+        self._verify_delivery_workspace(payload, worktree)
         local_head = self._git(
             ["-C", str(worktree), "rev-parse", "HEAD"]
         ).stdout.strip()
@@ -649,9 +653,9 @@ class BridgeE2ERunner:
             agent_label="Codex",
         )
 
-        self._git(["-C", str(worktree), "diff", "--check"])
+        self._git(["-C", str(worktree), "-c", _WHITESPACE, "diff", "--check"])
         self._git(["-C", str(worktree), "add", "-A", "--", *changed])
-        self._git(["-C", str(worktree), "diff", "--cached", "--check"])
+        self._git(["-C", str(worktree), "-c", _WHITESPACE, "diff", "--cached", "--check"])
         dispatch_id = str(payload["dispatch_id"])
         self._git(
             [
@@ -669,6 +673,7 @@ class BridgeE2ERunner:
         after_head = self._git(
             ["-C", str(worktree), "rev-parse", "HEAD"]
         ).stdout.strip()
+        self._checkpoint_commit(str(payload["dispatch_id"]), after_head)
         self._git(
             [
                 "-C",
@@ -744,6 +749,139 @@ class BridgeE2ERunner:
             self._progress(f"runtime report: {path}")
         except DatabaseError as exc:
             self._progress(f"runtime report warning: {exc.message}")
+
+    def _verify_delivery_workspace(self, payload: dict[str, object], worktree: Path) -> None:
+        top = self._git(["-C", str(worktree), "rev-parse", "--show-toplevel"]).stdout.strip()
+        branch = self._git(["-C", str(worktree), "branch", "--show-current"]).stdout.strip()
+        if Path(top).resolve() != worktree.resolve() or branch != payload["branch"]:
+            raise WorkspaceBlocked("delivery worktree or branch drift")
+        for directory in (worktree, self.config.local_repo):
+            for command in (
+                ["remote", "get-url", "--all", "origin"],
+                ["remote", "get-url", "--push", "--all", "origin"],
+            ):
+                urls = self._git(["-C", str(directory), *command]).stdout.splitlines()
+                if not urls:
+                    raise WorkspaceBlocked("delivery origin is missing")
+                for url in urls:
+                    canonical_repository_url(url)
+
+    def _save_delivery_context(
+        self, payload: dict[str, object], dispatch_path: str, control_sha: str,
+        blob_sha: str, execution_id: str, worktree: Path, before_head: str,
+        agent_result: Any,
+    ) -> None:
+        context = {
+            "dispatch_id": str(payload["dispatch_id"]), "dispatch_path": dispatch_path,
+            "control_commit_sha": control_sha, "dispatch_blob_sha": blob_sha,
+            "payload_hash": str(payload["_payload_sha256"]),
+            "execution_id": execution_id, "worktree": str(worktree),
+            "branch": str(payload["branch"]), "before_head": before_head,
+            "delivery_head": before_head, "agent_product": str(payload["_agent_product"]),
+            "agent_exit_code": agent_result.exit_code,
+            "agent_stdout": agent_result.stdout, "agent_stderr": agent_result.stderr,
+        }
+        self._persist_delivery(context)
+        if payload["_agent_product"] == "COPILOT":
+            head = self._git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip()
+            self._checkpoint_commit(str(payload["dispatch_id"]), head)
+
+    def _persist_delivery(self, context: dict[str, Any]) -> None:
+        self.ledger.finish_execution(
+            dispatch_id=context["dispatch_id"], execution_id=context["execution_id"],
+            dispatch_state="DELIVERY_RECOVERY_REQUIRED",
+            execution_state="DELIVERY_RECOVERY_REQUIRED", finished_at_utc=utc_now(),
+            result=context,
+        )
+
+    def _checkpoint_commit(self, dispatch_id: str, head: str) -> None:
+        status = self.ledger.dispatch_status(dispatch_id)
+        if status and status["dispatch_state"] == "DELIVERY_RECOVERY_REQUIRED":
+            context = status["result"]
+            context["delivery_head"] = head
+            self._persist_delivery(context)
+
+    def recover_delivery(self, *, dispatch_path: str) -> E2EResult:
+        # Deliberately independent from run_once, worktree creation, and Agent adapters.
+        control_sha = self.transport.query_control_sha(self.config.control_branch)
+        if control_sha is None:
+            raise WorkspaceBlocked("control branch unavailable for recovery")
+        self.transport.fetch_control(self.config.control_branch, control_sha)
+        raw, blob = self.transport.read_dispatch_blob(control_sha, dispatch_path)
+        payload = self._validate_dispatch(raw, dispatch_path=dispatch_path, observed_blob_sha=blob)
+        status = self.ledger.dispatch_status(str(payload["dispatch_id"]))
+        if not status or status["dispatch_state"] != "DELIVERY_RECOVERY_REQUIRED":
+            raise WorkspaceBlocked("dispatch is not awaiting delivery recovery")
+        context = status["result"]
+        if not isinstance(context, dict) or any((
+            context.get("dispatch_path") != dispatch_path,
+            context.get("dispatch_blob_sha") != blob,
+            context.get("payload_hash") != payload["_payload_sha256"],
+            status["payload_hash"] != payload["_payload_sha256"],
+            context.get("branch") != payload["branch"],
+            context.get("worktree") != payload["worktree"],
+            context.get("before_head") != payload["base_sha"],
+            context.get("agent_product") != payload["_agent_product"],
+            context.get("agent_exit_code") != 0,
+            context.get("dispatch_id") != status["dispatch_id"],
+            context.get("execution_id") != status["execution_id"],
+            not isinstance(context.get("agent_stdout"), str),
+            not isinstance(context.get("agent_stderr"), str),
+            not FULL_SHA_PATTERN.fullmatch(str(context.get("delivery_head", ""))),
+            not FULL_SHA_PATTERN.fullmatch(str(context.get("control_commit_sha", ""))),
+        )):
+            raise WorkspaceBlocked("persisted dispatch identity or payload mismatch")
+        # Re-read original immutable authority as well as the current path.
+        original, original_blob = self.transport.read_dispatch_blob(context["control_commit_sha"], dispatch_path)
+        if original != raw or original_blob != blob:
+            raise WorkspaceBlocked("immutable dispatch changed")
+        worktree = Path(context["worktree"])
+        if not (worktree / ".git").exists():
+            raise WorkspaceBlocked("recovery worktree is missing")
+        self._verify_delivery_workspace(payload, worktree)
+        branch = self._git(["-C", str(worktree), "branch", "--show-current"]).stdout.strip()
+        head = self._git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip()
+        before = context["before_head"]
+        if branch != payload["branch"] or head != context["delivery_head"]:
+            raise WorkspaceBlocked("recovery branch or HEAD drift")
+        remote = self._remote_branch_head(branch)
+        if remote not in {before, head}:
+            raise WorkspaceBlocked("recovery remote branch drift")
+        self._verify_acceptance(payload=payload, worktree=worktree,
+                                agent_stdout=context["agent_stdout"], agent_label="Agent")
+        if head == before:
+            after, changed = self._commit_and_push_codex_result(
+                payload=payload, worktree=worktree, before_head=before,
+                agent_stdout=context["agent_stdout"],
+            )
+        else:
+            if self._git(["-C", str(worktree), "status", "--porcelain"]).stdout.strip():
+                raise WorkspaceBlocked("committed recovery worktree has additional WIP")
+            parent = self._git(["-C", str(worktree), "rev-parse", "HEAD^"]).stdout.strip()
+            if parent != before:
+                raise WorkspaceBlocked("recovery commit parent drift")
+            changed = tuple(self._git(["-C", str(worktree), "diff", "--name-only", f"{before}..{head}"]).stdout.splitlines())
+            self._verify_changed_paths(payload=payload, changed=changed)
+            self._git(["-C", str(worktree), "-c", _WHITESPACE, "diff", "--check", before, head])
+            if remote != head:
+                self._git(["-C", str(worktree), "push", "origin", f"HEAD:refs/heads/{branch}"])
+            after, changed = self._verify_result(payload=payload, worktree=worktree,
+                before_head=before, agent_stdout=context["agent_stdout"], agent_label="Agent")
+        result = E2EResult(
+            status="PUSHED_UNREVIEWED", dispatch_id=str(payload["dispatch_id"]),
+            execution_id=context["execution_id"], poll_status="RECOVERED_DELIVERY",
+            control_commit_sha=context["control_commit_sha"], dispatch_blob_sha=blob,
+            worktree=str(worktree), branch=branch, before_head=before, after_head=after,
+            changed_paths=changed, agent_product=context["agent_product"],
+            agent_exit_code=0, agent_stdout=context["agent_stdout"],
+            agent_stderr=context["agent_stderr"],
+        )
+        self.ledger.finish_execution(dispatch_id=result.dispatch_id,
+            execution_id=result.execution_id, dispatch_state=result.status,
+            execution_state=result.status, finished_at_utc=utc_now(), result=result.as_dict())
+        self._write_runtime_report_best_effort(dispatch_id=result.dispatch_id,
+            payload={"status": result.status, "result": result.as_dict()})
+        return result
 
     def run_once(
         self,
@@ -825,6 +963,10 @@ class BridgeE2ERunner:
                         "Codex CLI returned non-zero exit code "
                         f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                     )
+                self._save_delivery_context(
+                    payload, dispatch_path, control_sha, dispatch_blob_sha,
+                    execution_id, worktree, before_head, agent_result,
+                )
                 self._progress(f"Codex exited: {agent_result.exit_code}")
                 self._progress("Bridge verifies, commits, and pushes Codex result")
                 after_head, changed_paths = self._commit_and_push_codex_result(
@@ -857,6 +999,10 @@ class BridgeE2ERunner:
                         "Copilot CLI returned non-zero exit code "
                         f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                     )
+                self._save_delivery_context(
+                    payload, dispatch_path, control_sha, dispatch_blob_sha,
+                    execution_id, worktree, before_head, agent_result,
+                )
                 self._progress(f"Copilot exited: {agent_result.exit_code}")
                 self._progress("verify pushed result")
                 after_head, changed_paths = self._verify_result(
@@ -900,6 +1046,8 @@ class BridgeE2ERunner:
             self._progress("E2E state = PUSHED_UNREVIEWED")
             return result
         except KeyboardInterrupt:
+            if agent_result is not None and agent_result.exit_code == 0:
+                raise
             finished = utc_now()
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
@@ -943,11 +1091,16 @@ class BridgeE2ERunner:
                 failure_result["agent_product"] = agent_product
                 failure_result[agent_product.lower()] = agent_result.as_dict()
 
+            delivery_failed = agent_result is not None and agent_result.exit_code == 0
+            if delivery_failed:
+                persisted = self.ledger.dispatch_status(dispatch_id)
+                failure_result = persisted["result"] or failure_result
+            failure_state = "DELIVERY_RECOVERY_REQUIRED" if delivery_failed else "FAILED"
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
-                dispatch_state="FAILED",
-                execution_state="FAILED",
+                dispatch_state=failure_state,
+                execution_state=failure_state,
                 finished_at_utc=finished,
                 result=failure_result,
                 error_code=error_code,
@@ -956,7 +1109,7 @@ class BridgeE2ERunner:
             self._write_runtime_report_best_effort(
                 dispatch_id=dispatch_id,
                 payload={
-                    "status": "FAILED",
+                    "status": failure_state,
                     "dispatch_id": dispatch_id,
                     "execution_id": execution_id,
                     "result": failure_result,

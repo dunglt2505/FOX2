@@ -166,6 +166,13 @@ class BridgeApp:
             timeout_seconds=timeout_seconds,
         )
 
+    def recover_delivery(self, *, dispatch_path: str) -> E2EResult:
+        if not self._started:
+            raise StartupBlocked("delivery recovery requires a started Bridge")
+        return BridgeE2ERunner(self.config, self.ledger, logger=self.logger).recover_delivery(
+            dispatch_path=dispatch_path,
+        )
+
     def ops_run_next(self, *, timeout_seconds: int = 300) -> OpsRunResult:
         if not self._started:
             raise StartupBlocked("OPS run-next requires a started Bridge")
