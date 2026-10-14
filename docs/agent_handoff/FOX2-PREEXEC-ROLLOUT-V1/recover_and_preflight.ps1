@@ -234,11 +234,16 @@ if (-not (Test-Path $taskPath)) { throw "rollout task missing" }
 if (-not (Test-Path $dictionaryPath)) { throw "Project Dictionary missing" }
 
 $dictionary = Get-Content -Raw -Encoding UTF8 $dictionaryPath | ConvertFrom-Json
-if ($dictionary.dictionary_version -ne "1.1") { throw "Dictionary v1.1 required" }
-if ($dictionary.current.policy.version -ne "1.8.8") { throw "Policy V1.8.8 required" }
-if ($dictionary.current.routing_index.version -ne "1.2.9") { throw "Routing V1.2.9 required" }
-if ($dictionary.current.git_first_protocol.version -ne "11") { throw "Protocol v11 required" }
+if ($dictionary.dictionary_version -ne "1.2") { throw "Dictionary v1.2 required" }
+if ($dictionary.current.policy.version -ne "1.8.9") { throw "Policy V1.8.9 required" }
+if ($dictionary.current.routing_index.version -ne "1.3.0") { throw "Routing V1.3.0 required" }
+if ($dictionary.current.git_first_protocol.version -ne "12") { throw "Protocol v12 required" }
 if ($dictionary.current.preflight_receipt_schema.version -ne "1") { throw "Preflight Receipt Schema v1 required" }
+if ($dictionary.current.preexec_evidence_protocol.version -ne "1.1") { throw "PreExec Evidence Protocol v1.1 required" }
+if ($dictionary.current.chat_preflight_intake.version -ne "1.1") { throw "CHAT Preflight Intake v1.1 required" }
+if ($dictionary.identifiers.agent_route_materiality.default_mode -ne "ALTERNATIVE_AGGREGATE") { throw "aggregate Agent-route materiality required" }
+if ($dictionary.identifiers.agent_route_materiality.aggregate_capability -ne "eligible_agent_route") { throw "eligible_agent_route aggregate capability required" }
+
 
 $capabilities = [ordered]@{}
 $blockers = @()
