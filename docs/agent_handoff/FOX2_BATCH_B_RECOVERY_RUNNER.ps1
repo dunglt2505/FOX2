@@ -5,6 +5,11 @@ Set-StrictMode -Version Latest
 $Repo = "C:\Projects\FOX2"
 if (-not (Test-Path $Repo)) { throw "FOX2 repo missing: $Repo" }
 
+$LocalAppData = [Environment]::GetFolderPath([Environment+SpecialFolder]::LocalApplicationData)
+if (-not $LocalAppData) { throw "LocalApplicationData path is unavailable" }
+$RunnerCache = Join-Path $LocalAppData "FOX2\runner-cache"
+New-Item -ItemType Directory -Force -Path $RunnerCache | Out-Null
+
 $jobs = @(
     [ordered]@{
         name = "APP_NODE_BOOTSTRAP"
@@ -39,7 +44,7 @@ foreach ($job in $jobs) {
         continue
     }
 
-    $tmp = Join-Path $env:TEMP ("FOX2-" + $job.name + "-" + [Guid]::NewGuid().ToString("N") + ".ps1")
+    $scriptPath = Join-Path $RunnerCache ("FOX2-" + $job.name + "-" + [Guid]::NewGuid().ToString("N") + ".ps1")
     try {
         $spec = "origin/" + $job.branch + ":" + $job.path
         $content = (& git -C $Repo show $spec | Out-String)
@@ -47,9 +52,10 @@ foreach ($job in $jobs) {
             $infraFailed += ($job.name + ":SCRIPT_READ_FAILED")
             continue
         }
-        [IO.File]::WriteAllText($tmp,$content,[Text.UTF8Encoding]::new($false))
+        $content = ($content -replace "`r`n","`n").TrimEnd() + "`n"
+        [IO.File]::WriteAllText($scriptPath,$content,[Text.UTF8Encoding]::new($false))
 
-        & pwsh -NoLogo -NoProfile -File $tmp
+        & pwsh -NoLogo -NoProfile -File $scriptPath
         $code = $LASTEXITCODE
 
         if ($job.kind -eq "preflight" -and $code -eq 20) {
@@ -60,7 +66,12 @@ foreach ($job in $jobs) {
         }
     }
     finally {
-        Remove-Item -Force $tmp -ErrorAction SilentlyContinue
+        try {
+            if ([IO.File]::Exists($scriptPath)) { [IO.File]::Delete($scriptPath) }
+        }
+        catch {
+            Write-Warning ("non-fatal runner-cache cleanup failure: " + $_.Exception.Message)
+        }
     }
 }
 
