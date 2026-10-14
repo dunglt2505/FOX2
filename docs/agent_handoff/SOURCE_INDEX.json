@@ -1,6 +1,6 @@
 {
   "project": "FOX2",
-  "index_version": "1.1",
+  "index_version": "1.2",
   "issued_at_utc": "2026-10-12T05:06:48.882Z",
   "policy_sha256": "ccb1673ade1c66c016125ef033740db3e6d7ca1d8cac70f68a03d7be11b879fd",
   "authority": "Library release receipts; Git index is a derived operational record",
@@ -2083,5 +2083,11 @@
     "source_branch": "work/FOX2-M1-V04-SOURCE-RECOVERY-chat-20261012",
     "next_actor": "CHAT",
     "note": "YES confirms source delivery on pinned branch only, not main merge, DEV authorization, code push, DNSE Production, broker or LIVE."
-  }
+  },
+  "status": "HISTORICAL_INVENTORY_USE_PROJECT_DICTIONARY_FOR_CURRENT_IDENTITY",
+  "current_project_dictionary": {
+    "version": "1.0",
+    "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json"
+  },
+  "current_resolution_note": "For new/re-scoped FOX2 work, current Policy/Routing/Dispatch/Protocol/BRD/Technical identities are resolved from FOX2_PROJECT_DICTIONARY_v1.json. This SOURCE_INDEX remains historical synchronization provenance."
 }
