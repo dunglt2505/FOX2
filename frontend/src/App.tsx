@@ -533,6 +533,7 @@ function BarsChart({ bars }: { bars: BarsPayload }) {
   }
 
   const closes = bars.items.map((item) => item.close);
+  const provisionalCount = bars.items.filter((item) => item.provisional === true).length;
   const min = Math.min(...closes);
   const max = Math.max(...closes);
   const spread = max - min || 1;
@@ -559,6 +560,9 @@ function BarsChart({ bars }: { bars: BarsPayload }) {
       <div className="chart-caption">
         <span>{bars.timeframe} · RAW basis</span>
         <span>{bars.items.length} accepted bars</span>
+        <span className={provisionalCount > 0 ? "warning-text" : ""}>
+          {provisionalCount > 0 ? provisionalCount + " provisional bar(s)" : "No provisional bars"}
+        </span>
         <span className={bars.gaps.length > 0 ? "warning-text" : ""}>
           {bars.gaps.length > 0 ? bars.gaps.length + " explicit gap(s)" : "No reported gaps"}
         </span>
@@ -608,7 +612,8 @@ function Stock360Page({ symbol, onNavigate }: { symbol?: string; onNavigate: (pa
 
   const observation = stock.data?.quote.data;
   const quote = observation?.payload?.kind === "quote" ? observation.payload : null;
-  const barsPayload = bars.data?.data.payload?.kind === "bars" ? bars.data.data.payload : null;
+  const barsObservation = bars.data?.data;
+  const barsPayload = barsObservation?.payload?.kind === "bars" ? barsObservation.payload : null;
 
   return (
     <div className="page">
@@ -663,7 +668,7 @@ function Stock360Page({ symbol, onNavigate }: { symbol?: string; onNavigate: (pa
             <span className="eyebrow">Price history</span>
             <h2>90-day accepted daily bars</h2>
           </div>
-          {bars.data ? <SourceBadge observation={bars.data.data} /> : null}
+          {barsObservation ? <SourceBadge observation={barsObservation} /> : null}
         </div>
 
         {bars.loading ? <Skeleton lines={6} /> :
