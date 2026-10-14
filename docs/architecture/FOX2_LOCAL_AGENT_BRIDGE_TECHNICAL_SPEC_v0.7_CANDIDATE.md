@@ -521,7 +521,6 @@ Current proven direct Codex CLI path is preserved, with the Desktop completion a
 - exact worktree;
 - non-interactive prompt input;
 - bounded timeout;
-- workspace-write;
 - `permission_profile = FULL_ACCESS` by default for normal coding execution;
 - Full Access maps to Codex `sandbox_mode = danger-full-access` plus `approval_policy = never` (or the exact supported CLI equivalent);
 - current Windows host/sandbox implementation details may still be feature-detected, but MUST NOT silently downgrade the requested permission profile;
@@ -922,7 +921,7 @@ BRD-09 acceptance IDs map to implementation tests.
 - no silent permission downgrade occurs.
 - Tray renders usage/model/permission state read-only and contains no routing logic.
 - Copilot process-scoped profile behavior passes one real-host canary before trusted use.
-- Copilot Autopilot/YOLO/full-permission mode remains disabled.
+- Copilot Full Access permission is enabled by dispatch; Autopilot remains separately controlled and is not implied by `--allow-all`/`--yolo` permission semantics.
 
 ### Safety
 
@@ -1026,7 +1025,7 @@ Technical Spec Candidate itself grants no writer.
 Before Batch A coding:
 
 1. `BRIDGE-DESKTOP-01-02-FIX-01` is PASS and its immutable remote result is read back.
-2. BRD-09, v0.7 REV3 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
+2. BRD-09, v0.7 REV4 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
 3. exact post-FIX `agent_bridge/**` base commit is chosen.
 4. one dedicated writer/worktree is reserved.
 5. exact allowed code/test/report paths are defined.
