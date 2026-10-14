@@ -1,79 +1,145 @@
-# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.1 Candidate
+# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.2 Candidate
 
 **Work package:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
-**Status:** `CANDIDATE / QUEUED_AFTER_FIX_01 / NO_DEV_GRANT`  
+**Status:** `CANDIDATE / ABSORBED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_STANDALONE_DEV`  
 **Date:** 2026-10-14  
 **Source contract:** `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`  
+**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV3  
 **Dependency:** `BRIDGE-DESKTOP-01-02-FIX-01 = PASS`
 
-## Roadmap position
+## Decision
+
+`FOX2-AGENT-USAGE-TELEMETRY-01` remains a normative requirement contract, but it is **not** implemented as a separate DEV round.
+
+Its runtime work is absorbed into the same Bridge Desktop batch that already touches:
+
+- Worker;
+- Agent adapters;
+- execution supervisor;
+- recovery/reconciliation;
+- ledger/result persistence;
+- local status surface;
+- Tray.
+
+This avoids reopening the same modules in multiple coding cycles.
+
+## Overall Bridge execution plan
 
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01
-        |
-        | PASS
-        v
-FOX2-AGENT-USAGE-TELEMETRY-01
-        |
-        | PASS
-        v
-normal FOX2 Bridge operation / next eligible WP
+    corrective only; frozen scope
+              |
+              | PASS + CHAT readback
+              v
+BRIDGE-DESKTOP-BATCH-A
+CORE + ROUTING + USAGE + TRAY
+              |
+              | PASS
+              v
+BRIDGE-DESKTOP-BATCH-B
+SETUP + PACKAGE + REAL FOX2 CERTIFICATION
+              |
+              | PASS
+              v
+INTERNAL FOX2 BRIDGE READY
+              |
+              v
+BRIDGE-DESKTOP-05
+standalone/community extraction later only
 ```
 
-This feature is intentionally separate from FIX-01. No corrective scope is expanded.
+## Batch A — one implementation round
 
-## Simple execution plan
+Batch A combines the remaining related work of historical Desktop-01, Desktop-02 and Agent Usage Telemetry:
 
-### Step 1 — Runtime contract and adapters
+- background Worker / Git mailbox loop;
+- restart/reconciliation/no-replay;
+- exact dual-Agent dispatch;
+- Copilot Native Auto + CHAT-selected tier;
+- Codex pinned model + reasoning;
+- structured requested/observed result;
+- usage/quota extraction when exposed;
+- ledger persistence;
+- post-start quota failure reconciliation;
+- CHAT-readable status;
+- Tray IPC/status/startup;
+- Tray usage/model display-only;
+- Copilot process-scoped profile canary;
+- no silent substitution;
+- no Autopilot/YOLO/full-permission mode.
 
-Implement the immutable Agent configuration in Bridge:
+### Batch A exit
 
-- Copilot: `NATIVE_AUTO` + `auto_tier`;
-- Codex: pinned `model` + `reasoning_effort`;
-- no silent fallback/substitution;
-- structured result fields for requested/observed configuration.
+One combined acceptance run must prove:
 
-### Step 2 — Telemetry, persistence and CHAT read surface
+```text
+WORKER_RECOVERY=PASS
+CODEX_EXACT_CONFIG=PASS
+COPILOT_EXACT_POLICY=PASS
+USAGE_PERSISTENCE=PASS
+POST_START_QUOTA_RECONCILIATION=PASS
+NO_REPLAY=PASS
+NO_AGENT_SUBSTITUTION=PASS
+TRAY_READ_ONLY_USAGE_DISPLAY=PASS
+```
 
-Add:
+Do not split these into separate Owner-facing DEV WPs unless a genuine technical blocker requires isolation.
 
-- usage/quota extraction when officially exposed;
-- ledger/result persistence;
-- Codex five-hour reset normalization contract;
-- status/read surface for CHAT and read-only Tray display;
-- Copilot per-task runtime profile only after its canary passes.
+## Batch B — one release-readiness round
 
-### Step 3 — One end-to-end certification
+Batch B combines historical Desktop-03 + Desktop-04:
 
-Run focused tests/canaries proving:
+- first-run setup;
+- per-user installed runtime;
+- installer/update/uninstall;
+- sanitized diagnostics;
+- one real eligible FOX2 WP executed through Bridge;
+- non-main result push/readback;
+- usage snapshot available to CHAT for the next routing cycle;
+- restart confirms no replay.
 
-- both Agents execute exact dispatch configuration;
-- telemetry survives success and quota failure;
-- no replay/substitution;
-- Tray remains display-only;
-- CHAT can use the persisted snapshot for the next routing decision.
+### Batch B exit
 
-If all acceptance criteria pass, CHAT may mark the feature ready for normal routing use.
+```text
+INSTALLABLE_INTERNAL_BUILD=PASS
+REAL_FOX2_WP_E2E=PASS
+CHAT_REMOTE_READBACK=PASS
+NEXT_ROUTING_USAGE_AVAILABLE=PASS
+RESTART_NO_REPLAY=PASS
+```
 
-## DEV dispatch gate
+## DEV gate
 
-Do not publish the DEV dispatch until:
+Do not publish Batch A until:
 
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01 = PASS
-source contract = Owner-approved executable Candidate or released
-exact base SHA = verified
+CHAT readback = PASS
+v0.7 REV3 + Usage Contract = approved/bound
+exact post-FIX base SHA = verified
 one writer/worktree = reserved
 allowed code/report paths = bound
 ```
 
-Expected implementation scope:
+Expected Batch A implementation scope:
 
 ```text
 agent_bridge/**
-reports/FOX2-AGENT-USAGE-TELEMETRY-01/**
+reports/BRIDGE-DESKTOP-BATCH-A/**
 ```
+
+Expected Batch B implementation scope is bound separately because packaging paths may differ.
 
 No main/merge/deploy/provider/broker/LIVE.
 
-`ROADMAP_MAPPING_STATUS=CANDIDATE / SIMPLE_3_STEP_PLAN / WAIT_FIX_01_PASS`.
+## Planning rule
+
+Keep the Bridge plan coarse-grained:
+
+```text
+FIX -> BATCH A -> BATCH B -> READY
+```
+
+Do not create separate implementation rounds for adapter model policy, usage telemetry, Tray usage display, ledger fields or Copilot profile handling when they can be changed and tested together inside Batch A.
+
+`ROADMAP_MAPPING_STATUS=INTEGRATED / NO_STANDALONE_USAGE_DEV_ROUND`.
