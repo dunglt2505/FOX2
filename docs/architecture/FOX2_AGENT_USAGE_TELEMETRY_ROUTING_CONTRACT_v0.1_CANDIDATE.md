@@ -1,7 +1,7 @@
 # FOX2 — Agent Usage Telemetry & CHAT Routing Contract v0.1 Candidate
 
 **Document ID:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
-**Version:** `0.1 Candidate`  
+**Version:** `0.1 Candidate REV2`  
 **Status:** `CANDIDATE / SOURCE_CONTRACT / INTEGRATED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_DEV_GRANT`  
 **Project:** `FOX2 ONLY`  
 **Date:** 2026-10-14  
@@ -67,6 +67,32 @@ Bridge MUST NOT:
 
 System Tray is display-only for routing/usage information. It MUST NOT make routing decisions or mutate dispatch configuration.
 
+## 2A. Permission authority
+
+CHAT is the sole authority that selects the Agent permission profile. For normal FOX2 coding execution the baseline is:
+
+```text
+permission_profile = FULL_ACCESS
+```
+
+Bridge does not decide whether Full Access is appropriate. Bridge receives the immutable choice, verifies that the installed CLI/host can honor it, maps it to exact CLI flags/config and launches the selected Agent.
+
+Canonical mapping:
+
+```text
+CODEX FULL_ACCESS
+= danger-full-access sandbox semantics
++ approval_policy = never
+
+COPILOT FULL_ACCESS
+= --allow-all semantics
+= all tools + all paths + all URLs
+```
+
+If effective runtime permissions cannot match the requested profile, Bridge must stop before launch and return a permission-profile mismatch to CHAT. It MUST NOT silently downgrade, substitute another Agent, or rewrite the dispatch.
+
+Full Access is technical execution permission only; immutable project authority and release restrictions remain separate.
+
 ## 3. Canonical routing tuple
 
 Every executable Agent dispatch must bind:
@@ -77,6 +103,7 @@ Role
 + Model Policy
 + Model or Auto Tier
 + Reasoning / Thinking
++ Permission Profile
 + Scope
 ```
 
@@ -394,6 +421,12 @@ COPILOT_MAX_AI_CREDITS_ENFORCED_IF_DISPATCHED=PASS
 COPILOT_GLOBAL_USER_CONFIG_NOT_MUTATED=PASS
 COPILOT_PROFILE_CANARY_REQUIRED=PASS
 
+FULL_ACCESS_PROFILE_FROM_DISPATCH=PASS
+CODEX_FULL_ACCESS_EFFECTIVE=PASS
+COPILOT_FULL_ACCESS_EFFECTIVE=PASS
+PERMISSION_PREFLIGHT=PASS
+NO_PERMISSION_DOWNGRADE=PASS
+PERMISSION_MISMATCH_BLOCKS_PRELAUNCH=PASS
 TRAY_USAGE_DISPLAY_ONLY=PASS
 COPILOT_AUTOPILOT_NOT_ENABLED=PASS
 FULL_PERMISSION_MODE_NOT_ENABLED=PASS
@@ -412,4 +445,4 @@ This Candidate:
 - does not create a separate standalone Usage DEV work package;
 - does not allow Bridge to become a routing authority.
 
-`CONTRACT_STATUS=CANDIDATE_SOURCE / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
+`CONTRACT_STATUS=CANDIDATE_REV2_SOURCE / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
