@@ -3,12 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#08111f" />
+    <meta name="color-scheme" content="dark light" />
+    <meta id="fox2-theme-color" name="theme-color" content="#08111f" />
     <meta
       name="description"
       content="FOX2 localhost investor dashboard — offline-safe market presentation."
     />
+    <script>
+      (() => {
+        try {
+          const stored = localStorage.getItem("fox2.theme");
+          const theme = stored === "light" ? "light" : "dark";
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          const themeMeta = document.getElementById("fox2-theme-color");
+          if (themeMeta) {
+            themeMeta.setAttribute("content", theme === "light" ? "#f4f7fb" : "#08111f");
+          }
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+          document.documentElement.style.colorScheme = "dark";
+        }
+      })();
+    </script>
     <title>FOX2 · Local Market Workspace</title>
   </head>
   <body>
