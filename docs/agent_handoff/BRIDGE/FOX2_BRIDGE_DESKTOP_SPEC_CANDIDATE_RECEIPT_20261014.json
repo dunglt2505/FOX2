@@ -1,7 +1,7 @@
 {
   "project": "FOX2",
   "package_id": "FOX2-BRIDGE-DESKTOP-SPEC-CANDIDATE-20261014",
-  "status": "CANDIDATE_REV2_READBACK_PASS_NO_DEV_GRANT",
+  "status": "CANDIDATE_REV2_DEV_PLAN_READY_NO_DEV_GRANT",
   "created_at": "2026-10-14",
   "governance": {
     "policy": {
@@ -65,7 +65,7 @@
     "broker_write": false,
     "live": false
   },
-  "next_candidate_wp": "BRIDGE-DESKTOP-01_GITHUB_MAILBOX_BACKGROUND_WORKER_RECONCILIATION",
+  "next_candidate_wp": "BRIDGE-DESKTOP-01_EXECUTE_AFTER_DELIVERY_HOTFIX",
   "updated_at": "2026-10-14",
   "design_decision": {
     "signaling_model": "GITHUB_DURABLE_MAILBOX_LOCAL_OUTBOUND_PULL",
@@ -83,5 +83,35 @@
     "manual_check_now": true,
     "webhook_cloud_relay": "OPTIONAL_FUTURE_LATENCY_OPTIMIZATION_ONLY",
     "authority_note": "Remote-ref change is a signal hint only; immutable Git dispatch validation and replay protection remain mandatory."
+  },
+  "desktop_01": {
+    "owner_authorization": true,
+    "source_lock": {
+      "path": "docs/agent_handoff/BRIDGE-DESKTOP-01/FOX2_BRIDGE_DESKTOP_01_BACKGROUND_WORKER_SOURCE_LOCK_20261014.md",
+      "blob": "df3a9c112d03635f561791ea5fc538d5f93abea6",
+      "state": "AUTHORIZED_PENDING_DEPENDENCY"
+    },
+    "implementation_plan": {
+      "path": "docs/agent_handoff/BRIDGE-DESKTOP-01/FOX2_BRIDGE_DESKTOP_01_IMPLEMENTATION_PLAN_20261014.md",
+      "blob": "16e74c8723d03ca36daf1a69e7089cbdeb3a3262",
+      "phases": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "acceptance_items": "D01-D21",
+      "state": "READY"
+    },
+    "dependency": "FOX2-BRIDGE-DELIVERY-HOTFIX-01",
+    "exact_base_sha": "PENDING_HOTFIX_ACCEPTANCE",
+    "executable_prompt": "WAIT_EXACT_BASE",
+    "immutable_dispatch": "WAIT_EXACT_BASE",
+    "code_execution": "WAIT_HOTFIX_ONLY",
+    "no_additional_owner_approval_if_unchanged": true
   }
 }
