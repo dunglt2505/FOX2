@@ -291,9 +291,10 @@ LATER
 
 ### Current pre-execution facts for the two next batches
 
-- dedicated Batch-B task branches did not exist before this transition and must be created from the exact accepted/Owner-accepted heads;
-- APP-BATCH-B requires Node/npm/Vite-capable local toolchain: current local material capability is `UNKNOWN` until direct preflight;
-- latest Bridge evidence proves both Codex CLI and Copilot CLI binaries + Full Access argument compatibility, but current quota/capacity is `UNKNOWN` because observed quota is not exposed and paid execution was not run in that evidence cycle;
-- no final Agent assignment or executable Dispatch v3 is valid until CHAT completes R3/R5 with current local preflight evidence.
+- APP-BATCH-B branch exists at `0549b84d9077e1fa792f0c03f67f5bc898a524ce`: `work/FOX2-M1-A-APP-BATCH-B`; source task + material preflight are published under `docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/**`;
+- BRIDGE-BATCH-B branch exists at `066b366a67d80c20878a83014b3d36edae02e76e`: `work/FOX2-BRIDGE-DESKTOP-BATCH-B`; source task + material preflight are published under `docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/**`;
+- APP-BATCH-B Node/npm/package-resolution capability is still `UNKNOWN` until its local preflight receipt is pushed;
+- latest Bridge evidence proves both Codex CLI and Copilot CLI binaries + Full Access argument compatibility, but current execution capacity is still `UNKNOWN` until a minimal live preflight probe succeeds;
+- both task branches are `SOURCE_READY / PREEXEC_HOLD`; no final Agent assignment or canonical executable Dispatch v3 is valid until CHAT reads the R3/R5 preflight receipts.
 
 `MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1+POLICY_V1.8.7+ROUTING_V1.2.8 / DISPATCH=V3 / PROTOCOL=V10 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=APP_BATCH_B+BRIDGE_BATCH_B_PREEXEC / MICRO_WP_DEFAULT=NO`
