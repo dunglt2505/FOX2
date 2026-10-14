@@ -12,7 +12,9 @@ export type IconName =
   | "database"
   | "chevron"
   | "plus"
-  | "close";
+  | "close"
+  | "sun"
+  | "moon";
 
 export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   const paths: Record<IconName, ReactNode> = {
@@ -26,7 +28,9 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
     database: <><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"/></>,
     chevron: <path d="m9 6 6 6-6 6"/>,
     plus: <><path d="M12 5v14"/><path d="M5 12h14"/></>,
-    close: <><path d="m7 7 10 10"/><path d="M17 7 7 17"/></>
+    close: <><path d="m7 7 10 10"/><path d="M17 7 7 17"/></>,
+    sun: <><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.42 1.42"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.42"/></>,
+    moon: <path d="M20 15.2A8 8 0 0 1 8.8 4a8.2 8.2 0 1 0 11.2 11.2Z"/>
   };
 
   return (
