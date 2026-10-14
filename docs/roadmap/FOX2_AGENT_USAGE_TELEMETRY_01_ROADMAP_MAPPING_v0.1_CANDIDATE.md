@@ -1,10 +1,10 @@
-# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.4 Candidate
+# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.5 Candidate
 
 **Work package:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
 **Status:** `CANDIDATE / ABSORBED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_STANDALONE_DEV`  
 **Date:** 2026-10-14  
 **Source contract:** `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`  
-**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV5  
+**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV6  
 **Dependency:** `BRIDGE-DESKTOP-01-02-FIX-01 = PASS`
 
 ## Decision
@@ -55,6 +55,7 @@ Batch A combines the remaining related work of historical Desktop-01, Desktop-02
 - background Worker / Git mailbox loop;
 - restart/reconciliation/no-replay;
 - exact dual-Agent dispatch;
+- dispatch-owned Git delivery aligned to Policy V1.8.5: selected Agent may commit/push exact non-main task branch when `git_code_push=YES`; Bridge publication only when explicitly selected;
 - CLI-FIRST execution baseline;
 - CHAT-owned `permission_profile=FULL_ACCESS` default;
 - Bridge `AGENT_PERMISSION_PREFLIGHT` and exact CLI permission application;
@@ -88,6 +89,8 @@ USAGE_PERSISTENCE=PASS
 POST_START_QUOTA_RECONCILIATION=PASS
 NO_REPLAY=PASS
 NO_AGENT_SUBSTITUTION=PASS
+GIT_DELIVERY_POLICY_ALIGNED=PASS
+NO_DUPLICATE_PUBLICATION_PATH=PASS
 FULL_ACCESS_CODEX=PASS
 FULL_ACCESS_COPILOT=PASS
 PERMISSION_PREFLIGHT=PASS
@@ -133,7 +136,7 @@ Do not publish Batch A until:
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01 = PASS
 CHAT readback = PASS
-v0.7 REV5 + Usage Contract REV3 = approved/bound
+v0.7 REV6 + Usage Contract REV3 = approved/bound
 exact post-FIX base SHA = verified
 one writer/worktree = reserved
 allowed code/report paths = bound
