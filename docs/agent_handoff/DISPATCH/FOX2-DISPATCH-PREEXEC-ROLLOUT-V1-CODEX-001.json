@@ -1,0 +1,131 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-PREEXEC-ROLLOUT-V1-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-PREEXEC-ROLLOUT-V1",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/task.md",
+    "commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "sha256": "5d0e155fd6caa3f17ee4f3954ded360372c438f948ce2404f97efb9edb53b40c"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/task.md",
+    "git_commit": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "git_blob_sha1": "585b0ac58472c44f3dcbdc08825c523ed44e9282",
+    "sha256": "5d0e155fd6caa3f17ee4f3954ded360372c438f948ce2404f97efb9edb53b40c"
+  },
+  "source": {
+    "commit_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.1.md — OWNER_AUTHORIZED bounded rollout; receipt b6918cced1d118dbedbd7cdf86676c16331b9314 PASS, Copilot AUTH_REQUIRED non-material, Codex PASS"
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-PREEXEC-ROLLOUT-V1",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-PREEXEC-ROLLOUT-V1",
+    "base_sha": "b6918cced1d118dbedbd7cdf86676c16331b9314",
+    "allowed_code_paths": [
+      "agent_bridge/**",
+      "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/**",
+      "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/preflight.ps1",
+      "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/preflight.ps1",
+      "agent_bridge/src/fox2_agent_bridge/project_dictionary.py"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-PREEXEC-ROLLOUT-V1/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "codex_cli",
+      "full_access_mode",
+      "eligible_agent_route"
+    ],
+    "stop_conditions": [
+      "source_or_task_binding_mismatch",
+      "wrong_branch_or_worktree",
+      "competing_material_writer",
+      "unauthorized_path_change",
+      "secret_exposure",
+      "required_test_failure",
+      "capability_or_quota_failure",
+      "schema_or_dictionary_drift",
+      "push_or_readback_failure",
+      "agent_substitution",
+      "dispatch_replay"
+    ]
+  },
+  "required_tests": [
+    "PROJECT_DICTIONARY_BINDING",
+    "PREFLIGHT_RECEIPT_SCHEMA",
+    "ALTERNATIVE_AGENT_ROUTE_MATERIALITY",
+    "PINNED_AGENT_MATERIALITY",
+    "PREFLIGHT_PASS_DURABLE",
+    "PREFLIGHT_BLOCKED_DURABLE",
+    "PREFLIGHT_INFRA_FAILED_SAFE",
+    "NO_DISPATCH_BEFORE_PASS",
+    "PRESTART_DISPATCH_NOT_CONSUMED",
+    "NO_IMPLEMENTATION_AGENT_START",
+    "NO_AGENT_SUBSTITUTION",
+    "SANITIZED_FAILURE_CLASSIFICATION",
+    "CANONICAL_RECEIPT_TEXT",
+    "STALE_RECEIPT_ONLY_CLEANUP",
+    "NO_FALSE_PUSHED_MARKER",
+    "REMOTE_READBACK_REQUIRED",
+    "APP_THIN_ADAPTER",
+    "BRIDGE_THIN_ADAPTER",
+    "FULL_SHARED_PREEXEC_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-14T14:39:12.431Z",
+  "max_runs": 1
+}
