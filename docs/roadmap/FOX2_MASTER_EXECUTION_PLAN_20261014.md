@@ -127,59 +127,24 @@ These lanes are dependency-safe for parallel execution because their primary cod
 
 **Exit:** backend M1-A API/watchlist offline integration accepted; API DTOs frozen for frontend.
 
-### Lane B — `BRIDGE-DESKTOP-BATCH-A` — SAME-WP REWORK
+### Lane B — `BRIDGE-DESKTOP-BATCH-A` — OWNER ACCEPTED WITH VALIDATION WAIVER
 
-**Purpose:** finish all related Bridge core/product-control work in one implementation round.
+**Final code head:** `3013f34d7ad91d1462e44495c873a84c41297b6b`.
 
-Current result `26fdc0af7317a675b618982575f3ee64429a991f` passed 164 tests but CHAT found project-identity drift (legacy schema/control/path hard-coding). The same Batch A now absorbs the Project Dictionary / Dispatch v3 compatibility correction; no new WP is created.
+**Parent validated result:** `b2de4a10f259c4baf40a83372783e11fc7edd64a` with 243 PASS / 0 fail / 0 skip.
 
-**Base:** accepted FIX-01 SHA `ef9f290e73c4f4500900528656212c38acf43a4f`.
+Owner explicitly waived a separate post-patch Windows rerun after CHAT corrected the Dispatch-v3 structural-conformance gap. Therefore Batch A is operationally closed and may feed Batch B, but the waived post-patch tests remain `NOT_RUN` and MUST NOT be rewritten as PASS.
 
-**Scope:**
-- background Worker / Git mailbox;
-- restart/reconciliation/no-replay;
-- exact Codex/Copilot adapter registry;
-- immutable Agent/model/tier/reasoning/permission tuple;
-- Codex pinned model/reasoning;
-- Copilot Native Auto tier;
-- `FULL_ACCESS` default;
-- `AGENT_PERMISSION_PREFLIGHT`;
-- fail-closed permission mismatch, no silent downgrade;
-- capability-based Material Tool Compatibility Rule;
-- requested/observed execution + usage telemetry persistence;
-- post-start quota/auth/capacity reconciliation;
-- dispatch-owned Git delivery semantics;
-- Tray IPC/status/startup;
-- read-only usage/model/permission display;
-- canonical generated-artifact pipeline for JSON/XML/TXT/MD/LOG/CSV evidence;
-- UTF-8/LF, no trailing whitespace, deterministic serialization where applicable;
-- one final combined acceptance/evidence cycle.
+Carry-forward rule into Batch B final certification:
 
-**No standalone DEV WPs** for usage telemetry, model routing, permission Full Access, canonical artifact hygiene, Tray usage display or Copilot profile handling.
+- include current code head `3013f34...`;
+- exercise the canonical Dispatch-v3 schema binding/structural-conformance gates as part of the single Batch-B certification cycle;
+- do not reopen Batch A as a standalone validation WP;
+- if final Batch-B certification exposes a material regression from the CHAT patch, resolve it inside Batch B or the release-readiness decision, not as a historical micro-fix.
 
-**Candidate routing:** Codex CLI / pinned capable model / High for concurrency/recovery/safety-sensitive implementation. CHAT may reduce to Medium for clearly bounded implementation blocks while retaining one WP.
-
-**Exit acceptance:**
-- `PROJECT_DICTIONARY_BINDING=PASS`
-- `DISPATCH_V3_RUNTIME_COMPATIBILITY=PASS`
-- `LEGACY_V2_V06_COMPATIBILITY=PASS`
-- `STABLE_DISPATCH_PATH=PASS`
-- `WORKER_RECOVERY=PASS`
-- `CODEX_EXACT_CONFIG=PASS`
-- `COPILOT_EXACT_POLICY=PASS`
-- `USAGE_PERSISTENCE=PASS`
-- `POST_START_QUOTA_RECONCILIATION=PASS`
-- `NO_REPLAY=PASS`
-- `NO_AGENT_SUBSTITUTION=PASS`
-- `GIT_DELIVERY_POLICY_ALIGNED=PASS`
-- `NO_DUPLICATE_PUBLICATION_PATH=PASS`
-- `FULL_ACCESS_CODEX=PASS`
-- `FULL_ACCESS_COPILOT=PASS`
-- `PERMISSION_PREFLIGHT=PASS`
-- `MATERIAL_TOOL_COMPATIBILITY=PASS`
-- `CANONICAL_GENERATED_ARTIFACT_PIPELINE=PASS`
-- `TEXT_ARTIFACT_HYGIENE=PASS`
-- `TRAY_READ_ONLY_USAGE_DISPLAY=PASS`
+`BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER`  
+`POST_PATCH_FULL_WINDOWS_RERUN=WAIVED`  
+`TECHNICAL_TEST_PASS_FOR_3013F34=NOT_CLAIMED`
 
 ## 4. Second execution phase
 
@@ -204,7 +169,9 @@ This is the first target where FOX2 should be considered **runnable locally as a
 
 ### `BRIDGE-DESKTOP-BATCH-B` — setup/package/real certification
 
-Start after Bridge Batch A PASS.
+Start from Owner-accepted Bridge Batch A head `3013f34d7ad91d1462e44495c873a84c41297b6b`.
+
+Batch A's post-patch Windows rerun was explicitly waived by Owner. Batch B therefore carries one bounded certification debt: its final certification must exercise the current Dispatch-v3 schema binding/structural-conformance behavior together with the normal Batch-B installed-runtime/E2E gates. This is not a separate Batch-A rerun.
 
 Scope:
 - first-run setup;
@@ -258,10 +225,10 @@ No account/order/broker-write/LIVE authority is implied.
 Do not run `SFR-010 -> SFR-050` as a third parallel product program.
 
 For current delivery:
-- CHAT enforces newest applicable released Policy/Technical/source at new/re-scoped handoff creation;
-- Dispatch Schema v2 binds exact Policy/source/task SHA;
-- Protocol v9 enforces source binding and in-flight materiality;
-- Bridge Batch A implements only the runtime-attestation/source checks material to launch.
+- CHAT resolves the Project Dictionary first and binds the newest applicable released Policy/Technical/source at new/re-scoped handoff creation;
+- Dispatch Schema v3 binds exact Dictionary/Policy/source/task identities;
+- Protocol v10 enforces source binding and in-flight materiality;
+- Bridge uses the Project-Dictionary-generated compatibility binding for task-material runtime/source attestation.
 
 Standalone release-hook/Library-CAS hardening is deferred until it is materially required for automated release publishing. Reopen it as one consolidated hardening milestone only if current CHAT + Git provenance is insufficient.
 
@@ -302,13 +269,14 @@ Do not STOP solely for:
 ## 10. Execution ordering summary
 
 ```text
-NOW
-  ├─ APP-BATCH-A  (P2-04 integrated backend)
-  └─ BRIDGE-BATCH-A
-
-THEN
-  ├─ APP-BATCH-B  (P3 + P4 -> runnable localhost M1-A)
-  └─ BRIDGE-BATCH-B -> internal Bridge ready
+NOW — SECOND EXECUTION PHASE
+  ├─ APP-BATCH-B
+  │    P3 + P4 -> runnable localhost M1-A
+  │
+  └─ BRIDGE-BATCH-B
+       setup/package/installed-runtime certification
+       + carry-forward current-schema certification debt
+       -> INTERNAL FOX2 BRIDGE READY
 
 THEN
   -> M1-A RELEASE INTEGRATION
@@ -321,4 +289,11 @@ LATER
   -> M3/M4 analytics/risk/capital/exit/shadow under their own BRDs
 ```
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1+POLICY_V1.8.7+ROUTING_V1.2.8 / DISPATCH=V3 / PROTOCOL=V10 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=REWORK_SAME_WP / MICRO_WP_DEFAULT=NO`
+### Current pre-execution facts for the two next batches
+
+- dedicated Batch-B task branches did not exist before this transition and must be created from the exact accepted/Owner-accepted heads;
+- APP-BATCH-B requires Node/npm/Vite-capable local toolchain: current local material capability is `UNKNOWN` until direct preflight;
+- latest Bridge evidence proves both Codex CLI and Copilot CLI binaries + Full Access argument compatibility, but current quota/capacity is `UNKNOWN` because observed quota is not exposed and paid execution was not run in that evidence cycle;
+- no final Agent assignment or executable Dispatch v3 is valid until CHAT completes R3/R5 with current local preflight evidence.
+
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1+POLICY_V1.8.7+ROUTING_V1.2.8 / DISPATCH=V3 / PROTOCOL=V10 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=APP_BATCH_B+BRIDGE_BATCH_B_PREEXEC / MICRO_WP_DEFAULT=NO`
