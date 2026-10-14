@@ -85,13 +85,15 @@ function New-Capability {
         [AllowNull()][string]$FailureClass,
         [AllowNull()][string]$Evidence
     )
+    $normalizedFailureClass = if ([string]::IsNullOrWhiteSpace($FailureClass)) { $null } else { $FailureClass }
+
     return [ordered]@{
         status = $Status
         material = $Material
         version = $Version
         executable = $Executable
         exit_code = $ExitCode
-        failure_class = $FailureClass
+        failure_class = $normalizedFailureClass
         evidence = $Evidence
     }
 }
@@ -356,6 +358,12 @@ if ($receipt.task_branch -ne $Branch) { throw "receipt task_branch mismatch" }
 if ($receipt.source_head -ne $sourceHead) { throw "receipt source_head mismatch" }
 if ($receipt.status -notin @("PASS","BLOCKED","INFRA_FAILED")) { throw "invalid receipt status" }
 if ($receipt.blockers -isnot [System.Array]) { throw "receipt blockers must be an array" }
+foreach ($capabilityName in $receipt.capabilities.Keys) {
+    $fc = $receipt.capabilities[$capabilityName].failure_class
+    if ($null -ne $fc -and [string]::IsNullOrWhiteSpace([string]$fc)) {
+        throw ("receipt capability failure_class must be null or non-empty: " + $capabilityName)
+    }
+}
 if ($receipt.dispatch_state.executable_dispatch_published -ne $false) { throw "preflight cannot publish executable dispatch" }
 if ($receipt.dispatch_state.dispatch_consumed -ne $false) { throw "preflight cannot consume dispatch" }
 if ($receipt.agent_execution_started -ne $false) { throw "preflight cannot start implementation Agent" }
