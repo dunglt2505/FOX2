@@ -186,7 +186,7 @@ function AppShell({
               <span>No order or broker-write capability</span>
             </div>
           </div>
-          <span className="build-label">Presentation slice · v0.1</span>
+          <span className="build-label">Presentation slice · v0.2 · Dark / White</span>
         </div>
       </aside>
 
