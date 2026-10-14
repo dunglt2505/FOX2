@@ -1,10 +1,11 @@
-# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.5 Candidate
+# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.6 Candidate
 
 **Work package:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
 **Status:** `CANDIDATE / ABSORBED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_STANDALONE_DEV`  
 **Date:** 2026-10-14  
 **Source contract:** `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`  
-**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV6  
+**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV7  
+**Governance:** `FOX2_POLICY_V1.8.6.md` + Routing Index `V1.2.7`  
 **Dependency:** `BRIDGE-DESKTOP-01-02-FIX-01 = PASS`
 
 ## Decision
@@ -55,7 +56,7 @@ Batch A combines the remaining related work of historical Desktop-01, Desktop-02
 - background Worker / Git mailbox loop;
 - restart/reconciliation/no-replay;
 - exact dual-Agent dispatch;
-- dispatch-owned Git delivery aligned to Policy V1.8.5: selected Agent may commit/push exact non-main task branch when `git_code_push=YES`; Bridge publication only when explicitly selected;
+- dispatch-owned Git delivery aligned to Policy V1.8.6: selected Agent may commit/push exact non-main task branch when `git_code_push=YES`; Bridge publication only when explicitly selected;
 - CLI-FIRST execution baseline;
 - CHAT-owned `permission_profile=FULL_ACCESS` default;
 - Bridge `AGENT_PERMISSION_PREFLIGHT` and exact CLI permission application;
@@ -136,7 +137,8 @@ Do not publish Batch A until:
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01 = PASS
 CHAT readback = PASS
-v0.7 REV6 + Usage Contract REV3 = approved/bound
+Policy V1.8.6 + Routing Index V1.2.7 = RELEASED_EFFECTIVE
+v0.7 REV7 + Usage Contract REV4 = Owner-bound executable sources
 exact post-FIX base SHA = verified
 one writer/worktree = reserved
 allowed code/report paths = bound
@@ -163,4 +165,4 @@ FIX -> BATCH A -> BATCH B -> READY
 
 Do not create separate implementation rounds for adapter model policy, usage telemetry, Tray usage display, ledger fields or Copilot profile handling when they can be changed and tested together inside Batch A.
 
-`ROADMAP_MAPPING_STATUS=INTEGRATED / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / NO_STANDALONE_USAGE_DEV_ROUND`.
+`ROADMAP_MAPPING_STATUS=INTEGRATED / GOVERNANCE=POLICY_V1.8.6_ROUTING_V1.2.7 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / NO_STANDALONE_USAGE_DEV_ROUND`.
