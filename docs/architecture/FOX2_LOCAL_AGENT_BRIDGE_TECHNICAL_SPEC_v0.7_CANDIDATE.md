@@ -1,13 +1,13 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate REV6`  
+**Version:** `0.7 Candidate REV7`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
-**Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate. REV6 aligns Git delivery ownership back to Policy V1.8.5: the selected Agent may deliver the authorized non-main result when `git_code_push=YES`; Bridge-managed publication is used only when the immutable dispatch explicitly selects Bridge as publisher.
+**Governance:** FOX2 Policy V1.8.6 + Routing Index V1.2.7  
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate. REV6 aligns Git delivery ownership back to Policy V1.8.5: the selected Agent may deliver the authorized non-main result when `git_code_push=YES`; Bridge-managed publication is used only when the immutable dispatch explicitly selects Bridge as publisher. REV7 binds the Bridge productization source to released FOX2 Policy V1.8.6 and Routing Index V1.2.7, making CLI-FIRST, FULL_ACCESS_DEFAULT, dispatch-owned Git delivery and capability-based readiness the active FOX2 governance baseline.
 
 > This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence. The normative routing/telemetry requirements are defined by `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`; that contract is integrated into the Desktop plan and is **not** a separate DEV round.
 
@@ -69,7 +69,7 @@ Therefore v0.7 is **not** a rewrite of v0.6. Existing safe modules are reused an
 
 Agent execution:
 Worker -> exact isolated worktree -> selected CLI -> tests/edit
-       -> Worker validates diff/result -> non-main commit/push -> CHAT readback
+       -> authorized delivery owner publishes exact non-main result -> CHAT readback
 ```
 
 VS Code remains optional and outside the required normal execution path.
@@ -677,7 +677,7 @@ Before Agent launch:
 
 ### 12.1 Git publication authority follows the dispatch
 
-Policy V1.8.5 remains controlling. The execution lane that owns the WP may deliver its authorized non-main result when the handoff binds `git_code_push=YES`.
+Policy V1.8.6 remains controlling. The execution lane that owns the WP may deliver its authorized non-main result when the handoff binds `git_code_push=YES`.
 
 Canonical behavior:
 
@@ -1121,7 +1121,7 @@ Technical Spec Candidate itself grants no writer.
 Before Batch A coding:
 
 1. `BRIDGE-DESKTOP-01-02-FIX-01` is PASS and its immutable remote result is read back.
-2. BRD-09, v0.7 REV6 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
+2. BRD-09, v0.7 REV7 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
 3. exact post-FIX `agent_bridge/**` base commit is chosen.
 4. one dedicated writer/worktree is reserved.
 5. exact allowed code/test/report paths are defined.
@@ -1173,4 +1173,4 @@ This Candidate does not:
 - declare BRD-09 acceptance tests PASS;
 - create a separate DEV round for `FOX2-AGENT-USAGE-TELEMETRY-01`; its requirements are absorbed into Batch A.
 
-`TECH_V0_7_STATUS=CANDIDATE_REV6 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / GIT_DELIVERY=DISPATCH_OWNED_POLICY_ALIGNED / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV7 / GOVERNANCE=POLICY_V1.8.6_ROUTING_V1.2.7 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / GIT_DELIVERY=DISPATCH_OWNED_POLICY_ALIGNED / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
