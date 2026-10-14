@@ -1,6 +1,6 @@
 # FOX2-M1-A-APP-BATCH-B — Whole-WP Task
 
-**Status:** CHAT_UI_SLICE_ACTIVE / AGENT_INTEGRATION_PREEXEC_HOLD  
+**Status:** PAUSED_AFTER_UI_SLICE / WAIT_BRIDGE_READY  
 **Project phase:** M1-A second execution phase  
 **Governance:** Project Dictionary v1.2 -> Policy V1.8.9 -> Routing Index V1.3.0  
 **Protocol:** PreExec Evidence v1.1 + Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dispatch Schema v3 + Git-first Protocol v12  
@@ -38,6 +38,16 @@ Bound scope for CHAT:
 The remaining API wiring hardening, automated tests, large refactor and integration certification may be routed to an eligible coding Agent after project-wide PreExec readiness.
 
 This is not a new WP and does not authorize main/merge/deploy/provider/broker/LIVE.
+
+## Owner priority pause — Bridge first
+
+Owner has frozen further APP-BATCH-B execution at dual-theme source head:
+`1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2`.
+
+Do not continue frontend build/test/integration work until `BRIDGE-DESKTOP-BATCH-B` reaches `INTERNAL_FOX2_BRIDGE_READY`.
+
+When resumed, preserve the CHAT-approved Dark/White UI and continue with build/typecheck/API integration/tests/runtime acceptance rather than redesigning the presentation.
+
 
 ## Whole-WP objective
 
