@@ -154,6 +154,9 @@ Carry-forward rule into Batch B final certification:
 
 ### `FOX2-M1-A-APP-BATCH-B` — UI + offline acceptance
 
+**CHAT UI slicing status — 2026-10-14:** Owner authorized CHAT to implement the visual/presentation slice directly inside the existing whole-WP. Current source head on `work/FOX2-M1-A-APP-BATCH-B` is `b319cb2ad4fecbb22c3d4bcbc4d3ad00f817a356`. The slice adds the React/TypeScript/Vite shell, Overview, Watchlist, Stock360, Data Sources, truthful loading/unavailable/stale/gap/provisional presentation, and responsive 1440/1024/390 layout under `frontend/**`. No backend/provider/business semantic code was changed. Source review is complete; frontend build/runtime/integrated acceptance remain NOT_RUN until executed on the Windows host/eligible Agent lane.
+
+
 Start after APP-BATCH-A freezes the accepted API shape.
 
 This one batch absorbs historical P3 + P4:
