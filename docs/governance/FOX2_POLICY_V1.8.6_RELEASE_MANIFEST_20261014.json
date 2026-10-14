@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.8.6",
+  "status": "RELEASED_EFFECTIVE",
+  "release_date": "2026-10-14",
+  "owner_decision": "triển khai các tài liệu và policy liên quan đi, để áp dụng cho dự án FOX2",
+  "scope": "CLI-first execution, Full Access default, dispatch-owned Git delivery, capability-based tool readiness, whole-WP anti-fragmentation",
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-AGENT-USAGE-TELEMETRY-01-chat",
+    "source_commit": "116c362b9c6243ebaa23ad17df3104d9f07c50d5",
+    "path": "docs/governance/FOX2_POLICY_V1.8.6.md",
+    "blob": "4ccf6d26ba775432ed449c85fdb0ab7c74acded7",
+    "sha256": "3b75a51054f6215e6cbf5793cdaf3e818f9ac4306bf363a7e70064f035bc997f",
+    "utf8_bytes": 11474,
+    "exact_readback": "PASS"
+  },
+  "library": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.6.md",
+    "status": "PENDING_TOOLING",
+    "exact_byte_readback": "NOT_RUN",
+    "reason": "Library upload connector could not access the active container session; Git operational source is published and immutable."
+  },
+  "supersedes": "FOX2_POLICY_V1.8.5.md",
+  "rights_created": {
+    "blanket_dev": false,
+    "main_push": false,
+    "pr_create": false,
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}
