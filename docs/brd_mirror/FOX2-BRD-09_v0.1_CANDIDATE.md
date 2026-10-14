@@ -1,12 +1,12 @@
 # FOX2-BRD-09 — AgentBridge Desktop & Local Orchestration
 
-**Version:** `0.1 Candidate REV2`  
+**Version:** `0.1 Candidate REV3`  
 **Status:** `CANDIDATE / OWNER_REVIEW / NO_DEV_GRANT`  
 **Project:** FOX2 initially; product direction supports a later generic AgentBridge distribution  
 **Date:** 2026-10-14  
-**Owner direction:** continue Bridge productization in parallel with FOX2 application development. REV2 locks GitHub-as-mailbox + local outbound pull as the V1 signaling model.  
+**Owner direction:** continue Bridge productization in parallel with FOX2 application development. REV2 locked GitHub-as-mailbox + local outbound pull; REV3 binds all machine identity/version/path compatibility to the FOX2 Project Dictionary.  
 **Technical counterpart:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md`  
-**Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
+**Governance:** Project Dictionary v1 -> FOX2 Policy V1.8.7 + Routing Index V1.2.8  
 **Current runtime evidence:** Bridge Core is assessed `OPERATIONAL_MVP`; direct Copilot CLI and Codex CLI canaries have immutable Git result evidence.  
 **Non-effect:** this Candidate creates no DEV, merge, deployment, provider, broker or LIVE authority.
 
@@ -103,6 +103,15 @@ Windows is the first supported desktop platform. Multi-platform support is a lat
 | `FOX2-09-R30` | If the local PC is asleep/offline, the dispatch remains durable on GitHub; after wake/login/startup the Worker reconciles state and processes still-eligible pending dispatches. Wake-on-task is not required in V1. | P0 | SPECIFIED_CANDIDATE | T28 |
 | `FOX2-09-R31` | A future webhook/cloud-relay/push optimization may reduce latency, but it must remain optional and cannot bypass immutable dispatch validation, replay protection or local authority checks. | P2 | SPECIFIED_CANDIDATE | T29 |
 
+### 4.1 Project Dictionary requirements
+
+| Requirement | Normative outcome | Priority | State | Acceptance |
+|---|---|---:|---|---|
+| `FOX2-09-R32` | AgentBridge resolves current/supported dispatch schema, control branch and dispatch path conventions from the FOX2 Project Dictionary or a generated binding derived only from it; competing hand-coded current constants are forbidden. | P0 | SPECIFIED_CANDIDATE | T30 |
+| `FOX2-09-R33` | Supported legacy dispatch schemas normalize into one internal validated execution representation; schema compatibility must not create separate execution engines or silent semantic conversion. | P0 | SPECIFIED_CANDIDATE | T30,T31 |
+| `FOX2-09-R34` | The canonical current dispatch path is version-neutral; schema version is carried in the payload/Dictionary rather than encoded into a directory name. | P0 | SPECIFIED_CANDIDATE | T30 |
+| `FOX2-09-R35` | Bridge accepts only Dictionary-declared control branches and one explicitly selected control branch per profile; arbitrary or simultaneous multi-branch polling is not allowed by default. | P0 | SPECIFIED_CANDIDATE | T31 |
+
 ## 5. System Tray UX
 
 Minimum Tray presentation:
@@ -136,7 +145,7 @@ A first-run setup flow must:
 2. discover Git and supported Agent CLIs;
 3. identify the FOX2 repository/local source location;
 4. identify the worktree root;
-5. read/validate the configured dispatch control source;
+5. read/validate the Project-Dictionary-resolved dispatch control source;
 6. show Agent login state when supported without using a paid prompt merely as a health probe;
 7. allow enabling Start with Windows;
 8. run a read-only health check;
@@ -183,7 +192,7 @@ The V1 signaling contract is intentionally **pull-based**:
 ```text
 Owner -> CHAT
         -> immutable dispatch commit
-        -> configured GitHub control ref
+        -> Project-Dictionary-resolved GitHub control ref
         -> Local AgentBridge Worker polls outbound
         -> detects new control-ref SHA
         -> fetches/validates new dispatch
