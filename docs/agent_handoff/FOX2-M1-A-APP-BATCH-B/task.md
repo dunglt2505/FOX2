@@ -29,6 +29,7 @@ Owner explicitly authorized CHAT to implement the visual/UI slicing portion of t
 
 Bound scope for CHAT:
 - `frontend/**` only;
+- Dark/White theme presentation with an explicit user toggle and local presentation-only preference persistence;
 - information architecture, React component hierarchy, HTML/CSS structure, responsive 1440/1024/390 behavior, loading/empty/unavailable/stale/gap visual states;
 - source/provenance badges and read-only navigation/presentation;
 - no backend/provider/domain semantic changes;
