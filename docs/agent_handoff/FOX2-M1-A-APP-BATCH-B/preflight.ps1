@@ -1,152 +1,136 @@
 $ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $false
 Set-StrictMode -Version Latest
-function Invoke-Git {
-    param([Parameter(ValueFromRemainingArguments=$true)][string[]]$Args)
-    $output = & git @Args 2>&1
-    if ($LASTEXITCODE -ne 0) { throw ("git failed: git " + ($Args -join " ") + [Environment]::NewLine + ($output | Out-String)) }
-    return $output
-}
-
-function Get-BranchWorktree {
-    param([string]$Repo,[string]$Branch)
-    $lines = & git -C $Repo worktree list --porcelain
-    $path = $null
-    foreach ($line in $lines) {
-        if ($line -like "worktree *") { $path = $line.Substring(9) }
-        elseif ($line -eq "branch refs/heads/$Branch") { return $path }
-    }
-    return $null
-}
-
-function Ensure-TaskWorktree {
-    param([string]$Repo,[string]$Branch,[string]$Worktree)
-    Invoke-Git -Args @("-C",$Repo,"fetch","origin",("refs/heads/" + $Branch + ":refs/remotes/origin/" + $Branch)) | Out-Null
-    $bound = Get-BranchWorktree -Repo $Repo -Branch $Branch
-    if ($bound -and ([IO.Path]::GetFullPath($bound) -ne [IO.Path]::GetFullPath($Worktree))) { throw "writer/worktree collision: $Branch is already checked out at $bound" }
-    if (-not (Test-Path $Worktree)) {
-        & git -C $Repo show-ref --verify --quiet ("refs/heads/" + $Branch)
-        if ($LASTEXITCODE -eq 0) { Invoke-Git -Args @("-C",$Repo,"worktree","add",$Worktree,$Branch) | Out-Null }
-        else { Invoke-Git -Args @("-C",$Repo,"worktree","add","-b",$Branch,$Worktree,("origin/" + $Branch)) | Out-Null }
-    }
-    $actual = (& git -C $Worktree branch --show-current).Trim()
-    if ($actual -ne $Branch) { throw "wrong worktree branch: $actual" }
-    $dirty = & git -C $Worktree status --porcelain
-    if ($dirty) { throw ("worktree is not clean before preflight:" + [Environment]::NewLine + ($dirty | Out-String)) }
-    Invoke-Git -Args @("-C",$Worktree,"pull","--ff-only","origin",$Branch) | Out-Null
-    return (& git -C $Worktree rev-parse HEAD).Trim()
-}
-
-function Require-Command {
-    param([string]$Name)
-    $cmd = Get-Command $Name -ErrorAction SilentlyContinue
-    if (-not $cmd) { throw "required command missing: $Name" }
-    return $cmd.Source
-}
-
-function Write-Receipt {
-    param([object]$Receipt,[string]$Path)
-    $parent = Split-Path -Parent $Path
-    New-Item -ItemType Directory -Force -Path $parent | Out-Null
-    $json = $Receipt | ConvertTo-Json -Depth 12
-    [IO.File]::WriteAllText($Path, $json + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
-}
-
-function Publish-Receipt {
-    param([string]$Worktree,[string]$Branch,[string]$RelativePath,[string]$Message)
-    Invoke-Git -Args @("-C",$Worktree,"add","--",$RelativePath) | Out-Null
-    Invoke-Git -Args @("-C",$Worktree,"diff","--cached","--check") | Out-Null
-    $staged = @(& git -C $Worktree diff --cached --name-only)
-    $normalized = $RelativePath.Replace("\\","/")
-    if ($staged.Count -ne 1 -or $staged[0].Trim() -ne $normalized) { throw ("preflight publication scope mismatch: " + ($staged -join ",")) }
-    Invoke-Git -Args @("-C",$Worktree,"commit","-m",$Message) | Out-Null
-    Invoke-Git -Args @("-C",$Worktree,"push","origin",("HEAD:refs/heads/" + $Branch)) | Out-Null
-    $local = (& git -C $Worktree rev-parse HEAD).Trim()
-    $remoteLine = (& git -C $Worktree ls-remote --refs origin ("refs/heads/" + $Branch)).Trim()
-    $remote = ($remoteLine -split "\s+")[0]
-    if ($remote -ne $local) { throw "remote readback mismatch: local=$local remote=$remote" }
-    return $local
-}
 
 $Repo = "C:\Projects\FOX2"
 $Branch = "work/FOX2-M1-A-APP-BATCH-B"
 $Worktree = "C:\Projects\FOX2-worktrees\FOX2-M1-A-APP-BATCH-B"
 $ReceiptRel = "reports/FOX2-M1-A-APP-BATCH-B/preexec/local_preflight.json"
+$receipt = [ordered]@{ schema_version="1.1"; project="FOX2"; wp_id="FOX2-M1-A-APP-BATCH-B"; checked_at=[DateTimeOffset]::Now.ToString("o"); status="BLOCKED"; branch=$Branch; worktree=$Worktree; source_head=$null; blockers=@(); capabilities=[ordered]@{}; execution_authorized="NO_FROM_PREFLIGHT" }
+$publishable = $false
+$exitCode = 20
 
-if (-not (Test-Path $Repo)) { throw "FOX2 repo missing: $Repo" }
-Require-Command "git" | Out-Null
-$head = Ensure-TaskWorktree -Repo $Repo -Branch $Branch -Worktree $Worktree
-
-$node = Require-Command "node"
-$npm = Require-Command "npm"
-$npx = Require-Command "npx"
-$nodeVersion = (& $node --version).Trim()
-$npmVersion = (& $npm --version).Trim()
-$npxVersion = (& $npx --version).Trim()
-$npmPingOutput = (& $npm ping --silent 2>&1 | Out-String)
-$npmRegistry = if ($LASTEXITCODE -eq 0) { "PASS" } else { "FAIL" }
-if ($npmRegistry -ne "PASS") { throw "npm registry/package-resolution preflight failed: $npmPingOutput" }
-
-$probePrompt = "Reply exactly FOX2_PREFLIGHT_OK. Do not read or write files. Do not run tools."
-$copilot = Get-Command copilot -ErrorAction SilentlyContinue
-$codex = Get-Command codex -ErrorAction SilentlyContinue
-$copilotResult = [ordered]@{ status="NOT_RUN"; version=$null; output_marker=$false }
-$codexResult = [ordered]@{ status="NOT_RUN"; version=$null; output_marker=$false }
-$selected = $null
-$route = $null
-
-if ($copilot) {
-    $copilotResult.version = ((& $copilot.Source --version 2>&1 | Out-String).Trim())
-    $copilotArgs = @("-C",$Worktree,"--prompt",$probePrompt,"--allow-all-tools","--allow-all-paths","--allow-all-urls","--model","auto","--no-ask-user","--output-format","json","--auto-tier","balance")
-    $out = (& $copilot.Source @copilotArgs 2>&1 | Out-String)
-    $ok = ($LASTEXITCODE -eq 0 -and $out -match "FOX2_PREFLIGHT_OK")
-    $copilotResult.status = if ($ok) { "PASS" } else { "FAIL" }
-    $copilotResult.output_marker = $ok
-    if ($ok) {
-        $selected = "COPILOT"
-        $route = [ordered]@{ model_policy="NATIVE_AUTO"; auto_tier="balance"; model="auto"; reasoning_effort=$null; permission_profile="FULL_ACCESS" }
-    }
+function Get-WorktreeForBranch([string]$repo,[string]$branch) {
+  $path = $null
+  foreach ($line in @(& git -C $repo worktree list --porcelain)) {
+    if ($line -like "worktree *") { $path = $line.Substring(9) }
+    elseif ($line -eq ("branch refs/heads/" + $branch)) { return $path }
+  }
+  return $null
 }
 
-if (-not $selected -and $codex) {
-    $codexResult.version = ((& $codex.Source --version 2>&1 | Out-String).Trim())
-    $codexArgs = @("--ask-for-approval","never","exec","--sandbox","danger-full-access","--json","--model","gpt-6.1-sol","-c","model_reasoning_effort=`"low`"","-")
-    $out = ($probePrompt | & $codex.Source @codexArgs 2>&1 | Out-String)
-    $ok = ($LASTEXITCODE -eq 0 -and $out -match "FOX2_PREFLIGHT_OK")
-    $codexResult.status = if ($ok) { "PASS" } else { "FAIL" }
-    $codexResult.output_marker = $ok
-    if ($ok) {
-        $selected = "CODEX"
-        $route = [ordered]@{ model_policy="PINNED"; auto_tier=$null; model="gpt-6.1-sol"; reasoning_effort="medium"; permission_profile="FULL_ACCESS" }
-    }
+function Classify-AgentFailure([string]$text,[int]$code,[bool]$marker) {
+  $t = $text.ToLowerInvariant()
+  if ($t -match "auth|login|unauthorized|forbidden") { return "AUTH_REQUIRED" }
+  if ($t -match "quota|rate.?limit|capacity|exhaust|insufficient") { return "CAPACITY_OR_QUOTA" }
+  if ($t -match "unknown model|unsupported model|invalid.*model|model_reasoning") { return "MODEL_OR_CONFIG_UNSUPPORTED" }
+  if ($t -match "sandbox|approval|allow-all|permission|unknown option|unrecognized option") { return "PERMISSION_OR_CLI_ARGS" }
+  if ($code -eq 0 -and -not $marker) { return "RESPONSE_MARKER_MISSING" }
+  return "CLI_NONZERO"
 }
 
-if (-not $selected) { throw "no eligible Agent demonstrated current execution capacity; Copilot=$($copilotResult.status), Codex=$($codexResult.status)" }
-
-$receipt = [ordered]@{
-    schema_version = "1.0"
-    project = "FOX2"
-    wp_id = "FOX2-M1-A-APP-BATCH-B"
-    checked_at = [DateTimeOffset]::Now.ToString("o")
-    branch = $Branch
-    worktree = $Worktree
-    source_head = $head
-    r3_material_capability = [ordered]@{
-        node = [ordered]@{ status="PASS"; executable=$node; version=$nodeVersion }
-        npm = [ordered]@{ status="PASS"; executable=$npm; version=$npmVersion; registry=$npmRegistry }
-        npx = [ordered]@{ status="PASS"; executable=$npx; version=$npxVersion }
-        copilot = $copilotResult
-        codex = $codexResult
-        selected_agent = $selected
-        selected_route = $route
-    }
-    r5_worktree = [ordered]@{ status="PASS"; branch=$Branch; clean_before_probe=$true; competing_writer="NONE_OBSERVED" }
-    execution_authorized = "NO_FROM_PREFLIGHT"
-    note = "Preflight evidence only. CHAT must publish the canonical Dispatch v3 before implementation."
+function Probe-Copilot([string]$worktree) {
+  $cmd = Get-Command copilot -ErrorAction SilentlyContinue
+  if (-not $cmd) { return [ordered]@{status="MISSING";version=$null;exit_code=$null;failure_class="TOOL_MISSING"} }
+  $version = ((& $cmd.Source --version 2>&1 | Out-String).Trim())
+  $prompt = "Reply exactly FOX2_PREFLIGHT_OK. Do not read or write files. Do not run tools."
+  $args = @("-C",$worktree,"--prompt",$prompt,"--allow-all-tools","--allow-all-paths","--allow-all-urls","--model","auto","--no-ask-user","--output-format","json","--auto-tier","balance")
+  $out = (& $cmd.Source @args 2>&1 | Out-String)
+  $code = $LASTEXITCODE
+  $marker = ($out -match "FOX2_PREFLIGHT_OK")
+  if ($code -eq 0 -and $marker) { return [ordered]@{status="PASS";version=$version;exit_code=0;failure_class=$null} }
+  return [ordered]@{status="FAIL";version=$version;exit_code=$code;failure_class=(Classify-AgentFailure $out $code $marker)}
 }
 
+function Probe-Codex([string]$worktree) {
+  $cmd = Get-Command codex -ErrorAction SilentlyContinue
+  if (-not $cmd) { return [ordered]@{status="MISSING";version=$null;exit_code=$null;failure_class="TOOL_MISSING"} }
+  $version = ((& $cmd.Source --version 2>&1 | Out-String).Trim())
+  $prompt = "Reply exactly FOX2_PREFLIGHT_OK. Do not read or write files. Do not run tools."
+  $args = @("--ask-for-approval","never","exec","--sandbox","danger-full-access","--json","--model","gpt-6.1-sol","-c","model_reasoning_effort=`"low`"","-")
+  $out = ($prompt | & $cmd.Source @args 2>&1 | Out-String)
+  $code = $LASTEXITCODE
+  $marker = ($out -match "FOX2_PREFLIGHT_OK")
+  if ($code -eq 0 -and $marker) { return [ordered]@{status="PASS";version=$version;exit_code=0;failure_class=$null} }
+  return [ordered]@{status="FAIL";version=$version;exit_code=$code;failure_class=(Classify-AgentFailure $out $code $marker)}
+}
+
+try {
+  if (-not (Test-Path $Repo)) { throw "FOX2 repo missing" }
+  if (-not (Get-Command git -ErrorAction SilentlyContinue)) { throw "git missing" }
+  & git -C $Repo fetch origin ("refs/heads/" + $Branch + ":refs/remotes/origin/" + $Branch)
+  if ($LASTEXITCODE -ne 0) { throw "git fetch failed" }
+  $bound = Get-WorktreeForBranch $Repo $Branch
+  if ($bound -and ([IO.Path]::GetFullPath($bound) -ne [IO.Path]::GetFullPath($Worktree))) { throw ("writer/worktree collision at " + $bound) }
+  if (-not (Test-Path $Worktree)) {
+    & git -C $Repo show-ref --verify --quiet ("refs/heads/" + $Branch)
+    if ($LASTEXITCODE -eq 0) { & git -C $Repo worktree add $Worktree $Branch } else { & git -C $Repo worktree add -b $Branch $Worktree ("origin/" + $Branch) }
+    if ($LASTEXITCODE -ne 0) { throw "worktree create failed" }
+  }
+  $allDirty = @(& git -C $Worktree status --porcelain --untracked-files=all)
+  if ($allDirty.Count -gt 0) {
+    $receiptDirty = @(& git -C $Worktree status --porcelain --untracked-files=all -- $ReceiptRel)
+    if ($receiptDirty.Count -eq 0 -or (($allDirty -join "`n") -ne ($receiptDirty -join "`n"))) { throw ("non-preflight WIP exists: " + ($allDirty -join " | ")) }
+    & git -C $Worktree reset --quiet HEAD -- $ReceiptRel 2>$null
+    $stale = Join-Path $Worktree $ReceiptRel
+    if (Test-Path $stale) { Remove-Item -Force $stale }
+  }
+  & git -C $Worktree pull --ff-only origin $Branch
+  if ($LASTEXITCODE -ne 0) { throw "git pull --ff-only failed" }
+  $receipt.source_head = (& git -C $Worktree rev-parse HEAD).Trim()
+  $receipt.r5_worktree = [ordered]@{status="PASS";competing_writer="NONE_OBSERVED";stale_receipt_cleanup="SAFE_ONLY"}
+  $publishable = $true
+
+  foreach ($name in @("node","npm","npx")) {
+    $cmd = Get-Command $name -ErrorAction SilentlyContinue
+    if ($cmd) {
+      $ver = ((& $cmd.Source --version 2>&1 | Out-String).Trim())
+      $receipt.capabilities[$name] = [ordered]@{status="PASS";executable=$cmd.Source;version=$ver}
+    } else {
+      $receipt.capabilities[$name] = [ordered]@{status="MISSING";executable=$null;version=$null}
+      $receipt.blockers += ("MISSING_" + $name.ToUpperInvariant())
+    }
+  }
+  if ($receipt.capabilities["npm"].status -eq "PASS") {
+    $npmPath = $receipt.capabilities["npm"].executable
+    $null = (& $npmPath ping --silent 2>&1 | Out-String)
+    $npmCode = $LASTEXITCODE
+    $receipt.capabilities["npm_registry"] = [ordered]@{status=($(if($npmCode -eq 0){"PASS"}else{"FAIL"}));exit_code=$npmCode}
+    if ($npmCode -ne 0) { $receipt.blockers += "NPM_REGISTRY_UNAVAILABLE" }
+  } else { $receipt.capabilities["npm_registry"] = [ordered]@{status="NOT_RUN";exit_code=$null} }
+
+  $copilot = Probe-Copilot $Worktree
+  $codex = Probe-Codex $Worktree
+  $receipt.capabilities["copilot"] = $copilot
+  $receipt.capabilities["codex"] = $codex
+  if ($copilot.status -eq "PASS") {
+    $receipt.selected_agent="COPILOT"; $receipt.selected_route=[ordered]@{model_policy="NATIVE_AUTO";auto_tier="balance";model="auto";reasoning_effort=$null;permission_profile="FULL_ACCESS"}
+  } elseif ($codex.status -eq "PASS") {
+    $receipt.selected_agent="CODEX"; $receipt.selected_route=[ordered]@{model_policy="PINNED";auto_tier=$null;model="gpt-6.1-sol";reasoning_effort="medium";permission_profile="FULL_ACCESS"}
+  } else { $receipt.blockers += "NO_AGENT_CURRENT_EXECUTION_PROOF" }
+  if ($receipt.blockers.Count -eq 0) { $receipt.status="PASS"; $exitCode=0 }
+} catch { $receipt.blockers += ("PREFLIGHT_EXCEPTION:" + $_.Exception.Message) }
+
+if (-not $publishable) { Write-Error ("preflight could not safely publish receipt: " + ($receipt.blockers -join ",")); exit 31 }
+$receipt.checked_at=[DateTimeOffset]::Now.ToString("o")
 $receiptPath = Join-Path $Worktree $ReceiptRel
-Write-Receipt -Receipt $receipt -Path $receiptPath
-$published = Publish-Receipt -Worktree $Worktree -Branch $Branch -RelativePath $ReceiptRel -Message "preflight: record APP Batch B local readiness"
-Write-Host "FOX2_APP_BATCH_B_PREFLIGHT_PUSHED"
-Write-Host "REMOTE_SHA=$published"
-Write-Host "SELECTED_AGENT=$selected"
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent $receiptPath) | Out-Null
+$json = ($receipt | ConvertTo-Json -Depth 16) -replace "`r`n","`n"
+$json = ($json -replace "`r","`n").TrimEnd() + "`n"
+[IO.File]::WriteAllText($receiptPath,$json,[Text.UTF8Encoding]::new($false))
+& git -C $Worktree add -- $ReceiptRel
+& git -C $Worktree diff --cached --check
+if ($LASTEXITCODE -ne 0) { Write-Error "canonical receipt hygiene failed"; exit 30 }
+$staged = @(& git -C $Worktree diff --cached --name-only)
+if ($staged.Count -ne 1 -or $staged[0].Trim() -ne $ReceiptRel) { Write-Error ("unexpected staged scope: " + ($staged -join ",")); exit 30 }
+& git -C $Worktree commit -m ("preflight: record APP Batch B " + $receipt.status.ToLowerInvariant())
+if ($LASTEXITCODE -ne 0) { Write-Error "preflight receipt commit failed"; exit 30 }
+& git -C $Worktree push origin ("HEAD:refs/heads/" + $Branch)
+if ($LASTEXITCODE -ne 0) { Write-Error "preflight receipt push failed"; exit 30 }
+$local = (& git -C $Worktree rev-parse HEAD).Trim()
+$remote = ((& git -C $Worktree ls-remote --refs origin ("refs/heads/" + $Branch)).Trim() -split "\s+")[0]
+if ($local -ne $remote) { Write-Error "remote readback mismatch"; exit 30 }
+Write-Host ("APP_PREFLIGHT_RECEIPT_PUSHED=" + $local)
+Write-Host ("APP_PREFLIGHT_STATUS=" + $receipt.status)
+if ($receipt.blockers.Count -gt 0) { Write-Host ("APP_PREFLIGHT_BLOCKERS=" + ($receipt.blockers -join ",")) }
+exit $exitCode
