@@ -1,11 +1,11 @@
-# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.6 Candidate
+# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.7 Candidate
 
 **Work package:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
 **Status:** `CANDIDATE / ABSORBED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_STANDALONE_DEV`  
 **Date:** 2026-10-14  
 **Source contract:** `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`  
-**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV7  
-**Governance:** `FOX2_POLICY_V1.8.6.md` + Routing Index `V1.2.7`  
+**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV8  
+**Governance:** Project Dictionary v1 -> Policy V1.8.7 + Routing Index V1.2.8  
 **Dependency:** `BRIDGE-DESKTOP-01-02-FIX-01 = PASS`
 
 ## Decision
@@ -53,10 +53,11 @@ standalone/community extraction later only
 
 Batch A combines the remaining related work of historical Desktop-01, Desktop-02 and Agent Usage Telemetry:
 
+- project-wide Dictionary/generated binding for current/supported schema/control/path identifiers;
 - background Worker / Git mailbox loop;
 - restart/reconciliation/no-replay;
 - exact dual-Agent dispatch;
-- dispatch-owned Git delivery aligned to Policy V1.8.6: selected Agent may commit/push exact non-main task branch when `git_code_push=YES`; Bridge publication only when explicitly selected;
+- dispatch-owned Git delivery aligned to Dictionary-resolved Policy V1.8.7: selected Agent may commit/push exact non-main task branch when `git_code_push=YES`; Bridge publication only when explicitly selected;
 - CLI-FIRST execution baseline;
 - CHAT-owned `permission_profile=FULL_ACCESS` default;
 - Bridge `AGENT_PERMISSION_PREFLIGHT` and exact CLI permission application;
@@ -83,6 +84,10 @@ Batch A combines the remaining related work of historical Desktop-01, Desktop-02
 One combined acceptance run must prove:
 
 ```text
+PROJECT_DICTIONARY_BINDING=PASS
+DISPATCH_V3_RUNTIME_COMPATIBILITY=PASS
+LEGACY_V2_V06_COMPATIBILITY=PASS
+STABLE_DISPATCH_PATH=PASS
 WORKER_RECOVERY=PASS
 CODEX_EXACT_CONFIG=PASS
 COPILOT_EXACT_POLICY=PASS
@@ -137,8 +142,9 @@ Do not publish Batch A until:
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01 = PASS
 CHAT readback = PASS
-Policy V1.8.6 + Routing Index V1.2.7 = RELEASED_EFFECTIVE
-v0.7 REV7 + Usage Contract REV4 = Owner-bound executable sources
+Project Dictionary v1 + Policy V1.8.7 + Routing Index V1.2.8 = RELEASED_EFFECTIVE
+Dispatch Schema v3 + Protocol v10 = CURRENT
+v0.7 REV8 + Usage Contract REV5 = Owner-bound executable sources
 exact post-FIX base SHA = verified
 one writer/worktree = reserved
 allowed code/report paths = bound
@@ -165,4 +171,4 @@ FIX -> BATCH A -> BATCH B -> READY
 
 Do not create separate implementation rounds for adapter model policy, usage telemetry, Tray usage display, ledger fields or Copilot profile handling when they can be changed and tested together inside Batch A.
 
-`ROADMAP_MAPPING_STATUS=INTEGRATED / GOVERNANCE=POLICY_V1.8.6_ROUTING_V1.2.7 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / NO_STANDALONE_USAGE_DEV_ROUND`.
+`ROADMAP_MAPPING_STATUS=INTEGRATED / GOVERNANCE=PROJECT_DICTIONARY_V1_POLICY_V1.8.7_ROUTING_V1.2.8 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / NO_STANDALONE_USAGE_DEV_ROUND`.
