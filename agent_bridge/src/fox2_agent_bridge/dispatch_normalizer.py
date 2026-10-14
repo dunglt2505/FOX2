@@ -2,7 +2,9 @@
 import re
 
 from .agent_policy import ADAPTER_REGISTRY
+from .dispatch_schema_v3_contract import DISPATCH_SCHEMA_V3
 from .errors import DispatchInvalid
+from .schema_validation import validate_json_schema
 from . import project_dictionary as registry
 
 
@@ -46,6 +48,8 @@ def normalize_dispatch(external: dict, control_branch: str) -> dict:
     schema = external.get('schema_version')
     if not isinstance(schema, str) or schema not in registry.SUPPORTED_DISPATCH_SCHEMAS:
         raise DispatchInvalid('unsupported dispatch schema_version')
+    if schema == registry.CURRENT_DISPATCH_SCHEMA:
+        validate_json_schema(external, DISPATCH_SCHEMA_V3)
     if schema == '0.6':
         return {**external, '_external_schema_version': schema}
 

@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from fox2_agent_bridge import project_dictionary as registry
+from fox2_agent_bridge import dispatch_schema_v3_contract as schema_contract
 from fox2_agent_bridge.config import BridgeConfig
 from fox2_agent_bridge.dispatch_poller import _candidate_path, _parse_tree_listing
 from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
@@ -38,12 +39,13 @@ def bound_dispatch(legacy, schema='3.0'):
             'prompt': legacy['prompt'], 'permissions': legacy['permissions'],
             'decision_receipt': {**{key: 'PASS' for key in ('policy_check', 'task_state_check',
                 'source_binding_check', 'routing_r0_r7', 'assignment_check', 'material_capability_check')},
-                'execution_authorized': 'YES', 'code_allowed': 'YES'},
+                'execution_authorized': 'YES', 'code_allowed': 'YES', 'dev_grant_ref': 'TEST_OWNER_AUTH'},
             'runtime_contract': {'repo': registry.REPOSITORY,
                 **{key: legacy[key] for key in ('branch', 'worktree', 'base_sha',
                                                'allowed_code_paths', 'allowed_report_paths')},
                 'required_capabilities': ['PYTEST'], 'stop_conditions': ['TEST_FAILURE']},
-            'required_tests': ['python -m pytest -q']}
+            'required_tests': ['python -m pytest -q'],
+            'created_by': 'CHAT', 'created_at': '2026-10-14T08:45:00Z'}
 
 
 def test_project_dictionary_binding_deterministic_drift():
@@ -201,3 +203,50 @@ def test_dictionary_explicit_legacy_profile_v06(bridge_config):
         observed_blob_sha='e'*40)
     assert result['delivery_owner'] == 'BRIDGE'
     assert result['control_ref'] == payload['control_ref']
+
+def test_dispatch_schema_v3_binding_deterministic_drift():
+    path = Path(__file__).parents[1] / 'scripts/generate_dispatch_schema_v3_contract.py'
+    spec = importlib.util.spec_from_file_location('schema_generator', path)
+    generator = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(generator)
+    raw = generator.source_bytes()
+    expected = generator.generate(raw)
+    assert expected == generator.OUTPUT.read_bytes()
+    assert schema_contract.SOURCE_SHA256 == __import__('hashlib').sha256(raw).hexdigest()
+    assert schema_contract.DISPATCH_SCHEMA_V3 == json.loads(raw)
+    print('DISPATCH_V3_SCHEMA_BINDING=PASS')
+
+
+@pytest.mark.parametrize('field', sorted(schema_contract.DISPATCH_SCHEMA_V3['required']))
+def test_dictionary_v3_required_fields_fail_closed(bridge_config, validation, field):
+    payload = bound_dispatch(_dispatch_payload(bridge_config.worktree_root / 'task'))
+    payload.pop(field)
+    with pytest.raises((DispatchInvalid, PathInvalid)):
+        validation(payload)
+
+
+@pytest.mark.parametrize('block', [
+    None, 'dictionary', 'policy', 'task', 'prompt', 'source', 'routing',
+    'permissions', 'decision_receipt', 'runtime_contract',
+])
+def test_dictionary_v3_additional_properties_fail_closed(bridge_config, validation, block):
+    payload = bound_dispatch(_dispatch_payload(bridge_config.worktree_root / 'task'))
+    target = payload if block is None else payload[block]
+    target['_unexpected'] = 'must-fail'
+    with pytest.raises((DispatchInvalid, PathInvalid), match='unexpected field'):
+        validation(payload)
+
+
+@pytest.mark.parametrize('block,key,value', [
+    (None, 'created_by', 'CODEX'),
+    (None, 'created_at', '2026-10-14 08:45:00'),
+    (None, 'created_at', '2026-10-14T08:45:00'),
+    ('decision_receipt', 'dev_grant_ref', ''),
+])
+def test_dictionary_v3_metadata_constraints_fail_closed(bridge_config, validation, block, key, value):
+    payload = bound_dispatch(_dispatch_payload(bridge_config.worktree_root / 'task'))
+    target = payload if block is None else payload[block]
+    target[key] = value
+    with pytest.raises((DispatchInvalid, PathInvalid)):
+        validation(payload)
+

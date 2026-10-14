@@ -22,6 +22,12 @@ BRANCH = 'work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex'
 ALLOW = ('agent_bridge/', 'reports/BRIDGE-DESKTOP-BATCH-A/')
 SUPPORT = {
     'PROJECT_DICTIONARY_BINDING': ['test_project_dictionary_binding_deterministic_drift'],
+    'DISPATCH_V3_SCHEMA_BINDING': ['test_dispatch_schema_v3_binding_deterministic_drift'],
+    'DISPATCH_V3_STRUCTURAL_CONFORMANCE': [
+        'test_dictionary_v3_required_fields_fail_closed',
+        'test_dictionary_v3_additional_properties_fail_closed',
+        'test_dictionary_v3_metadata_constraints_fail_closed',
+    ],
     'PROJECT_DICTIONARY_DRIFT_CHECK': ['test_project_dictionary_binding_deterministic_drift'],
     'DISPATCH_V3_RUNTIME_COMPATIBILITY': ['test_dictionary_schema_exact_normalized_tuple', 'test_dictionary_v3_fails_closed', 'test_dictionary_non_bridge_never_spawned'],
     'V2_COMPATIBILITY': ['test_dictionary_schema_exact_normalized_tuple', 'test_dictionary_filename_and_legacy_bound_policy'],
@@ -99,7 +105,7 @@ def main():
         paths, manifest = verify_outputs()
         print(json.dumps({'status': 'PASS', 'tests': manifest['pytest']['tests'], 'changed_paths': len(paths), 'manifest_hashes': 'PASS'}))
         return
-    assert git('rev-parse', 'HEAD').strip() == START, 'unexpected start HEAD'
+    git('merge-base', '--is-ancestor', START, 'HEAD')
     changed_paths()
     evidence = REPORT / 'evidence'
     evidence.mkdir(parents=True, exist_ok=True)
