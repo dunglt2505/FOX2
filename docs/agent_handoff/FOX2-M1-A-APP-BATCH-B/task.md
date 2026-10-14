@@ -1,10 +1,10 @@
 # FOX2-M1-A-APP-BATCH-B — Whole-WP Task
 
-**Status:** SOURCE_READY / PREEXEC_HOLD  
+**Status:** CHAT_UI_SLICE_ACTIVE / AGENT_INTEGRATION_PREEXEC_HOLD  
 **Project phase:** M1-A second execution phase  
-**Governance:** Project Dictionary v1 -> Policy V1.8.7 -> Routing Index V1.2.8  
-**Protocol:** Dispatch Schema v3 + Git-first Protocol v10  
-**Final Agent assignment:** PENDING R3/R5 MATERIAL PREFLIGHT  
+**Governance:** Project Dictionary v1.2 -> Policy V1.8.9 -> Routing Index V1.3.0  
+**Protocol:** PreExec Evidence v1.1 + Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dispatch Schema v3 + Git-first Protocol v12  
+**Final Agent assignment for integration/test remainder:** PENDING shared PreExec Intake; CHAT visual slicing is Owner-authorized directly  
 **Execution path:** MANUAL_LOCAL candidate  
 **Delivery owner:** AGENT candidate
 
@@ -22,6 +22,21 @@
   - M1 Acceptance Matrix v0.4;
   - M1 Technical Spec Registry Binding v1.
 - Backend API shape is frozen at accepted APP-BATCH-A unless a material integration defect is proven. If frontend cannot correctly implement against it, STOP and return the exact blocker rather than editing backend opportunistically.
+
+## CHAT UI-slicing authorization — 2026-10-14
+
+Owner explicitly authorized CHAT to implement the visual/UI slicing portion of this existing whole-WP.
+
+Bound scope for CHAT:
+- `frontend/**` only;
+- information architecture, React component hierarchy, HTML/CSS structure, responsive 1440/1024/390 behavior, loading/empty/unavailable/stale/gap visual states;
+- source/provenance badges and read-only navigation/presentation;
+- no backend/provider/domain semantic changes;
+- no claim that build/integration/acceptance has passed until actually executed.
+
+The remaining API wiring hardening, automated tests, large refactor and integration certification may be routed to an eligible coding Agent after project-wide PreExec readiness.
+
+This is not a new WP and does not authorize main/merge/deploy/provider/broker/LIVE.
 
 ## Whole-WP objective
 
