@@ -231,7 +231,7 @@ Do not run `SFR-010 -> SFR-050` as a third parallel product program.
 For current delivery:
 - CHAT resolves the Project Dictionary first and binds the newest applicable released Policy/Technical/source at new/re-scoped handoff creation;
 - Dispatch Schema v3 binds exact Dictionary/Policy/source/task identities;
-- Protocol v10 enforces source binding and in-flight materiality;
+- Protocol v11 enforces pre-exec-to-dispatch-to-result lifecycle, source binding and in-flight materiality;
 - Bridge uses the Project-Dictionary-generated compatibility binding for task-material runtime/source attestation.
 
 Standalone release-hook/Library-CAS hardening is deferred until it is materially required for automated release publishing. Reopen it as one consolidated hardening milestone only if current CHAT + Git provenance is insufficient.
