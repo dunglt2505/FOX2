@@ -2,8 +2,8 @@
 
 **Status:** `ACTIVE / OWNER-DIRECTED / CONSOLIDATED EXECUTION PLAN`  
 **Project:** `FOX2 ONLY`  
-**Governance:** Project Dictionary v1 -> FOX2 Policy V1.8.7 + Routing Index V1.2.8  
-**Execution contract:** Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v10 + Result Contract v2 + CHAT Intake v9  
+**Governance:** Project Dictionary v1.1 -> FOX2 Policy V1.8.8 + Routing Index V1.2.9  
+**Execution contract:** PreExec Evidence Protocol v1 + Preflight Receipt Schema v1 + CHAT Preflight Intake v1 + Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v11 + Result Contract v2 + CHAT Result Intake v9  
 **Planning rule:** maximize delivery progress with whole-WP/batch execution; do not create Owner-facing micro-WPs for operational reconciliation, metadata cleanup, validator reruns or non-material tool/version deviations.
 
 ## 1. Current immutable status
@@ -11,15 +11,19 @@
 ### Governance / orchestration
 
 - `FOX2_PROJECT_DICTIONARY_v1.json` is the single machine-readable identity/compatibility registry for all new/re-scoped FOX2 WPs.
-- The Dictionary currently resolves Policy V1.8.7 and Routing Index V1.2.8.
+- The Dictionary v1.1 currently resolves Policy V1.8.8 and Routing Index V1.2.9.
 - New/re-scoped execution uses Dictionary-resolved Dispatch Schema v3 and stable version-neutral dispatch paths.
-- New/re-scoped task/result flow uses Git-first Protocol v10.
+- New/re-scoped task/result flow uses project-wide PreExec Evidence Protocol v1 before Dispatch and Git-first Protocol v11 after PASS_TO_ASSIGN.
 - Codex CLI and Copilot CLI are the primary implementation engines.
 - Normal coding permission baseline is `FULL_ACCESS`.
 - Git publication ownership is dispatch-owned: `delivery_owner=AGENT|BRIDGE`.
-- CHAT owns source binding, routing and independent result acceptance.
+- CHAT owns source binding, routing, preflight intake/final assignment, and independent result acceptance.
 - Bridge is transport/supervision and only publishes when explicitly assigned as delivery owner.
 - Readiness is capability-based; exact version equality is not a hard gate by itself.
+- Every new/re-scoped executable WP must publish/read a durable Preflight Receipt before final Agent assignment and executable Dispatch publication.
+- `PASS` may close R3/R5; `BLOCKED` and safely-publishable `INFRA_FAILED` must remain durable Git evidence.
+- Pre-start failure does not consume a Dispatch and is not an Agent Result.
+- Owner-authorized project-wide implementation mandate: `docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.md`; rollout is one systemic infrastructure change, not task-local micro-fixes.
 
 ### Project Dictionary / identity registry
 
@@ -289,9 +293,9 @@ LATER
   -> M3/M4 analytics/risk/capital/exit/shadow under their own BRDs
 ```
 
-### Preflight incident / recovery — 2026-10-14
+### Project-wide PreExec protocol release / incident disposition — 2026-10-14
 
-The first Batch-B local preflight attempt did **not** launch an implementation Agent and consumed no executable Dispatch.
+The first Batch-B local preflight incident exposed a project-wide evidence gap. It did **not** launch an implementation Agent and consumed no executable Dispatch. The incident-specific fixes are now superseded by the released FOX2-wide PreExec Evidence Protocol v1 / Receipt Schema v1 / CHAT Preflight Intake v1.
 
 Observed:
 - APP preflight: Node/npm/npx absent on the local host;
@@ -310,12 +314,20 @@ CHAT corrected the same pre-execution tooling:
 
 No product code changed. No executable Dispatch v3 has been published for either Batch-B lane.
 
+Project-wide disposition:
+- Policy V1.8.8 makes durable pre-execution evidence mandatory across FOX2;
+- Routing V1.2.9 inserts PreExec evidence before final assignment;
+- Protocol v11 separates pre-start BLOCKED/INFRA_FAILED from post-start NEEDS_RECONCILIATION;
+- Bridge Technical v0.7 Candidate REV9 defines shared tooling behavior;
+- Project Dictionary v1.1 exposes all current machine pointers;
+- project-wide rollout is Owner-authorized with bounded CODE_ALLOWED, but final implementation Agent remains gated by current R3/R5 evidence.
+
 ### Current pre-execution facts for the two next batches
 
-- APP-BATCH-B branch exists at `0549b84d9077e1fa792f0c03f67f5bc898a524ce`: `work/FOX2-M1-A-APP-BATCH-B`; source task + material preflight are published under `docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/**`;
-- BRIDGE-BATCH-B branch exists at `066b366a67d80c20878a83014b3d36edae02e76e`: `work/FOX2-BRIDGE-DESKTOP-BATCH-B`; source task + material preflight are published under `docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/**`;
-- APP-BATCH-B Node/npm/package-resolution capability is still `UNKNOWN` until its local preflight receipt is pushed;
+- APP-BATCH-B branch currently includes project-preflight recovery work at `1e3993ed854e3bf576f4e195d96d58f0abbf3292`: `work/FOX2-M1-A-APP-BATCH-B`; no executable Dispatch is published;
+- BRIDGE-BATCH-B branch currently includes project-preflight recovery work at `3af16d002139314b7302e8f483836b4ce54c8c1e`: `work/FOX2-BRIDGE-DESKTOP-BATCH-B`; no executable Dispatch is published;
+- Node.js LTS installation was observed successful during recovery, but APP-BATCH-B remains PREEXEC_HOLD until a Schema-v1 project-wide receipt is pushed/read back;
 - latest Bridge evidence proves both Codex CLI and Copilot CLI binaries + Full Access argument compatibility, but current execution capacity is still `UNKNOWN` until a minimal live preflight probe succeeds;
 - both task branches are `SOURCE_READY / PREEXEC_HOLD`; no final Agent assignment or canonical executable Dispatch v3 is valid until CHAT reads the R3/R5 preflight receipts.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1+POLICY_V1.8.7+ROUTING_V1.2.8 / DISPATCH=V3 / PROTOCOL=V10 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=APP_BATCH_B+BRIDGE_BATCH_B_PREEXEC / MICRO_WP_DEFAULT=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.1+POLICY_V1.8.8+ROUTING_V1.2.9 / PREEXEC=V1 / PREFLIGHT_RECEIPT=V1 / DISPATCH=V3 / PROTOCOL=V11 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=APP_BATCH_B+BRIDGE_BATCH_B_PREEXEC / PROJECT_WIDE_PREEXEC_ROLLOUT=OWNER_AUTHORIZED / MICRO_WP_DEFAULT=NO`
