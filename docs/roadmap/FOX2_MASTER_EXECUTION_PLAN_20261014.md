@@ -2,24 +2,33 @@
 
 **Status:** `ACTIVE / OWNER-DIRECTED / CONSOLIDATED EXECUTION PLAN`  
 **Project:** `FOX2 ONLY`  
-**Governance:** FOX2 Policy V1.8.6 + Routing Index V1.2.7  
-**Execution contract:** Dispatch Schema v2 + Git-first Protocol v9 + Result Contract v2 + CHAT Intake Guide v8  
+**Governance:** Project Dictionary v1 -> FOX2 Policy V1.8.7 + Routing Index V1.2.8  
+**Execution contract:** Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v10 + Result Contract v2 + CHAT Intake v9  
 **Planning rule:** maximize delivery progress with whole-WP/batch execution; do not create Owner-facing micro-WPs for operational reconciliation, metadata cleanup, validator reruns or non-material tool/version deviations.
 
 ## 1. Current immutable status
 
 ### Governance / orchestration
 
-- Policy V1.8.6 is the controlling policy for all new/re-scoped FOX2 WPs.
-- Routing Index V1.2.7 is the controlling derivative routing index.
-- New/re-scoped execution uses `FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v2.json`.
-- New/re-scoped task/result flow uses Git-first Protocol v9.
+- `FOX2_PROJECT_DICTIONARY_v1.json` is the single machine-readable identity/compatibility registry for all new/re-scoped FOX2 WPs.
+- The Dictionary currently resolves Policy V1.8.7 and Routing Index V1.2.8.
+- New/re-scoped execution uses Dictionary-resolved Dispatch Schema v3 and stable version-neutral dispatch paths.
+- New/re-scoped task/result flow uses Git-first Protocol v10.
 - Codex CLI and Copilot CLI are the primary implementation engines.
 - Normal coding permission baseline is `FULL_ACCESS`.
 - Git publication ownership is dispatch-owned: `delivery_owner=AGENT|BRIDGE`.
 - CHAT owns source binding, routing and independent result acceptance.
 - Bridge is transport/supervision and only publishes when explicitly assigned as delivery owner.
 - Readiness is capability-based; exact version equality is not a hard gate by itself.
+
+### Project Dictionary / identity registry
+
+- Current canonical control branch: `work/FOX2-DISPATCH-chat`.
+- Current canonical dispatch path: `docs/agent_handoff/DISPATCH/<dispatch_id>.json`.
+- Current dispatch schema: `3.0`.
+- Supported legacy schemas: `2.0`, `0.6`.
+- Bridge/runtime consumers must load the Dictionary or a generated binding and must not hand-code competing current constants.
+- Released BRD-00/06/08 semantics remain unchanged; BRD identity binding is handled by the BRD Project Dictionary Binding v1.
 
 ### Main branch
 
@@ -95,9 +104,9 @@ These lanes are dependency-safe for parallel execution because their primary cod
 
 ## 3. Immediate execution phase — run two whole batches in parallel
 
-### Lane A — `FOX2-M1-A-APP-BATCH-A`
+### Lane A — `FOX2-M1-A-APP-BATCH-A` — ACCEPTED
 
-**Purpose:** complete the M1-A backend into one usable offline API/watchlist service by absorbing historical P2-04 as one whole implementation assignment.
+**Result:** accepted at `3db6298e4286022e5820eb7b712c436cbade6a62` with 364 PASS / 3 superseded stage-only deselections. The next application gate is APP-BATCH-B (UI + integrated offline acceptance).
 
 **Base:** accepted P2-03 evidence head `d90987afd861a41aef01059d95ca039509ede09c`.
 
@@ -118,9 +127,11 @@ These lanes are dependency-safe for parallel execution because their primary cod
 
 **Exit:** backend M1-A API/watchlist offline integration accepted; API DTOs frozen for frontend.
 
-### Lane B — `BRIDGE-DESKTOP-BATCH-A`
+### Lane B — `BRIDGE-DESKTOP-BATCH-A` — SAME-WP REWORK
 
 **Purpose:** finish all related Bridge core/product-control work in one implementation round.
+
+Current result `26fdc0af7317a675b618982575f3ee64429a991f` passed 164 tests but CHAT found project-identity drift (legacy schema/control/path hard-coding). The same Batch A now absorbs the Project Dictionary / Dispatch v3 compatibility correction; no new WP is created.
 
 **Base:** accepted FIX-01 SHA `ef9f290e73c4f4500900528656212c38acf43a4f`.
 
@@ -149,6 +160,10 @@ These lanes are dependency-safe for parallel execution because their primary cod
 **Candidate routing:** Codex CLI / pinned capable model / High for concurrency/recovery/safety-sensitive implementation. CHAT may reduce to Medium for clearly bounded implementation blocks while retaining one WP.
 
 **Exit acceptance:**
+- `PROJECT_DICTIONARY_BINDING=PASS`
+- `DISPATCH_V3_RUNTIME_COMPATIBILITY=PASS`
+- `LEGACY_V2_V06_COMPATIBILITY=PASS`
+- `STABLE_DISPATCH_PATH=PASS`
 - `WORKER_RECOVERY=PASS`
 - `CODEX_EXACT_CONFIG=PASS`
 - `COPILOT_EXACT_POLICY=PASS`
@@ -306,4 +321,4 @@ LATER
   -> M3/M4 analytics/risk/capital/exit/shadow under their own BRDs
 ```
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=V1.8.6+V1.2.7 / DISPATCH=V2 / PROTOCOL=V9 / CURRENT_PARALLEL_TARGETS=APP_BATCH_A+BRIDGE_BATCH_A / MICRO_WP_DEFAULT=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1+POLICY_V1.8.7+ROUTING_V1.2.8 / DISPATCH=V3 / PROTOCOL=V10 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=REWORK_SAME_WP / MICRO_WP_DEFAULT=NO`
