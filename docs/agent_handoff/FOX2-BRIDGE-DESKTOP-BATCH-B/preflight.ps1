@@ -80,7 +80,7 @@ $python = Require-Command "python"
 $pwsh = Require-Command "pwsh"
 $schtasks = Require-Command "schtasks.exe"
 $pythonVersion = (& $python --version 2>&1 | Out-String).Trim()
-$pwshVersion = (& $pwsh -NoLogo -NoProfile -Command "$PSVersionTable.PSVersion.ToString()" | Out-String).Trim()
+$pwshVersion = (& $pwsh -NoLogo -NoProfile -Command '$PSVersionTable.PSVersion.ToString()' | Out-String).Trim()
 if (-not $env:LOCALAPPDATA) { throw "LOCALAPPDATA is not available" }
 $probeDir = Join-Path $env:LOCALAPPDATA "AgentBridge-preflight"
 New-Item -ItemType Directory -Force -Path $probeDir | Out-Null
