@@ -2,8 +2,8 @@
 
 **Status:** `ACTIVE / OWNER-DIRECTED / CONSOLIDATED EXECUTION PLAN`  
 **Project:** `FOX2 ONLY`  
-**Governance:** Project Dictionary v1.1 -> FOX2 Policy V1.8.8 + Routing Index V1.2.9  
-**Execution contract:** PreExec Evidence Protocol v1 + Preflight Receipt Schema v1 + CHAT Preflight Intake v1 + Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v11 + Result Contract v2 + CHAT Result Intake v9  
+**Governance:** Project Dictionary v1.2 -> FOX2 Policy V1.8.9 + Routing Index V1.3.0  
+**Execution contract:** PreExec Evidence Protocol v1.1 + Preflight Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v12 + Result Contract v2 + CHAT Result Intake v9  
 **Planning rule:** maximize delivery progress with whole-WP/batch execution; do not create Owner-facing micro-WPs for operational reconciliation, metadata cleanup, validator reruns or non-material tool/version deviations.
 
 ## 1. Current immutable status
@@ -11,9 +11,9 @@
 ### Governance / orchestration
 
 - `FOX2_PROJECT_DICTIONARY_v1.json` is the single machine-readable identity/compatibility registry for all new/re-scoped FOX2 WPs.
-- The Dictionary v1.1 currently resolves Policy V1.8.8 and Routing Index V1.2.9.
+- The Dictionary v1.2 currently resolves Policy V1.8.9 and Routing Index V1.3.0.
 - New/re-scoped execution uses Dictionary-resolved Dispatch Schema v3 and stable version-neutral dispatch paths.
-- New/re-scoped task/result flow uses project-wide PreExec Evidence Protocol v1 before Dispatch and Git-first Protocol v11 after PASS_TO_ASSIGN.
+- New/re-scoped task/result flow uses project-wide PreExec Evidence Protocol v1.1 before Dispatch and Git-first Protocol v12 after PASS_TO_ASSIGN.
 - Codex CLI and Copilot CLI are the primary implementation engines.
 - Normal coding permission baseline is `FULL_ACCESS`.
 - Git publication ownership is dispatch-owned: `delivery_owner=AGENT|BRIDGE`.
@@ -231,7 +231,7 @@ Do not run `SFR-010 -> SFR-050` as a third parallel product program.
 For current delivery:
 - CHAT resolves the Project Dictionary first and binds the newest applicable released Policy/Technical/source at new/re-scoped handoff creation;
 - Dispatch Schema v3 binds exact Dictionary/Policy/source/task identities;
-- Protocol v11 enforces pre-exec-to-dispatch-to-result lifecycle, source binding and in-flight materiality;
+- Protocol v12 enforces pre-exec-to-dispatch-to-result lifecycle, alternative-route materiality, source binding and in-flight materiality;
 - Bridge uses the Project-Dictionary-generated compatibility binding for task-material runtime/source attestation.
 
 Standalone release-hook/Library-CAS hardening is deferred until it is materially required for automated release publishing. Reopen it as one consolidated hardening milestone only if current CHAT + Git provenance is insufficient.
@@ -295,7 +295,7 @@ LATER
 
 ### Project-wide PreExec protocol release / incident disposition — 2026-10-14
 
-The first Batch-B local preflight incident exposed a project-wide evidence gap. It did **not** launch an implementation Agent and consumed no executable Dispatch. The incident-specific fixes are now superseded by the released FOX2-wide PreExec Evidence Protocol v1 / Receipt Schema v1 / CHAT Preflight Intake v1.
+The first Batch-B local preflight incident exposed a project-wide evidence gap. It did **not** launch an implementation Agent and consumed no executable Dispatch. The incident-specific fixes are now superseded by the released FOX2-wide PreExec Evidence Protocol v1.1 / Receipt Schema v1 / CHAT Preflight Intake v1.1.
 
 Observed:
 - APP preflight: Node/npm/npx absent on the local host;
@@ -315,19 +315,19 @@ CHAT corrected the same pre-execution tooling:
 No product code changed. No executable Dispatch v3 has been published for either Batch-B lane.
 
 Project-wide disposition:
-- Policy V1.8.8 makes durable pre-execution evidence mandatory across FOX2;
-- Routing V1.2.9 inserts PreExec evidence before final assignment;
-- Protocol v11 separates pre-start BLOCKED/INFRA_FAILED from post-start NEEDS_RECONCILIATION;
-- Bridge Technical v0.7 Candidate REV9 defines shared tooling behavior;
-- Project Dictionary v1.1 exposes all current machine pointers;
+- Policy V1.8.9 makes durable pre-execution evidence mandatory and defines aggregate Agent-route materiality;
+- Routing V1.3.0 inserts PreExec evidence before final assignment and compares alternative Agent candidates;
+- Protocol v12 separates pre-start BLOCKED/INFRA_FAILED from post-start NEEDS_RECONCILIATION and forbids silent route substitution;
+- Bridge Technical v0.7 Candidate REV10 defines shared tooling behavior;
+- Project Dictionary v1.2 exposes all current machine pointers and aggregate-route identifiers;
 - project-wide rollout is Owner-authorized with bounded CODE_ALLOWED, but final implementation Agent remains gated by current R3/R5 evidence.
 
 ### Current pre-execution facts for the two next batches
 
-- APP-BATCH-B branch currently includes project-preflight recovery work at `1e3993ed854e3bf576f4e195d96d58f0abbf3292`: `work/FOX2-M1-A-APP-BATCH-B`; no executable Dispatch is published;
-- BRIDGE-BATCH-B branch currently includes project-preflight recovery work at `3af16d002139314b7302e8f483836b4ce54c8c1e`: `work/FOX2-BRIDGE-DESKTOP-BATCH-B`; no executable Dispatch is published;
-- Node.js LTS installation was observed successful during recovery, but APP-BATCH-B remains PREEXEC_HOLD until a Schema-v1 project-wide receipt is pushed/read back;
-- latest Bridge evidence proves both Codex CLI and Copilot CLI binaries + Full Access argument compatibility, but current execution capacity is still `UNKNOWN` until a minimal live preflight probe succeeds;
-- both task branches are `SOURCE_READY / PREEXEC_HOLD`; no final Agent assignment or canonical executable Dispatch v3 is valid until CHAT reads the R3/R5 preflight receipts.
+- project-wide rollout branch `work/FOX2-PREEXEC-ROLLOUT-V1` has a live PASS receipt proving Codex current execution readiness and clean dedicated worktree;
+- Copilot remains `AUTH_REQUIRED`; under the project-wide alternative-route rule this is routing evidence, not a blocker when Codex is an allowed route and passes;
+- the previous receipt is historical because it predates the aggregate-route semantic release; a fresh v1 receipt must be regenerated from the re-bound source before final assignment;
+- APP-BATCH-B and BRIDGE-BATCH-B remain PREEXEC_HOLD and will consume the shared engine after rollout acceptance instead of keeping independent lifecycle semantics;
+- no executable Dispatch for the rollout, APP-BATCH-B or BRIDGE-BATCH-B is valid until CHAT reads the fresh re-bound receipt.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.1+POLICY_V1.8.8+ROUTING_V1.2.9 / PREEXEC=V1 / PREFLIGHT_RECEIPT=V1 / DISPATCH=V3 / PROTOCOL=V11 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=APP_BATCH_B+BRIDGE_BATCH_B_PREEXEC / PROJECT_WIDE_PREEXEC_ROLLOUT=OWNER_AUTHORIZED / MICRO_WP_DEFAULT=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / PREEXEC=V1.1 / PREFLIGHT_RECEIPT=V1 / AGENT_ROUTE_MATERIALITY=AGGREGATE / DISPATCH=V3 / PROTOCOL=V12 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=PROJECT_WIDE_PREEXEC_ROLLOUT_THEN_APP_B+BRIDGE_B / PROJECT_WIDE_PREEXEC_ROLLOUT=OWNER_AUTHORIZED / MICRO_WP_DEFAULT=NO`
