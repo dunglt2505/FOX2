@@ -289,6 +289,27 @@ LATER
   -> M3/M4 analytics/risk/capital/exit/shadow under their own BRDs
 ```
 
+### Preflight incident / recovery — 2026-10-14
+
+The first Batch-B local preflight attempt did **not** launch an implementation Agent and consumed no executable Dispatch.
+
+Observed:
+- APP preflight: Node/npm/npx absent on the local host;
+- APP and Bridge minimal Agent probes returned failure, but the original preflight did not preserve a safe failure classification;
+- Bridge retained a staged preflight receipt from the failed attempt;
+- the original receipt writer used platform newlines, causing `git diff --check` to flag CRLF as trailing whitespace;
+- the original outer runner piped scripts through `pwsh -Command -`, so terminating errors did not reliably terminate the whole streamed session and misleading PUSHED markers could still print.
+
+CHAT corrected the same pre-execution tooling:
+- blocked preflights now publish sanitized Git receipts before returning non-zero;
+- receipts are canonical UTF-8/LF;
+- only stale preflight receipt state may be auto-cleaned; any other WIP remains fail-closed;
+- Agent probe receipts record exit code + failure class without raw output/secrets;
+- APP has an explicit Node.js LTS bootstrap;
+- the recovery runner executes scripts via temporary files with `pwsh -File`, runs both lanes independently, and distinguishes BLOCKED receipt from infrastructure failure.
+
+No product code changed. No executable Dispatch v3 has been published for either Batch-B lane.
+
 ### Current pre-execution facts for the two next batches
 
 - APP-BATCH-B branch exists at `0549b84d9077e1fa792f0c03f67f5bc898a524ce`: `work/FOX2-M1-A-APP-BATCH-B`; source task + material preflight are published under `docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/**`;
