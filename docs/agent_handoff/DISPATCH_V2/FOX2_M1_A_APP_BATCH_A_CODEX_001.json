@@ -1,0 +1,111 @@
+{
+  "schema_version": "2.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-M1-A-APP-BATCH-A-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-M1-A-APP-BATCH-A",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "policy": {
+    "version": "1.8.6",
+    "sha256": "3b75a51054f6215e6cbf5793cdaf3e818f9ac4306bf363a7e70064f035bc997f",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.6.md",
+    "git_commit_sha": "116c362b9c6243ebaa23ad17df3104d9f07c50d5"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-A/task.md",
+    "commit_sha": "0b559eb057c741977069fd527af1a512b8ddb007",
+    "sha256": "14e3bf2fcdc1a99b296c8c4ebe5c7e485338edc857db7a95c52cfd432811ad15"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-A/codex_prompt.md",
+    "git_commit": "0b559eb057c741977069fd527af1a512b8ddb007",
+    "git_blob_sha1": "642a6034c4e2c4bd0ee9df2d0ee814dd07d6798d",
+    "sha256": "373de64ffe1c94146cf57d4b054dc6ece83c81b89727452bfc6bd243ab5568d6"
+  },
+  "source": {
+    "commit_sha": "cc7fa95ea7ff5613b3fdb33c26245834089050ca",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner 2026-10-14: thực hiện đi; Master Plan cc7fa95ea7ff5613b3fdb33c26245834089050ca"
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-M1-A-APP-BATCH-A-codex",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-A-APP-BATCH-A-CODEX",
+    "base_sha": "0b559eb057c741977069fd527af1a512b8ddb007",
+    "allowed_code_paths": [
+      "backend/src/fox2/api/**",
+      "backend/src/fox2/application/**",
+      "backend/src/fox2/runtime/**",
+      "backend/src/fox2/main.py",
+      "backend/src/fox2/config.py",
+      "tests/app_batch_a/**"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-M1-A-APP-BATCH-A/**"
+    ],
+    "required_capabilities": [
+      "codex_cli",
+      "git",
+      "python",
+      "pytest",
+      "full_access_mode",
+      "local_loopback_test"
+    ],
+    "stop_conditions": [
+      "wrong_task_or_branch",
+      "writer_collision",
+      "scope_violation",
+      "required_test_failure",
+      "secret_exposure",
+      "denied_required_full_access",
+      "material_required_capability_missing",
+      "actual_quota_or_capacity_failure",
+      "push_or_remote_readback_failure"
+    ]
+  },
+  "required_tests": [
+    "APP_BATCH_A_TESTS",
+    "P2_01_FUNCTIONAL_REGRESSION",
+    "P2_02_FUNCTIONAL_REGRESSION",
+    "P2_03_FUNCTIONAL_REGRESSION",
+    "OFFLINE_NO_NETWORK",
+    "WATCHLIST_CAS",
+    "LOOPBACK_SECURITY",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-14T07:33:00Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": null
+}
