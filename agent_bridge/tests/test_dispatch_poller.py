@@ -24,6 +24,22 @@ from fox2_agent_bridge.logging_config import configure_logging
 
 
 def run_git(cwd: Path, *arguments: str, check: bool = True) -> str:
+    # Fixture creation uses Git plumbing; never stage/commit/push the task tree.
+    if arguments[0] == 'add':
+        if '-A' in arguments:
+            listed = subprocess.run(['git','-C',str(cwd),'ls-files','-z','--cached','--others','--exclude-standard'],
+                                    capture_output=True,check=True).stdout.decode('utf-8')
+            paths = sorted(set(path for path in listed.split('\0') if path))
+        else:
+            paths = [arg for arg in arguments[1:] if arg != '--']
+        return run_git(cwd,'update-index','--add','--remove','--',*paths,check=check)
+    if arguments[0] == 'commit':
+        tree=run_git(cwd,'write-tree')
+        parent=run_git(cwd,'rev-parse','--verify','HEAD',check=False)
+        message=arguments[arguments.index('-m')+1]
+        commit=run_git(cwd,'commit-tree',tree,*(['-p',parent] if parent else []),'-m',message)
+        run_git(cwd,'update-ref','HEAD',commit)
+        return commit
     result = subprocess.run(
         ["git", "-C", str(cwd), *arguments],
         capture_output=True,
@@ -65,7 +81,59 @@ class GitFixture:
 
 
 @pytest.fixture
-def git_fixture(tmp_path: Path, bridge_config) -> GitFixture:
+def git_fixture(tmp_path: Path, bridge_config, monkeypatch) -> GitFixture:
+    # Simulate local remote transport with native Git object/ref plumbing. Git
+    # for Windows' file transport spawns MSYS sh, whose signal pipe is blocked
+    # by the managed sandbox. Histories, blobs, ancestry and DB remain real.
+    original_run = subprocess.run
+    def copy_new_objects(source, target):
+        for entry in source.rglob('*'):
+            if entry.is_file():
+                destination = target / entry.relative_to(source)
+                if not destination.exists():
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(entry, destination)
+    def local_transport(command, **kwargs):
+        if not isinstance(command, list) or command[0] != 'git' and str(command[0]) != shutil.which('git'):
+            return original_run(command, **kwargs)
+        if '-C' in command:
+            repository = Path(command[command.index('-C')+1])
+            args = command[command.index('-C')+2:]
+            git_dir = repository / '.git' if (repository / '.git').exists() else repository
+        elif '--git-dir' in command:
+            git_dir = Path(command[command.index('--git-dir')+1])
+            repository = git_dir
+            args = command[command.index('--git-dir')+2:]
+        else:
+            return original_run(command, **kwargs)
+        if not args or args[0] not in {'push', 'fetch', 'ls-remote'}:
+            return original_run(command, **kwargs)
+        remote_result = original_run([command[0], '--git-dir', str(git_dir), 'remote', 'get-url', 'origin'],
+                                    capture_output=True, text=True)
+        remote_path = Path(remote_result.stdout.strip())
+        if not remote_path.is_absolute() or not remote_path.is_relative_to(tmp_path):
+            raise AssertionError('test transport may operate only on this fixture remote')
+        if args[0] == 'push':
+            refspec = args[-1]
+            source, target = refspec.split(':') if ':' in refspec else (refspec, refspec)
+            sha = original_run([command[0], '--git-dir', str(git_dir), 'rev-parse', source],
+                               capture_output=True, text=True, check=True).stdout.strip()
+            copy_new_objects(git_dir / 'objects', remote_path / 'objects')
+            target = target if target.startswith('refs/') else 'refs/heads/' + target
+            original_run([command[0], '--git-dir', str(remote_path), 'update-ref', target, sha], check=True)
+            return subprocess.CompletedProcess(command, 0, '', '')
+        if args[0] == 'ls-remote':
+            ref = args[-1]
+            result = original_run([command[0], '--git-dir', str(remote_path), 'rev-parse', '--verify', ref],
+                                  capture_output=True, text=True)
+            return subprocess.CompletedProcess(command, 0, f'{result.stdout.strip()}\t{ref}\n' if result.returncode == 0 else '', '')
+        source, target = args[-1].lstrip('+').split(':')
+        sha = original_run([command[0], '--git-dir', str(remote_path), 'rev-parse', source],
+                           capture_output=True, text=True, check=True).stdout.strip()
+        copy_new_objects(remote_path / 'objects', git_dir / 'objects')
+        original_run([command[0], '--git-dir', str(git_dir), 'update-ref', target, sha], check=True)
+        return subprocess.CompletedProcess(command, 0, '', '')
+    monkeypatch.setattr(subprocess, 'run', local_transport)
     remote = tmp_path / "remote.git"
     working = tmp_path / "working"
     run_git(tmp_path, "init", "--bare", str(remote))

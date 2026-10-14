@@ -9,7 +9,7 @@ from typing import Iterable
 from .errors import PathInvalid
 
 PROJECT_ROOT = Path(r"C:\Projects\FOX2")
-BRIDGE_ROOT = Path(r"C:\Projects\FOX2-AgentBridge")
+BRIDGE_ROOT = Path.home() / 'AppData' / 'Local' / 'FOX2' / 'AgentBridge'
 WORKTREE_ROOT = Path(r"C:\Projects\FOX2-worktrees")
 
 

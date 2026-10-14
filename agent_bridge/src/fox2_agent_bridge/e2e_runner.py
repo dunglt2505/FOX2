@@ -23,6 +23,9 @@ from .dispatch_poller import (
 )
 from .errors import (
     BridgeError,
+    AgentNotStarted,
+    ToolNotFound,
+    AuthUnavailable,
     DatabaseError,
     DispatchInvalid,
     ReplayBlocked,
@@ -33,6 +36,8 @@ from .errors import (
 from .ledger import SQLiteLedger, utc_now
 from .paths import validate_path
 from .result_store import write_execution_report
+from .agent_policy import validate_selection
+from .logging_config import redact_context
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
 _AGENT_INTERFACES = {
@@ -62,6 +67,7 @@ class E2EResult:
     agent_exit_code: int
     agent_stdout: str
     agent_stderr: str
+    agent_metadata: dict[str, object] | None = None
 
     def as_dict(self) -> dict[str, object]:
         result: dict[str, object] = {
@@ -80,6 +86,7 @@ class E2EResult:
             "agent_exit_code": self.agent_exit_code,
             "agent_stdout": self.agent_stdout,
             "agent_stderr": self.agent_stderr,
+            "agent_metadata": self.agent_metadata,
         }
         prefix = self.agent_product.lower()
         result[f"{prefix}_exit_code"] = self.agent_exit_code
@@ -99,6 +106,7 @@ class BridgeE2ERunner:
         logger: Any = None,
         transport: GitTransport | None = None,
         progress: Callable[[str], None] | None = None,
+        can_claim: Callable[[], bool] | None = None,
     ) -> None:
         self.config = config
         self.ledger = ledger
@@ -108,6 +116,7 @@ class BridgeE2ERunner:
             store_path=config.bridge_root / "data" / "control.git",
         )
         self.progress = progress
+        self.can_claim = can_claim or (lambda: True)
 
     def _progress(self, message: str) -> None:
         if self.progress is not None:
@@ -269,6 +278,7 @@ class BridgeE2ERunner:
                 f"agent.interface must be {expected_interface} for {agent_product}"
             )
         expected_execution_path = _AGENT_EXECUTION_PATHS[agent_product]
+        payload['agent'] = validate_selection(agent)
         if payload.get("execution_path") != expected_execution_path:
             raise DispatchInvalid(
                 f"execution_path must be {expected_execution_path} for {agent_product}"
@@ -669,6 +679,13 @@ class BridgeE2ERunner:
         after_head = self._git(
             ["-C", str(worktree), "rev-parse", "HEAD"]
         ).stdout.strip()
+        execution_id = payload.get('_execution_id')
+        if execution_id:
+            row = next(row for row in self.ledger.pending_executions()
+                       if row['execution_id'] == execution_id)
+            context = json.loads(row['checkpoint_json'])
+            context['expected_result_sha'] = after_head
+            self.ledger.checkpoint(str(execution_id), 'PUBLISHING', context)
         self._git(
             [
                 "-C",
@@ -696,6 +713,9 @@ class BridgeE2ERunner:
         agent_stdout: str,
         agent_label: str,
     ) -> tuple[str, tuple[str, ...]]:
+        current_branch = self._git(['-C', str(worktree), 'branch', '--show-current']).stdout.strip()
+        if current_branch != payload['branch']:
+            raise WorkspaceBlocked('result worktree no longer matches exact task branch')
         if self._git(
             ["-C", str(worktree), "status", "--porcelain"]
         ).stdout.strip():
@@ -706,6 +726,7 @@ class BridgeE2ERunner:
         ).stdout.strip()
         if after_head == before_head:
             raise WorkspaceBlocked(f"{agent_label} did not create a result commit")
+        self._git(['-C', str(worktree), 'merge-base', '--is-ancestor', before_head, after_head])
 
         remote_head = self._remote_branch_head(str(payload["branch"]))
         if remote_head != after_head:
@@ -790,12 +811,15 @@ class BridgeE2ERunner:
 
         dispatch_id = str(payload["dispatch_id"])
         execution_id = str(uuid.uuid4())
+        if not self.can_claim():
+            raise ReplayBlocked('new claims paused or graceful stop requested')
         self._progress(f"claim dispatch {dispatch_id}")
         claimed = self.ledger.claim_dispatch(
             dispatch_id=dispatch_id,
             payload_hash=str(payload["_payload_sha256"]),
             execution_id=execution_id,
             observed_at_utc=utc_now(),
+            honor_controls=True,
         )
         if not claimed:
             existing = self.ledger.dispatch_state(dispatch_id)
@@ -804,10 +828,14 @@ class BridgeE2ERunner:
             )
 
         agent_result = None
+        payload['_execution_id'] = execution_id
         agent_product = str(payload["_agent_product"])
+        checkpoint = {'payload': payload, 'before_head': before_head}
+        self.ledger.checkpoint(execution_id, 'CLAIMED', checkpoint)
         try:
             self._progress("prepare authorized result parent directories")
             self._prepare_required_parents(payload=payload, worktree=worktree)
+            self.ledger.checkpoint(execution_id, 'RUNNING', checkpoint)
 
             if agent_product == "CODEX":
                 self._progress("launch Codex CLI")
@@ -819,6 +847,7 @@ class BridgeE2ERunner:
                         f"codex[{stream}]: {line}"
                     ),
                     heartbeat_seconds=10,
+                    selection=payload['agent'],
                 )
                 if agent_result.exit_code != 0:
                     raise ToolExecFailed(
@@ -826,7 +855,11 @@ class BridgeE2ERunner:
                         f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                     )
                 self._progress(f"Codex exited: {agent_result.exit_code}")
+                checkpoint.update(agent_stdout=agent_result.stdout,
+                                  agent_metadata=getattr(agent_result, 'metadata', None))
+                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
                 self._progress("Bridge verifies, commits, and pushes Codex result")
+                self.ledger.checkpoint(execution_id, 'PUBLISHING', checkpoint)
                 after_head, changed_paths = self._commit_and_push_codex_result(
                     payload=payload,
                     worktree=worktree,
@@ -840,7 +873,7 @@ class BridgeE2ERunner:
                     prompt=prompt_text,
                     timeout_seconds=timeout_seconds,
                     allow_write=True,
-                    allow_git=True,
+                    allow_git=False,
                     allow_github_url=False,
                     allowed_shell_tools=tuple(
                         str(item) for item in payload.get("_copilot_shell_tools", [])
@@ -851,6 +884,7 @@ class BridgeE2ERunner:
                         f"copilot[{stream}]: {line}"
                     ),
                     heartbeat_seconds=10,
+                    selection=payload['agent'],
                 )
                 if agent_result.exit_code != 0:
                     raise ToolExecFailed(
@@ -858,13 +892,16 @@ class BridgeE2ERunner:
                         f"{agent_result.exit_code}: {_safe_error_text(agent_result.stderr)}"
                     )
                 self._progress(f"Copilot exited: {agent_result.exit_code}")
-                self._progress("verify pushed result")
-                after_head, changed_paths = self._verify_result(
+                checkpoint.update(agent_stdout=agent_result.stdout,
+                                  agent_metadata=getattr(agent_result, 'metadata', None))
+                self.ledger.checkpoint(execution_id, 'AGENT_EXITED', checkpoint)
+                self._progress("Bridge verifies, commits, and pushes Copilot result")
+                self.ledger.checkpoint(execution_id, 'PUBLISHING', checkpoint)
+                after_head, changed_paths = self._commit_and_push_codex_result(
                     payload=payload,
                     worktree=worktree,
                     before_head=before_head,
                     agent_stdout=agent_result.stdout,
-                    agent_label="Copilot",
                 )
 
             self._progress(f"result verified: {after_head}")
@@ -884,6 +921,7 @@ class BridgeE2ERunner:
                 agent_exit_code=agent_result.exit_code,
                 agent_stdout=agent_result.stdout,
                 agent_stderr=agent_result.stderr,
+                agent_metadata=getattr(agent_result, 'metadata', None),
             )
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
@@ -904,8 +942,8 @@ class BridgeE2ERunner:
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
-                dispatch_state="INTERRUPTED",
-                execution_state="INTERRUPTED",
+                dispatch_state="NEEDS_RECONCILIATION",
+                execution_state="RUNNING",
                 finished_at_utc=finished,
                 error_code="USER_INTERRUPT",
                 error_message="Execution interrupted by local user",
@@ -913,7 +951,7 @@ class BridgeE2ERunner:
             self._write_runtime_report_best_effort(
                 dispatch_id=dispatch_id,
                 payload={
-                    "status": "INTERRUPTED",
+                    "status": "NEEDS_RECONCILIATION",
                     "dispatch_id": dispatch_id,
                     "execution_id": execution_id,
                     "error": {
@@ -943,20 +981,23 @@ class BridgeE2ERunner:
                 failure_result["agent_product"] = agent_product
                 failure_result[agent_product.lower()] = agent_result.as_dict()
 
+            pending = self.ledger.pending_executions()
+            stage = next((row['stage'] for row in pending if row['execution_id'] == execution_id), 'UNKNOWN')
+            uncertain = stage == 'PUBLISHING' or (agent_result is None and not isinstance(exc, (AgentNotStarted, ToolNotFound, AuthUnavailable)))
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,
                 execution_id=execution_id,
-                dispatch_state="FAILED",
-                execution_state="FAILED",
+                dispatch_state="NEEDS_RECONCILIATION" if uncertain else "FAILED",
+                execution_state="RUNNING" if uncertain else "FAILED",
                 finished_at_utc=finished,
                 result=failure_result,
                 error_code=error_code,
-                error_message=error_message[:4000],
+                error_message=redact_context(error_message[:4000]),
             )
             self._write_runtime_report_best_effort(
                 dispatch_id=dispatch_id,
                 payload={
-                    "status": "FAILED",
+                    "status": "NEEDS_RECONCILIATION" if uncertain else "FAILED",
                     "dispatch_id": dispatch_id,
                     "execution_id": execution_id,
                     "result": failure_result,

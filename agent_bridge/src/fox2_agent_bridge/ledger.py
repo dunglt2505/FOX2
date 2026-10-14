@@ -11,8 +11,15 @@ from typing import Iterable
 
 from .errors import DatabaseError
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 MIGRATIONS: dict[int, tuple[str, ...]] = {
+    4: (
+        "ALTER TABLE executions ADD COLUMN stage TEXT NOT NULL DEFAULT 'UNKNOWN'",
+        "ALTER TABLE executions ADD COLUMN checkpoint_json TEXT",
+        "CREATE TABLE worker_state (id INTEGER PRIMARY KEY CHECK(id=1), payload TEXT NOT NULL)",
+        "INSERT INTO worker_state VALUES (1, '{}')",
+        "UPDATE bridge_meta SET value = '4' WHERE key = 'schema_version'",
+    ),
     1: (
         """
         CREATE TABLE dispatches (
@@ -122,6 +129,54 @@ class SQLiteLedger:
         connection.execute("PRAGMA foreign_keys = ON")
         connection.execute("PRAGMA busy_timeout = 10000")
         return connection
+
+    def worker_state(self) -> dict[str, object]:
+        with self.connect() as connection:
+            return json.loads(connection.execute(
+                "SELECT payload FROM worker_state WHERE id=1"
+            ).fetchone()[0])
+
+    def update_worker(self, **values: object) -> dict[str, object]:
+        from .logging_config import redact_context
+        with self.connect() as connection:
+            connection.execute("BEGIN IMMEDIATE")
+            state = json.loads(connection.execute(
+                "SELECT payload FROM worker_state WHERE id=1"
+            ).fetchone()[0])
+            state.update(redact_context(values))
+            connection.execute("UPDATE worker_state SET payload=? WHERE id=1",
+                               (json.dumps(state, sort_keys=True),))
+        return state
+
+    def control(self, command: str) -> dict[str, object]:
+        if command not in {'status', 'pause', 'resume', 'check-now', 'request-exit'}:
+            raise ValueError('unsupported fixed control command')
+        with self.connect() as connection:
+            connection.execute('BEGIN IMMEDIATE')
+            state = json.loads(connection.execute(
+                'SELECT payload FROM worker_state WHERE id=1').fetchone()[0])
+            if command in {'pause', 'resume'}:
+                state['paused'] = command == 'pause'
+            elif command == 'check-now':
+                state['check_generation'] = int(state.get('check_generation', 0)) + 1
+            elif command == 'request-exit':
+                state['stop_requested'] = True
+            connection.execute('UPDATE worker_state SET payload=? WHERE id=1',
+                               (json.dumps(state, sort_keys=True),))
+        return state
+
+    def checkpoint(self, execution_id: str, stage: str, context: dict[str, object]) -> None:
+        from .logging_config import redact_context
+        if stage not in {'CLAIMED', 'RUNNING', 'AGENT_EXITED', 'PUBLISHING'}:
+            raise ValueError('invalid execution checkpoint')
+        with self.connect() as connection:
+            connection.execute('UPDATE executions SET stage=?, checkpoint_json=? WHERE execution_id=?',
+                               (stage, json.dumps(redact_context(context)), execution_id))
+
+    def pending_executions(self) -> tuple[dict[str, object], ...]:
+        with self.connect() as connection:
+            rows = connection.execute("SELECT * FROM executions WHERE state='RUNNING'").fetchall()
+        return tuple(dict(row) for row in rows)
 
     def initialize(self) -> int:
         try:
@@ -327,11 +382,17 @@ class SQLiteLedger:
         payload_hash: str,
         execution_id: str,
         observed_at_utc: str,
+        honor_controls: bool = False,
     ) -> bool:
         """Atomically claim a dispatch exactly once and create its execution row."""
         try:
             with self.connect() as connection:
                 connection.execute("BEGIN IMMEDIATE")
+                if honor_controls:
+                    control = json.loads(connection.execute(
+                        'SELECT payload FROM worker_state WHERE id=1').fetchone()[0])
+                    if control.get('paused') or control.get('stop_requested'):
+                        return False
                 existing = connection.execute(
                     "SELECT payload_hash FROM dispatches WHERE dispatch_id = ?",
                     (dispatch_id,),
@@ -370,8 +431,9 @@ class SQLiteLedger:
         error_code: str | None = None,
         error_message: str | None = None,
     ) -> None:
+        from .logging_config import redact_context
         result_json = (
-            json.dumps(result, ensure_ascii=True, sort_keys=True)
+            json.dumps(redact_context(result), ensure_ascii=True, sort_keys=True)
             if result is not None
             else None
         )
@@ -398,7 +460,7 @@ class SQLiteLedger:
                         finished_at_utc,
                         result_json,
                         error_code,
-                        error_message,
+                        redact_context(error_message),
                         execution_id,
                         dispatch_id,
                     ),
@@ -411,43 +473,13 @@ class SQLiteLedger:
             raise DatabaseError(f"cannot finish dispatch execution: {exc}") from exc
 
     def recover_interrupted_executions(self, *, finished_at_utc: str) -> int:
-        """Terminalize RUNNING rows left behind by a previous Bridge process.
+        """Compatibility entry point: conservative recovery without remote evidence.
 
-        This is safe only after the current process owns the singleton Bridge lock.
-        Single-use dispatches remain terminal and are never automatically retried.
+        Caller must own the singleton. A timestamp alone proves nothing about
+        Agent launch or publication; Desktop startup supplies the real verifier.
         """
-        try:
-            with self.connect() as connection:
-                connection.execute("BEGIN IMMEDIATE")
-                rows = connection.execute(
-                    """
-                    SELECT execution_id, dispatch_id
-                    FROM executions
-                    WHERE state = 'RUNNING'
-                    """
-                ).fetchall()
-                for row in rows:
-                    connection.execute(
-                        """
-                        UPDATE executions
-                        SET state = 'INTERRUPTED', finished_at_utc = ?,
-                            error_code = 'STALE_EXECUTION',
-                            error_message = 'Recovered after prior Bridge process ended'
-                        WHERE execution_id = ? AND state = 'RUNNING'
-                        """,
-                        (finished_at_utc, row["execution_id"]),
-                    )
-                    connection.execute(
-                        """
-                        UPDATE dispatches
-                        SET state = 'INTERRUPTED', updated_at_utc = ?
-                        WHERE dispatch_id = ? AND state = 'CLAIMED'
-                        """,
-                        (finished_at_utc, row["dispatch_id"]),
-                    )
-            return len(rows)
-        except sqlite3.Error as exc:
-            raise DatabaseError(f"cannot recover interrupted executions: {exc}") from exc
+        from .desktop import reconcile
+        return len(reconcile(self, None))
 
     def dispatch_state(self, dispatch_id: str) -> dict[str, object] | None:
         try:
@@ -472,7 +504,8 @@ class SQLiteLedger:
                            d.created_at_utc, d.updated_at_utc,
                            e.execution_id, e.state AS execution_state,
                            e.started_at_utc, e.finished_at_utc,
-                           e.result_json, e.error_code, e.error_message
+                           e.result_json, e.error_code, e.error_message,
+                           e.stage, e.checkpoint_json
                     FROM dispatches d
                     LEFT JOIN executions e ON e.execution_id = (
                         SELECT e2.execution_id
@@ -490,6 +523,8 @@ class SQLiteLedger:
             result = dict(row)
             raw = result.pop("result_json", None)
             result["result"] = json.loads(raw) if raw else None
+            checkpoint = result.pop('checkpoint_json', None)
+            result['checkpoint'] = json.loads(checkpoint) if checkpoint else None
             return result
         except (sqlite3.Error, json.JSONDecodeError) as exc:
             raise DatabaseError(f"cannot read dispatch status: {exc}") from exc

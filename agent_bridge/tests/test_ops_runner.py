@@ -33,7 +33,7 @@ def test_auto_execute_identity_requires_explicit_opt_in() -> None:
     ).encode("utf-8")
 
     assert BridgeOps._auto_execute_identity(disabled) == (False, None)
-    assert BridgeOps._auto_execute_identity(copilot) == (False, None)
+    assert BridgeOps._auto_execute_identity(copilot) == (True, 'FOX2-OPS-COPILOT')
     assert BridgeOps._auto_execute_identity(b"not-json") == (False, None)
 
 

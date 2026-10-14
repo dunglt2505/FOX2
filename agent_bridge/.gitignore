@@ -1,6 +1,5 @@
-.venv/
 __pycache__/
-.pytest_cache/
+.venv/
 *.egg-info/
 .env
 .env.*
@@ -13,3 +12,7 @@ tmp/
 temp/
 *.log
 *.tmp
+test_artifacts/
+.test-tmp/
+test_runtime_2/
+.pytest_cache/

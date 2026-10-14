@@ -40,10 +40,11 @@ class BridgeApp:
             self.config.log_directory.mkdir(parents=True, exist_ok=True)
             self.logger = configure_logging(self.config.log_directory)
             self.lock.acquire()
+            from .desktop import initialize_runtime
+            self.ledger = initialize_runtime(self.config)
             self._schema_version = self.ledger.initialize()
-            recovered = self.ledger.recover_interrupted_executions(
-                finished_at_utc=utc_now()
-            )
+            from .desktop import reconcile
+            recovered = len(reconcile(self.ledger, BridgeE2ERunner(self.config, self.ledger)))
             self._tools = discover_all(self.config)
             self._started = True
             log_event(

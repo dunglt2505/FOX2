@@ -142,7 +142,7 @@ def test_health_command_runs_without_agent_execution(
 
     assert report["project_id"] == "FOX2"
     assert report["repository"] == "dunglt2505/FOX2"
-    assert report["database"]["schema_version"] == 3
+    assert report["database"]["schema_version"] == 4
     assert report["status"] == "READY"
     assert "AGENT_READY" not in output
     assert "DISPATCH_READY" not in output

@@ -121,3 +121,65 @@ dispatch branch/path constraints.
 One writer owns one branch/worktree for one execution. VS Code Copilot,
 Bridge Copilot CLI, Codex CLI, and Codex desktop/IDE sessions must not write
 concurrently to the same worktree.
+# Desktop-01+02 internal runtime
+
+Run `agent_bridge/scripts/desktop_launcher.ps1` with PowerShell 7 to start the
+hidden .NET System Tray host. It uses the existing Bridge Python runtime at
+`C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe`; no dependency installation
+is performed. The source worktree must remain available at this internal launcher
+location. This is an internal launcher, not Desktop-03 installer packaging.
+
+Worker/control state is per user at `%USERPROFILE%\AppData\Local\FOX2\AgentBridge`.
+On first use, an existing legacy ledger is snapshotted read-only while holding its
+singleton lock; consumed dispatch identities are preserved. If the old supervisor
+still owns that lock, bootstrap blocks. The old worktrees are never changed.
+SQLite schema 4 preserves earlier execution/result/cursor evidence and adds
+worker state and execution checkpoints. One-shot execution shares the Worker lock;
+status and fixed controls remain available while it is held.
+
+With `PYTHONPATH` pointing to `agent_bridge/src`, diagnostic commands are:
+
+```powershell
+python -m fox2_agent_bridge worker
+python -m fox2_agent_bridge status
+python -m fox2_agent_bridge status --dispatch-id EXACT_ID
+python -m fox2_agent_bridge control pause
+python -m fox2_agent_bridge control resume
+python -m fox2_agent_bridge control check-now
+python -m fox2_agent_bridge control open-logs
+python -m fox2_agent_bridge control set-start-with-windows --enabled true
+python -m fox2_agent_bridge control set-start-with-windows --enabled false
+python -m fox2_agent_bridge control request-exit
+```
+
+Pause blocks new claims, including a control request during discovery. Check-now
+is durable and waits while paused or executing. Exit finishes the current task
+before stopping. Healthy polling defaults to 30 seconds; failures back off through
+30/60/120/300 seconds. Heartbeats continue during Agent execution. No TCP listener
+or arbitrary shell/prompt IPC exists. Start-with-Windows uses a SID-qualified
+current-user interactive logon task with Limited privileges and no password.
+
+Recovery never grants replay based on age. A pre-launch checkpoint becomes
+`SAFE_NOT_STARTED` with the original claim retained. Uncertain execution becomes
+`NEEDS_RECONCILIATION`; use a fresh authorized dispatch or explicit safe recovery
+review, never delete the ledger or reuse a consumed identity. After Agent exit,
+recovery verifies the exact branch, local cleanliness, base ancestry, remote HEAD,
+write scope and acceptance evidence. A durable expected publication SHA must match.
+
+CODEX supports CURRENT_CONFIG or PINNED model and low/medium/high reasoning;
+the existing dispatch spelling PINNED_PREFERRED is treated as an exact pin,
+with no model fallback. Approval remains never and sandbox workspace-write.
+COPILOT supports NATIVE_AUTO (model auto) or PINNED with feature-detected CLI
+support, explicit write/catalogued shell permissions and no Git wildcard grant
+in dispatched execution. Bridge publishes both products' uncommitted results.
+Task prompts must leave Git publication to Bridge. Auto tier defaults to balance;
+it is reported `AUTO_TIER_NOT_ENFORCED` until safe task-local enforcement is proven.
+Global Copilot settings and credentials are never rewritten. Explicit credit bounds
+fail closed when unsupported. Actual model/effort fields come only from structured
+CLI output; unavailable observations and quota remain NOT_EXPOSED/unknown.
+
+Deterministic tests use fake Agents and mocked startup registration. Poller tests
+use real local Git histories with simulated file-remote transport in the managed
+Windows sandbox. Manual Tray usability, real Windows logon and paid Agent canaries
+must be recorded separately; these unit tests do not certify them.
+

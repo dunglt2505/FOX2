@@ -47,6 +47,7 @@ class BridgeOps:
         self.ledger = ledger
         self.logger = logger
         self.progress = progress
+        self.can_claim: Callable[[], bool] = lambda: True
         self.transport = transport or GitTransport(
             git_executable=(config.tool_paths or {})["git"] or Path("git"),
             store_path=config.bridge_root / "data" / "control.git",
@@ -68,7 +69,7 @@ class BridgeOps:
         if not isinstance(runtime, dict) or runtime.get("auto_execute") is not True:
             return False, None
         agent = payload.get("agent")
-        if not isinstance(agent, dict) or agent.get("product") != "CODEX":
+        if not isinstance(agent, dict) or agent.get("product") not in {"CODEX", "COPILOT"}:
             return False, None
         dispatch_id = payload.get("dispatch_id")
         if not isinstance(dispatch_id, str) or not dispatch_id:
@@ -148,6 +149,8 @@ class BridgeOps:
             )
 
         dispatch_path, dispatch_id = selected
+        if not self.can_claim():
+            return OpsRunResult('PAUSED', poll.status, None, None, None)
         self._progress(f"OPS selected {dispatch_id}")
         result: E2EResult = BridgeE2ERunner(
             self.config,
@@ -155,6 +158,7 @@ class BridgeOps:
             logger=self.logger,
             transport=self.transport,
             progress=self.progress,
+            can_claim=self.can_claim,
         ).run_once(
             dispatch_path=dispatch_path,
             timeout_seconds=timeout_seconds,

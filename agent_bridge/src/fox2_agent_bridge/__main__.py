@@ -13,6 +13,13 @@ from .errors import BridgeError
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="fox2-bridge")
     subparsers = parser.add_subparsers(dest="command", required=True)
+    worker = subparsers.add_parser('worker', help='continuous per-user Desktop worker')
+    worker.add_argument('--config', type=Path)
+    controls = subparsers.add_parser('control', help='fixed local Desktop control')
+    controls.add_argument('action', choices=['status', 'pause', 'resume', 'check-now', 'request-exit',
+                                           'open-logs', 'set-start-with-windows'])
+    controls.add_argument('--enabled', choices=['true', 'false'])
+    controls.add_argument('--config', type=Path)
 
     health = subparsers.add_parser("health", help="validate local Bridge core prerequisites")
     health.add_argument("--config", type=Path, help="optional TOML configuration file")
@@ -61,6 +68,28 @@ def main(argv: list[str] | None = None) -> int:
     from .app import BridgeApp
 
     try:
+        if args.command in {'worker', 'control', 'status'}:
+            from .config import load_config
+            from .desktop import DesktopWorker, control, initialize_runtime
+            from .ledger import SQLiteLedger
+            config = load_config(args.config)
+            if args.command == 'worker':
+                DesktopWorker(config).run()
+                return 0
+            if args.command == 'status':
+                ledger = initialize_runtime(config)
+                report = {'worker': ledger.worker_state(),
+                          'dispatch': ledger.dispatch_status(args.dispatch_id) if args.dispatch_id else None,
+                          'dispatches': list(ledger.recent_status(limit=args.limit))}
+            elif args.action == 'set-start-with-windows':
+                if args.enabled is None:
+                    raise ValueError('--enabled true|false is required')
+                from .startup import set_start_with_windows
+                report = set_start_with_windows(config, args.enabled == 'true')
+            else:
+                report = control(config, args.action)
+            print(json.dumps(report, ensure_ascii=True, sort_keys=True))
+            return 0
         with BridgeApp.from_file(args.config) as app:
             if args.command == "health":
                 report = app.health_report()
@@ -119,6 +148,10 @@ def main(argv: list[str] | None = None) -> int:
             ),
             file=sys.stderr,
         )
+        return 2
+    except (ValueError, OSError) as exc:
+        from .logging_config import redact_context
+        print(json.dumps({'status': 'ERROR', 'error': redact_context(str(exc))}), file=sys.stderr)
         return 2
     except KeyboardInterrupt:
         print(

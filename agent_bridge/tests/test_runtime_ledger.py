@@ -82,6 +82,7 @@ def test_sqlite_initializes_and_records_schema_version(tmp_path: Path) -> None:
         "control_cursors",
         "poll_observations",
         "candidate_discoveries",
+        "worker_state",
     }
 
 
@@ -162,7 +163,7 @@ def test_finish_execution_persists_result_and_status(tmp_path: Path) -> None:
     assert status["result"]["after_head"] == "b" * 40
 
 
-def test_recover_interrupted_executions_terminalizes_running_rows(tmp_path: Path) -> None:
+def test_recover_interrupted_executions_retains_uncertainty(tmp_path: Path) -> None:
     ledger = SQLiteLedger(tmp_path / "bridge.db")
     ledger.initialize()
     now = utc_now()
@@ -178,6 +179,6 @@ def test_recover_interrupted_executions_terminalizes_running_rows(tmp_path: Path
     assert recovered == 1
     status = ledger.dispatch_status("dispatch-stale")
     assert status is not None
-    assert status["dispatch_state"] == "INTERRUPTED"
-    assert status["execution_state"] == "INTERRUPTED"
-    assert status["error_code"] == "STALE_EXECUTION"
+    assert status["dispatch_state"] == "NEEDS_RECONCILIATION"
+    assert status["execution_state"] == "NEEDS_RECONCILIATION"
+    assert status["error_code"] == "NEEDS_RECONCILIATION"

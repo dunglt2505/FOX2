@@ -16,6 +16,8 @@ from typing import Callable, TextIO
 from .config import BridgeConfig
 from .errors import PathInvalid, ToolExecFailed, ToolNotFound
 from .paths import validate_path
+from .agent_policy import help_text, policy_arguments, observe_metadata
+from .logging_config import redact_context
 
 
 DEV_SHELL_CAPABILITIES: dict[str, tuple[str, ...]] = {
@@ -35,6 +37,7 @@ class CopilotRunResult:
     stderr: str
     executable: str
     worktree: str
+    metadata: dict[str, object] | None = None
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -44,6 +47,7 @@ class CopilotRunResult:
             "stderr": self.stderr,
             "executable": self.executable,
             "worktree": self.worktree,
+            "metadata": self.metadata,
         }
 
 
@@ -125,6 +129,7 @@ class CopilotAdapter:
         no_ask_user: bool = False,
         progress: Callable[[str, str], None] | None = None,
         heartbeat_seconds: int = 10,
+        selection: dict[str, object] | None = None,
     ) -> CopilotRunResult:
         if not isinstance(prompt, str) or not prompt.strip():
             raise ToolExecFailed("Copilot prompt must be non-empty")
@@ -147,6 +152,12 @@ class CopilotAdapter:
             command.append("-s")
         if no_ask_user:
             command.append("--no-ask-user")
+        metadata = None
+        if selection is not None:
+            if selection.get('product') != 'COPILOT':
+                raise ToolExecFailed('Copilot adapter cannot substitute for another Agent')
+            extra, metadata = policy_arguments(selection, help_text(executable))
+            command.extend(item for item in extra if item != '--no-ask-user' or item not in command)
 
         if allow_write:
             command.append("--allow-tool=write")
@@ -251,7 +262,7 @@ class CopilotAdapter:
                     else:
                         stderr_parts.append(line)
                     if progress is not None:
-                        progress(stream_name, line.rstrip("\r\n"))
+                        progress(stream_name, redact_context(line.rstrip("\r\n")))
 
                 if process.poll() is not None and len(closed_streams) == 2:
                     break
@@ -269,8 +280,9 @@ class CopilotAdapter:
         return CopilotRunResult(
             status=status,
             exit_code=return_code,
-            stdout=stdout,
-            stderr=stderr,
+            stdout=redact_context(stdout),
+            stderr=redact_context(stderr),
             executable=str(executable),
             worktree=str(resolved_worktree),
+            metadata=observe_metadata(metadata, stdout) if metadata else None,
         )

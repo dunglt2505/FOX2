@@ -32,9 +32,7 @@ def test_default_configuration_loads_fixed_fox2_identity() -> None:
         / "GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe"
         / "copilot.exe"
     )
-    assert config.tool_paths["pwsh"] == (
-        local_app_data / "Microsoft" / "WindowsApps" / "pwsh.exe"
-    )
+    assert config.tool_paths["pwsh"] == Path(r'C:\Program Files\PowerShell\7\pwsh.exe')
 
 
 @pytest.mark.parametrize("project_id", ["FOX", "MANTIS", "fox2"])

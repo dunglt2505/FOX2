@@ -40,8 +40,8 @@ def default_tool_paths(bridge_root: Path) -> dict[str, Path]:
             / "GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe"
             / "copilot.exe"
         ),
-        "pwsh": local_app_data / "Microsoft" / "WindowsApps" / "pwsh.exe",
-        "python": bridge_root / ".venv" / "Scripts" / "python.exe",
+        "pwsh": Path(r"C:\Program Files\PowerShell\7\pwsh.exe"),
+        "python": Path(r"C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe"),
     }
 
 

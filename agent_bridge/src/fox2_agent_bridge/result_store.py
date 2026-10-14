@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 from .errors import DatabaseError
+from .logging_config import redact_context
 
 _SAFE_ID = re.compile(r"^[A-Za-z0-9._-]+$")
 
@@ -25,7 +26,7 @@ def write_execution_report(
     try:
         directory.mkdir(parents=True, exist_ok=True)
         temporary.write_text(
-            json.dumps(payload, ensure_ascii=True, indent=2, sort_keys=True) + "\n",
+            json.dumps(redact_context(payload), ensure_ascii=True, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
         )
         temporary.replace(path)

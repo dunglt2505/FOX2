@@ -32,6 +32,11 @@ class ToolExecFailed(BridgeError):
     code = "TOOL_EXEC_FAILED"
 
 
+class AgentNotStarted(ToolExecFailed):
+    """Definitive pre-spawn failure, never evidence of a paid Agent invocation."""
+    code = 'AGENT_NOT_STARTED'
+
+
 class AuthUnavailable(BridgeError):
     code = "AUTH_UNAVAILABLE"
 
