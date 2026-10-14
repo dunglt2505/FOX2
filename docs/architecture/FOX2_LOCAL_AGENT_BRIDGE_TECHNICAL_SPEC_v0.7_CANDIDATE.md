@@ -1,13 +1,13 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate REV7`  
+**Version:** `0.7 Candidate REV8`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
-**Governance:** FOX2 Policy V1.8.6 + Routing Index V1.2.7  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate. REV6 aligns Git delivery ownership back to Policy V1.8.5: the selected Agent may deliver the authorized non-main result when `git_code_push=YES`; Bridge-managed publication is used only when the immutable dispatch explicitly selects Bridge as publisher. REV7 binds the Bridge productization source to released FOX2 Policy V1.8.6 and Routing Index V1.2.7, making CLI-FIRST, FULL_ACCESS_DEFAULT, dispatch-owned Git delivery and capability-based readiness the active FOX2 governance baseline.
+**Governance:** Project Dictionary v1 -> FOX2 Policy V1.8.7 + Routing Index V1.2.8  
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate. REV6 aligns Git delivery ownership back to Policy V1.8.5: the selected Agent may deliver the authorized non-main result when `git_code_push=YES`; Bridge-managed publication is used only when the immutable dispatch explicitly selects Bridge as publisher. REV7 bound the Bridge productization source to Policy V1.8.6 / Routing V1.2.7. REV8 makes FOX2 Project Dictionary v1 the single machine-readable identity/compatibility source: current/supported dispatch schemas, control branches and dispatch path conventions are no longer independently hard-coded in Bridge modules; supported external schemas normalize into one internal execution representation.
 
 > This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence. The normative routing/telemetry requirements are defined by `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`; that contract is integrated into the Desktop plan and is **not** a separate DEV round.
 
@@ -160,7 +160,7 @@ project_id = "FOX2"
 repository = "dunglt2505/FOX2"
 local_repo = "C:\\Projects\\FOX2"
 worktree_root = "C:\\Projects\\FOX2-worktrees"
-control_branch = "work/FOX2-LOCAL-DISPATCH-chat"
+control_branch = "<resolved from FOX2_PROJECT_DICTIONARY_v1.json>"
 enabled = true
 
 [agents.codex]
@@ -177,6 +177,46 @@ Exact file format may remain TOML to reuse current code.
 Configuration must not contain passwords, access tokens or embedded Agent subscription credentials.
 
 Per-task Agent/model selection is **dispatch-owned**, not global-config-owned. Global config may enable/locate an Agent, but MUST NOT silently choose or override a task's `model_policy`, Copilot `auto_tier`, Codex `model`, or Codex `reasoning_effort`.
+### 5.y Project Dictionary runtime binding
+
+Bridge runtime identity is Dictionary-driven.
+
+Canonical machine source:
+
+`docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`
+
+Bridge implementation MUST NOT independently hard-code competing current values for:
+
+- current dispatch schema;
+- current/supported control branches;
+- canonical dispatch path patterns;
+- current Policy/Routing/Protocol paths;
+- Agent/execution/delivery identifiers already present in the Dictionary.
+
+Implementation model:
+
+```text
+Project Dictionary JSON
+    -> generated runtime binding
+       agent_bridge/src/fox2_agent_bridge/project_dictionary.py
+    -> config / poller / validator / normalizer
+```
+
+The generated binding records source Dictionary version/path and is covered by a drift test. Semantics remain in Policy/BRD/Technical sources; generated constants do not reimplement governance.
+
+Current transport identity resolves to:
+
+```text
+control branch = work/FOX2-DISPATCH-chat
+dispatch path  = docs/agent_handoff/DISPATCH/<dispatch_id>.json
+current schema = 3.0
+supported      = 3.0, 2.0, 0.6
+```
+
+Legacy control/path support is compatibility-only and must be explicitly selected. One Bridge profile polls one selected control branch; arbitrary/multi-branch polling is not allowed.
+
+Supported external schemas normalize into one internal validated payload before existing worktree/Agent/result execution logic. Do not fork execution engines by schema.
+
 ### 5.x CLI-first permission baseline
 
 For normal coding execution, Codex CLI and Copilot CLI are the primary implementation engines. Bridge is the local supervisor/launcher/evidence layer.
@@ -677,7 +717,7 @@ Before Agent launch:
 
 ### 12.1 Git publication authority follows the dispatch
 
-Policy V1.8.6 remains controlling. The execution lane that owns the WP may deliver its authorized non-main result when the handoff binds `git_code_push=YES`.
+Project Dictionary v1 resolves the controlling Policy; Policy V1.8.7 remains controlling. The execution lane that owns the WP may deliver its authorized non-main result when the handoff binds `git_code_push=YES`.
 
 Canonical behavior:
 
@@ -1121,7 +1161,7 @@ Technical Spec Candidate itself grants no writer.
 Before Batch A coding:
 
 1. `BRIDGE-DESKTOP-01-02-FIX-01` is PASS and its immutable remote result is read back.
-2. BRD-09, v0.7 REV7 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
+2. BRD-09 REV3, Project Dictionary v1, v0.7 REV8 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
 3. exact post-FIX `agent_bridge/**` base commit is chosen.
 4. one dedicated writer/worktree is reserved.
 5. exact allowed code/test/report paths are defined.
@@ -1173,4 +1213,4 @@ This Candidate does not:
 - declare BRD-09 acceptance tests PASS;
 - create a separate DEV round for `FOX2-AGENT-USAGE-TELEMETRY-01`; its requirements are absorbed into Batch A.
 
-`TECH_V0_7_STATUS=CANDIDATE_REV7 / GOVERNANCE=POLICY_V1.8.6_ROUTING_V1.2.7 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / GIT_DELIVERY=DISPATCH_OWNED_POLICY_ALIGNED / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV8 / GOVERNANCE=PROJECT_DICTIONARY_V1_POLICY_V1.8.7_ROUTING_V1.2.8 / IDENTITY_BINDING=GENERATED_FROM_DICTIONARY / DISPATCH_COMPATIBILITY=3.0_PLUS_2.0_PLUS_0.6_NORMALIZED / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / GIT_DELIVERY=DISPATCH_OWNED_POLICY_ALIGNED / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
