@@ -1,11 +1,11 @@
 # FOX2 — Agent Usage Telemetry & CHAT Routing Contract v0.1 Candidate
 
 **Document ID:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
-**Version:** `0.1 Candidate REV4`  
+**Version:** `0.1 Candidate REV5`  
 **Status:** `CANDIDATE / SOURCE_CONTRACT / INTEGRATED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_DEV_GRANT`  
 **Project:** `FOX2 ONLY`  
 **Date:** 2026-10-14  
-**Governance:** `FOX2_POLICY_V1.8.6.md` + `FOX2_AGENT_PROMPT_POLICY_V1_2_7_EFFECTIVE_ROUTING_INDEX_20261014.md`  
+**Governance:** `FOX2_PROJECT_DICTIONARY_v1.json` -> Policy V1.8.7 + Routing Index V1.2.8  
 **Bridge technical baseline:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md`  
 **Execution mapping:** requirements are absorbed into `BRIDGE-DESKTOP-BATCH-A`; there is no standalone Usage DEV round. `BRIDGE-DESKTOP-01-02-FIX-01` must PASS before Batch A is dispatched.
 
@@ -95,7 +95,7 @@ Full Access is technical execution permission only; immutable project authority 
 
 ## 2B. Git delivery authority
 
-Git delivery follows released Policy V1.8.6 and must be bound in the immutable handoff.
+Git delivery follows the Dictionary-resolved released Policy V1.8.7 and must be bound in the immutable handoff.
 
 ```text
 git_code_push=YES + delivery_owner=AGENT
@@ -109,6 +109,16 @@ git_code_push=NO
 ```
 
 CHAT performs independent remote readback and semantic acceptance in all cases. Bridge MUST NOT create a duplicate publication path after an Agent-owned delivery already exists.
+
+## 2C. Dictionary identity boundary
+
+Machine identifiers used by routing/telemetry are resolved from `FOX2_PROJECT_DICTIONARY_v1.json`.
+
+This contract owns telemetry/routing semantics, not the current literal version/path strings.
+
+Bridge/CHAT tooling must not duplicate competing current values for Agent products, model-policy identifiers, permission profiles, execution paths, delivery owners, control branches or dispatch schema compatibility when those values are present in the Dictionary.
+
+Unknown telemetry remains UNKNOWN/NOT_EXPOSED; Dictionary values must never be used to fabricate runtime observations.
 
 ## 3. Canonical routing tuple
 
@@ -284,7 +294,7 @@ CAPACITY_THROTTLED != EXHAUSTED
 
 Materiality remains governed by Policy V1.8.6: missing numeric quota alone does not block a launch if the selected Agent can actually execute and the missing field is non-material.
 
-Tool/runtime compatibility follows the Bridge Technical Spec REV7 Material Tool Compatibility Rule. Exact version mismatch alone MUST NOT alter routing, HOLD, or launch eligibility when the capabilities required by the current immutable task are available and required validation passes. Missing or unknown capability blocks only when that capability is material to correctness, safety, compatibility, or execution. If materiality is not bound clearly enough for Bridge to decide technically, Bridge returns the ambiguity to CHAT.
+Tool/runtime compatibility follows Bridge Technical Spec REV8 and the Project Dictionary compatibility map. Exact version mismatch alone MUST NOT alter routing, HOLD, or launch eligibility when the capabilities required by the current immutable task are available and required validation passes. Missing or unknown capability blocks only when that capability is material to correctness, safety, compatibility, or execution. If materiality is not bound clearly enough for Bridge to decide technically, Bridge returns the ambiguity to CHAT.
 
 ## 7. Codex reset normalization
 
@@ -470,4 +480,4 @@ This Candidate:
 - does not create a separate standalone Usage DEV work package;
 - does not allow Bridge to become a routing authority.
 
-`CONTRACT_STATUS=CANDIDATE_REV4_SOURCE / GOVERNANCE=POLICY_V1.8.6_ROUTING_V1.2.7 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / TOOL_COMPATIBILITY=BRIDGE_SPEC_REV7 / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
+`CONTRACT_STATUS=CANDIDATE_REV5_SOURCE / GOVERNANCE=PROJECT_DICTIONARY_V1_POLICY_V1.8.7_ROUTING_V1.2.8 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / TOOL_COMPATIBILITY=BRIDGE_SPEC_REV8 / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
