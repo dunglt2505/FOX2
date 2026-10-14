@@ -1,13 +1,13 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate REV4`  
+**Version:** `0.7 Candidate REV5`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
 **Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch.
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate.
 
 > This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence. The normative routing/telemetry requirements are defined by `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`; that contract is integrated into the Desktop plan and is **not** a separate DEV round.
 
@@ -254,6 +254,51 @@ Polling Git alone must never launch an Agent without an explicitly eligible disp
 Tool health checks use non-billable/non-task mechanisms where supported, such as executable discovery/version/auth-status commands.
 
 Do not send a real Agent prompt merely to determine whether quota remains unless an explicit task authorizes that probe.
+### 6.4 Material Tool Compatibility Rule
+
+Bridge readiness is capability-based, not version-string-based.
+
+Canonical rule:
+
+```text
+VERSION_MATCH != READINESS
+
+REQUIRED_CAPABILITIES_SUFFICIENT
++ REQUIRED_TESTS_PASS
++ TASK_SEMANTICS_CORRECT
+= READY
+```
+
+A tool/runtime version, optional capability, UI state, quota detail or metadata field becomes a hard gate only when it materially affects correctness, safety, compatibility or executability of the current immutable task.
+
+A version mismatch alone MUST NOT cause HOLD/BLOCK when all capabilities material to the current task are available and the required validation passes. The deviation is recorded as evidence and execution may continue.
+
+Examples of the same rule across tools:
+
+- Python/Node/runtime version differs from a declared or preferred version, but the current task does not rely on version-specific syntax/ABI/behavior and all material tests pass -> `NON_MATERIAL / CONTINUE`;
+- Git/CLI version differs, but required worktree/branch/replay/command semantics are available -> `NON_MATERIAL / CONTINUE`;
+- Codex/Copilot version differs, but the exact dispatch-required model/permission/output capabilities are supported -> `NON_MATERIAL / CONTINUE`;
+- a required syntax, ABI, protocol, permission mode, model flag, output mode, authentication capability or safety control is absent -> `MATERIAL / BLOCKED`;
+- capability status is unknown and that capability is material to the task -> `MATERIAL / UNKNOWN / HOLD`.
+
+The task/source contract owned by CHAT defines which capabilities are material. Bridge performs the technical observation and compatibility check against those bound requirements; it MUST NOT invent new semantic requirements. If materiality cannot be determined from the immutable task, Bridge returns the ambiguity to CHAT rather than guessing.
+
+Persist compatibility evidence using at least:
+
+```text
+observed_tool
+observed_version
+expected_or_declared_version
+required_capabilities
+observed_capabilities
+materiality = MATERIAL | NON_MATERIAL
+compatibility = PASS | DEGRADED | BLOCKED | UNKNOWN
+action = CONTINUE | HOLD
+evidence
+```
+
+`DEGRADED` is non-blocking only when the degraded fact is explicitly non-material to the current task. `UNKNOWN` is non-blocking only when the unknown fact is explicitly non-material.
+
 
 ## 7. GitHub mailbox signaling and local pull protocol
 
@@ -974,6 +1019,7 @@ Implement together because these features share the same runtime paths:
 - Tray read-only usage/model display;
 - Copilot runtime-profile canary;
 - CLI-FIRST permission profile handling;
+- capability-based tool/runtime compatibility preflight using the Material Tool Compatibility Rule;
 - Full Access by default for Codex/Copilot coding execution;
 - `AGENT_PERMISSION_PREFLIGHT` with fail-closed no-downgrade behavior;
 - Autopilot remains separately controlled and is not implied by Full Access.
@@ -1025,7 +1071,7 @@ Technical Spec Candidate itself grants no writer.
 Before Batch A coding:
 
 1. `BRIDGE-DESKTOP-01-02-FIX-01` is PASS and its immutable remote result is read back.
-2. BRD-09, v0.7 REV4 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
+2. BRD-09, v0.7 REV5 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
 3. exact post-FIX `agent_bridge/**` base commit is chosen.
 4. one dedicated writer/worktree is reserved.
 5. exact allowed code/test/report paths are defined.
@@ -1077,4 +1123,4 @@ This Candidate does not:
 - declare BRD-09 acceptance tests PASS;
 - create a separate DEV round for `FOX2-AGENT-USAGE-TELEMETRY-01`; its requirements are absorbed into Batch A.
 
-`TECH_V0_7_STATUS=CANDIDATE_REV4 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV5 / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
