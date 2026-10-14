@@ -3,13 +3,13 @@
   "receipt_type": "FOX2_PREEXEC_RECEIPT",
   "project": "FOX2",
   "wp_id": "FOX2-PREEXEC-ROLLOUT-V1",
-  "checked_at": "2026-10-14T20:59:26.2206414+07:00",
+  "checked_at": "2026-10-14T21:36:27.6312571+07:00",
   "task_branch": "work/FOX2-PREEXEC-ROLLOUT-V1",
   "receipt_path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/local_preflight.json",
-  "source_head": "4bb30b3ff753368a126fa381192d9400f7682c05",
+  "source_head": "ad58506d7e94304c0929fc9b5a6281111be7532b",
   "task_source": {
     "git_path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/task.md",
-    "git_commit_sha": "4bb30b3ff753368a126fa381192d9400f7682c05",
+    "git_commit_sha": "ad58506d7e94304c0929fc9b5a6281111be7532b",
     "sha256": "5d0e155fd6caa3f17ee4f3954ded360372c438f948ce2404f97efb9edb53b40c"
   },
   "status": "PASS",
