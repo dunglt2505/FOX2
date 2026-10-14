@@ -426,17 +426,13 @@ function WatchlistPage({ onNavigate }: { onNavigate: (path: string) => void }) {
               <div className="watchlist-items">
                 {watchlist.data.items.map((instrumentId) => (
                   <div className="watchlist-item" key={instrumentId}>
-                    <button
-                      type="button"
-                      className="watchlist-item__main"
-                      onClick={() => onNavigate("/stocks/" + encodeURIComponent(instrumentId))}
-                    >
+                    <div className="watchlist-item__main">
                       <span className="symbol-avatar">{instrumentId.slice(0, 2).toUpperCase()}</span>
                       <span>
                         <strong>{instrumentId}</strong>
-                        <small>Verified instrument ID · quote opens via FOX2 backend</small>
+                        <small>Verified instrument ID · not assumed to be a market symbol</small>
                       </span>
-                    </button>
+                    </div>
                     <button
                       type="button"
                       className="icon-button"
@@ -506,7 +502,7 @@ function WatchlistPage({ onNavigate }: { onNavigate: (path: string) => void }) {
                   <button
                     type="button"
                     className={"button " + (added ? "button--quiet" : "button--ghost")}
-                    disabled={added || saving || !watchlist.data}
+                    disabled={added || saving || !watchlist.data || watchlist.data.items.length >= 100}
                     onClick={() => addInstrument(instrument)}
                   >
                     {added ? "Added" : <><Icon name="plus" size={15} /> Add</>}
