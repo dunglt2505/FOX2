@@ -1,7 +1,7 @@
 # FOX2 — Agent Usage Telemetry & CHAT Routing Contract v0.1 Candidate
 
 **Document ID:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
-**Version:** `0.1 Candidate REV2`  
+**Version:** `0.1 Candidate REV3`  
 **Status:** `CANDIDATE / SOURCE_CONTRACT / INTEGRATED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_DEV_GRANT`  
 **Project:** `FOX2 ONLY`  
 **Date:** 2026-10-14  
@@ -267,6 +267,8 @@ CAPACITY_THROTTLED != EXHAUSTED
 
 Materiality remains governed by Policy V1.8.5: missing numeric quota alone does not block a launch if the selected Agent can actually execute and the missing field is non-material.
 
+Tool/runtime compatibility follows the Bridge Technical Spec REV5 Material Tool Compatibility Rule. Exact version mismatch alone MUST NOT alter routing, HOLD, or launch eligibility when the capabilities required by the current immutable task are available and required validation passes. Missing or unknown capability blocks only when that capability is material to correctness, safety, compatibility, or execution. If materiality is not bound clearly enough for Bridge to decide technically, Bridge returns the ambiguity to CHAT.
+
 ## 7. Codex reset normalization
 
 If a known five-hour reset time has passed:
@@ -336,7 +338,7 @@ with a process-local `COPILOT_HOME` or another officially supported isolation me
 
 This remains subject to a dedicated canary on the actual FOX2 host before it is trusted, because auth/session/config behavior must be proven.
 
-Copilot Autopilot/YOLO/full-permission execution is out of scope for this contract. Existing bounded `--allow-tool` safety remains.
+Copilot Full Access permission is allowed when selected by CHAT through the immutable permission profile. Autopilot remains a separate execution-mode decision and is not implied by Full Access.
 
 ## 10. Tray display
 
@@ -421,6 +423,10 @@ COPILOT_MAX_AI_CREDITS_ENFORCED_IF_DISPATCHED=PASS
 COPILOT_GLOBAL_USER_CONFIG_NOT_MUTATED=PASS
 COPILOT_PROFILE_CANARY_REQUIRED=PASS
 
+MATERIAL_TOOL_COMPATIBILITY_RULE=PASS
+NON_MATERIAL_VERSION_MISMATCH_CONTINUES=PASS
+MATERIAL_CAPABILITY_MISSING_BLOCKS=PASS
+UNKNOWN_MATERIAL_CAPABILITY_HOLDS=PASS
 FULL_ACCESS_PROFILE_FROM_DISPATCH=PASS
 CODEX_FULL_ACCESS_EFFECTIVE=PASS
 COPILOT_FULL_ACCESS_EFFECTIVE=PASS
@@ -445,4 +451,4 @@ This Candidate:
 - does not create a separate standalone Usage DEV work package;
 - does not allow Bridge to become a routing authority.
 
-`CONTRACT_STATUS=CANDIDATE_REV2_SOURCE / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
+`CONTRACT_STATUS=CANDIDATE_REV3_SOURCE / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / TOOL_COMPATIBILITY=BRIDGE_SPEC_REV5 / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
