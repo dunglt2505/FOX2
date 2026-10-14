@@ -1,10 +1,10 @@
-# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.3 Candidate
+# FOX2 — Agent Usage Telemetry 01 — Roadmap Mapping v0.4 Candidate
 
 **Work package:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
 **Status:** `CANDIDATE / ABSORBED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_STANDALONE_DEV`  
 **Date:** 2026-10-14  
 **Source contract:** `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`  
-**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV4  
+**Overall Bridge plan:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md` REV5  
 **Dependency:** `BRIDGE-DESKTOP-01-02-FIX-01 = PASS`
 
 ## Decision
@@ -59,6 +59,9 @@ Batch A combines the remaining related work of historical Desktop-01, Desktop-02
 - CHAT-owned `permission_profile=FULL_ACCESS` default;
 - Bridge `AGENT_PERMISSION_PREFLIGHT` and exact CLI permission application;
 - fail-closed permission mismatch with no silent downgrade;
+- capability-based tool/runtime compatibility preflight;
+- exact version mismatch is non-blocking when all task-material capabilities exist and validation passes;
+- missing/unknown material capability blocks or holds; non-material deviation is recorded and continues;
 - Copilot Native Auto + CHAT-selected tier;
 - Codex pinned model + reasoning;
 - structured requested/observed result;
@@ -87,6 +90,10 @@ NO_AGENT_SUBSTITUTION=PASS
 FULL_ACCESS_CODEX=PASS
 FULL_ACCESS_COPILOT=PASS
 PERMISSION_PREFLIGHT=PASS
+MATERIAL_TOOL_COMPATIBILITY=PASS
+NON_MATERIAL_VERSION_MISMATCH_CONTINUES=PASS
+MATERIAL_CAPABILITY_MISSING_BLOCKS=PASS
+UNKNOWN_MATERIAL_CAPABILITY_HOLDS=PASS
 NO_PERMISSION_DOWNGRADE=PASS
 TRAY_READ_ONLY_USAGE_DISPLAY=PASS
 ```
@@ -123,7 +130,7 @@ Do not publish Batch A until:
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01 = PASS
 CHAT readback = PASS
-v0.7 REV4 + Usage Contract REV2 = approved/bound
+v0.7 REV5 + Usage Contract REV3 = approved/bound
 exact post-FIX base SHA = verified
 one writer/worktree = reserved
 allowed code/report paths = bound
@@ -150,4 +157,4 @@ FIX -> BATCH A -> BATCH B -> READY
 
 Do not create separate implementation rounds for adapter model policy, usage telemetry, Tray usage display, ledger fields or Copilot profile handling when they can be changed and tested together inside Batch A.
 
-`ROADMAP_MAPPING_STATUS=INTEGRATED / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT / NO_STANDALONE_USAGE_DEV_ROUND`.
+`ROADMAP_MAPPING_STATUS=INTEGRATED / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / NO_STANDALONE_USAGE_DEV_ROUND`.
