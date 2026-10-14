@@ -3,14 +3,14 @@
   "receipt_type": "FOX2_PREEXEC_RECEIPT",
   "project": "FOX2",
   "wp_id": "FOX2-PREEXEC-ROLLOUT-V1",
-  "checked_at": "2026-10-14T19:54:18.6121993+07:00",
+  "checked_at": "2026-10-14T20:59:26.2206414+07:00",
   "task_branch": "work/FOX2-PREEXEC-ROLLOUT-V1",
   "receipt_path": "reports/FOX2-PREEXEC-ROLLOUT-V1/preexec/local_preflight.json",
-  "source_head": "e61a000b58270908c77bc8c4f5afb24214979c40",
+  "source_head": "4bb30b3ff753368a126fa381192d9400f7682c05",
   "task_source": {
     "git_path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/task.md",
-    "git_commit_sha": "e61a000b58270908c77bc8c4f5afb24214979c40",
-    "sha256": "8ac194e6ef4321b500c67b5ae918d357567e7958f83fe415b29439c08d5bac53"
+    "git_commit_sha": "4bb30b3ff753368a126fa381192d9400f7682c05",
+    "sha256": "5d0e155fd6caa3f17ee4f3954ded360372c438f948ce2404f97efb9edb53b40c"
   },
   "status": "PASS",
   "capabilities": {
@@ -43,21 +43,30 @@
     },
     "copilot": {
       "status": "FAIL",
-      "material": true,
+      "material": false,
       "version": "GitHub Copilot CLI 1.0.97.\r\nRun 'copilot update' to check for updates.",
       "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
       "exit_code": 1,
       "failure_class": "AUTH_REQUIRED",
-      "evidence": "minimal no-write FULL_ACCESS probe failed; raw output not persisted"
+      "evidence": "Agent candidate probe failed; alternative route may still satisfy readiness; raw output not persisted"
     },
     "codex": {
       "status": "PASS",
-      "material": true,
+      "material": false,
       "version": "codex-cli 0.162.1",
       "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
       "exit_code": 0,
       "failure_class": null,
-      "evidence": "minimal no-write PINNED/FULL_ACCESS probe returned expected marker"
+      "evidence": "Codex candidate probe passed; CHAT still selects the final route"
+    },
+    "eligible_agent_route": {
+      "status": "PASS",
+      "material": true,
+      "version": "",
+      "executable": "",
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "eligible implementation route proven: CODEX"
     }
   },
   "blockers": [],
