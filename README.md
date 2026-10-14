@@ -32,13 +32,13 @@ It does **not** own business meaning. Policy/BRDs/Data Contracts/Technical Specs
 ## Current governance
 
 Resolve exact versions from the Dictionary. At this baseline:
-- Policy V1.8.8;
-- Routing Index V1.2.9;
-- PreExec Evidence Protocol v1;
+- Policy V1.8.9;
+- Routing Index V1.3.0;
+- PreExec Evidence Protocol v1.1;
 - Preflight Receipt Schema v1;
-- CHAT Preflight Intake v1;
+- CHAT Preflight Intake v1.1;
 - Dispatch Schema v3;
-- Git-first Protocol v11;
+- Git-first Protocol v12;
 - Result Contract v2;
 - CHAT Result Intake v9.
 
@@ -62,6 +62,8 @@ INFRA_FAILED -> durable evidence when safely publishable; otherwise explicit loc
 ```
 
 This is project orchestration infrastructure, not business semantics. Individual WPs add material capability checks to the common receipt instead of inventing separate state machines.
+
+For alternative implementation Agents, FOX2 treats candidate probes as routing evidence and gates readiness on one material aggregate `eligible_agent_route`. Failure of Copilot does not block a task if Codex is an allowed route and passes, and vice versa. A task-pinned Agent remains individually material.
 
 ## BRD / technical authority
 
