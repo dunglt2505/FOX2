@@ -1,7 +1,7 @@
 {
   "project": "FOX2",
   "package_id": "FOX2-BRIDGE-DESKTOP-SPEC-CANDIDATE-20261014",
-  "status": "CANDIDATE_REV2_DEV_PLAN_READY_NO_DEV_GRANT",
+  "status": "CANDIDATE_REV2_SIMPLIFIED_DEV_PLAN_READY_NO_DEV_GRANT",
   "created_at": "2026-10-14",
   "governance": {
     "policy": {
@@ -93,25 +93,23 @@
     },
     "implementation_plan": {
       "path": "docs/agent_handoff/BRIDGE-DESKTOP-01/FOX2_BRIDGE_DESKTOP_01_IMPLEMENTATION_PLAN_20261014.md",
-      "blob": "16e74c8723d03ca36daf1a69e7089cbdeb3a3262",
-      "phases": [
-        "D01",
-        "D02",
-        "D03",
-        "D04",
-        "D05",
-        "D06",
-        "D07",
-        "D08"
+      "blob": "e9d67896cc6192087ed37b40dc553a7c09ea53ab",
+      "execution_model": "ONE_WHOLE_WP",
+      "implementation_blocks": [
+        "WORKER_MAILBOX_SIGNAL",
+        "DURABLE_STATE_PAUSE_BACKOFF",
+        "RESTART_RECOVERY_SINGLE_INSTANCE",
+        "CLI_INTEGRATION_FINAL_REGRESSION"
       ],
-      "acceptance_items": "D01-D21",
-      "state": "READY"
+      "acceptance_items": "D01-D21_FINAL_ONLY_NOT_GATES",
+      "state": "READY_SIMPLIFIED"
     },
     "dependency": "FOX2-BRIDGE-DELIVERY-HOTFIX-01",
     "exact_base_sha": "PENDING_HOTFIX_ACCEPTANCE",
     "executable_prompt": "WAIT_EXACT_BASE",
     "immutable_dispatch": "WAIT_EXACT_BASE",
     "code_execution": "WAIT_HOTFIX_ONLY",
-    "no_additional_owner_approval_if_unchanged": true
+    "no_additional_owner_approval_if_unchanged": true,
+    "review_model": "ONE_FINAL_CHAT_REMOTE_REVIEW_AFTER_PUSHED_UNREVIEWED"
   }
 }
