@@ -254,6 +254,7 @@ Polling Git alone must never launch an Agent without an explicitly eligible disp
 Tool health checks use non-billable/non-task mechanisms where supported, such as executable discovery/version/auth-status commands.
 
 Do not send a real Agent prompt merely to determine whether quota remains unless an explicit task authorizes that probe.
+
 ### 6.4 Material Tool Compatibility Rule
 
 Bridge readiness is capability-based, not version-string-based.
@@ -1076,7 +1077,7 @@ Before Batch A coding:
 4. one dedicated writer/worktree is reserved.
 5. exact allowed code/test/report paths are defined.
 6. latest Relay/Desktop evidence is reused; no already-proven work is reimplemented.
-7. Python/runtime/Agent tool availability is checked only as materially needed.
+7. Python/runtime/Agent/tool compatibility is checked only as materially needed; exact version equality is not required unless the version itself is a material task requirement.
 8. no overlap with another active Bridge writer.
 9. STOP conditions and result paths are bound.
 
