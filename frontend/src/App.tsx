@@ -23,6 +23,38 @@ import {
   StateBadge
 } from "./ui";
 
+type Theme = "dark" | "light";
+
+function getInitialTheme(): Theme {
+  if (document.documentElement.dataset.theme === "light") return "light";
+  try {
+    return localStorage.getItem("fox2.theme") === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
+function useTheme() {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    const themeMeta = document.getElementById("fox2-theme-color");
+    themeMeta?.setAttribute("content", theme === "light" ? "#f4f7fb" : "#08111f");
+    try {
+      localStorage.setItem("fox2.theme", theme);
+    } catch {
+      // Theme persistence is optional; presentation still works without storage.
+    }
+  }, [theme]);
+
+  return {
+    theme,
+    toggleTheme: () => setTheme((current) => (current === "dark" ? "light" : "dark"))
+  };
+}
+
 type RouteKey = "overview" | "watchlist" | "stock" | "sources";
 
 interface RouteState {
@@ -118,10 +150,14 @@ function NavItem({
 function AppShell({
   route,
   onNavigate,
+  theme,
+  onToggleTheme,
   children
 }: {
   route: RouteState;
   onNavigate: (path: string) => void;
+  theme: Theme;
+  onToggleTheme: () => void;
   children: React.ReactNode;
 }) {
   return (
@@ -162,9 +198,21 @@ function AppShell({
             <span className="topbar__separator">/</span>
             <span>Investor view</span>
           </div>
-          <div className="topbar__safety">
-            <Icon name="shield" size={16} />
-            <span>Verified data only · no synthetic fallback</span>
+          <div className="topbar__actions">
+            <div className="topbar__safety">
+              <Icon name="shield" size={16} />
+              <span>Verified data only · no synthetic fallback</span>
+            </div>
+            <button
+              className="theme-toggle"
+              type="button"
+              onClick={onToggleTheme}
+              aria-label={theme === "dark" ? "Switch to White theme" : "Switch to Dark theme"}
+              title={theme === "dark" ? "Switch to White theme" : "Switch to Dark theme"}
+            >
+              <Icon name={theme === "dark" ? "sun" : "moon"} size={16} />
+              <span>{theme === "dark" ? "White" : "Dark"}</span>
+            </button>
           </div>
         </header>
         <main className="content">{children}</main>
@@ -783,10 +831,11 @@ function DataSourcesPage() {
 
 export default function App() {
   const { pathname, navigate } = usePath();
+  const { theme, toggleTheme } = useTheme();
   const route = parseRoute(pathname);
 
   return (
-    <AppShell route={route} onNavigate={navigate}>
+    <AppShell route={route} onNavigate={navigate} theme={theme} onToggleTheme={toggleTheme}>
       {route.key === "overview" ? <OverviewPage onNavigate={navigate} /> : null}
       {route.key === "watchlist" ? <WatchlistPage onNavigate={navigate} /> : null}
       {route.key === "stock" ? <Stock360Page symbol={route.symbol} onNavigate={navigate} /> : null}
