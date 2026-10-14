@@ -4,7 +4,7 @@
   "status": "RELEASED_EFFECTIVE",
   "project": "FOX2",
   "release_branch": "work/FOX2-AGENT-USAGE-TELEMETRY-01-chat",
-  "source_set_head": "ff26346cc771d4cd3221cfaec1e18044d6674d07",
+  "source_set_head": "747a877ccffb4881a97aafea8d7b0b677a5f88ca",
   "library_mirror_status": "NOT_ASSERTED_BY_THIS_MANIFEST",
   "change_class": "SEMANTIC_SOURCE_CHANGE",
   "purpose": "Release one project-wide pre-execution evidence lifecycle for all new/re-scoped executable FOX2 work; replace task-local preflight semantics with durable PASS/BLOCKED/INFRA_FAILED receipts before final assignment and executable Dispatch publication.",
@@ -79,7 +79,7 @@
     },
     {
       "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md",
-      "blob_sha": "32aa2c1874b962ab25129044fa5a6128901bef48",
+      "blob_sha": "8c5f92cd2aece41dbb09b70c3d147ebb8f4c9d2d",
       "role": "current execution plan"
     }
   ],
@@ -91,5 +91,9 @@
     "Task-specific checks extend the common project lifecycle; they do not define competing state machines.",
     "No BRD/Data Contract/M1 Acceptance semantic change.",
     "No main/PR/merge/deploy/provider/broker/LIVE authority."
+  ],
+  "notes": [
+    "Manifest self-commit occurs after source_set_head; source_set_head denotes the coordinated source tree immediately before manifest publication.",
+    "Library mirror remains NOT_ASSERTED_BY_THIS_MANIFEST."
   ]
 }
