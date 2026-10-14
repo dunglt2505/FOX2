@@ -1,0 +1,95 @@
+{
+  "manifest_version": "1.0",
+  "manifest_id": "FOX2_PREEXEC_PROJECT_WIDE_RELEASE_20261014",
+  "status": "RELEASED_EFFECTIVE",
+  "project": "FOX2",
+  "release_branch": "work/FOX2-AGENT-USAGE-TELEMETRY-01-chat",
+  "source_set_head": "ff26346cc771d4cd3221cfaec1e18044d6674d07",
+  "library_mirror_status": "NOT_ASSERTED_BY_THIS_MANIFEST",
+  "change_class": "SEMANTIC_SOURCE_CHANGE",
+  "purpose": "Release one project-wide pre-execution evidence lifecycle for all new/re-scoped executable FOX2 work; replace task-local preflight semantics with durable PASS/BLOCKED/INFRA_FAILED receipts before final assignment and executable Dispatch publication.",
+  "current_operating_set": {
+    "project_dictionary": "1.1",
+    "policy": "1.8.8",
+    "routing_index": "1.2.9",
+    "preexec_evidence_protocol": "1",
+    "preflight_receipt_schema": "1",
+    "chat_preflight_intake": "1",
+    "dispatch_schema": "3.0",
+    "git_first_protocol": "11",
+    "result_schema": "2",
+    "chat_result_intake": "9",
+    "bridge_technical": "0.7 REV9"
+  },
+  "files": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "blob_sha": "d33bd442a95c20e70fae2e58536c08b251d20242",
+      "role": "machine current identity and compatibility registry"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.8.8.md",
+      "blob_sha": "dcc851288dbdfab4a40e1b5ee20412a87a4c47a2",
+      "role": "normative project-wide pre-exec evidence rule"
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_9_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "blob_sha": "0934c666d562d3cc2143ba7aa297a0b5136481db",
+      "role": "routing order and preflight evidence gate"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.md",
+      "blob_sha": "797ce62ea73f95fd38b3a372d1f54b61951db7d8",
+      "role": "project-wide pre-execution lifecycle"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "blob_sha": "25fe465f82a16edf29ebf773a220969192f546e8",
+      "role": "machine receipt contract"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.md",
+      "blob_sha": "7a425cc875ed8a629ad6317b39146b4708a0c3e4",
+      "role": "CHAT pre-dispatch receipt intake"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v11.md",
+      "blob_sha": "6c73c2f3a036dd7c6a5fc61e7efe986b5ee3a8f7",
+      "role": "pre-exec to dispatch to result lifecycle"
+    },
+    {
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "blob_sha": "367701b345d3e2229e69a6a5ffb9d00156e49bd5",
+      "role": "Bridge/shared-tooling implementation semantics REV9"
+    },
+    {
+      "path": "docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.md",
+      "blob_sha": "ac42406c01120b3a58b7ceca32f4ba7acd16ab68",
+      "role": "Owner-authorized bounded project-wide rollout"
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "blob_sha": "b87636cdd750a801a50c2da10b48a36a1a414701",
+      "role": "handoff entry point"
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "a0f6d78257f5e1abd8c5b51d58d55e31533b8532",
+      "role": "project entry point"
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md",
+      "blob_sha": "32aa2c1874b962ab25129044fa5a6128901bef48",
+      "role": "current execution plan"
+    }
+  ],
+  "invariants": [
+    "All new/re-scoped executable FOX2 WPs require durable preflight receipt before final Agent assignment and executable Dispatch.",
+    "BLOCKED preflight is durable sanitized evidence when safe Git publication is available.",
+    "Pre-start failure does not consume Dispatch and is not an Agent result.",
+    "No PUSHED/receipt success marker before commit, push and remote readback.",
+    "Task-specific checks extend the common project lifecycle; they do not define competing state machines.",
+    "No BRD/Data Contract/M1 Acceptance semantic change.",
+    "No main/PR/merge/deploy/provider/broker/LIVE authority."
+  ]
+}
