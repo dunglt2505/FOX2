@@ -60,6 +60,7 @@ Batch A combines the remaining related work of historical Desktop-01, Desktop-02
 - Bridge `AGENT_PERMISSION_PREFLIGHT` and exact CLI permission application;
 - fail-closed permission mismatch with no silent downgrade;
 - capability-based tool/runtime compatibility preflight;
+- canonical generated-artifact pipeline for Bridge evidence (UTF-8/LF, deterministic serialization, trailing-whitespace checks);
 - exact version mismatch is non-blocking when all task-material capabilities exist and validation passes;
 - missing/unknown material capability blocks or holds; non-material deviation is recorded and continues;
 - Copilot Native Auto + CHAT-selected tier;
@@ -94,6 +95,8 @@ MATERIAL_TOOL_COMPATIBILITY=PASS
 NON_MATERIAL_VERSION_MISMATCH_CONTINUES=PASS
 MATERIAL_CAPABILITY_MISSING_BLOCKS=PASS
 UNKNOWN_MATERIAL_CAPABILITY_HOLDS=PASS
+CANONICAL_GENERATED_ARTIFACT_PIPELINE=PASS
+TEXT_ARTIFACT_HYGIENE=PASS
 NO_PERMISSION_DOWNGRADE=PASS
 TRAY_READ_ONLY_USAGE_DISPLAY=PASS
 ```
