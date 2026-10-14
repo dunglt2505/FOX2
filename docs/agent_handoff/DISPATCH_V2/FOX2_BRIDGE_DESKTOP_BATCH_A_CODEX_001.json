@@ -1,0 +1,108 @@
+{
+  "schema_version": "2.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-A-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "BRIDGE-DESKTOP-BATCH-A",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "policy": {
+    "version": "1.8.6",
+    "sha256": "3b75a51054f6215e6cbf5793cdaf3e818f9ac4306bf363a7e70064f035bc997f",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.6.md",
+    "git_commit_sha": "116c362b9c6243ebaa23ad17df3104d9f07c50d5"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-A/task.md",
+    "commit_sha": "efdf1f53f83a8eac3251660a588a447f50908fef",
+    "sha256": "768fa27b0fca150c0063368184705cf5b01c4b28446265956c153c45d73aec79"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-A/codex_prompt.md",
+    "git_commit": "efdf1f53f83a8eac3251660a588a447f50908fef",
+    "git_blob_sha1": "9b83091a156a50c2fce4236ffbbf247f061a589b",
+    "sha256": "47d74d5c23fe3918adcad85c87143d8b46b518e66cd356b2aba1d20e9e58bf51"
+  },
+  "source": {
+    "commit_sha": "cc7fa95ea7ff5613b3fdb33c26245834089050ca",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner 2026-10-14: thực hiện đi; Master Plan cc7fa95ea7ff5613b3fdb33c26245834089050ca"
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-A-CODEX",
+    "base_sha": "efdf1f53f83a8eac3251660a588a447f50908fef",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-A/**"
+    ],
+    "required_capabilities": [
+      "codex_cli",
+      "git",
+      "python",
+      "pytest",
+      "powershell7",
+      "full_access_mode"
+    ],
+    "stop_conditions": [
+      "wrong_task_or_branch",
+      "writer_collision",
+      "scope_violation",
+      "required_test_failure",
+      "secret_exposure",
+      "denied_required_full_access",
+      "material_required_capability_missing",
+      "actual_quota_or_capacity_failure",
+      "push_or_remote_readback_failure"
+    ]
+  },
+  "required_tests": [
+    "FULL_BRIDGE_TESTS",
+    "WORKER_RECOVERY",
+    "CODEX_EXACT_CONFIG",
+    "COPILOT_EXACT_POLICY",
+    "USAGE_PERSISTENCE",
+    "PERMISSION_PREFLIGHT",
+    "MATERIAL_TOOL_COMPATIBILITY",
+    "CANONICAL_GENERATED_ARTIFACT_PIPELINE",
+    "TEXT_ARTIFACT_HYGIENE",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-14T07:33:00Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": null
+}
