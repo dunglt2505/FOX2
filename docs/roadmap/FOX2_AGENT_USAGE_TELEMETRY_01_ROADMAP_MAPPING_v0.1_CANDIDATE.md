@@ -70,7 +70,7 @@ Batch A combines the remaining related work of historical Desktop-01, Desktop-02
 - Tray usage/model display-only;
 - Copilot process-scoped profile canary;
 - no silent substitution;
-- no Autopilot/YOLO/full-permission mode.
+- Full Access permission enabled; Autopilot remains a separate CHAT-controlled execution mode.
 
 ### Batch A exit
 
@@ -123,7 +123,7 @@ Do not publish Batch A until:
 ```text
 BRIDGE-DESKTOP-01-02-FIX-01 = PASS
 CHAT readback = PASS
-v0.7 REV3 + Usage Contract = approved/bound
+v0.7 REV4 + Usage Contract REV2 = approved/bound
 exact post-FIX base SHA = verified
 one writer/worktree = reserved
 allowed code/report paths = bound
