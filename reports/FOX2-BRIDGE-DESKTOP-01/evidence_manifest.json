@@ -1,7 +1,7 @@
 {
   "work_package": "FOX2-BRIDGE-DESKTOP-01",
   "date": "2026-10-14",
-  "status": "DELIVERY_READY",
+  "status": "REMOTE_DELIVERED_CHAT_REVIEWED_EVIDENCE_CORRECTED",
   "repository": "dunglt2505/FOX2",
   "branch": "work/FOX2-BRIDGE-DESKTOP-01-worker-codex",
   "base_sha": "308edc7bdabbc541216a97318590d2394acc9096",
@@ -54,87 +54,103 @@
     {
       "path": "agent_bridge/src/fox2_agent_bridge/__main__.py",
       "sha256": "48669f5f4b70166d91958a06c9ccc8c989bd3ead0803d2d10d51fbf107d01ecc",
-      "bytes": 6697
+      "bytes": 6697,
+      "git_blob_sha1": "9b3206aebd9dba11f9b94717b7be5a4c3047ebce"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/app.py",
       "sha256": "3c70a8d7a72271afc02e77a9ba7122f785937b1e516eab456940666a123cd3ee",
-      "bytes": 8149
+      "bytes": 8149,
+      "git_blob_sha1": "eba192e04f6434fe64a623add47f0389d62a3316"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
-      "sha256": "5ecfa4a55749c689d8c2cb7f414a8d274df6ff2eb27ad63c0e53284f9f1e5524",
-      "bytes": 48057
+      "sha256": "c6a20af1feb5eab05e12ecc52069aed77e736907e0549a4cb9990a08c1c62414",
+      "bytes": 46928,
+      "git_blob_sha1": "9d66cf38144e8b806c4bc75f4246a6fe66229a70"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
-      "sha256": "c253f619ec3c539f048cd96e6f2da2129438f908264189bf6be35b654f8cc162",
-      "bytes": 25912
+      "sha256": "77519192fd1f2971377f49c0f2a40f1454dff9049382e7fbae4768f1ed3b075b",
+      "bytes": 25315,
+      "git_blob_sha1": "64a75bd021f05686774423e152059d7c85dd9527"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/ops_runner.py",
-      "sha256": "92d0e732146aaee4e8cb8231d501cb800e73c4c83b6bf842157727bc0613d8a1",
-      "bytes": 7434
+      "sha256": "b096bec14efdbfb2a66aa67ba06d6a2615aa091c26f410230bbf54951c68f1eb",
+      "bytes": 7231,
+      "git_blob_sha1": "e4d4101a1cfa6637c521a49d3d2a89652569bcfc"
     },
     {
       "path": "agent_bridge/src/fox2_agent_bridge/worker.py",
       "sha256": "9a9b8b001568138f1d7f010ccb0c54acacb29b0eba449e2911ee7583df24c4b0",
-      "bytes": 7273
+      "bytes": 7273,
+      "git_blob_sha1": "b8f947555858baf840824b172f17263dc4049dc1"
     },
     {
       "path": "agent_bridge/tests/conftest.py",
       "sha256": "e43a8b6c76abb53043d8b0da7b3eafe45141369f57dccb1d4cd7be4a3fc6d9d3",
-      "bytes": 1454
+      "bytes": 1454,
+      "git_blob_sha1": "a04d931c7fdfa2afccbd1f1b22b65ab76cd214c3"
     },
     {
       "path": "agent_bridge/tests/pytest.ini",
       "sha256": "533b31c22f6df364e300baacb8d1201c2291ccf4dc4b80ab465c7023f5bfefbd",
-      "bytes": 201
+      "bytes": 201,
+      "git_blob_sha1": "d073eaebe9fbbb361a5fcda1dd39af9b47b8711a"
     },
     {
       "path": "agent_bridge/tests/test_codex_adapter.py",
       "sha256": "6eace27f01b5bdba9a3d5024fc0a13604728a770d9b04edde662d174bb0cac71",
-      "bytes": 3256
+      "bytes": 3256,
+      "git_blob_sha1": "d9ce106726b7f7e33fee891adae8ccb31fab5cc9"
     },
     {
       "path": "agent_bridge/tests/test_copilot_adapter.py",
       "sha256": "9b37f8dad5ff9b9a2eb96f789a07764733c76f13bd3f20787de24ac0bf9ac478",
-      "bytes": 5815
+      "bytes": 5815,
+      "git_blob_sha1": "9b0f24ca0c3c4513943d960fe239383080b8bfa4"
     },
     {
       "path": "agent_bridge/tests/test_dispatch_poller.py",
-      "sha256": "47ae25a389f69e4f52e8cefc28d779810d4683f182cf0c19a6df381ef9126658",
-      "bytes": 19672
+      "sha256": "42e794754651c97535329cb0a28d27a5766cfc3844e337d0c4dbcdb013141015",
+      "bytes": 19147,
+      "git_blob_sha1": "83d9fe7c1d1daee9065928b25c0610630d5923da"
     },
     {
       "path": "agent_bridge/tests/test_worker.py",
       "sha256": "8628eba5c2aeae99b09cf3acf1856f75d11c0e16c4a36ee593bf4658c21955a0",
-      "bytes": 15916
+      "bytes": 15916,
+      "git_blob_sha1": "273f9b69c6afd4d259c8ea4c2410c7575a89345d"
     }
   ],
   "artifacts": [
     {
       "path": "reports/FOX2-BRIDGE-DESKTOP-01/report.md",
       "sha256": "5808d7a82ae3b694c5afb7a37a9db90b136c72fe369bc90ef15a6466c6eb3c1e",
-      "bytes": 14776
+      "bytes": 14776,
+      "git_blob_sha1": "6d9ab2bb67c4be776280a024e1e18635fbacfdd0"
     },
     {
       "path": "reports/FOX2-BRIDGE-DESKTOP-01/evidence/test_results.json",
       "sha256": "14319286dd52f1bb13abd2cab11e2b8f9047c70e9e0932b1de702eee4a63146c",
-      "bytes": 2021
+      "bytes": 2021,
+      "git_blob_sha1": "d0d908ab28410e444e28b9e09cafa44add1cc25e"
     },
     {
       "path": "reports/FOX2-BRIDGE-DESKTOP-01/evidence/checks.json",
       "sha256": "924c6426fd34264dbd735efd6c66ba75430b97d9d19bab76816e40c9f20a21ef",
-      "bytes": 4720
+      "bytes": 4720,
+      "git_blob_sha1": "16eb7bf2b6d8b3a73fa350bfe5246c88eeb5977d"
     },
     {
       "path": "reports/FOX2-BRIDGE-DESKTOP-01/evidence/acceptance.json",
       "sha256": "5b2ddc973499bc3642e87645b3e28eede8b8dbae0431cf0d9c7fbd3dea463332",
-      "bytes": 5287
+      "bytes": 5287,
+      "git_blob_sha1": "bdca58b79fdf80ff4ab2b6ca6e2dccfa11ac270c"
     }
   ],
-  "hash_note": "SHA256 is over raw working-file bytes; manifest intentionally does not hash itself.",
+  "hash_note": "SHA256 now reflects immutable remote committed blob bytes at implementation_commit; git_blob_sha1 is recorded per entry. Manifest intentionally does not hash itself.",
   "tests": [
     {
       "name": "focused",
@@ -159,8 +175,6 @@
   ],
   "not_run": [
     "Live GitHub/Agent/deployment validation",
-    "Task Git staging/commit/push",
-    "Remote delivery readback",
     "Live network/process inspection",
     "Inaccessible generated-directory contents inspection/cleanup"
   ],
@@ -174,14 +188,19 @@
     "Multi-user service",
     "T29 push hint"
   ],
-  "open_delivery_gates": [
-    "Bridge final verification, commit, push and remote readback",
-    "Bridge cleanup/inspection of inaccessible generated pytest directories; exclude from staging"
-  ],
+  "open_delivery_gates": [],
   "limitations": [
     "Git enumeration cannot inspect owner-only generated pytest directories from early attempts; scope/secret verdicts cover deliverable files.",
     "Automatic approval review rejected ACL-reset/recursive cleanup as blocked by policy; no further reason was supplied. Accessible artifacts were cleaned by a narrower action.",
     "worker-status reports durable state, not live process ownership; controls require initialized supported ledger."
   ],
-  "git_ownership": "Codex performed no task staging/commit/push; Bridge owns final delivery."
+  "git_ownership": "Codex performed no task staging/commit/push; Bridge owns final delivery.",
+  "remote_delivery": {
+    "implementation_commit": "6952266345b64236a06b427cab872ed47ef76f5e",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-01-worker-codex",
+    "bridge_state": "PUSHED_UNREVIEWED",
+    "remote_readback": "PASS",
+    "evidence_correction_reason": "Bridge staging normalized CRLF working-tree bytes to committed LF bytes for some text files; snapshot hashes refreshed against immutable remote blob bytes.",
+    "code_changed_by_evidence_correction": false
+  }
 }
