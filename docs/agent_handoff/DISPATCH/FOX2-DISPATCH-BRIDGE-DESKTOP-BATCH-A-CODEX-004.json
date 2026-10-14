@@ -1,0 +1,123 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-A-CODEX-004",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "BRIDGE-DESKTOP-BATCH-A",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.0",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "28866ee6a61bde3fc3837ebd999c7b470afc7486",
+    "sha256": "a6b8a578650324ca65d426c7e9936369c6c9c187f6d25dde860cf5593884a2dd"
+  },
+  "policy": {
+    "version": "1.8.7",
+    "sha256": "fa8948a284ed6c6ffb1a5339247b7c859918adf67d35c2147fe13d6224edeb69",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.7.md",
+    "git_commit_sha": "5d753fdd16c3f4a6b777c1c55f1f7ec77918262c"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-A/task.md",
+    "commit_sha": "9224b144f704964907162e77ebec520aa9b09f77",
+    "sha256": "768fa27b0fca150c0063368184705cf5b01c4b28446265956c153c45d73aec79"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-A/codex_project_dictionary_rollup_prompt.md",
+    "git_commit": "9224b144f704964907162e77ebec520aa9b09f77",
+    "git_blob_sha1": "7976c594f35b1d5726e57a91556f999881eb142a",
+    "sha256": "d23d8e3622f62a979590165f46171a2a0cbd3769da95411a4998e16c50209e81"
+  },
+  "source": {
+    "commit_sha": "544cd7003972e6a29ff25de1062231c3769affbf",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner 2026-10-14 project-wide Project Dictionary rollout; same BRIDGE-DESKTOP-BATCH-A whole-WP rework."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-A-CODEX",
+    "base_sha": "9224b144f704964907162e77ebec520aa9b09f77",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-A/**"
+    ],
+    "required_capabilities": [
+      "codex_cli",
+      "git",
+      "python",
+      "pytest",
+      "powershell7",
+      "full_access_mode"
+    ],
+    "stop_conditions": [
+      "wrong_task_or_branch",
+      "writer_collision",
+      "scope_violation",
+      "required_test_failure",
+      "secret_exposure",
+      "denied_required_full_access",
+      "material_required_capability_missing",
+      "actual_quota_or_capacity_failure",
+      "push_or_remote_readback_failure"
+    ]
+  },
+  "required_tests": [
+    "PROJECT_DICTIONARY_BINDING",
+    "PROJECT_DICTIONARY_DRIFT_CHECK",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "STABLE_DISPATCH_PATH",
+    "CONTROL_BRANCH_REGISTRY",
+    "SINGLE_NORMALIZED_EXECUTION_PATH",
+    "FULL_BRIDGE_TESTS",
+    "NO_REPLAY",
+    "NO_AGENT_SUBSTITUTION",
+    "GIT_DELIVERY_POLICY_ALIGNED",
+    "NO_DUPLICATE_PUBLICATION_PATH",
+    "PERMISSION_PREFLIGHT",
+    "CANONICAL_GENERATED_ARTIFACT_PIPELINE",
+    "TEXT_ARTIFACT_HYGIENE",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-14T08:45:00Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-A-CODEX-003"
+}
