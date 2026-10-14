@@ -6,6 +6,9 @@
 **Execution contract:** PreExec Evidence Protocol v1.1 + Preflight Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v12 + Result Contract v2 + CHAT Result Intake v9  
 **Planning rule:** maximize delivery progress with whole-WP/batch execution; do not create Owner-facing micro-WPs for operational reconciliation, metadata cleanup, validator reruns or non-material tool/version deviations.
 
+**Owner priority override — 2026-10-14:** complete the Bridge path before resuming Website/APP-BATCH-B execution. Shared PreExec work is treated only as Bridge-enablement infrastructure. The website dual-theme source is frozen until Bridge reaches `INTERNAL_FOX2_BRIDGE_READY`.
+
+
 ## 1. Current immutable status
 
 ### Governance / orchestration
@@ -23,7 +26,7 @@
 - Every new/re-scoped executable WP must publish/read a durable Preflight Receipt before final Agent assignment and executable Dispatch publication.
 - `PASS` may close R3/R5; `BLOCKED` and safely-publishable `INFRA_FAILED` must remain durable Git evidence.
 - Pre-start failure does not consume a Dispatch and is not an Agent Result.
-- Owner-authorized project-wide implementation mandate: `docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.md`; rollout is one systemic infrastructure change, not task-local micro-fixes.
+- Owner-authorized project-wide implementation mandate: `docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.1.md`; rollout is one systemic infrastructure change, not task-local micro-fixes.
 
 ### Project Dictionary / identity registry
 
@@ -154,7 +157,7 @@ Carry-forward rule into Batch B final certification:
 
 ### `FOX2-M1-A-APP-BATCH-B` — UI + offline acceptance
 
-**CHAT UI slicing status — 2026-10-14:** Owner authorized CHAT to implement the visual/presentation slice directly inside the existing whole-WP. Current source head on `work/FOX2-M1-A-APP-BATCH-B` is `1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2`. The slice adds the React/TypeScript/Vite shell, Overview, Watchlist, Stock360, Data Sources, truthful loading/unavailable/stale/gap/provisional presentation, responsive 1440/1024/390 layout, and Owner-requested Dark/White theme selection with presentation-only local persistence under `frontend/**`. No backend/provider/business semantic code was changed. Source review is complete; frontend build/runtime/integrated acceptance remain NOT_RUN until executed on the Windows host/eligible Agent lane.
+**CHAT UI slicing status — 2026-10-14:** Owner authorized CHAT to implement the visual/presentation slice directly inside the existing whole-WP. Current source head on `work/FOX2-M1-A-APP-BATCH-B` is `1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2`. The slice adds the React/TypeScript/Vite shell, Overview, Watchlist, Stock360, Data Sources, truthful loading/unavailable/stale/gap/provisional presentation, responsive 1440/1024/390 layout, and Owner-requested Dark/White theme selection with presentation-only local persistence under `frontend/**`. No backend/provider/business semantic code was changed. Source review is complete; frontend build/runtime/integrated acceptance remain NOT_RUN. **Owner priority now sets APP-BATCH-B to `PAUSED_AFTER_UI_SLICE` until Bridge reaches `INTERNAL_FOX2_BRIDGE_READY`.**
 
 
 Start after APP-BATCH-A freezes the accepted API shape.
@@ -193,7 +196,7 @@ Scope:
 
 Exit: `INTERNAL FOX2 BRIDGE READY`.
 
-APP-BATCH-B and BRIDGE-BATCH-B may run in parallel if writer/path checks remain disjoint.
+Owner priority now serializes these lanes: finish `BRIDGE-DESKTOP-BATCH-B` first, then resume APP-BATCH-B build/test/integration. The frozen website source remains `1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2` until Bridge is accepted.
 
 ## 5. Genuine milestone boundary — M1-A release integration
 
@@ -276,14 +279,30 @@ Do not STOP solely for:
 ## 10. Execution ordering summary
 
 ```text
-NOW — SECOND EXECUTION PHASE
-  ├─ APP-BATCH-B
-  │    P3 + P4 -> runnable localhost M1-A
-  │
-  └─ BRIDGE-BATCH-B
-       setup/package/installed-runtime certification
-       + carry-forward current-schema certification debt
-       -> INTERNAL FOX2 BRIDGE READY
+NOW — BRIDGE-FIRST OWNER PRIORITY
+
+  0. BRIDGE ENABLEMENT PREEXEC
+       regenerate fresh project-wide PreExec receipt against current rollout head
+       -> CHAT Intake
+       -> rebind Bridge Batch B to current governance/source set
+
+  1. BRIDGE-DESKTOP-BATCH-B
+       setup/package/update/uninstall
+       installed per-user Tray/Worker
+       current Dictionary + Dispatch-v3 certification debt
+       one real eligible FOX2 dispatch/result
+       exact Agent/model/permission evidence
+       restart/no-replay + final full certification
+       -> INTERNAL_FOX2_BRIDGE_READY
+
+  2. APP-BATCH-B — RESUME ONLY AFTER BRIDGE READY
+       frozen source head:
+       1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2
+       -> build/typecheck
+       -> API integration hardening
+       -> frontend/integrated tests
+       -> browser/runtime + responsive acceptance
+       -> runnable localhost M1-A
 
 THEN
   -> M1-A RELEASE INTEGRATION
@@ -325,12 +344,15 @@ Project-wide disposition:
 - Project Dictionary v1.2 exposes all current machine pointers and aggregate-route identifiers;
 - project-wide rollout is Owner-authorized with bounded CODE_ALLOWED, but final implementation Agent remains gated by current R3/R5 evidence.
 
-### Current pre-execution facts for the two next batches
+### Current pre-execution facts / Bridge-first gate
 
-- project-wide rollout branch `work/FOX2-PREEXEC-ROLLOUT-V1` has a live PASS receipt proving Codex current execution readiness and clean dedicated worktree;
-- Copilot remains `AUTH_REQUIRED`; under the project-wide alternative-route rule this is routing evidence, not a blocker when Codex is an allowed route and passes;
-- the previous receipt is historical because it predates the aggregate-route semantic release; a fresh v1 receipt must be regenerated from the re-bound source before final assignment;
-- APP-BATCH-B and BRIDGE-BATCH-B remain PREEXEC_HOLD and will consume the shared engine after rollout acceptance instead of keeping independent lifecycle semantics;
-- no executable Dispatch for the rollout, APP-BATCH-B or BRIDGE-BATCH-B is valid until CHAT reads the fresh re-bound receipt.
+- project-wide rollout branch `work/FOX2-PREEXEC-ROLLOUT-V1` currently heads at `ad58506d7e94304c0929fc9b5a6281111be7532b`;
+- its latest durable receipt is logically PASS and proves Codex current execution readiness plus a clean dedicated worktree, but the receipt is bound to older source head `4bb30b3ff753368a126fa381192d9400f7682c05`; therefore it is STALE for final assignment after later source-sync commits;
+- immediate next action is a fresh project-wide PreExec receipt + CHAT Intake solely to unblock Bridge;
+- `BRIDGE-DESKTOP-BATCH-B` still carries stale governance references (Dictionary v1 / Policy V1.8.7 / Routing V1.2.8 / Protocol v10) and its 2026-10-14 receipt predates the current aggregate-route baseline; both task source and receipt must be rebound before executable Dispatch;
+- once fresh Bridge evidence PASSes, the whole Bridge Batch B is the single active implementation lane until `INTERNAL_FOX2_BRIDGE_READY`;
+- Website/APP-BATCH-B is frozen at dual-theme source head `1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2` with build/runtime/integrated acceptance NOT_RUN;
+- after Bridge acceptance, resume APP-BATCH-B without redesigning the CHAT-approved Dark/White UI;
+- no executable Dispatch may be issued from stale evidence, and no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / PREEXEC=V1.1 / PREFLIGHT_RECEIPT=V1 / AGENT_ROUTE_MATERIALITY=AGGREGATE / DISPATCH=V3 / PROTOCOL=V12 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=PROJECT_WIDE_PREEXEC_ROLLOUT_THEN_APP_B+BRIDGE_B / PROJECT_WIDE_PREEXEC_ROLLOUT=OWNER_AUTHORIZED / MICRO_WP_DEFAULT=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / PREEXEC=V1.1 / DISPATCH=V3 / PROTOCOL=V12 / OWNER_PRIORITY=BRIDGE_FIRST / CURRENT_PHASE=FRESH_PREEXEC_THEN_BRIDGE_BATCH_B / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MICRO_WP_DEFAULT=NO`
