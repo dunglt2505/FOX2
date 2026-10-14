@@ -7,7 +7,7 @@ Independent greenfield project for Vietnamese equity investment intelligence.
 FOX2 is past bootstrap/foundation and is executing two consolidated lanes:
 
 - **M1-A Application:** Foundation + SQLite Store + DSM + APP-BATCH-A backend integration are accepted; next target is APP-BATCH-B (UI + integrated offline acceptance) leading to a runnable localhost M1-A.
-- **AgentBridge:** FIX-01 is accepted; Bridge Batch A is in same-WP Project Dictionary/Dispatch compatibility rework, followed by Batch B packaging/certification.
+- **AgentBridge:** Bridge Batch A is Owner-accepted at `3013f34...` with explicit post-patch validation waiver; Batch B packaging/certification is in pre-execution readiness.
 
 No broker order execution, margin, cash transfer or LIVE authority is implied.
 
@@ -32,12 +32,15 @@ It does **not** own business meaning. Policy/BRDs/Data Contracts/Technical Specs
 ## Current governance
 
 Resolve exact versions from the Dictionary. At this baseline:
-- Policy V1.8.7;
-- Routing Index V1.2.8;
+- Policy V1.8.8;
+- Routing Index V1.2.9;
+- PreExec Evidence Protocol v1;
+- Preflight Receipt Schema v1;
+- CHAT Preflight Intake v1;
 - Dispatch Schema v3;
-- Git-first Protocol v10;
+- Git-first Protocol v11;
 - Result Contract v2;
-- CHAT Intake v9.
+- CHAT Result Intake v9.
 
 Current dispatch transport:
 
@@ -47,6 +50,18 @@ path           = docs/agent_handoff/DISPATCH/<dispatch_id>.json
 ```
 
 Version is carried in payload/Dictionary, not directory name.
+
+## Project-wide pre-execution evidence
+
+All new/re-scoped executable FOX2 WPs must publish/read a durable preflight receipt before final Agent assignment and executable Dispatch publication.
+
+```text
+PASS         -> may proceed to final assignment/Dispatch
+BLOCKED      -> durable sanitized Git evidence, no dispatch consumed
+INFRA_FAILED -> durable evidence when safely publishable; otherwise explicit local infra failure
+```
+
+This is project orchestration infrastructure, not business semantics. Individual WPs add material capability checks to the common receipt instead of inventing separate state machines.
 
 ## BRD / technical authority
 
