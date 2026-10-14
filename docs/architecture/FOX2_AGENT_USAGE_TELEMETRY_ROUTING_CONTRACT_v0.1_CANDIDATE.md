@@ -2,12 +2,12 @@
 
 **Document ID:** `FOX2-AGENT-USAGE-TELEMETRY-01`  
 **Version:** `0.1 Candidate`  
-**Status:** `CANDIDATE / DESIGN_LOCK / NO_DEV_GRANT`  
+**Status:** `CANDIDATE / SOURCE_CONTRACT / INTEGRATED_INTO_BRIDGE_DESKTOP_BATCH_A / NO_DEV_GRANT`  
 **Project:** `FOX2 ONLY`  
 **Date:** 2026-10-14  
 **Governance:** `FOX2_POLICY_V1.8.5.md` + `FOX2_AGENT_PROMPT_POLICY_V1_2_6_EFFECTIVE_ROUTING_INDEX_20261013.md`  
 **Bridge technical baseline:** `FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md`  
-**Dependency:** `BRIDGE-DESKTOP-01-02-FIX-01` must PASS before this feature is dispatched for DEV.
+**Execution mapping:** requirements are absorbed into `BRIDGE-DESKTOP-BATCH-A`; there is no standalone Usage DEV round. `BRIDGE-DESKTOP-01-02-FIX-01` must PASS before Batch A is dispatched.
 
 ## 1. Purpose
 
@@ -409,6 +409,7 @@ This Candidate:
 - grants no DEV permission by itself;
 - grants no main push, merge, deploy, Production/provider/broker write or LIVE;
 - does not create a separate Usage Governor service;
+- does not create a separate standalone Usage DEV work package;
 - does not allow Bridge to become a routing authority.
 
-`CONTRACT_STATUS=CANDIDATE / DESIGN_LOCK / DEV_ALLOWED=NO`.
+`CONTRACT_STATUS=CANDIDATE_SOURCE / EXECUTION=BATCH_A / STANDALONE_DEV=NO / DEV_ALLOWED=NO_FROM_THIS_DOCUMENT`.
