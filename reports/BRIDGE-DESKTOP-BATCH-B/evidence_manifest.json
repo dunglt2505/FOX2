@@ -1,0 +1,40 @@
+{
+  "acceptance": "24 NOT_RUN; mandatory packaging launch failure",
+  "approved_base": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+  "control_commit": "801a68beaeae8db8e8841ef53b009fc064ed9fc1",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+  "files": [
+    {
+      "bytes": 4792,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/acceptance_gates.json",
+      "sha256": "c7654585351e16b7b94c47a780ee3f68d1ab9f5418a1de7b95d78d4dd121155c"
+    },
+    {
+      "bytes": 5201,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/preexecution.json",
+      "sha256": "23192256b236f31cf464de88e18d6f432ffdfab8a3ac7fc684217441a5b773bd"
+    },
+    {
+      "bytes": 459,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/publication_checks.json",
+      "sha256": "abd82047a4687a882ca40818c8ba87b3492af7435a6036865351741bf793b9da"
+    },
+    {
+      "bytes": 11079,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/verify_preexecution.py",
+      "sha256": "84cbb7762f7310ac48fcee466e58b11fcbf7ef8516d71873cd5acaacfc116b85"
+    },
+    {
+      "bytes": 2919,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
+      "sha256": "6d02558b0b3aadf9dde1c2f9c375c6e048fce2147c335ea368bbdecef56eb36d"
+    },
+    {
+      "bytes": 3122,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/report.md",
+      "sha256": "02f9a6bb7c79b32846f03f6c299d8b27a789ff8e8a9597bb6285e5930c7eb2aa"
+    }
+  ],
+  "manifest_self_hash": "Excluded to avoid recursive hashing; exact bytes verified through Git readback.",
+  "status": "BLOCKED_PREEXEC"
+}

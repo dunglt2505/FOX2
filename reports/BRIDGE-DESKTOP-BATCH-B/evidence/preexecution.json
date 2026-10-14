@@ -1,0 +1,135 @@
+{
+  "approved_base": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+  "bindings": {
+    "dictionary": {
+      "actual_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "commit": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+      "expected_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "hash_match": true,
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "worktree_canonical_bytes_match": true
+    },
+    "policy": {
+      "actual_sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "commit": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+      "expected_sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "hash_match": true,
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "worktree_canonical_bytes_match": true
+    },
+    "prompt": {
+      "actual_sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "blob_sha1_match": true,
+      "commit": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+      "expected_sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "hash_match": true,
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "worktree_canonical_bytes_match": true
+    },
+    "task": {
+      "actual_sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "commit": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+      "expected_sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "hash_match": true,
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "worktree_canonical_bytes_match": true
+    }
+  },
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "checked_at": "2026-10-14T16:28:04.798498+00:00",
+  "control_commit": "801a68beaeae8db8e8841ef53b009fc064ed9fc1",
+  "declared_build_system": {
+    "build-backend": "setuptools.build_meta",
+    "requires": [
+      "setuptools>=80,<90"
+    ]
+  },
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+  "dispatch_sha256": "533c310c842fa6a57771a33f4101a1f9ee3f49cb317d6540be7fe6dfa836f041",
+  "existing_ledger_observations": [
+    {
+      "ledger": "bridge.db",
+      "matching_dispatch_row_counts": {
+        "dispatches": 0,
+        "executions": 0,
+        "review_events": 0
+      },
+      "runtime": "FOX2-AgentBridge"
+    }
+  ],
+  "head": "fd84006c4152fa8f0cda7c5df7c0b4c56ac7d48b",
+  "launch_configuration": {
+    "installed_runtime_attestation": "NOT_RUN",
+    "process_model": "gpt-6.1-sol",
+    "process_reasoning_effort": "medium",
+    "process_sandbox": "danger-full-access",
+    "requested": {
+      "auto_tier": null,
+      "model": "gpt-6.1-sol",
+      "model_policy": "PINNED",
+      "permission_profile": "FULL_ACCESS",
+      "reasoning_effort": "medium"
+    },
+    "session_approval_policy": "never",
+    "sources": [
+      "Sanitized current Codex launch process inspection",
+      "Session permissions instructions"
+    ]
+  },
+  "lifecycle": {
+    "auto_retry": false,
+    "dispatch_claimed_by_this_attempt": false,
+    "dispatch_consumed_by_this_attempt": false,
+    "dispatch_replayed": false,
+    "existing_consumption": "NONE_OBSERVED_IN_KNOWN_RUNTIME_LEDGERS",
+    "implementation_started": false,
+    "installed_certification_started": false,
+    "next_action": "Return blocker evidence to CHAT; do not automatically start or replay this dispatch."
+  },
+  "packaging_gate": {
+    "dependencies_installed_by_this_attempt": false,
+    "material": true,
+    "missing": [
+      "setuptools>=80,<90"
+    ],
+    "native_archive_tools_available": true,
+    "native_archive_tools_note": "IExpress and tar availability does not establish the declared Python build backend or a certified deterministic installed runtime. Optional bundler absence alone is not the blocker.",
+    "reason": "The declared Python package build backend is not installed. No package build or installer implementation is attempted after this mandatory launch gate fails.",
+    "status": "MISSING"
+  },
+  "python_modules": {
+    "PyInstaller": false,
+    "build": false,
+    "jsonschema": true,
+    "pytest": true,
+    "setuptools": false,
+    "wheel": false
+  },
+  "python_version": "3.13.15",
+  "schema": {
+    "errors": [],
+    "full_draft_2020_12_validation": "PASS",
+    "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+    "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea"
+  },
+  "status": "BLOCKED_PREEXEC",
+  "tools_on_path": {
+    "codex": true,
+    "dotnet": false,
+    "git": true,
+    "iexpress.exe": true,
+    "iscc": false,
+    "makensis": false,
+    "msbuild": false,
+    "pwsh": true,
+    "python": true,
+    "schtasks.exe": true,
+    "tar.exe": true
+  },
+  "writer_observation": {
+    "competing_writer": "NONE_OBSERVED",
+    "initial_task_worktree_clean": true,
+    "limitation": "Observation is not an acquired execution lock; implementation was stopped before claim.",
+    "method": "Registered worktree inventory, clean task status, sanitized Windows process inspection; no Bridge Worker or second Batch B implementation process observed."
+  }
+}

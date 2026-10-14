@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "bounded_credential_pattern_scan": "PASS",
+    "generated_text_hygiene": "PASS",
+    "git_diff_check": "PASS",
+    "report_changed_path_allowlist": "PASS"
+  },
+  "limitations": [
+    "Credential-pattern scan is bounded and does not constitute installed diagnostics certification.",
+    "No Bridge tests or installed-runtime certification were run after the packaging STOP."
+  ],
+  "raw_agent_output_published": false,
+  "status": "PASS"
+}

@@ -1,0 +1,126 @@
+{
+  "count": 24,
+  "gates": [
+    {
+      "gate": "FIRST_RUN_SETUP",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "PER_USER_INSTALL",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "INSTALLER_PACKAGE",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "UPDATE_PATH",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "UNINSTALL_PATH",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "STARTUP_SINGLE_INSTANCE",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "SANITIZED_DIAGNOSTICS_BUNDLE",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "INSTALLED_TRAY_WORKER",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "PROJECT_DICTIONARY_BINDING",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "DISPATCH_V3_SCHEMA_BINDING",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "V2_COMPATIBILITY",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "V06_COMPATIBILITY",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "REAL_ELIGIBLE_FOX2_DISPATCH",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "EXACT_AGENT_CONFIGURATION",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "FULL_ACCESS_PERMISSION",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "RESULT_REMOTE_READBACK",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "USAGE_SNAPSHOT",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "RESTART_NO_REPLAY",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "FULL_BRIDGE_TESTS",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "CHANGED_PATH_ALLOWLIST",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "SECRET_SCAN",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    },
+    {
+      "gate": "GIT_DIFF_CHECK",
+      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
+      "status": "NOT_RUN"
+    }
+  ],
+  "no_installed_runtime_pass_claimed": true
+}
