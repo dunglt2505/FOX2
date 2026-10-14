@@ -1161,8 +1161,8 @@ Installer/community extraction is a separate release boundary and need not block
 
 This Candidate does not:
 
-- modify Policy V1.8.5;
-- modify Routing Index V1.2.6;
+- modify released Policy V1.8.6;
+- modify released Routing Index V1.2.7;
 - change FOX2 M1 market-data BRDs;
 - change existing accepted P2 application interfaces;
 - authorize Bridge code;
