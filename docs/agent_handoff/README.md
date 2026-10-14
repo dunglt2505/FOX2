@@ -1,12 +1,66 @@
 # FOX2 Git-first handoff entry point
 
-Library owns issued Policy/BRDs. SOURCE_INDEX.json is a derived exact-byte index, not a new release authority. Use Policy V1.5 and Result Contract v2 for new WPs;Protocol/Template/Intake guides v4 supersede v3 guidance. One GIT_SOURCE_READY decision before implementation: NO→SOURCE_PENDING,YES only with all WP-required remote/readback hashes. CHAT owns routine upload/recovery; WORK audits only when assigned. Old v1 reports and prepared M1-0 task remain historical; do not dispatch them as current grants.
+For all **new or re-scoped FOX2 work**, resolve the operating set from:
 
-1. CHAT supplies released source identity/hash and scoped task/grants. WORK validates Library; Copilot/Codex validate pinned Git/local copies, not Library access.
-2. CHAT completes and verifies every required source BEFORE assigning an implementation task; NO stays internally SOURCE_PENDING. CHAT syncs verified delta on a sole-writer non-main branch; readback determines SYNC_VERIFIED. Missing/stale/blocked sources cannot support DEV handoff.
-3. Task input: <WP_ID>/task.md and source_manifest.json at an immutable commit. Result: reports/<WP_ID>/report.md + evidence_manifest.json matching schema v2, with each material PASS linked to raw-hash evidence.
-4. After push supply full remote SHA externally. CHAT independently validates report/schema/diff/evidence at that SHA, then writes a separate review receipt on an authorized reviewer branch. No Agent self-acceptance.
+`docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`
 
-Current handoff baseline remains PARTIAL: released M1v0.4 bytes have been verified in Library but required Git mirrors are missing. Backend/frontend/tests contain only .gitkeep; service deployment and trading DEV are not ready. SOURCE_INDEX records per-file source state. No main push/merge/provider/LIVE in publisher grants.
+Current Dictionary resolution (Dictionary version 1.1):
 
-See SYNC_DELTA_WORKFLOW.md and the current WP task. Read branch at a pinned commit; branch labels are not evidence of deployability.
+- Policy: `docs/governance/FOX2_POLICY_V1.8.8.md`;
+- Routing Index: `docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_9_EFFECTIVE_ROUTING_INDEX_20261014.md`;
+- Dispatch Schema: `docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json`;
+- PreExec Evidence Protocol: `docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.md`;
+- Preflight Receipt Schema: `docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json`;
+- CHAT Preflight Intake: `docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.md`;
+- Git-first Protocol: `docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v11.md`;
+- Result Contract: `FOX2_AGENT_RESULT_SCHEMA_v2.json` + `FOX2_AGENT_RESULT_TEMPLATE_v4.md`;
+- CHAT Intake: `FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v9.md`.
+
+Do not independently hard-code these as "current" in code/handoff generators. Human docs may repeat them for readability, but machine consumers resolve from the Dictionary.
+
+## Project-wide pre-execution gate
+
+Every new/re-scoped executable FOX2 WP now follows:
+
+```text
+source/task ready
+ -> material preflight
+ -> durable PASS/BLOCKED/INFRA_FAILED receipt
+ -> CHAT remote readback
+ -> final assignment only after PASS
+ -> executable Dispatch
+ -> Agent execution
+```
+
+A preflight BLOCKED state is evidence, not an Agent result. It does not consume a dispatch and must be pushed to the exact task branch when safe Git publication is available.
+
+No task-local preflight may redefine this lifecycle.
+
+## Canonical current transport
+
+```text
+control branch = work/FOX2-DISPATCH-chat
+dispatch path  = docs/agent_handoff/DISPATCH/<dispatch_id>.json
+schema         = 3.0
+```
+
+The path is deliberately version-neutral.
+
+Legacy v2/v0.6 dispatch/control/path identities remain historical compatibility only according to the Dictionary.
+
+## Current operating rules
+
+1. CHAT resolves Project Dictionary first, then owns source binding/routing/preflight intake/result acceptance.
+2. Codex CLI / Copilot CLI are primary implementation engines.
+3. Normal coding permission currently resolves to `FULL_ACCESS`.
+4. Git delivery is dispatch-owned: AGENT or BRIDGE exactly; no duplicate publisher.
+5. Tool readiness is capability-based, not exact-version-based.
+6. One bounded WP continues through implementation/test/evidence/publication; do not create operational micro-WPs.
+7. Pre-start BLOCKED/INFRA_FAILED follows the project-wide PreExec contract; no executable Dispatch/Agent run/dispatch consumption.
+8. Post-start uncertainty -> `NEEDS_RECONCILIATION`, consumed, no blind replay/substitution.
+9. Supported dispatch schemas normalize into one execution representation.
+10. After publication CHAT independently reads exact remote SHA; `PUSHED_UNREVIEWED` is not acceptance.
+
+No main push, PR, merge, deploy, Production/provider write, broker write or LIVE right is created here.
+
+Historical Policy/protocol/schema/checklist files remain immutable evidence for already-bound legacy WPs.
