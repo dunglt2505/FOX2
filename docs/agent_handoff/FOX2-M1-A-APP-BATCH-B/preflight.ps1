@@ -19,6 +19,21 @@ function Get-WorktreeForBranch([string]$repo,[string]$branch) {
   return $null
 }
 
+function Resolve-AppTool([string]$name) {
+  $cmd = Get-Command $name -ErrorAction SilentlyContinue
+  if ($cmd) { return $cmd.Source }
+
+  $nodeHome = Join-Path $env:ProgramFiles "nodejs"
+  $fallback = switch ($name) {
+    "node" { Join-Path $nodeHome "node.exe" }
+    "npm"  { Join-Path $nodeHome "npm.cmd" }
+    "npx"  { Join-Path $nodeHome "npx.cmd" }
+    default { $null }
+  }
+  if ($fallback -and (Test-Path $fallback)) { return $fallback }
+  return $null
+}
+
 function Classify-AgentFailure([string]$text,[int]$code,[bool]$marker) {
   $t = $text.ToLowerInvariant()
   if ($t -match "auth|login|unauthorized|forbidden") { return "AUTH_REQUIRED" }
@@ -82,10 +97,10 @@ try {
   $publishable = $true
 
   foreach ($name in @("node","npm","npx")) {
-    $cmd = Get-Command $name -ErrorAction SilentlyContinue
-    if ($cmd) {
-      $ver = ((& $cmd.Source --version 2>&1 | Out-String).Trim())
-      $receipt.capabilities[$name] = [ordered]@{status="PASS";executable=$cmd.Source;version=$ver}
+    $toolPath = Resolve-AppTool $name
+    if ($toolPath) {
+      $ver = ((& $toolPath --version 2>&1 | Out-String).Trim())
+      $receipt.capabilities[$name] = [ordered]@{status="PASS";executable=$toolPath;version=$ver}
     } else {
       $receipt.capabilities[$name] = [ordered]@{status="MISSING";executable=$null;version=$null}
       $receipt.blockers += ("MISSING_" + $name.ToUpperInvariant())
