@@ -1,15 +1,15 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate REV2`  
+**Version:** `0.7 Candidate REV3`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
 **Governance:** FOX2 Policy V1.8.5 + Routing Index V1.2.6  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation and product packaging while preserving the simple transport/launcher boundary. REV2 locks GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model.
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature.
 
-> This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence.
+> This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence. The normative routing/telemetry requirements are defined by `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`; that contract is integrated into the Desktop plan and is **not** a separate DEV round.
 
 ## 1. Current baseline
 
@@ -175,6 +175,8 @@ executable = "auto"
 Exact file format may remain TOML to reuse current code.
 
 Configuration must not contain passwords, access tokens or embedded Agent subscription credentials.
+
+Per-task Agent/model selection is **dispatch-owned**, not global-config-owned. Global config may enable/locate an Agent, but MUST NOT silently choose or override a task's `model_policy`, Copilot `auto_tier`, Codex `model`, or Codex `reasoning_effort`.
 
 Initial v0.7 only needs **one actively scheduled project profile at a time**. Data structures should avoid hardcoding FOX2 so a later generic Core can enable additional profiles.
 
@@ -463,29 +465,82 @@ AgentAdapter:
     collect_result()
 ```
 
-No requirement that every adapter exposes identical model/quota details.
+Bridge executes the exact immutable Agent configuration supplied by CHAT. It does not decide routing.
+
+Canonical dispatch-owned execution tuple:
+
+```text
+Agent Product
++ Model Policy
++ Model or Auto Tier
++ Reasoning / Thinking
++ Scope
+```
+
+No silent substitution is allowed between CODEX and COPILOT, and Bridge must not change tier/model/reasoning based on quota, cost or runtime conditions.
 
 ### 11.1 Codex
 
-Current proven path is preserved:
+Current proven direct Codex CLI path is preserved, with the Desktop completion adding deterministic dispatch-owned model configuration:
 
-- direct Codex CLI;
 - exact worktree;
 - non-interactive prompt input;
 - bounded timeout;
 - workspace-write;
 - current Windows sandbox workaround where still required by installed CLI;
-- Bridge owns path/result/history verification and task-branch commit/push.
+- `model_policy = PINNED`;
+- exact `model` from dispatch;
+- exact `reasoning_effort` from dispatch;
+- structured result output when supported;
+- usage/quota extraction when officially exposed;
+- Bridge-owned path/result/history verification and authorized task-branch commit/push.
 
-Do not freeze current Codex CLI version/flag workarounds forever; adapter feature-detects supported behavior and tests changes.
+Codex must not fall back silently to a user-global model/reasoning setting when the immutable dispatch requires explicit values.
 
 ### 11.2 Copilot
 
-Current direct Copilot CLI E2E evidence is preserved.
+Current direct Copilot CLI E2E evidence is preserved and generalized for normal exact-product execution.
 
-Normal `run-next` may remain CODEX-only until an explicit product routing decision enables Copilot automatic selection. Explicit diagnostics/historical dispatch remain supported.
+Default model strategy:
 
-No silent fallback from CODEX to COPILOT or vice versa.
+```text
+model_policy = NATIVE_AUTO
+auto_tier = balance
+```
+
+CHAT may choose `efficiency`, `balance` or `intelligence`; GitHub Copilot selects the concrete model. Bridge does not emulate its own Auto router.
+
+Required Desktop completion behavior:
+
+- exact worktree;
+- bounded programmatic prompt;
+- `--no-ask-user` where supported;
+- machine-readable JSON result where supported;
+- dispatch-owned Auto tier;
+- optional dispatch-owned `max_ai_credits` execution bound;
+- usage/credit extraction when officially exposed;
+- no mutation of normal user-global Copilot settings per task;
+- process-scoped profile/isolation mechanism only after a host canary proves auth/session behavior;
+- existing bounded `--allow-tool` safety retained.
+
+Copilot Autopilot/YOLO/full-permission mode remains out of scope.
+
+### 11.3 Usage snapshot and runtime failure
+
+After either Agent exits, Bridge stores the newest usage/capacity information actually exposed by that CLI together with the execution result.
+
+Unknown/unexposed data remains `UNKNOWN` / `NOT_EXPOSED`; Bridge does not guess quota, model or availability.
+
+If quota/login/capacity failure occurs after Agent start:
+
+```text
+dispatch remains consumed
+-> NEEDS_RECONCILIATION
+-> no blind replay
+-> no automatic Agent substitution
+```
+
+The persisted snapshot becomes an input for the **next CHAT routing decision**. CHAT, not Bridge, performs reset normalization and routing/HOLD decisions.
 
 ## 12. Worktree ownership and Git behavior
 
@@ -520,8 +575,9 @@ Tray obtains local state through a user-scoped IPC contract and displays:
 - Worker state;
 - Git connection state;
 - selected project;
-- Codex availability;
-- Copilot availability;
+- Codex availability and latest usage snapshot when exposed;
+- Codex requested/observed model + reasoning and 5h/weekly reset state when available;
+- Copilot availability, credits, Auto tier and observed concrete model when exposed;
 - current dispatch/WP;
 - current Agent;
 - elapsed task time;
@@ -628,7 +684,10 @@ v0.7 additions may include:
 - Agent PID/process identity where safe;
 - remote result SHA;
 - last poll/backoff state;
-- user-visible error code.
+- user-visible error code;
+- requested Agent/model-policy/tier/model/reasoning tuple;
+- observed Agent/model/reasoning fields when exposed;
+- latest Agent usage/capacity snapshot, observation time, source and freshness.
 
 Schema migrations must preserve current execution evidence.
 
@@ -788,11 +847,22 @@ BRD-09 acceptance IDs map to implementation tests.
 - `T08`: crash at CLAIMED, RUNNING, AGENT_EXITED, PUBLISHING stages; reconcile correctly.
 - Kill Worker at deterministic fault-injection checkpoints and restart using same ledger.
 
-### Agent adapters
+### Agent adapters / routing / usage
 
 - `T09`: explicit CODEX and COPILOT canaries, no substitution.
 - `T10`: VS Code closed; CLI route still works.
 - Missing executable/login states map to T13 without paid health prompts.
+- Copilot dispatch `NATIVE_AUTO / balance` executes without Bridge selecting a concrete model.
+- Copilot `efficiency|balance|intelligence` tier is taken from immutable dispatch.
+- Codex exact model + reasoning effort are taken from immutable dispatch.
+- requested configuration is persisted; observed configuration is persisted only when exposed.
+- unexposed model/quota fields remain UNKNOWN/NOT_EXPOSED.
+- success and quota-failure results persist available usage telemetry.
+- Codex known five-hour reset is normalized by CHAT without resetting weekly state.
+- post-start quota failure becomes NEEDS_RECONCILIATION with no blind replay/substitution.
+- Tray renders usage/model state read-only and contains no routing logic.
+- Copilot process-scoped profile behavior passes one real-host canary before trusted use.
+- Copilot Autopilot/YOLO/full-permission mode remains disabled.
 
 ### Safety
 
@@ -811,76 +881,62 @@ BRD-09 acceptance IDs map to implementation tests.
 - `T21`: project profile switches repository/worktree/control config without Core source edit.
 - `T22`: standalone package scan/license/sanitization gate.
 
-## 23. Productization work packages
+## 23. Productization execution plan — consolidated batches
 
-Recommended sequence, runnable in parallel with FOX2 application work when writer paths are disjoint:
+The historical Desktop IDs remain useful for traceability, but implementation is intentionally batched to avoid repeated edits to the same adapters, ledger, worker and Tray code.
 
-### `BRIDGE-DESKTOP-01 — Background Worker & Reconciliation`
+### Gate — `BRIDGE-DESKTOP-01-02-FIX-01`
 
-Scope:
-- GitHub mailbox signal probe using lightweight control-ref SHA comparison;
-- continuous watcher loop;
-- durable last-seen/processed control SHA;
-- healthy ~30s polling plus manual Check now;
-- pause state;
-- bounded offline backoff;
-- restart/crash reconciliation;
-- single-instance worker;
-- relevant ledger migration;
-- CLI commands for `start/stop/pause/resume/watch`.
+This is the current corrective task only.
 
-Exit:
-- remote-ref unchanged => no full fetch and zero Agent invocation;
-- control-ref change => exact dispatch discovered through outbound Git only;
-- dynamic IP/NAT causes no functional dependency;
-- offline/backoff/reconnect tests pass;
-- dispatch published while PC offline is discovered after restart/wake;
-- restart/no-replay fault tests pass;
-- no Tray required yet.
+- keep its frozen corrective scope unchanged;
+- do not inject routing/usage features into the in-flight fix;
+- require PASS/readback before rebasing the next Bridge implementation batch.
 
-### `BRIDGE-DESKTOP-02 — System Tray & Startup`
+### Batch A — `BRIDGE-DESKTOP-BATCH-A: CORE + ROUTING + USAGE + TRAY`
 
-Depends on Desktop-01 interfaces.
+This is **one implementation round** after FIX-01 PASS. It absorbs the remaining related scope of historical Desktop-01, Desktop-02 and `FOX2-AGENT-USAGE-TELEMETRY-01`.
 
-Scope:
-- local IPC;
-- Tray states/actions;
-- Start with Windows;
-- notifications;
-- graceful exit.
+Implement together because these features share the same runtime paths:
 
-Exit:
-- T01/T02/T03/T04/T13/T16.
+- background Worker / Git mailbox polling;
+- single-instance, pause/resume/check-now;
+- restart/crash reconciliation and no-replay semantics;
+- AgentAdapterRegistry generalized for exact CODEX or COPILOT dispatch;
+- immutable routing tuple;
+- Copilot `NATIVE_AUTO` + dispatch-owned Auto tier;
+- Codex pinned model + reasoning effort;
+- structured requested/observed execution result;
+- usage/quota extraction when exposed;
+- ledger migration for routing + usage snapshots;
+- post-start quota/login failure reconciliation;
+- CHAT-readable status surface;
+- Tray IPC/status/startup behavior;
+- Tray read-only usage/model display;
+- Copilot runtime-profile canary;
+- bounded permissions, no Autopilot/YOLO.
 
-### `BRIDGE-DESKTOP-03 — Setup & Packaging`
+Exit Batch A only when Worker/recovery, both Agent paths, model policy, telemetry persistence and Tray status pass together. Do not close only the UI while adapter/ledger behavior remains pending.
 
-Scope:
+### Batch B — `BRIDGE-DESKTOP-BATCH-B: SETUP + PACKAGE + REAL CERTIFICATION`
+
+This is the second and final internal-productization round. It absorbs historical Desktop-03 and Desktop-04:
+
 - first-run setup;
 - installed per-user runtime layout;
 - installer/update/uninstall;
-- sanitized logs/support bundle if needed.
+- sanitized logs/support bundle if needed;
+- one real eligible FOX2 WP through the background Bridge;
+- real selected Agent/model-policy execution;
+- result push/readback;
+- usage snapshot available for next CHAT routing;
+- restart proves no replay.
 
-Exit:
-- T18/T19/T20.
+Exit Batch B when the installed Bridge is usable for normal FOX2 operation and one real WP has passed end-to-end CHAT readback.
 
-### `BRIDGE-DESKTOP-04 — Real FOX2 WP Certification`
+### Later only — `BRIDGE-DESKTOP-05: Standalone/Community Extraction`
 
-Use a real, independently eligible FOX2 WP rather than another trivial canary.
-
-Prove:
-- CHAT dispatch;
-- background Worker discovery;
-- real selected Agent CLI;
-- tests;
-- non-main Git result;
-- CHAT readback;
-- restart does not replay.
-
-Do not force a currently in-progress manually-owned WP to switch execution path mid-flight.
-
-### `BRIDGE-DESKTOP-05 — Standalone/Community Extraction`
-
-Only after FOX2 workflow is stable.
+Keep this outside internal FOX2 readiness. Start only after the internal Bridge is stable.
 
 Scope:
 - generic project profile;
@@ -902,19 +958,21 @@ Bridge Desktop work can run in parallel with application P2-02 only if:
 
 Technical Spec Candidate itself grants no writer.
 
-## 25. Definition of Ready for Desktop-01 implementation
+## 25. Definition of Ready for Batch A
 
-Before coding:
+Before Batch A coding:
 
-1. BRD-09 and v0.7 source are Owner-approved/released or explicitly bound as executable Candidate by Owner decision.
-2. exact `agent_bridge/**` base commit chosen;
-3. existing Bridge WIP/branch landscape checked;
-4. one dedicated writer/worktree reserved;
-5. exact allowed code/test/report paths defined;
-6. latest Operational MVP tests/evidence reused; no BRG-003 reimport;
-7. Python/runtime/Agent tool availability checked only as materially needed;
-8. no overlap with active FOX2 application writer;
-9. STOP conditions and result paths bound.
+1. `BRIDGE-DESKTOP-01-02-FIX-01` is PASS and its immutable remote result is read back.
+2. BRD-09, v0.7 REV3 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
+3. exact post-FIX `agent_bridge/**` base commit is chosen.
+4. one dedicated writer/worktree is reserved.
+5. exact allowed code/test/report paths are defined.
+6. latest Relay/Desktop evidence is reused; no already-proven work is reimplemented.
+7. Python/runtime/Agent tool availability is checked only as materially needed.
+8. no overlap with another active Bridge writer.
+9. STOP conditions and result paths are bound.
+
+The intent is one whole Batch A assignment, not a chain of micro-WPs.
 
 ## 26. Definition of Done for v0.7 productization
 
@@ -926,8 +984,12 @@ v0.7 may be considered product-ready for the Owner's normal Windows use when:
 - Pause/resume semantics are correct;
 - completed dispatch survives reboot/restart without replay;
 - uncertain crash is reconciled without blind duplicate launch;
-- Codex direct route remains E2E functional;
-- Copilot direct route remains supported/tested or explicitly classified degraded;
+- Codex direct route remains E2E functional with dispatch-pinned model/reasoning;
+- Copilot direct route remains E2E functional with dispatch-owned Native Auto tier or is explicitly classified degraded;
+- requested/observed Agent configuration is persisted correctly;
+- available usage telemetry is persisted for both Agent result paths;
+- post-start quota failure reconciles without replay/substitution;
+- Tray shows model/usage state read-only without routing authority;
 - no visible PowerShell is required for normal operation;
 - first-run setup reports Ready/Degraded accurately;
 - secrets/logging/path boundaries pass;
@@ -948,6 +1010,7 @@ This Candidate does not:
 - merge to main;
 - enable provider/broker/LIVE;
 - declare hardened publisher trust PASS;
-- declare BRD-09 acceptance tests PASS.
+- declare BRD-09 acceptance tests PASS;
+- create a separate DEV round for `FOX2-AGENT-USAGE-TELEMETRY-01`; its requirements are absorbed into Batch A.
 
-`TECH_V0_7_STATUS=CANDIDATE_REV2 / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV3 / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
