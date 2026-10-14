@@ -627,6 +627,26 @@ Required behavior:
 
 The preflight is technical enforcement, not governance or routing.
 
+### 11.2B Canonical generated-artifact pipeline
+
+Batch A owns one canonical generated-artifact pipeline for Bridge-produced text evidence. This is a shared infrastructure concern, not a sequence of file-specific corrective WPs.
+
+The pipeline covers generated textual artifacts such as JSON, XML, TXT, MD, LOG and CSV under the active Bridge report/evidence scope and enforces:
+
+- UTF-8 text encoding;
+- LF line endings for generated text artifacts unless a task explicitly requires another byte format;
+- no trailing whitespace;
+- exactly one final newline where applicable;
+- deterministic serialization where practical;
+- post-generation text-hygiene validation before publication;
+- `git diff --check` as a final repository hygiene gate.
+
+Generators SHOULD use shared helpers rather than each writer choosing its own newline/serialization behavior. Generated binary or byte-preservation evidence remains exempt and is validated by its own format contract.
+
+Operational Git state such as a non-empty index is not a reason to create a new corrective WP. If the current task contract requires an unstaged index, Bridge/CHAT reconcile the Git state and rerun validation. Only a reproducible generator or validator defect becomes implementation work.
+
+The intent is to eliminate repeated micro-fixes such as per-file CRLF cleanup. Batch A should implement and test the common pipeline once, then reuse it for future Bridge evidence.
+
 ### 11.3 Usage snapshot and runtime failure
 
 After either Agent exits, Bridge stores the newest usage/capacity information actually exposed by that CLI together with the execution result.
@@ -965,6 +985,7 @@ BRD-09 acceptance IDs map to implementation tests.
 - FULL_ACCESS permission profile is applied exactly for both Agent products.
 - requested/effective permission profile is recorded; mismatch blocks before launch.
 - no silent permission downgrade occurs.
+- canonical generated text evidence is UTF-8/LF, free of trailing whitespace and passes repository hygiene checks.
 - Tray renders usage/model/permission state read-only and contains no routing logic.
 - Copilot process-scoped profile behavior passes one real-host canary before trusted use.
 - Copilot Full Access permission is enabled by dispatch; Autopilot remains separately controlled and is not implied by `--allow-all`/`--yolo` permission semantics.
@@ -1021,6 +1042,7 @@ Implement together because these features share the same runtime paths:
 - Copilot runtime-profile canary;
 - CLI-FIRST permission profile handling;
 - capability-based tool/runtime compatibility preflight using the Material Tool Compatibility Rule;
+- canonical generated-artifact pipeline and shared text-hygiene gate;
 - Full Access by default for Codex/Copilot coding execution;
 - `AGENT_PERMISSION_PREFLIGHT` with fail-closed no-downgrade behavior;
 - Autopilot remains separately controlled and is not implied by Full Access.
