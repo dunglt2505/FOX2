@@ -4,15 +4,15 @@ For all **new or re-scoped FOX2 work**, resolve the operating set from:
 
 `docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`
 
-Current Dictionary resolution (Dictionary version 1.1):
+Current Dictionary resolution (Dictionary version 1.2):
 
-- Policy: `docs/governance/FOX2_POLICY_V1.8.8.md`;
-- Routing Index: `docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_9_EFFECTIVE_ROUTING_INDEX_20261014.md`;
+- Policy: `docs/governance/FOX2_POLICY_V1.8.9.md`;
+- Routing Index: `docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md`;
 - Dispatch Schema: `docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json`;
-- PreExec Evidence Protocol: `docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.md`;
+- PreExec Evidence Protocol: `docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md`;
 - Preflight Receipt Schema: `docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json`;
-- CHAT Preflight Intake: `docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.md`;
-- Git-first Protocol: `docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v11.md`;
+- CHAT Preflight Intake: `docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md`;
+- Git-first Protocol: `docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md`;
 - Result Contract: `FOX2_AGENT_RESULT_SCHEMA_v2.json` + `FOX2_AGENT_RESULT_TEMPLATE_v4.md`;
 - CHAT Intake: `FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v9.md`.
 
@@ -33,6 +33,12 @@ source/task ready
 ```
 
 A preflight BLOCKED state is evidence, not an Agent result. It does not consume a dispatch and must be pushed to the exact task branch when safe Git publication is available.
+
+Alternative Agent routing is project-wide:
+- individual allowed-Agent probes are normally non-material routing evidence;
+- `eligible_agent_route` is the material aggregate gate;
+- at least one candidate PASS is sufficient unless the task explicitly pins a specific Agent;
+- CHAT performs the final route selection; no runner/Bridge silently substitutes.
 
 No task-local preflight may redefine this lifecycle.
 
