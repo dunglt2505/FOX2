@@ -1,13 +1,13 @@
 # FOX2 — Local Agent Bridge Technical Specification v0.7 Candidate
 
 **Document ID:** `FOX2-LOCAL-AGENT-BRIDGE-SPEC`  
-**Version:** `0.7 Candidate REV8`  
+**Version:** `0.7 Candidate REV9`  
 **Status:** `CANDIDATE / DESKTOP_BACKGROUND_PRODUCTIZATION / NO_DEV_GRANT`  
 **Date:** 2026-10-14  
 **Predecessor:** v0.6 `RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP`  
 **Product owner BRD:** `FOX2-BRD-09_v0.1_CANDIDATE.md`  
-**Governance:** Project Dictionary v1 -> FOX2 Policy V1.8.7 + Routing Index V1.2.8  
-**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate. REV6 aligns Git delivery ownership back to Policy V1.8.5: the selected Agent may deliver the authorized non-main result when `git_code_push=YES`; Bridge-managed publication is used only when the immutable dispatch explicitly selects Bridge as publisher. REV7 bound the Bridge productization source to Policy V1.8.6 / Routing V1.2.7. REV8 makes FOX2 Project Dictionary v1 the single machine-readable identity/compatibility source: current/supported dispatch schemas, control branches and dispatch path conventions are no longer independently hard-coded in Bridge modules; supported external schemas normalize into one internal execution representation.
+**Governance:** Project Dictionary v1.1 -> FOX2 Policy V1.8.8 + Routing Index V1.2.9  
+**Purpose:** evolve the already-proven Bridge Relay MVP into a reliable Windows background utility with Tray, Start-with-Windows, restart reconciliation, deterministic dual-Agent execution, usage telemetry and product packaging while preserving the simple transport/launcher boundary. REV2 locked GitHub-as-durable-mailbox + local outbound pull as the V1 signaling model. REV3 integrates Agent model-policy and usage telemetry into the normal Desktop implementation batches so they are built once with the same adapters, ledger, recovery and Tray surfaces rather than as a later standalone feature. REV4 locks the CLI-FIRST + FULL_ACCESS_DEFAULT execution baseline: CHAT owns permission authority, while Bridge applies and verifies the exact immutable permission profile at local launch. REV5 adds the Material Tool Compatibility Rule: exact tool/runtime version equality is not a hard gate by itself; capability sufficiency for the current task is the gate. REV6 aligns Git delivery ownership back to Policy V1.8.5: the selected Agent may deliver the authorized non-main result when `git_code_push=YES`; Bridge-managed publication is used only when the immutable dispatch explicitly selects Bridge as publisher. REV7 bound the Bridge productization source to Policy V1.8.6 / Routing V1.2.7. REV8 makes FOX2 Project Dictionary v1 the single machine-readable identity/compatibility source: current/supported dispatch schemas, control branches and dispatch path conventions are no longer independently hard-coded in Bridge modules; supported external schemas normalize into one internal execution representation. REV9 adds the project-wide PreExec Evidence Protocol: local readiness/probe failures before executable Dispatch publication must produce durable sanitized receipts when Git publication is safe, must not consume a dispatch, and must never emit a PUSHED marker before remote readback.
 
 > This Candidate does not reopen proven Relay MVP work. It specifies the next productization layer and reuses existing `agent_bridge/**` core/adapters/ledger/E2E evidence. The normative routing/telemetry requirements are defined by `FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md`; that contract is integrated into the Desktop plan and is **not** a separate DEV round.
 
@@ -667,7 +667,40 @@ Required behavior:
 
 The preflight is technical enforcement, not governance or routing.
 
-### 11.2B Canonical generated-artifact pipeline
+### 11.2B Project-wide pre-execution evidence integration
+
+Bridge-owned/shared local tooling participates in the FOX2-wide pre-execution contract without becoming a routing authority.
+
+The pre-execution phase occurs **before executable Dispatch publication**. Therefore the normal Worker dispatch-consumption path is not used merely to discover whether the host/Agent/toolchain is ready.
+
+Preferred shared implementation boundary:
+
+```text
+CHAT-bound task requirements
+ -> shared local preflight library/CLI
+ -> material capability + worktree + Agent probe observations
+ -> FOX2 Preflight Receipt Schema v1
+ -> exact task-branch Git publication
+ -> CHAT Preflight Intake
+ -> executable Dispatch only after PASS_TO_ASSIGN
+```
+
+Required Bridge/tooling behavior:
+
+- expose reusable capability/readiness probes rather than copy/paste task-specific state machines;
+- keep routing decisions outside Bridge;
+- emit only sanitized blocker classes and bounded evidence;
+- distinguish `BLOCKED` from `INFRA_FAILED`;
+- preserve `dispatch_consumed=NO` and `agent_execution_started=false` for pre-execution receipts;
+- use canonical UTF-8/LF artifact generation;
+- cleanup may remove only objectively stale preflight-owned evidence; unrelated WIP blocks;
+- do not claim `RECEIPT_PUSHED` until exact commit/push/remote readback succeeds;
+- a minimal Agent probe must not modify product code and must not silently substitute product/model/tier/reasoning/permission;
+- task-specific material checks extend the common receipt schema; they do not fork the project-wide lifecycle.
+
+Launch-time `AGENT_PERMISSION_PREFLIGHT` after Dispatch validation remains a separate defense-in-depth check. It does not replace the pre-dispatch project-wide receipt.
+
+### 11.2C Canonical generated-artifact pipeline
 
 Batch A owns one canonical generated-artifact pipeline for Bridge-produced text evidence. This is a shared infrastructure concern, not a sequence of file-specific corrective WPs.
 
@@ -717,7 +750,7 @@ Before Agent launch:
 
 ### 12.1 Git publication authority follows the dispatch
 
-Project Dictionary v1 resolves the controlling Policy; Policy V1.8.7 remains controlling. The execution lane that owns the WP may deliver its authorized non-main result when the handoff binds `git_code_push=YES`.
+Project Dictionary v1.1 resolves the controlling Policy; Policy V1.8.8 remains controlling. The execution lane that owns the WP may deliver its authorized non-main result when the handoff binds `git_code_push=YES`.
 
 Canonical behavior:
 
@@ -1161,7 +1194,7 @@ Technical Spec Candidate itself grants no writer.
 Before Batch A coding:
 
 1. `BRIDGE-DESKTOP-01-02-FIX-01` is PASS and its immutable remote result is read back.
-2. BRD-09 REV3, Project Dictionary v1, v0.7 REV8 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
+2. BRD-09 REV3, Project Dictionary v1.1, v0.7 REV9, PreExec Evidence Protocol v1 and the Agent Usage/CHAT Routing Contract are Owner-approved/released or explicitly bound as executable Candidates.
 3. exact post-FIX `agent_bridge/**` base commit is chosen.
 4. one dedicated writer/worktree is reserved.
 5. exact allowed code/test/report paths are defined.
@@ -1201,8 +1234,8 @@ Installer/community extraction is a separate release boundary and need not block
 
 This Candidate does not:
 
-- modify released Policy V1.8.6;
-- modify released Routing Index V1.2.7;
+- modify released Policy semantics outside the project-wide PreExec Evidence change released by Policy V1.8.8;
+- modify released Routing semantics outside Routing Index V1.2.9;
 - change FOX2 M1 market-data BRDs;
 - change existing accepted P2 application interfaces;
 - authorize Bridge code;
@@ -1213,4 +1246,4 @@ This Candidate does not:
 - declare BRD-09 acceptance tests PASS;
 - create a separate DEV round for `FOX2-AGENT-USAGE-TELEMETRY-01`; its requirements are absorbed into Batch A.
 
-`TECH_V0_7_STATUS=CANDIDATE_REV8 / GOVERNANCE=PROJECT_DICTIONARY_V1_POLICY_V1.8.7_ROUTING_V1.2.8 / IDENTITY_BINDING=GENERATED_FROM_DICTIONARY / DISPATCH_COMPATIBILITY=3.0_PLUS_2.0_PLUS_0.6_NORMALIZED / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / GIT_DELIVERY=DISPATCH_OWNED_POLICY_ALIGNED / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
+`TECH_V0_7_STATUS=CANDIDATE_REV9 / GOVERNANCE=PROJECT_DICTIONARY_V1.1_POLICY_V1.8.8_ROUTING_V1.2.9 / IDENTITY_BINDING=GENERATED_FROM_DICTIONARY / DISPATCH_COMPATIBILITY=3.0_PLUS_2.0_PLUS_0.6_NORMALIZED / BASELINE=CLI_FIRST_FULL_ACCESS_DEFAULT_PLUS_MATERIAL_TOOL_COMPATIBILITY / GIT_DELIVERY=DISPATCH_OWNED_POLICY_ALIGNED / EXECUTION_PLAN=FIX01_THEN_BATCH_A_THEN_BATCH_B / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT / ACCEPTANCE=NOT_RUN`.
