@@ -1,0 +1,20 @@
+{
+  "status": "CI_AUTHORIZED_BY_OWNER_FOR_BRANCH_ONLY",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-APP-V1",
+  "purpose": "Windows build + smoke + publish artifact for FOX2 Bridge Desktop App v1",
+  "workflow": ".github/workflows/fox2-bridge-desktop-v1-ci.yml",
+  "permissions": {
+    "contents": "read"
+  },
+  "prohibited": [
+    "main push",
+    "PR creation",
+    "merge",
+    "deploy",
+    "provider access",
+    "broker write",
+    "LIVE",
+    "secret output"
+  ],
+  "expected_artifact": "FOX2-Bridge-Desktop-v1-win-x64"
+}

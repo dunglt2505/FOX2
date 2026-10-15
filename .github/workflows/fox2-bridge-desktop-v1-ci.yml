@@ -1,0 +1,50 @@
+name: FOX2 Bridge Desktop v1 CI
+
+on:
+  push:
+    branches:
+      - work/FOX2-BRIDGE-DESKTOP-APP-V1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout exact branch commit
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build, smoke and publish
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -File agent_bridge/desktop_app/build.ps1
+
+      - name: Verify build result
+        shell: pwsh
+        run: |
+          $result = Get-Content agent_bridge/desktop_app/artifacts/build-result.json -Raw | ConvertFrom-Json
+          if ($result.status -ne 'PASS' -or $result.smoke -ne 'PASS') {
+            throw 'FOX2 Bridge Desktop build result is not PASS'
+          }
+          if (-not (Test-Path agent_bridge/desktop_app/artifacts/publish/FOX2.Bridge.Desktop.exe)) {
+            throw 'Published executable missing'
+          }
+
+      - name: Upload desktop package
+        uses: actions/upload-artifact@v4
+        with:
+          name: FOX2-Bridge-Desktop-v1-win-x64
+          path: |
+            agent_bridge/desktop_app/artifacts/publish/**
+            agent_bridge/desktop_app/artifacts/build-result.json
+          if-no-files-found: error
+          retention-days: 14
