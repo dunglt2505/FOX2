@@ -1,8 +1,7 @@
 {
-  "status": "TESTS_PASSED_PUBLICATION_PENDING",
+  "status": "IMPLEMENTATION_PUSHED_UNREVIEWED",
   "implementation_base": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
-  "resulting_commit": null,
-  "current_head": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "resulting_commit": "0be8a52b9622bf70dcb21fd2d35ddf913b17a635",
   "exact_changed_paths": [
     "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
     "agent_bridge/tests/test_dispatch_poller.py",
@@ -17,7 +16,17 @@
   "product_fix_state": "Existing bounded product correction preserved; focused and full source regressions PASS.",
   "installed_certification": "NOT rerun",
   "canary_009": "NOT run",
-  "publication": "Commit, push and exact remote SHA/readback pending",
+  "publication": "Implementation committed and pushed only to work/FOX2-BRIDGE-DESKTOP-BATCH-B; exact remote SHA and fetched six-file readback PASS.",
   "first_run_classification": "TEST_INVOCATION_ENVIRONMENT",
-  "corrected_pythonpath": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\agent_bridge\\src"
+  "corrected_pythonpath": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\agent_bridge\\src",
+  "implementation_commit": "0be8a52b9622bf70dcb21fd2d35ddf913b17a635",
+  "remote_readback": {
+    "status": "PASS",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "local_implementation_head": "0be8a52b9622bf70dcb21fd2d35ddf913b17a635",
+    "remote_implementation_head": "0be8a52b9622bf70dcb21fd2d35ddf913b17a635",
+    "fetched_head": "0be8a52b9622bf70dcb21fd2d35ddf913b17a635",
+    "changed_file_blobs_verified": 6
+  },
+  "evidence_only_followup": "This evidence-only commit records the verified implementation SHA. Its final remote head is reported after push/readback in the reconciliation response."
 }
