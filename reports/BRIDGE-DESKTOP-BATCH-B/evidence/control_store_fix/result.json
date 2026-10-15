@@ -1,0 +1,23 @@
+{
+  "status": "TESTS_PASSED_PUBLICATION_PENDING",
+  "implementation_base": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "resulting_commit": null,
+  "current_head": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "exact_changed_paths": [
+    "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+    "agent_bridge/tests/test_dispatch_poller.py",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/root_cause.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/tests.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/result.json"
+  ],
+  "focused_test_result": "40 passed in 30.66s",
+  "full_bridge_test_result": "380 passed in 210.41s (0:03:30)",
+  "product_defect_fixed": true,
+  "product_fix_state": "Existing bounded product correction preserved; focused and full source regressions PASS.",
+  "installed_certification": "NOT rerun",
+  "canary_009": "NOT run",
+  "publication": "Commit, push and exact remote SHA/readback pending",
+  "first_run_classification": "TEST_INVOCATION_ENVIRONMENT",
+  "corrected_pythonpath": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\agent_bridge\\src"
+}

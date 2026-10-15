@@ -1,0 +1,36 @@
+{
+  "status": "PREPUBLICATION_CHECKS_PASS",
+  "initial_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "initial_head": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "initial_worktree": "CLEAN",
+  "initial_remote_head": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "competing_writer": "NONE_OBSERVED; matching Codex process was current task agent",
+  "diff_check": "PASS; git diff --check against implementation base",
+  "changed_path_allowlist": "PASS; exact six authorized paths only",
+  "secret_scan": "PASS; added code and complete evidence scanned for GitHub/AWS tokens, private keys, credential URLs and assigned secrets; no findings",
+  "actions": {
+    "commit": false,
+    "push": false,
+    "main": false,
+    "pr": false,
+    "merge": false,
+    "deploy": false,
+    "provider": false,
+    "broker": false,
+    "live": false
+  },
+  "remote_readback": "PENDING publication",
+  "no_paths_outside_authorized_scope_changed": true,
+  "exact_changed_paths": [
+    "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+    "agent_bridge/tests/test_dispatch_poller.py",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/result.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/root_cause.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/control_store_fix/tests.json"
+  ],
+  "final_local_head": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "prohibited_actions_evidence": "Only source tests and Git/evidence reconciliation performed. Installed certification, Resume/Check-now, Canary 009, main, PR, merge, deploy, provider, broker and LIVE actions NOT run.",
+  "code_and_test_patch_preserved": "PASS; SHA-256 hashes match initial reconciliation inspection",
+  "evidence_encoding": "PASS; valid UTF-8 without BOM and LF only"
+}

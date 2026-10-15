@@ -1,0 +1,20 @@
+{
+  "implementation_base": "d9d71d99a6ddea2ab0521c566e3d4a179bde9e2c",
+  "preexec_source_binding": "ac41a7e0b543e79e470bed46b1aeb0101ba77405",
+  "defect": "Production GitTransport validated installed per-user control.git against the legacy project-root data directory, blocking transport with STORE_PATH_INVALID.",
+  "security": "Repository URL validation, credential rejection, resolved-path containment, bare-store verification, and no-prompt Git behavior unchanged.",
+  "historical_final_closure": "INVALID/SUPERSEDED; not evidence of Bridge READY; historical files unchanged",
+  "first_run_import_failure": {
+    "classification": "TEST_INVOCATION_ENVIRONMENT",
+    "error": "ModuleNotFoundError: No module named 'fox2_agent_bridge'",
+    "phase": "conftest import before collection",
+    "product_failure": false,
+    "cause": "Direct source diagnostics require PYTHONPATH for the setuptools src-layout.",
+    "source_readme": "agent_bridge/README.md:150",
+    "corrected_pythonpath": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\agent_bridge\\src",
+    "correction": "Launcher set PYTHONPATH to this task worktree agent_bridge/src before this process started."
+  },
+  "fix": "Import canonical BRIDGE_ROOT from paths.py and resolve containment under BRIDGE_ROOT/data.",
+  "product_defect_fixed": true,
+  "validation": "Focused and full Bridge source regression tests PASS; installed certification NOT rerun."
+}

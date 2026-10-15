@@ -21,6 +21,7 @@ from fox2_agent_bridge.dispatch_poller import (
 from fox2_agent_bridge.errors import DatabaseError, TransportFailure
 from fox2_agent_bridge.ledger import SCHEMA_VERSION, SQLiteLedger
 from fox2_agent_bridge.logging_config import configure_logging
+from fox2_agent_bridge.paths import BRIDGE_ROOT
 
 
 def run_git(cwd: Path, *arguments: str, check: bool = True) -> str:
@@ -439,6 +440,60 @@ def test_wrong_or_credential_bearing_remote_is_rejected(url: str) -> None:
     assert exc.value.status == "TRANSPORT_BLOCKED"
     assert exc.value.reason == "REPOSITORY_MISMATCH"
     assert "synthetic-fixture" not in exc.value.message
+
+
+def test_production_per_user_store_is_accepted() -> None:
+    transport = GitTransport(
+        git_executable=Path("git"),
+        store_path=BRIDGE_ROOT / "data" / "control.git",
+        allow_local_remote=False,
+    )
+
+    transport._validate_store()
+
+    assert transport._canonical_url == CANONICAL_REMOTE_URL
+
+
+@pytest.mark.parametrize(
+    "store_path",
+    [
+        BRIDGE_ROOT / "control.git",
+        BRIDGE_ROOT / "data-other" / "control.git",
+        BRIDGE_ROOT / "data" / ".." / "control.git",
+        Path(r"C:\Projects\FOX2-AgentBridge") / "data" / "control.git",
+    ],
+)
+def test_production_store_outside_bridge_data_is_blocked(store_path: Path) -> None:
+    transport = GitTransport(
+        git_executable=Path("git"),
+        store_path=store_path,
+        allow_local_remote=False,
+    )
+
+    with pytest.raises(TransportFailure) as exc:
+        transport._validate_store()
+
+    assert exc.value.status == "TRANSPORT_BLOCKED"
+    assert exc.value.reason == "STORE_PATH_INVALID"
+
+
+@pytest.mark.parametrize(
+    "remote_url",
+    ["https://github.com/else/FOX2.git", _synthetic_credentialed_remote()],
+)
+def test_production_store_preserves_remote_validation(remote_url: str) -> None:
+    transport = GitTransport(
+        git_executable=Path("git"),
+        store_path=BRIDGE_ROOT / "data" / "control.git",
+        remote_url=remote_url,
+        allow_local_remote=False,
+    )
+
+    with pytest.raises(TransportFailure) as exc:
+        transport._validate_store()
+
+    assert exc.value.status == "TRANSPORT_BLOCKED"
+    assert exc.value.reason == "REPOSITORY_MISMATCH"
 
 
 def test_wrong_repository_is_blocked_before_git_commands(git_fixture: GitFixture) -> None:

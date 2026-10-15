@@ -1,0 +1,36 @@
+{
+  "first_run": {
+    "classification": "TEST_INVOCATION_ENVIRONMENT",
+    "error": "ModuleNotFoundError: No module named 'fox2_agent_bridge'",
+    "phase": "conftest import before collection",
+    "product_failure": false,
+    "cause": "Direct source diagnostics require PYTHONPATH for the setuptools src-layout.",
+    "source_readme": "agent_bridge/README.md:150",
+    "corrected_pythonpath": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\agent_bridge\\src",
+    "correction": "Launcher set PYTHONPATH to this task worktree agent_bridge/src before this process started."
+  },
+  "focused": {
+    "command": "python -m pytest agent_bridge/tests/test_dispatch_poller.py agent_bridge/tests/test_ops_runner.py -q",
+    "status": "PASS",
+    "exit_code": 0,
+    "passed": 40,
+    "duration_seconds": 30.66,
+    "output": "40 passed in 30.66s"
+  },
+  "full_bridge": {
+    "command": "python -m pytest agent_bridge/tests -q",
+    "status": "PASS",
+    "exit_code": 0,
+    "passed": 380,
+    "duration_seconds": 210.41,
+    "output": "380 passed in 210.41s (0:03:30)"
+  },
+  "regression_coverage_verified": [
+    "Production BRIDGE_ROOT/data/control.git with allow_local_remote=False",
+    "Outside-root, sibling-prefix, parent-traversal and legacy-root stores rejected",
+    "Production store retains wrong-repository and credential-bearing URL rejection"
+  ],
+  "installed_certification": "NOT rerun",
+  "canary_009": "NOT run",
+  "resume_check_now": "NOT run"
+}

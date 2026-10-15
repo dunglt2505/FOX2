@@ -15,6 +15,7 @@ from .config import REPOSITORY, BridgeConfig
 from .errors import DatabaseError, TransportFailure
 from .ledger import SQLiteLedger, utc_now
 from .logging_config import log_event, redact_context
+from .paths import BRIDGE_ROOT
 from .project_dictionary import DISPATCH_PATH_PATTERNS
 
 CONTROL_REF = "refs/bridge/control"
@@ -167,7 +168,7 @@ class GitTransport:
     def _validate_store(self) -> None:
         if not self.allow_local_remote:
             self._canonical_url = canonical_repository_url(self.remote_url)
-        bridge_data = (Path(r"C:\Projects\FOX2-AgentBridge") / "data").resolve()
+        bridge_data = (BRIDGE_ROOT / "data").resolve()
         if not self.allow_local_remote:
             try:
                 self.store_path.relative_to(bridge_data)
