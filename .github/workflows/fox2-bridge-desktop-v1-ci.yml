@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - work/FOX2-BRIDGE-DESKTOP-APP-V1
+    paths:
+      - 'agent_bridge/desktop_app/**'
+      - '.github/workflows/fox2-bridge-desktop-v1-ci.yml'
   workflow_dispatch:
 
 permissions:

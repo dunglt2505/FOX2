@@ -1,0 +1,22 @@
+{
+  "status": "RECONCILED",
+  "run_id": 38757528496,
+  "job_id": 116499792638,
+  "failure_stage": "DOTNET_COMPILE",
+  "sdk_selection": "PASS",
+  "restore": "PASS",
+  "compile": "FAIL",
+  "error_count": 7,
+  "warning_count": 0,
+  "classification": "WPF_WINFORMS_NAMESPACE_AMBIGUITY",
+  "root_cause": "UseWindowsForms=true adds WinForms implicit namespace imports alongside WPF names.",
+  "correction": [
+    "fully qualify System.Windows.Application",
+    "fully qualify System.Windows.Media Brush/SolidColorBrush/Color",
+    "fully qualify System.Windows.Controls.UserControl in all views",
+    "fully qualify Microsoft.Win32.SaveFileDialog",
+    "preserve WinForms only for NotifyIcon tray integration"
+  ],
+  "worker_source_changed": false,
+  "canary_009_touched": false
+}

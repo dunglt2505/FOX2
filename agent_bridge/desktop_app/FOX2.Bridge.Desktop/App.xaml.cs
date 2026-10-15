@@ -5,7 +5,7 @@ using FOX2.Bridge.Desktop.ViewModels;
 
 namespace FOX2.Bridge.Desktop;
 
-public partial class App : Application
+public partial class App : System.Windows.Application
 {
     private Mutex? _mutex;
     private TrayService? _tray;

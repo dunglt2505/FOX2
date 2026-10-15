@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Microsoft.Win32;
 using FOX2.Bridge.Desktop.Infrastructure;
 using FOX2.Bridge.Desktop.Models;
 using FOX2.Bridge.Desktop.Services;
@@ -58,7 +57,7 @@ public sealed class DiagnosticsViewModel : ObservableObject
 
     private async Task SaveSupportBundleAsync()
     {
-        var dialog = new SaveFileDialog
+        var dialog = new Microsoft.Win32.SaveFileDialog
         {
             Filter = "ZIP archive (*.zip)|*.zip",
             FileName = $"FOX2-support-{DateTime.Now:yyyyMMdd-HHmmss}.zip"

@@ -1,5 +1,4 @@
 using System.Windows.Input;
-using System.Windows.Media;
 using FOX2.Bridge.Desktop.Infrastructure;
 using FOX2.Bridge.Desktop.Models;
 using FOX2.Bridge.Desktop.Services;
@@ -124,12 +123,12 @@ public sealed class DashboardViewModel : ObservableObject
         }
     }
 
-    public Brush HealthBrush =>
+    public System.Windows.Media.Brush HealthBrush =>
         HeartbeatStale || _snapshot.RawState is "DEGRADED" or "ERROR" or "STOPPED"
-            ? new SolidColorBrush(Color.FromRgb(239, 68, 68))
+            ? new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(239, 68, 68))
             : _snapshot.RawState == "PAUSED"
-                ? new SolidColorBrush(Color.FromRgb(245, 158, 11))
-                : new SolidColorBrush(Color.FromRgb(34, 197, 94));
+                ? new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(245, 158, 11))
+                : new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(34, 197, 94));
 
     public string WorkerFooterText =>
         HeartbeatStale || _snapshot.RawState == "STOPPED"

@@ -1,8 +1,6 @@
-using System.Windows.Controls;
-
 namespace FOX2.Bridge.Desktop.Views;
 
-public partial class ActivityView : UserControl
+public partial class ActivityView : System.Windows.Controls.UserControl
 {
     public ActivityView() => InitializeComponent();
 }
