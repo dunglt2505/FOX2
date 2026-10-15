@@ -1,0 +1,19 @@
+{
+  "status": "RECONCILED",
+  "run_id": 38758112100,
+  "job_id": 116501855883,
+  "failure_stage": "DOTNET_COMPILE",
+  "sdk_selection": "PASS",
+  "restore": "PASS",
+  "previous_namespace_fix": "PASS",
+  "classification": "MISSING_SYSTEM_IO_USINGS",
+  "error_count": 17,
+  "warning_count": 1,
+  "affected_files": [
+    "agent_bridge/desktop_app/FOX2.Bridge.Desktop/Services/AppSettingsService.cs",
+    "agent_bridge/desktop_app/FOX2.Bridge.Desktop/Services/BridgeRuntimeLocator.cs"
+  ],
+  "correction": "add explicit System.IO imports only; runtime behavior unchanged",
+  "worker_source_changed": false,
+  "canary_009_touched": false
+}
