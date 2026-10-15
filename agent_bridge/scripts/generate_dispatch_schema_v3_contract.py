@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import subprocess
 
-SOURCE_COMMIT = "544cd7003972e6a29ff25de1062231c3769affbf"
+SOURCE_COMMIT = "8f23c3791d599e4e1f391d1dddbc9e34bd81da07"
 SOURCE_PATH = "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json"
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "agent_bridge/src/fox2_agent_bridge/dispatch_schema_v3_contract.py"

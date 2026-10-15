@@ -7,8 +7,14 @@ $Mutex = [System.Threading.Mutex]::new($false, ('Local\FOX2BridgeTray-' + $Ident
 $Owned = $false
 try { $Owned = $Mutex.WaitOne(0) } catch [System.Threading.AbandonedMutexException] { $Owned = $true }
 if (-not $Owned) { $Mutex.Dispose(); exit 0 }
-$Python = 'C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe'
-$env:PYTHONPATH = (Resolve-Path (Join-Path $PSScriptRoot '..\src')).Path
+$InstalledPython = Join-Path $PSScriptRoot '../../runtime/Scripts/python.exe'
+if (Test-Path -LiteralPath $InstalledPython) {
+    $Python = (Resolve-Path -LiteralPath $InstalledPython).Path
+    Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+} else {
+    $Python = 'C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe'
+    $env:PYTHONPATH = (Resolve-Path (Join-Path $PSScriptRoot '..\src')).Path
+}
 function Invoke-BridgeControl {
     param([ValidateSet('status','pause','resume','check-now','request-exit','open-logs','set-start-with-windows')][string]$Action,
           [ValidateSet('true','false')][string]$Enabled)
@@ -34,6 +40,22 @@ $Icon = [System.Windows.Forms.NotifyIcon]::new()
 $Timer = [System.Windows.Forms.Timer]::new()
 try {
     if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) { throw 'Existing Bridge Python missing' }
+    if ((Test-Path -LiteralPath $InstalledPython) -and -not (Test-Path -LiteralPath (Join-Path $env:LOCALAPPDATA 'FOX2/AgentBridge/config/bridge.toml'))) {
+        & (Join-Path $PSScriptRoot 'desktop_setup.ps1') -Python $Python
+        if ($LASTEXITCODE -ne 0) { throw 'Setup cancelled or incomplete' }
+    }
+    if (Test-Path -LiteralPath $InstalledPython) {
+        $SetupInfo = [System.Diagnostics.ProcessStartInfo]::new($Python)
+        $SetupInfo.UseShellExecute = $false; $SetupInfo.CreateNoWindow = $true
+        foreach ($Arg in @('-m','fox2_agent_bridge','setup')) { $SetupInfo.ArgumentList.Add($Arg) }
+        $Setup = [System.Diagnostics.Process]::Start($SetupInfo)
+        $Setup.WaitForExit()
+        if ($Setup.ExitCode -ne 0) {
+            [System.Windows.Forms.MessageBox]::Show('Setup needs Git, PowerShell 7, Python and Codex CLI. Configure these tools and sign in to Codex, then reopen FOX2 Bridge.', 'FOX2 Bridge setup') | Out-Null
+            throw 'First-run setup failed'
+        }
+        $Setup.Dispose()
+    }
     $WorkerInfo = [System.Diagnostics.ProcessStartInfo]::new($Python)
     $WorkerInfo.UseShellExecute = $false; $WorkerInfo.CreateNoWindow = $true
     foreach ($Arg in @('-m','fox2_agent_bridge','worker')) { $WorkerInfo.ArgumentList.Add($Arg) }
@@ -51,6 +73,22 @@ try {
     $Resume = $Menu.Items.Add('Resume'); $Resume.add_Click({ try { Invoke-BridgeControl resume | Out-Null } catch { $Status.Text = 'Error: control failed' } })
     $Check = $Menu.Items.Add('Check now'); $Check.add_Click({ try { Invoke-BridgeControl check-now | Out-Null } catch { $Status.Text = 'Error: control failed' } })
     $Logs = $Menu.Items.Add('Open logs'); $Logs.add_Click({ try { Invoke-BridgeControl open-logs | Out-Null } catch { $Status.Text = 'Error: control failed' } })
+    $Support = $Menu.Items.Add('Save support bundle')
+    $Support.add_Click({
+        $Dialog = [System.Windows.Forms.SaveFileDialog]::new()
+        $Dialog.Filter = 'ZIP archive (*.zip)|*.zip'; $Dialog.FileName = 'FOX2-support.zip'
+        try {
+            if ($Dialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
+                $Info = [System.Diagnostics.ProcessStartInfo]::new($Python)
+                $Info.UseShellExecute = $false; $Info.CreateNoWindow = $true
+                foreach ($Arg in @('-m','fox2_agent_bridge','diagnostics','--output',$Dialog.FileName)) { $Info.ArgumentList.Add($Arg) }
+                $Process = [System.Diagnostics.Process]::Start($Info); $Process.WaitForExit()
+                if ($Process.ExitCode -ne 0) { throw 'Support export failed' }
+                $Process.Dispose()
+            }
+        } catch { $Status.Text = 'Error: support export failed' }
+        finally { $Dialog.Dispose() }
+    })
     $Startup = $Menu.Items.Add('Start with Windows'); $Startup.CheckOnClick = $false
     $Startup.add_Click({
         try {

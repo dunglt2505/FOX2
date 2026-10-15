@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import tomllib
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -39,7 +40,7 @@ def default_tool_paths(bridge_root: Path) -> dict[str, Path]:
             / "copilot.exe"
         ),
         "pwsh": Path(r"C:\Program Files\PowerShell\7\pwsh.exe"),
-        "python": Path(r"C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe"),
+        "python": Path(sys.executable),
     }
 
 
@@ -131,7 +132,11 @@ def _path_value(value: Any, name: str) -> Path:
 
 def load_config(config_path: Path | None = None) -> BridgeConfig:
     if config_path is None:
-        return BridgeConfig()
+        installed = BRIDGE_ROOT / 'config' / 'bridge.toml'
+        if installed.is_file():
+            config_path = installed
+        else:
+            return BridgeConfig()
     if not config_path.exists():
         raise ConfigInvalid(f"configuration file does not exist: {config_path}")
     try:

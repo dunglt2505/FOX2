@@ -44,6 +44,23 @@ def initialize_runtime(config: BridgeConfig) -> SQLiteLedger:
                             source.backup(destination)
                     temporary.replace(config.database_path)
     ledger.initialize()
+    manual = config.bridge_root / 'data' / 'manual_consumption.json'
+    if manual.exists():
+        receipt = json.loads(manual.read_text(encoding='utf-8'))
+        if receipt.get('format') != 'FOX2_MANUAL_CONSUMPTION_1':
+            raise ValueError('invalid manual consumption receipt')
+        identities = receipt.get('dispatch_ids')
+        import re
+        if (not isinstance(identities, list) or not identities or
+                any(not isinstance(i, str) or not re.fullmatch(r'FOX2-[A-Za-z0-9._-]+', i) for i in identities)):
+            raise ValueError('invalid consumed dispatch identities')
+        with ledger.connect() as connection:
+            connection.execute('BEGIN IMMEDIATE')
+            now = utc_now()
+            for identity in identities:
+                connection.execute('INSERT OR IGNORE INTO dispatches '
+                    '(dispatch_id,state,payload_hash,created_at_utc,updated_at_utc) '
+                    'VALUES (?, ?, NULL, ?, ?)', (identity, 'NEEDS_RECONCILIATION', now, now))
     return ledger
 
 

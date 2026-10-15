@@ -22,6 +22,9 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+fox2_agent_bridge = ["resources/*.ps1"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"

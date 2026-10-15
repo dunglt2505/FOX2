@@ -9,6 +9,8 @@ from .ledger import SQLiteLedger
 
 def startup_command(config: BridgeConfig, enabled: bool) -> list[str]:
     scripts = Path(__file__).resolve().parents[2] / 'scripts'
+    if not scripts.is_dir():
+        scripts = Path(__file__).resolve().parent / 'resources'
     return [str((config.tool_paths or {})['pwsh']), '-NoProfile', '-NonInteractive',
             '-File', str(scripts / 'desktop_startup.ps1'),
             '-Enabled', 'true' if enabled else 'false']

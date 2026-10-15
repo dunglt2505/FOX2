@@ -13,6 +13,13 @@ from .errors import BridgeError
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="fox2-bridge")
     subparsers = parser.add_subparsers(dest="command", required=True)
+    install = subparsers.add_parser('install', help='install or update a verified offline per-user package')
+    install.add_argument('--package', required=True, type=Path)
+    install.add_argument('--sha256', required=True)
+    subparsers.add_parser('setup', help='validate and preserve first-run configuration; starts paused')
+    subparsers.add_parser('uninstall', help='remove runtime and startup; preserve durable data')
+    support = subparsers.add_parser('diagnostics', help='export a sanitized whitelist support bundle')
+    support.add_argument('--output', required=True, type=Path)
     worker = subparsers.add_parser('worker', help='continuous per-user Desktop worker')
     worker.add_argument('--config', type=Path)
     controls = subparsers.add_parser('control', help='fixed local Desktop control')
@@ -68,6 +75,18 @@ def main(argv: list[str] | None = None) -> int:
     from .app import BridgeApp
 
     try:
+        if args.command in {'install', 'setup', 'uninstall', 'diagnostics'}:
+            from .installation import install, first_run, uninstall, diagnostics
+            if args.command == 'install':
+                report = install(args.package, args.sha256)
+            elif args.command == 'setup':
+                report = first_run()
+            elif args.command == 'uninstall':
+                report = uninstall()
+            else:
+                report = diagnostics(args.output)
+            print(json.dumps(report, sort_keys=True))
+            return 0
         if args.command in {'worker', 'control', 'status'}:
             from .config import load_config
             from .desktop import DesktopWorker, control, initialize_runtime

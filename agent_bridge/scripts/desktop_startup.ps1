@@ -9,6 +9,8 @@ if ($Enabled -eq 'false') {
 }
 $Pwsh = 'C:\Program Files\PowerShell\7\pwsh.exe'
 $Launcher = Join-Path $PSScriptRoot 'desktop_launcher.ps1'
+$InstalledLauncher = Join-Path $env:LOCALAPPDATA 'FOX2/AgentBridge/launch.ps1'
+if (Test-Path -LiteralPath $InstalledLauncher) { $Launcher = $InstalledLauncher }
 $Arguments = '-NoProfile -NonInteractive -WindowStyle Hidden -STA -File "' + $Launcher + '"'
 $Action = New-ScheduledTaskAction -Execute $Pwsh -Argument $Arguments
 $Trigger = New-ScheduledTaskTrigger -AtLogOn -User $Identity.Name
