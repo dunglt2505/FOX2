@@ -1,0 +1,37 @@
+{
+  "status": "SOURCE_IMPLEMENTED_UNBUILT",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-APP-V1",
+  "source_parent": "d129f9195adab04f158942f5a8638c63d0f3d0e6",
+  "implementation": {
+    "framework": ".NET 8 WPF",
+    "pattern": "MVVM",
+    "screens": [
+      "Dashboard",
+      "Activity",
+      "Agents",
+      "Diagnostics",
+      "Settings"
+    ],
+    "tray": true,
+    "notifications": true,
+    "fixed_bridge_control_client": true,
+    "build_script": "agent_bridge/desktop_app/build.ps1",
+    "install_script": "agent_bridge/desktop_app/install_desktop.ps1",
+    "uninstall_script": "agent_bridge/desktop_app/uninstall_desktop.ps1",
+    "runtime_smoke_script": "agent_bridge/desktop_app/verify_desktop.ps1"
+  },
+  "safety": {
+    "worker_source_changed": false,
+    "direct_git_task_discovery": false,
+    "direct_agent_execution": false,
+    "direct_ledger_mutation": false,
+    "routing_override": false,
+    "canary_009_touched": false
+  },
+  "verification": {
+    "remote_changed_path_allowlist": "PASS",
+    "windows_build": "PENDING_WINDOWS_HOST",
+    "smoke_harness": "PENDING_WINDOWS_HOST",
+    "installed_runtime_smoke": "PENDING_WINDOWS_HOST"
+  }
+}

@@ -15,9 +15,9 @@ public sealed class DashboardViewModel : ObservableObject
     public DashboardViewModel(IBridgeControlClient client)
     {
         _client = client;
-        PauseCommand = new AsyncRelayCommand(PauseAsync, () => !_snapshot.Paused);
-        ResumeCommand = new AsyncRelayCommand(ResumeAsync, () => _snapshot.Paused);
-        CheckNowCommand = new AsyncRelayCommand(CheckNowAsync);
+        PauseCommand = new AsyncRelayCommand(PauseAsync, CanPause);
+        ResumeCommand = new AsyncRelayCommand(ResumeAsync, CanResume);
+        CheckNowCommand = new AsyncRelayCommand(CheckNowAsync, CanControl);
     }
 
     public Func<Task>? RefreshRequested { get; set; }
@@ -26,62 +26,115 @@ public sealed class DashboardViewModel : ObservableObject
     public ICommand ResumeCommand { get; }
     public ICommand CheckNowCommand { get; }
 
-    public string StateDisplay => _snapshot.RawState switch
+    private bool HeartbeatStale =>
+        _snapshot.Heartbeat is null ||
+        DateTimeOffset.UtcNow - _snapshot.Heartbeat.Value > TimeSpan.FromSeconds(60);
+
+    private bool CanControl() =>
+        !HeartbeatStale &&
+        _snapshot.RawState is not "STOPPED" and not "STOPPING";
+
+    private bool CanPause() => CanControl() && !_snapshot.Paused;
+    private bool CanResume() => CanControl() && _snapshot.Paused;
+
+    public string StateDisplay
     {
-        "IDLE" => "READY",
-        "POLLING" => "CHECKING",
-        "EXECUTING" => "AGENT RUNNING",
-        "PUBLISHING" => "PUBLISHING",
-        "PAUSED" => "PAUSED",
-        "DEGRADED" => "NEEDS ATTENTION",
-        "ERROR" => "ACTION REQUIRED",
-        "STARTING" => "STARTING",
-        "RECONCILING" => "RECOVERING",
-        "STOPPING" => "STOPPING",
-        "STOPPED" => "OFFLINE",
-        _ => _snapshot.RawState
-    };
+        get
+        {
+            if (HeartbeatStale && _snapshot.RawState is not "STARTING" and not "RECONCILING")
+                return "OFFLINE";
+
+            return _snapshot.RawState switch
+            {
+                "IDLE" => "READY",
+                "POLLING" => "CHECKING",
+                "EXECUTING" => "AGENT RUNNING",
+                "PUBLISHING" => "PUBLISHING",
+                "PAUSED" => "PAUSED",
+                "DEGRADED" => "NEEDS ATTENTION",
+                "ERROR" => "ACTION REQUIRED",
+                "STARTING" => "STARTING",
+                "RECONCILING" => "RECOVERING",
+                "STOPPING" => "STOPPING",
+                "STOPPED" => "OFFLINE",
+                _ => _snapshot.RawState
+            };
+        }
+    }
 
     public string HeaderSubtext =>
-        _snapshot.RawState == "PAUSED"
-            ? "Worker alive"
-            : _snapshot.RawState is "DEGRADED" or "ERROR"
-                ? "Review diagnostics"
-                : string.IsNullOrWhiteSpace(_snapshot.CurrentDispatch)
-                    ? "Worker healthy"
-                    : "Task active";
+        HeartbeatStale
+            ? "Heartbeat stale"
+            : _snapshot.RawState == "PAUSED"
+                ? "Worker alive"
+                : _snapshot.RawState is "DEGRADED" or "ERROR"
+                    ? "Review diagnostics"
+                    : string.IsNullOrWhiteSpace(_snapshot.CurrentDispatch)
+                        ? "Worker healthy"
+                        : "Task active";
 
-    public string HeroTitle => _snapshot.RawState switch
+    public string HeroGlyph => StateDisplay switch
     {
-        "PAUSED" => "Bridge is Paused",
-        "DEGRADED" => "Bridge Needs Attention",
-        "ERROR" => "Bridge Requires Action",
-        "EXECUTING" => "Agent is Running",
-        "PUBLISHING" => "Publishing Result",
-        "IDLE" => "Bridge is Ready",
-        _ => "FOX2 Bridge"
+        "PAUSED" => "Ⅱ",
+        "AGENT RUNNING" => "▶",
+        "PUBLISHING" => "↑",
+        "READY" => "✓",
+        "OFFLINE" => "!",
+        "NEEDS ATTENTION" or "ACTION REQUIRED" => "!",
+        _ => "•"
     };
 
-    public string HeroMessage => _snapshot.RawState switch
+    public string HeroTitle
     {
-        "PAUSED" => "Worker is healthy, but will not claim new tasks.",
-        "DEGRADED" => _snapshot.LastError ?? "The last operation did not complete normally.",
-        "ERROR" => _snapshot.LastError ?? "Bridge reported an error.",
-        "EXECUTING" => "The current Agent task is being supervised by Bridge.",
-        "PUBLISHING" => "Bridge is finalizing the authorized result.",
-        "IDLE" => "Worker is healthy and ready for eligible work.",
-        _ => "Worker status is being monitored."
-    };
+        get
+        {
+            if (StateDisplay == "OFFLINE")
+                return "Bridge Worker is Offline";
+
+            return _snapshot.RawState switch
+            {
+                "PAUSED" => "Bridge is Paused",
+                "DEGRADED" => "Bridge Needs Attention",
+                "ERROR" => "Bridge Requires Action",
+                "EXECUTING" => "Agent is Running",
+                "PUBLISHING" => "Publishing Result",
+                "IDLE" => "Bridge is Ready",
+                _ => "FOX2 Bridge"
+            };
+        }
+    }
+
+    public string HeroMessage
+    {
+        get
+        {
+            if (StateDisplay == "OFFLINE")
+                return "The persisted status is readable, but the Worker heartbeat is not live.";
+
+            return _snapshot.RawState switch
+            {
+                "PAUSED" => "Worker is healthy, but will not claim new tasks.",
+                "DEGRADED" => _snapshot.LastError ?? "The last operation did not complete normally.",
+                "ERROR" => _snapshot.LastError ?? "Bridge reported an error.",
+                "EXECUTING" => "The current Agent task is being supervised by Bridge.",
+                "PUBLISHING" => "Bridge is finalizing the authorized result.",
+                "IDLE" => "Worker is healthy and ready for eligible work.",
+                _ => "Worker status is being monitored."
+            };
+        }
+    }
 
     public Brush HealthBrush =>
-        _snapshot.RawState is "DEGRADED" or "ERROR" or "STOPPED"
+        HeartbeatStale || _snapshot.RawState is "DEGRADED" or "ERROR" or "STOPPED"
             ? new SolidColorBrush(Color.FromRgb(239, 68, 68))
             : _snapshot.RawState == "PAUSED"
                 ? new SolidColorBrush(Color.FromRgb(245, 158, 11))
                 : new SolidColorBrush(Color.FromRgb(34, 197, 94));
 
     public string WorkerFooterText =>
-        _snapshot.RawState == "STOPPED" ? "Worker Offline" : "Worker Running";
+        HeartbeatStale || _snapshot.RawState == "STOPPED"
+            ? "Worker Offline"
+            : "Worker Running";
 
     public string CurrentTask =>
         string.IsNullOrWhiteSpace(_snapshot.CurrentDispatch) ? "No active task" : _snapshot.CurrentDispatch!;
@@ -110,7 +163,7 @@ public sealed class DashboardViewModel : ObservableObject
 
         foreach (var property in new[]
         {
-            nameof(StateDisplay), nameof(HeaderSubtext), nameof(HeroTitle), nameof(HeroMessage),
+            nameof(StateDisplay), nameof(HeaderSubtext), nameof(HeroGlyph), nameof(HeroTitle), nameof(HeroMessage),
             nameof(HealthBrush), nameof(WorkerFooterText), nameof(CurrentTask), nameof(CurrentTaskSubtext),
             nameof(LastPollText), nameof(HeartbeatText), nameof(LastResult), nameof(AgentProduct),
             nameof(AgentModel), nameof(AgentReasoning), nameof(AgentPermission), nameof(Usage),
@@ -122,6 +175,7 @@ public sealed class DashboardViewModel : ObservableObject
 
         (PauseCommand as AsyncRelayCommand)?.RaiseCanExecuteChanged();
         (ResumeCommand as AsyncRelayCommand)?.RaiseCanExecuteChanged();
+        (CheckNowCommand as AsyncRelayCommand)?.RaiseCanExecuteChanged();
     }
 
     private async Task PauseAsync() => await RunControlAsync(_client.PauseAsync);

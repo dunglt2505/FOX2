@@ -24,7 +24,7 @@ public sealed class TrayService : IDisposable
         var open = new ToolStripMenuItem("Open Dashboard");
         open.Click += (_, _) => OpenRequested?.Invoke();
 
-        _pause = new ToolStripMenuItem("Pause Bridge");
+        _pause = new ToolStripMenuItem("Pause new tasks");
         _pause.Click += (_, _) => PauseRequested?.Invoke();
 
         _resume = new ToolStripMenuItem("Resume Bridge");
@@ -67,7 +67,14 @@ public sealed class TrayService : IDisposable
 
     public void Update(BridgeStatusSnapshot snapshot)
     {
-        var display = StateDisplay(snapshot.RawState);
+        var heartbeatStale =
+            snapshot.Heartbeat is null ||
+            DateTimeOffset.UtcNow - snapshot.Heartbeat.Value > TimeSpan.FromSeconds(60);
+
+        var display = heartbeatStale
+            ? "Offline"
+            : StateDisplay(snapshot.RawState);
+
         var task = string.IsNullOrWhiteSpace(snapshot.CurrentDispatch)
             ? string.Empty
             : " · " + snapshot.CurrentDispatch;
@@ -75,8 +82,12 @@ public sealed class TrayService : IDisposable
         var text = $"FOX2 Bridge · {display}{task}";
         _icon.Text = text.Length <= 63 ? text : text[..63];
 
-        _pause.Enabled = !snapshot.Paused && snapshot.RawState is not "STOPPED" and not "STOPPING";
-        _resume.Enabled = snapshot.Paused && snapshot.RawState is not "STOPPED" and not "STOPPING";
+        var canControl =
+            !heartbeatStale &&
+            snapshot.RawState is not "STOPPED" and not "STOPPING";
+
+        _pause.Enabled = canControl && !snapshot.Paused;
+        _resume.Enabled = canControl && snapshot.Paused;
     }
 
     public void Notify(string title, string message, ToolTipIcon icon = ToolTipIcon.Info)
