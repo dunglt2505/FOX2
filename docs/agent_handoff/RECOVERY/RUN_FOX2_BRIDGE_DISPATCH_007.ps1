@@ -100,7 +100,7 @@ Execute exactly FOX2 Dispatch:
 $DispatchId
 
 Before any mutation, independently read and validate:
-git show $ControlCommit:$DispatchPath
+git show ${ControlCommit}:$DispatchPath
 
 All Dispatches 001-006 are consumed and MUST NOT be replayed.
 Do not touch the real per-user Bridge until the disposable full lifecycle has passed.
