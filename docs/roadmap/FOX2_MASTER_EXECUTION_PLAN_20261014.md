@@ -203,69 +203,71 @@ Owner priority now serializes these lanes: finish `BRIDGE-DESKTOP-BATCH-B` first
 Owner priority remains **Bridge first**.
 
 Current Bridge Batch B remote head:
-`0c739db91553ab8dd39a30b221f079b9538b0836`.
+`501822a33ef08c7365154913bbc677544856eee5`.
 
-### Dispatch 007 result — consumed, installer fixed, uninstall exposed
+### Dispatch 008 result — consumed; code correction phase complete
 
-Dispatch 007 is CONSUMED exactly once and MUST NOT be replayed.
+Dispatch 008 is CONSUMED exactly once and MUST NOT be replayed.
 
-007 proved:
-- installer environment contamination root fix applied centrally;
-- 22 focused installer tests PASS;
-- 367 full Bridge tests PASS;
-- two package builds byte-identical;
-- contaminated-parent install/setup/update/Tray/Worker/diagnostics PASS;
-- real per-user Bridge remained untouched.
+008 proved the Windows self-uninstall correction and the complete disposable lifecycle:
+- 29 focused tests PASS;
+- 373 full Bridge tests PASS;
+- deterministic package builds PASS;
+- certified package SHA-256 `6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6`;
+- contaminated-parent install/setup/update PASS;
+- stable external uninstall PASS with versions empty, pointer/launchers removed and durable files preserved;
+- reinstall PASS;
+- fresh-process 001–008 no-replay PASS;
+- disposable Tray/Worker restart + diagnostics PASS.
 
-007 then failed at the first disposable installed `UNINSTALL_PATH` call.
+### Real per-user recovery — materially successful, certification incomplete
 
-Post-stop evidence shows:
-- one current receipt-bearing version partially removed;
-- only five files remain;
-- `runtime/Scripts/python.exe` is still present;
-- durable config/data/logs/reports remain;
-- no uninstall retry occurred.
+Only after disposable lifecycle PASS, 008 inspected and reconciled the real Bridge.
 
-### Current root cause — Windows self-delete orchestration
+Accepted real recovery facts:
+- historical partial versions were ownership-validated before removal;
+- durable config/data/logs/reports and ledger values were preserved;
+- certified package installed successfully;
+- repeated setup PASS and remains PAUSED;
+- fresh installed processes reject Dispatches 001–008;
+- exact SID-qualified startup task was registered successfully;
+- worker final state is STOPPED / PAUSED;
+- startup task is owned, Limited, Interactive and IgnoreNew.
 
-Production uninstall currently detects an installed interpreter and synchronously launches `sys._base_executable` to remove the version tree, while the installed parent interpreter waits for that child to finish.
+008 stopped at `REAL_STARTUP_TASK_OWNERSHIP` because its harness compared the executable string case-sensitively:
+`C:\Program Files\PowerShell\7\pwsh.EXE`
+versus Task Scheduler:
+`C:\Program Files\PowerShell\7\pwsh.exe`.
 
-On Windows this leaves the parent process executing from the version directory while the child attempts to delete that same directory. The observed partial deletion with surviving `runtime/Scripts/python.exe` is consistent with this invalid self-delete design.
+Read-only diagnosis proves both resolve to the same Windows executable, and every other task ownership field matches. This is a certification-harness comparison error, not evidence of a production Bridge defect.
 
-The startup-disable path is NOT the blocker: `desktop_startup.ps1 -Enabled false` is explicitly idempotent when the scheduled task is absent.
-
-### Dispatch 008 — current active correction
-
-Single-use Dispatch:
-`FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008`
-
-Control commit:
-`737e9851b2367f5e2aeb6597d0445b6df0ffcc71`
-
-Prompt:
-`e4b32ace0d03f67d4dba28e05f3dd9b24ccfab7f:docs/agent_handoff/RECOVERY/FOX2-BRIDGE-BATCH-B-UNINSTALL-ROOT-FIX-008.md`
-
-Route:
-`CODEX / gpt-6.1-sol / High / FULL_ACCESS`
-
-008 is authorized to:
-1. replace the Windows self-delete orchestration with a process handoff/bootstrap where no running process remains inside a version while that version is deleted;
-2. preserve the successful 007 installer-environment fix;
-3. run focused tests and one full Bridge suite;
-4. run a complete NEW disposable lifecycle including uninstall/reinstall and restart/no-replay;
-5. only after disposable lifecycle PASS, safely reconcile the quarantined real per-user Bridge using ownership evidence and durable-data preservation;
-6. close all runtime gates that do not require a new immutable control-branch certification canary.
-
-If real recovery succeeds and only the genuine canary gates remain, the valid intermediate marker is:
-`BRIDGE_RECOVERED_READY_FOR_FINAL_CANARY`.
-
-A final control-branch canary may then be issued once to close:
+No further real Tray launch occurred after the stop, so these gates remain incomplete:
+- real INSTALLED_TRAY_WORKER;
+- real STARTUP_SINGLE_INSTANCE completion;
+- final real diagnostics;
+- real Tray/Worker RESTART_NO_REPLAY;
+- installed-runtime Dictionary / Dispatch-v3 / v2 / v0.6 certification;
+- EXACT_AGENT_CONFIGURATION / FULL_ACCESS application evidence;
 - REAL_ELIGIBLE_FOX2_DISPATCH;
 - RESULT_REMOTE_READBACK;
-- USAGE_SNAPSHOT;
-- any exact runtime Agent/configuration evidence not already discharged.
+- USAGE_SNAPSHOT.
 
-Only CHAT may then accept:
+### Current phase — FINAL CERTIFICATION ONLY
+
+No additional production code fix is authorized or indicated by current evidence.
+
+Next work must be a single certification-only lane that:
+1. validates the existing startup task with Windows path-equivalence semantics, without rewriting production code;
+2. starts the real installed Tray/Worker while intake remains PAUSED and proves single-instance/heartbeat/graceful exit/restart/no-replay;
+3. exports final sanitized real diagnostics;
+4. proves installed-runtime Dictionary/Dispatch-v3/v2/v0.6 compatibility;
+5. applies one pre-authorized immutable eligible FOX2 canary through the installed Bridge;
+6. proves exact Agent configuration / Full Access application;
+7. proves result publication + exact remote readback;
+8. records usage snapshot or normative NOT_EXPOSED_WITH_EXECUTION_PROOF;
+9. closes every remaining acceptance gate in one final evidence namespace.
+
+Only if every required gate PASSes may CHAT accept:
 `INTERNAL_FOX2_BRIDGE_READY`.
 
 Website/APP-BATCH-B remains frozen until that exit.
@@ -431,4 +433,4 @@ Project-wide disposition:
 - after Bridge acceptance, resume APP-BATCH-B without redesigning the CHAT-approved Dark/White UI;
 - no executable Dispatch may be issued from stale evidence, and no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=0c739db91553ab8dd39a30b221f079b9538b0836 / LAST_COMPLETED_DISPATCH=007_CONSUMED_STOPPED_NEEDS_RECONCILIATION / INSTALLER_ENV_FIX=PASS / CURRENT_ROOT_CAUSE=WINDOWS_SELF_DELETE_ORCHESTRATION / NEXT_DISPATCH=008_READY / ROUTE=CODEX_GPT-6.1-SOL_HIGH_FULL_ACCESS / NEXT=UNINSTALL_FIX_THEN_DISPOSABLE_FULL_LIFECYCLE_THEN_CONDITIONAL_REAL_RECOVERY_THEN_FINAL_CANARY / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=501822a33ef08c7365154913bbc677544856eee5 / LAST_COMPLETED_DISPATCH=008_CONSUMED_STOPPED_NEEDS_RECONCILIATION / INSTALLER_ENV_FIX=PASS / WINDOWS_SELF_UNINSTALL_FIX=PASS / DISPOSABLE_FULL_LIFECYCLE=PASS / REAL_RECOVERY=MATERIALLY_COMPLETE_CERTIFICATION_INCOMPLETE / CURRENT_BLOCKER=CERTIFICATION_HARNESS_CASE_SENSITIVE_PATH_ASSERTION_PLUS_FINAL_RUNTIME_CANARY_GATES / CURRENT_PHASE=FINAL_CERTIFICATION_ONLY / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
