@@ -1,0 +1,125 @@
+{
+  "bridge_ready": false,
+  "disposable_lifecycle": "PASS",
+  "gates": {
+    "CHANGED_PATH_ALLOWLIST": {
+      "scope": "explicit code/report allowlist",
+      "status": "PASS"
+    },
+    "CONTAMINATED_PARENT_ENV_REGRESSION": {
+      "scope": "complete disposable install through uninstall/reinstall/restart PASS",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+      "scope": "full source suite PASS; final installed-runtime certification not reached",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_SCHEMA_BINDING": {
+      "scope": "full source suite PASS; final installed-runtime certification not reached",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+      "scope": "full source suite PASS; final installed-runtime certification not reached",
+      "status": "NOT_RUN"
+    },
+    "DURABLE_PRESERVATION_ACROSS_REINSTALL": {
+      "scope": "disposable preservation; real backup, stable hashes and original dispatch row values preserved",
+      "status": "PASS"
+    },
+    "EXACT_AGENT_CONFIGURATION": {
+      "scope": "manual execution/007 readiness evidence preserved; final installed Agent application certification not reached",
+      "status": "NOT_RUN"
+    },
+    "FIRST_RUN_SETUP": {
+      "scope": "disposable and real paused repeated setup PASS",
+      "status": "PASS"
+    },
+    "FULL_ACCESS_PERMISSION": {
+      "scope": "manual execution/007 readiness evidence preserved; final installed Agent application certification not reached",
+      "status": "NOT_RUN"
+    },
+    "FULL_BRIDGE_TESTS": {
+      "scope": "373 PASS; one full invocation after substantive changes",
+      "status": "PASS"
+    },
+    "GIT_DIFF_CHECK": {
+      "scope": "git diff --check",
+      "status": "PASS"
+    },
+    "INSTALLED_TRAY_WORKER": {
+      "scope": "disposable PASS; real NOT_RUN after startup assertion stop",
+      "status": "PARTIAL"
+    },
+    "INSTALLER_PACKAGE": {
+      "scope": "two byte-identical package builds PASS",
+      "status": "PASS"
+    },
+    "INSTALL_SUBPROCESS_ENV_ISOLATION": {
+      "scope": "007 functions unchanged; focused regressions and packaged observed subprocesses PASS",
+      "status": "PASS"
+    },
+    "PER_USER_INSTALL": {
+      "scope": "disposable and exact certified real package installation PASS",
+      "status": "PASS"
+    },
+    "PROJECT_DICTIONARY_BINDING": {
+      "scope": "full source suite PASS; final installed-runtime certification not reached",
+      "status": "NOT_RUN"
+    },
+    "REAL_ELIGIBLE_FOX2_DISPATCH": {
+      "scope": "requires new immutable control-branch certification canary; none invented",
+      "status": "NOT_RUN"
+    },
+    "REAL_PER_USER_RECOVERY": {
+      "scope": "owned partial state reconciled and certified package installed; stopped before real startup/Tray/Worker certification",
+      "status": "PARTIAL"
+    },
+    "RESTART_NO_REPLAY": {
+      "scope": "disposable restart and two fresh real installed process claim-rejections PASS; real Tray/Worker restart NOT_RUN",
+      "status": "PARTIAL"
+    },
+    "RESULT_REMOTE_READBACK": {
+      "scope": "requires new immutable control-branch certification canary; none invented",
+      "status": "NOT_RUN"
+    },
+    "SANITIZED_DIAGNOSTICS_BUNDLE": {
+      "scope": "disposable pre/post-reinstall diagnostics PASS; final real diagnostics NOT_RUN",
+      "status": "PARTIAL"
+    },
+    "SECRET_SCAN": {
+      "scope": "all changed publication files; no raw private backup included",
+      "status": "PASS"
+    },
+    "STARTUP_SINGLE_INSTANCE": {
+      "scope": "disposable PASS; real registration and read-only canonical ownership PASS; required literal assertion failed; real Tray/Worker NOT_RUN",
+      "status": "PARTIAL"
+    },
+    "UNINSTALL_PATH": {
+      "scope": "complete disposable stable external uninstall and owned real reconciliation PASS",
+      "status": "PASS"
+    },
+    "UPDATE_PATH": {
+      "scope": "complete disposable update PASS; no second real update attempted",
+      "status": "PASS"
+    },
+    "USAGE_SNAPSHOT": {
+      "scope": "requires new immutable control-branch certification canary; none invented",
+      "status": "NOT_RUN"
+    },
+    "V06_COMPATIBILITY": {
+      "scope": "full source suite PASS; final installed-runtime certification not reached",
+      "status": "NOT_RUN"
+    },
+    "V2_COMPATIBILITY": {
+      "scope": "full source suite PASS; final installed-runtime certification not reached",
+      "status": "NOT_RUN"
+    },
+    "WINDOWS_SELF_UNINSTALL_HANDOFF": {
+      "scope": "installed Python refuses before spawn/delete; stable external bootstrap synchronous deletion PASS",
+      "status": "PASS"
+    }
+  },
+  "real_root_mutated_only_after_disposable_pass": true,
+  "recovered_ready_for_final_canary": false,
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

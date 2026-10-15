@@ -1,0 +1,87 @@
+{
+  "initial_staged_diff_check": "FLAGGED_CRLF_AS_TRAILING_WHITESPACE",
+  "action": "normalize new 008 evidence CRLF to LF only; no test outcomes or semantic content changed",
+  "historical_files_touched": false,
+  "files": [
+    {
+      "file": "claim.json",
+      "original_sha256": "d65ae4f7ab4ec5c71d59680d67f541a4ce42d18b2c95a576896105beffbef3ac",
+      "normalized_sha256": "41eb9d890827fb034298f3571a3df910fd01aad8246b26f83cb0beae1a8ea24b"
+    },
+    {
+      "file": "focused.txt",
+      "original_sha256": "b31ec6d502215c6393a7e0c0c03d0d8fd7efe41a15c6c0d75b11811af8b51260",
+      "normalized_sha256": "d79eed5d357a4c90150c61ab7930b856639a18838d3d5952c3595a5de8cb3adf"
+    },
+    {
+      "file": "full.txt",
+      "original_sha256": "4f8c5f296136ae42f383d4ee2c00dac9d56c6a92877d073b97fa66a3d1e5f6b1",
+      "normalized_sha256": "8cade102365bbb284fbc049f0ee02d61c1b4928a96ffa0741f95420a3659cb5f"
+    },
+    {
+      "file": "full.xml",
+      "original_sha256": "e71470444396b52ff9d3a4b88403a7749dddb96b972361197948dddadb3e3300",
+      "normalized_sha256": "7c7220ee31d3d7d36890709c7f6d84262e39bd795cd0f1a6310106635ed67050"
+    },
+    {
+      "file": "historical_hashes.json",
+      "original_sha256": "d5f949ebc42365acd1b858ddf66fb9551650433c7538d22dbb675a9976e6e7ce",
+      "normalized_sha256": "ea3cb6d093d559405e262188885055bc379b84a14be33642a430c1b713672673"
+    },
+    {
+      "file": "junit_redaction.json",
+      "original_sha256": "1a94c88616e5cffd8a725e8857db21ee891f6aa396e487922f6e43641db74abf",
+      "normalized_sha256": "01a993cef6e4dc9ff74c568ab878881f6238fc880b021110fa016aefb555dad1"
+    },
+    {
+      "file": "launch.json",
+      "original_sha256": "400e433d7e58afe7fc813c784ce2de1030ca6376db3b97c1e227f27328bd7fe9",
+      "normalized_sha256": "d590ce5eadbf08ed1470a62c6cbc589c1127abb95acfa68a9ec41dba66c0a23f"
+    },
+    {
+      "file": "real_install_setup.json",
+      "original_sha256": "b9355d91c3e370b6b8aa7bfc2c5fa95200c47fe48615a49988b75a0597ef081c",
+      "normalized_sha256": "95790b6fe92ce58992b27bfd97a61e61d1e2edc121ca825dea26d137747c243c"
+    },
+    {
+      "file": "real_ownership.json",
+      "original_sha256": "4d726c1fd0e73388db93310e47d78e0fe2906cd89474bfe7a93986b309c85ed5",
+      "normalized_sha256": "d018a6db60bc07a5ecd828873e22318a4dae78e6f018bf7eae986f4e587c1c60"
+    },
+    {
+      "file": "real_post_stop_readonly.json",
+      "original_sha256": "f4c82a75db154a5219636ba9e3572d12977e02544085916d53809acfa82a316f",
+      "normalized_sha256": "22e41fd7bf8f98c850b100f3332c1aeb9e876fb03c51fec68ed9c25eb5c192b4"
+    },
+    {
+      "file": "real_progress.json",
+      "original_sha256": "5fea930c146385d6ca67b443fab47891473dd5eb1cb6c6b3b64298db679fc952",
+      "normalized_sha256": "476c29a810a128124e6ee6961c7142b2ed03b0db1e54f3855338979630a76a45"
+    },
+    {
+      "file": "real_readonly_inventory.json",
+      "original_sha256": "330a6412f41e7d6a3557473361fe8f37ef2c6d72d76ec262b3ea148ae93bb25e",
+      "normalized_sha256": "42a3e2d7a4ad3cf1b249be8d4818e5e82a808a57bf4e3aed15a188a950e91bd8"
+    },
+    {
+      "file": "real_readonly_task_process.json",
+      "original_sha256": "794fff87df1f55c5a71fff243f510ed893907cb6695fb24a95399f43f1b100e3",
+      "normalized_sha256": "8c168df073ea0d717829bd0e363fa3556d214f8cadbd26438bc9a94a3d1cd0a2"
+    },
+    {
+      "file": "real_reconciliation.json",
+      "original_sha256": "40d16577e86b9d9644dc2adeb38453ab586793c90840649fd689ac568854b090",
+      "normalized_sha256": "2c552c01a14fbee4a375606d0e380e19cfe7e815d4fbd85883eb23ccb499eb1a"
+    },
+    {
+      "file": "real_stop.json",
+      "original_sha256": "2bc18344a2152c8b6c22151f8a7eaa6474f3490642f754f4919343fc5c3cb999",
+      "normalized_sha256": "6fbdddb08e0dc8bc905af1c74603429aa50155579aff330f9e9f4cfc893987d5"
+    },
+    {
+      "file": "tests.json",
+      "original_sha256": "66cbedccdd1fe98dc305c415f16cb3df4f397a81a1583518e980f11327f8280c",
+      "normalized_sha256": "875500da61d875f868b9d92088ad0206aa71bfcfbabba2accb1ee337a1db071a"
+    }
+  ]
+}

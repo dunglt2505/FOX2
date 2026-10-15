@@ -1,0 +1,54 @@
+{
+  "config_preserved": true,
+  "previous_version_retained": true,
+  "update": {
+    "result": {
+      "package_sha256": "cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e",
+      "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b",
+      "status": "UPDATED"
+    },
+    "subprocesses": [
+      {
+        "arguments": [
+          "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+          "-m",
+          "venv",
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e\\runtime"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      },
+      {
+        "arguments": [
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e\\runtime\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "--isolated",
+          "install",
+          "--disable-pip-version-check",
+          "--no-index",
+          "--only-binary=:all:",
+          "--find-links",
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e\\payload\\wheels",
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e\\payload\\wheels\\fox2_agent_bridge-0.1.0-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      },
+      {
+        "arguments": [
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e\\runtime\\Scripts\\python.exe",
+          "-I",
+          "-c",
+          "import fox2_agent_bridge.project_dictionary as r; import fox2_agent_bridge.dispatch_schema_v3_contract; import jsonschema; print(r.SOURCE_SHA256)"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      }
+    ]
+  },
+  "variant": "identical verified payload in byte-distinct ZIP_STORED archive"
+}

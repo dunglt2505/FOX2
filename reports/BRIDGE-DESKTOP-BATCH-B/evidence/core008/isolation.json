@@ -1,0 +1,11 @@
+{
+  "contaminated_parent": {
+    "PYTHONHOME": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313",
+    "PYTHONPATH": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\agent_bridge\\src"
+  },
+  "contamination": "source path plus explicit base interpreter home; retained for entire lifecycle",
+  "disposable_profile": "C:\\Temp\\fox2-core008-a_0i_um1\\user",
+  "disposable_runtime": "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge",
+  "real_runtime_touched": false,
+  "roots_disjoint": true
+}

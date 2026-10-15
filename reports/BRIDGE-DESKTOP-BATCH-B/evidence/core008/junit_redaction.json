@@ -1,0 +1,16 @@
+[
+  {
+    "file": "focused.xml",
+    "testcase_names_redacted": 0,
+    "original_sha256": "1c1abdd7872899fc403413372e2d803a64d8cb4cfbe75d1920592ad4b7656099",
+    "sanitized_sha256": "1c1abdd7872899fc403413372e2d803a64d8cb4cfbe75d1920592ad4b7656099",
+    "counts_and_outcomes_unchanged": true
+  },
+  {
+    "file": "full.xml",
+    "testcase_names_redacted": 2,
+    "original_sha256": "25f21a80150b2b594e6f14f6a8ed8dcf12c42a0185ae1d2760cb4a80bd75f10b",
+    "sanitized_sha256": "7c7220ee31d3d7d36890709c7f6d84262e39bd795cd0f1a6310106635ed67050",
+    "counts_and_outcomes_unchanged": true
+  }
+]

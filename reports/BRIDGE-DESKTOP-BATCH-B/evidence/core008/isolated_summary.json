@@ -1,0 +1,22 @@
+{
+  "all_required_isolated_gates_pass": true,
+  "contaminated_parent_retained_for_entire_lifecycle": true,
+  "disposable_root": "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge",
+  "no_replay": {
+    "blocked": [
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008"
+    ],
+    "pending_executions": 0
+  },
+  "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+  "real_runtime_touched": false,
+  "startup_scope": "normal installed entrypoint and single-instance; actual host logon task deferred to conditional real certification",
+  "status": "PASS"
+}

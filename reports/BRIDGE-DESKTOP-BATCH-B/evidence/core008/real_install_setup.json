@@ -1,0 +1,57 @@
+{
+  "all_original_dispatch_rows_byte_value_preserved": true,
+  "fresh_process_no_replay": [
+    {
+      "blocked": [
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008"
+      ],
+      "paused": true,
+      "pending_executions": 0
+    },
+    {
+      "blocked": [
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+        "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008"
+      ],
+      "paused": true,
+      "pending_executions": 0
+    }
+  ],
+  "install": {
+    "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+    "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b",
+    "status": "INSTALLED"
+  },
+  "original_durable_hashes_preserved": true,
+  "repeated_setup_idempotent": true,
+  "setup": {
+    "configuration": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "current_and_launcher_owned": true,
+  "exact_startup_task_absent": true,
+  "no_version_executable_processes": true,
+  "sid": "S-1-5-21-3473238684-2505789962-1345840538-1001",
+  "status": "PASS",
+  "task_name": "FOX2Bridge-S-1-5-21-3473238684-2505789962-1345840538-1001",
+  "versions": [
+    {
+      "contained_without_links": true,
+      "file_count": 5,
+      "historical_dispatch_004_package_binding": true,
+      "identity": "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+      "partial": true,
+      "receipt_identity_and_manifest": true
+    },
+    {
+      "contained_without_links": true,
+      "file_count": 1194,
+      "historical_dispatch_004_package_binding": true,
+      "identity": "e4df598f1e9ffb2dc17c7f6316c62a4dc9d96c113d892340cdec407940eed4cc",
+      "partial": false,
+      "receipt_identity_and_manifest": true
+    }
+  ]
+}

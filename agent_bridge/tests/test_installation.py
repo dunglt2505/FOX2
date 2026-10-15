@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import zipfile
 
 import pytest
@@ -125,6 +126,108 @@ def test_uninstall_preserves_claims_and_project_tree(tmp_path,monkeypatch):
     assert result['status']=='UNINSTALLED' and not target.exists()
     assert (project/'keep').read_bytes()==b'untouched'
     assert not ledger.claim_dispatch(dispatch_id='FOX2-CONSUMED',payload_hash='a'*64,execution_id='two',observed_at_utc=utc_now())
+
+
+def test_installed_interpreter_refuses_self_delete_without_spawning_or_waiting(tmp_path, monkeypatch):
+    root = tmp_path/'owned'
+    target = root/'versions'/('a'*64)
+    target.mkdir(parents=True)
+    (target/'receipt.json').write_text('{}')
+    monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+    monkeypatch.setattr(module.sys, 'executable', str(target/'runtime/Scripts/python.exe'))
+    def forbidden(*args, **kwargs):
+        pytest.fail('installed deletion target must never spawn a deleting child or wait')
+    monkeypatch.setattr(module.subprocess, 'run', forbidden)
+    monkeypatch.setattr(module.shutil, 'rmtree', forbidden)
+    with pytest.raises(ValueError, match='stable Bridge uninstall.ps1'):
+        module.uninstall(root=root)
+    assert (target/'receipt.json').exists()
+
+
+@pytest.mark.parametrize('failure', ['sharing', 'incomplete'])
+def test_uninstall_never_reports_success_until_deletion_complete(tmp_path, monkeypatch, failure):
+    root = tmp_path/'owned'
+    monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+    target = root/'versions'/('a'*64)
+    target.mkdir(parents=True)
+    (target/'receipt.json').write_text('{}')
+    (root/'current.json').write_text(json.dumps({'package_sha256': 'a'*64}))
+    (root/'launch.ps1').write_text('keep on failure')
+    calls = []
+    def remove(path):
+        calls.append(path)
+        if failure == 'sharing':
+            raise PermissionError('sharing violation')
+    monkeypatch.setattr(module.shutil, 'rmtree', remove)
+    with pytest.raises((PermissionError, ValueError)):
+        module.uninstall(root=root)
+    assert calls == [target]  # no blind retries or deferred deletion
+    assert (root/'current.json').exists() and (root/'launch.ps1').exists()
+
+
+def test_uninstall_preserves_all_durable_directories_and_consumed_identities(bridge_config, monkeypatch):
+    root = bridge_config.bridge_root
+    monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+    ids = ['FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-'+f'{i:03}' for i in range(1, 9)]
+    (root/'data').mkdir(parents=True)
+    (root/'data/manual_consumption.json').write_text(json.dumps({
+        'format': 'FOX2_MANUAL_CONSUMPTION_1', 'dispatch_ids': ids}))
+    durable = {}
+    for directory in ('config', 'data', 'logs', 'reports'):
+        path = root/directory/'durable.txt'
+        path.parent.mkdir(exist_ok=True)
+        path.write_bytes(b'preserved durable data')
+        durable[path] = path.read_bytes()
+    ledger = initialize_runtime(bridge_config)
+    manual = (root/'data/manual_consumption.json').read_bytes()
+    target = root/'versions'/('a'*64)
+    target.mkdir(parents=True)
+    (target/'receipt.json').write_text('{}')
+    assert module.uninstall(root=root)['status'] == 'UNINSTALLED'
+    assert all(path.read_bytes() == raw for path, raw in durable.items())
+    assert (root/'data/manual_consumption.json').read_bytes() == manual
+    for _ in range(2):
+        ledger = initialize_runtime(bridge_config)
+        assert all(not ledger.claim_dispatch(dispatch_id=i, payload_hash='a'*64,
+            execution_id='must-not-execute', observed_at_utc=utc_now()) for i in ids)
+
+
+@pytest.mark.parametrize('extra_argument', [False, True])
+def test_stable_bootstrap_external_process_bounded_arguments_and_environment(tmp_path, extra_argument):
+    root = tmp_path/'owned'
+    version = root/'versions'/('a'*64)
+    site = version/'runtime/Lib/site-packages'
+    package = site/'fox2_agent_bridge'
+    package.mkdir(parents=True)
+    (version/'receipt.json').write_text('{}')
+    (root/'current.json').write_text(json.dumps({'package_sha256': 'a'*64}))
+    (package/'__init__.py').write_text('')
+    # A boundary witness, independent of Bridge's deletion implementation.
+    (package/'__main__.py').write_text('''import json, os, sys
+from pathlib import Path
+def main(args):
+    assert args == ['uninstall']
+    root = Path.cwd()
+    assert not Path(sys.executable).resolve().is_relative_to(root/'versions')
+    assert not {'PYTHONPATH','PYTHONHOME'} & {k.upper() for k in os.environ}
+    print(json.dumps({'external_interpreter': True, 'cwd_outside_versions': True}))
+    return 0
+''')
+    (root/'uninstall.py').write_text(module.UNINSTALL_BOOTSTRAP)
+    (root/'uninstall.ps1').write_text(module.UNINSTALL_LAUNCHER.replace(
+        '__BASE_PYTHON__', str(Path(module.sys._base_executable).resolve()).replace("'", "''")))
+    env = {**os.environ, 'PYTHONPATH': 'invalid-source', 'PYTHONHOME': 'invalid-home'}
+    if extra_argument:
+        args = [module.sys._base_executable, '-I', '-B', str(root/'uninstall.py'), '--arbitrary-root']
+    else:
+        args = [shutil.which('pwsh'), '-NoProfile', '-NonInteractive', '-File', str(root/'uninstall.ps1')]
+    result = subprocess.run(args, env=env, capture_output=True, text=True, timeout=30)
+    if extra_argument:
+        assert result.returncode == 2 and not result.stdout
+        assert json.loads(result.stderr)['status'] == 'ERROR'
+    else:
+        assert result.returncode == 0, result.stderr
+        assert json.loads(result.stdout) == {'external_interpreter': True, 'cwd_outside_versions': True}
 
 
 @pytest.mark.parametrize('name', ['PYTHONPATH', 'PYTHONHOME', 'PythonPath', 'PythonHome'])

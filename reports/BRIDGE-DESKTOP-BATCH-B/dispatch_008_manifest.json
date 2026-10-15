@@ -1,0 +1,224 @@
+{
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "bridge_ready": false,
+  "control_commit": "737e9851b2367f5e2aeb6597d0445b6df0ffcc71",
+  "dispatch_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+  "files": [
+    {
+      "bytes": 8599,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_008_report.md",
+      "sha256": "b6715680f39757309382e26445826da467cedd10b0d39191b7282f9104a14020"
+    },
+    {
+      "bytes": 4795,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+      "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+    },
+    {
+      "bytes": 442,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/build_environment.json",
+      "sha256": "2f32335d9abb570bbbdf441cc3dc450b322637092f1f3a6639ff67e93c7191db"
+    },
+    {
+      "bytes": 321,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/claim.json",
+      "sha256": "41eb9d890827fb034298f3571a3df910fd01aad8246b26f83cb0beae1a8ea24b"
+    },
+    {
+      "bytes": 2123,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/diagnostics.json",
+      "sha256": "8776c79542e1d578ee47bc37b747f7d168f5fba3f2b45f51c7d0cf72186c8693"
+    },
+    {
+      "bytes": 238,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/focused.txt",
+      "sha256": "d79eed5d357a4c90150c61ab7930b856639a18838d3d5952c3595a5de8cb3adf"
+    },
+    {
+      "bytes": 4056,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/focused.xml",
+      "sha256": "1c1abdd7872899fc403413372e2d803a64d8cb4cfbe75d1920592ad4b7656099"
+    },
+    {
+      "bytes": 648,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/full.txt",
+      "sha256": "8cade102365bbb284fbc049f0ee02d61c1b4928a96ffa0741f95420a3659cb5f"
+    },
+    {
+      "bytes": 48685,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/full.xml",
+      "sha256": "7c7220ee31d3d7d36890709c7f6d84262e39bd795cd0f1a6310106635ed67050"
+    },
+    {
+      "bytes": 8352,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/historical_hashes.json",
+      "sha256": "ea3cb6d093d559405e262188885055bc379b84a14be33642a430c1b713672673"
+    },
+    {
+      "bytes": 3675,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/inspect_real.py",
+      "sha256": "db51c7848b6e6d936c27eff1b30bd095b10cab9071e8539b7eca606558f0df02"
+    },
+    {
+      "bytes": 2834,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/install_setup.json",
+      "sha256": "dd76de7894371e66755dae2a9682c05ce9c2db459eec51ce8488c14e631c962c"
+    },
+    {
+      "bytes": 1004,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/isolated_summary.json",
+      "sha256": "a5e0991b0b83c6c668b1237759d2633833e4563d5683c61b02ff54be9295b8fc"
+    },
+    {
+      "bytes": 541,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/isolation.json",
+      "sha256": "a13058ee010533e0c27ecc182c2fccbe296e78897f201ed31e3cec48ce07d281"
+    },
+    {
+      "bytes": 590,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/junit_redaction.json",
+      "sha256": "05481d41879fc49579b00b408e20542a8fb749e4eaaab5f46985e43cc288783a"
+    },
+    {
+      "bytes": 494,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/launch.json",
+      "sha256": "d590ce5eadbf08ed1470a62c6cbc589c1127abb95acfa68a9ec41dba66c0a23f"
+    },
+    {
+      "bytes": 3043,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/launch.py",
+      "sha256": "e4879cd496d716933a53a447254c3ae04a21f3a0ebd1b52696fcfad2bc424ad9"
+    },
+    {
+      "bytes": 15867,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/lifecycle.py",
+      "sha256": "5dae43753c28ac405dbb2403a69d150047d1861a229068fa91418e778be28fa7"
+    },
+    {
+      "bytes": 44,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/lifecycle_claim.json",
+      "sha256": "bed27fb8d77f79710b2618ba450a544c9fb20d8757acd35b10dd4c2ed0b19539"
+    },
+    {
+      "bytes": 2108,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/package.json",
+      "sha256": "891a273b4fd17575b6eb23079c0c7cb27cb53652f6bf2bd6b32da35a342ac1c7"
+    },
+    {
+      "bytes": 74,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/progress.json",
+      "sha256": "e3bb3cb56cf0e8d7e5ae53b5780dac2709f55ee86e214c8873680f1449d4a2e1"
+    },
+    {
+      "bytes": 3603,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/publication_checks.json",
+      "sha256": "adcab5126675362b0f83c06460a54570f03eacddded3514fb8dee80cb66e6715"
+    },
+    {
+      "bytes": 7198,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/publication_checks.py",
+      "sha256": "147d2085844e1d6ed853e5353faf0580918568f62d46157c6db183da1cfb1120"
+    },
+    {
+      "bytes": 2059,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_install_setup.json",
+      "sha256": "95790b6fe92ce58992b27bfd97a61e61d1e2edc121ca825dea26d137747c243c"
+    },
+    {
+      "bytes": 866,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_ownership.json",
+      "sha256": "d018a6db60bc07a5ecd828873e22318a4dae78e6f018bf7eae986f4e587c1c60"
+    },
+    {
+      "bytes": 3887,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_post_stop_readonly.json",
+      "sha256": "22e41fd7bf8f98c850b100f3332c1aeb9e876fb03c51fec68ed9c25eb5c192b4"
+    },
+    {
+      "bytes": 74,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_progress.json",
+      "sha256": "476c29a810a128124e6ee6961c7142b2ed03b0db1e54f3855338979630a76a45"
+    },
+    {
+      "bytes": 275821,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_readonly_inventory.json",
+      "sha256": "42a3e2d7a4ad3cf1b249be8d4818e5e82a808a57bf4e3aed15a188a950e91bd8"
+    },
+    {
+      "bytes": 171,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_readonly_task_process.json",
+      "sha256": "8c168df073ea0d717829bd0e363fa3556d214f8cadbd26438bc9a94a3d1cd0a2"
+    },
+    {
+      "bytes": 1080,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_reconciliation.json",
+      "sha256": "2c552c01a14fbee4a375606d0e380e19cfe7e815d4fbd85883eb23ccb499eb1a"
+    },
+    {
+      "bytes": 78,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_recovery_claim.json",
+      "sha256": "2514f6e347990c3c972ebc4cb5c974bf4a0deb4001d624afdd0efc4c4ac59688"
+    },
+    {
+      "bytes": 188,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_stop.json",
+      "sha256": "6fbdddb08e0dc8bc905af1c74603429aa50155579aff330f9e9f4cfc893987d5"
+    },
+    {
+      "bytes": 1540,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/record_tests.py",
+      "sha256": "034cb14f8e2a9ec0dd689994674a3aeae27f8166aafd764495575d2eb911e29b"
+    },
+    {
+      "bytes": 15164,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/recover_real.py",
+      "sha256": "75fd9684eb1a5709c83f99dee8f3be42265812053d22c846ceda752d533e1054"
+    },
+    {
+      "bytes": 2816,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/reinstall.json",
+      "sha256": "d64b2ad1461c8e56c0bdc6b18cdce77ab3b27573f272842d2f3cdb21cb18c964"
+    },
+    {
+      "bytes": 144,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/restart_diagnostics.json",
+      "sha256": "660c838c957c6f1a590fa34d8e9bee65f1b63b4a12cb190a8d75078a3ca3d5dd"
+    },
+    {
+      "bytes": 357,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/restart_no_replay.json",
+      "sha256": "bf93bfc72dfcbb5d1c615eeaf25eb685bb6f216b66dd9accd6b546501cab6eac"
+    },
+    {
+      "bytes": 357,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/startup_single_instance_tray_worker.json",
+      "sha256": "3e9a2d9572a70f90cc7eacbd65093b86e8e16cbad155eee1696b36bfa34a42fc"
+    },
+    {
+      "bytes": 194,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/tests.json",
+      "sha256": "875500da61d875f868b9d92088ad0206aa71bfcfbabba2accb1ee337a1db071a"
+    },
+    {
+      "bytes": 4004,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/text_normalization.json",
+      "sha256": "4fa58de0a01852afad75f874a07b77058a89df11283d617bdc1057e58b81d708"
+    },
+    {
+      "bytes": 1305,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/uninstall.json",
+      "sha256": "343ddf2ff36c4ba786bf54e84f70d1855272f4376db0db1a59d08fab7789a8f1"
+    },
+    {
+      "bytes": 2369,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/update.json",
+      "sha256": "881f9971a07b2e1cec4e1f518f4bae2c1dfeb717b46993a358129ab514b8de57"
+    }
+  ],
+  "isolated_lifecycle": "PASS",
+  "real_final_state": "STOPPED / PAUSED; owned logon task registered",
+  "real_recovery": "PARTIAL",
+  "source_head": "0c739db91553ab8dd39a30b221f079b9538b0836",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

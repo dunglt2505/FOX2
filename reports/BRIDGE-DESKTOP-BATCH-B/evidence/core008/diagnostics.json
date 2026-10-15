@@ -1,0 +1,66 @@
+{
+  "result": {
+    "files": [
+      "support.json"
+    ],
+    "sha256": "c1786ce7c3dc5c8003449ba54a2e4a8b81b15afccfb4c4271edb19cb70041a6f",
+    "status": "EXPORTED"
+  },
+  "whitelist_payload": {
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "dictionary_version": "1.2",
+    "format": "FOX2_SUPPORT_1",
+    "installation": {
+      "package_sha256": "cf05cdb4d813d39c3e3416cd15637ecde029586e39fddb867ffd76ca190a441e",
+      "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+    },
+    "recent": [
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      }
+    ],
+    "worker": {
+      "heartbeat": "2026-10-15T06:18:26.428241+00:00",
+      "paused": true,
+      "setup_complete": true,
+      "state": "STOPPED"
+    }
+  }
+}

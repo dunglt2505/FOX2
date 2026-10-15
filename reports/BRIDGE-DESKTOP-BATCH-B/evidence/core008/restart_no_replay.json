@@ -1,0 +1,11 @@
+{
+  "duplicate_worker": "LOCK_HELD",
+  "graceful_exit": true,
+  "heartbeat": "2026-10-15T06:18:55.397716+00:00",
+  "launches": 2,
+  "login_task_registration": "not changed in disposable profile; host SID namespace is shared",
+  "startup_entrypoint": "installed desktop_launcher.ps1",
+  "state": "PAUSED",
+  "tray_count": 1,
+  "worker_lock_released": true
+}

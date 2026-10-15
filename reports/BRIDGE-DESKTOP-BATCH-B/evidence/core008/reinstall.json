@@ -1,0 +1,66 @@
+{
+  "durable_files_preserved": true,
+  "fresh_processes": 2,
+  "install": {
+    "result": {
+      "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+      "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b",
+      "status": "INSTALLED"
+    },
+    "subprocesses": [
+      {
+        "arguments": [
+          "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+          "-m",
+          "venv",
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      },
+      {
+        "arguments": [
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "--isolated",
+          "install",
+          "--disable-pip-version-check",
+          "--no-index",
+          "--only-binary=:all:",
+          "--find-links",
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\wheels",
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\wheels\\fox2_agent_bridge-0.1.0-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      },
+      {
+        "arguments": [
+          "C:\\Temp\\fox2-core008-a_0i_um1\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+          "-I",
+          "-c",
+          "import fox2_agent_bridge.project_dictionary as r; import fox2_agent_bridge.dispatch_schema_v3_contract; import jsonschema; print(r.SOURCE_SHA256)"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      }
+    ]
+  },
+  "restart_no_replay": {
+    "blocked": [
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008"
+    ],
+    "pending_executions": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "detail": "",
+  "error_type": "AssertionError",
+  "no_retry": true,
+  "real_root_mutated": true,
+  "stage": "REAL_STARTUP_TASK_OWNERSHIP",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

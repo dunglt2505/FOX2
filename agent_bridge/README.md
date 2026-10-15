@@ -7,6 +7,14 @@ dispatch discovery, exact worktree resolution, selected local Agent CLI executio
 single-use replay protection, result verification, durable execution status,
 startup recovery of interrupted runs, and one-dispatch operational polling.
 
+For a per-user Windows installation, stop Tray/Worker and uninstall with
+`pwsh -NoProfile -File "$env:LOCALAPPDATA/FOX2/AgentBridge/uninstall.ps1"`.
+This stable entry point uses the external base Python and waits for verified
+version and launcher removal before returning `UNINSTALLED` and exit 0.
+Configuration, data, logs, reports, and consumed dispatch identities survive.
+Calling `uninstall` through a version's Python fails before deletion and directs
+the caller to this entry point; Windows cannot safely delete that running Python.
+
 ## Source and runtime model
 
 GitHub `dunglt2505/FOX2` under `agent_bridge/**` is the source of truth.

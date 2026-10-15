@@ -1,0 +1,17 @@
+{
+  "bindings": "PASS",
+  "branch_worktree_source_remote": "PASS",
+  "clean_initial_tree": "PASS",
+  "current_execution_proof": "007 preserved; current authorized Codex session",
+  "exclusive_writer_lock": true,
+  "permission": "danger-full-access / approval never",
+  "real_runtime_touched": false,
+  "routing": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "reasoning_effort": "high"
+  },
+  "schema": "PASS"
+}

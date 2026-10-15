@@ -1,0 +1,31 @@
+{
+  "durable_files_preserved": true,
+  "external_synchronous_bootstrap": true,
+  "host_startup_task_absent_before_uninstall": true,
+  "installed_executable_processes_before_uninstall": 0,
+  "no_deferred_uninstall": true,
+  "pointer_and_launchers_removed": true,
+  "result": {
+    "preserved": [
+      "config",
+      "data",
+      "logs",
+      "reports"
+    ],
+    "project_worktrees": "UNTOUCHED",
+    "status": "UNINSTALLED"
+  },
+  "stable_bootstrap_sha256": {
+    "uninstall.ps1": "ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff",
+    "uninstall.py": "05d33ba5747a9951dfda0a1db7ae6a201e8c4e43b728729d791bc5a011e0283f"
+  },
+  "stable_durable_file_sha256": {
+    "config/bridge.toml": "d08773469103496e5aaf300fa0fcd8382b1507f8a3c5f33ce8b72ac88386a69b",
+    "data/core008-preserve.txt": "635cfadda519c1a4908fad554736a90982d6f746d4421096fb6353f763030eb5",
+    "data/manual_consumption.json": "69a2e5762bda123196fecadf68aff5848e7abfce09acacb687ac2d523e16f8e1",
+    "logs/bridge.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/core008-preserve.txt": "635cfadda519c1a4908fad554736a90982d6f746d4421096fb6353f763030eb5",
+    "reports/core008-preserve.txt": "635cfadda519c1a4908fad554736a90982d6f746d4421096fb6353f763030eb5"
+  },
+  "versions_empty": true
+}

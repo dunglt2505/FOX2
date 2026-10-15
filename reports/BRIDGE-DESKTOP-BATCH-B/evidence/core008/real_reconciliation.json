@@ -1,0 +1,32 @@
+{
+  "current_and_launcher_removed": true,
+  "durable_original_hashes_preserved": true,
+  "manual_consumed_identities": [
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008"
+  ],
+  "manual_original_fields_preserved": true,
+  "private_local_backup": "C:\\Temp\\fox2-core008-a_0i_um1\\real-preservation",
+  "removed_owned_versions": [
+    "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+    "e4df598f1e9ffb2dc17c7f6316c62a4dc9d96c113d892340cdec407940eed4cc"
+  ],
+  "status": "PASS",
+  "uninstall": {
+    "preserved": [
+      "config",
+      "data",
+      "logs",
+      "reports"
+    ],
+    "project_worktrees": "UNTOUCHED",
+    "status": "UNINSTALLED"
+  },
+  "versions_empty": true
+}

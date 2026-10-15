@@ -143,6 +143,13 @@ def install(package: Path, expected_sha256: str, *, root: Path = BRIDGE_ROOT) ->
             write_json(target / 'receipt.json', {'package_sha256': identity, 'manifest': manifest})
             # Stable launcher resolves the atomic pointer after every upgrade.
             write_text(root / 'launch.ps1', LAUNCHER)
+            # The uninstall supervisor must never execute a version's Python.
+            base_python = Path(sys._base_executable).resolve()
+            if base_python.is_relative_to((root / 'versions').resolve()) or not base_python.is_file():
+                raise ValueError('uninstall requires an external base interpreter')
+            write_text(root / 'uninstall.py', UNINSTALL_BOOTSTRAP)
+            write_text(root / 'uninstall.ps1', UNINSTALL_LAUNCHER.replace(
+                '__BASE_PYTHON__', str(base_python).replace("'", "''")))
             current = {'package_sha256': identity, 'source_sha256': manifest['source_sha256']}
             write_json(root / 'current.json', current)
             return {'status': 'UPDATED' if previous else 'INSTALLED', **current}
@@ -160,6 +167,55 @@ $Current = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'current.json') -Ra
 if ($Current.package_sha256 -notmatch '^[0-9a-f]{64}$') { throw 'Invalid Bridge installation' }
 $Tray = Join-Path $PSScriptRoot ('versions/' + $Current.package_sha256 + '/payload/scripts/desktop_launcher.ps1')
 & $Tray
+'''
+
+
+UNINSTALL_LAUNCHER = r'''param()
+$ErrorActionPreference = 'Stop'
+# A stable, synchronous supervisor outside versions; no installed Python parent.
+Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+Remove-Item Env:PYTHONHOME -ErrorAction SilentlyContinue
+& '__BASE_PYTHON__' -I -B (Join-Path $PSScriptRoot 'uninstall.py')
+exit $LASTEXITCODE
+'''
+
+
+UNINSTALL_BOOTSTRAP = '''"""Stable external uninstall entry point. No arbitrary arguments or import paths."""
+import json
+import os
+from pathlib import Path
+import re
+import sys
+
+try:
+    if len(sys.argv) != 1:
+        raise ValueError('uninstall bootstrap accepts no arguments')
+    root = Path(__file__).absolute().parent
+    for item in (root, *root.parents):
+        if item.is_symlink() or item.is_junction():
+            raise ValueError('uninstall bootstrap path contains a link')
+    versions = root / 'versions'
+    if Path(sys.executable).resolve().is_relative_to(versions.resolve()):
+        raise ValueError('uninstall bootstrap requires an external interpreter')
+    current = json.loads((root / 'current.json').read_text(encoding='utf-8'))
+    identity = current.get('package_sha256', '')
+    if not re.fullmatch('[0-9a-f]{64}', identity):
+        raise ValueError('invalid installation pointer')
+    version = versions / identity
+    for item in (versions, version, version / 'runtime', version / 'runtime/Lib',
+                 version / 'runtime/Lib/site-packages'):
+        if item.is_symlink() or item.is_junction():
+            raise ValueError('uninstall import path contains a link')
+    if not (version / 'receipt.json').is_file():
+        raise ValueError('unowned version directory; uninstall stopped')
+    os.chdir(root)
+    sys.path.insert(0, str(version / 'runtime/Lib/site-packages'))
+    from fox2_agent_bridge.__main__ import main
+    raise SystemExit(main(['uninstall']))
+except (ValueError, OSError, KeyError) as error:
+    # No arbitrary subprocess output or configuration enters the error receipt.
+    print(json.dumps({'status': 'ERROR', 'error': 'external uninstall bootstrap failed'}), file=sys.stderr)
+    raise SystemExit(2)
 '''
 
 
@@ -212,13 +268,9 @@ def first_run(*, root: Path = BRIDGE_ROOT) -> dict:
 def uninstall(*, root: Path = BRIDGE_ROOT) -> dict:
     root = safe_root(root)
     if Path(sys.executable).resolve().is_relative_to((root / 'versions').resolve()):
-        # Windows cannot delete the running interpreter. A base interpreter loads
-        # this module before removing the version, then returns its JSON receipt.
-        code = ('import sys,json; from pathlib import Path; '
-                f'sys.path.insert(0,{str(Path(__file__).resolve().parents[1])!r}); '
-                'from fox2_agent_bridge.installation import uninstall; '
-                f'print(json.dumps(uninstall(root=Path({str(root)!r}))))')
-        return json.loads(_run([sys._base_executable, '-I', '-c', code]).stdout)
+        # Windows has no synchronous process overlay preserving the caller's
+        # wait handle. Never spawn a deleting child and wait inside its target.
+        raise ValueError('installed interpreter cannot uninstall itself; run the stable Bridge uninstall.ps1')
     from .config import load_config
     from .startup import set_start_with_windows
     with ProcessLock(root / 'data/install.lock'), ProcessLock(root / 'data/bridge.lock'):
@@ -237,8 +289,12 @@ def uninstall(*, root: Path = BRIDGE_ROOT) -> dict:
                         raise ValueError('link in owned version; uninstall stopped')
             for path in targets:
                 shutil.rmtree(path)
-        for name in ('current.json', 'launch.ps1'):
+            if any(versions.iterdir()):
+                raise ValueError('version deletion incomplete; uninstall stopped')
+        for name in ('current.json', 'launch.ps1', 'uninstall.py', 'uninstall.ps1'):
             (root / name).unlink(missing_ok=True)
+        if any((root / name).exists() for name in ('current.json', 'launch.ps1', 'uninstall.py', 'uninstall.ps1')):
+            raise ValueError('installation artifact deletion incomplete; uninstall stopped')
     return {'status': 'UNINSTALLED', 'preserved': ['config', 'data', 'logs', 'reports'],
             'project_worktrees': 'UNTOUCHED'}
 

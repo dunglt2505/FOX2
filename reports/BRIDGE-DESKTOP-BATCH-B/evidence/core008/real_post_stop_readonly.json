@@ -1,0 +1,138 @@
+{
+  "checks": {
+    "actions_literal_match": false,
+    "arguments_exact": true,
+    "executable_path_resolves_same": true,
+    "ignore_new": true,
+    "logon_interactive": true,
+    "run_level_limited": true,
+    "sid_matches": true,
+    "task_name_matches": true
+  },
+  "dispatches": [
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-001",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-002",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-003",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-004",
+      "state": "PUSHED_UNREVIEWED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DELIVERY-HOTFIX-01-CODEX-001",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DELIVERY-HOTFIX-01-CODEX-002",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-001",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-002",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-CODEX-001",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-CODEX-002",
+      "state": "PUSHED_UNREVIEWED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-002",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-003",
+      "state": "PUSHED_UNREVIEWED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-OPS-CANARY-001",
+      "state": "PUSHED_UNREVIEWED"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-OPS-DEV-CANARY-001",
+      "state": "FAILED"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-M1-P2-03-CODEX-001",
+      "state": "FAILED"
+    }
+  ],
+  "durable_hash_checks": {
+    "config/bridge.toml": true,
+    "logs/bridge.log": true,
+    "reports/support-certification.zip": true
+  },
+  "expected_action": {
+    "arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -STA -File \"C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\launch.ps1\"",
+    "execute": "C:\\Program Files\\PowerShell\\7\\pwsh.EXE"
+  },
+  "no_second_registration_or_tray_launch": true,
+  "readonly_after_stop": true,
+  "status": "STOPPED_NEEDS_RECONCILIATION",
+  "task": {
+    "actions": [
+      {
+        "arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -STA -File \"C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\launch.ps1\"",
+        "execute": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+      }
+    ],
+    "instances": "IgnoreNew",
+    "logon_type": "Interactive",
+    "name": "FOX2Bridge-S-1-5-21-3473238684-2505789962-1345840538-1001",
+    "principal_sid": "S-1-5-21-3473238684-2505789962-1345840538-1001",
+    "run_level": "Limited",
+    "sid": "S-1-5-21-3473238684-2505789962-1345840538-1001"
+  },
+  "worker": {
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "state": "STOPPED"
+  }
+}
