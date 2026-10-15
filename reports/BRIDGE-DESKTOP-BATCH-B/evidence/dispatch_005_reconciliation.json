@@ -1,0 +1,203 @@
+{
+  "bridge_ready": false,
+  "checked_at": "2026-10-15T02:24:52.467549+00:00",
+  "competing_writer": "NONE_OBSERVED",
+  "control_commit": "9dcaa0777ec6d484636b3047a333f078035ac484",
+  "current_auth_capacity_toolchain": "NOT_REVERIFIED_AFTER_RUNTIME_MATERIAL_STOP; historical PreExec PASS is not new attestation",
+  "current_pointer": {
+    "package_sha256": "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+    "source_sha256": "876eaf82f252247b7f4f96bbb5d4b3ce158af986c80d5904473d440d13eb5b77"
+  },
+  "dispatch_005_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+  "dispatch_schema_validation": "PASS",
+  "existing_code_tests_reports": "Preserved byte-for-byte; only new 005 report files added",
+  "full_pytest": "NOT_RUN_AFTER_MATERIAL_STOP",
+  "hypotheses": "Partial deletion objectively confirmed. Parent executable race is consistent with remaining executables; exact cause not claimed proven. Dependency hypothesis not resolved.",
+  "immutable_bindings": {
+    "dictionary": {
+      "commit": "0fee5424a6f1f032490518a0a816931c6624875c",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "verified": true
+    },
+    "policy": {
+      "commit": "0fee5424a6f1f032490518a0a816931c6624875c",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "verified": true
+    },
+    "prompt": {
+      "commit": "a847d394db1b1700fc823f08f09cfb44694bfcd8",
+      "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-DESKTOP-BATCH-B-UNINSTALL-005-EXECUTION.md",
+      "sha256": "ca6fdc3d237b86ed25e0dd0fe1dcdca6b3b9a020aa3633e2b5d18a71b3a49b3f",
+      "verified": true
+    },
+    "task": {
+      "commit": "0fee5424a6f1f032490518a0a816931c6624875c",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "verified": true
+    }
+  },
+  "implementation_started": false,
+  "initial_exact_clean_branch_worktree_remote": "PASS",
+  "installed_lifecycle": "NOT_RUN_AFTER_MATERIAL_STOP",
+  "installer_update_restart_delete": false,
+  "ledger_dispatches": [
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+      "state": "NEEDS_RECONCILIATION"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+      "state": "NEEDS_RECONCILIATION"
+    }
+  ],
+  "no_agent_substitution": true,
+  "preservation_after": {
+    "config": {
+      "file_count": 1,
+      "inventory_sha256": "9cb3fbb87b31e16cd018e341c46730120b9d31ed3590c53249d32f7c85d3f64a"
+    },
+    "current.json": "15f6511c494cb32a315296b275a5f54bc5b7861a7b072922d29952d41f3baf70",
+    "data": {
+      "file_count": 7,
+      "inventory_sha256": "01bd2c0b2a5bc7543d34d800ef5742de3a7e06c5dac66a1588bc82c24fe16648"
+    },
+    "launch.ps1": "0bb016ab28c12f9e683a795125b89ed35774cf24619c6f0234f0cbb3e5dedabd",
+    "logs": {
+      "file_count": 1,
+      "inventory_sha256": "8aba6541a1a303ecfce0880560b115bb6a3fbebf9cc697b4a178bb97aff99ca9"
+    },
+    "reports": {
+      "file_count": 1,
+      "inventory_sha256": "50daf235e0878c4219f43fc91f1b44055e5d84196184613e8e828ba6a0f8b164"
+    }
+  },
+  "preservation_before": {
+    "config": {
+      "file_count": 1,
+      "inventory_sha256": "9cb3fbb87b31e16cd018e341c46730120b9d31ed3590c53249d32f7c85d3f64a"
+    },
+    "current.json": "15f6511c494cb32a315296b275a5f54bc5b7861a7b072922d29952d41f3baf70",
+    "data": {
+      "file_count": 7,
+      "inventory_sha256": "01bd2c0b2a5bc7543d34d800ef5742de3a7e06c5dac66a1588bc82c24fe16648"
+    },
+    "launch.ps1": "0bb016ab28c12f9e683a795125b89ed35774cf24619c6f0234f0cbb3e5dedabd",
+    "logs": {
+      "file_count": 1,
+      "inventory_sha256": "8aba6541a1a303ecfce0880560b115bb6a3fbebf9cc697b4a178bb97aff99ca9"
+    },
+    "reports": {
+      "file_count": 1,
+      "inventory_sha256": "50daf235e0878c4219f43fc91f1b44055e5d84196184613e8e828ba6a0f8b164"
+    }
+  },
+  "preservation_match": true,
+  "prior_manual_consumption": {
+    "authority_control_commit": "056fd4f4a2f1d99355d78f7ebf8cdc4b13109c29",
+    "dispatch_ids": [
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004"
+    ],
+    "format": "FOX2_MANUAL_CONSUMPTION_1"
+  },
+  "process_and_startup_observation": {
+    "bridge_process_matches": 1,
+    "bridge_startup_tasks": 1,
+    "process_handle_ownership": "NOT_PROVEN",
+    "raw_command_lines_persisted": false
+  },
+  "prompt_blob_sha1": "f8b58371daf7efd81033bb59a361164fa6edbfa1",
+  "read_only_database_method": "mode=ro&immutable=1; WAL size verified zero; no Bridge ledger constructor called",
+  "read_only_reconciliation_before_mutation": true,
+  "remaining_unknowns": [
+    "Exact Windows failing exception from 004 was not retained",
+    "Exact handle/process ownership and lock availability not fully proven",
+    "Effective interpreter imports and standalone helper dependencies not executed after material STOP",
+    "Complete runtime safety and external uninstaller completion not proven"
+  ],
+  "root_ancestor_link_or_junction": false,
+  "runtime_commands_launched": false,
+  "runtime_integrity": "FAIL_PARTIAL_UNINSTALL; current installed module and all receipt-listed payload files absent",
+  "session_permission": "danger-full-access; approval never",
+  "source_head": "0fee5424a6f1f032490518a0a816931c6624875c",
+  "source_preexec_receipt": "PASS at 0fee5424, binds code 6a31409e",
+  "status": "STOPPED_NEEDS_RECONCILIATION",
+  "stop_reasons": [
+    "unsafe_delete_or_partial_uninstall_state",
+    "installed_runtime_integrity_unknown_or_unverified"
+  ],
+  "targeted_tests": "NOT_RUN_AFTER_MATERIAL_STOP",
+  "uninstall_retry": false,
+  "versions": [
+    {
+      "installation_module_exists": false,
+      "package_sha256": "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+      "payload_hash_mismatches": [],
+      "payload_missing": [
+        "scripts/desktop_launcher.ps1",
+        "scripts/desktop_setup.ps1",
+        "scripts/desktop_startup.ps1",
+        "scripts/desktop_tray.ps1",
+        "wheels/attrs-26.1.0-py3-none-any.whl",
+        "wheels/fox2_agent_bridge-0.1.0-py3-none-any.whl",
+        "wheels/jsonschema-4.26.0-py3-none-any.whl",
+        "wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+        "wheels/referencing-0.37.0-py3-none-any.whl",
+        "wheels/rpds_py-2026.9.1-cp313-cp313-win_amd64.whl"
+      ],
+      "python_exe_exists": true,
+      "receipt_identity_matches_directory": true,
+      "receipt_sha256": "f980f28f6c4960a493769ddd8bc67d8c8e79b07470ae2e3cf2e52e36273dae79",
+      "runtime_scripts_files": [
+        "python.exe",
+        "pythonw.exe"
+      ],
+      "top_level_link_or_junction": false
+    },
+    {
+      "installation_module_exists": true,
+      "package_sha256": "e4df598f1e9ffb2dc17c7f6316c62a4dc9d96c113d892340cdec407940eed4cc",
+      "payload_hash_mismatches": [],
+      "payload_missing": [],
+      "python_exe_exists": true,
+      "receipt_identity_matches_directory": true,
+      "receipt_sha256": "e7c414058f521c133c5f7e950ebfb1e68c0bfbd7ed6448a370aedd5c2cbf1ad4",
+      "runtime_scripts_files": [
+        "Activate.ps1",
+        "activate",
+        "activate.bat",
+        "activate.fish",
+        "deactivate.bat",
+        "fox2-bridge.exe",
+        "jsonschema.exe",
+        "pip.exe",
+        "pip3.13.exe",
+        "pip3.exe",
+        "python.exe",
+        "pythonw.exe"
+      ],
+      "top_level_link_or_junction": false
+    }
+  ],
+  "worker": {
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "state": "STOPPED",
+    "stop_requested": true
+  },
+  "writer_lock": "Exact worktree fox2-preexec.lock OS byte-range lock held throughout evidence publication"
+}

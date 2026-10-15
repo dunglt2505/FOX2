@@ -1,0 +1,33 @@
+{
+  "bridge_ready": false,
+  "checks": {
+    "changed_path_allowlist": "Report-only exact five paths",
+    "git_diff_check": "Required on exact staged content before commit",
+    "secret_scan": "Shared secret_scan over all new report bytes before staging"
+  },
+  "control_commit": "9dcaa0777ec6d484636b3047a333f078035ac484",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+  "files": [
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_claim.json",
+      "sha256": "f89d132eb27015e8817fc0a65b8eb390b573f30b46154a703869670087150a2e"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_reconciliation.json",
+      "sha256": "1e435c6b64d877e38fd187f76e39590dbdd0c6ac83f9040ae456f8e7e6af0b0a"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_acceptance_gates.json",
+      "sha256": "2177bbfb5b563c7c14d5504a4c546f1dab9dad0ba33443dd27f06dac4cc01491"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_005_report.md",
+      "sha256": "274c9f29c0d0631da7732f5b7c4e0b9a42554900cc84d266a9482543e48da45e"
+    }
+  ],
+  "prior_artifacts": "No prior tracked file modified",
+  "publication": "AUTHORIZED_REPORT_ONLY; remote outcome provided by publishing command after exact readback",
+  "self_hash": "Excluded; exact Git blob readback required",
+  "source_head": "0fee5424a6f1f032490518a0a816931c6624875c",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

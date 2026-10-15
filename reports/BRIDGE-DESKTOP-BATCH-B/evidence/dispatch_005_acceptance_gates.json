@@ -1,0 +1,128 @@
+{
+  "bridge_ready": false,
+  "count": 24,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+  "gates": [
+    {
+      "gate": "FIRST_RUN_SETUP",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "PER_USER_INSTALL",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "INSTALLER_PACKAGE",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "UPDATE_PATH",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "UNINSTALL_PATH",
+      "reason": "Current version missing every receipt-listed payload and installed installation.py; unsafe partial uninstall.",
+      "status": "FAIL"
+    },
+    {
+      "gate": "STARTUP_SINGLE_INSTANCE",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "SANITIZED_DIAGNOSTICS_BUNDLE",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "INSTALLED_TRAY_WORKER",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "PROJECT_DICTIONARY_BINDING",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "DISPATCH_V3_SCHEMA_BINDING",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "V2_COMPATIBILITY",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "V06_COMPATIBILITY",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "REAL_ELIGIBLE_FOX2_DISPATCH",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "EXACT_AGENT_CONFIGURATION",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "FULL_ACCESS_PERMISSION",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "RESULT_REMOTE_READBACK",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "USAGE_SNAPSHOT",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "RESTART_NO_REPLAY",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "FULL_BRIDGE_TESTS",
+      "reason": "Read-only reconciliation confirmed partial uninstall; no certification permitted.",
+      "status": "NOT_RUN_AFTER_MATERIAL_STOP"
+    },
+    {
+      "gate": "CHANGED_PATH_ALLOWLIST",
+      "reason": "Applies only to sanitized 005 evidence publication, not installed-runtime acceptance.",
+      "status": "PASS_REPORT_ONLY"
+    },
+    {
+      "gate": "SECRET_SCAN",
+      "reason": "Applies only to sanitized 005 evidence publication, not installed-runtime acceptance.",
+      "status": "PASS_REPORT_ONLY"
+    },
+    {
+      "gate": "GIT_DIFF_CHECK",
+      "reason": "Applies only to sanitized 005 evidence publication, not installed-runtime acceptance.",
+      "status": "PASS_REPORT_ONLY"
+    }
+  ],
+  "prior_evidence": "All previous acceptance evidence retained with original historical meaning; no prior PASS upgraded to current certification."
+}

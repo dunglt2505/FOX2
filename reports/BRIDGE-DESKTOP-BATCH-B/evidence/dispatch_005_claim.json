@@ -1,0 +1,13 @@
+{
+  "claimed_at": "2026-10-15T02:24:52.467549+00:00",
+  "control_commit": "9dcaa0777ec6d484636b3047a333f078035ac484",
+  "dispatch_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+  "execution": "Read-only reconciliation only; mandatory STOP before implementation",
+  "max_runs": 1,
+  "no_retry": true,
+  "prior_dispatches_replayed": false,
+  "runtime_manual_consumption": "Preserved unchanged; this exclusive report claim records manual 005 consumption",
+  "source_head": "0fee5424a6f1f032490518a0a816931c6624875c",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}
