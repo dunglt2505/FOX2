@@ -1,0 +1,14 @@
+{
+  "all_json_values_preserved": true,
+  "claim_time_unchanged": true,
+  "consumed": true,
+  "dispatch_replayed": false,
+  "only_CRLF_to_LF_changed": true,
+  "original_bytes": 477,
+  "original_bytes_base64": "ew0KICAiZGlzcGF0Y2hfaWQiOiAiRk9YMi1ESVNQQVRDSC1CUklER0UtREVTS1RPUC1CQVRDSC1CLUNPREVYLTAwOSIsDQogICJjb250cm9sX2NvbW1pdCI6ICI3MjI5MGQ1MjU4NWMzYzZlMDkwMzBjMWM3YTg0MDU4M2U2MWFmNjM3IiwNCiAgInNvdXJjZV9oZWFkIjogIjUwMTgyMmEzM2VmMDhjNzM2NTE1NDkxM2JiYzY3NzU0NDg1NmVlZTUiLA0KICAiY2FuYXJ5X2J1bmRsZV9jb21taXQiOiAiY2QyYTFiZDBkMmE0ZTg1MWE3OWMxN2Y1MzhmNzA3MzQyNzdkNWFkNSIsDQogICJjYW5hcnlfYnJhbmNoIjogIndvcmsvRk9YMi1CUklER0UtRklOQUwtQ0FOQVJZLTAwOSIsDQogICJjYW5hcnlfYmFzZSI6ICI1MDE4MjJhMzNlZjA4YzczNjUxNTQ5MTNiYmM2Nzc1NDQ4NTZlZWU1IiwNCiAgImNvbnN1bWVkIjogdHJ1ZSwNCiAgIm1heF9ydW5zIjogMSwNCiAgImNsYWltZWRfYXQiOiAiMjAyNi0xMC0xNVQwNjo0OToxNy4wMzU4NDg5WiINCn0K",
+  "original_sha256": "461d4785d26f1a87c06d23b07aeb5973f05a6d707479ad948a67d232972acba0",
+  "published_bytes": 467,
+  "published_sha256": "3e5645c6a2ace090040fd091aef2b4145d467b1cabad8ec77742070aed48e158",
+  "purpose": "Preserve exact launcher claim bytes while publishing JSON with LF to satisfy git diff --check",
+  "status": "PASS"
+}

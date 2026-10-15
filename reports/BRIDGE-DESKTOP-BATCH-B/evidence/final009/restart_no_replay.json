@@ -1,0 +1,21 @@
+{
+  "canary_claimed": false,
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "controller_consumed": true,
+  "controller_replay_allowed": false,
+  "new_claim_attempts": 0,
+  "prior_001_008_consumed": true,
+  "prior_dispatch_states": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": "NEEDS_RECONCILIATION"
+  },
+  "reason": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+  "restart_performed": false,
+  "status": "NOT_RUN"
+}

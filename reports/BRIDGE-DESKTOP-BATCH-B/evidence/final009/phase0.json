@@ -1,0 +1,68 @@
+{
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "canary_execution_count": 0,
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "canary_unclaimed": true,
+  "controller_claim_owned": true,
+  "controller_claim_preservation": "controller_claim_preservation.json",
+  "controller_claim_sha256": "461d4785d26f1a87c06d23b07aeb5973f05a6d707479ad948a67d232972acba0",
+  "controller_claim_sha256_is_original_launcher_bytes": true,
+  "controller_dispatch_json_schema": "PASS",
+  "dictionary_policy_task_sha256_bindings": "PASS",
+  "exclusive_writer_lock_acquired": true,
+  "failure": {
+    "actual_git_blob_sha1": "fb0822e6ab27e9721eaaf6bdcbf3566d1904329b",
+    "actual_sha256": "7e83a5c6ee9440c17d0d50fb729813408f241a2fba7d791bce4140bc4981c000",
+    "code": "CONTROLLER_PROMPT_SHA256_BINDING_MISMATCH",
+    "dispatch": {
+      "blob_sha1": "f455145ccbaf65aba4eb1ab4040c242061a0fe45",
+      "commit": "72290d52585c3c6e09030c1c7a840583e61af637",
+      "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009.json",
+      "sha256": "957ce05a9752c401941c52878a8c9628934d3a88486bc35cd96eb14b150afd54"
+    },
+    "expected_git_blob_sha1": "fb0822e6ab27e9721eaaf6bdcbf3566d1904329b",
+    "expected_sha256": "66c8ceee35b657d68bca1a2bdfacaf2f6c1ba9e3556504f62f156663503e2b7c",
+    "gate": "Phase 0 immutable controller Dispatch/prompt binding",
+    "independent_git_show_and_cat_file_bytes_equal": true,
+    "prompt_commit": "5a527dd71e2217baef42a4a5c29b81e1533a5a5b",
+    "prompt_path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-009.md",
+    "raw_CRLF_count": 0,
+    "raw_LF_count": 289,
+    "raw_bytes": 10166,
+    "stop_before_runtime_mutation": true,
+    "stop_condition": "source_branch_worktree_or_prompt_binding_mismatch"
+  },
+  "fixtures": {
+    "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json": {
+      "blob_sha1": "964dceb19c74235b9dbf0d219c77046c1b2e9a4e",
+      "commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+      "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json",
+      "sha256": "e5ff930d7094572eaad0a21236b3c87b6f90dda3c5cd270bf4c00531bbda2e17"
+    },
+    "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json": {
+      "blob_sha1": "7bba347537d48d4d7b499841efeafc06ea3e597f",
+      "commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json",
+      "sha256": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a"
+    }
+  },
+  "initial_status_evidence": "controller observed git status before helper creation: only controller_claim.json",
+  "initial_worktree_only_authorized_claim": true,
+  "no_competing_material_writer": true,
+  "non_replayable_reason": "existing immutable dispatch rows cause claim_dispatch to return false before any execution insertion",
+  "post_stop_readonly_audit": "phase0_readonly_failure_audit.json",
+  "prior_001_008_consumed": true,
+  "prior_001_008_dispatch_states": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": "NEEDS_RECONCILIATION"
+  },
+  "runtime_mutated": false,
+  "source_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "status": "FAIL"
+}

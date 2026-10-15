@@ -1,0 +1,57 @@
+{
+  "canary_claimed": false,
+  "canary_executed": false,
+  "controller_consumed": true,
+  "controller_replay_allowed": false,
+  "error": "CONTROLLER_PROMPT_SHA256_BINDING_MISMATCH",
+  "error_type": "AssertionError",
+  "failure": {
+    "actual_git_blob_sha1": "fb0822e6ab27e9721eaaf6bdcbf3566d1904329b",
+    "actual_sha256": "7e83a5c6ee9440c17d0d50fb729813408f241a2fba7d791bce4140bc4981c000",
+    "code": "CONTROLLER_PROMPT_SHA256_BINDING_MISMATCH",
+    "dispatch": {
+      "blob_sha1": "f455145ccbaf65aba4eb1ab4040c242061a0fe45",
+      "commit": "72290d52585c3c6e09030c1c7a840583e61af637",
+      "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009.json",
+      "sha256": "957ce05a9752c401941c52878a8c9628934d3a88486bc35cd96eb14b150afd54"
+    },
+    "expected_git_blob_sha1": "fb0822e6ab27e9721eaaf6bdcbf3566d1904329b",
+    "expected_sha256": "66c8ceee35b657d68bca1a2bdfacaf2f6c1ba9e3556504f62f156663503e2b7c",
+    "gate": "Phase 0 immutable controller Dispatch/prompt binding",
+    "independent_git_show_and_cat_file_bytes_equal": true,
+    "prompt_commit": "5a527dd71e2217baef42a4a5c29b81e1533a5a5b",
+    "prompt_path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-009.md",
+    "raw_CRLF_count": 0,
+    "raw_LF_count": 289,
+    "raw_bytes": 10166,
+    "stop_before_runtime_mutation": true,
+    "stop_condition": "source_branch_worktree_or_prompt_binding_mismatch"
+  },
+  "final_worker": {
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "state": "STOPPED"
+  },
+  "graceful_cleanup": null,
+  "initial_failure_record": {
+    "canary_claimed": false,
+    "controller_consumed": true,
+    "controller_replay_allowed": false,
+    "error": "",
+    "error_type": "AssertionError",
+    "final_worker": {
+      "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+      "paused": true,
+      "state": "STOPPED"
+    },
+    "graceful_cleanup": null,
+    "observed_at": "2026-10-15T06:52:29.053753+00:00",
+    "stage": "PHASE_0_READONLY_SAFETY",
+    "status": "STOPPED_NEEDS_RECONCILIATION"
+  },
+  "observed_at": "2026-10-15T06:52:29.053753+00:00",
+  "product_source_mutated": false,
+  "runtime_mutated": false,
+  "stage": "PHASE_0_READONLY_SAFETY",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

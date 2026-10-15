@@ -1,0 +1,11 @@
+{
+  "historical_startup_ownership": {
+    "blob_sha1": "a0339dd21c0f6661aded6f54cffddb70b8b9dbf0",
+    "commit": "501822a33ef08c7365154913bbc677544856eee5",
+    "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_post_stop_readonly.json",
+    "sha256": "22e41fd7bf8f98c850b100f3332c1aeb9e876fb03c51fec68ed9c25eb5c192b4"
+  },
+  "reason": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+  "status": "NOT_RUN",
+  "task_rewritten": false
+}

@@ -1,0 +1,8 @@
+{
+  "intake": "PAUSED",
+  "processes_force_killed": false,
+  "reason": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+  "startup_invoked": false,
+  "status": "NOT_RUN",
+  "worker_final_state": "STOPPED"
+}

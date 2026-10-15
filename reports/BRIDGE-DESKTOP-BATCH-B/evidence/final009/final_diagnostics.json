@@ -1,0 +1,31 @@
+{
+  "canary_dispatch_present": false,
+  "canary_execution_count": 0,
+  "fresh_installed_support_export": "NOT_RUN",
+  "installation": {
+    "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+    "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+  },
+  "observed_at": "2026-10-15T06:54:57.649575+00:00",
+  "prior_dispatch_states": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": "NEEDS_RECONCILIATION"
+  },
+  "raw_config_logs_database_checkpoints_or_prompts_exported": false,
+  "reason": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+  "runtime_mutated": false,
+  "status": "READONLY_STOP_SNAPSHOT",
+  "worker": {
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "state": "STOPPED"
+  }
+}

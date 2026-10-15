@@ -1,0 +1,13 @@
+{
+  "agent_substituted": false,
+  "canary_claimed": false,
+  "canary_executed": false,
+  "canary_execution_count": 0,
+  "codex_directly_invoked": false,
+  "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "e2e_once_manually_invoked": false,
+  "intake_resumed": false,
+  "reason": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+  "retry_performed": false,
+  "status": "NOT_RUN"
+}

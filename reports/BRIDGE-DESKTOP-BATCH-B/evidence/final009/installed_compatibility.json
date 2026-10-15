@@ -1,0 +1,18 @@
+{
+  "gates": {
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": "NOT_RUN",
+    "DISPATCH_V3_SCHEMA_BINDING": "NOT_RUN",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": "NOT_RUN",
+    "PROJECT_DICTIONARY_BINDING": "NOT_RUN",
+    "V06_COMPATIBILITY": "NOT_RUN",
+    "V2_COMPATIBILITY": "NOT_RUN"
+  },
+  "installed_integrity_readonly_audit": "phase0_readonly_failure_audit.json",
+  "installed_package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+  "note": "Read-only package integrity is not installed compatibility certification",
+  "reason": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+  "status": "NOT_RUN",
+  "v2_published": false,
+  "v3_claimed": false,
+  "v3_executed": false
+}

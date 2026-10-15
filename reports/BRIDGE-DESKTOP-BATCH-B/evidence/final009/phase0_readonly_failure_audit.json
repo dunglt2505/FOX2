@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "dictionary": {
+      "actual_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "expected_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "hash_matches": true
+    },
+    "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json": "e5ff930d7094572eaad0a21236b3c87b6f90dda3c5cd270bf4c00531bbda2e17",
+    "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a",
+    "installed_module_mismatches": [],
+    "manifest_mismatches": [],
+    "package_hash_matches": true,
+    "pointer": {
+      "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+      "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+    },
+    "policy": {
+      "actual_sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "expected_sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "hash_matches": true
+    },
+    "prior_states": {
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": "NEEDS_RECONCILIATION"
+    },
+    "prompt": {
+      "actual_sha256": "7e83a5c6ee9440c17d0d50fb729813408f241a2fba7d791bce4140bc4981c000",
+      "expected_sha256": "66c8ceee35b657d68bca1a2bdfacaf2f6c1ba9e3556504f62f156663503e2b7c",
+      "hash_matches": false
+    },
+    "remote_canary": "501822a33ef08c7365154913bbc677544856eee5",
+    "remote_task": "501822a33ef08c7365154913bbc677544856eee5",
+    "task": {
+      "actual_sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "expected_sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "hash_matches": true
+    },
+    "worker": {
+      "paused": true,
+      "state": "STOPPED"
+    }
+  },
+  "dispatch_replayed": false,
+  "runtime_mutated": false
+}

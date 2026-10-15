@@ -1,0 +1,11 @@
+{
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009",
+  "control_commit": "72290d52585c3c6e09030c1c7a840583e61af637",
+  "source_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "canary_bundle_commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+  "canary_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "canary_base": "501822a33ef08c7365154913bbc677544856eee5",
+  "consumed": true,
+  "max_runs": 1,
+  "claimed_at": "2026-10-15T06:49:17.0358489Z"
+}

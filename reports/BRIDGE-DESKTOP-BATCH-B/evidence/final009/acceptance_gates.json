@@ -1,0 +1,720 @@
+{
+  "bridge_ready": false,
+  "chat_acceptance": false,
+  "gates": {
+    "CHANGED_PATH_ALLOWLIST": {
+      "evidence": "publication_checks.json",
+      "fresh_009": true,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "explicit code/report allowlist",
+        "status": "PASS"
+      },
+      "scope": "final009 publication only",
+      "status": "PASS"
+    },
+    "CONTAMINATED_PARENT_ENV_REGRESSION": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "complete disposable install through uninstall/reinstall/restart PASS",
+        "status": "PASS"
+      },
+      "scope": "complete disposable install through uninstall/reinstall/restart PASS",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "full source suite PASS; final installed-runtime certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_SCHEMA_BINDING": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "full source suite PASS; final installed-runtime certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "full source suite PASS; final installed-runtime certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "DURABLE_PRESERVATION_ACROSS_REINSTALL": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "disposable preservation; real backup, stable hashes and original dispatch row values preserved",
+        "status": "PASS"
+      },
+      "scope": "disposable preservation; real backup, stable hashes and original dispatch row values preserved",
+      "status": "PASS"
+    },
+    "EXACT_AGENT_CONFIGURATION": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "manual execution/007 readiness evidence preserved; final installed Agent application certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "FIRST_RUN_SETUP": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "disposable and real paused repeated setup PASS",
+        "status": "PASS"
+      },
+      "scope": "disposable and real paused repeated setup PASS",
+      "status": "PASS"
+    },
+    "FULL_ACCESS_PERMISSION": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "manual execution/007 readiness evidence preserved; final installed Agent application certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "FULL_BRIDGE_TESTS": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "373 PASS; one full invocation after substantive changes",
+        "status": "PASS"
+      },
+      "scope": "373 PASS; one full invocation after substantive changes",
+      "status": "PASS"
+    },
+    "GIT_DIFF_CHECK": {
+      "evidence": "publication_checks.json",
+      "fresh_009": true,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "git diff --check",
+        "status": "PASS"
+      },
+      "scope": "final009 publication only",
+      "status": "PASS"
+    },
+    "INSTALLED_TRAY_WORKER": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "disposable PASS; real NOT_RUN after startup assertion stop",
+        "status": "PARTIAL"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "INSTALLER_PACKAGE": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "two byte-identical package builds PASS",
+        "status": "PASS"
+      },
+      "scope": "two byte-identical package builds PASS",
+      "status": "PASS"
+    },
+    "INSTALL_SUBPROCESS_ENV_ISOLATION": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "007 functions unchanged; focused regressions and packaged observed subprocesses PASS",
+        "status": "PASS"
+      },
+      "scope": "007 functions unchanged; focused regressions and packaged observed subprocesses PASS",
+      "status": "PASS"
+    },
+    "PER_USER_INSTALL": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "disposable and exact certified real package installation PASS",
+        "status": "PASS"
+      },
+      "scope": "disposable and exact certified real package installation PASS",
+      "status": "PASS"
+    },
+    "PHASE_0_IMMUTABLE_PROMPT_BINDING": {
+      "evidence": "phase0.json",
+      "fresh_009": true,
+      "scope": "CONTROLLER_PROMPT_SHA256_BINDING_MISMATCH",
+      "status": "FAIL"
+    },
+    "PROJECT_DICTIONARY_BINDING": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "full source suite PASS; final installed-runtime certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "REAL_ELIGIBLE_FOX2_DISPATCH": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "requires new immutable control-branch certification canary; none invented",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "REAL_PER_USER_RECOVERY": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "owned partial state reconciled and certified package installed; stopped before real startup/Tray/Worker certification",
+        "status": "PARTIAL"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "RESTART_NO_REPLAY": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "disposable restart and two fresh real installed process claim-rejections PASS; real Tray/Worker restart NOT_RUN",
+        "status": "PARTIAL"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "RESULT_REMOTE_READBACK": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "requires new immutable control-branch certification canary; none invented",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "SANITIZED_DIAGNOSTICS_BUNDLE": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "disposable pre/post-reinstall diagnostics PASS; final real diagnostics NOT_RUN",
+        "status": "PARTIAL"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "SECRET_SCAN": {
+      "evidence": "publication_checks.json",
+      "fresh_009": true,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "all changed publication files; no raw private backup included",
+        "status": "PASS"
+      },
+      "scope": "final009 publication only",
+      "status": "PASS"
+    },
+    "STARTUP_SINGLE_INSTANCE": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "disposable PASS; real registration and read-only canonical ownership PASS; required literal assertion failed; real Tray/Worker NOT_RUN",
+        "status": "PARTIAL"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "UNINSTALL_PATH": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "complete disposable stable external uninstall and owned real reconciliation PASS",
+        "status": "PASS"
+      },
+      "scope": "complete disposable stable external uninstall and owned real reconciliation PASS",
+      "status": "PASS"
+    },
+    "UPDATE_PATH": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "complete disposable update PASS; no second real update attempted",
+        "status": "PASS"
+      },
+      "scope": "complete disposable update PASS; no second real update attempted",
+      "status": "PASS"
+    },
+    "USAGE_SNAPSHOT": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "requires new immutable control-branch certification canary; none invented",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "V06_COMPATIBILITY": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "full source suite PASS; final installed-runtime certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "V2_COMPATIBILITY": {
+      "fresh_009": false,
+      "historical_reference": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "previous_gate": {
+        "scope": "full source suite PASS; final installed-runtime certification not reached",
+        "status": "NOT_RUN"
+      },
+      "scope": "NOT_RUN: stopped at Phase 0 controller prompt SHA-256 binding mismatch; runtime mutation prohibited",
+      "status": "NOT_RUN"
+    },
+    "WINDOWS_SELF_UNINSTALL_HANDOFF": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_009": false,
+      "previous_gate": {
+        "scope": "installed Python refuses before spawn/delete; stable external bootstrap synchronous deletion PASS",
+        "status": "PASS"
+      },
+      "scope": "installed Python refuses before spawn/delete; stable external bootstrap synchronous deletion PASS",
+      "status": "PASS"
+    }
+  },
+  "historical_evidence": {
+    "core007": {
+      "evidence": {
+        "blob_sha1": "ca321ef9f1144ddde00c9a75ed4840a7fbee791b",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/acceptance_gates.json",
+        "sha256": "b29b4f76b23b757dcabeacf7e759d999782584f9c9cf3ce7049afd7bef547843"
+      },
+      "snapshot": {
+        "bridge_ready": false,
+        "gates": {
+          "CHANGED_PATH_ALLOWLIST": {
+            "scope": "new 007 publication files",
+            "status": "PASS"
+          },
+          "CONTAMINATED_PARENT_ENV_REGRESSION": {
+            "scope": "install and update only; entire disposable lifecycle FAIL at uninstall",
+            "status": "PASS"
+          },
+          "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "DISPATCH_V3_SCHEMA_BINDING": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "DURABLE_PRESERVATION_ACROSS_REINSTALL": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "EXACT_AGENT_CONFIGURATION": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "FIRST_RUN_SETUP": {
+            "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+            "status": "PASS"
+          },
+          "FULL_ACCESS_PERMISSION": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "FULL_BRIDGE_TESTS": {
+            "scope": "367 tests, one invocation, exact changed code before packaging",
+            "status": "PASS"
+          },
+          "GIT_DIFF_CHECK": {
+            "scope": "new 007 publication files",
+            "status": "PASS"
+          },
+          "INSTALLED_TRAY_WORKER": {
+            "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+            "status": "PASS"
+          },
+          "INSTALLER_PACKAGE": {
+            "scope": "two byte-identical new builds",
+            "status": "PASS"
+          },
+          "INSTALL_SUBPROCESS_ENV_ISOLATION": {
+            "scope": "focused tests and observed real packaged subprocesses",
+            "status": "PASS"
+          },
+          "PER_USER_INSTALL": {
+            "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+            "status": "PASS"
+          },
+          "PROJECT_DICTIONARY_BINDING": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "REAL_ELIGIBLE_FOX2_DISPATCH": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "REAL_PER_USER_RECOVERY": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "REINSTALL": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "RESTART_NO_REPLAY": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "RESULT_REMOTE_READBACK": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "SANITIZED_DIAGNOSTICS_BUNDLE": {
+            "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+            "status": "PASS"
+          },
+          "SECRET_SCAN": {
+            "scope": "new 007 publication files",
+            "status": "PASS"
+          },
+          "STARTUP_SINGLE_INSTANCE": {
+            "scope": "disposable installed launcher/Tray/Worker single instance PASS; actual logon-task registration NOT_RUN",
+            "status": "PARTIAL"
+          },
+          "UNINSTALL_PATH": {
+            "scope": "first disposable installed uninstall exit 2; sanitized inner subprocess failure; no retry",
+            "status": "FAIL"
+          },
+          "UPDATE_PATH": {
+            "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+            "status": "PASS"
+          },
+          "USAGE_SNAPSHOT": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "V06_COMPATIBILITY": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          },
+          "V2_COMPATIBILITY": {
+            "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+            "status": "NOT_RUN"
+          }
+        },
+        "isolated_lifecycle": "FAIL",
+        "real_runtime_touched": false,
+        "status": "STOPPED_NEEDS_RECONCILIATION"
+      }
+    },
+    "core008": {
+      "evidence": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "501822a33ef08c7365154913bbc677544856eee5",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "snapshot": {
+        "bridge_ready": false,
+        "disposable_lifecycle": "PASS",
+        "gates": {
+          "CHANGED_PATH_ALLOWLIST": {
+            "scope": "explicit code/report allowlist",
+            "status": "PASS"
+          },
+          "CONTAMINATED_PARENT_ENV_REGRESSION": {
+            "scope": "complete disposable install through uninstall/reinstall/restart PASS",
+            "status": "PASS"
+          },
+          "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+            "scope": "full source suite PASS; final installed-runtime certification not reached",
+            "status": "NOT_RUN"
+          },
+          "DISPATCH_V3_SCHEMA_BINDING": {
+            "scope": "full source suite PASS; final installed-runtime certification not reached",
+            "status": "NOT_RUN"
+          },
+          "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+            "scope": "full source suite PASS; final installed-runtime certification not reached",
+            "status": "NOT_RUN"
+          },
+          "DURABLE_PRESERVATION_ACROSS_REINSTALL": {
+            "scope": "disposable preservation; real backup, stable hashes and original dispatch row values preserved",
+            "status": "PASS"
+          },
+          "EXACT_AGENT_CONFIGURATION": {
+            "scope": "manual execution/007 readiness evidence preserved; final installed Agent application certification not reached",
+            "status": "NOT_RUN"
+          },
+          "FIRST_RUN_SETUP": {
+            "scope": "disposable and real paused repeated setup PASS",
+            "status": "PASS"
+          },
+          "FULL_ACCESS_PERMISSION": {
+            "scope": "manual execution/007 readiness evidence preserved; final installed Agent application certification not reached",
+            "status": "NOT_RUN"
+          },
+          "FULL_BRIDGE_TESTS": {
+            "scope": "373 PASS; one full invocation after substantive changes",
+            "status": "PASS"
+          },
+          "GIT_DIFF_CHECK": {
+            "scope": "git diff --check",
+            "status": "PASS"
+          },
+          "INSTALLED_TRAY_WORKER": {
+            "scope": "disposable PASS; real NOT_RUN after startup assertion stop",
+            "status": "PARTIAL"
+          },
+          "INSTALLER_PACKAGE": {
+            "scope": "two byte-identical package builds PASS",
+            "status": "PASS"
+          },
+          "INSTALL_SUBPROCESS_ENV_ISOLATION": {
+            "scope": "007 functions unchanged; focused regressions and packaged observed subprocesses PASS",
+            "status": "PASS"
+          },
+          "PER_USER_INSTALL": {
+            "scope": "disposable and exact certified real package installation PASS",
+            "status": "PASS"
+          },
+          "PROJECT_DICTIONARY_BINDING": {
+            "scope": "full source suite PASS; final installed-runtime certification not reached",
+            "status": "NOT_RUN"
+          },
+          "REAL_ELIGIBLE_FOX2_DISPATCH": {
+            "scope": "requires new immutable control-branch certification canary; none invented",
+            "status": "NOT_RUN"
+          },
+          "REAL_PER_USER_RECOVERY": {
+            "scope": "owned partial state reconciled and certified package installed; stopped before real startup/Tray/Worker certification",
+            "status": "PARTIAL"
+          },
+          "RESTART_NO_REPLAY": {
+            "scope": "disposable restart and two fresh real installed process claim-rejections PASS; real Tray/Worker restart NOT_RUN",
+            "status": "PARTIAL"
+          },
+          "RESULT_REMOTE_READBACK": {
+            "scope": "requires new immutable control-branch certification canary; none invented",
+            "status": "NOT_RUN"
+          },
+          "SANITIZED_DIAGNOSTICS_BUNDLE": {
+            "scope": "disposable pre/post-reinstall diagnostics PASS; final real diagnostics NOT_RUN",
+            "status": "PARTIAL"
+          },
+          "SECRET_SCAN": {
+            "scope": "all changed publication files; no raw private backup included",
+            "status": "PASS"
+          },
+          "STARTUP_SINGLE_INSTANCE": {
+            "scope": "disposable PASS; real registration and read-only canonical ownership PASS; required literal assertion failed; real Tray/Worker NOT_RUN",
+            "status": "PARTIAL"
+          },
+          "UNINSTALL_PATH": {
+            "scope": "complete disposable stable external uninstall and owned real reconciliation PASS",
+            "status": "PASS"
+          },
+          "UPDATE_PATH": {
+            "scope": "complete disposable update PASS; no second real update attempted",
+            "status": "PASS"
+          },
+          "USAGE_SNAPSHOT": {
+            "scope": "requires new immutable control-branch certification canary; none invented",
+            "status": "NOT_RUN"
+          },
+          "V06_COMPATIBILITY": {
+            "scope": "full source suite PASS; final installed-runtime certification not reached",
+            "status": "NOT_RUN"
+          },
+          "V2_COMPATIBILITY": {
+            "scope": "full source suite PASS; final installed-runtime certification not reached",
+            "status": "NOT_RUN"
+          },
+          "WINDOWS_SELF_UNINSTALL_HANDOFF": {
+            "scope": "installed Python refuses before spawn/delete; stable external bootstrap synchronous deletion PASS",
+            "status": "PASS"
+          }
+        },
+        "real_root_mutated_only_after_disposable_pass": true,
+        "recovered_ready_for_final_canary": false,
+        "status": "STOPPED_NEEDS_RECONCILIATION"
+      }
+    }
+  },
+  "new_runtime_gates_not_discharged": true,
+  "status": "STOPPED_NEEDS_RECONCILIATION",
+  "tests_rerun": false
+}
