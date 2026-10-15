@@ -1,0 +1,13 @@
+{
+  "status": "RECONCILED",
+  "run_id": 38759375858,
+  "job_id": 116506278720,
+  "failure_stage": "DOTNET_BUILD",
+  "classification": "SELF_CONTAINED_PROJECT_REFERENCE_CONFLICT",
+  "error": "NETSDK1151",
+  "root_cause": "SelfContained was set at Desktop project level, while the framework-dependent smoke executable references that project.",
+  "correction": "Keep Desktop project framework-neutral for build/test; apply win-x64 self-contained single-file properties only during dotnet publish.",
+  "app_code_changed": false,
+  "worker_source_changed": false,
+  "canary_009_touched": false
+}
