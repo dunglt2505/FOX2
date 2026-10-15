@@ -1,17 +1,20 @@
 {
   "allowed_prefix": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/",
   "changed_path_allowlist": "PASS",
+  "content_commit": "30bb0873210f579993bff8185e9e496b98090fd2",
   "controller_claim_raw_byte_preservation": "PASS",
   "git_diff_check": "PASS",
   "json_parse": "PASS",
   "product_source_unchanged": "PASS",
   "publication_kind": "BOUNDED_STOP_EVIDENCE",
   "receipt_note": "A subsequent receipt records the content commit and exact remote artifact readback; its own commit is independently read back after push.",
-  "remote_readback": "PENDING",
+  "remote_blob_bytes_equal": true,
+  "remote_canary_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "remote_readback": "PASS",
   "secret_scan": "PASS",
   "secret_scan_findings": [],
   "secret_scan_method": "All final013 raw files scanned for GitHub/OpenAI/AWS credentials, private keys, bearer credentials, credential-bearing URLs and credential assignments",
   "source_head": "167482376e1d725e3723ccc249284a76edcf5e4e",
-  "status": "PREPUBLICATION_CHECKS_PASS",
+  "status": "BOUNDED_STOP_EVIDENCE_PUSHED_REMOTE_READBACK_EXACT",
   "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B"
 }

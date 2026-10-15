@@ -1,0 +1,53 @@
+{
+  "artifacts": [
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/acceptance_gates.json",
+      "sha256": "5b77d164fac2bb3bc6a7d2d3d75b2789093ea51a6503ee39f15358fd7b50bd8d"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/canary_remote_readback.json",
+      "sha256": "cf6f76c6d3dfa60cdeefc23db99ebaffa2f8e845e9e549c1bcaf697de43fe2c3"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/controller_claim.json",
+      "sha256": "39d854e0c63a341b2c85ce14951d0db67a8c6b5b4dd44b55bd665ca77b8e35b7"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/evidence_manifest.json",
+      "sha256": "1761233554ff3c431e6e395fdcc8ec74220e8c353961c368f510433f3ffbda06"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/final_certification.json",
+      "sha256": "782fd73b624db088b25cd4a9621c9468f3aca0547747035f4f60dd11854c110d"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/lineage.json",
+      "sha256": "97483584b74a59d49081df4fe9674e155ef0d376aff3a016b0feb993a8e343f0"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/observer_validation.json",
+      "sha256": "f10091b83120623ba9bb6419c183e7633b6731705b4723de713045eec0543b20"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/publication_checks.json",
+      "sha256": "68a9aa951842e555cad1a6ab0fd0930ba64cf610265d85d1751c33ff7ecd69f9"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/stop.json",
+      "sha256": "8d9b2367e096be1115744c9e67a03f8f939b1dc1d3ebc1cfe7be7361014791df"
+    }
+  ],
+  "bridge_ready": false,
+  "canary_branch_advanced": false,
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "content_commit": "30bb0873210f579993bff8185e9e496b98090fd2",
+  "controller_replay_allowed": false,
+  "observed_at": "2026-10-15T13:11:15.034512+00:00",
+  "readback_method": "Live exact task ref via git ls-remote; fetch and FETCH_HEAD equality; every final013 remote blob compared byte-for-byte with local content",
+  "receipt_commit_note": "This receipt commit is independently pushed and read back; a commit cannot embed its own SHA.",
+  "remote_blob_bytes_equal": true,
+  "remote_readback_head": "30bb0873210f579993bff8185e9e496b98090fd2",
+  "status": "BOUNDED_STOP_EVIDENCE_PUSHED_REMOTE_READBACK_EXACT",
+  "task_branch": "refs/heads/work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "technical_success_marker_emitted": false
+}

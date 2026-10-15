@@ -1,4 +1,5 @@
 {
+  "content_commit": "30bb0873210f579993bff8185e9e496b98090fd2",
   "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-013",
   "files": [
     {
@@ -18,8 +19,8 @@
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/final_certification.json",
-      "raw_bytes": 2205,
-      "sha256": "782fd73b624db088b25cd4a9621c9468f3aca0547747035f4f60dd11854c110d"
+      "raw_bytes": 2410,
+      "sha256": "e872ef50dbbe6f0352cfe558e261ba368b9c6529151d0d9eb4cedac9b05f2912"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/lineage.json",
@@ -33,8 +34,13 @@
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/publication_checks.json",
-      "raw_bytes": 881,
-      "sha256": "68a9aa951842e555cad1a6ab0fd0930ba64cf610265d85d1751c33ff7ecd69f9"
+      "raw_bytes": 1069,
+      "sha256": "4b81297dc71076047818124a6a9a414790ed1eb8060b9187f766d7e418523911"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/publication_receipt.json",
+      "raw_bytes": 2522,
+      "sha256": "6789f2ef6150d48a816a1811b8f12f95167b3aba9fbd7b8c654b96202658dabf"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/stop.json",
@@ -42,6 +48,6 @@
       "sha256": "8d9b2367e096be1115744c9e67a03f8f939b1dc1d3ebc1cfe7be7361014791df"
     }
   ],
-  "manifest_stage": "CONTENT_BEFORE_PUBLICATION_RECEIPT",
+  "manifest_stage": "PUBLICATION_RECEIPT",
   "status": "STOPPED_NEEDS_RECONCILIATION"
 }
