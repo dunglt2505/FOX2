@@ -252,6 +252,48 @@ No further real Tray launch occurred after the stop, so these gates remain incom
 - RESULT_REMOTE_READBACK;
 - USAGE_SNAPSHOT.
 
+### Controller 010 intake — consumed, stopped on certification observer self-match
+
+Controller 010 is CONSUMED and MUST NOT be replayed.
+
+Bridge task remote head after bounded stop evidence:
+`92bd9c82385f05893d9379c00f964760e9fe06dc`
+
+010 immutable/controller bindings all PASS:
+- Controller 010 prompt raw SHA-256 PASS;
+- canary prompt raw SHA-256 PASS;
+- Dictionary/Policy/task bindings PASS;
+- report-only lineage from certified product source PASS;
+- canary branch still exact `501822a...`;
+- canary remains UNCLAIMED / UNEXECUTED.
+
+010 stopped in Phase 0 on:
+`CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH`.
+
+Read-only diagnosis proves the process observer matched its own PowerShell query process:
+- observed executable: `C:\Program Files\PowerShell\7\pwsh.EXE`;
+- observer query contains the literal Tray path in its own command line;
+- `is_observer_query=true`;
+- `real_matches=[]`;
+- actual Tray processes observed: 0;
+- actual Worker processes observed: 0.
+
+Therefore this is a **certification harness observer defect**, not a Bridge/product/runtime failure.
+
+Safety outcome:
+- runtime_mutated=false;
+- product_source_mutated=false;
+- intake remains PAUSED;
+- Worker remains STOPPED;
+- canary claimed=false;
+- canary executed=false;
+- canary branch remains `501822a...`;
+- canary result remains absent.
+
+Task-branch delta from `3e8f47a...` to `92bd9c...` contains only `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/**`.
+
+Next controller must correct only the certification process-observer implementation outside production source, then continue final certification using the same still-unclaimed Worker canary. No production code correction and no new canary identity are indicated by current evidence.
+
 ### Replacement Controller 010 — ready and unconsumed
 
 Controller 010 has been published as the one replacement certification controller after the metadata-only 009 stop.
@@ -550,4 +592,4 @@ Project-wide disposition:
 - Website/APP-BATCH-B remains frozen until CHAT accepts `INTERNAL_FOX2_BRIDGE_READY`;
 - no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=3e8f47a28bc66a78442059f0b0d1d3ccd4663a06 / LAST_COMPLETED_DISPATCH=009_CONSUMED_STOPPED_PHASE0 / CONTROLLER_009_ROOT_CAUSE=CHAT_PROMPT_SHA256_METADATA_ERROR / RUNTIME_MUTATED_BY_009=NO / PRODUCT_SOURCE_MUTATED_BY_009=NO / CURRENT_PHASE=FINAL_CERTIFICATION_010_READY / CONTROLLER_010=READY_UNCONSUMED / CONTROLLER_010_CONTROL_HEAD=0908e8c73b02099384d633a1dc2a17ca217af221 / CONTROLLER_010_PROMPT_SHA256=c7c44dc400017b057debbfa1c9c74475faa6218405750ee2924b6d0abe35383e / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=92bd9c82385f05893d9379c00f964760e9fe06dc / LAST_COMPLETED_DISPATCH=010_CONSUMED_STOPPED_PHASE0 / CONTROLLER_010_ROOT_CAUSE=CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH / RUNTIME_MUTATED_BY_010=NO / PRODUCT_SOURCE_MUTATED_BY_010=NO / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / CURRENT_PHASE=FINAL_CERTIFICATION_RECONCILIATION_ONLY / NEXT=CORRECT_CERTIFICATION_OBSERVER_THEN_NEW_SINGLE_USE_CONTROLLER_REUSING_CANARY_009 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
