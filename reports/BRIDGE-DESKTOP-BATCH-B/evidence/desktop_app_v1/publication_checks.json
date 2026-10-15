@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "base": "d129f9195adab04f158942f5a8638c63d0f3d0e6",
+  "source_head": "d15e9cab35fb87650cd1c0e0997579275e4764ec",
+  "ahead_by": 7,
+  "allowed_prefixes": [
+    "agent_bridge/desktop_app/",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/desktop_app_v1/"
+  ],
+  "allowed_exact": [
+    ".github/workflows/fox2-bridge-desktop-v1-ci.yml"
+  ],
+  "unauthorized_paths": [],
+  "secret_scan_findings": [],
+  "worker_source_changed": false,
+  "canary_changed": false,
+  "workflow_permissions": "contents: read",
+  "workflow_deploy_steps": false,
+  "actions_pinned": {
+    "checkout": "11d5960a326750d5838078e36cf38b85af677262",
+    "setup_dotnet": "67a3573c9a986a3f9c594539f4ab511d57bb3ce9",
+    "upload_artifact": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+  }
+}

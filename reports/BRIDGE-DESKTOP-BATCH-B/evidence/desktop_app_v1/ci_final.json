@@ -1,0 +1,55 @@
+{
+  "status": "DESKTOP_APP_V1_BUILD_PACKAGE_ACCEPTED",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-APP-V1",
+  "source_head": "d15e9cab35fb87650cd1c0e0997579275e4764ec",
+  "source_parent": "d129f9195adab04f158942f5a8638c63d0f3d0e6",
+  "ci": {
+    "workflow": "FOX2 Bridge Desktop v1 CI",
+    "run_id": 38758391606,
+    "job_id": 116502833049,
+    "job_conclusion": "success",
+    "build": "PASS",
+    "warnings": 0,
+    "errors": 0,
+    "smoke_marker": "FOX2_BRIDGE_DESKTOP_SMOKE=PASS",
+    "publish": "PASS"
+  },
+  "binary": {
+    "name": "FOX2.Bridge.Desktop.exe",
+    "sha256": "820d04bb3b59eac7106e868dcca3aec3ebf39a569663dc8b912886825ae4bc59"
+  },
+  "artifact": {
+    "name": "FOX2-Bridge-Desktop-v1-win-x64",
+    "artifact_id": 11984631907,
+    "size_bytes": 136390,
+    "digest": "sha256:963feb533523237860e336968114e9a7acab97dc512a0b9045d21b4c4f597293",
+    "expires_at": "2026-10-29T15:14:25Z"
+  },
+  "security_and_scope": {
+    "changed_path_allowlist": "PASS",
+    "secret_scan": "PASS",
+    "worker_source_changed": false,
+    "canary_009_touched": false,
+    "direct_git_task_discovery": false,
+    "direct_agent_execution": false,
+    "direct_ledger_mutation": false,
+    "routing_override": false,
+    "main": false,
+    "pr": false,
+    "merge": false,
+    "deploy": false,
+    "provider": false,
+    "broker": false,
+    "live": false
+  },
+  "integration": {
+    "bridge_fixed_control_contract": "IMPLEMENTED",
+    "desktop_install_script": "IMPLEMENTED",
+    "desktop_uninstall_script": "IMPLEMENTED",
+    "installed_runtime_smoke_script": "IMPLEMENTED_NOT_RUN_ON_OWNER_PC",
+    "installed_runtime_smoke": "PENDING_LOCAL_WINDOWS_HOST",
+    "bridge_worker_state_required": "PAUSED_UNTIL_EXISTING_BRIDGE_CERTIFICATION_CONTINUES"
+  },
+  "verdict": "READY_FOR_LOCAL_INSTALL_AND_INSTALLED_RUNTIME_SMOKE",
+  "non_effect": "Does not grant INTERNAL_FOX2_BRIDGE_READY and does not consume Canary 009."
+}
