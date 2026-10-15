@@ -1,0 +1,139 @@
+{
+  "arbitrary_process_kill": false,
+  "export": "sanitized_support.zip",
+  "exporter": "Installed certified fox2_agent_bridge diagnostics",
+  "files": [
+    "support.json"
+  ],
+  "observer": {
+    "matches": [],
+    "observer_pid": 12020,
+    "schema": "FOX2_CERT_PROCESS_OBSERVER_1",
+    "target": {
+      "pwsh": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "tray_script": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\scripts\\desktop_tray.ps1",
+      "worker_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe"
+    },
+    "tray_count": 0,
+    "worker_count": 0
+  },
+  "sha256": "424d819cc137568781a1775c2b5727ba2899bc56ff004df60ba485e50c58b987",
+  "status": "PASS",
+  "support": {
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "dictionary_version": "1.2",
+    "format": "FOX2_SUPPORT_1",
+    "installation": {
+      "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+      "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+    },
+    "recent": [
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-002",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-001",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-CODEX-002",
+        "dispatch_state": "PUSHED_UNREVIEWED",
+        "execution_state": "PUSHED_UNREVIEWED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-CODEX-001",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-DELIVERY-HOTFIX-01-CODEX-002",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-DELIVERY-HOTFIX-01-CODEX-001",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-M1-P2-03-CODEX-001",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-004",
+        "dispatch_state": "PUSHED_UNREVIEWED",
+        "execution_state": "PUSHED_UNREVIEWED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-003",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-002",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-001",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      },
+      {
+        "dispatch_id": "FOX2-BRIDGE-OPS-DEV-CANARY-001",
+        "dispatch_state": "FAILED",
+        "execution_state": "FAILED"
+      }
+    ],
+    "worker": {
+      "heartbeat": "2026-10-15T07:58:04.874126+00:00",
+      "paused": true,
+      "setup_complete": true,
+      "state": "STOPPED"
+    }
+  }
+}

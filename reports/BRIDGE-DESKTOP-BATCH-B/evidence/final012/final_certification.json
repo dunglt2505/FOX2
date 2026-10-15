@@ -1,0 +1,49 @@
+{
+  "bridge_ready": false,
+  "canary_claimed": false,
+  "canary_executed": false,
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "certified_product_source": "501822a33ef08c7365154913bbc677544856eee5",
+  "chat_acceptance_authority": "CHAT only",
+  "chat_acceptance_granted": false,
+  "controller_consumed": true,
+  "controller_replay_allowed": false,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-012",
+  "failure": {
+    "classification": "CERTIFICATION_PROCESS_OBSERVATION_GATE_FAILURE",
+    "code": "INSTALLED_TRAY_WORKER_PROCESS_COUNT_GATE_FAILED",
+    "controller_no_retry": true,
+    "expected": {
+      "tray_count": 1,
+      "worker_count": 1
+    },
+    "observed": {
+      "tray_count": 1,
+      "worker_count": 0
+    },
+    "product_runtime_failure_proven": false,
+    "root_cause": "UNDETERMINED: pinned process observer did not identify the Worker despite an advancing paused Worker ledger heartbeat",
+    "stage": "PHASE_3",
+    "wait_seconds": 45,
+    "worker_heartbeat_advanced": true,
+    "worker_ledger_state": "PAUSED"
+  },
+  "final_installed_runtime_certification": "NOT_COMPLETED",
+  "graceful_cleanup": "PASS",
+  "intake": "PAUSED",
+  "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+  "phase_0": "PASS",
+  "phase_1": "PASS",
+  "phase_2": "PASS",
+  "phase_3": "FAIL_PROCESS_COUNT_GATE",
+  "phases_4_and_5": "NOT_RUN",
+  "prior_001_through_011_replayed": false,
+  "product_source_mutated": false,
+  "publication": "PENDING_BOUNDED_STOP_EVIDENCE",
+  "publication_checks": "publication_checks.json",
+  "runtime_mutated": true,
+  "source_head": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+  "status": "STOPPED_NEEDS_RECONCILIATION",
+  "technical_success_marker_emitted": false,
+  "worker_final_state": "STOPPED"
+}

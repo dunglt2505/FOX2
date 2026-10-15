@@ -1,0 +1,41 @@
+{
+  "actual": {
+    "actions": [
+      {
+        "Arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -STA -File \"C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\launch.ps1\"",
+        "Execute": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+        "WorkingDirectory": null
+      }
+    ],
+    "enabled": true,
+    "logon_type": "Interactive",
+    "multiple_instances": "IgnoreNew",
+    "principal_sid": "S-1-5-21-3473238684-2505789962-1345840538-1001",
+    "run_level": "Limited",
+    "sid": "S-1-5-21-3473238684-2505789962-1345840538-1001",
+    "state": "Ready",
+    "task_name": "FOX2Bridge-S-1-5-21-3473238684-2505789962-1345840538-1001",
+    "task_path": "\\",
+    "triggers": [
+      {
+        "Enabled": true,
+        "UserId": "FOXLE-PC\\Fox Le"
+      }
+    ]
+  },
+  "canonical_pwsh": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  "checks": {
+    "enabled": true,
+    "exact_arguments": true,
+    "exact_sid": true,
+    "exact_task_name": true,
+    "exact_task_path": true,
+    "ignore_new": true,
+    "interactive": true,
+    "limited": true,
+    "same_resolved_pwsh": true
+  },
+  "expected_arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -STA -File \"C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\launch.ps1\"",
+  "status": "PASS",
+  "task_rewritten": false
+}

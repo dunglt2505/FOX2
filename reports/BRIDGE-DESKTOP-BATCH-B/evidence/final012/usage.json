@@ -1,0 +1,7 @@
+{
+  "capacity": null,
+  "numeric_usage_fabricated": false,
+  "reason": "Canary Agent was never started",
+  "status": "NOT_RUN",
+  "usage": null
+}

@@ -1,0 +1,14 @@
+{
+  "claimed": false,
+  "claims": [],
+  "codex_direct_invoked": false,
+  "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "executed": false,
+  "executions": [],
+  "intake_ever_resumed": false,
+  "manual_e2e_once_invoked": false,
+  "max_runs": 1,
+  "new_identity_created": false,
+  "reason": "Phase 3 process-count gate failed before Phase 4 authorization",
+  "status": "NOT_RUN"
+}

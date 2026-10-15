@@ -1,0 +1,481 @@
+{
+  "canary_prompt": {
+    "blob_sha1": "a3eec972f19d84866b2915edd4bca7a4a02af335",
+    "commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_FINAL_CANARY_009_PROMPT.md",
+    "raw_bytes": 1340,
+    "sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+    "show_equals_cat_file": true
+  },
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "certified_product_source": "501822a33ef08c7365154913bbc677544856eee5",
+  "claim_sha256": "03d1e503c9cfb9f22922f2064125acd4b4d63669ccd57ea52e72a327b748d012",
+  "consumption": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger": [
+        {
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+          "state": "NEEDS_RECONCILIATION"
+        }
+      ]
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "660c57758d73886365e1f35f72dbbfd06e967b1e",
+        "commit": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim.json",
+        "raw_bytes": 467,
+        "sha256": "3e5645c6a2ace090040fd091aef2b4145d467b1cabad8ec77742070aed48e158",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-010": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "4381a92bbbf96004ba21b975e4522977674c5d5e",
+        "commit": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim.json",
+        "raw_bytes": 788,
+        "sha256": "8939f492c9356be5473a1e752fd38188a22736bc8ebf8834ecca3c210aa8552d",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-011": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "a0980763c93f16270f0e5cfe7d3d7ed2a7f2be2e",
+        "commit": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/controller_claim.json",
+        "raw_bytes": 1155,
+        "sha256": "20ec0a87263d629057af9809eb24e14691177bdf3806e2894fee9b6817124372",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    }
+  },
+  "controller_dispatch": {
+    "blob_sha1": "b4f4219a1568ef1ba4a2dc1e74bcee760667ff83",
+    "commit": "786cfec6b6fbd641a8bde90ccb0e66ac44f98941",
+    "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-012.json",
+    "raw_bytes": 6269,
+    "sha256": "489e31dfd4b5dcbe894a2967959d437b0ff6583533008cbffccd45ec30d47f6f",
+    "show_equals_cat_file": true
+  },
+  "fixtures": {
+    "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json": {
+      "blob_sha1": "964dceb19c74235b9dbf0d219c77046c1b2e9a4e",
+      "commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+      "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json",
+      "raw_bytes": 3436,
+      "sha256": "e5ff930d7094572eaad0a21236b3c87b6f90dda3c5cd270bf4c00531bbda2e17",
+      "show_equals_cat_file": true
+    },
+    "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json": {
+      "blob_sha1": "7bba347537d48d4d7b499841efeafc06ea3e597f",
+      "commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json",
+      "raw_bytes": 1868,
+      "sha256": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a",
+      "show_equals_cat_file": true
+    }
+  },
+  "immutable_bindings": {
+    "dictionary": {
+      "blob_sha1": "a37844b1485e43bd026b72ee85b4d87e75b2affb",
+      "commit": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "raw_bytes": 9386,
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "show_equals_cat_file": true
+    },
+    "policy": {
+      "blob_sha1": "85b6d5b4700ff863e4fef0a7474ffd0f7a6469c0",
+      "commit": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "raw_bytes": 12170,
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "show_equals_cat_file": true
+    },
+    "prompt": {
+      "blob_sha1": "f1c73cc59e759211938ec3ff2958f1f6398b0116",
+      "commit": "df7fcbc7af38ca8df3c72eb4ff3e38a0556c26f2",
+      "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-012.md",
+      "raw_bytes": 11396,
+      "sha256": "d61ab521f2a96b06340d13ee9ea5b0e52633db887446b4e978324b3d2b383042",
+      "show_equals_cat_file": true
+    },
+    "task": {
+      "blob_sha1": "33f81d5022cef498cc9ac105a0a9ddffe0870010",
+      "commit": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "raw_bytes": 6999,
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "show_equals_cat_file": true
+    }
+  },
+  "initial_status": [
+    "?? reports/BRIDGE-DESKTOP-BATCH-B/evidence/final012/controller_claim.json"
+  ],
+  "installed_manifest_and_wheel_mismatches": [],
+  "installed_pointer": {
+    "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+    "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+  },
+  "ledger": {
+    "canary_claims": [],
+    "canary_executions": [],
+    "prior_states": [
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+        "state": "NEEDS_RECONCILIATION"
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+        "state": "NEEDS_RECONCILIATION"
+      }
+    ],
+    "worker": {
+      "generation": "a6682cd2-920a-4132-be36-c2975c58625e",
+      "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+      "paused": true,
+      "reconciliation": [],
+      "setup_complete": true,
+      "start_with_windows": true,
+      "started": "2026-10-15T02:02:30.313493+00:00",
+      "state": "STOPPED",
+      "stop_requested": true,
+      "stopped": "2026-10-15T02:02:37.612516+00:00",
+      "tools": [
+        {
+          "auth_status": "UNVERIFIED",
+          "available": true,
+          "capabilities": [],
+          "configured_path": "C:\\Program Files\\Git\\cmd\\git.exe",
+          "error": null,
+          "executable_path": "C:\\Program Files\\Git\\cmd\\git.exe",
+          "observed_at": "2026-10-15T02:02:30.358533+00:00",
+          "tool_name": "git",
+          "version": "git version 2.56.0.windows.1",
+          "version_exit_code": 0,
+          "version_stderr_available": false,
+          "version_stdout_available": true
+        },
+        {
+          "auth_status": "AUTHENTICATED",
+          "available": true,
+          "capabilities": [],
+          "configured_path": "C:\\Program Files\\GitHub CLI\\gh.exe",
+          "error": null,
+          "executable_path": "C:\\Program Files\\GitHub CLI\\gh.exe",
+          "observed_at": "2026-10-15T02:02:30.428779+00:00",
+          "tool_name": "gh",
+          "version": "gh version 2.102.0 (2026-09-30)",
+          "version_exit_code": 0,
+          "version_stderr_available": false,
+          "version_stdout_available": true
+        },
+        {
+          "auth_status": "AUTHENTICATED",
+          "available": true,
+          "capabilities": [
+            {
+              "evidence": "observed in relevant --help",
+              "name": "non_interactive_prompt",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "model_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "reasoning_effort_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "working_directory_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "machine_readable_output",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "full_access",
+              "status": "READY"
+            },
+            {
+              "evidence": "prompt execution was intentionally not run in BRG-010",
+              "name": "prompt_execution_exit_code",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "configured_path": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+          "error": null,
+          "executable_path": "C:\\Users\\Fox Le\\.codex\\packages\\standalone\\releases\\0.162.1-x86_64-pc-windows-msvc\\bin\\codex.exe",
+          "observed_at": "2026-10-15T02:02:31.443828+00:00",
+          "tool_name": "codex",
+          "version": "codex-cli 0.162.1",
+          "version_exit_code": 0,
+          "version_stderr_available": false,
+          "version_stdout_available": true
+        },
+        {
+          "auth_status": "UNVERIFIED",
+          "available": true,
+          "capabilities": [
+            {
+              "evidence": "observed in relevant --help",
+              "name": "non_interactive_prompt",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "model_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "reasoning_effort_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "auto_mode_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "full_access",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "working_directory_selection",
+              "status": "READY"
+            },
+            {
+              "evidence": "observed in relevant --help",
+              "name": "machine_readable_output",
+              "status": "READY"
+            },
+            {
+              "evidence": "prompt execution was intentionally not run in BRG-010",
+              "name": "prompt_execution_exit_code",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "configured_path": "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
+          "error": null,
+          "executable_path": "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
+          "observed_at": "2026-10-15T02:02:31.684752+00:00",
+          "tool_name": "copilot",
+          "version": "GitHub Copilot CLI 1.0.98.",
+          "version_exit_code": 0,
+          "version_stderr_available": false,
+          "version_stdout_available": true
+        },
+        {
+          "auth_status": "UNVERIFIED",
+          "available": true,
+          "capabilities": [],
+          "configured_path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+          "error": null,
+          "executable_path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+          "observed_at": "2026-10-15T02:02:33.271925+00:00",
+          "tool_name": "pwsh",
+          "version": "PowerShell 7.6.6",
+          "version_exit_code": 0,
+          "version_stderr_available": false,
+          "version_stdout_available": true
+        },
+        {
+          "auth_status": "UNVERIFIED",
+          "available": true,
+          "capabilities": [],
+          "configured_path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9\\runtime\\Scripts\\python.exe",
+          "error": null,
+          "executable_path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9\\runtime\\Scripts\\python.exe",
+          "observed_at": "2026-10-15T02:02:33.685471+00:00",
+          "tool_name": "python",
+          "version": "Python 3.13.15",
+          "version_exit_code": 0,
+          "version_stderr_available": false,
+          "version_stdout_available": true
+        }
+      ]
+    }
+  },
+  "observer": {
+    "blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+    "commit": "928e8279ac6ca45d9421d5fa3773dd44943008ef",
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-CERT-PROCESS-OBSERVER-011.ps1",
+    "raw_bytes": 2768,
+    "sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "show_equals_cat_file": true
+  },
+  "product_source_diff": [],
+  "remote_result_exists": false,
+  "report_only_lineage_paths": [
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary_execution.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary_remote_readback.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim_preservation.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/final_certification.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/final_diagnostics.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/installed_compatibility.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/phase0.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/phase0_readonly_failure_audit.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/progress.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/restart_no_replay.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/startup_task.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/tray_worker.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/usage.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/canary_execution.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/canary_remote_readback.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim_preservation.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/final_certification.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/final_diagnostics.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/installed_compatibility.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/lineage.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/phase0.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/phase0_readonly_failure_audit.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/process_observer_diagnosis.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/restart_no_replay.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/startup_task.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/tray_worker.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/usage.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/canary_execution.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/canary_remote_readback.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/controller_claim.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/controller_claim_preservation.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/final_certification.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/final_diagnostics.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/installed_compatibility.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/lineage.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/observer_validation.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/restart_no_replay.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/startup_task.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/tray_worker.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/usage.json"
+  ],
+  "runtime_mutated": false,
+  "source_head": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+  "status": "PASS"
+}

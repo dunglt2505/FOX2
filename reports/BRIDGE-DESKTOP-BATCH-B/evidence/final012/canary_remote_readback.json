@@ -1,0 +1,11 @@
+{
+  "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "branch_advanced": false,
+  "canary_success": "NOT_RUN",
+  "head_after": "501822a33ef08c7365154913bbc677544856eee5",
+  "head_before": "501822a33ef08c7365154913bbc677544856eee5",
+  "method": "Live git ls-remote exact branch plus immutable head tree inspection",
+  "remote_result_exists": false,
+  "result_path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/agent_result.json",
+  "status": "PASS_UNCLAIMED_BASE_UNCHANGED"
+}

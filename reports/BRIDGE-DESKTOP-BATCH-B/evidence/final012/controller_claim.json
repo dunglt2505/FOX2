@@ -1,0 +1,31 @@
+{
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-012",
+  "control_commit": "786cfec6b6fbd641a8bde90ccb0e66ac44f98941",
+  "source_head": "4a00621b6a736d612cdf99506da01d0e4b3c6417",
+  "certified_product_source": "501822a33ef08c7365154913bbc677544856eee5",
+  "prompt_sha256": "d61ab521f2a96b06340d13ee9ea5b0e52633db887446b4e978324b3d2b383042",
+  "observer_commit": "928e8279ac6ca45d9421d5fa3773dd44943008ef",
+  "observer_blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+  "observer_sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+  "observer_materialization": {
+    "path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\runner-cache\\FOX2-BRIDGE-CERT-PROCESS-OBSERVER-012.ps1",
+    "bytes": 2768,
+    "sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "crlf_count": 0,
+    "status": "PASS_EXACT_RAW_GIT_BLOB"
+  },
+  "observer_preclaim": {
+    "tray_count": 0,
+    "worker_count": 0,
+    "observer_pid": 11176,
+    "status": "PASS_ZERO_ZERO_NO_SELF_MATCH"
+  },
+  "canary_dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "canary_bundle_commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+  "canary_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "canary_base": "501822a33ef08c7365154913bbc677544856eee5",
+  "canary_prompt_sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+  "consumed": true,
+  "max_runs": 1,
+  "claimed_at": "2026-10-15T07:53:43.2564001Z"
+}

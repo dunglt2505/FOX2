@@ -1,0 +1,115 @@
+{
+  "canary_claimed": false,
+  "duplicate_launch": "NOT_RUN",
+  "events": [
+    {
+      "at": "2026-10-15T07:56:58.443600+00:00",
+      "label": "prelaunch_zero",
+      "observer": {
+        "matches": [],
+        "observer_pid": 13328,
+        "schema": "FOX2_CERT_PROCESS_OBSERVER_1",
+        "target": {
+          "pwsh": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+          "tray_script": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\scripts\\desktop_tray.ps1",
+          "worker_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe"
+        },
+        "tray_count": 0,
+        "worker_count": 0
+      }
+    },
+    {
+      "at": "2026-10-15T07:56:59.139239+00:00",
+      "label": "owned_startup_task_invoked",
+      "task_name": "FOX2Bridge-S-1-5-21-3473238684-2505789962-1345840538-1001"
+    },
+    {
+      "at": "2026-10-15T07:57:46.407910+00:00",
+      "label": "lifecycle_wait_failed",
+      "observer": {
+        "matches": [
+          {
+            "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "kind": "TRAY",
+            "parent_pid": 19420,
+            "pid": 23972
+          }
+        ],
+        "observer_pid": 19712,
+        "schema": "FOX2_CERT_PROCESS_OBSERVER_1",
+        "target": {
+          "pwsh": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+          "tray_script": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\scripts\\desktop_tray.ps1",
+          "worker_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe"
+        },
+        "tray_count": 1,
+        "worker_count": 0
+      },
+      "worker": {
+        "generation": "6bc4d65d-8522-43da-9904-065391f81eb4",
+        "heartbeat": "2026-10-15T07:57:46.146310+00:00",
+        "last_error": null,
+        "paused": true,
+        "setup_complete": true,
+        "started": "2026-10-15T07:57:02.172248+00:00",
+        "state": "PAUSED",
+        "stop_requested": false,
+        "stopped": null
+      }
+    },
+    {
+      "at": "2026-10-15T07:58:04.854833+00:00",
+      "control_state": {
+        "paused": true,
+        "state": "PAUSED",
+        "stop_requested": true
+      },
+      "label": "graceful_exit_requested"
+    },
+    {
+      "arbitrary_kill": false,
+      "at": "2026-10-15T07:58:07.988168+00:00",
+      "label": "graceful_exit_zero",
+      "observer": {
+        "matches": [],
+        "observer_pid": 21976,
+        "schema": "FOX2_CERT_PROCESS_OBSERVER_1",
+        "target": {
+          "pwsh": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+          "tray_script": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\scripts\\desktop_tray.ps1",
+          "worker_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe"
+        },
+        "tray_count": 0,
+        "worker_count": 0
+      },
+      "worker_lock_empty": true,
+      "worker_state": "STOPPED"
+    }
+  ],
+  "failure": {
+    "classification": "CERTIFICATION_PROCESS_OBSERVATION_GATE_FAILURE",
+    "code": "INSTALLED_TRAY_WORKER_PROCESS_COUNT_GATE_FAILED",
+    "controller_no_retry": true,
+    "expected": {
+      "tray_count": 1,
+      "worker_count": 1
+    },
+    "observed": {
+      "tray_count": 1,
+      "worker_count": 0
+    },
+    "product_runtime_failure_proven": false,
+    "root_cause": "UNDETERMINED: pinned process observer did not identify the Worker despite an advancing paused Worker ledger heartbeat",
+    "stage": "PHASE_3",
+    "wait_seconds": 45,
+    "worker_heartbeat_advanced": true,
+    "worker_ledger_state": "PAUSED"
+  },
+  "graceful_cleanup": "PASS",
+  "intake": "PAUSED",
+  "phase3": "FAIL_PROCESS_COUNT",
+  "prior_replayed": false,
+  "restart": "NOT_RUN",
+  "runtime_mutated": true,
+  "status": "FAIL"
+}

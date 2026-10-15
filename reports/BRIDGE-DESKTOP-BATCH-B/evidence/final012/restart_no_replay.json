@@ -1,0 +1,9 @@
+{
+  "canary_branch_unchanged": true,
+  "canary_unclaimed": true,
+  "consumption_evidence": "lineage.json",
+  "intake": "PAUSED",
+  "prior_001_through_011_replayed": false,
+  "reason": "Stopped before Phase 3 restart and Phase 4/5",
+  "status": "NOT_RUN"
+}

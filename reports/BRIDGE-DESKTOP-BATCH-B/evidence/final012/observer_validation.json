@@ -1,0 +1,31 @@
+{
+  "helper": {
+    "blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+    "commit": "928e8279ac6ca45d9421d5fa3773dd44943008ef",
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-CERT-PROCESS-OBSERVER-011.ps1",
+    "raw_bytes": 2768,
+    "sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "show_equals_cat_file": true
+  },
+  "materialized_exact_bytes": true,
+  "no_self_match": true,
+  "pre_runtime": {
+    "matches": [],
+    "observer_pid": 17240,
+    "schema": "FOX2_CERT_PROCESS_OBSERVER_1",
+    "target": {
+      "pwsh": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "tray_script": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\scripts\\desktop_tray.ps1",
+      "worker_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe"
+    },
+    "tray_count": 0,
+    "worker_count": 0
+  },
+  "runtime_mutated": false,
+  "status": "PASS",
+  "targets": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\payload\\scripts\\desktop_tray.ps1",
+    "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+    "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+  ]
+}

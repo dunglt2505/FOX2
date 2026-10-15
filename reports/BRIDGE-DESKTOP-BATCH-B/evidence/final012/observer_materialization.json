@@ -1,0 +1,19 @@
+{
+  "binary_read": true,
+  "bytes": 2768,
+  "controller_rematerialized": false,
+  "crlf_count": 0,
+  "equals_git_blob": true,
+  "git_helper": {
+    "blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+    "commit": "928e8279ac6ca45d9421d5fa3773dd44943008ef",
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-CERT-PROCESS-OBSERVER-011.ps1",
+    "raw_bytes": 2768,
+    "sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "show_equals_cat_file": true
+  },
+  "materialized_by": "LAUNCHER",
+  "path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\runner-cache\\FOX2-BRIDGE-CERT-PROCESS-OBSERVER-012.ps1",
+  "sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+  "status": "PASS"
+}
