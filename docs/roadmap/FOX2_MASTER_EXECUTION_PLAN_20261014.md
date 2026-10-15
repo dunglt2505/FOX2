@@ -221,9 +221,7 @@ Current control branch head:
 
 ### Current material blocker
 
-Dispatch 006 stopped at `PER_USER_INSTALL` in a completely disposable user profile.
-
-The exact inner stage/root cause is still UNKNOWN because the 006 harness retained only exit code 1 and did not retain sanitized stderr. Therefore no installer source defect is yet proven.
+Dispatch 006 stopped at `PER_USER_INSTALL` in a completely disposable user profile. Follow-up one-shot diagnostics localized the failure to `INSTALLED_MODULE_PROOF`, and Owner's non-dispatch A/B proof on the exact Core006 package CONFIRMED inherited Python-environment contamination: with inherited `PYTHONPATH=<Bridge source>`, pip exits 0 but the installed `python -I` cannot import `fox2_agent_bridge`; with `PYTHONPATH` removed, the same exact wheel installs/imports successfully. The wheel contains the Bridge package and the package SHA matches. Root cause is therefore `INSTALL_SUBPROCESS_ENVIRONMENT_CONTAMINATION`, not malformed wheel/package format.
 
 A non-dispatch, one-shot isolated diagnostic already exists on the control branch:
 
@@ -240,15 +238,19 @@ It:
 ### Bridge closure plan — no micro-WP loop
 
 ```text
-A. ONE-SHOT INSTALL DIAG
-   -> identify exact failing stage/error class
-   -> no Dispatch consumed
+A. ROOT CAUSE CONFIRMED
+   -> exact package/wheel good
+   -> inherited PYTHONPATH contamination reproduces failure
+   -> clean environment passes
+   -> no Dispatch consumed by A/B proof
 
-B. ONE ROOT-CAUSE CORRECTION
-   -> only if source/tooling defect is proven
+B. ONE ROOT-CAUSE CORRECTION — DISPATCH 007
+   -> sanitize installer subprocess environment centrally
+   -> strip PYTHONPATH/PYTHONHOME while preserving required ordinary env
    -> same Bridge Batch B
-   -> agent_bridge/** only
-   -> one new single-use Dispatch if code mutation is required
+   -> agent_bridge/** + Batch-B reports only
+   -> CODEX gpt-6.1-sol / High / FULL_ACCESS
+   -> single-use, retry lineage from consumed 006
 
 C. ISOLATED CORE LIFECYCLE PASS
    package -> install -> setup -> update
@@ -441,4 +443,4 @@ Project-wide disposition:
 - after Bridge acceptance, resume APP-BATCH-B without redesigning the CHAT-approved Dark/White UI;
 - no executable Dispatch may be issued from stale evidence, and no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=ce7a8253926b7489c79311e26d7dc75ba8c81fc6 / LAST_DISPATCH=006_CONSUMED_STOPPED_NEEDS_RECONCILIATION / BRIDGE_BLOCKER=ISOLATED_PER_USER_INSTALL_ROOT_CAUSE_UNKNOWN / NEXT=ONE_SHOT_INSTALL_DIAG_THEN_SINGLE_ROOT_FIX_THEN_FINAL_CERT / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=ce7a8253926b7489c79311e26d7dc75ba8c81fc6 / LAST_COMPLETED_DISPATCH=006_CONSUMED_STOPPED_NEEDS_RECONCILIATION / ROOT_CAUSE=INSTALL_SUBPROCESS_ENVIRONMENT_CONTAMINATION_CONFIRMED / NEXT_DISPATCH=007_READY / ROUTE=CODEX_GPT-6.1-SOL_HIGH_FULL_ACCESS / NEXT=ROOT_FIX_THEN_ISOLATED_FULL_LIFECYCLE_THEN_CONDITIONAL_REAL_RUNTIME_RECOVERY_THEN_FINAL_CERT / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
