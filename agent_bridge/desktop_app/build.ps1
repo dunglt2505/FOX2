@@ -29,6 +29,9 @@ if ($LASTEXITCODE -ne 0) { throw 'dotnet build failed' }
 & dotnet run --project $SmokeProject -c $Configuration --no-build
 if ($LASTEXITCODE -ne 0) { throw 'desktop smoke harness failed' }
 
+& dotnet restore $DesktopProject -r win-x64
+if ($LASTEXITCODE -ne 0) { throw 'win-x64 publish restore failed' }
+
 & dotnet publish $DesktopProject -c $Configuration -r win-x64 --self-contained false --no-restore -o $Publish
 if ($LASTEXITCODE -ne 0) { throw 'dotnet publish failed' }
 

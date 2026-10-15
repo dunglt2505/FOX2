@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using FOX2.Bridge.Desktop.ViewModels;
 
 namespace FOX2.Bridge.Desktop;
 
@@ -36,11 +37,13 @@ public partial class MainWindow : Window
             ? WindowState.Normal
             : WindowState.Maximized;
 
-    private void Close_OnClick(object sender, RoutedEventArgs e) => Hide();
+    private void Close_OnClick(object sender, RoutedEventArgs e) => Close();
 
     protected override void OnClosing(CancelEventArgs e)
     {
-        if (!AllowRealClose)
+        if (!AllowRealClose &&
+            DataContext is MainViewModel viewModel &&
+            viewModel.Settings.CloseToTray)
         {
             e.Cancel = true;
             Hide();

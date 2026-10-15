@@ -14,6 +14,7 @@ $Root = Join-Path $env:LOCALAPPDATA 'FOX2\BridgeDesktop'
 $Target = Join-Path $Root 'app'
 $Stage = Join-Path $Root ('stage-' + [Guid]::NewGuid().ToString('N'))
 
+New-Item -ItemType Directory -Force -Path $Root | Out-Null
 New-Item -ItemType Directory -Path $Stage | Out-Null
 Copy-Item -Path (Join-Path $Source '*') -Destination $Stage -Recurse -Force
 
