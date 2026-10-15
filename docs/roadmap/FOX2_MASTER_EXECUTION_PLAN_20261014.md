@@ -300,6 +300,47 @@ Fail-closed launcher:
 Launcher control head:
 `07a9d53c2e94facb680631475581d692b67e70f5`.
 
+### Controller 011 intake — consumed, stopped on raw-byte observer materialization
+
+Controller 011 is CONSUMED and MUST NOT be replayed.
+
+Bridge task remote head after bounded stop evidence:
+`4a00621b6a736d612cdf99506da01d0e4b3c6417`
+
+011 preclaim observer smoke test PASSed:
+- tray_count=0;
+- worker_count=0;
+- no self-match;
+- pinned observer logic itself is semantically correct.
+
+011 then stopped in Phase 0 on:
+`OBSERVER_HELPER_RAW_SHA256_MISMATCH`.
+
+Root cause is certification helper materialization, not the observer logic and not Bridge runtime:
+- immutable Git observer blob SHA-1 = `000dc032777cec198f59ddb7d6af049a9d23f1fc`;
+- immutable raw bytes = 2768;
+- immutable SHA-256 = `75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792`;
+- materialized temp file bytes = 2859;
+- materialized SHA-256 = `55905659a6ba5a11af52b5a7cc6afd04575d3dbf7cc0502725479782dca731be`;
+- materialized file introduced 91 CRLF pairs;
+- normalized content is otherwise equal.
+
+The failing path is the launcher/helper text roundtrip used to materialize the pinned Git blob. The next controller must preserve exact raw Git blob bytes when writing the observer helper to temp (binary-safe materialization), then re-run final certification.
+
+Safety:
+- runtime_mutated=false;
+- product_source_mutated=false;
+- intake remains PAUSED;
+- Worker remains STOPPED;
+- canary claimed=false;
+- canary executed=false;
+- canary branch remains `501822a...`;
+- canary result remains absent.
+
+Task-branch delta from `92bd9c...` to `4a00621...` contains only `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/**`.
+
+No production code fix and no new canary identity are indicated.
+
 ### Controller 010 intake — consumed, stopped on certification observer self-match
 
 Controller 010 is CONSUMED and MUST NOT be replayed.
@@ -640,4 +681,4 @@ Project-wide disposition:
 - Website/APP-BATCH-B remains frozen until CHAT accepts `INTERNAL_FOX2_BRIDGE_READY`;
 - no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=92bd9c82385f05893d9379c00f964760e9fe06dc / LAST_COMPLETED_DISPATCH=010_CONSUMED_STOPPED_PHASE0 / CONTROLLER_010_ROOT_CAUSE=CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH / RUNTIME_MUTATED_BY_010=NO / PRODUCT_SOURCE_MUTATED_BY_010=NO / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / CURRENT_PHASE=FINAL_CERTIFICATION_011_READY / CONTROLLER_011=READY_UNCONSUMED / CONTROLLER_011_CONTROL_HEAD=07a9d53c2e94facb680631475581d692b67e70f5 / PROCESS_OBSERVER_011=PINNED_SELF_EXCLUDING_PRECLAIM_GATED / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / NEXT=RUN_CONTROLLER_011_ONCE_THEN_CHAT_FINAL_INTAKE / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=4a00621b6a736d612cdf99506da01d0e4b3c6417 / LAST_COMPLETED_DISPATCH=011_CONSUMED_STOPPED_PHASE0 / CONTROLLER_011_ROOT_CAUSE=CERTIFICATION_HARNESS_RAW_BYTE_MATERIALIZATION_CRLF / RUNTIME_MUTATED_BY_011=NO / PRODUCT_SOURCE_MUTATED_BY_011=NO / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / CURRENT_PHASE=FINAL_CERTIFICATION_RECONCILIATION_ONLY / NEXT=BINARY_SAFE_OBSERVER_MATERIALIZATION_THEN_NEW_SINGLE_USE_CONTROLLER_REUSING_CANARY_009 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
