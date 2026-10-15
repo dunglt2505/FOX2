@@ -252,6 +252,40 @@ No further real Tray launch occurred after the stop, so these gates remain incom
 - RESULT_REMOTE_READBACK;
 - USAGE_SNAPSHOT.
 
+### Dispatch 009 intake — consumed, stopped before runtime mutation
+
+Dispatch 009 was claimed once and is CONSUMED. It MUST NOT be replayed.
+
+Remote result head:
+`3e8f47a28bc66a78442059f0b0d1d3ccd4663a06`
+
+009 stopped in Phase 0 on:
+`CONTROLLER_PROMPT_SHA256_BINDING_MISMATCH`.
+
+Remote evidence proves:
+- controller prompt Git blob SHA-1 exactly matches the bound blob: `fb0822e6ab27e9721eaaf6bdcbf3566d1904329b`;
+- the pinned commit and current control branch expose the exact same prompt blob;
+- independent `git show` / `git cat-file` bytes are identical;
+- no CRLF mutation occurred;
+- actual prompt SHA-256 observed by the controller is `7e83a5c6ee9440c17d0d50fb729813408f241a2fba7d791bce4140bc4981c000`;
+- Dispatch 009 carried incorrect expected SHA-256 `66c8ceee35b657d68bca1a2bdfacaf2f6c1ba9e3556504f62f156663503e2b7c`.
+
+Therefore this is a **CHAT control-artifact metadata generation error**, not Bridge/product drift.
+
+Safety outcome:
+- runtime_mutated=false;
+- product_source_mutated=false;
+- intake remains PAUSED;
+- worker remains STOPPED;
+- real canary remains UNCLAIMED/UNEXECUTED;
+- canary branch remains exactly `501822a33ef08c7365154913bbc677544856eee5`;
+- canary result file does not exist;
+- 001–008 consumption remains preserved.
+
+The Bridge task branch advanced from `501822a...` to `3e8f47a...` only by new `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/**` stop evidence; there is no production source change.
+
+Next controller must be a new single-use certification controller with corrected immutable prompt SHA-256 binding. It may reuse the still-unclaimed immutable Worker canary 009 and its unchanged canary branch/base; no new production code fix or new canary identity is required by current evidence.
+
 ### Current phase — FINAL CERTIFICATION ONLY
 
 Final certification artifacts are now bound and published.
@@ -469,4 +503,4 @@ Project-wide disposition:
 - Website/APP-BATCH-B remains frozen until CHAT accepts `INTERNAL_FOX2_BRIDGE_READY`;
 - no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=501822a33ef08c7365154913bbc677544856eee5 / LAST_COMPLETED_DISPATCH=008_CONSUMED_STOPPED_NEEDS_RECONCILIATION / INSTALLER_ENV_FIX=PASS / WINDOWS_SELF_UNINSTALL_FIX=PASS / DISPOSABLE_FULL_LIFECYCLE=PASS / REAL_RECOVERY=MATERIALLY_COMPLETE_CERTIFICATION_INCOMPLETE / CURRENT_PHASE=FINAL_CERTIFICATION_009_READY / CONTROLLER_DISPATCH=FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009 / CONTROLLER_CONTROL_COMMIT=72290d52585c3c6e09030c1c7a840583e61af637 / V3_RUNTIME_FIXTURE=BOUND / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=3e8f47a28bc66a78442059f0b0d1d3ccd4663a06 / LAST_COMPLETED_DISPATCH=009_CONSUMED_STOPPED_PHASE0 / INSTALLER_ENV_FIX=PASS / WINDOWS_SELF_UNINSTALL_FIX=PASS / DISPOSABLE_FULL_LIFECYCLE=PASS / REAL_RECOVERY=MATERIALLY_COMPLETE_CERTIFICATION_INCOMPLETE / CURRENT_BLOCKER=CHAT_CONTROL_PROMPT_SHA256_METADATA_ERROR / RUNTIME_MUTATED_BY_009=NO / PRODUCT_SOURCE_MUTATED_BY_009=NO / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / NEXT=NEW_SINGLE_USE_CERT_CONTROLLER_WITH_CORRECT_PROMPT_SHA256 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
