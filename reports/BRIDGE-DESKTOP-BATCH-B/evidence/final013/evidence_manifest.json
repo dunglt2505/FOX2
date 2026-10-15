@@ -1,0 +1,47 @@
+{
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-013",
+  "files": [
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/acceptance_gates.json",
+      "raw_bytes": 18249,
+      "sha256": "5b77d164fac2bb3bc6a7d2d3d75b2789093ea51a6503ee39f15358fd7b50bd8d"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/canary_remote_readback.json",
+      "raw_bytes": 521,
+      "sha256": "cf6f76c6d3dfa60cdeefc23db99ebaffa2f8e845e9e549c1bcaf697de43fe2c3"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/controller_claim.json",
+      "raw_bytes": 1249,
+      "sha256": "39d854e0c63a341b2c85ce14951d0db67a8c6b5b4dd44b55bd665ca77b8e35b7"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/final_certification.json",
+      "raw_bytes": 2205,
+      "sha256": "782fd73b624db088b25cd4a9621c9468f3aca0547747035f4f60dd11854c110d"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/lineage.json",
+      "raw_bytes": 2024,
+      "sha256": "97483584b74a59d49081df4fe9674e155ef0d376aff3a016b0feb993a8e343f0"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/observer_validation.json",
+      "raw_bytes": 1313,
+      "sha256": "f10091b83120623ba9bb6419c183e7633b6731705b4723de713045eec0543b20"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/publication_checks.json",
+      "raw_bytes": 881,
+      "sha256": "68a9aa951842e555cad1a6ab0fd0930ba64cf610265d85d1751c33ff7ecd69f9"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/stop.json",
+      "raw_bytes": 1825,
+      "sha256": "8d9b2367e096be1115744c9e67a03f8f939b1dc1d3ebc1cfe7be7361014791df"
+    }
+  ],
+  "manifest_stage": "CONTENT_BEFORE_PUBLICATION_RECEIPT",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

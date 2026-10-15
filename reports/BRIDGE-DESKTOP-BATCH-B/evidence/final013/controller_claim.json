@@ -1,0 +1,24 @@
+{
+    "dispatch_id":  "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-013",
+    "source_head":  "167482376e1d725e3723ccc249284a76edcf5e4e",
+    "certified_product_source":  "501822a33ef08c7365154913bbc677544856eee5",
+    "dispatch_commit":  "113faf3e49e3fc53004e7e889184c6f26505f302",
+    "prompt":  {
+                   "commit":  "7b7675aeecaae83cd5cb3963db09be6458f6f676",
+                   "blob_sha1":  "f06bad6b6706b489288ace3c6f37fc40ab67a9c3",
+                   "sha256":  "7344cd1fffb4f31e4bd433693337e7adcb71104a7b1c8843dab13d93455c1d36"
+               },
+    "observer":  {
+                     "commit":  "60a566ba06d83b303cc7a92b832d89b24562c851",
+                     "blob_sha1":  "0f256505f49d8a545f0c8e82973e24de8c29ddb8",
+                     "sha256":  "3585a8f7211466c40b270ef2fd7f242913a5dcd04b7ba952fac60d57df46e96e",
+                     "raw_bytes":  3017,
+                     "schema":  "FOX2_CERT_PROCESS_OBSERVER_2"
+                 },
+    "canary_dispatch_id":  "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "canary_branch":  "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "canary_base":  "501822a33ef08c7365154913bbc677544856eee5",
+    "consumed":  true,
+    "max_runs":  1,
+    "claimed_at":  "2026-10-15T13:09:18.9719653Z"
+}

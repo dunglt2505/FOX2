@@ -1,0 +1,46 @@
+{
+  "controller_claim_preserved": true,
+  "controller_claim_raw_bytes": 1249,
+  "controller_claim_sha256": "39d854e0c63a341b2c85ce14951d0db67a8c6b5b4dd44b55bd665ca77b8e35b7",
+  "identities": {
+    "dictionary": {
+      "blob_sha1": "a37844b1485e43bd026b72ee85b4d87e75b2affb",
+      "commit": "167482376e1d725e3723ccc249284a76edcf5e4e",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "raw_bytes": 9386,
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+    },
+    "dispatch": {
+      "blob_sha1": "600bc7ff480a3092a481642d61bb413de9da570a",
+      "commit": "113faf3e49e3fc53004e7e889184c6f26505f302",
+      "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-013.json",
+      "raw_bytes": 9045,
+      "sha256": "32fc80867accafc825d95bc408f02650bb74f522be6586c5e679cf4feb8fe818"
+    },
+    "policy": {
+      "blob_sha1": "85b6d5b4700ff863e4fef0a7474ffd0f7a6469c0",
+      "commit": "167482376e1d725e3723ccc249284a76edcf5e4e",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "raw_bytes": 12170,
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782"
+    },
+    "prompt": {
+      "blob_sha1": "f06bad6b6706b489288ace3c6f37fc40ab67a9c3",
+      "commit": "7b7675aeecaae83cd5cb3963db09be6458f6f676",
+      "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-013.md",
+      "raw_bytes": 4284,
+      "sha256": "7344cd1fffb4f31e4bd433693337e7adcb71104a7b1c8843dab13d93455c1d36"
+    },
+    "task": {
+      "blob_sha1": "33f81d5022cef498cc9ac105a0a9ddffe0870010",
+      "commit": "167482376e1d725e3723ccc249284a76edcf5e4e",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "raw_bytes": 6999,
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+    }
+  },
+  "launcher_preflight": "REPORTED_BY_USER; not replayed",
+  "production_source_unchanged": true,
+  "source_head": "167482376e1d725e3723ccc249284a76edcf5e4e",
+  "status": "PASS"
+}

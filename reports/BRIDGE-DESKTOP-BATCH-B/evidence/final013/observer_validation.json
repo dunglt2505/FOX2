@@ -1,0 +1,30 @@
+{
+  "failure": {
+    "cause": "UNDETERMINED; launcher reported materialization but required file was absent when read",
+    "code": "OBSERVER_013_REQUIRED_MATERIALIZED_FILE_MISSING",
+    "expected": {
+      "blob_sha1": "0f256505f49d8a545f0c8e82973e24de8c29ddb8",
+      "commit": "60a566ba06d83b303cc7a92b832d89b24562c851",
+      "raw_bytes": 3017,
+      "schema": "FOX2_CERT_PROCESS_OBSERVER_2",
+      "sha256": "3585a8f7211466c40b270ef2fd7f242913a5dcd04b7ba952fac60d57df46e96e"
+    },
+    "first_read": "Get-Content: Cannot find path because it does not exist",
+    "independent_confirmation": {
+      "exists": false,
+      "method": "PowerShell Test-Path -LiteralPath -PathType Leaf",
+      "observed_at": "2026-10-15T13:09:56.6072177Z",
+      "parent_exists": true
+    },
+    "observer_path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\runner-cache\\FOX2-BRIDGE-CERT-PROCESS-OBSERVER-013.ps1",
+    "product_runtime_failure_proven": false,
+    "stage": "PHASE_3_BEFORE_PRESTART_OBSERVATION",
+    "stop_condition": "observer_013_binding_or_materialization_failure"
+  },
+  "observer_executed": false,
+  "observer_rematerialized": false,
+  "preclaim_zero_zero": "USER_REPORTED_LAUNCHER_OBSERVATION_ONLY",
+  "process_counts": "NOT_OBSERVED_BY_CONTROLLER",
+  "status": "FAIL",
+  "substitute_observer_used": false
+}

@@ -1,0 +1,11 @@
+{
+  "canary_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "canary_branch_advanced": false,
+  "canary_execution_attempted": false,
+  "canary_ledger_claim_state": "NOT_INDEPENDENTLY_RECHECKED_AFTER_MATERIAL_STOP",
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "method": "git ls-remote --heads origin exact task and canary refs",
+  "observed_at": "2026-10-15T13:09:56Z",
+  "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "task_remote_head_before": "167482376e1d725e3723ccc249284a76edcf5e4e"
+}
