@@ -1,0 +1,29 @@
+{
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "operation": "CHAT_ACCEPTED_SHARED_PREEXEC_ADAPTER_SOURCE_SYNC",
+  "status": "SOURCE_SYNC_ONLY_NOT_CERTIFIED",
+  "base_commit": "0b730af2e8152f0e6290f5855bc8c3c72b121f31",
+  "accepted_source_commit": "fd5b27456ecd1511cc66273bfc6b546db5ce29bd",
+  "files": [
+    {
+      "path": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/preflight.ps1",
+      "blob_sha1": "b241942ca29922865f51b807e298e68fabbd8e65"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/recover_and_preflight.ps1",
+      "blob_sha1": "c53fe24c992cf691434a1ddd0cf0cc269498a360"
+    }
+  ],
+  "reason": "Dispatch 003 evidenced 352 passed / two FileNotFoundError failures because these accepted Shared PreExec thin adapters were absent on Bridge task branch.",
+  "source_authority": "Owner explicitly requested syncing accepted Shared PreExec dependencies as part of same-WP recovery; this commit copies exactly two upstream file blobs.",
+  "writer_owner": "CHAT_FOR_SOURCE_SYNC_ONLY",
+  "code_write_authority": "NO_NEW_CODE_DEV_GRANT",
+  "dispatch_003": "CONSUMED_STOPPED_NEEDS_RECONCILIATION",
+  "agent_permissions": "UNCHANGED; original Batch B agent writable paths remain restricted to agent_bridge/** and reports/BRIDGE-DESKTOP-BATCH-B/**",
+  "remaining": "Local Dispatch 003 draft must be inspected/recovered without overwriting; Tray graceful-exit defect remains; new source HEAD requires fresh preexec receipt and CHAT Intake before a new single-use implementation Dispatch.",
+  "no_replay": true,
+  "release_ready": false,
+  "acceptance": "NOT_CERTIFIED",
+  "merge_live": false
+}
