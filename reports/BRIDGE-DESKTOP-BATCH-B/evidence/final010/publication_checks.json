@@ -22,15 +22,22 @@
   ],
   "claim_bytes_preserved": "Original raw bytes archived; LF publication preserves all JSON values",
   "claim_preservation": "controller_claim_preservation.json",
+  "content_commit": "78e81513b6bd78bf10c18cdf86ce7207dc792dc2",
+  "exact_remote_readback": "PASS",
   "git_diff_check": "PASS",
   "historical_evidence_preserved": true,
+  "observed_at": "2026-10-15T07:14:37.321850+00:00",
   "original_claim_sha256": "a6c415b96c2675f37e9ce9a5ac16276f3c259a6aeadfd8f1be38ca6216238fb9",
   "publication_kind": "BOUNDED_STOP_EVIDENCE",
   "published_claim_sha256": "8939f492c9356be5473a1e752fd38188a22736bc8ebf8834ecca3c210aa8552d",
+  "readback_method": "git ls-remote exact branch; git fetch exact ref; FETCH_HEAD equality; all report blob bytes equal",
+  "receipt_commit_note": "This receipt is subsequently committed and independently pushed/read back; own commit cannot be embedded in its bytes",
+  "remote_blob_bytes_equal": true,
   "remote_canary_head": "501822a33ef08c7365154913bbc677544856eee5",
   "remote_readback": "PENDING_PUSH",
+  "remote_readback_head": "78e81513b6bd78bf10c18cdf86ce7207dc792dc2",
   "remote_task_head_before": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
   "runtime_data_hashes_unchanged_during_publication_preparation": true,
   "secret_scan": "PASS",
-  "status": "PREPUBLICATION_PASS"
+  "status": "PUSHED_REMOTE_READBACK_EXACT"
 }

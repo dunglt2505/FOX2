@@ -35,6 +35,7 @@
     "prior_009_runtime_ledger_row_present": false,
     "prior_dispatches_replayed": false
   },
+  "content_commit": "78e81513b6bd78bf10c18cdf86ce7207dc792dc2",
   "controller_claim_preservation": "controller_claim_preservation.json",
   "controller_consumed": true,
   "controller_replay_allowed": false,
@@ -67,7 +68,9 @@
   "phase_0": "FAIL_HARNESS",
   "phases_1_through_5": "NOT_RUN",
   "product_source_mutated": false,
-  "publication": "BOUNDED_STOP_EVIDENCE_PREPARED",
+  "publication": "BOUNDED_STOP_EVIDENCE_PUSHED_REMOTE_READBACK_EXACT",
+  "publication_checks": "publication_checks.json",
+  "remote_readback_head": "78e81513b6bd78bf10c18cdf86ce7207dc792dc2",
   "runtime_mutated": false,
   "source_head": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
   "status": "STOPPED_NEEDS_RECONCILIATION",
