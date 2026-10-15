@@ -1,0 +1,18 @@
+{
+    "status":  "FOX2_BRIDGE_FINAL_CERTIFICATION_PUSHED_UNREVIEWED",
+    "bridge_ready_candidate":  true,
+    "chat_acceptance_granted":  false,
+    "certified_product_source":  "501822a33ef08c7365154913bbc677544856eee5",
+    "product_source_mutated":  false,
+    "phase_3":  "PASS",
+    "phase_4":  "PASS",
+    "phase_5":  "PASS",
+    "canary_dispatch_id":  "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "canary_result_head":  "501822a33ef08c7365154913bbc677544856eee5",
+    "canary_execution_count":  1,
+    "canary_replayed":  false,
+    "final_worker_state":  "PAUSED",
+    "tests_rerun":  false,
+    "full_tests":  "373 PASS CARRIED_FORWARD",
+    "next_authority":  "CHAT_FINAL_REMOTE_INTAKE"
+}

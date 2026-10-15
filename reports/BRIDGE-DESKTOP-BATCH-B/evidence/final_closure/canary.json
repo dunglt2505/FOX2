@@ -1,0 +1,19 @@
+{
+    "status":  "PASS",
+    "dispatch_id":  "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "before_head":  "501822a33ef08c7365154913bbc677544856eee5",
+    "after_head":  "501822a33ef08c7365154913bbc677544856eee5",
+    "commit_count":  1,
+    "changed_paths":  [
+
+                      ],
+    "agent_product":  "CODEX",
+    "requested":  null,
+    "applied_permission":  null,
+    "observed_model":  null,
+    "observed_reasoning_effort":  null,
+    "observed_permission_profile":  null,
+    "usage_status":  "NOT_EXPOSED_WITH_EXECUTION_PROOF",
+    "usage":  null,
+    "remote_result":  null
+}

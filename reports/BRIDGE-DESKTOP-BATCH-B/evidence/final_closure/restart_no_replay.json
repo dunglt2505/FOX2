@@ -1,0 +1,419 @@
+{
+    "status":  "PASS",
+    "graceful_stop":  {
+                          "tray_count":  0,
+                          "worker_count":  0,
+                          "trays":  [
+
+                                    ],
+                          "workers":  [
+
+                                      ]
+                      },
+    "restart":  {
+                    "tray_count":  1,
+                    "worker_count":  1,
+                    "trays":  [
+                                  {
+                                      "pid":  20760,
+                                      "parent_pid":  16892,
+                                      "executable":  "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+                                  }
+                              ],
+                    "workers":  [
+                                    {
+                                        "pid":  8092,
+                                        "parent_pid":  20760,
+                                        "executable":  "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+                                        "executable_exact":  true,
+                                        "argv_exact":  true,
+                                        "parent_is_tray":  true
+                                    }
+                                ]
+                },
+    "paused":  {
+                   "backoff_seconds":  30,
+                   "check_consumed":  1,
+                   "check_generation":  1,
+                   "current_dispatch":  null,
+                   "generation":  "abd846e4-ad21-470b-9c2d-0186db783fba",
+                   "heartbeat":  "2026-10-15T13:46:32.713022+00:00",
+                   "last_error":  "control poll blocked",
+                   "last_poll":  "2026-10-15T13:45:48.320860+00:00",
+                   "paused":  true,
+                   "reconciliation":  [
+
+                                      ],
+                   "setup_complete":  true,
+                   "start_with_windows":  true,
+                   "started":  "2026-10-15T13:46:29.882594+00:00",
+                   "state":  "PAUSED",
+                   "stop_requested":  false,
+                   "stopped":  null,
+                   "tools":  [
+                                 {
+                                     "auth_status":  "UNVERIFIED",
+                                     "available":  true,
+                                     "capabilities":  [
+
+                                                      ],
+                                     "configured_path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                                     "error":  null,
+                                     "executable_path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                                     "observed_at":  "2026-10-15T13:46:29.961961+00:00",
+                                     "tool_name":  "git",
+                                     "version":  "git version 2.56.0.windows.1",
+                                     "version_exit_code":  0,
+                                     "version_stderr_available":  false,
+                                     "version_stdout_available":  true
+                                 },
+                                 {
+                                     "auth_status":  "AUTHENTICATED",
+                                     "available":  true,
+                                     "capabilities":  [
+
+                                                      ],
+                                     "configured_path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                                     "error":  null,
+                                     "executable_path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                                     "observed_at":  "2026-10-15T13:46:30.087832+00:00",
+                                     "tool_name":  "gh",
+                                     "version":  "gh version 2.102.0 (2026-09-30)",
+                                     "version_exit_code":  0,
+                                     "version_stderr_available":  false,
+                                     "version_stdout_available":  true
+                                 },
+                                 {
+                                     "auth_status":  "AUTHENTICATED",
+                                     "available":  true,
+                                     "capabilities":  [
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "non_interactive_prompt",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "model_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "reasoning_effort_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "working_directory_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "machine_readable_output",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "full_access",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "prompt execution was intentionally not run in BRG-010",
+                                                              "name":  "prompt_execution_exit_code",
+                                                              "status":  "UNVERIFIED"
+                                                          }
+                                                      ],
+                                     "configured_path":  "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+                                     "error":  null,
+                                     "executable_path":  "C:\\Users\\Fox Le\\.codex\\packages\\standalone\\releases\\0.162.1-x86_64-pc-windows-msvc\\bin\\codex.exe",
+                                     "observed_at":  "2026-10-15T13:46:30.974419+00:00",
+                                     "tool_name":  "codex",
+                                     "version":  "codex-cli 0.162.1",
+                                     "version_exit_code":  0,
+                                     "version_stderr_available":  false,
+                                     "version_stdout_available":  true
+                                 },
+                                 {
+                                     "auth_status":  "UNVERIFIED",
+                                     "available":  true,
+                                     "capabilities":  [
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "non_interactive_prompt",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "model_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "reasoning_effort_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "auto_mode_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "full_access",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "working_directory_selection",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "observed in relevant --help",
+                                                              "name":  "machine_readable_output",
+                                                              "status":  "READY"
+                                                          },
+                                                          {
+                                                              "evidence":  "prompt execution was intentionally not run in BRG-010",
+                                                              "name":  "prompt_execution_exit_code",
+                                                              "status":  "UNVERIFIED"
+                                                          }
+                                                      ],
+                                     "configured_path":  "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
+                                     "error":  null,
+                                     "executable_path":  "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
+                                     "observed_at":  "2026-10-15T13:46:31.199180+00:00",
+                                     "tool_name":  "copilot",
+                                     "version":  "GitHub Copilot CLI 1.0.98.",
+                                     "version_exit_code":  0,
+                                     "version_stderr_available":  false,
+                                     "version_stdout_available":  true
+                                 },
+                                 {
+                                     "auth_status":  "UNVERIFIED",
+                                     "available":  true,
+                                     "capabilities":  [
+
+                                                      ],
+                                     "configured_path":  "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                                     "error":  null,
+                                     "executable_path":  "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                                     "observed_at":  "2026-10-15T13:46:32.219367+00:00",
+                                     "tool_name":  "pwsh",
+                                     "version":  "PowerShell 7.6.6",
+                                     "version_exit_code":  0,
+                                     "version_stderr_available":  false,
+                                     "version_stdout_available":  true
+                                 },
+                                 {
+                                     "auth_status":  "UNVERIFIED",
+                                     "available":  true,
+                                     "capabilities":  [
+
+                                                      ],
+                                     "configured_path":  "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+                                     "error":  null,
+                                     "executable_path":  "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+                                     "observed_at":  "2026-10-15T13:46:32.563738+00:00",
+                                     "tool_name":  "python",
+                                     "version":  "Python 3.13.15",
+                                     "version_exit_code":  0,
+                                     "version_stderr_available":  false,
+                                     "version_stdout_available":  true
+                                 }
+                             ]
+               },
+    "heartbeat":  {
+                      "backoff_seconds":  30,
+                      "check_consumed":  1,
+                      "check_generation":  1,
+                      "current_dispatch":  null,
+                      "generation":  "abd846e4-ad21-470b-9c2d-0186db783fba",
+                      "heartbeat":  "2026-10-15T13:46:33.258684+00:00",
+                      "last_error":  "control poll blocked",
+                      "last_poll":  "2026-10-15T13:45:48.320860+00:00",
+                      "paused":  true,
+                      "reconciliation":  [
+
+                                         ],
+                      "setup_complete":  true,
+                      "start_with_windows":  true,
+                      "started":  "2026-10-15T13:46:29.882594+00:00",
+                      "state":  "PAUSED",
+                      "stop_requested":  false,
+                      "stopped":  null,
+                      "tools":  [
+                                    {
+                                        "auth_status":  "UNVERIFIED",
+                                        "available":  true,
+                                        "capabilities":  [
+
+                                                         ],
+                                        "configured_path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                                        "error":  null,
+                                        "executable_path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                                        "observed_at":  "2026-10-15T13:46:29.961961+00:00",
+                                        "tool_name":  "git",
+                                        "version":  "git version 2.56.0.windows.1",
+                                        "version_exit_code":  0,
+                                        "version_stderr_available":  false,
+                                        "version_stdout_available":  true
+                                    },
+                                    {
+                                        "auth_status":  "AUTHENTICATED",
+                                        "available":  true,
+                                        "capabilities":  [
+
+                                                         ],
+                                        "configured_path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                                        "error":  null,
+                                        "executable_path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                                        "observed_at":  "2026-10-15T13:46:30.087832+00:00",
+                                        "tool_name":  "gh",
+                                        "version":  "gh version 2.102.0 (2026-09-30)",
+                                        "version_exit_code":  0,
+                                        "version_stderr_available":  false,
+                                        "version_stdout_available":  true
+                                    },
+                                    {
+                                        "auth_status":  "AUTHENTICATED",
+                                        "available":  true,
+                                        "capabilities":  [
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "non_interactive_prompt",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "model_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "reasoning_effort_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "working_directory_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "machine_readable_output",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "full_access",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "prompt execution was intentionally not run in BRG-010",
+                                                                 "name":  "prompt_execution_exit_code",
+                                                                 "status":  "UNVERIFIED"
+                                                             }
+                                                         ],
+                                        "configured_path":  "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+                                        "error":  null,
+                                        "executable_path":  "C:\\Users\\Fox Le\\.codex\\packages\\standalone\\releases\\0.162.1-x86_64-pc-windows-msvc\\bin\\codex.exe",
+                                        "observed_at":  "2026-10-15T13:46:30.974419+00:00",
+                                        "tool_name":  "codex",
+                                        "version":  "codex-cli 0.162.1",
+                                        "version_exit_code":  0,
+                                        "version_stderr_available":  false,
+                                        "version_stdout_available":  true
+                                    },
+                                    {
+                                        "auth_status":  "UNVERIFIED",
+                                        "available":  true,
+                                        "capabilities":  [
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "non_interactive_prompt",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "model_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "reasoning_effort_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "auto_mode_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "full_access",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "working_directory_selection",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "observed in relevant --help",
+                                                                 "name":  "machine_readable_output",
+                                                                 "status":  "READY"
+                                                             },
+                                                             {
+                                                                 "evidence":  "prompt execution was intentionally not run in BRG-010",
+                                                                 "name":  "prompt_execution_exit_code",
+                                                                 "status":  "UNVERIFIED"
+                                                             }
+                                                         ],
+                                        "configured_path":  "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
+                                        "error":  null,
+                                        "executable_path":  "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.exe",
+                                        "observed_at":  "2026-10-15T13:46:31.199180+00:00",
+                                        "tool_name":  "copilot",
+                                        "version":  "GitHub Copilot CLI 1.0.98.",
+                                        "version_exit_code":  0,
+                                        "version_stderr_available":  false,
+                                        "version_stdout_available":  true
+                                    },
+                                    {
+                                        "auth_status":  "UNVERIFIED",
+                                        "available":  true,
+                                        "capabilities":  [
+
+                                                         ],
+                                        "configured_path":  "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                                        "error":  null,
+                                        "executable_path":  "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                                        "observed_at":  "2026-10-15T13:46:32.219367+00:00",
+                                        "tool_name":  "pwsh",
+                                        "version":  "PowerShell 7.6.6",
+                                        "version_exit_code":  0,
+                                        "version_stderr_available":  false,
+                                        "version_stdout_available":  true
+                                    },
+                                    {
+                                        "auth_status":  "UNVERIFIED",
+                                        "available":  true,
+                                        "capabilities":  [
+
+                                                         ],
+                                        "configured_path":  "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+                                        "error":  null,
+                                        "executable_path":  "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6\\runtime\\Scripts\\python.exe",
+                                        "observed_at":  "2026-10-15T13:46:32.563738+00:00",
+                                        "tool_name":  "python",
+                                        "version":  "Python 3.13.15",
+                                        "version_exit_code":  0,
+                                        "version_stderr_available":  false,
+                                        "version_stdout_available":  true
+                                    }
+                                ]
+                  },
+    "durable_dispatch_state":  null,
+    "canary_head":  "501822a33ef08c7365154913bbc677544856eee5",
+    "replay":  false
+}
