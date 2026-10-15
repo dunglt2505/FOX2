@@ -1,0 +1,12 @@
+{
+  "after_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "before_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "canary_claimed": false,
+  "head_advanced": false,
+  "observed_at": "2026-10-15T07:12:28.291590+00:00",
+  "required_result_path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/agent_result.json",
+  "result_exists": false,
+  "status": "UNCHANGED_NOT_EXECUTED",
+  "verification": "git ls-remote exact branch plus git ls-tree at returned immutable head"
+}

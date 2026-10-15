@@ -1,0 +1,11 @@
+{
+  "historical_case_equivalent_ownership": {
+    "blob_sha1": "a0339dd21c0f6661aded6f54cffddb70b8b9dbf0",
+    "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+    "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/real_post_stop_readonly.json",
+    "sha256": "22e41fd7bf8f98c850b100f3332c1aeb9e876fb03c51fec68ed9c25eb5c192b4"
+  },
+  "reason": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+  "status": "NOT_RUN",
+  "task_rewritten": false
+}

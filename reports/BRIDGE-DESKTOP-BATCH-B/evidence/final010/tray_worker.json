@@ -1,0 +1,12 @@
+{
+  "actual_tray_count_observed": 0,
+  "actual_worker_count_observed": 0,
+  "graceful_exit_requested": false,
+  "intake": "PAUSED",
+  "process_observer_false_positive_diagnosis": "process_observer_diagnosis.json",
+  "processes_force_killed": false,
+  "reason": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+  "startup_invoked": false,
+  "status": "NOT_RUN",
+  "worker_final_state": "STOPPED"
+}

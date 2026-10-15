@@ -1,0 +1,19 @@
+{
+  "controller_resumed": false,
+  "diagnosis": "PROCESS_OBSERVER_SELF_MATCH",
+  "matches": [
+    {
+      "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.EXE",
+      "is_observer_query": true,
+      "kind": "TRAY",
+      "parent_pid": 4864,
+      "pid": 24408
+    }
+  ],
+  "observer_pid": 24408,
+  "observer_python_pid": 4864,
+  "original_audit_parent_pid": 11704,
+  "real_matches": [],
+  "runtime_mutated": false,
+  "status": "READONLY_DIAGNOSIS"
+}

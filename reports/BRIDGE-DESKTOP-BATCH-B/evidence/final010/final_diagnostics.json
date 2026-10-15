@@ -1,0 +1,23 @@
+{
+  "actual_tray_count_observed": 0,
+  "actual_worker_count_observed": 0,
+  "canary_dispatch_present": false,
+  "canary_execution_count": 0,
+  "fresh_installed_support_export": "NOT_RUN",
+  "installation": {
+    "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+    "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+  },
+  "observed_at": "2026-10-15T07:12:28.294499+00:00",
+  "raw_config_logs_database_checkpoints_or_prompts_exported": false,
+  "reason": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+  "runtime_mutated": false,
+  "status": "READONLY_STOP_SNAPSHOT",
+  "worker": {
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "state": "STOPPED"
+  }
+}

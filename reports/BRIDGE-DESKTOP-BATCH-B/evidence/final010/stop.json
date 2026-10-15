@@ -1,0 +1,58 @@
+{
+  "canary_claimed": false,
+  "canary_executed": false,
+  "controller_claim_preservation": "controller_claim_preservation.json",
+  "controller_consumed": true,
+  "controller_replay_allowed": false,
+  "controller_resumed": false,
+  "error": "CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH",
+  "error_type": "AssertionError",
+  "failure": {
+    "actual_tray_processes_observed": 0,
+    "actual_worker_processes_observed": 0,
+    "attribution": "Inferred from static assertion sequence and read-only diagnostic reproduction; original exception handler did not retain a traceback",
+    "canary_prompt_binding": "PASS",
+    "classification": "CONTROLLER_HARNESS_FAILURE",
+    "code": "CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH",
+    "controller_prompt_binding": "PASS",
+    "diagnosis_evidence": "process_observer_diagnosis.json",
+    "helper_line": 207,
+    "helper_sha256": "86e621e5b9fbdd793c8a9b5fcffafa44c7fff78118f0b73238c1bc342971972d",
+    "initial_error_message": "",
+    "initial_error_type": "AssertionError",
+    "no_product_source_mutation": true,
+    "no_retry": true,
+    "no_runtime_mutation": true,
+    "observer_defect": "PowerShell query command contains the literal Tray path and its own pwsh process matches the substring predicate",
+    "product_runtime_failure_proven": false,
+    "reproducible_failing_assertion": "assert not processes()",
+    "stage": "PHASE_0"
+  },
+  "final_worker": {
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "state": "STOPPED"
+  },
+  "graceful_cleanup": null,
+  "initial_failure_record": {
+    "canary_claimed": false,
+    "controller_consumed": true,
+    "controller_replay_allowed": false,
+    "error": "",
+    "error_type": "AssertionError",
+    "final_worker": {
+      "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+      "paused": true,
+      "state": "STOPPED"
+    },
+    "graceful_cleanup": null,
+    "observed_at": "2026-10-15T07:09:40.381226+00:00",
+    "stage": "PHASE_0",
+    "status": "STOPPED_NEEDS_RECONCILIATION"
+  },
+  "observed_at": "2026-10-15T07:09:40.381226+00:00",
+  "product_source_mutated": false,
+  "runtime_mutated": false,
+  "stage": "PHASE_0",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

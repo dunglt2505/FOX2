@@ -1,0 +1,20 @@
+{
+  "gates": {
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": "NOT_RUN",
+    "DISPATCH_V3_SCHEMA_BINDING": "NOT_RUN",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": "NOT_RUN",
+    "PROJECT_DICTIONARY_BINDING": "NOT_RUN",
+    "V06_COMPATIBILITY": "NOT_RUN",
+    "V2_COMPATIBILITY": "NOT_RUN"
+  },
+  "installed_integrity_readonly_audit": "phase0_readonly_failure_audit.json",
+  "installed_package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+  "integrity_is_not_compatibility_certification": true,
+  "reason": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+  "status": "NOT_RUN",
+  "v06_claimed": false,
+  "v2_executed": false,
+  "v2_published": false,
+  "v3_claimed": false,
+  "v3_executed": false
+}

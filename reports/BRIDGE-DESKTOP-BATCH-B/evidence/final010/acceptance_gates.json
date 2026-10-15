@@ -1,0 +1,245 @@
+{
+  "bridge_ready": false,
+  "carry_forward_sources": {
+    "core007": {
+      "blob_sha1": "ca321ef9f1144ddde00c9a75ed4840a7fbee791b",
+      "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/acceptance_gates.json",
+      "sha256": "b29b4f76b23b757dcabeacf7e759d999782584f9c9cf3ce7049afd7bef547843"
+    },
+    "core008": {
+      "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+      "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+      "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+    }
+  },
+  "focused_29_tests": {
+    "blob_sha1": "687b7e537fab42a07207c6e8f0ed280f17ff170f",
+    "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+    "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/tests.json",
+    "sha256": "875500da61d875f868b9d92088ad0206aa71bfcfbabba2accb1ee337a1db071a"
+  },
+  "full_373_tests": {
+    "blob_sha1": "b6549b4c26f4eb8566e900227b15357d28117e34",
+    "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+    "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/full.xml",
+    "sha256": "7c7220ee31d3d7d36890709c7f6d84262e39bd795cd0f1a6310106635ed67050"
+  },
+  "gates": {
+    "CHANGED_PATH_ALLOWLIST": {
+      "fresh_010": true,
+      "scope": "final010 bounded stop publication",
+      "status": "PASS"
+    },
+    "CONTAMINATED_PARENT_ENV_REGRESSION": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "complete disposable install through uninstall/reinstall/restart PASS",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_SCHEMA_BINDING": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "DURABLE_PRESERVATION_ACROSS_REINSTALL": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "disposable preservation; real backup, stable hashes and original dispatch row values preserved",
+      "status": "PASS"
+    },
+    "EXACT_AGENT_CONFIGURATION": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "FIRST_RUN_SETUP": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "disposable and real paused repeated setup PASS",
+      "status": "PASS"
+    },
+    "FULL_ACCESS_PERMISSION": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "FULL_BRIDGE_TESTS": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "373 PASS; one full invocation after substantive changes",
+      "status": "PASS"
+    },
+    "GIT_DIFF_CHECK": {
+      "fresh_010": true,
+      "scope": "final010 bounded stop publication",
+      "status": "PASS"
+    },
+    "INSTALLED_TRAY_WORKER": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "INSTALLER_PACKAGE": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "two byte-identical package builds PASS",
+      "status": "PASS"
+    },
+    "INSTALL_SUBPROCESS_ENV_ISOLATION": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "007 functions unchanged; focused regressions and packaged observed subprocesses PASS",
+      "status": "PASS"
+    },
+    "PER_USER_INSTALL": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "disposable and exact certified real package installation PASS",
+      "status": "PASS"
+    },
+    "PHASE_0_CERTIFICATION_HARNESS": {
+      "evidence": "stop.json",
+      "fresh_010": true,
+      "scope": "CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH",
+      "status": "FAIL"
+    },
+    "PHASE_0_IMMUTABLE_PROMPT_BINDING": {
+      "evidence": "lineage.json",
+      "fresh_010": true,
+      "scope": "raw-byte immutable Git show and cat-file binding",
+      "status": "PASS"
+    },
+    "PROJECT_DICTIONARY_BINDING": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "REAL_ELIGIBLE_FOX2_DISPATCH": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "RESTART_NO_REPLAY": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "RESULT_REMOTE_READBACK": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "SANITIZED_DIAGNOSTICS_BUNDLE": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "SECRET_SCAN": {
+      "fresh_010": true,
+      "scope": "final010 bounded stop publication",
+      "status": "PASS"
+    },
+    "STARTUP_SINGLE_INSTANCE": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "UNINSTALL_PATH": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "complete disposable stable external uninstall and owned real reconciliation PASS",
+      "status": "PASS"
+    },
+    "UPDATE_PATH": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "complete disposable update PASS; no second real update attempted",
+      "status": "PASS"
+    },
+    "USAGE_SNAPSHOT": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "V06_COMPATIBILITY": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "V2_COMPATIBILITY": {
+      "fresh_010": false,
+      "scope": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+      "status": "NOT_RUN"
+    },
+    "WINDOWS_SELF_UNINSTALL_HANDOFF": {
+      "carried_from": {
+        "blob_sha1": "9fbec1cd3c68b8ee555c63ca20bb9e45d5490501",
+        "commit": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core008/acceptance_gates.json",
+        "sha256": "1a513621f80d022a38491aca7bf991caada104900bf0bc8b02ac245b2e710d7a"
+      },
+      "fresh_010": false,
+      "scope": "installed Python refuses before spawn/delete; stable external bootstrap synchronous deletion PASS",
+      "status": "PASS"
+    }
+  },
+  "status": "STOPPED_NEEDS_RECONCILIATION",
+  "tests_rerun": false
+}

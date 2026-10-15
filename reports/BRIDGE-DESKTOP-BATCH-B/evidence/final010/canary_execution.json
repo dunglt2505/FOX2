@@ -1,0 +1,14 @@
+{
+  "agent_substituted": false,
+  "another_identity_created": false,
+  "canary_claimed": false,
+  "canary_executed": false,
+  "canary_execution_count": 0,
+  "codex_directly_invoked": false,
+  "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "e2e_once_manually_invoked": false,
+  "intake_resumed": false,
+  "reason": "NOT_RUN: Controller 010 stopped in Phase 0 on certification harness process observer self-match; no resume or replay",
+  "retry_performed": false,
+  "status": "NOT_RUN"
+}

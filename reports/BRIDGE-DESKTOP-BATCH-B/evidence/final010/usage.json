@@ -1,0 +1,8 @@
+{
+  "capacity": null,
+  "numeric_values_fabricated": false,
+  "reason": "No canary execution occurred; no Agent usage or capacity observed",
+  "status": "NOT_RUN",
+  "successful_execution_proof": false,
+  "usage": null
+}

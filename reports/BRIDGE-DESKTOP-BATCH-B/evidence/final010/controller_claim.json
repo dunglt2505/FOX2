@@ -1,0 +1,15 @@
+{
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-010",
+  "control_commit": "376dbc9f82e2a931cf6d9191754ef3d62a5c6094",
+  "source_head": "3e8f47a28bc66a78442059f0b0d1d3ccd4663a06",
+  "certified_product_source": "501822a33ef08c7365154913bbc677544856eee5",
+  "prompt_sha256": "c7c44dc400017b057debbfa1c9c74475faa6218405750ee2924b6d0abe35383e",
+  "canary_dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "canary_bundle_commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+  "canary_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "canary_base": "501822a33ef08c7365154913bbc677544856eee5",
+  "canary_prompt_sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+  "consumed": true,
+  "max_runs": 1,
+  "claimed_at": "2026-10-15T07:08:08.7782583Z"
+}
