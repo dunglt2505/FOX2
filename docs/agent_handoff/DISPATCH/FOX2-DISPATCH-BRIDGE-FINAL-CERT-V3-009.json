@@ -1,0 +1,97 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "501822a33ef08c7365154913bbc677544856eee5",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_FINAL_CANARY_009_PROMPT.md",
+    "git_commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+    "git_blob_sha1": "a3eec972f19d84866b2915edd4bca7a4a02af335",
+    "sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0"
+  },
+  "source": {
+    "commit_sha": "501822a33ef08c7365154913bbc677544856eee5",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "BRIDGE",
+  "delivery_owner": "BRIDGE",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner directed final Bridge certification. This v3 fixture is certification-only and is not Worker auto-executable; it exists to prove installed Dispatch-v3 schema, structural, Dictionary and runtime normalization compatibility without product source mutation."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-FINAL-CANARY-009",
+    "base_sha": "501822a33ef08c7365154913bbc677544856eee5",
+    "allowed_code_paths": [],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "codex_cli",
+      "full_access_mode"
+    ],
+    "stop_conditions": [
+      "dictionary_policy_task_prompt_or_source_binding_mismatch",
+      "schema_or_normalization_failure",
+      "unexpected_product_code_mutation",
+      "protected_authority_request"
+    ]
+  },
+  "required_tests": [
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-15T06:35:00Z",
+  "max_runs": 1
+}
