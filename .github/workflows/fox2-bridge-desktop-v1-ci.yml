@@ -15,7 +15,7 @@ permissions:
 jobs:
   build-windows:
     runs-on: windows-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout exact branch commit
@@ -38,16 +38,22 @@ jobs:
           if ($result.status -ne 'PASS' -or $result.smoke -ne 'PASS') {
             throw 'FOX2 Bridge Desktop build result is not PASS'
           }
+          if ($result.self_contained -ne $true -or $result.single_file -ne $true) {
+            throw 'FOX2 Bridge Desktop distribution is not self-contained single-file'
+          }
           if (-not (Test-Path agent_bridge/desktop_app/artifacts/publish/FOX2.Bridge.Desktop.exe)) {
             throw 'Published executable missing'
           }
 
-      - name: Upload desktop package
+      - name: Upload ready-to-install desktop package
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: FOX2-Bridge-Desktop-v1-win-x64
           path: |
-            agent_bridge/desktop_app/artifacts/publish/**
-            agent_bridge/desktop_app/artifacts/build-result.json
+            agent_bridge/desktop_app/artifacts/**
+            agent_bridge/desktop_app/install_desktop.ps1
+            agent_bridge/desktop_app/uninstall_desktop.ps1
+            agent_bridge/desktop_app/verify_desktop.ps1
+            agent_bridge/desktop_app/README.md
           if-no-files-found: error
           retention-days: 14

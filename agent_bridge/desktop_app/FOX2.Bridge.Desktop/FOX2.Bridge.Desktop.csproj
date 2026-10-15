@@ -9,5 +9,9 @@
     <AssemblyName>FOX2.Bridge.Desktop</AssemblyName>
     <RootNamespace>FOX2.Bridge.Desktop</RootNamespace>
     <LangVersion>latest</LangVersion>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 </Project>

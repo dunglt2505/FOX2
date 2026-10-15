@@ -1,5 +1,5 @@
 param(
-    [Parameter(Mandatory)][string]$PublishDirectory,
+    [string]$PublishDirectory = (Join-Path $PSScriptRoot 'artifacts\publish'),
     [switch]$Launch
 )
 

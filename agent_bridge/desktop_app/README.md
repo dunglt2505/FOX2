@@ -4,73 +4,28 @@ Native Windows control center for the existing FOX2 Bridge Worker.
 
 ## Product boundary
 
-The Desktop App is presentation and fixed-control only. It MUST NOT:
+The Desktop App is presentation and fixed-control only. It MUST NOT poll Git to discover work, claim dispatches, run Codex or Copilot directly, mutate the Bridge SQLite ledger, override model / reasoning / permission, or grant main / merge / deploy / provider / broker / LIVE authority.
 
-- poll Git to discover work;
-- claim dispatches;
-- run Codex or Copilot directly;
-- mutate the Bridge SQLite ledger;
-- select or override model / reasoning / permission;
-- merge, deploy, access provider/broker write surfaces, or grant LIVE authority.
+## Distribution
 
-All execution authority remains in the existing Python Bridge Worker.
+The ready-built Windows artifact is self-contained win-x64. No separate .NET installation is required.
 
-## Technology
+After extracting the artifact, install and launch with:
 
-- .NET 8
-- WPF
-- MVVM
-- built-in Windows tray integration
-- no Electron
-- no WebView
-- no third-party UI framework
+    pwsh -NoProfile -File .\install_desktop.ps1 -Launch
 
-## Screens
+Verify passive integration with the existing Bridge using:
 
-- Dashboard
-- Activity
-- Agents
-- Diagnostics
-- Settings
+    pwsh -NoProfile -File .\verify_desktop.ps1
 
-Visual baseline: dark navy / graphite surfaces, FOX orange accents, compact professional infrastructure-console density.
-
-## Build
-
-From this directory on Windows with .NET 8 SDK:
-
-    pwsh -NoProfile -File .\build.ps1
-
-The script restores, builds Release, runs the no-dependency smoke harness, and publishes a framework-dependent win-x64 build into `artifacts\publish`.
-
-## Install the Desktop App only
-
-    pwsh -NoProfile -File .\install_desktop.ps1 -PublishDirectory .\artifacts\publish -Launch
-
-This does not install, update, pause, resume, or mutate the Python Bridge Worker.
-
-## Uninstall the Desktop App only
+Uninstall only the Desktop App using:
 
     pwsh -NoProfile -File .\uninstall_desktop.ps1
 
-Settings are preserved by default.
+The installer writes only under %LOCALAPPDATA%\FOX2\BridgeDesktop and creates a Start Menu shortcut. It does not install, update, pause, resume, or mutate the Python Bridge Worker.
 
 ## Runtime integration
 
-The app resolves the installed Bridge Python from:
-
-    %LOCALAPPDATA%\FOX2\AgentBridge\current.json
-      -> versions\<package_sha256>\runtime\Scripts\python.exe
-
-It calls only fixed existing commands:
-
-    python -m fox2_agent_bridge control status
-    python -m fox2_agent_bridge control pause
-    python -m fox2_agent_bridge control resume
-    python -m fox2_agent_bridge control check-now
-    python -m fox2_agent_bridge control request-exit
-    python -m fox2_agent_bridge control open-logs
-    python -m fox2_agent_bridge control set-start-with-windows --enabled true|false
-    python -m fox2_agent_bridge diagnostics --output <path>
+The app resolves installed Bridge Python from %LOCALAPPDATA%\FOX2\AgentBridge\current.json and calls only the existing fixed control/status/diagnostics CLI contract.
 
 The UI never reads or writes Git for task selection and never edits the ledger directly.

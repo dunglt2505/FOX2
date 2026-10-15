@@ -34,7 +34,7 @@ try {
     & dotnet restore $DesktopProject -r win-x64
     if ($LASTEXITCODE -ne 0) { throw 'win-x64 publish restore failed' }
 
-    & dotnet publish $DesktopProject -c $Configuration -r win-x64 --self-contained false --no-restore -o $Publish
+    & dotnet publish $DesktopProject -c $Configuration -r win-x64 --self-contained true --no-restore -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o $Publish
     if ($LASTEXITCODE -ne 0) { throw 'dotnet publish failed' }
 
     $Exe = Join-Path $Publish 'FOX2.Bridge.Desktop.exe'
@@ -49,6 +49,9 @@ try {
         sdk = $Sdk
         configuration = $Configuration
         smoke = 'PASS'
+        runtime = 'win-x64'
+        self_contained = $true
+        single_file = $true
         publish_directory = $Publish
         executable = $Exe
         executable_sha256 = $Hash
@@ -57,6 +60,7 @@ try {
     Write-Host ''
     Write-Host 'FOX2 BRIDGE DESKTOP BUILD = PASS' -ForegroundColor Green
     Write-Host "SDK = $Sdk" -ForegroundColor Green
+    Write-Host 'SELF-CONTAINED = TRUE' -ForegroundColor Green
     Write-Host "EXE SHA256 = $Hash" -ForegroundColor Green
     Write-Host "PUBLISH = $Publish" -ForegroundColor Green
 }

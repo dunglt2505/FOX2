@@ -1,0 +1,15 @@
+{
+  "status": "SOURCE_UPDATED_FOR_READY_TO_INSTALL_DISTRIBUTION",
+  "reason": "Remove local .NET runtime prerequisite and bundle operational scripts with the artifact.",
+  "distribution": {
+    "runtime": "win-x64",
+    "self_contained": true,
+    "single_file": true,
+    "installer_in_artifact": true,
+    "uninstaller_in_artifact": true,
+    "installed_runtime_smoke_script_in_artifact": true,
+    "readme_in_artifact": true
+  },
+  "worker_source_changed": false,
+  "canary_009_touched": false
+}
