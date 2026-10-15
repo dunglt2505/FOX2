@@ -67,13 +67,21 @@ def main(package,sha,evidence):
         results['single_instance']={'second_worker_exit':r.returncode,'second_worker':'LOCK_HELD'}
     finally:
         cli('control','request-exit')
+        exit_started=time.monotonic()
         deadline=time.monotonic()+30
         while time.monotonic()<deadline and tray_count(): time.sleep(1)
         if tray_count(): raise RuntimeError('tray did not finish graceful exit')
+        state=cli('control','status')
+        assert state['state']=='STOPPED' and state['stop_requested'] is True
+        from fox2_agent_bridge.process_lock import ProcessLock
+        with ProcessLock(root/'data/bridge.lock'):
+            results['graceful_exit']={'state':state['state'],'stop_requested':True,
+                'tray_processes':0,'worker_lock_released':True,
+                'elapsed_seconds':round(time.monotonic()-exit_started,3)}
     support=root/'reports/support-certification.zip'
     results['diagnostics']=cli('diagnostics','--output',str(support))
     results['startup_disabled']=cli('control','set-start-with-windows','--enabled','false')
-    ids=['FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-'+i for i in ('001','002','003')]
+    ids=['FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-'+i for i in ('001','002','003','004')]
     before={i:cli('status','--dispatch-id',i)['dispatch']['dispatch_state'] for i in ids}
     results['uninstall']=cli('uninstall')
     assert not (root/'current.json').exists()

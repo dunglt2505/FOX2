@@ -1,19 +1,103 @@
 {
-  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+  "acceptance": {
+    "CHANGED_PATH_ALLOWLIST": "PASS",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": "NOT_CERTIFIED",
+    "DISPATCH_V3_SCHEMA_BINDING": "NOT_CERTIFIED",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": "NOT_CERTIFIED",
+    "EXACT_AGENT_CONFIGURATION": "NOT_CERTIFIED",
+    "FIRST_RUN_SETUP": "PASS",
+    "FULL_ACCESS_PERMISSION": "NOT_CERTIFIED",
+    "FULL_BRIDGE_TESTS": "NOT_RUN_AFTER_MATERIAL_STOP",
+    "GIT_DIFF_CHECK": "PASS",
+    "INSTALLED_TRAY_WORKER": "PASS",
+    "INSTALLER_PACKAGE": "PASS",
+    "PER_USER_INSTALL": "PASS",
+    "PROJECT_DICTIONARY_BINDING": "NOT_CERTIFIED",
+    "REAL_ELIGIBLE_FOX2_DISPATCH": "NOT_RUN_AFTER_MATERIAL_STOP",
+    "RESTART_NO_REPLAY": "NOT_RUN_AFTER_MATERIAL_STOP",
+    "RESULT_REMOTE_READBACK": "NOT_RUN_AFTER_MATERIAL_STOP",
+    "SANITIZED_DIAGNOSTICS_BUNDLE": "PASS",
+    "SECRET_SCAN": "PASS",
+    "STARTUP_SINGLE_INSTANCE": "PASS",
+    "UNINSTALL_PATH": "FAIL",
+    "UPDATE_PATH": "PASS",
+    "USAGE_SNAPSHOT": "NOT_RUN_AFTER_MATERIAL_STOP",
+    "V06_COMPATIBILITY": "NOT_CERTIFIED",
+    "V2_COMPATIBILITY": "NOT_CERTIFIED"
+  },
+  "base_sha": "9bb217d14a1689495039196cc2d695185e253baf",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "bridge_ready": false,
+  "control_commit": "056fd4f4a2f1d99355d78f7ebf8cdc4b13109c29",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
   "files": [
     {
-      "path": "reports/BRIDGE-DESKTOP-BATCH-B/report.md",
-      "sha256": "23b56e5b85bcebfd8dfaeb6b5af8e6ea8f1a9b885ccfe2c9075ee98ba37d627f"
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "sha256": "f2fca68bfd4d894bbd1e94dd0424f69195853e752d9c5b05b03bd9a24c2e1a3c"
+    },
+    {
+      "path": "agent_bridge/scripts/desktop_tray.ps1",
+      "sha256": "a9ac311c587baa282530c41db8a27785d12b73c011befba3126c2112f1fa4473"
+    },
+    {
+      "path": "agent_bridge/tests/test_tray_lifecycle.py",
+      "sha256": "ca78145a2694eac35d181014b9880f0c13148b6484dcda8799f201f6a08fbc9d"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/acceptance_gates.json",
+      "sha256": "00425b78f8d81d609b9c6e1e935c4264074407edeb9373bfb72145011fd46f1b"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/accepted_adapter_source_sync.json",
+      "sha256": "1c3eb72409630dbe6f1a75272d54204fc39b0a6298d846d6a215b0b602a82772"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_003_publication_only.json",
+      "sha256": "0ad2542cfcd91d487ebdc71c561b46b0d48a0cdf5a772bcb40f09f5eb3c54089"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_003_stop.json",
       "sha256": "e0c1669c4e2d0a8a5366a9ffee902faf2d6ea39c41d56cd6e719c189d294e7b6"
     },
     {
-      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/acceptance_gates.json",
-      "sha256": "4984ddb94ad607e82b1e7af31ee82291a26c4ba4c40750930994f814db551305"
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_launch.json",
+      "sha256": "dfc613db039d7e1397edd2185d28ac22db644cedf88ea8a69b3cace09d5e5b5b"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_package.json",
+      "sha256": "59900d7c593c0f7bc86eba36e95b2ae59aeb543fb04fcb404b799814e7f362c0"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_publication_checks.json",
+      "sha256": "77a254bc641027979bdb9968c31d747338e2e73e38813447dc17575d03663837"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_stop.json",
+      "sha256": "7de5955b7db3870f2fc2cd9610c5199b7361e9f43821042fab94e7526b744262"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/preexecution.json",
+      "sha256": "23192256b236f31cf464de88e18d6f432ffdfab8a3ac7fc684217441a5b773bd"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/publication_checks.json",
+      "sha256": "abd82047a4687a882ca40818c8ba87b3492af7435a6036865351741bf793b9da"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/verify_preexecution.py",
+      "sha256": "84cbb7762f7310ac48fcee466e58b11fcbf7ef8516d71873cd5acaacfc116b85"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
+      "sha256": "d9a1d851193e11076ea2fafc494f79d1360fb29fca0e851ebcdda5fdd2fc0a61"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/report.md",
+      "sha256": "b4afee73017b49879371e3c66ae46362aabe0dc9353a1e918c4baf6a9067eb7e"
     }
   ],
-  "published": false,
+  "hash_format": "SHA256 of canonical Git UTF-8/LF bytes",
+  "historical_evidence": "Files named 003, preexecution, prior publication_checks, preexec receipt, and verify_preexecution.py retain their original historical meaning; they are not 004 success evidence.",
+  "manifest_self_hash": "excluded",
   "status": "STOPPED_NEEDS_RECONCILIATION"
 }

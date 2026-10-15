@@ -1,0 +1,11 @@
+{
+  "build_backend": "setuptools 84.0.0; wheel 0.48.0",
+  "deterministic_two_builds": true,
+  "initial_baseline_install": "e4df598f1e9ffb2dc17c7f6316c62a4dc9d96c113d892340cdec407940eed4cc",
+  "sha256": "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+  "update": {
+    "package_sha256": "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+    "source_sha256": "876eaf82f252247b7f4f96bbb5d4b3ce158af986c80d5904473d440d13eb5b77",
+    "status": "UPDATED"
+  }
+}

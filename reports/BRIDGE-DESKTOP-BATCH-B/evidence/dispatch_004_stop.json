@@ -1,0 +1,74 @@
+{
+  "agent_substitution": false,
+  "bridge_ready": false,
+  "confirmed_root_cause": {
+    "cause": "ConvertFrom-Json converts ISO heartbeat into DateTime; implicit DateTime.ToString uses incompatible local culture",
+    "diagnostic_cleanup": "Only Popen-owned diagnostic Tray PID 19352 terminated after Worker STOPPED; no unrelated termination",
+    "diagnostic_error": "String 10/15/2026 08:59:46 was not recognized as a valid DateTime",
+    "tray_timer": "heartbeat DateTimeOffset.Parse failed before shutdown condition",
+    "worker_after_exit": "STOPPED with stop_requested=true"
+  },
+  "control_commit": "056fd4f4a2f1d99355d78f7ebf8cdc4b13109c29",
+  "delivery": "Authorized WIP code/evidence only; no PR/main/merge/deploy/provider/broker/LIVE; remote publication/readback recorded separately",
+  "dispatch_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+  "installed_lifecycle": {
+    "command": "python -B agent_bridge/scripts/certify_user_lifecycle.py --package <local fixed package> --sha256 6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9 --evidence reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_installed_lifecycle.json",
+    "evidence_limit": "Certification writes its complete JSON only at end; failure produced no dispatch_004_installed_lifecycle.json. Pre-uninstall checks are evidenced by reached failure location and ordered assertions, not a fabricated complete receipt. Uninstall CLI stderr was captured but not retained by the existing helper; underlying uninstall cause UNKNOWN.",
+    "exit_code": 1,
+    "failed_at": "certify_user_lifecycle.py main: results[uninstall]=cli(uninstall)",
+    "failure": "RuntimeError: installed command failed: uninstall exit 2",
+    "full_pytest": "NOT_RUN; immediate STOP takes precedence; no full suite run in 004",
+    "reached_and_passed_before_failure": [
+      "installed setup",
+      "real interactive Limited Task Scheduler registration with IgnoreNew",
+      "two launcher invocations yield one healthy PAUSED Tray/Worker",
+      "second worker fails LOCK_HELD",
+      "graceful exit yields zero Tray processes, STOPPED and released worker lock",
+      "sanitized support export",
+      "startup disabled"
+    ],
+    "reinstall": "NOT_RUN; stopped at first material failure"
+  },
+  "post_stop_read_only_snapshot": {
+    "consumption": {
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+      "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION"
+    },
+    "current_pointer_exists": true,
+    "remaining_version_directories": [
+      "6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9",
+      "e4df598f1e9ffb2dc17c7f6316c62a4dc9d96c113d892340cdec407940eed4cc"
+    ],
+    "runtime_integrity": "UNKNOWN after failed uninstall; do not relaunch or retry without reconciliation",
+    "startup_task": "NONE_OBSERVED",
+    "worker": {
+      "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+      "paused": true,
+      "state": "STOPPED",
+      "stop_requested": true
+    }
+  },
+  "preservation": {
+    "deleted_restored_files": 0,
+    "narrow_modified_restored_files": [
+      "agent_bridge/scripts/certify_user_lifecycle.py",
+      "agent_bridge/scripts/desktop_tray.ps1"
+    ],
+    "restored_file_count": 17,
+    "unchanged_restored_files": 15
+  },
+  "prior_dispatches_replayed": false,
+  "recorded_at": "2026-10-15T02:04:10.783079+00:00",
+  "regressions": {
+    "configured_command": "PYTHONPATH=agent_bridge/src python -B -m pytest agent_bridge/tests/test_tray_lifecycle.py -q",
+    "duration_seconds": 12.58,
+    "failed": 0,
+    "initial_invocation": "Collection import failed without PYTHONPATH; no tests ran. Corrected test environment, then focused suite passed.",
+    "passed": 5
+  },
+  "source_head": "9bb217d14a1689495039196cc2d695185e253baf",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

@@ -1,0 +1,22 @@
+{
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "changed_path_allowlist": "PASS",
+  "changed_paths": [
+    "agent_bridge/scripts/certify_user_lifecycle.py",
+    "agent_bridge/scripts/desktop_tray.ps1",
+    "agent_bridge/tests/test_tray_lifecycle.py",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_launch.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_package.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence_manifest.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/report.md"
+  ],
+  "consumed_dispatches": "001,002,003,004; no replay",
+  "diff_check": "PASS",
+  "full_pytest": "NOT_RUN_AFTER_MATERIAL_STOP",
+  "scope": "WIP publication only after installed uninstall failure; no readiness assertion",
+  "secret_scan": "PASS",
+  "status": "PASS"
+}

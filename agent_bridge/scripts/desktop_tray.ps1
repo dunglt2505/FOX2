@@ -28,13 +28,35 @@ function Invoke-BridgeControl {
         $Info.ArgumentList.Add('--enabled'); $Info.ArgumentList.Add($Enabled)
     }
     $Process = [System.Diagnostics.Process]::Start($Info)
-    # Small fixed control responses, no arbitrary shell or prompt input.
-    $Output = $Process.StandardOutput.ReadToEnd()
-    $ErrorOutput = $Process.StandardError.ReadToEnd()
-    $Process.WaitForExit()
-    if ($Process.ExitCode -ne 0) { throw 'Bridge control failed' }
-    $Process.Dispose()
-    return ($Output | ConvertFrom-Json)
+    try {
+        # Drain both pipes concurrently; a stalled control must not freeze the UI.
+        $Output = $Process.StandardOutput.ReadToEndAsync()
+        $ErrorOutput = $Process.StandardError.ReadToEndAsync()
+        if (-not $Process.WaitForExit(10000)) {
+            # Only this fixed, short-lived control subprocess is owned here.
+            $Process.Kill()
+            $Process.WaitForExit(2000) | Out-Null
+            throw 'Bridge control timed out'
+        }
+        if ($Process.ExitCode -ne 0) { throw 'Bridge control failed' }
+        return ($Output.GetAwaiter().GetResult() | ConvertFrom-Json)
+    } finally { $Process.Dispose() }
+}
+function Get-BridgeHeartbeatAge {
+    param($Heartbeat)
+    # ConvertFrom-Json may return DateTime on PowerShell 7. Never reparse its
+    # culture-dependent ToString() representation (for example on vi-VN).
+    if ($Heartbeat -is [DateTime]) {
+        $Stamp = [DateTimeOffset]::new($Heartbeat.ToUniversalTime())
+    } elseif ($Heartbeat -is [DateTimeOffset]) {
+        $Stamp = $Heartbeat
+    } else {
+        $Stamp = [DateTimeOffset]::MinValue
+        if (-not [DateTimeOffset]::TryParse([string]$Heartbeat,
+                [Globalization.CultureInfo]::InvariantCulture,
+                [Globalization.DateTimeStyles]::RoundtripKind, [ref]$Stamp)) { return $null }
+    }
+    return ([DateTimeOffset]::UtcNow - $Stamp).TotalSeconds
 }
 $Icon = [System.Windows.Forms.NotifyIcon]::new()
 $Timer = [System.Windows.Forms.Timer]::new()
@@ -107,6 +129,14 @@ try {
     $Timer.add_Tick({
         try {
             $State = Invoke-BridgeControl status
+            # Lifecycle completion must not depend on optional display fields.
+            # STOPPED is published before the worker releases its runtime lock;
+            # wait for the owned worker process to finish before closing Tray.
+            if ($State.stop_requested -and $State.state -eq 'STOPPED' -and $Worker.HasExited) {
+                $Timer.Stop()
+                [System.Windows.Forms.Application]::ExitThread()
+                return
+            }
             $Display = switch ($State.state) {
                 'PAUSED' { 'Paused' }
                 'DEGRADED' { 'Degraded' }
@@ -115,7 +145,11 @@ try {
                 'STOPPING' { 'Stopping' }
                 default { 'Running' }
             }
-            if ($State.heartbeat -and ([DateTimeOffset]::UtcNow - [DateTimeOffset]::Parse($State.heartbeat)).TotalSeconds -gt 60) { $Display = 'Error: stale heartbeat' }
+            if ($State.heartbeat) {
+                $Age = Get-BridgeHeartbeatAge $State.heartbeat
+                if ($null -eq $Age) { $Display = 'Error: invalid heartbeat' }
+                elseif ($Age -gt 60) { $Display = 'Error: stale heartbeat' }
+            }
             $Status.Text = $Display + ' / ' + $State.state
             $Icon.Text = ('FOX2 Bridge: ' + $Display)
             $Task.Text = 'Task: ' + $State.current_dispatch
@@ -127,7 +161,6 @@ try {
             $Usage.Text = 'Usage: ' + $(if ($null -ne $Execution.metadata.usage) { $Execution.metadata.usage | ConvertTo-Json -Compress } else { 'NOT_EXPOSED' })
             $Capacity.Text = 'Capacity: ' + $(if ($null -ne $Execution.metadata.capacity) { $Execution.metadata.capacity | ConvertTo-Json -Compress } else { 'NOT_EXPOSED' })
             $Startup.Checked = $State.start_with_windows -eq $true
-            if ($State.stop_requested -and $State.state -eq 'STOPPED') { [System.Windows.Forms.Application]::Exit() }
         } catch { $Status.Text = 'Error: status unavailable'; $Icon.Text = 'FOX2 Bridge: Error' }
     })
     $Timer.Start()
