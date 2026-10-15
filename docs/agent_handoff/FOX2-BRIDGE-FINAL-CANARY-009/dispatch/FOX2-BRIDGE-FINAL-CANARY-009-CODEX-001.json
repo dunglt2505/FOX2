@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "wp_id": "FOX2-BRIDGE-FINAL-CANARY-009",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-DISPATCH-chat",
+  "agent": {
+    "product": "CODEX",
+    "interface": "OPENAI_CODEX_CLI",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS",
+    "sandbox": "danger-full-access",
+    "approval_policy": "never"
+  },
+  "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-FINAL-CANARY-009",
+  "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+  "base_sha": "501822a33ef08c7365154913bbc677544856eee5",
+  "prompt": {
+    "git_commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_FINAL_CANARY_009_PROMPT.md",
+    "git_blob_sha1": "a3eec972f19d84866b2915edd4bca7a4a02af335",
+    "sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "permission_profile": "FULL_ACCESS",
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "permission_profile": "FULL_ACCESS",
+  "delivery_owner": "BRIDGE",
+  "runtime_contract": {
+    "auto_execute": true
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/agent_result.json"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_FINAL_CANARY_009_AGENT_OK"
+  },
+  "max_runs": 1
+}
