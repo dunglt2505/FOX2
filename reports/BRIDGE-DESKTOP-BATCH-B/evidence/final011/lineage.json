@@ -1,0 +1,207 @@
+{
+  "audit_after_stop": true,
+  "canary_claims": [],
+  "canary_executions": [],
+  "canary_local_branch_head": null,
+  "canary_prompt": {
+    "blob_sha1": "a3eec972f19d84866b2915edd4bca7a4a02af335",
+    "commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_FINAL_CANARY_009_PROMPT.md",
+    "raw_bytes": 1340,
+    "sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+    "show_equals_cat_file": true
+  },
+  "canary_remote_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "canary_worktree_exists": false,
+  "certified_product_source": "501822a33ef08c7365154913bbc677544856eee5",
+  "consumption": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "660c57758d73886365e1f35f72dbbfd06e967b1e",
+        "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim.json",
+        "raw_bytes": 467,
+        "sha256": "3e5645c6a2ace090040fd091aef2b4145d467b1cabad8ec77742070aed48e158",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-010": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "4381a92bbbf96004ba21b975e4522977674c5d5e",
+        "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim.json",
+        "raw_bytes": 788,
+        "sha256": "8939f492c9356be5473a1e752fd38188a22736bc8ebf8834ecca3c210aa8552d",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    }
+  },
+  "controller_dispatch": {
+    "blob_sha1": "874b7646fb31bdd8133cb51ffcbdc4f7b9be6001",
+    "commit": "4eae4eec694acb70e472e0e14d23861cee9c214c",
+    "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-011.json",
+    "raw_bytes": 6080,
+    "sha256": "79cccc667eb8d63523f73fbb9a4c7cd3ccf8905e4c103eb5b8c1811693e3ee8e",
+    "show_equals_cat_file": true
+  },
+  "fixtures": {
+    "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json": {
+      "blob_sha1": "964dceb19c74235b9dbf0d219c77046c1b2e9a4e",
+      "commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+      "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json",
+      "raw_bytes": 3436,
+      "sha256": "e5ff930d7094572eaad0a21236b3c87b6f90dda3c5cd270bf4c00531bbda2e17",
+      "show_equals_cat_file": true
+    },
+    "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json": {
+      "blob_sha1": "7bba347537d48d4d7b499841efeafc06ea3e597f",
+      "commit": "cd2a1bd0d2a4e851a79c17f538f70734277d5ad5",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json",
+      "raw_bytes": 1868,
+      "sha256": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a",
+      "show_equals_cat_file": true
+    }
+  },
+  "immutable_bindings": {
+    "dictionary": {
+      "blob_sha1": "a37844b1485e43bd026b72ee85b4d87e75b2affb",
+      "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "raw_bytes": 9386,
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "show_equals_cat_file": true
+    },
+    "policy": {
+      "blob_sha1": "85b6d5b4700ff863e4fef0a7474ffd0f7a6469c0",
+      "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "raw_bytes": 12170,
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "show_equals_cat_file": true
+    },
+    "prompt": {
+      "blob_sha1": "e1e892f30ab36c77ff7b9e7305a68d91dbc7b554",
+      "commit": "ebb841afd47a1f41dcb03a4f5c7a114e203cdb1a",
+      "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-011.md",
+      "raw_bytes": 11030,
+      "sha256": "2ad27316f2d049baf4dec12161d186adaef6f428ac02f36dbb6dd6a6f61a197d",
+      "show_equals_cat_file": true
+    },
+    "task": {
+      "blob_sha1": "33f81d5022cef498cc9ac105a0a9ddffe0870010",
+      "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "raw_bytes": 6999,
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "show_equals_cat_file": true
+    }
+  },
+  "installed_manifest_and_wheel_mismatches": [],
+  "installed_pointer": {
+    "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+    "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+  },
+  "product_source_diff": [],
+  "remote_result_exists": false,
+  "report_only_lineage_paths": [
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary_execution.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary_remote_readback.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim_preservation.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/final_certification.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/final_diagnostics.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/installed_compatibility.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/phase0.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/phase0_readonly_failure_audit.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/progress.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/restart_no_replay.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/startup_task.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/tray_worker.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/usage.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/canary_execution.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/canary_remote_readback.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim_preservation.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/final_certification.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/final_diagnostics.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/installed_compatibility.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/lineage.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/phase0.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/phase0_readonly_failure_audit.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/process_observer_diagnosis.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/publication_checks.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/restart_no_replay.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/startup_task.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/tray_worker.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/usage.json"
+  ],
+  "runtime_mutated": false,
+  "source_head": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+  "status": "PASS_READONLY_BINDINGS_WITH_OBSERVER_MATERIALIZATION_FAILURE",
+  "worker": {
+    "generation": "a6682cd2-920a-4132-be36-c2975c58625e",
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "state": "STOPPED",
+    "stop_requested": true
+  }
+}

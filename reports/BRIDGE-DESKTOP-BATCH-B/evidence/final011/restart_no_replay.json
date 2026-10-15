@@ -1,0 +1,84 @@
+{
+  "canary_claimed": false,
+  "phase": 5,
+  "prior_001_through_010_readonly_consumption": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008": {
+      "manual_consumption": true,
+      "replay_allowed": false,
+      "runtime_ledger_claim_exists": true,
+      "state": "NEEDS_RECONCILIATION"
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "660c57758d73886365e1f35f72dbbfd06e967b1e",
+        "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/controller_claim.json",
+        "raw_bytes": 467,
+        "sha256": "3e5645c6a2ace090040fd091aef2b4145d467b1cabad8ec77742070aed48e158",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    },
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-010": {
+      "auto_executable": false,
+      "claim_evidence": {
+        "blob_sha1": "4381a92bbbf96004ba21b975e4522977674c5d5e",
+        "commit": "92bd9c82385f05893d9379c00f964760e9fe06dc",
+        "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/controller_claim.json",
+        "raw_bytes": 788,
+        "sha256": "8939f492c9356be5473a1e752fd38188a22736bc8ebf8834ecca3c210aa8552d",
+        "show_equals_cat_file": true
+      },
+      "execution_path": "MANUAL_LOCAL",
+      "replay_allowed": false
+    }
+  },
+  "reason": "NOT_RUN: Phase 0 observer helper raw-byte mismatch; Controller 011 consumed, no resume or replay",
+  "restart_executed": false,
+  "runtime_mutated": false,
+  "status": "NOT_RUN"
+}

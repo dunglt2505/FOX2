@@ -1,0 +1,21 @@
+{
+  "canary_claimed": false,
+  "installed_manifest_and_wheel_integrity": "PASS",
+  "installed_pointer": {
+    "package_sha256": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+    "source_sha256": "613f5713e3e197c0313018b9a263f91fccdd3b393bfd616ffaeff1621bd55e1b"
+  },
+  "process_observer": "NOT_RUN_RAW_BYTE_MISMATCH",
+  "product_source_mutated": false,
+  "reason": "NOT_RUN: Phase 0 observer helper raw-byte mismatch; Controller 011 consumed, no resume or replay",
+  "runtime_mutated": false,
+  "sanitized_support_export": "NOT_RUN",
+  "status": "READONLY_BOUNDED_STOP_AUDIT",
+  "worker": {
+    "generation": "a6682cd2-920a-4132-be36-c2975c58625e",
+    "heartbeat": "2026-10-15T02:02:37.612545+00:00",
+    "paused": true,
+    "state": "STOPPED",
+    "stop_requested": true
+  }
+}

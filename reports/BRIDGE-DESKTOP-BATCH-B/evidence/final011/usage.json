@@ -1,0 +1,7 @@
+{
+  "execution_proof_exists": false,
+  "note": "No canary execution occurred; NOT_EXPOSED_WITH_EXECUTION_PROOF does not apply",
+  "numeric_usage": null,
+  "reason": "NOT_RUN: Phase 0 observer helper raw-byte mismatch; Controller 011 consumed, no resume or replay",
+  "status": "NOT_RUN"
+}

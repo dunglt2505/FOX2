@@ -1,0 +1,12 @@
+{
+  "DISPATCH_V3_RUNTIME_COMPATIBILITY": "NOT_RUN",
+  "DISPATCH_V3_SCHEMA_BINDING": "NOT_RUN",
+  "DISPATCH_V3_STRUCTURAL_CONFORMANCE": "NOT_RUN",
+  "PROJECT_DICTIONARY_BINDING": "NOT_RUN",
+  "V06_COMPATIBILITY": "NOT_RUN",
+  "V2_COMPATIBILITY": "NOT_RUN",
+  "phase": 2,
+  "reason": "NOT_RUN: Phase 0 observer helper raw-byte mismatch; Controller 011 consumed, no resume or replay",
+  "runtime_mutated": false,
+  "status": "NOT_RUN"
+}

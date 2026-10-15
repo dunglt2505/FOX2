@@ -1,0 +1,10 @@
+{
+  "claimed": false,
+  "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "executed": false,
+  "execution_count": 0,
+  "phase": 4,
+  "reason": "NOT_RUN: Phase 0 observer helper raw-byte mismatch; Controller 011 consumed, no resume or replay",
+  "runtime_mutated": false,
+  "status": "NOT_RUN"
+}

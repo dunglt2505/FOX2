@@ -1,0 +1,41 @@
+{
+  "failure": {
+    "actual_CRLF_count": 91,
+    "actual_blob_sha1": "d36fddfa34acd5b93d4d82fec845bc90c9e84546",
+    "actual_raw_bytes": 2859,
+    "actual_sha256": "55905659a6ba5a11af52b5a7cc6afd04575d3dbf7cc0502725479782dca731be",
+    "classification": "CERTIFICATION_HARNESS_MATERIALIZATION_FAILURE",
+    "code": "OBSERVER_HELPER_RAW_SHA256_MISMATCH",
+    "equal_after_CRLF_normalization": true,
+    "expected_CRLF_count": 0,
+    "expected_blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+    "expected_raw_bytes": 2768,
+    "expected_sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "no_retry": true,
+    "product_runtime_failure_proven": false,
+    "product_source_mutated": false,
+    "runtime_mutated": false,
+    "stage": "PHASE_0",
+    "stop_condition": "observer_helper_blob_or_sha256_mismatch"
+  },
+  "immutable_git_helper": {
+    "blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+    "commit": "928e8279ac6ca45d9421d5fa3773dd44943008ef",
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-CERT-PROCESS-OBSERVER-011.ps1",
+    "raw_bytes": 2768,
+    "sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "show_equals_cat_file": true
+  },
+  "launcher_preclaim": {
+    "observer_pid": 7148,
+    "status": "PASS_ZERO_ZERO_NO_SELF_MATCH",
+    "tray_count": 0,
+    "worker_count": 0
+  },
+  "launcher_preclaim_is_not_fresh_controller_validation": true,
+  "materialized_path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\runner-cache\\FOX2-BRIDGE-CERT-PROCESS-OBSERVER-011.ps1",
+  "observer_executed_by_controller": false,
+  "process_counts": null,
+  "self_exclusion_runtime_test": "NOT_RUN",
+  "status": "FAIL_RAW_MATERIALIZATION_BINDING"
+}

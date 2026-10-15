@@ -1,0 +1,28 @@
+{
+  "canary_claimed": false,
+  "canary_executed": false,
+  "controller_consumed": true,
+  "controller_replay_allowed": false,
+  "failure": {
+    "actual_CRLF_count": 91,
+    "actual_blob_sha1": "d36fddfa34acd5b93d4d82fec845bc90c9e84546",
+    "actual_raw_bytes": 2859,
+    "actual_sha256": "55905659a6ba5a11af52b5a7cc6afd04575d3dbf7cc0502725479782dca731be",
+    "classification": "CERTIFICATION_HARNESS_MATERIALIZATION_FAILURE",
+    "code": "OBSERVER_HELPER_RAW_SHA256_MISMATCH",
+    "equal_after_CRLF_normalization": true,
+    "expected_CRLF_count": 0,
+    "expected_blob_sha1": "000dc032777cec198f59ddb7d6af049a9d23f1fc",
+    "expected_raw_bytes": 2768,
+    "expected_sha256": "75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792",
+    "no_retry": true,
+    "product_runtime_failure_proven": false,
+    "product_source_mutated": false,
+    "runtime_mutated": false,
+    "stage": "PHASE_0",
+    "stop_condition": "observer_helper_blob_or_sha256_mismatch"
+  },
+  "observed_at": "2026-10-15T07:29:15.666553+00:00",
+  "phases_1_through_5": "NOT_RUN",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}
