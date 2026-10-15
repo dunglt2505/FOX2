@@ -254,6 +254,35 @@ No further real Tray launch occurred after the stop, so these gates remain incom
 
 ### Current phase — FINAL CERTIFICATION ONLY
 
+Final certification artifacts are now bound and published.
+
+Controller:
+- Dispatch `FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009`;
+- control commit `72290d52585c3c6e09030c1c7a840583e61af637`;
+- route `CODEX / gpt-6.1-sol / High / FULL_ACCESS`;
+- execution path `MANUAL_LOCAL`;
+- writable repository scope only `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/**`;
+- no `agent_bridge/**` mutation authorized.
+
+Current-schema runtime fixture:
+- `docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-FINAL-CERT-V3-009.json`;
+- exact bundle commit `cd2a1bd0d2a4e851a79c17f538f70734277d5ad5`;
+- schema v3 / execution_path=BRIDGE;
+- intentionally non-auto-executable because v3 schema does not permit legacy `runtime_contract.auto_execute`.
+
+Real installed Worker canary:
+- `FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001`;
+- supported legacy schema v0.6;
+- exact bundle commit `cd2a1bd0d2a4e851a79c17f538f70734277d5ad5`;
+- `runtime_contract.auto_execute=true`;
+- `CODEX / PINNED / gpt-6.1-sol / Medium / FULL_ACCESS`;
+- `delivery_owner=BRIDGE`;
+- canary branch `work/FOX2-BRIDGE-FINAL-CANARY-009` frozen at `501822a33ef08c7365154913bbc677544856eee5`;
+- only `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/**` may change.
+
+This separation is deliberate: installed v3 compatibility is proven through schema/normalizer/common validation, while the existing Worker auto-discovery path is certified through its supported legacy auto-execute contract. Do not add non-schema fields to v3 merely to make it resemble legacy Worker discovery.
+
+
 No additional production code fix is authorized or indicated by current evidence.
 
 Next work must be a single certification-only lane that:
@@ -353,29 +382,36 @@ Do not STOP solely for:
 ## 10. Execution ordering summary
 
 ```text
-NOW — FINISH BRIDGE
+NOW — FINALIZE BRIDGE
 
-  CURRENT:
-    Bridge Batch B Dispatch 006 = CONSUMED / STOPPED_NEEDS_RECONCILIATION
-    blocker = isolated PER_USER_INSTALL exit 1
-    exact inner cause = UNKNOWN
-    real damaged runtime = quarantined from new attempts
+  COMPLETED
+    Dispatch 007
+      -> installer environment isolation fixed
+      -> 22 focused PASS / 367 full PASS
 
-  NEXT:
-    one-shot non-dispatch isolated installer diagnostic
-      ↓
-    root cause classified
-      ↓
-    [if code defect] one bounded same-Batch-B correction Dispatch
-    [if environment/harness] correct without product redesign
-      ↓
-    isolated full Core lifecycle PASS
-      ↓
-    safe real per-user runtime recovery
-      ↓
-    one final full Bridge certification cycle
-      ↓
-    INTERNAL_FOX2_BRIDGE_READY
+    Dispatch 008
+      -> Windows self-uninstall fixed
+      -> 29 focused PASS / 373 full PASS
+      -> complete disposable lifecycle PASS
+      -> real owned recovery materially complete
+      -> certified package installed
+      -> setup PAUSED / worker STOPPED
+      -> startup task registered/owned
+
+  READY NOW
+    Dispatch 009 FINAL CERTIFICATION ONLY
+      -> Windows path-equivalent startup ownership
+      -> real Tray/Worker + single-instance
+      -> graceful exit/restart/no-replay
+      -> final diagnostics
+      -> installed v3 / v2 / v0.6 compatibility
+      -> exactly one real Worker canary
+      -> Codex gpt-6.1-sol / Medium / FULL_ACCESS
+      -> Bridge-owned result publication
+      -> exact remote readback
+      -> usage snapshot or NOT_EXPOSED_WITH_EXECUTION_PROOF
+      -> CHAT final intake
+      -> INTERNAL_FOX2_BRIDGE_READY
 
 THEN — RESUME WEBSITE
     frozen APP-BATCH-B dual-theme source
@@ -422,15 +458,15 @@ Project-wide disposition:
 - Project Dictionary v1.2 exposes all current machine pointers and aggregate-route identifiers;
 - project-wide rollout is Owner-authorized with bounded CODE_ALLOWED, but final implementation Agent remains gated by current R3/R5 evidence.
 
-### Current pre-execution facts / Bridge-first gate
+### Current pre-execution disposition / Bridge-first gate
 
-- project-wide rollout branch `work/FOX2-PREEXEC-ROLLOUT-V1` currently heads at `ad58506d7e94304c0929fc9b5a6281111be7532b`;
-- its latest durable receipt is logically PASS and proves Codex current execution readiness plus a clean dedicated worktree, but the receipt is bound to older source head `4bb30b3ff753368a126fa381192d9400f7682c05`; therefore it is STALE for final assignment after later source-sync commits;
-- immediate next action is a fresh project-wide PreExec receipt + CHAT Intake solely to unblock Bridge;
-- `BRIDGE-DESKTOP-BATCH-B` still carries stale governance references (Dictionary v1 / Policy V1.8.7 / Routing V1.2.8 / Protocol v10) and its 2026-10-14 receipt predates the current aggregate-route baseline; both task source and receipt must be rebound before executable Dispatch;
-- once fresh Bridge evidence PASSes, the whole Bridge Batch B is the single active implementation lane until `INTERNAL_FOX2_BRIDGE_READY`;
-- Website/APP-BATCH-B is frozen at dual-theme source head `1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2` with build/runtime/integrated acceptance NOT_RUN;
-- after Bridge acceptance, resume APP-BATCH-B without redesigning the CHAT-approved Dark/White UI;
-- no executable Dispatch may be issued from stale evidence, and no main/merge/deploy/provider/broker/LIVE authority is implied.
+- project-wide PreExec implementation is historical enablement, not the current Bridge blocker;
+- current Bridge source has already executed Dispatches 001–008 under the current governance line;
+- Dispatch 008 remote result head is `501822a33ef08c7365154913bbc677544856eee5`;
+- no further production code correction is indicated by current evidence;
+- final certification controller 009 and its immutable canary artifacts are published on the control branch;
+- Bridge task source is intentionally kept immutable at `501822a...` until 009 completes; do not edit the task header merely to refresh wording and invalidate the certification source binding;
+- Website/APP-BATCH-B remains frozen until CHAT accepts `INTERNAL_FOX2_BRIDGE_READY`;
+- no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=501822a33ef08c7365154913bbc677544856eee5 / LAST_COMPLETED_DISPATCH=008_CONSUMED_STOPPED_NEEDS_RECONCILIATION / INSTALLER_ENV_FIX=PASS / WINDOWS_SELF_UNINSTALL_FIX=PASS / DISPOSABLE_FULL_LIFECYCLE=PASS / REAL_RECOVERY=MATERIALLY_COMPLETE_CERTIFICATION_INCOMPLETE / CURRENT_BLOCKER=CERTIFICATION_HARNESS_CASE_SENSITIVE_PATH_ASSERTION_PLUS_FINAL_RUNTIME_CANARY_GATES / CURRENT_PHASE=FINAL_CERTIFICATION_ONLY / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=501822a33ef08c7365154913bbc677544856eee5 / LAST_COMPLETED_DISPATCH=008_CONSUMED_STOPPED_NEEDS_RECONCILIATION / INSTALLER_ENV_FIX=PASS / WINDOWS_SELF_UNINSTALL_FIX=PASS / DISPOSABLE_FULL_LIFECYCLE=PASS / REAL_RECOVERY=MATERIALLY_COMPLETE_CERTIFICATION_INCOMPLETE / CURRENT_PHASE=FINAL_CERTIFICATION_009_READY / CONTROLLER_DISPATCH=FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009 / CONTROLLER_CONTROL_COMMIT=72290d52585c3c6e09030c1c7a840583e61af637 / V3_RUNTIME_FIXTURE=BOUND / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
