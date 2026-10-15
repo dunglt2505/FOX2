@@ -252,6 +252,53 @@ No further real Tray launch occurred after the stop, so these gates remain incom
 - RESULT_REMOTE_READBACK;
 - USAGE_SNAPSHOT.
 
+### Replacement Controller 010 — ready and unconsumed
+
+Controller 010 has been published as the one replacement certification controller after the metadata-only 009 stop.
+
+Dispatch:
+`FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-010`
+
+Controller source head:
+`3e8f47a28bc66a78442059f0b0d1d3ccd4663a06`
+
+Certified product source remains:
+`501822a33ef08c7365154913bbc677544856eee5`
+
+The source difference `501822a..3e8f47a` is report-only under `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/**`; no production source changed.
+
+Controller prompt:
+- commit `d161710832de15e1acd6f75cc99ab15b48885a1d`;
+- blob `ced663bbbfb4f2a5e4695747ee8c3de51a9a8b47`;
+- raw UTF-8 SHA-256 `c7c44dc400017b057debbfa1c9c74475faa6218405750ee2924b6d0abe35383e`.
+
+Controller route:
+`CODEX / gpt-6.1-sol / High / FULL_ACCESS`.
+
+Controller writable repository scope:
+`reports/BRIDGE-DESKTOP-BATCH-B/evidence/final010/**`.
+
+No `agent_bridge/**` or product source mutation is authorized.
+
+The existing Worker canary is reused without a new identity:
+`FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001`.
+
+Its prompt SHA-256 was independently revalidated:
+`dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0`.
+
+Canary branch remains:
+`work/FOX2-BRIDGE-FINAL-CANARY-009@501822a33ef08c7365154913bbc677544856eee5`.
+
+Canary remains UNCLAIMED / UNEXECUTED and no canary result exists.
+
+Fail-closed launcher:
+`docs/agent_handoff/RECOVERY/RUN_FOX2_BRIDGE_FINAL_CERTIFICATION_010.ps1`
+
+Launcher control head:
+`0908e8c73b02099384d633a1dc2a17ca217af221`.
+
+The launcher validates raw Git blob SHA-256 using Python hashlib before creating the Controller-010 claim, preventing recurrence of the Controller-009 metadata error.
+
 ### Dispatch 009 intake — consumed, stopped before runtime mutation
 
 Dispatch 009 was claimed once and is CONSUMED. It MUST NOT be replayed.
@@ -503,4 +550,4 @@ Project-wide disposition:
 - Website/APP-BATCH-B remains frozen until CHAT accepts `INTERNAL_FOX2_BRIDGE_READY`;
 - no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=3e8f47a28bc66a78442059f0b0d1d3ccd4663a06 / LAST_COMPLETED_DISPATCH=009_CONSUMED_STOPPED_PHASE0 / INSTALLER_ENV_FIX=PASS / WINDOWS_SELF_UNINSTALL_FIX=PASS / DISPOSABLE_FULL_LIFECYCLE=PASS / REAL_RECOVERY=MATERIALLY_COMPLETE_CERTIFICATION_INCOMPLETE / CURRENT_BLOCKER=CHAT_CONTROL_PROMPT_SHA256_METADATA_ERROR / RUNTIME_MUTATED_BY_009=NO / PRODUCT_SOURCE_MUTATED_BY_009=NO / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / NEXT=NEW_SINGLE_USE_CERT_CONTROLLER_WITH_CORRECT_PROMPT_SHA256 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=3e8f47a28bc66a78442059f0b0d1d3ccd4663a06 / LAST_COMPLETED_DISPATCH=009_CONSUMED_STOPPED_PHASE0 / CONTROLLER_009_ROOT_CAUSE=CHAT_PROMPT_SHA256_METADATA_ERROR / RUNTIME_MUTATED_BY_009=NO / PRODUCT_SOURCE_MUTATED_BY_009=NO / CURRENT_PHASE=FINAL_CERTIFICATION_010_READY / CONTROLLER_010=READY_UNCONSUMED / CONTROLLER_010_CONTROL_HEAD=0908e8c73b02099384d633a1dc2a17ca217af221 / CONTROLLER_010_PROMPT_SHA256=c7c44dc400017b057debbfa1c9c74475faa6218405750ee2924b6d0abe35383e / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
