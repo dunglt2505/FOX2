@@ -1,0 +1,66 @@
+{
+  "additional_checks": {
+    "installed_tray_worker_lifecycle": "FAIL: tray did not finish graceful exit",
+    "installer_unit_tests": "14 PASS",
+    "real_current_user_logon_task_registration": "PASS",
+    "real_package_update": "PASS",
+    "real_per_user_install": "PASS",
+    "real_setup_cli": "PASS_PAUSED"
+  },
+  "cleanup": {
+    "configuration_ledger_results": "PRESERVED_FOR_RECONCILIATION",
+    "new_authored_code_files": "REMOVED_FROM_WORKTREE; draft retained in local recovery directory",
+    "new_installed_versions": "UNINSTALLED",
+    "owned_tray": "TERMINATED_AFTER_GRACEFUL_EXIT_FAILED",
+    "startup_registration": "DISABLED",
+    "tracked_agent_bridge_files": "RESTORED_TO_SOURCE_HEAD"
+  },
+  "control_commit": "27e0f78129507d89d1f3500b45d04be2e180de8b",
+  "dispatch_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+  "dispatch_sha256": "cd4fd68f3f32b433e1c066507c73fb37e8ba3455b619cf971355a11fdc284291",
+  "git_delivery": {
+    "commit": "NOT_ATTEMPTED",
+    "pr": "NOT_CREATED",
+    "push": "NOT_ATTEMPTED"
+  },
+  "launch_checks": {
+    "codex_auth": "PASS",
+    "codex_capacity_bounded_exact_route_probe": "PASS",
+    "dictionary_policy_task_prompt_hashes": "PASS",
+    "dispatch_v3_structure": "PASS",
+    "exclusive_os_writer_lock": "HELD_DURING_ATTEMPT",
+    "isolated_build": "PASS",
+    "model": "gpt-6.1-sol",
+    "operator_wheel_sha256": "e7c2642553de344812e13ec56fc43e2ac65c5805b3e441058f8fa345de40d4c0",
+    "permission_profile": "FULL_ACCESS",
+    "prompt_blob": "PASS",
+    "reasoning_effort": "medium",
+    "setuptools": "84.0.0",
+    "source_head_branch_worktree_clean": "PASS",
+    "wheel": "0.48.0",
+    "windows_tools": "PASS",
+    "writer_observation": "NONE_OBSERVED"
+  },
+  "prior_001_002": "CONSUMED_BY_AUTHORITY_NO_REPLAY",
+  "remaining_acceptance": "NOT_COMPLETED; no complete Batch B certification claimed",
+  "required_full_tests": {
+    "cause": "FileNotFoundError for required Shared PreExec adapters outside writable scope",
+    "command": "python -B -m pytest agent_bridge/tests -q",
+    "duration_seconds": 143.87,
+    "evidence_type": "Observed tool execution summary; raw pytest transcript is in this session",
+    "exit_code": 1,
+    "failed": 2,
+    "failures": [
+      "test_thin_adapters[FOX2-M1-A-APP-BATCH-B-app]",
+      "test_thin_adapters[FOX2-PREEXEC-ROLLOUT-V1-rollout]"
+    ],
+    "missing_at_immutable_base": {
+      "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/preflight.ps1": 128,
+      "docs/agent_handoff/FOX2-PREEXEC-ROLLOUT-V1/recover_and_preflight.ps1": 128
+    },
+    "passed": 352
+  },
+  "source_head": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

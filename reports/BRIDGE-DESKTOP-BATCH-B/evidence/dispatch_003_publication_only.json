@@ -1,0 +1,53 @@
+{
+  "acceptance": {
+    "bridge_ready": false,
+    "failed": 2,
+    "not_certified": 22,
+    "total": 24
+  },
+  "authorization": "Owner follow-up instruction in resumed existing session",
+  "before_head": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "code_reset_clean_stash_overwrite": false,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+  "dispatch_replayed": false,
+  "existing_files": [
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/report.md",
+      "sha256": "23b56e5b85bcebfd8dfaeb6b5af8e6ea8f1a9b885ccfe2c9075ee98ba37d627f"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence_manifest.json",
+      "sha256": "f6e1e2b300025698a704a7890deb38b7fb8cffc12dc738d0d31207dd90de7f51"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/acceptance_gates.json",
+      "sha256": "4984ddb94ad607e82b1e7af31ee82291a26c4ba4c40750930994f814db551305"
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_003_stop.json",
+      "sha256": "e0c1669c4e2d0a8a5366a9ffee902faf2d6ea39c41d56cd6e719c189d294e7b6"
+    }
+  ],
+  "existing_tests": {
+    "failed": 2,
+    "passed": 352,
+    "qualification": "Recorded results of the prior Dispatch 003 draft, whose code was removed during the prior stop; these are not test results for a newly delivered implementation.",
+    "rerun": false
+  },
+  "historical_evidence_note": "The existing report and manifest describe the prior stopped attempt, including no publication at that time. This separate receipt records the subsequent owner-authorized evidence-only publication. Commit/push/readback are verified after this receipt is committed and reported in the session result.",
+  "implementation_status": "WIP_INCOMPLETE; no implementation code changes are present in this publication",
+  "new_implementation_started": false,
+  "operation": "GIT_PUBLICATION_ONLY_OF_EXISTING_SESSION_EVIDENCE",
+  "publication_checks": {
+    "authorized_paths": "PASS",
+    "branch": "PASS",
+    "competing_writer": "NONE_OBSERVED",
+    "exclusive_writer_lock": "HELD",
+    "existing_evidence_hashes": "PASS",
+    "git_diff_check": "PASS",
+    "secret_scan": "PASS",
+    "unsafe_git_state": "NONE"
+  },
+  "recorded_at": "2026-10-15T01:26:06.827389+00:00"
+}

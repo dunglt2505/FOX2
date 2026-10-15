@@ -1,126 +1,30 @@
 {
-  "count": 24,
-  "gates": [
-    {
-      "gate": "FIRST_RUN_SETUP",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "PER_USER_INSTALL",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "INSTALLER_PACKAGE",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "UPDATE_PATH",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "UNINSTALL_PATH",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "STARTUP_SINGLE_INSTANCE",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "SANITIZED_DIAGNOSTICS_BUNDLE",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "INSTALLED_TRAY_WORKER",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "PROJECT_DICTIONARY_BINDING",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "DISPATCH_V3_SCHEMA_BINDING",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "DISPATCH_V3_RUNTIME_COMPATIBILITY",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "V2_COMPATIBILITY",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "V06_COMPATIBILITY",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "REAL_ELIGIBLE_FOX2_DISPATCH",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "EXACT_AGENT_CONFIGURATION",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "FULL_ACCESS_PERMISSION",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "RESULT_REMOTE_READBACK",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "USAGE_SNAPSHOT",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "RESTART_NO_REPLAY",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "FULL_BRIDGE_TESTS",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "CHANGED_PATH_ALLOWLIST",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "SECRET_SCAN",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    },
-    {
-      "gate": "GIT_DIFF_CHECK",
-      "reason": "Mandatory packaging launch gate failed; implementation and installed-runtime certification stopped.",
-      "status": "NOT_RUN"
-    }
-  ],
-  "no_installed_runtime_pass_claimed": true
+  "gates": {
+    "CHANGED_PATH_ALLOWLIST": "NOT_CERTIFIED",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": "NOT_CERTIFIED",
+    "DISPATCH_V3_SCHEMA_BINDING": "NOT_CERTIFIED",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": "NOT_CERTIFIED",
+    "EXACT_AGENT_CONFIGURATION": "NOT_CERTIFIED",
+    "FIRST_RUN_SETUP": "NOT_CERTIFIED",
+    "FULL_ACCESS_PERMISSION": "NOT_CERTIFIED",
+    "FULL_BRIDGE_TESTS": "FAIL",
+    "GIT_DIFF_CHECK": "NOT_CERTIFIED",
+    "INSTALLED_TRAY_WORKER": "FAIL",
+    "INSTALLER_PACKAGE": "NOT_CERTIFIED",
+    "PER_USER_INSTALL": "NOT_CERTIFIED",
+    "PROJECT_DICTIONARY_BINDING": "NOT_CERTIFIED",
+    "REAL_ELIGIBLE_FOX2_DISPATCH": "NOT_CERTIFIED",
+    "RESTART_NO_REPLAY": "NOT_CERTIFIED",
+    "RESULT_REMOTE_READBACK": "NOT_CERTIFIED",
+    "SANITIZED_DIAGNOSTICS_BUNDLE": "NOT_CERTIFIED",
+    "SECRET_SCAN": "NOT_CERTIFIED",
+    "STARTUP_SINGLE_INSTANCE": "NOT_CERTIFIED",
+    "UNINSTALL_PATH": "NOT_CERTIFIED",
+    "UPDATE_PATH": "NOT_CERTIFIED",
+    "USAGE_SNAPSHOT": "NOT_CERTIFIED",
+    "V06_COMPATIBILITY": "NOT_CERTIFIED",
+    "V2_COMPATIBILITY": "NOT_CERTIFIED"
+  },
+  "note": "Attempt stopped at required failures. Partial lifecycle checks are recorded separately and do not certify a delivered code head.",
+  "status": "STOPPED"
 }
