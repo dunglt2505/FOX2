@@ -1,0 +1,208 @@
+{
+  "bridge_core_validated": false,
+  "count": 24,
+  "gates": [
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "FIRST_RUN_SETUP",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "PER_USER_INSTALL",
+      "reason": "Verified package installation command in the isolated profile exited 1. Exact inner exception was not retained; no retry.",
+      "status": "FAIL"
+    },
+    {
+      "evidence": [
+        "evidence/core006/package.json",
+        "evidence/core006/build_environment.json"
+      ],
+      "gate": "INSTALLER_PACKAGE",
+      "reason": "Two isolated builds of the pinned source produced byte-identical offline packages; package construction only, installation failed separately.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "UPDATE_PATH",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "dispatch_005_report.md",
+        "evidence/dispatch_004_stop.json"
+      ],
+      "gate": "UNINSTALL_PATH",
+      "reason": "Owner deferred uninstall; historical FAIL remains factual. No uninstall lifecycle or repair attempted.",
+      "status": "DEFERRED_OWNER_PRIORITY"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "STARTUP_SINGLE_INSTANCE",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "SANITIZED_DIAGNOSTICS_BUNDLE",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "INSTALLED_TRAY_WORKER",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json",
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "PROJECT_DICTIONARY_BINDING",
+      "reason": "Immutable launch hashes/schema checks passed where applicable; current installed-runtime compatibility certification was not reached. Carry-forward debt remains.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json",
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "DISPATCH_V3_SCHEMA_BINDING",
+      "reason": "Immutable launch hashes/schema checks passed where applicable; current installed-runtime compatibility certification was not reached. Carry-forward debt remains.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json",
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+      "reason": "Immutable launch hashes/schema checks passed where applicable; current installed-runtime compatibility certification was not reached. Carry-forward debt remains.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json",
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+      "reason": "Immutable launch hashes/schema checks passed where applicable; current installed-runtime compatibility certification was not reached. Carry-forward debt remains.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json",
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "V2_COMPATIBILITY",
+      "reason": "Immutable launch hashes/schema checks passed where applicable; current installed-runtime compatibility certification was not reached. Carry-forward debt remains.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json",
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "V06_COMPATIBILITY",
+      "reason": "Immutable launch hashes/schema checks passed where applicable; current installed-runtime compatibility certification was not reached. Carry-forward debt remains.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "REAL_ELIGIBLE_FOX2_DISPATCH",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json"
+      ],
+      "gate": "EXACT_AGENT_CONFIGURATION",
+      "reason": "Fresh pinned CODEX/gpt-6.1-sol/medium/FULL_ACCESS launch probe passed; installed Bridge execution/configuration attestation was not reached.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/launch.json"
+      ],
+      "gate": "FULL_ACCESS_PERMISSION",
+      "reason": "Fresh pinned CODEX/gpt-6.1-sol/medium/FULL_ACCESS launch probe passed; installed Bridge execution/configuration attestation was not reached.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "RESULT_REMOTE_READBACK",
+      "reason": "NOT_RUN at the commit snapshot. This report-only publication is verified afterward by exact remote ref, fetch, parent, path and byte readback; host-observed receipt is emitted separately to avoid commit self-reference.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "USAGE_SNAPSHOT",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "RESTART_NO_REPLAY",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/terminal.json"
+      ],
+      "gate": "FULL_BRIDGE_TESTS",
+      "reason": "Stopped at isolated PER_USER_INSTALL before this installed-runtime acceptance check.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": [
+        "evidence/core006/verification.json"
+      ],
+      "gate": "CHANGED_PATH_ALLOWLIST",
+      "reason": "Final publication checks, repeated before commit; see verification.json.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "evidence/core006/verification.json"
+      ],
+      "gate": "SECRET_SCAN",
+      "reason": "Final publication checks, repeated before commit; see verification.json.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "evidence/core006/verification.json"
+      ],
+      "gate": "GIT_DIFF_CHECK",
+      "reason": "Final publication checks, repeated before commit; see verification.json.",
+      "status": "PASS"
+    }
+  ],
+  "internal_fox2_bridge_ready": false,
+  "snapshot": "before report commit; post-push publication proof is a separate host-observed receipt"
+}

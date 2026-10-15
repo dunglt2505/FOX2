@@ -1,0 +1,24 @@
+{
+  "changed_path_allowlist": "PASS",
+  "changed_paths_before_final_manifest": [
+    "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_006_report.md",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/acceptance_gates.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/build_environment.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/claim.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/harness.py",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/launch.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/package.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/progress.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/publication_harness.py",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core006/terminal.json"
+  ],
+  "git_diff_check": "PASS",
+  "initial_source": "28550c49f07075c80cd730da9be80c72e5bc5e76",
+  "prior_reports_hash_check": "PASS",
+  "publication_scope": "report-only",
+  "remote_readback_at_snapshot": "PENDING_HOST_OBSERVED_RECEIPT",
+  "secret_scan": "PASS",
+  "source_and_tests_unchanged": true,
+  "status": "PASS"
+}

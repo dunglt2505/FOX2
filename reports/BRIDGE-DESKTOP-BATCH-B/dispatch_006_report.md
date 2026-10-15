@@ -1,0 +1,21 @@
+# FOX2 Dispatch 006 — isolated Core attempt stopped
+
+Status: STOPPED_NEEDS_RECONCILIATION. Dispatch 006 consumed exactly once; no replay or automatic retry. BRIDGE_CORE_VALIDATED is not earned. INTERNAL_FOX2_BRIDGE_READY=NO.
+
+Control commit: fa262cebc3965a1c32042aceb4742326a4533ed7. Source HEAD: 28550c49f07075c80cd730da9be80c72e5bc5e76. Branch: work/FOX2-BRIDGE-DESKTOP-BATCH-B. The complete immutable Dispatch JSON and CORE-006 prompt were read from Git; all Dictionary/Policy/Task/Prompt hashes, prompt blob identity and full Dispatch-v3 structural validation passed at launch. The existing PASS PreExec receipt is published by source HEAD and binds its receipt-only parent e8598a1a2933fe3c640bfb4c34c3cbfd59b37ed2; that relationship was explicitly verified.
+
+The exact clean worktree, matching remote source, no observed competing writer, exclusive worktree OS lock, required Windows tools and a fresh pinned Codex auth/capacity response probe passed. Requested route: CODEX / PINNED / gpt-6.1-sol / medium / FULL_ACCESS (danger-full-access, approval never). This is launch evidence, not installed-runtime certification.
+
+The disposable profile was C:\Temp\fox2-core006-u_7p0m_1\user. Its runtime resolved to C:\Temp\fox2-core006-u_7p0m_1\user\AppData\Local\FOX2\AgentBridge, disjoint from the quarantined per-user runtime. Only test assets and an isolated build venv were created there. The installed runtime was never read, launched, repaired, restarted, uninstalled, or pointed elsewhere. No host-user startup task was changed.
+
+Two complete package builds produced identical SHA-256 6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9. The isolated build used Python 3.13.15, setuptools 84.0.0 and pinned dependency versions recorded in build_environment.json. The host Python environment was not changed. Package evidence records the full manifest and both build identities.
+
+PER_USER_INSTALL failed: the source installer command targeting the disposable profile exited 1. The harness retained its command status but did not retain stderr, so the exact inner exception and root cause are UNKNOWN. No source defect or uninstall cause is asserted. Subsequent read-only inspection of the disposable runtime found no current.json and an empty versions directory. The attempt stopped at this required Core gate; there was no installation retry, lifecycle recovery, source edit, second DEV run or full pytest invocation. The harness is retained as provenance and must not be treated as replay authorization.
+
+FIRST_RUN_SETUP, UPDATE_PATH, startup/login, installed Tray/Worker, diagnostics, installed compatibility, eligible dispatch/result, installed route enforcement, usage, restart/no-replay and full Bridge tests were not reached. Source prechecks do not discharge the six installed compatibility obligations. Historical 354-test and 004 focused/lifecycle evidence remains historical, without recertification.
+
+All 24 original gate identities are recorded in evidence/core006/acceptance_gates.json: four fresh PASS at the pre-publication snapshot (package construction, changed-path allowlist, secret scan, diff check), one FAIL (isolated per-user install), one DEFERRED_OWNER_PRIORITY (uninstall), eighteen NOT_RUN. The report-only remote readback is pending at this immutable snapshot and is emitted separately after publication. Successful publication does not turn the failed Core run into a PASS.
+
+UNINSTALL_PATH=DEFERRED_OWNER_PRIORITY; its historical failure remains factual. No uninstall fix was attempted. Prior code, tests, reports and claims for Dispatches 001–005 are preserved byte-for-byte, and none was replayed. Only new reports/BRIDGE-DESKTOP-BATCH-B files are published. Disposable test assets remain for bounded diagnosis; no cleanup or uninstall was performed.
+
+Delivery is one report-only commit/push on the authorized non-main task branch. Exact remote SHA, fetched commit, parent, changed paths and every published artifact's bytes must be read back before PUSHED_UNREVIEWED is reported. A host-observed receipt avoids embedding a commit's own SHA in its contents. CHAT owns independent acceptance. No PR, main, merge, deploy, provider, broker or LIVE action occurred.

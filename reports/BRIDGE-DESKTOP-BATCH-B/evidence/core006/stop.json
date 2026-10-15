@@ -1,0 +1,7 @@
+{
+  "detail": "command failed: C:\\Temp\\fox2-core006-u_7p0m_1\\build\\Scripts\\python.exe ['-c', \"import json; from pathlib import Path; from fox2_agent_bridge.installation import install; print(json.dumps(install(Path('C:\\\\\\\\Temp\\\\\\\\fox2-core006-u_7p0m_1\\\\\\\\package1.zip'),'6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9')))\"] exit 1",
+  "dispatch_consumed": true,
+  "error_type": "RuntimeError",
+  "no_retry": true,
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

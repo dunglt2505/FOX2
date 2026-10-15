@@ -1,0 +1,113 @@
+{
+  "bindings": {
+    "dictionary": {
+      "commit": "28550c49f07075c80cd730da9be80c72e5bc5e76",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "verified": true
+    },
+    "policy": {
+      "commit": "28550c49f07075c80cd730da9be80c72e5bc5e76",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "verified": true
+    },
+    "prompt": {
+      "commit": "c85a352cca2b2edcea8fc0133a481149f7e734be",
+      "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-BATCH-B-CORE-006.md",
+      "sha256": "b61fac37a833705d0e77499455268016fbd629d82dabb698804abdd7b05daca8",
+      "verified": true
+    },
+    "task": {
+      "commit": "28550c49f07075c80cd730da9be80c72e5bc5e76",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "verified": true
+    }
+  },
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "competing_writer": "NONE_OBSERVED",
+  "current_pinned_route_probe": {
+    "evidence": "Bounded readiness observation; raw output omitted.",
+    "exit_code": 0,
+    "failure_class": null,
+    "material": false,
+    "status": "PASS"
+  },
+  "dispatch_sha256": "c796ef214a6043196238fcbddc28f1fb8ed420f33bf9f206aa04c2460c1f270c",
+  "disposable_profile": "C:\\Temp\\fox2-core006-u_7p0m_1\\user",
+  "disposable_runtime_root": "C:\\Temp\\fox2-core006-u_7p0m_1\\user\\AppData\\Local\\FOX2\\AgentBridge",
+  "exclusive_os_lock": "fox2-preexec.lock held across launch and integrated tests",
+  "initial_worktree_clean": true,
+  "permission": "danger-full-access / approval never",
+  "preexec_receipt": {
+    "publication_commit": "28550c49f07075c80cd730da9be80c72e5bc5e76",
+    "receipt_only_parent_relation_verified": true,
+    "receipt_source": "e8598a1a2933fe3c640bfb4c34c3cbfd59b37ed2"
+  },
+  "prior_evidence_hashes": {
+    "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_005_manifest.json": "e503dd2da2019297d5509de1f429a7ffbf89b85de3cc4c69ffcddb7a32861773",
+    "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_005_report.md": "c3d985daf44e11f764860fab31e66c05bc8c74e221c0b9cf306899f35a0f1ce9",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/acceptance_gates.json": "00425b78f8d81d609b9c6e1e935c4264074407edeb9373bfb72145011fd46f1b",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/accepted_adapter_source_sync.json": "1c3eb72409630dbe6f1a75272d54204fc39b0a6298d846d6a215b0b602a82772",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_003_publication_only.json": "0ad2542cfcd91d487ebdc71c561b46b0d48a0cdf5a772bcb40f09f5eb3c54089",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_003_stop.json": "e0c1669c4e2d0a8a5366a9ffee902faf2d6ea39c41d56cd6e719c189d294e7b6",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_launch.json": "dfc613db039d7e1397edd2185d28ac22db644cedf88ea8a69b3cace09d5e5b5b",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_package.json": "59900d7c593c0f7bc86eba36e95b2ae59aeb543fb04fcb404b799814e7f362c0",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_publication_checks.json": "77a254bc641027979bdb9968c31d747338e2e73e38813447dc17575d03663837",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_004_stop.json": "7de5955b7db3870f2fc2cd9610c5199b7361e9f43821042fab94e7526b744262",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_acceptance_gates.json": "2177bbfb5b563c7c14d5504a4c546f1dab9dad0ba33443dd27f06dac4cc01491",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_claim.json": "f89d132eb27015e8817fc0a65b8eb390b573f30b46154a703869670087150a2e",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_reconciliation.json": "ba7b360454b488bc77d44d3a1a133138ee644214c36785c87e6f790e6773007e",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/preexecution.json": "23192256b236f31cf464de88e18d6f432ffdfab8a3ac7fc684217441a5b773bd",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/publication_checks.json": "abd82047a4687a882ca40818c8ba87b3492af7435a6036865351741bf793b9da",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/verify_preexecution.py": "84cbb7762f7310ac48fcee466e58b11fcbf7ef8516d71873cd5acaacfc116b85",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence_manifest.json": "7b8c4e994cbe6128611662095afbec95c62273a79fa608e4caf672104fd244de",
+    "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json": "9f35de41a45802d739d58465323b723d79e8641e11e41ffef18cf4d22cb78af9",
+    "reports/BRIDGE-DESKTOP-BATCH-B/report.md": "b4afee73017b49879371e3c66ae46362aabe0dc9353a1e918c4baf6a9067eb7e"
+  },
+  "quarantined_root": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge",
+  "real_runtime_read_or_write": false,
+  "root_overlap": false,
+  "route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "schema_validation": "PASS",
+  "source_head": "28550c49f07075c80cd730da9be80c72e5bc5e76",
+  "status": "PASS",
+  "tools": {
+    "git": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "pwsh": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "schtasks.exe": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    }
+  }
+}

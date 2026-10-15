@@ -1,0 +1,23 @@
+{
+  "dispatch_consumed": true,
+  "disposable_assets_retained_for_diagnosis": true,
+  "disposable_root": "C:\\Temp\\fox2-core006-u_7p0m_1\\user\\AppData\\Local\\FOX2\\AgentBridge",
+  "execution_note": "One integrated attempt stopped at first required Core test failure. The harness is evidence, not authorization to rerun it.",
+  "failure_detail_limit": "Harness captured the nonzero installation command status but did not persist its stderr. Exact inner installation exception/root cause is UNKNOWN; do not infer an uninstall defect or source defect.",
+  "full_pytest_invocations": 0,
+  "host_tooling_modified": false,
+  "install_rollback_observation": "Empty versions directory and no current.json after failed install; no durable user data was present in this new profile.",
+  "installed_command_exit_code": 1,
+  "installed_fixture_invocations": 0,
+  "max_runs": 1,
+  "no_retry": true,
+  "pointer_exists": false,
+  "prior_dispatches_replayed": false,
+  "prior_reports_byte_preserved": true,
+  "quarantined_runtime": "No reads, writes, launches, restarts, pointer operations, uninstall, or process termination directed at the real per-user runtime.",
+  "source_code_changes": false,
+  "status": "STOPPED_NEEDS_RECONCILIATION",
+  "stopped_gate": "PER_USER_INSTALL",
+  "uninstall_lifecycle_invocations": 0,
+  "version_directories_remaining": 0
+}
