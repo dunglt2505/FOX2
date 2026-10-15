@@ -14,7 +14,7 @@
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_reconciliation.json",
-      "sha256": "1e435c6b64d877e38fd187f76e39590dbdd0c6ac83f9040ae456f8e7e6af0b0a"
+      "sha256": "ba7b360454b488bc77d44d3a1a133138ee644214c36785c87e6f790e6773007e"
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/dispatch_005_acceptance_gates.json",
@@ -22,9 +22,10 @@
     },
     {
       "path": "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_005_report.md",
-      "sha256": "274c9f29c0d0631da7732f5b7c4e0b9a42554900cc84d266a9482543e48da45e"
+      "sha256": "c3d985daf44e11f764860fab31e66c05bc8c74e221c0b9cf306899f35a0f1ce9"
     }
   ],
+  "observation_clarification": "Corrected broad initial process/task query before final delivery; no new runtime action or dispatch run.",
   "prior_artifacts": "No prior tracked file modified",
   "publication": "AUTHORIZED_REPORT_ONLY; remote outcome provided by publishing command after exact readback",
   "self_hash": "Excluded; exact Git blob readback required",

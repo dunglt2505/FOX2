@@ -41,6 +41,12 @@
     }
   },
   "implementation_started": false,
+  "initial_broad_process_and_task_counts": {
+    "bridge_process_matches": 1,
+    "bridge_startup_tasks": 1,
+    "process_handle_ownership": "NOT_PROVEN",
+    "raw_command_lines_persisted": false
+  },
   "initial_exact_clean_branch_worktree_remote": "PASS",
   "installed_lifecycle": "NOT_RUN_AFTER_MATERIAL_STOP",
   "installer_update_restart_delete": false,
@@ -63,6 +69,7 @@
     }
   ],
   "no_agent_substitution": true,
+  "observation_correction": "Initial broad query counted a non-startup FOX2 recovery task and did not exclude all inspection ancestors. Corrected read-only query excludes own ancestry and uses exact FOX2Bridge-current-user-SID task identity. Zero current Bridge process matches or exact startup tasks; complete handle ownership still NOT_PROVEN. No process or task altered.",
   "preservation_after": {
     "config": {
       "file_count": 1,
@@ -115,8 +122,10 @@
     "format": "FOX2_MANUAL_CONSUMPTION_1"
   },
   "process_and_startup_observation": {
-    "bridge_process_matches": 1,
-    "bridge_startup_tasks": 1,
+    "bridge_process_matches_excluding_inspection_ancestry": 0,
+    "exact_current_user_startup_task_count": 0,
+    "other_observed_task_name": "FOX2-Bridge-B-Recovery",
+    "other_task_action_matches_bridge": false,
     "process_handle_ownership": "NOT_PROVEN",
     "raw_command_lines_persisted": false
   },
