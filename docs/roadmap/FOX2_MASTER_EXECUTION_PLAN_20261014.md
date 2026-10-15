@@ -252,6 +252,54 @@ No further real Tray launch occurred after the stop, so these gates remain incom
 - RESULT_REMOTE_READBACK;
 - USAGE_SNAPSHOT.
 
+### Observer-corrected Controller 011 — ready and unconsumed
+
+CHAT corrected the certification harness without touching production Bridge code.
+
+Pinned process observer:
+- commit `928e8279ac6ca45d9421d5fa3773dd44943008ef`;
+- path `docs/agent_handoff/RECOVERY/FOX2-BRIDGE-CERT-PROCESS-OBSERVER-011.ps1`;
+- blob `000dc032777cec198f59ddb7d6af049a9d23f1fc`;
+- raw UTF-8 SHA-256 `75325a05b79cc97e20811d724bde9f0642376b2b359de68d5d6439b5f97d5792`.
+
+Observer semantics:
+- targets are supplied via environment, so target literals do not appear in the observer process command line;
+- observer PID is excluded explicitly;
+- Tray requires exact expected pwsh executable plus exact installed `desktop_tray.ps1`;
+- Worker requires exact installed Python plus `-m fox2_agent_bridge worker`;
+- observer emits structured JSON and performs no runtime mutation.
+
+Controller 011:
+- Dispatch `FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-011`;
+- Dispatch control commit `4eae4eec694acb70e472e0e14d23861cee9c214c`;
+- prompt commit `ebb841afd47a1f41dcb03a4f5c7a114e203cdb1a`;
+- prompt blob `e1e892f30ab36c77ff7b9e7305a68d91dbc7b554`;
+- prompt SHA-256 `2ad27316f2d049baf4dec12161d186adaef6f428ac02f36dbb6dd6a6f61a197d`;
+- source head `92bd9c82385f05893d9379c00f964760e9fe06dc`;
+- certified product source remains `501822a33ef08c7365154913bbc677544856eee5`;
+- route `CODEX / gpt-6.1-sol / High / FULL_ACCESS`;
+- writable repository scope only `reports/BRIDGE-DESKTOP-BATCH-B/evidence/final011/**`;
+- no `agent_bridge/**` or product source mutation authorized.
+
+Controller 011 launcher performs a **pre-claim observer smoke test** while Bridge is expected STOPPED / PAUSED. Controller 011 is not consumed unless the pinned observer first proves:
+- tray_count=0;
+- worker_count=0;
+- no self-match.
+
+Existing Worker canary remains unchanged:
+`FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001`
+
+Canary branch remains:
+`work/FOX2-BRIDGE-FINAL-CANARY-009@501822a33ef08c7365154913bbc677544856eee5`.
+
+Canary remains UNCLAIMED / UNEXECUTED and no canary result exists.
+
+Fail-closed launcher:
+`docs/agent_handoff/RECOVERY/RUN_FOX2_BRIDGE_FINAL_CERTIFICATION_011.ps1`
+
+Launcher control head:
+`07a9d53c2e94facb680631475581d692b67e70f5`.
+
 ### Controller 010 intake — consumed, stopped on certification observer self-match
 
 Controller 010 is CONSUMED and MUST NOT be replayed.
@@ -592,4 +640,4 @@ Project-wide disposition:
 - Website/APP-BATCH-B remains frozen until CHAT accepts `INTERNAL_FOX2_BRIDGE_READY`;
 - no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=92bd9c82385f05893d9379c00f964760e9fe06dc / LAST_COMPLETED_DISPATCH=010_CONSUMED_STOPPED_PHASE0 / CONTROLLER_010_ROOT_CAUSE=CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH / RUNTIME_MUTATED_BY_010=NO / PRODUCT_SOURCE_MUTATED_BY_010=NO / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / CURRENT_PHASE=FINAL_CERTIFICATION_RECONCILIATION_ONLY / NEXT=CORRECT_CERTIFICATION_OBSERVER_THEN_NEW_SINGLE_USE_CONTROLLER_REUSING_CANARY_009 / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=92bd9c82385f05893d9379c00f964760e9fe06dc / LAST_COMPLETED_DISPATCH=010_CONSUMED_STOPPED_PHASE0 / CONTROLLER_010_ROOT_CAUSE=CERTIFICATION_HARNESS_PROCESS_OBSERVER_SELF_MATCH / RUNTIME_MUTATED_BY_010=NO / PRODUCT_SOURCE_MUTATED_BY_010=NO / CERTIFIED_PRODUCT_SOURCE=501822a33ef08c7365154913bbc677544856eee5 / CURRENT_PHASE=FINAL_CERTIFICATION_011_READY / CONTROLLER_011=READY_UNCONSUMED / CONTROLLER_011_CONTROL_HEAD=07a9d53c2e94facb680631475581d692b67e70f5 / PROCESS_OBSERVER_011=PINNED_SELF_EXCLUDING_PRECLAIM_GATED / REAL_WORKER_CANARY_009=READY_UNCLAIMED / CANARY_BRANCH_HEAD=501822a33ef08c7365154913bbc677544856eee5 / NEXT=RUN_CONTROLLER_011_ONCE_THEN_CHAT_FINAL_INTAKE / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
