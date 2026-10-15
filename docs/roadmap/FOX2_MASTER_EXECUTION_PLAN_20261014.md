@@ -198,6 +198,88 @@ Exit: `INTERNAL FOX2 BRIDGE READY`.
 
 Owner priority now serializes these lanes: finish `BRIDGE-DESKTOP-BATCH-B` first, then resume APP-BATCH-B build/test/integration. The frozen website source remains `1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2` until Bridge is accepted.
 
+## 4A. Bridge closure state — current live evidence 2026-10-15
+
+Owner priority remains **Bridge first**. The project-wide PreExec implementation is no longer the critical path: its implementation evidence reports 340 Bridge tests PASS, 60 shared-PreExec cases in the final suite and all mapped rollout acceptance items PASS. Bridge Batch B has subsequently produced a current Schema-v1 PASS receipt and executed Dispatches 001–006.
+
+Current Bridge Batch B remote head:
+`ce7a8253926b7489c79311e26d7dc75ba8c81fc6`.
+
+Current control branch head:
+`2441d1b66c64acf655ed1cfe39fea69344df042e`.
+
+### Completed/proven inside Batch B
+
+- current Dictionary v1.2 / Policy V1.8.9 / Routing V1.3.0 / Dispatch-v3 bindings reached executable Dispatch;
+- Bridge preflight PASS with Codex `gpt-6.1-sol` / Medium / FULL_ACCESS and clean worktree/no competing writer;
+- package construction is deterministic: two Core006 package builds produced identical SHA-256 `6e96ee19ea103e7bd606a63abf071d00de6fa3c6cd1663b8d9d921b01d70b3a9`;
+- earlier installed lifecycle evidence proved first-run setup, per-user install, update, startup/single-instance, Tray/Worker and sanitized diagnostics before the uninstall stop;
+- Dispatch 004 corrected and focused-tested the Tray heartbeat/shutdown defect;
+- Dispatch 005 safely reconciled the damaged installed runtime without replay or further mutation;
+- Dispatch 006 proved launch/source/worktree/Agent/package readiness in a disposable profile and did not touch the damaged real user runtime;
+- Dispatches 001–006 are CONSUMED and MUST NOT be replayed.
+
+### Current material blocker
+
+Dispatch 006 stopped at `PER_USER_INSTALL` in a completely disposable user profile.
+
+The exact inner stage/root cause is still UNKNOWN because the 006 harness retained only exit code 1 and did not retain sanitized stderr. Therefore no installer source defect is yet proven.
+
+A non-dispatch, one-shot isolated diagnostic already exists on the control branch:
+
+`docs/agent_handoff/RECOVERY/FOX2-BRIDGE-CORE-INSTALL-ONE-SHOT-DIAG-20261015.py`.
+
+It:
+- reuses the exact Core006 package hash;
+- creates a new disposable profile;
+- never reads/writes the damaged real Bridge root;
+- does not execute/replay any Dispatch;
+- does not invoke uninstall;
+- reports the failing stage plus sanitized error classification.
+
+### Bridge closure plan — no micro-WP loop
+
+```text
+A. ONE-SHOT INSTALL DIAG
+   -> identify exact failing stage/error class
+   -> no Dispatch consumed
+
+B. ONE ROOT-CAUSE CORRECTION
+   -> only if source/tooling defect is proven
+   -> same Bridge Batch B
+   -> agent_bridge/** only
+   -> one new single-use Dispatch if code mutation is required
+
+C. ISOLATED CORE LIFECYCLE PASS
+   package -> install -> setup -> update
+   -> uninstall -> reinstall
+   -> startup/single-instance -> diagnostics
+   -> durable data/consumption preserved
+
+D. REAL PER-USER RUNTIME RECOVERY
+   only after isolated lifecycle PASS
+   -> reconcile owned damaged runtime safely
+   -> install exact certified package
+   -> no blind delete/replay
+
+E. FINAL BRIDGE CERTIFICATION — ONE CYCLE
+   -> all 24 Batch-B gates
+   -> Dictionary / Dispatch-v3 structural + runtime
+   -> v2 / v0.6 compatibility
+   -> real eligible FOX2 dispatch/result
+   -> exact Agent configuration
+   -> result remote readback
+   -> usage snapshot
+   -> restart/no-replay
+   -> full Bridge suite
+   -> allowlist / secret scan / git diff
+   -> INTERNAL_FOX2_BRIDGE_READY
+```
+
+The prior `UNINSTALL_PATH=DEFERRED_OWNER_PRIORITY` condition cannot remain deferred at final Bridge exit: `UNINSTALL_PATH=PASS` is a required Batch-B acceptance gate for `INTERNAL_FOX2_BRIDGE_READY`. The current Owner direction to finish Bridge therefore makes uninstall part of the closure certification, but only after isolated install/root-cause safety is established.
+
+Website/APP-BATCH-B remains frozen until this exit is achieved.
+
 ## 5. Genuine milestone boundary — M1-A release integration
 
 After APP-BATCH-B independent acceptance, create one explicit integration/release decision.
@@ -279,40 +361,44 @@ Do not STOP solely for:
 ## 10. Execution ordering summary
 
 ```text
-NOW — BRIDGE-FIRST OWNER PRIORITY
+NOW — FINISH BRIDGE
 
-  0. BRIDGE ENABLEMENT PREEXEC
-       regenerate fresh project-wide PreExec receipt against current rollout head
-       -> CHAT Intake
-       -> rebind Bridge Batch B to current governance/source set
+  CURRENT:
+    Bridge Batch B Dispatch 006 = CONSUMED / STOPPED_NEEDS_RECONCILIATION
+    blocker = isolated PER_USER_INSTALL exit 1
+    exact inner cause = UNKNOWN
+    real damaged runtime = quarantined from new attempts
 
-  1. BRIDGE-DESKTOP-BATCH-B
-       setup/package/update/uninstall
-       installed per-user Tray/Worker
-       current Dictionary + Dispatch-v3 certification debt
-       one real eligible FOX2 dispatch/result
-       exact Agent/model/permission evidence
-       restart/no-replay + final full certification
-       -> INTERNAL_FOX2_BRIDGE_READY
+  NEXT:
+    one-shot non-dispatch isolated installer diagnostic
+      ↓
+    root cause classified
+      ↓
+    [if code defect] one bounded same-Batch-B correction Dispatch
+    [if environment/harness] correct without product redesign
+      ↓
+    isolated full Core lifecycle PASS
+      ↓
+    safe real per-user runtime recovery
+      ↓
+    one final full Bridge certification cycle
+      ↓
+    INTERNAL_FOX2_BRIDGE_READY
 
-  2. APP-BATCH-B — RESUME ONLY AFTER BRIDGE READY
-       frozen source head:
-       1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2
-       -> build/typecheck
-       -> API integration hardening
-       -> frontend/integrated tests
-       -> browser/runtime + responsive acceptance
-       -> runnable localhost M1-A
+THEN — RESUME WEBSITE
+    frozen APP-BATCH-B dual-theme source
+    1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2
+      ↓
+    build/typecheck/API integration/tests/runtime acceptance
+      ↓
+    runnable localhost M1-A
 
 THEN
   -> M1-A RELEASE INTEGRATION
-
-THEN
-  -> M1-B PROVIDER INTEGRATION (P5+P6+P7 as one milestone)
+  -> M1-B PROVIDER INTEGRATION
 
 LATER
-  -> M2 coverage/PIT/corporate-actions/soak
-  -> M3/M4 analytics/risk/capital/exit/shadow under their own BRDs
+  -> M2 / M3 / M4
 ```
 
 ### Project-wide PreExec protocol release / incident disposition — 2026-10-14
@@ -355,4 +441,4 @@ Project-wide disposition:
 - after Bridge acceptance, resume APP-BATCH-B without redesigning the CHAT-approved Dark/White UI;
 - no executable Dispatch may be issued from stale evidence, and no main/merge/deploy/provider/broker/LIVE authority is implied.
 
-`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / PREEXEC=V1.1 / DISPATCH=V3 / PROTOCOL=V12 / OWNER_PRIORITY=BRIDGE_FIRST / CURRENT_PHASE=FRESH_PREEXEC_THEN_BRIDGE_BATCH_B / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MICRO_WP_DEFAULT=NO`
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / OWNER_PRIORITY=BRIDGE_FIRST / BRIDGE_BATCH_B_HEAD=ce7a8253926b7489c79311e26d7dc75ba8c81fc6 / LAST_DISPATCH=006_CONSUMED_STOPPED_NEEDS_RECONCILIATION / BRIDGE_BLOCKER=ISOLATED_PER_USER_INSTALL_ROOT_CAUSE_UNKNOWN / NEXT=ONE_SHOT_INSTALL_DIAG_THEN_SINGLE_ROOT_FIX_THEN_FINAL_CERT / BRIDGE_TARGET=INTERNAL_FOX2_BRIDGE_READY / APP_BATCH_B=PAUSED_AFTER_UI_SLICE / APP_FROZEN_HEAD=1b1a7d23c5a0a2c99afd060f5b793f162c8f6ed2 / MERGE=NO / LIVE=NO`
