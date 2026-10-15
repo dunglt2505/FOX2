@@ -1,0 +1,47 @@
+{
+  "bindings": {
+    "dictionary": {
+      "commit": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "verified": true
+    },
+    "policy": {
+      "commit": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "verified": true
+    },
+    "prompt": {
+      "commit": "34c91a36e1cff6a7d251d57c8e782473d9eeeb04",
+      "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-BATCH-B-INSTALL-ROOT-FIX-007.md",
+      "sha256": "965e1e0c7a059f9e2487486919b4c792455c9d377f3a13ba656c13a58da28534",
+      "verified": true
+    },
+    "task": {
+      "commit": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "verified": true
+    }
+  },
+  "competing_writer": "NONE_OBSERVED",
+  "core006_exact_package_and_wheel_independently_verified": true,
+  "dispatch_sha256": "2140d5cb4b904d2b698ecd628a590580dab70020b67af655efe60ca32a5090f5",
+  "guard_pid": 17680,
+  "initial_clean_tree_independently_verified": true,
+  "permission": "danger-full-access / approval never",
+  "real_runtime_touched": false,
+  "route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "high"
+  },
+  "schema_validation": "PASS",
+  "source_head": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+  "status": "PASS",
+  "worktree_lock_held": true
+}

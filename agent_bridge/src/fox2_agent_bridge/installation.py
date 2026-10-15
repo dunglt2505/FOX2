@@ -80,8 +80,15 @@ def installed_version(root: Path) -> dict | None:
     return current
 
 
+def _installation_environment() -> dict[str, str]:
+    """Keep the caller's OS environment without inherited Python path settings."""
+    return {name: value for name, value in os.environ.items()
+            if name.upper() not in {'PYTHONPATH', 'PYTHONHOME'}}
+
+
 def _run(arguments: list[str], *, timeout=180) -> subprocess.CompletedProcess:
     result = subprocess.run(arguments, capture_output=True, text=True, timeout=timeout,
+                            env=_installation_environment(),
                             creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
     if result.returncode:
         # Never expose pip environment, auth configuration, or arbitrary subprocess output.

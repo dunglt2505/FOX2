@@ -1,0 +1,61 @@
+{
+  "result": {
+    "files": [
+      "support.json"
+    ],
+    "sha256": "86e21803c63dd7eea8c6e9c0749ce905f44479d99b566e1a61f2bd0fde02c444",
+    "status": "EXPORTED"
+  },
+  "whitelist_payload": {
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "dictionary_version": "1.2",
+    "format": "FOX2_SUPPORT_1",
+    "installation": {
+      "package_sha256": "e9b595e62dbc449aae1ef45c53eff6bf0294d388128644a524d72c8bb344c235",
+      "source_sha256": "dceabc47b7c3fe2391eb7ef9edaa5a00ffeaf19adb1bd519c33dcfe8f4786912"
+    },
+    "recent": [
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      },
+      {
+        "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+        "dispatch_state": "NEEDS_RECONCILIATION",
+        "execution_state": null
+      }
+    ],
+    "worker": {
+      "heartbeat": "2026-10-15T05:19:28.851150+00:00",
+      "paused": true,
+      "setup_complete": true,
+      "state": "STOPPED"
+    }
+  }
+}

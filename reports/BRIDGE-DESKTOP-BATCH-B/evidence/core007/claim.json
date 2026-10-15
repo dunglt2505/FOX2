@@ -1,0 +1,10 @@
+{
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+  "control_commit": "7bac9176a24bbcbdd49f2074f88d355c5d88d906",
+  "source_head": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+  "claimed_at": "2026-10-15T05:15:20.707183+00:00",
+  "dispatch_consumed": true,
+  "max_runs": 1,
+  "no_retry": true,
+  "prior_dispatches_replayed": false
+}

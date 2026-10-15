@@ -1,0 +1,38 @@
+{
+  "byte_identical": true,
+  "first": {
+    "build_backend": "84.0.0",
+    "manifest": {
+      "dependencies": {
+        "attrs": "26.1.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "referencing": "0.37.0",
+        "rpds-py": "2026.9.1"
+      },
+      "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "dictionary_version": "1.2",
+      "files": {
+        "scripts/desktop_launcher.ps1": "2a253e42ab476ab441c0ce77d2e2bd5425783e1ecabe69cb1f7f690771fce2fd",
+        "scripts/desktop_setup.ps1": "0fc236103d1e249aa6ca13c2c06a6aa63d3fd6d108c67b81c169e27a2671824e",
+        "scripts/desktop_startup.ps1": "e9f7bd07ae6fa01094631a1522dc19877b4ceec422810de1a0697c7fd000558a",
+        "scripts/desktop_tray.ps1": "a9ac311c587baa282530c41db8a27785d12b73c011befba3126c2112f1fa4473",
+        "wheels/attrs-26.1.0-py3-none-any.whl": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+        "wheels/fox2_agent_bridge-0.1.0-py3-none-any.whl": "cd6c7ebd40afda752e49bf6624bd2b1cf351a35e6e54f7d9485ee0e487f312ec",
+        "wheels/jsonschema-4.26.0-py3-none-any.whl": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+        "wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+        "wheels/referencing-0.37.0-py3-none-any.whl": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+        "wheels/rpds_py-2026.9.1-cp313-cp313-win_amd64.whl": "3e93b2cd69a9830be33e03945cd7cda940a0a8bfcfbff41d6144f0cb0d3d8bd9"
+      },
+      "format": "FOX2_USER_PACKAGE_1",
+      "platform": "win32",
+      "python": "3.13",
+      "source_sha256": "dceabc47b7c3fe2391eb7ef9edaa5a00ffeaf19adb1bd519c33dcfe8f4786912"
+    },
+    "package": "package1.zip",
+    "sha256": "58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642",
+    "wheel": "0.48.0"
+  },
+  "package_path": "C:\\Temp\\fox2-core007-sxoruwke\\package1.zip",
+  "second_sha256": "58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642"
+}

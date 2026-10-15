@@ -2,7 +2,9 @@
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
+import subprocess
 import zipfile
 
 import pytest
@@ -123,3 +125,66 @@ def test_uninstall_preserves_claims_and_project_tree(tmp_path,monkeypatch):
     assert result['status']=='UNINSTALLED' and not target.exists()
     assert (project/'keep').read_bytes()==b'untouched'
     assert not ledger.claim_dispatch(dispatch_id='FOX2-CONSUMED',payload_hash='a'*64,execution_id='two',observed_at_utc=utc_now())
+
+
+@pytest.mark.parametrize('name', ['PYTHONPATH', 'PYTHONHOME', 'PythonPath', 'PythonHome'])
+def test_installation_subprocess_strips_python_paths_preserves_os_environment(monkeypatch, name):
+    monkeypatch.setenv(name, 'contaminated-python-location')
+    monkeypatch.setenv('FOX2_INSTALL_SENTINEL', 'ordinary-environment-preserved')
+    before = dict(os.environ)
+    # Run a real child without -I: the helper itself must remove contamination.
+    result = module._run([module.sys.executable, '-c',
+                          'import os,json; print(json.dumps(dict(os.environ)))'])
+    child = json.loads(result.stdout)
+    assert not {'PYTHONPATH', 'PYTHONHOME'} & {key.upper() for key in child}
+    assert child['FOX2_INSTALL_SENTINEL'] == 'ordinary-environment-preserved'
+    for key in ('PATH', 'SystemRoot', 'TEMP', 'USERPROFILE'):
+        if key in before:
+            assert child[key] == before[key]
+    assert dict(os.environ) == before
+
+
+@pytest.mark.parametrize('failure_stage', [None, 0, 1, 2])
+def test_install_sequence_is_hermetic_and_failure_is_sanitized(tmp_path, monkeypatch, failure_stage):
+    root = tmp_path / 'owned'
+    monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+    monkeypatch.setenv('PYTHONPATH', 'contaminated-source')
+    monkeypatch.setenv('PYTHONHOME', 'contaminated-home')
+    monkeypatch.setenv('FOX2_INSTALL_SENTINEL', 'preserved')
+    package_path, sha = package(tmp_path)
+    calls = []
+
+    def child(arguments, **kwargs):
+        assert not (root / 'current.json').exists()
+        assert not (root / 'versions' / sha / 'receipt.json').exists()
+        assert not {'PYTHONPATH', 'PYTHONHOME'} & {key.upper() for key in kwargs['env']}
+        assert kwargs['env']['FOX2_INSTALL_SENTINEL'] == 'preserved'
+        assert kwargs['capture_output'] and kwargs['text'] and kwargs['timeout'] == 180
+        stage = len(calls)
+        calls.append(arguments)
+        return subprocess.CompletedProcess(arguments, 17 if stage == failure_stage else 0,
+            'private subprocess output' if stage == failure_stage else module.registry.SOURCE_SHA256 + '\n',
+            'private subprocess error')
+
+    monkeypatch.setattr(module.subprocess, 'run', child)
+    if failure_stage is None:
+        assert module.install(package_path, sha, root=root)['status'] == 'INSTALLED'
+        assert (root / 'versions' / sha / 'receipt.json').is_file()
+    else:
+        with pytest.raises(ValueError) as error:
+            module.install(package_path, sha, root=root)
+        assert str(error.value) == 'installation subprocess failed: 17'
+        assert not (root / 'current.json').exists()
+        assert not (root / 'versions' / sha).exists()
+    assert calls[0] == [module.sys.executable, '-m', 'venv', str(root / 'versions' / sha / 'runtime')]
+    if len(calls) > 1:
+        assert calls[1][1:6] == ['-m', 'pip', '--isolated', 'install', '--disable-pip-version-check']
+        assert calls[1][6:9] == ['--no-index', '--only-binary=:all:', '--find-links']
+        assert calls[1][-1].endswith('fox2_agent_bridge-0.1.0-py3-none-any.whl')
+    if len(calls) > 2:
+        assert calls[2][0] == calls[1][0]
+        assert calls[2][1:3] == ['-I', '-c']
+        assert 'import fox2_agent_bridge.project_dictionary' in calls[2][3]
+        assert 'import fox2_agent_bridge.dispatch_schema_v3_contract' in calls[2][3]
+        assert 'import jsonschema' in calls[2][3]
+    assert len(calls) == (3 if failure_stage is None else failure_stage + 1)

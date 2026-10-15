@@ -1,0 +1,9 @@
+{
+  "classification": "COMMAND_NONZERO",
+  "exit_code": 2,
+  "module_not_found": false,
+  "sanitized_install_failure": true,
+  "stage": "UNINSTALL_PATH",
+  "stderr_sha256": "6771b401ef264241231bf8f3654d204bf7ae2adbd29fc18027f95a956e3c29be",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

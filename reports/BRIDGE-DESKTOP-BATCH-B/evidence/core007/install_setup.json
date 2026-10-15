@@ -1,0 +1,69 @@
+{
+  "install": {
+    "result": {
+      "package_sha256": "58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642",
+      "source_sha256": "dceabc47b7c3fe2391eb7ef9edaa5a00ffeaf19adb1bd519c33dcfe8f4786912",
+      "status": "INSTALLED"
+    },
+    "subprocesses": [
+      {
+        "arguments": [
+          "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+          "-m",
+          "venv",
+          "C:\\Temp\\fox2-core007-sxoruwke\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642\\runtime"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      },
+      {
+        "arguments": [
+          "C:\\Temp\\fox2-core007-sxoruwke\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642\\runtime\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "--isolated",
+          "install",
+          "--disable-pip-version-check",
+          "--no-index",
+          "--only-binary=:all:",
+          "--find-links",
+          "C:\\Temp\\fox2-core007-sxoruwke\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642\\payload\\wheels",
+          "C:\\Temp\\fox2-core007-sxoruwke\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642\\payload\\wheels\\fox2_agent_bridge-0.1.0-py3-none-any.whl"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      },
+      {
+        "arguments": [
+          "C:\\Temp\\fox2-core007-sxoruwke\\user\\AppData\\Local\\FOX2\\AgentBridge\\versions\\58081a5fe85f7b519d352bdc398af655efc2d337d927cf6819da80859d85e642\\runtime\\Scripts\\python.exe",
+          "-I",
+          "-c",
+          "import fox2_agent_bridge.project_dictionary as r; import fox2_agent_bridge.dispatch_schema_v3_contract; import jsonschema; print(r.SOURCE_SHA256)"
+        ],
+        "exit_code": 0,
+        "ordinary_environment_preserved": true,
+        "python_paths_absent": true
+      }
+    ]
+  },
+  "repeated_setup_preserved_config": true,
+  "setup": {
+    "configuration": "C:\\Temp\\fox2-core007-sxoruwke\\user\\AppData\\Local\\FOX2\\AgentBridge\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  }
+}

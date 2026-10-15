@@ -1,0 +1,152 @@
+{
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "bridge_ready": false,
+  "control_commit": "7bac9176a24bbcbdd49f2074f88d355c5d88d906",
+  "dispatch_consumed": true,
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+  "files": [
+    {
+      "bytes": 6742,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/dispatch_007_report.md",
+      "sha256": "1629d5ceff3ae0c22c6d69b7196802ade4de81d289cc75dc47e9ce2e449d7cf3"
+    },
+    {
+      "bytes": 4925,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/acceptance_gates.json",
+      "sha256": "b29b4f76b23b757dcabeacf7e759d999782584f9c9cf3ce7049afd7bef547843"
+    },
+    {
+      "bytes": 442,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/build_environment.json",
+      "sha256": "2f32335d9abb570bbbdf441cc3dc450b322637092f1f3a6639ff67e93c7191db"
+    },
+    {
+      "bytes": 351,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/claim.json",
+      "sha256": "cb986b054c15d131fba67f2e7ef95f3c1a1678b6e3f8ae475e5800d635c1eb90"
+    },
+    {
+      "bytes": 329,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/command_failure.json",
+      "sha256": "b4118fac00319a7605401b85a7dc8c0321358376864f797cc1694d0a03ed7628"
+    },
+    {
+      "bytes": 1951,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/diagnostics.json",
+      "sha256": "38032ed4f613f62c1ae6fb8144c19ea8487749b475d9446fb0589bb6d8d0919f"
+    },
+    {
+      "bytes": 238,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/focused.txt",
+      "sha256": "84af451b2ee66bcf2ce2bf6f05f927b13426679473e2f75424edce581a8d68f0"
+    },
+    {
+      "bytes": 3074,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/focused.xml",
+      "sha256": "302231d982c8a9339d6f3f3485506f46aca293f05db7f7e45a1e59d301df67ee"
+    },
+    {
+      "bytes": 648,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/full.txt",
+      "sha256": "a14f8c32653b0940270cbd27f429b9525f367c0fc3eb9c02562495062084440e"
+    },
+    {
+      "bytes": 47824,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/full.xml",
+      "sha256": "70da2fe900dd4bb4c168122d118572595ae9df76b9f07d01cccd96e7ef5ab3cb"
+    },
+    {
+      "bytes": 4359,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/historical_hashes.json",
+      "sha256": "5fe095c889ebad6dbd814c18f6266de115faf2e32772a5e5fa75e7cfea01daad"
+    },
+    {
+      "bytes": 2834,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/install_setup.json",
+      "sha256": "0e6f76283279d15edfca44325419321ff747e84d54f9f49fb504d00f15b20091"
+    },
+    {
+      "bytes": 541,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/isolation.json",
+      "sha256": "14b0df007548c3cd54be68f7cc372cb52d5c4ff4a041c45232b3a7eec3410ec2"
+    },
+    {
+      "bytes": 414,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/junit_redaction.json",
+      "sha256": "d8b84caf00271a642780ce4519205608570b7c2504c94ca3e98ae8332319c6a4"
+    },
+    {
+      "bytes": 1760,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/launch.json",
+      "sha256": "b5e7badf37d1be466c3400947b251de7c34649c5ebf12e539d9aab558a3f0919"
+    },
+    {
+      "bytes": 4487,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/launch.py",
+      "sha256": "f2cd5bc7dd3b0edc900a4398f94ce8c9b51dfe88cc87a8e3976a9d5948c0efee"
+    },
+    {
+      "bytes": 14412,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/lifecycle.py",
+      "sha256": "9c9122d67e68a671721ebbd7a009f0abc5fce8f3c6a6ae8547fdc5af73fde496"
+    },
+    {
+      "bytes": 44,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/lifecycle_claim.json",
+      "sha256": "bed27fb8d77f79710b2618ba450a544c9fb20d8757acd35b10dd4c2ed0b19539"
+    },
+    {
+      "bytes": 2108,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/package.json",
+      "sha256": "4dcefe9cf4687473ff5c7807e70148e1206c744fb51b3f91fac0feff43f2866b"
+    },
+    {
+      "bytes": 2127,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/post_stop_disposable_inventory.json",
+      "sha256": "dae8a6e661cfbe2d41f562dd77aa6017f7a1320fa84080178b1616919fe7ff43"
+    },
+    {
+      "bytes": 65,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/progress.json",
+      "sha256": "fea2205707754da03c888f3b5e7e6aff6cd0c2788f5876c5bee7e1aa1725388e"
+    },
+    {
+      "bytes": 2452,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/publication_checks.json",
+      "sha256": "b25c1a74763a90a899cffeda86b45c340f93dfce8e97dd463a404d0d9ef07fd0"
+    },
+    {
+      "bytes": 5596,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/publication_checks.py",
+      "sha256": "bfc05fe4b3205255f5572a52ff734bf94ec7019109a21b8dce8544aa5ceac63b"
+    },
+    {
+      "bytes": 1196,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/readiness.json",
+      "sha256": "b80e89e62607e4a004e1f7670c7551459d5edbf0fe0bd73fe369b6c2d5f95c29"
+    },
+    {
+      "bytes": 357,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/startup_single_instance_tray_worker.json",
+      "sha256": "566ef231173a7740d4233099f27b0c58864f2a380585459bb0403e74e21d043d"
+    },
+    {
+      "bytes": 236,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/stop.json",
+      "sha256": "fe5d470e00933115e8a434e291d632372551a711e7c21b037cb951bdf5d7165f"
+    },
+    {
+      "bytes": 91,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/tests.json",
+      "sha256": "bdec020cfba0e92b05fa00c32af4f57118ce64b47380e44b677503b5d060bc81"
+    },
+    {
+      "bytes": 2369,
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/core007/update.json",
+      "sha256": "6980d7a66387278d792c073753bb2ff733d73ba94ae6b0c21b91c4f29efa1d20"
+    }
+  ],
+  "real_runtime_touched": false,
+  "source_head": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

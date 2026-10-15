@@ -1,0 +1,71 @@
+{
+  "current_pointer_exists": true,
+  "durable_files": {
+    "config": [
+      {
+        "bytes": 377,
+        "path": "config/bridge.toml",
+        "sha256": "d08773469103496e5aaf300fa0fcd8382b1507f8a3c5f33ce8b72ac88386a69b"
+      }
+    ],
+    "data": [
+      {
+        "bytes": 90112,
+        "path": "data/bridge.db",
+        "sha256": "17da06123de7f9ebf851a997098bd44210bce7135404269815369f2caf3e1017"
+      },
+      {
+        "bytes": 0,
+        "path": "data/bridge.lock",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 37,
+        "path": "data/core007-preserve.txt",
+        "sha256": "ffd6008f73cafec158d69576b2514e9b5820755944fd85604a452c8b49d64125"
+      },
+      {
+        "bytes": 0,
+        "path": "data/install.lock",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 407,
+        "path": "data/manual_consumption.json",
+        "sha256": "4bef7b551a6573e8e5bf0e003d44634e9233e2ddd1924d98c17ea92de33bf70b"
+      }
+    ],
+    "logs": [
+      {
+        "bytes": 0,
+        "path": "logs/bridge.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 37,
+        "path": "logs/core007-preserve.txt",
+        "sha256": "ffd6008f73cafec158d69576b2514e9b5820755944fd85604a452c8b49d64125"
+      }
+    ],
+    "reports": [
+      {
+        "bytes": 37,
+        "path": "reports/core007-preserve.txt",
+        "sha256": "ffd6008f73cafec158d69576b2514e9b5820755944fd85604a452c8b49d64125"
+      }
+    ]
+  },
+  "real_runtime_touched": false,
+  "root_cause": "UNKNOWN: inner uninstall helper failure is intentionally sanitized; no rerun or expanded fix authorized",
+  "scope": "read-only post-stop inspection of disposable profile only",
+  "uninstall_retried": false,
+  "versions": [
+    {
+      "link_or_junction": false,
+      "name": "e9b595e62dbc449aae1ef45c53eff6bf0294d388128644a524d72c8bb344c235",
+      "receipt_exists": true,
+      "remaining_file_count": 5,
+      "runtime_python_exists": true
+    }
+  ]
+}

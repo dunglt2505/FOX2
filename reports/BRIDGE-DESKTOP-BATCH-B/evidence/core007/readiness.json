@@ -1,0 +1,47 @@
+{
+  "current_pinned_auth_capacity_probe": {
+    "evidence": "Bounded readiness observation; raw output omitted.",
+    "exit_code": 0,
+    "failure_class": null,
+    "material": false,
+    "status": "PASS"
+  },
+  "route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "high"
+  },
+  "tools": {
+    "git": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "pwsh": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "schtasks.exe": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    }
+  }
+}

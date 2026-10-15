@@ -1,0 +1,8 @@
+{
+  "action": "redacted two credential-bearing URL fixture parameters in test names only",
+  "initial_hygiene_scan": "FLAGGED_TEST_FIXTURE_PARAMETER_URLS",
+  "original_sha256": "1bd1d0a8fc3351184637097405cc6c46f63ab5753e02bb07db087d1a9cebac57",
+  "redacted_testcase_count": 2,
+  "sanitized_sha256": "70da2fe900dd4bb4c168122d118572595ae9df76b9f07d01cccd96e7ef5ab3cb",
+  "test_outcomes_and_counts_unchanged": true
+}

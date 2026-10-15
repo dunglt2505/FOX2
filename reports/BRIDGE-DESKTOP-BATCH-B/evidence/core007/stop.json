@@ -1,0 +1,9 @@
+{
+  "detail": "bounded command failed: exit 2",
+  "dispatch_consumed": true,
+  "error_type": "RuntimeError",
+  "no_retry": true,
+  "real_runtime_touched": false,
+  "stage": "UNINSTALL_PATH",
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}

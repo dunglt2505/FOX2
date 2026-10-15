@@ -1,0 +1,3 @@
+......................                                                   [100%]
+- generated xml file: C:\Projects\FOX2-worktrees\FOX2-BRIDGE-DESKTOP-BATCH-B\reports\BRIDGE-DESKTOP-BATCH-B\evidence\core007\focused.xml -
+22 passed in 1.31s

@@ -1,0 +1,124 @@
+{
+  "bridge_ready": false,
+  "gates": {
+    "CHANGED_PATH_ALLOWLIST": {
+      "scope": "new 007 publication files",
+      "status": "PASS"
+    },
+    "CONTAMINATED_PARENT_ENV_REGRESSION": {
+      "scope": "install and update only; entire disposable lifecycle FAIL at uninstall",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_SCHEMA_BINDING": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "DURABLE_PRESERVATION_ACROSS_REINSTALL": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "EXACT_AGENT_CONFIGURATION": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "FIRST_RUN_SETUP": {
+      "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+      "status": "PASS"
+    },
+    "FULL_ACCESS_PERMISSION": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "FULL_BRIDGE_TESTS": {
+      "scope": "367 tests, one invocation, exact changed code before packaging",
+      "status": "PASS"
+    },
+    "GIT_DIFF_CHECK": {
+      "scope": "new 007 publication files",
+      "status": "PASS"
+    },
+    "INSTALLED_TRAY_WORKER": {
+      "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+      "status": "PASS"
+    },
+    "INSTALLER_PACKAGE": {
+      "scope": "two byte-identical new builds",
+      "status": "PASS"
+    },
+    "INSTALL_SUBPROCESS_ENV_ISOLATION": {
+      "scope": "focused tests and observed real packaged subprocesses",
+      "status": "PASS"
+    },
+    "PER_USER_INSTALL": {
+      "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+      "status": "PASS"
+    },
+    "PROJECT_DICTIONARY_BINDING": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "REAL_ELIGIBLE_FOX2_DISPATCH": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "REAL_PER_USER_RECOVERY": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "REINSTALL": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "RESTART_NO_REPLAY": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "RESULT_REMOTE_READBACK": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "SANITIZED_DIAGNOSTICS_BUNDLE": {
+      "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+      "status": "PASS"
+    },
+    "SECRET_SCAN": {
+      "scope": "new 007 publication files",
+      "status": "PASS"
+    },
+    "STARTUP_SINGLE_INSTANCE": {
+      "scope": "disposable installed launcher/Tray/Worker single instance PASS; actual logon-task registration NOT_RUN",
+      "status": "PARTIAL"
+    },
+    "UNINSTALL_PATH": {
+      "scope": "first disposable installed uninstall exit 2; sanitized inner subprocess failure; no retry",
+      "status": "FAIL"
+    },
+    "UPDATE_PATH": {
+      "scope": "disposable profile only; real-user recovery not authorized after lifecycle failure",
+      "status": "PASS"
+    },
+    "USAGE_SNAPSHOT": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "V06_COMPATIBILITY": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    },
+    "V2_COMPATIBILITY": {
+      "scope": "final installed-runtime certification not reached; preflight/source tests do not discharge this gate",
+      "status": "NOT_RUN"
+    }
+  },
+  "isolated_lifecycle": "FAIL",
+  "real_runtime_touched": false,
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}
