@@ -1,0 +1,172 @@
+<UserControl x:Class="FOX2.Bridge.Desktop.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Background="{StaticResource AccentSurfaceBrush}"
+                    BorderBrush="{StaticResource AccentBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="20"
+                    Margin="0,0,0,16">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="54" Height="54" CornerRadius="27" Background="{StaticResource AccentBrush}">
+                        <TextBlock Text="Ⅱ" FontSize="22" FontWeight="Bold"
+                                   Foreground="#111111"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+
+                    <StackPanel Grid.Column="1" Margin="16,2,30,0">
+                        <TextBlock Text="{Binding HeroTitle}" FontSize="21" FontWeight="SemiBold"/>
+                        <TextBlock Text="{Binding HeroMessage}" Style="{StaticResource MutedTextStyle}" Margin="0,5,0,0"/>
+                        <TextBlock Text="{Binding ActionError}" Foreground="{StaticResource CriticalBrush}" Margin="0,5,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Button Content="Resume Bridge"
+                                Style="{StaticResource PrimaryButtonStyle}"
+                                Command="{Binding ResumeCommand}"
+                                Margin="0,0,10,0"/>
+                        <Button Content="Pause"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Command="{Binding PauseCommand}"
+                                Margin="0,0,10,0"/>
+                        <Button Content="Check now"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Command="{Binding CheckNowCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1" Margin="0,0,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Style="{StaticResource CardStyle}" Margin="0,0,8,0">
+                    <StackPanel>
+                        <TextBlock Text="Current Task" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <Border Background="{StaticResource SurfaceElevatedBrush}" CornerRadius="9" Padding="18" Margin="0,16,0,16">
+                            <StackPanel>
+                                <TextBlock Text="{Binding CurrentTask}" FontSize="18" FontWeight="SemiBold"/>
+                                <TextBlock Text="{Binding CurrentTaskSubtext}" Style="{StaticResource MutedTextStyle}" Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Last result" Style="{StaticResource MutedTextStyle}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding LastResult}"/>
+                            <TextBlock Grid.Row="1" Text="Heartbeat" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding HeartbeatText}" Margin="0,10,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource CardStyle}" Margin="8,0">
+                    <StackPanel>
+                        <TextBlock Text="Worker Status" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <Border Background="{StaticResource SurfaceElevatedBrush}" CornerRadius="9" Padding="16" Margin="0,16,0,14">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="14" Height="14" Fill="{Binding HealthBrush}" Margin="0,0,10,0"/>
+                                <TextBlock Text="{Binding StateDisplay}" FontSize="18" FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Last poll" Style="{StaticResource MutedTextStyle}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding LastPollText}"/>
+                            <TextBlock Grid.Row="1" Text="Bridge root" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding BridgeRoot}" TextTrimming="CharacterEllipsis" Margin="0,10,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="2" Style="{StaticResource CardStyle}" Margin="8,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Agent (Current / Last)" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <TextBlock Text="{Binding AgentProduct}" FontSize="18" FontWeight="SemiBold" Margin="0,18,0,12"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Model" Style="{StaticResource MutedTextStyle}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding AgentModel}"/>
+                            <TextBlock Grid.Row="1" Text="Reasoning" Style="{StaticResource MutedTextStyle}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding AgentReasoning}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="2" Text="Permission" Style="{StaticResource MutedTextStyle}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding AgentPermission}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="3" Text="Usage" Style="{StaticResource MutedTextStyle}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Usage}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="4" Text="Capacity" Style="{StaticResource MutedTextStyle}" Margin="0,8,0,0"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Capacity}" Margin="0,8,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.55*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Style="{StaticResource CardStyle}" Margin="0,0,8,0">
+                    <StackPanel>
+                        <TextBlock Text="Activity" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <TextBlock Text="Open Activity from the sidebar for the complete timeline."
+                                   Style="{StaticResource MutedTextStyle}"
+                                   Margin="0,12,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource CardStyle}" Margin="8,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Last Result" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <TextBlock Text="{Binding LastResult}" FontSize="20" FontWeight="SemiBold" Margin="0,24,0,8"/>
+                        <TextBlock Text="Results remain reviewable through the Bridge ledger; the Desktop App does not modify them."
+                                   Style="{StaticResource MutedTextStyle}"
+                                   TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

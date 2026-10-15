@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FOX2.Bridge.Desktop", "FOX2.Bridge.Desktop\FOX2.Bridge.Desktop.csproj", "{2D83B287-2E97-4C0A-8EE0-DFD10B7E9485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FOX2.Bridge.Desktop.Smoke", "FOX2.Bridge.Desktop.Smoke\FOX2.Bridge.Desktop.Smoke.csproj", "{A3BE2C16-41F6-447D-A4D7-12DD91D4A0D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D83B287-2E97-4C0A-8EE0-DFD10B7E9485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D83B287-2E97-4C0A-8EE0-DFD10B7E9485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D83B287-2E97-4C0A-8EE0-DFD10B7E9485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D83B287-2E97-4C0A-8EE0-DFD10B7E9485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BE2C16-41F6-447D-A4D7-12DD91D4A0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BE2C16-41F6-447D-A4D7-12DD91D4A0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BE2C16-41F6-447D-A4D7-12DD91D4A0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BE2C16-41F6-447D-A4D7-12DD91D4A0D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

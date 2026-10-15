@@ -1,0 +1,39 @@
+<UserControl x:Class="FOX2.Bridge.Desktop.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="Settings" Style="{StaticResource TitleTextStyle}" FontSize="26"/>
+            <TextBlock Text="Safe UX and startup preferences. Agent routing remains dispatch-owned."
+                       Style="{StaticResource MutedTextStyle}"
+                       Margin="0,5,0,18"/>
+
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="General" Style="{StaticResource SectionTitleTextStyle}"/>
+                    <CheckBox Content="Start FOX2 Bridge with Windows"
+                              IsChecked="{Binding StartWithWindows, Mode=TwoWay}"
+                              Command="{Binding ToggleStartupCommand}"
+                              Margin="0,16,0,0"/>
+                    <CheckBox Content="Show important notifications"
+                              IsChecked="{Binding Notifications, Mode=TwoWay}"/>
+                    <CheckBox Content="Close window to system tray"
+                              IsChecked="{Binding CloseToTray, Mode=TwoWay}"/>
+                    <TextBlock Text="{Binding Status}"
+                               Style="{StaticResource MutedTextStyle}"
+                               Margin="0,12,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardStyle}" Margin="0,16,0,0">
+                <StackPanel>
+                    <TextBlock Text="Protected settings" Style="{StaticResource SectionTitleTextStyle}"/>
+                    <TextBlock Margin="0,10,0,0"
+                               TextWrapping="Wrap"
+                               Style="{StaticResource MutedTextStyle}"
+                               Text="Model, reasoning, Agent, permission profile, Git authority, merge/deploy rights, provider/broker rights and LIVE authority are intentionally not configurable here."/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,18 @@
+{
+  "status": "CHAT_DIRECT_IMPLEMENTATION_BASELINE",
+  "product": "FOX2 Bridge Desktop App v1",
+  "visual_baseline": "dark navy professional control center with FOX orange accent",
+  "technology": ".NET 8 / WPF / MVVM",
+  "source_parent": "d129f9195adab04f158942f5a8638c63d0f3d0e6",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-APP-V1",
+  "worker_semantics_mutated": false,
+  "canary_009_touched": false,
+  "authority_boundary": [
+    "no Git task discovery",
+    "no dispatch claim",
+    "no direct Codex/Copilot execution",
+    "no ledger mutation",
+    "no model/reasoning/permission override",
+    "no main/PR/merge/deploy/provider/broker/LIVE authority"
+  ]
+}

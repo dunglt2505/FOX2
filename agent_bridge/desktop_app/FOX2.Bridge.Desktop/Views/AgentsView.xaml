@@ -1,0 +1,86 @@
+<UserControl x:Class="FOX2.Bridge.Desktop.Views.AgentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="Agents" Style="{StaticResource TitleTextStyle}" FontSize="26"/>
+            <TextBlock Text="Read-only readiness and the current/last dispatch-owned execution tuple."
+                       Style="{StaticResource MutedTextStyle}"
+                       Margin="0,5,0,18"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Style="{StaticResource CardStyle}" Margin="0,0,8,0">
+                    <StackPanel>
+                        <TextBlock Text="CODEX" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <TextBlock Text="{Binding CodexStatus}" Foreground="{StaticResource SuccessBrush}" Margin="0,8,0,18"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="CLI version" Style="{StaticResource MutedTextStyle}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding CodexVersion}"/>
+                            <TextBlock Grid.Row="1" Text="Requested model" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding RequestedModel}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="2" Text="Reasoning" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding RequestedReasoning}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="3" Text="Permission" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding RequestedPermission}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="4" Text="Observed model" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ObservedModel}" Margin="0,10,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource CardStyle}" Margin="8,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="COPILOT" Style="{StaticResource SectionTitleTextStyle}"/>
+                        <TextBlock Text="{Binding CopilotStatus}" Foreground="{StaticResource AccentBrush}" Margin="0,8,0,18"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="CLI version" Style="{StaticResource MutedTextStyle}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding CopilotVersion}"/>
+                            <TextBlock Grid.Row="1" Text="Routing" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="Dispatch / CHAT controlled" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="2" Text="Usage" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Usage}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="3" Text="Capacity" Style="{StaticResource MutedTextStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Capacity}" Margin="0,10,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Style="{StaticResource CardStyle}" Margin="0,16,0,0">
+                <StackPanel>
+                    <TextBlock Text="Authority Boundary" Style="{StaticResource SectionTitleTextStyle}"/>
+                    <TextBlock Margin="0,10,0,0"
+                               TextWrapping="Wrap"
+                               Style="{StaticResource MutedTextStyle}"
+                               Text="This screen is display-only. The Desktop App cannot select an Agent, model, reasoning level, permission profile, delivery owner, or execution scope."/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

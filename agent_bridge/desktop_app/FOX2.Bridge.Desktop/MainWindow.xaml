@@ -1,0 +1,141 @@
+<Window x:Class="FOX2.Bridge.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FOX2 Bridge"
+        Width="1440"
+        Height="900"
+        MinWidth="1120"
+        MinHeight="700"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="{StaticResource BackgroundBrush}"
+        FontFamily="Segoe UI Variable Text, Segoe UI"
+        Foreground="{StaticResource TextPrimaryBrush}">
+    <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="86"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"
+                  Background="{StaticResource HeaderBrush}"
+                  MouseLeftButtonDown="Header_OnMouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="24,0,0,0">
+                    <Border Width="50" Height="50" CornerRadius="16" Background="{StaticResource AccentBrush}">
+                        <TextBlock Text="🦊" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel Margin="14,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="FOX2 Bridge" Style="{StaticResource TitleTextStyle}" FontSize="25"/>
+                        <TextBlock Text="Your Wealth, Your Way" Style="{StaticResource MutedTextStyle}" FontSize="13"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Border Grid.Column="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="{StaticResource AccentSurfaceBrush}"
+                        BorderBrush="{StaticResource AccentBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="18,10"
+                        Margin="0,0,16,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="11" Height="11" Fill="{StaticResource AccentBrush}" VerticalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Dashboard.StateDisplay}" FontWeight="SemiBold"/>
+                            <TextBlock Text="{Binding Dashboard.HeaderSubtext}" Style="{StaticResource MutedTextStyle}" FontSize="12"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource WindowButtonStyle}" Content="—" Click="Minimize_OnClick"/>
+                    <Button Style="{StaticResource WindowButtonStyle}" Content="□" Click="Maximize_OnClick"/>
+                    <Button Style="{StaticResource WindowCloseButtonStyle}" Content="×" Click="Close_OnClick"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Background="{StaticResource SidebarBrush}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="0,1,1,0">
+                    <Grid Margin="16">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+                            <Button Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateDashboardCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="⌂" FontSize="24" Width="38"/>
+                                    <TextBlock Text="Dashboard" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateActivityCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="☷" FontSize="20" Width="38"/>
+                                    <TextBlock Text="Activity" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateAgentsCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="◉" FontSize="20" Width="38"/>
+                                    <TextBlock Text="Agents" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateDiagnosticsCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="▥" FontSize="20" Width="38"/>
+                                    <TextBlock Text="Diagnostics" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateSettingsCommand}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="⚙" FontSize="20" Width="38"/>
+                                    <TextBlock Text="Settings" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                        <Border Grid.Row="1"
+                                Background="{StaticResource SurfaceBrush}"
+                                BorderBrush="{StaticResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                Padding="14">
+                            <StackPanel>
+                                <TextBlock Text="v1.0" Style="{StaticResource MutedTextStyle}"/>
+                                <TextBlock Text="FOX2 Bridge Desktop" Margin="0,4,0,0"/>
+                                <TextBlock Text="Local AI Agent Control Center" Style="{StaticResource MutedTextStyle}" FontSize="11"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,12,0,0">
+                                    <Ellipse Width="10" Height="10" Fill="{Binding Dashboard.HealthBrush}" Margin="0,0,8,0"/>
+                                    <TextBlock Text="{Binding Dashboard.WorkerFooterText}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <ContentControl Grid.Column="1"
+                                Content="{Binding CurrentPage}"
+                                Margin="24"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
