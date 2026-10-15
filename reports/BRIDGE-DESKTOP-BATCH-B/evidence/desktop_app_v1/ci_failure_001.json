@@ -1,0 +1,15 @@
+{
+  "status": "RECONCILED",
+  "run_id": 38757199335,
+  "job_id": 116498632348,
+  "failure_stage": "BUILD_HARNESS_PRECHECK",
+  "failure": "default dotnet SDK resolved to 10.0.401 although .NET 8 SDK 8.0.426 was installed",
+  "product_code_compiled": false,
+  "classification": "CI_SDK_SELECTION",
+  "correction": [
+    "add agent_bridge/desktop_app/global.json pinned to .NET 8 with latestFeature roll-forward",
+    "execute build from desktop_app root so global.json participates in SDK resolution",
+    "pin GitHub Actions to exact observed commit SHAs"
+  ],
+  "replay_semantics": "CI build only; no Bridge dispatch or Canary consumed"
+}
