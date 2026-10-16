@@ -1,0 +1,25 @@
+{
+  "format": "FOX2_BRIDGE_RC1_GIT_MANIFEST_1",
+  "state": "CHAT_LOCKED_PLANNING_BASELINE_NON_EXECUTABLE",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "planning_base_before_publication": "d129f9195adab04f158942f5a8638c63d0f3d0e6",
+  "planning_commits": {
+    "release_plan": "ac58bf0f3ea51a606cd6f6e5a02be24d126fb98e",
+    "acceptance": "109ec523c41b338fcbab4bd4636ca150436ee451",
+    "routing_intake": "5045d952d47c09f2a05d18abc89b66e4705ca7fb",
+    "desktop_implementation_spec": "b64650affcb650d2104c2e2a7c523d8dd722a357"
+  },
+  "paths": [
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_RELEASE_PLAN.md",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_ACCEPTANCE.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_ROUTING_INTAKE.md",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_DESKTOP_IMPLEMENTATION_SPEC.md"
+  ],
+  "canary_009": {
+    "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "head": "501822a33ef08c7365154913bbc677544856eee5",
+    "state": "PRESERVE_UNCONSUMED"
+  },
+  "execution_authority": "NO_FROM_THIS_MANIFEST",
+  "next_gate": "FRESH_PREEXEC_ON_FINAL_RC1_SOURCE_BEFORE_IMPLEMENTATION"
+}
