@@ -1,0 +1,98 @@
+{
+  "manifest_version": "1.0",
+  "release": "FOX2_PROJECT_DICTIONARY_BASELINE_20261014",
+  "status": "RELEASED_EFFECTIVE_SOURCE_SET",
+  "project": "FOX2",
+  "branch": "work/FOX2-AGENT-USAGE-TELEMETRY-01-chat",
+  "release_head": "eceeffd0d459d85e5da9d60768352c85e62926db",
+  "dictionary": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+  "current_operating_set": {
+    "policy": "1.8.7",
+    "routing_index": "1.2.8",
+    "dispatch_schema": "3.0",
+    "git_first_protocol": "10",
+    "chat_intake": "9"
+  },
+  "files": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "git_blob_sha1": "2b9fba8db793573011d5dfce43b8e4c4f4b07673",
+      "sha256": "a6b8a578650324ca65d426c7e9936369c6c9c187f6d25dde860cf5593884a2dd",
+      "bytes": 6830
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.8.7.md",
+      "git_blob_sha1": "5c514e503acf95dd7dc7787397f9f82aef1dfdaa",
+      "sha256": "fa8948a284ed6c6ffb1a5339247b7c859918adf67d35c2147fe13d6224edeb69",
+      "bytes": 8459
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_8_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "git_blob_sha1": "bae2b866d213db71a16db7e0708f2d932d24c3b8",
+      "sha256": "763fe84fb57ba92a7be572a2b1d181f895784ecb2407ef1ea2ba583f2458ca5b",
+      "bytes": 3108
+    },
+    {
+      "path": "docs/brd_mirror/FOX2_BRD_PROJECT_DICTIONARY_BINDING_v1.md",
+      "git_blob_sha1": "b5ac6af502d0fa4150a0043098f222ce10842827",
+      "sha256": "7f709dc0b13741cfa8fefeaa7564119cf8f84a91f44f97727a724572c8947575",
+      "bytes": 1709
+    },
+    {
+      "path": "docs/brd_mirror/FOX2-BRD-09_v0.1_CANDIDATE.md",
+      "git_blob_sha1": "99971d65ccb90874e75ace54e6a4f8ec21ba0188",
+      "sha256": "77bc5f741d328bd4d8153f88893f3de376c4e8d8bf613602c2b83c567b596ae1",
+      "bytes": 22996
+    },
+    {
+      "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_REGISTRY_BINDING_v1.md",
+      "git_blob_sha1": "e27561804cb308a5caa60165b402754776f68d24",
+      "sha256": "354964366a1b72082a1ae9c39e35fc88e4bd135844d848081dc6ce1bba755a2f",
+      "bytes": 1442
+    },
+    {
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "git_blob_sha1": "96d0bb3ab67d15276961d4710dc911fa2a6a8f1c",
+      "sha256": "0fb3e259f919d0bcb6719d5380226338ab47aaf87c4592d4cac81f16cdb3f122",
+      "bytes": 45641
+    },
+    {
+      "path": "docs/architecture/FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md",
+      "git_blob_sha1": "57b1a8c31695062a37c5bbf54d998b00d06f968a",
+      "sha256": "6d8aab2a104362881b5d714c11fbd9614b233753aa9044d5875a3046511193b8",
+      "bytes": 13111
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+      "git_blob_sha1": "a53956cad7809cc53f92ecdc5d91a1ff2119b421",
+      "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+      "bytes": 9019
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v10.md",
+      "git_blob_sha1": "874a5bd4c901c21eed987d08ae9f30afa139fc44",
+      "sha256": "876ce8db6263722e13e722875d7cdd368c6b98921a9bfe5b937c08ec2d9c4433",
+      "bytes": 4254
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v9.md",
+      "git_blob_sha1": "ed5179e4738934423ca7c9c117e9243f05cf25be",
+      "sha256": "f70006657f17e819ecefde17cf3b72a4e5d1b8fd561f9b74ebe68f63e5f5e9bb",
+      "bytes": 1970
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "git_blob_sha1": "011485bcfdb6301f9f4b1eebbcf73563f9f5490f",
+      "sha256": "9b022bc35b64e653cf508fe5790815bc94107d2816a7a43ea889555357226700",
+      "bytes": 2162
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md",
+      "git_blob_sha1": "77d2b0fe45f22a0891241bf7aefc3268af9ffd75",
+      "sha256": "c3e28ee25b72409e0451615cb5b773b6ff721a0e65dc519d753048eca33ea952",
+      "bytes": 14230
+    }
+  ],
+  "library_mirror_status": "NOT_ASSERTED_BY_THIS_MANIFEST",
+  "note": "Git immutable readback proves the coordinated source set on this branch. Released BRD business semantics are unchanged by dictionary identity binding."
+}

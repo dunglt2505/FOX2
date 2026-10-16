@@ -1,0 +1,97 @@
+{
+  "status": "AUTHENTICATED_GIT_BYTES_VERIFIED_NOT_EFFECTIVITY",
+  "ref": "origin/work/FOX2-AGENT-USAGE-TELEMETRY-01-chat",
+  "observed_head": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+  "manifest_path": "docs/governance/FOX2_AGENT_ROUTE_MATERIALITY_RELEASE_MANIFEST_20261014.json",
+  "source_set_head": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+  "files": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "bytes": 9386,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "bytes": 12170,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "bytes": 4920,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "bytes": 7041,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "bytes": 6688,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "bytes": 2783,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "bytes": 6053,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "bytes": 48809,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.1.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "8af08f9ef53e8ff63655d8e7089311de4aac06bf66a0946776e8f17bd6b3980e",
+      "bytes": 4698,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "7e4cddb923418db1f6da93a078441c7c43dfc04334e6920736760f32bd53ea8c",
+      "bytes": 3494,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "README.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "289699910f8841a915dc925d9f5610e38b9d53c6a1035fc5b2901d71b33b60b0",
+      "bytes": 3444,
+      "blob_matches_manifest": true
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md",
+      "commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+      "sha256": "9f066040c7f6eac1e6d82891a2e4c00a9a15200d146e499d41256b5dc84f5f7a",
+      "bytes": 17755,
+      "blob_matches_manifest": true
+    }
+  ],
+  "github_api_dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+  "github_api_matches_git": true,
+  "library_mirror_status": "NOT_ASSERTED_BY_THIS_MANIFEST",
+  "authority_status": "BLOCKED_OWNER_AUTHORIZED_CURRENT_TRUST_ANCHOR_NOT_ESTABLISHED"
+}

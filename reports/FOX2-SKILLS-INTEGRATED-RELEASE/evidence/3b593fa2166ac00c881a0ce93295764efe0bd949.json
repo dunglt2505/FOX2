@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-FIX-01-CODEX-001",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-01-02-FIX-01",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "CODEX",
+    "interface": "OPENAI_CODEX_CLI",
+    "requested_model_or_mode": "GPT-6.1-SOL; HIGH_REASONING",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high"
+  },
+  "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-01-02-FIX-01-CODEX",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex",
+  "base_sha": "ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a",
+  "prompt": {
+    "git_commit": "56f0e6bc0e6d2c0211a1de968339cdcef35c7e4a",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_DESKTOP_01_02_FIX_01_CODEX_BRIDGE_PROMPT_20261014.md",
+    "git_blob_sha1": "59c435eed9c556a81038cfaf29f6933b65098b63",
+    "sha256": "5e7d754b984e13027410969f52ccf5f7ee833c44bfca924f408e13a18cd7dc9f"
+  },
+  "allowed_code_paths": [
+    "agent_bridge/**"
+  ],
+  "allowed_report_paths": [
+    "reports/BRIDGE-DESKTOP-01-02/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/BRIDGE-DESKTOP-01-02/report.md",
+      "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/verification.json",
+      "reports/BRIDGE-DESKTOP-01-02/evidence/pytest.xml"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_DESKTOP_01_02_FIX_01_DELIVERY_READY"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "invoke_via": "codex_cli_exec",
+    "working_directory_must_equal_worktree": true,
+    "sandbox": "workspace-write",
+    "windows_sandbox": "unelevated",
+    "preferred_shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "approval_policy": "never",
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning_effort": "high",
+    "bridge_owns_git_commit_push": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 1800
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-14",
+    "text": "Đồng ý triển khai, thực hiện giao việc cụ thể next step",
+    "scope": "Release the already locked BRIDGE-DESKTOP-01-02-FIX-01 corrective execution. Stop at PUSHED_UNREVIEWED; no PR/merge/main/deploy/provider/broker/LIVE."
+  }
+}

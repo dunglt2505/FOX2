@@ -1,0 +1,60 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.7.1",
+  "change_id": "FOX2-C6F-STANDING-REPORT-ONLY-CORRIGENDUM-20261012",
+  "parent_release": {
+    "version": "1.7.0",
+    "sha256": "4c745761bb4dbb4112373d4f8fa541233f73486a7638440edad040a27820b5f9",
+    "original_library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.7.md",
+    "retention": "RETAINED_UNCHANGED_HISTORY"
+  },
+  "owner_decision": "Owner authorized CHAT to correct V1.7.0 invalid byte and finish Library-to-Git sync without repeated approval; standing Copilot report-only authorization is unchanged.",
+  "publication_operator": "CHAT; Library native upload + exact raw-byte readback",
+  "published_at_utc": "2026-10-12T08:26:20.465505+00:00",
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.7.1.md",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.7.1.md",
+    "file_id": "file_000000004d548211a7a0b6a1f7e0391f",
+    "library_file_id": "libfile_ff8b81b477688191828fe089814c1223",
+    "bytes": 99233,
+    "sha256": "9c8784781d13e05a59749e33a72b2912ed29a9398aadcc2034fc7b60e044c99d",
+    "readback": "PASS_EXACT_BYTES"
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v7.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v7.md",
+      "file_id": "file_00000000999482118fb11a0643c557a8",
+      "library_file_id": "libfile_bc8d4ded88cc819193539df8e5a9c93f",
+      "bytes": 6771,
+      "sha256": "df21d3d38b016135afa98a6eddc985e303c4f45d6ef38cc3df469e8a9ca887a6",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v7.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v7.md",
+      "file_id": "file_00000000f2f88208958c641852123b7a",
+      "library_file_id": "libfile_540cdf65021c8191bdaaa046637b5566",
+      "bytes": 6451,
+      "sha256": "aec880a9d13a35d26a7339cfb6738dddbec62f6f978896473648412746fb740b",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "erratum": {
+    "scope": "ONE invalid U+001D control character removed from C6F.2A per-WP report approval sentence; normalized broken quotation; version/supersession and protocol pointer updated. No additional Git permission granted.",
+    "original_bad_byte_hex": "1d",
+    "preserves": "Standing COPILOT report-only grant for FOX2 registered WPs, actual host Git credentials/writer checks required; schema v2 unchanged"
+  },
+  "effectivity": "RELEASED_EFFECTIVE after observed Library readback and manifest; separate Git mirror gate",
+  "git_mirror": "PENDING_REMOTE_VERIFICATION",
+  "controls": {
+    "CODE_ALLOWED": "NO",
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO"
+  },
+  "independent_reviewer": "CHAT reviews Agent results only after actual remote report readback"
+}

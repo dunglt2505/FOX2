@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-RELAY-MVP-002",
+  "supersedes_dispatch_id": "FOX2-BRIDGE-RELAY-MVP-001",
+  "supersession_reason": "Owner corrected execution path to direct GitHub Copilot CLI; prior dispatch was retired before execution.",
+  "wp_id": "FOX2-BRIDGE-RELAY-MVP",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "COPILOT",
+    "interface": "GITHUB_COPILOT_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_SUPPORTED_CONFIGURED_DEFAULT",
+    "observed_model_required_in_result": true,
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_COPILOT_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RELAY-MVP-COPILOT",
+  "branch": "work/FOX2-BRIDGE-RELAY-MVP-copilot",
+  "base_sha": "58efb364098b69e1723dcf2097bb1b77192e7415",
+  "prompt": {
+    "git_commit": "ec934afe6757e461958ee36ee392af77e9093dac",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_RELAY_MVP_COPILOT_CLI_EXECUTE_V2_20261013.md",
+    "git_blob_sha1": "febff721390a43f00a53c1786bcbd6b6fb212574",
+    "sha256": "975eb2d113b1297e9382f86176686ef4b4068e14e45f4411e07a2c32d06f5ec9"
+  },
+  "source_lock": {
+    "policy": {
+      "version": "1.8.5",
+      "status": "RELEASED_EFFECTIVE",
+      "library_sha256": "351a1eb39b32894f522c0302e7af6f793c7a0a8b2f365ff82a5d169d974819e2",
+      "git_commit": "772a7e137c4257e46cf2ae14680a72324eb07dec",
+      "path": "docs/governance/FOX2_POLICY_V1.8.5.md",
+      "blob_sha1": "5b38b6bd6776b5ef3a771ba2297f4565c2d9abed"
+    },
+    "routing_index": {
+      "version": "1.2.6",
+      "status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX",
+      "library_sha256": "bd9d66962782f552646a0ab93a5f121ca9d1fcff74d965495d3ce88dd001aa20",
+      "git_commit": "772a7e137c4257e46cf2ae14680a72324eb07dec",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_6_EFFECTIVE_ROUTING_INDEX_20261013.md",
+      "blob_sha1": "263966d1c5e0eb3900a73c2f1327312f2cf94ec9"
+    },
+    "bridge_technical": {
+      "version": "0.6",
+      "status": "RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP",
+      "library_sha256": "d49a5e05c045dd2cfec85f3a49dc3fb1ecd221bacc3a6f3835fc19a83d0af190",
+      "git_commit": "772a7e137c4257e46cf2ae14680a72324eb07dec",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.6.md",
+      "blob_sha1": "ad4f118f6d32408d3e39c2e71fafc81b4f571956"
+    }
+  },
+  "allowed_code_paths": ["agent_bridge/**"],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-RELAY-MVP/report.md",
+    "reports/FOX2-BRIDGE-RELAY-MVP/evidence_manifest.json",
+    "reports/FOX2-BRIDGE-RELAY-MVP/evidence/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "runtime_contract": {
+    "invoke_via": "copilot_cli_programmatic",
+    "working_directory_must_equal_worktree": true,
+    "minimum_permissions_only": true,
+    "max_active_agent_executions": 2,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "vscode_existing_session_not_required": true
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-13",
+    "text": "qua copilot cli chứ",
+    "scope": "Use GitHub Copilot CLI as the Bridge execution endpoint for this Relay MVP."
+  }
+}

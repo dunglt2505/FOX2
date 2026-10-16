@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-001",
+  "wp_id": "FOX2-BRIDGE-E2E-CANARY",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "COPILOT",
+    "interface": "GITHUB_COPILOT_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_SUPPORTED_CONFIGURED_DEFAULT",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_COPILOT_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-E2E-CANARY-COPILOT",
+  "branch": "work/FOX2-BRIDGE-E2E-CANARY-copilot",
+  "base_sha": "1a9e7ce85b18aa1776f77f0fc64d8bfcfc3e906c",
+  "prompt": {
+    "git_commit": "cee8ee7e8dd593d0db4b25930ab1c7c31db4371a",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_E2E_CANARY_PROMPT_20261013.md",
+    "git_blob_sha1": "c3db62191c1fe3fa8727bcdd3626a3669a96a01f",
+    "sha256": "81b240964b44a8e0ae37122c7e2db3c1196e352b05cf0344fe7810e8ae6803fc"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-E2E-CANARY/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-E2E-CANARY/bridge_called_copilot.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_E2E_CANARY_OK"
+  },
+  "runtime_contract": {
+    "invoke_via": "copilot_cli_programmatic",
+    "working_directory_must_equal_worktree": true,
+    "minimum_permissions_only": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "vscode_existing_session_not_required": true
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-13",
+    "text": "triển khai E2E",
+    "scope": "Run a harmless single-use Bridge -> Copilot CLI -> Git push canary."
+  }
+}

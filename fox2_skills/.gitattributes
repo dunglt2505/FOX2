@@ -1,0 +1,3 @@
+* -text whitespace=cr-at-eol
+*.md whitespace=-blank-at-eol,cr-at-eol
+provenance/** -diff

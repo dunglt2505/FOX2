@@ -1,0 +1,103 @@
+{
+  "project": "FOX2",
+  "artifact_type": "SKILLS_CANDIDATE_DISTRIBUTION",
+  "status": "CANDIDATE_DISTRIBUTED_NOT_EFFECTIVE",
+  "source_zip_sha256": "1cae93f27d4f5ee729a2ea00808d38315f9b17b0abec9e4c477145e878e529d2",
+  "skills_count": 17,
+  "tests": {
+    "local_unittest": "8 PASS",
+    "github_e2e": "NOT_RUN",
+    "installed_runtime": "NOT_RUN",
+    "registry_authority": "UNVERIFIED"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "2bd88e803c3821fa14c3f0dd708fe798cdb023e14ee8969b72b7c6f9b16e429a"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "8aa1b4e893ab45221ac3dd3bf38fabd9348e9df99bc326e8a9e313efc4e88126"
+    },
+    {
+      "path": "shared/git_resolver.py",
+      "sha256": "c9a44ee1df0b5a767939c2a3308bc76893eed971cb882f6cef4b38c3e7cee057"
+    },
+    {
+      "path": "skills/fox2-agent-prompt-builder/SKILL.md",
+      "sha256": "382b58e3c5caa3288ba81debad8ed41341544557e5de3ba5c28742da1bca376a"
+    },
+    {
+      "path": "skills/fox2-agent-route-runtime/SKILL.md",
+      "sha256": "d70dcf5e17c8bc45d5e9d35b37c23227b79c814b287e4d5bb0152d117ea892b1"
+    },
+    {
+      "path": "skills/fox2-brd-change-control/SKILL.md",
+      "sha256": "70313c48facb9b633a61be4f05c8227bbd568b343be2d5c82997d8b9680403e7"
+    },
+    {
+      "path": "skills/fox2-dictionary-impact/SKILL.md",
+      "sha256": "1557cfcb69fe2c83aa94d2e1a0dee4675e37be216b1c51a361aee955e375a869"
+    },
+    {
+      "path": "skills/fox2-document-publication/SKILL.md",
+      "sha256": "cafa13a222a84a95add8655db7c829d647f46601574e33850b93964495bb6ec1"
+    },
+    {
+      "path": "skills/fox2-execution-recovery/SKILL.md",
+      "sha256": "eae69d5b9d8e143ed890f47022b7d6682f6565c97acf065ce97f71936a8296e1"
+    },
+    {
+      "path": "skills/fox2-feature-certification/SKILL.md",
+      "sha256": "9fd71bab8dc42c1a88d02c566017be568af2d28e36e27092cd58b92bd18e2356"
+    },
+    {
+      "path": "skills/fox2-governance-preflight/SKILL.md",
+      "sha256": "344a6cc410b76b4bb1fc773f3d3e8612bfa6fcb51fe368080fdafa13399aa2fb"
+    },
+    {
+      "path": "skills/fox2-project-health/SKILL.md",
+      "sha256": "664d625ce0456c4ef6d69c5ef5220a86e4417c2520dc98fb1c075126175beab1"
+    },
+    {
+      "path": "skills/fox2-research-validation/SKILL.md",
+      "sha256": "757c26aa792b7e957c17ca05955eea81a57755e8a2498ea8cd173a31e2bd7b39"
+    },
+    {
+      "path": "skills/fox2-result-review/SKILL.md",
+      "sha256": "0e8bba3bf206c902a727ca0623aed69aed2dacc30aaa1e7ee6446722b6f6df2c"
+    },
+    {
+      "path": "skills/fox2-source-resolver/SKILL.md",
+      "sha256": "28e84e144ce3bca88e9fc59edd3b082e45e2ac672a23c4521104bf9419d80cea"
+    },
+    {
+      "path": "skills/fox2-source-sync/SKILL.md",
+      "sha256": "d45cbfc82f0987533baabd0f4a92a2517bd9f7404dd588797b37a689402d1c4b"
+    },
+    {
+      "path": "skills/fox2-status-roadmap/SKILL.md",
+      "sha256": "9eadb8e09520181bbd2565ac24e0528d060a85d4426ca73a683ccfab906e9dd9"
+    },
+    {
+      "path": "skills/fox2-strategic-agent-triage/SKILL.md",
+      "sha256": "db837d86c9e565c1b852bc69d2ebea8c533379d8e05dadf7379fb031ef0ba497"
+    },
+    {
+      "path": "skills/fox2-techspec-validator/SKILL.md",
+      "sha256": "62f4d8b73d579d78a6913e655a963fe6982986ddca6560948daa14ca86f5a9ff"
+    },
+    {
+      "path": "skills/fox2-thread-handoff/SKILL.md",
+      "sha256": "b314623d5635c5d62e3ed9d89f8a8409dccd54fd2884bac8619e3d1b179268c1"
+    },
+    {
+      "path": "tests/test_git_resolver.py",
+      "sha256": "c20349ba7e54e7a8218544509a7dec6643dbcc2dded8b755da8fd709906abdcc"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "sha256": "c135377d1c6f3cb5789329277acedc9cea9e2dd4935e88438d0860b9149b2a6a"
+    }
+  ]
+}

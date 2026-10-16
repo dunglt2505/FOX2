@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-AGENT-PROMPT-ROUTING-INDEX",
+  "version": "1.2.7",
+  "status": "EFFECTIVE_DERIVATIVE_ROUTING_INDEX",
+  "release_date": "2026-10-14",
+  "policy_version": "1.8.6",
+  "bridge_spec_version": "0.7 Candidate REV7",
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-AGENT-USAGE-TELEMETRY-01-chat",
+    "source_commit": "c8474b059f372bb37cfe4989f44b92f346a7146d",
+    "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_2_7_EFFECTIVE_ROUTING_INDEX_20261014.md",
+    "blob": "d95b331f4b1f3feceae272baee12fb0923420a3f",
+    "sha256": "1360030d0be96b2e9175eb30a4f4b18b7c07caa7901fd94d230a74da3d78a7a1",
+    "utf8_bytes": 5216,
+    "exact_readback": "PASS"
+  },
+  "library": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_7_EFFECTIVE_ROUTING_INDEX_20261014.md",
+    "status": "PENDING_TOOLING",
+    "exact_byte_readback": "NOT_RUN",
+    "reason": "Library upload connector could not access the active container session; Git operational source is published and immutable."
+  },
+  "supersedes": "V1.2.6",
+  "rights_created": {
+    "dev": false,
+    "main_push": false,
+    "pr_create": false,
+    "merge": false,
+    "live": false
+  }
+}

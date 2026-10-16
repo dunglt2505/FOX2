@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "type": "TRUST_CANARY_ONLY",
+  "dispatch_id": "FOX2-GATE-A-CANARY-001",
+  "do_not_execute": true,
+  "max_runs": 0,
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "trust_mode": "BOOTSTRAP_PINNED_GIT",
+  "authority": {
+    "policy": {
+      "version": "V1.8.4",
+      "sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a",
+      "git_commit": "a366f509899cec97f64316cb111b29a3849325b5",
+      "git_blob": "483a74ff39339e653bbd7bbfba0feaf7b1c003e9"
+    },
+    "bridge_spec": {
+      "version": "v0.5",
+      "sha256": "2d182972b5edd6ccfd72c83b07d97907fa7fb63ed6eaa4de68b03b7e5165740a",
+      "git_commit": "8010a121e1d8b3f244da7dd856931b1bce41da21",
+      "git_blob": "1ce788e84628764f1b58459e93aecd5c7fde641e"
+    },
+    "routing_index": {
+      "version": "V1.2.5",
+      "sha256": "bd3332e6e6e783362cd5b3992145a2c216d4050a05e3b905ab957d129ece66a0",
+      "git_commit": "7b6e30e0712071da3a576e1ebda2dce364aa7dff",
+      "git_blob": "3ea18c06af93cd059b7e29c6f09914ac4a0298a7"
+    }
+  },
+  "permissions": {
+    "code_allowed": false,
+    "git_code_push": false,
+    "agent_launch": false,
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  },
+  "expected_behavior": "Publish and remote-readback only. Bridge must not execute this record."
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-009",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "501822a33ef08c7365154913bbc677544856eee5",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-009.md",
+    "git_commit": "5a527dd71e2217baef42a4a5c29b81e1533a5a5b",
+    "git_blob_sha1": "fb0822e6ab27e9721eaaf6bdcbf3566d1904329b",
+    "sha256": "66c8ceee35b657d68bca1a2bdfacaf2f6c1ba9e3556504f62f156663503e2b7c"
+  },
+  "source": {
+    "commit_sha": "501822a33ef08c7365154913bbc677544856eee5",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner directed immediate final Bridge certification after Dispatch 008. Current evidence shows no remaining production-code defect: installer isolation PASS, Windows uninstall PASS, complete disposable lifecycle PASS, real owned recovery materially complete. 009 is certification-only: no agent_bridge product mutation is authorized. It must validate startup ownership using Windows path-equivalence semantics, prove installed v3/v2/v0.6 compatibility, run the exact immutable legacy auto_execute canary once through the installed Worker, prove Codex gpt-6.1-sol Medium FULL_ACCESS application/result readback/usage evidence, restart with no replay, publish final009 reports, then stop for CHAT acceptance. Dispatches 001-008 remain consumed and must never replay."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "501822a33ef08c7365154913bbc677544856eee5",
+    "allowed_code_paths": [],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "codex_cli",
+      "full_access_mode",
+      "real_certified_bridge_package_installed",
+      "real_startup_task_owned_and_enabled",
+      "dispatch_001_through_008_consumption_preserved",
+      "final009_legacy_canary_unclaimed",
+      "final009_canary_branch_exact_base",
+      "final009_control_bundle_readable",
+      "installed_v3_normalizer_available",
+      "git_non_main_push_and_remote_readback"
+    ],
+    "stop_conditions": [
+      "source_branch_worktree_or_prompt_binding_mismatch",
+      "worktree_dirty_or_competing_writer",
+      "agent_auth_capacity_or_full_access_failure",
+      "any_product_source_mutation",
+      "any_001_through_008_replay",
+      "final009_canary_already_claimed",
+      "final009_canary_branch_head_not_exact_base_before_claim",
+      "startup_task_ownership_mismatch_beyond_windows_case_equivalence",
+      "installed_v3_v2_or_v06_compatibility_failure",
+      "real_tray_worker_single_instance_or_graceful_restart_failure",
+      "canary_claim_or_agent_execution_failure",
+      "agent_substitution_or_configuration_mismatch",
+      "result_publication_or_remote_readback_failure",
+      "secret_private_or_sensitive_data_exposure",
+      "changed_path_allowlist_or_git_diff_failure",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "STARTUP_SINGLE_INSTANCE",
+    "INSTALLED_TRAY_WORKER",
+    "SANITIZED_DIAGNOSTICS_BUNDLE",
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "REAL_ELIGIBLE_FOX2_DISPATCH",
+    "EXACT_AGENT_CONFIGURATION",
+    "FULL_ACCESS_PERMISSION",
+    "RESULT_REMOTE_READBACK",
+    "USAGE_SNAPSHOT",
+    "RESTART_NO_REPLAY",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-15T06:40:00Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008"
+}

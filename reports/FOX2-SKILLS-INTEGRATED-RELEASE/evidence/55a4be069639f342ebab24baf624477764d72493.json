@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-LOCAL-AGENT-BRIDGE-SPEC",
+  "version": "0.5",
+  "status": "RELEASED_EFFECTIVE",
+  "release_date": "2026-10-13",
+  "library": {
+    "path": "/Trading/FOX2/02_Architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.5.md",
+    "file_id": "file_00000000b1f08211a34155f313f456c6",
+    "library_file_id": "libfile_619ec8d7d5388191bfa43d3715ecbe39",
+    "size_bytes": 13380,
+    "sha256": "2d182972b5edd6ccfd72c83b07d97907fa7fb63ed6eaa4de68b03b7e5165740a",
+    "exact_byte_readback": "PASS"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-V05-BOOTSTRAP-TRUST-chat-20261013",
+    "commit": "8010a121e1d8b3f244da7dd856931b1bce41da21",
+    "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.5.md",
+    "blob": "1ce788e84628764f1b58459e93aecd5c7fde641e",
+    "exact_byte_match_to_library": true
+  },
+  "governance": {
+    "policy_version": "V1.8.4",
+    "policy_sha256": "481790b2512ea1cd4891fe1b03258175d68d9bfae71158d19283bd003c560f5a",
+    "policy_git_commit": "a366f509899cec97f64316cb111b29a3849325b5",
+    "routing_index_at_release": "V1.2.4",
+    "owner_decision": "2026-10-13 simplify Bridge bootstrap trust; App-specific publisher proof deferred to hardening"
+  },
+  "supersession": {
+    "supersedes_for_new_bridge_handoffs": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "preserve_existing_accepted_evidence": true
+  },
+  "trust_modes": {
+    "bootstrap": "CHAT_PINNED_CONTROL_REF + IMMUTABLE_COMMIT + HASH_BINDING + REPLAY_GUARD",
+    "hardened": "GITHUB_APP + ENFORCED_CONTROL_REF",
+    "bootstrap_active": true,
+    "hardened_required_before_confidential_private_or_live": true
+  },
+  "rights": {
+    "dev_grant": false,
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}

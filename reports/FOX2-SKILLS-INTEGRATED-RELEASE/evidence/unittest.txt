@@ -1,0 +1,39 @@
+test_17_positive_and_negative_helpers (test_core.AllSkillContractTests.test_17_positive_and_negative_helpers) ... ok
+test_authority_conflict (test_core.CoreTests.test_authority_conflict) ... ok
+test_candidate (test_core.CoreTests.test_candidate) ... ok
+test_dictionary_hash_mismatch (test_core.CoreTests.test_dictionary_hash_mismatch) ... ok
+test_evidence_traversal_and_mismatch (test_core.CoreTests.test_evidence_traversal_and_mismatch) ... ok
+test_hash_mismatch (test_core.CoreTests.test_hash_mismatch) ... ok
+test_lock_and_no_replay (test_core.CoreTests.test_lock_and_no_replay) ... ok
+test_material_drift (test_core.CoreTests.test_material_drift) ... ok
+test_missing_bootstrap (test_core.CoreTests.test_missing_bootstrap) ... ok
+test_missing_source (test_core.CoreTests.test_missing_source) ... ok
+test_native_success (test_core.CoreTests.test_native_success) ... ok
+test_no_authority_from_status (test_core.CoreTests.test_no_authority_from_status) ... ok
+test_offline (test_core.CoreTests.test_offline) ... ok
+test_permissions (test_core.CoreTests.test_permissions) ... ok
+test_unauthenticated (test_core.CoreTests.test_unauthenticated) ... ok
+test_candidate (test_git_resolver.Test.test_candidate) ... ok
+test_discovery (test_git_resolver.Test.test_discovery) ... ok
+test_missing_family (test_git_resolver.Test.test_missing_family) ... ok
+test_valid (test_git_resolver.Test.test_valid) ... ok
+test_wrong_hash (test_git_resolver.Test.test_wrong_hash) ... ok
+test_install_invoke_fail_closed_and_rollback (test_install.InstallationTests.test_install_invoke_fail_closed_and_rollback) ... ok
+test_no_overwrite (test_install.InstallationTests.test_no_overwrite) ... ok
+test_preserve_modified_wip (test_install.InstallationTests.test_preserve_modified_wip) ... ok
+test_all_17 (test_integration.SkillIntegration.test_all_17) ... ok
+test_general_certification (test_integration.SkillIntegration.test_general_certification) ... ok
+test_missing_registry_fails_closed (test_integration.SkillIntegration.test_missing_registry_fails_closed) ... ok
+test_actual_sync_save_readback_and_no_overwrite (test_operations.WorkflowTests.test_actual_sync_save_readback_and_no_overwrite) ... ok
+test_health_does_not_infer_from_commits (test_operations.WorkflowTests.test_health_does_not_infer_from_commits) ... ok
+test_recovery (test_operations.WorkflowTests.test_recovery) ... ok
+test_research (test_operations.WorkflowTests.test_research) ... ok
+test_review_non_bridge_feature (test_operations.WorkflowTests.test_review_non_bridge_feature) ... ok
+test_sync_conflict_and_idempotency (test_operations.WorkflowTests.test_sync_conflict_and_idempotency) ... ok
+test_traceability (test_operations.WorkflowTests.test_traceability) ... ok
+test_triage (test_operations.WorkflowTests.test_triage) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.393s
+
+OK

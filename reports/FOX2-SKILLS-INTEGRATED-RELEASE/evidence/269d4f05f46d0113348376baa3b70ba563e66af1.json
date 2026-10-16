@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-OPS-DEV-CANARY-002",
+  "wp_id": "FOX2-BRIDGE-OPS-DEV-01",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "COPILOT",
+    "interface": "GITHUB_COPILOT_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_SUPPORTED_CONFIGURED_DEFAULT",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_COPILOT_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-OPS-DEV-CANARY-002-COPILOT",
+  "branch": "work/FOX2-BRIDGE-OPS-DEV-CANARY-002-copilot",
+  "base_sha": "a3a6d0f0148d3bd66f6f564676704d856d52c002",
+  "prompt": {
+    "git_commit": "72ce9db23af0b975ffb55b78680c38698f9235b3",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_OPS_DEV_CANARY_002_PROMPT_20261013.md",
+    "git_blob_sha1": "6ac1a5c3e6ec8870ad2d0f457d821890a681735e",
+    "sha256": "20db03f0ccd7298ffb8bda0004aac7bca61d93774842f73ecf859fee4b6b4384"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-OPS-DEV-CANARY-002/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-OPS-DEV-CANARY-002/pytest_permission.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_OPS_DEV_PYTEST_002_OK"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "dev_shell_capabilities": [
+      "PYTEST"
+    ],
+    "invoke_via": "copilot_cli_programmatic",
+    "working_directory_must_equal_worktree": true,
+    "minimum_permissions_only": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "vscode_existing_session_not_required": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 180
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-13",
+    "text": "làm đi",
+    "scope": "FOX2-BRIDGE-OPS-DEV-01 bounded exact pytest permission implementation and canary 002."
+  }
+}

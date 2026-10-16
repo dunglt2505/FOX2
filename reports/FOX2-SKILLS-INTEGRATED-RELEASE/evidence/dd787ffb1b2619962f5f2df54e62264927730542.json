@@ -1,0 +1,86 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.3.0",
+  "scope": "FOX2_ONLY_AGENT_RESULT_CONTRACT_AND_CHAT_INTAKE",
+  "change_id": "FOX2-AGENT-RESULT-CONTRACT-20261012",
+  "owner_decision": "2026-10-12: require precise, verifiable contents of Agent Git results and CHAT-side independent acceptance; publish update in FOX2 Policy",
+  "source_lineage": {
+    "supersedes_version": "1.2.0",
+    "supersedes_sha256": "bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350",
+    "old_policy_preserved": true
+  },
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.3.md",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.3.md",
+    "library_file_id": "libfile_2c6687b5adec8191bf9b6e40a1fc5a79",
+    "provider_file_id": "file_000000005d2c821193dc98519dec87d7",
+    "bytes": 79148,
+    "sha256_raw": "2138d9dfdfb13eac9e58235dba81a7dca2a18b409709b3ce2c50f03168f36641",
+    "readback": "PASS_EXACT_BYTES"
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "library_file_id": "libfile_4e902b1bc94081918a470a7f1563c7b2",
+      "provider_file_id": "file_00000000174482089120193881d22494",
+      "bytes": 21696,
+      "sha256_raw": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_AGENT_RESULT_TEMPLATE_v2.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_AGENT_RESULT_TEMPLATE_v2.md",
+      "library_file_id": "libfile_443b4450201c8191b4ea5da554d8a39b",
+      "provider_file_id": "file_00000000650c8211b7c7a9c0ee5b337b",
+      "bytes": 4100,
+      "sha256_raw": "f4e7be792648b3cb1b378cb82a45e05d627ee3f3d1f655f01d78c10e5b3cd557",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v2.md",
+      "library_file_id": "libfile_fde6df1f1b108191899ff4e712cf1a76",
+      "provider_file_id": "file_000000002508821182989f6b11a910dc",
+      "bytes": 3895,
+      "sha256_raw": "890527778ec37ada89491c71e7834494559789828ce5db0cc35f549783546f96",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "verification": {
+    "library_upload": "SUCCEEDED",
+    "raw_bytes_readback": "PASS_ALL_4",
+    "policy_section_integrity": "PASS_C1_C4_C5_C6_AND_NEW_C6B_TO_C6E",
+    "json_schema_draft_2020_12": "VALID",
+    "illustrative_blocked_example": "VALIDATION_PASS_NOT_EXECUTION",
+    "negative_schema_tests": [
+      "SELF_ACCEPTED_REJECTED",
+      "PASS_WITHOUT_EVIDENCE_REJECTED",
+      "READY_WITHOUT_PUSH_REJECTED"
+    ],
+    "actual_agent_git_execution": "NOT_RUN",
+    "chat_independent_git_result_review": "NOT_RUN"
+  },
+  "effectivity": "RELEASED_EFFECTIVE_FOX2_GOVERNANCE_AFTER_MANIFEST_UPLOAD_AND_EXACT_READBACK",
+  "compatibility": {
+    "legacy_agent_evidence": "UNCHANGED_NOT_RETROACTIVELY_INVALIDATED",
+    "new_or_rescoped_git_first_wp": "REQUIRE_V2_CONTRACT",
+    "work_source_rights": "UNCHANGED_WORK_FULL_CAPABILITY_WHEN_AVAILABLE"
+  },
+  "technical_gates": {
+    "code_allowed_for_this_policy_task": false,
+    "git_mirror_v1_3": "PENDING",
+    "git_report_push_by_agent": "NOT_GRANTED_BY_POLICY",
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  },
+  "known_git_observation": {
+    "repo": "dunglt2505/FOX2",
+    "main_last_observed": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+    "draft_pr_1": "PARTIAL_RECOVERY_UNREVIEWED"
+  },
+  "note": "This manifest is a Library publication receipt, not a cryptographic signature, Git mirror receipt, actual Agent run, reviewer approval, or DEV grant. Its own SHA is not self-embedded."
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-002",
+  "wp_id": "FOX2-BRIDGE-E2E-CANARY-002",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "COPILOT",
+    "interface": "GITHUB_COPILOT_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_SUPPORTED_CONFIGURED_DEFAULT",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_COPILOT_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-E2E-CANARY-002-COPILOT",
+  "branch": "work/FOX2-BRIDGE-E2E-CANARY-002-copilot",
+  "base_sha": "7825bc8959f8c7a5bd825f31ebb16dad58249045",
+  "prompt": {
+    "git_commit": "06e8db6169c83db3f6ce1f9ce9e4a31ef5595cce",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_E2E_CANARY_002_PROMPT_20261013.md",
+    "git_blob_sha1": "63d2744dbf021dd8348a12f02f147859934e612e",
+    "sha256": "e4da615b3ea28732effc1b7d67a719443880254f2bc3657c98f946457cb12b94"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-E2E-CANARY-002/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-E2E-CANARY-002/bridge_called_copilot.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_E2E_CANARY_002_OK"
+  },
+  "runtime_contract": {
+    "invoke_via": "copilot_cli_programmatic",
+    "working_directory_must_equal_worktree": true,
+    "minimum_permissions_only": true,
+    "max_active_agent_executions": 2,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "vscode_existing_session_not_required": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 180
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-13",
+    "text": "triển khai E2E",
+    "scope": "Retry E2E after aborted canary 001 with visible progress and hard timeout."
+  }
+}

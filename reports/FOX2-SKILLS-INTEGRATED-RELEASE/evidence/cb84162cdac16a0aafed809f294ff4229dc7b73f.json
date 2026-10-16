@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-M1-P2-03-CODEX-001",
+  "wp_id": "FOX2-M1-P2-03",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "CODEX",
+    "interface": "OPENAI_CODEX_CLI",
+    "requested_model_or_mode": "GPT-6.1-SOL_OR_CURRENT_CONFIGURED_CODEX_MODEL",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-M1-P2-03-CODEX",
+  "branch": "work/FOX2-M1-P2-03-dsm-codex",
+  "base_sha": "b0b1168a51275b8c94940f455860bee24c0aff0f",
+  "prompt": {
+    "git_commit": "58f699cb6f27b01ea14fa4e75d1d150ad5b9b22f",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_M1_P2_03_CODEX_BRIDGE_PROMPT_20261014.md",
+    "git_blob_sha1": "9d2cbec5c27435e5df0f30fba6a48568403afa4d",
+    "sha256": "910d3ad168f558eaf47ba0f4d2d01ee517e472bdb8aa6d4df9ab389446803ea6"
+  },
+  "allowed_code_paths": [
+    "backend/src/fox2/dsm/**",
+    "tests/p2_03/**"
+  ],
+  "allowed_report_paths": [
+    "reports/FOX2-M1-P2-03/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-M1-P2-03/report.md",
+      "reports/FOX2-M1-P2-03/evidence_manifest.json"
+    ],
+    "stdout_contains": "FOX2_M1_P2_03_DELIVERY_READY"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "invoke_via": "codex_cli_exec",
+    "working_directory_must_equal_worktree": true,
+    "sandbox": "workspace-write",
+    "windows_sandbox": "unelevated",
+    "preferred_shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "approval_policy": "never",
+    "bridge_owns_git_commit_push": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 900
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-14",
+    "text": "triển khai FOX2-M1-P2-03",
+    "scope": "Implement the complete bounded FOX2 M1-P2-03 offline DSM source-selection work package and stop at PUSHED_UNREVIEWED."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-LOCAL-AGENT-BRIDGE-SPEC",
+  "version": "0.6",
+  "status": "RELEASED_EFFECTIVE / SIMPLIFIED_RELAY_MVP",
+  "release_date": "2026-10-13",
+  "owner_decision": "Tốt, triển khai đi",
+  "library": {
+    "path": "/Trading/FOX2/02_Architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.6.md",
+    "file_id": "file_0000000001d482308227d61ae1f5dec2",
+    "library_file_id": "libfile_58261b4b6e588191927cefa89cdb1daa",
+    "bytes": 10970,
+    "sha256": "d49a5e05c045dd2cfec85f3a49dc3fb1ecd221bacc3a6f3835fc19a83d0af190",
+    "exact_byte_readback": "PASS"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-SIMPLIFIED-BRIDGE-V185-V06-RELEASE-chat-20261013",
+    "source_commit": "772a7e137c4257e46cf2ae14680a72324eb07dec",
+    "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.6.md",
+    "blob": "ad4f118f6d32408d3e39c2e71fafc81b4f571956"
+  },
+  "supersedes": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.5.md",
+  "mvp": "BRIDGE_RELAY_MVP",
+  "max_active_agent_executions": 2,
+  "vs_code_existing_session_injection": "UNVERIFIED",
+  "one_click_fallback": "ALLOWED_BOOTSTRAP"
+}

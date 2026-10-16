@@ -1,0 +1,149 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-BATCH-B-INSTALL-ROOT-FIX-007.md",
+    "git_commit": "34c91a36e1cff6a7d251d57c8e782473d9eeeb04",
+    "git_blob_sha1": "b3ade21fff0447f602553ace54d733ea97b5ba5c",
+    "sha256": "965e1e0c7a059f9e2487486919b4c792455c9d377f3a13ba656c13a58da28534"
+  },
+  "source": {
+    "commit_sha": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner directed Bridge-first completion. Dispatch 006 is consumed and must not replay. Owner-supplied non-dispatch A/B proof on the exact Core006 package confirms inherited PYTHONPATH contamination: contaminated parent env gives pip exit 0 but installed import FAIL, while clean env gives pip exit 0 and installed import PASS; exact package hash and wheel contents verified; real runtime untouched; no uninstall or dispatch executed by the proof. CHAT verified current task head ce7a825 differs from the preflight source only by receipt/report/evidence commits, with no agent_bridge code drift. This single-use 007 authorizes one root environment-isolation correction plus tests, then disposable full lifecycle; ONLY if all isolated lifecycle gates PASS may it safely reconcile the owned damaged real per-user runtime and run one final 24-gate Bridge certification cycle. No blind deletion, no prior Dispatch replay, no main/PR/merge/deploy/provider/broker/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "ce7a8253926b7489c79311e26d7dc75ba8c81fc6",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "eligible_agent_route",
+      "codex_cli",
+      "full_access_mode",
+      "current_codex_auth_capacity_rechecked_at_launch",
+      "exclusive_task_worktree_owned_and_clean",
+      "no_competing_material_writer",
+      "dispatch_001_through_006_consumption_preserved",
+      "dispatch_007_exact_one_time_consumption",
+      "ab_proof_root_cause_confirmed",
+      "exact_core006_package_hash_verified",
+      "report_only_descendant_source_relation_verified",
+      "real_runtime_quarantined_until_isolated_lifecycle_pass",
+      "git_non_main_push_and_exact_remote_readback"
+    ],
+    "stop_conditions": [
+      "source_branch_worktree_or_prompt_binding_mismatch",
+      "worktree_dirty_or_competing_writer",
+      "agent_auth_quota_or_permission_failure",
+      "dispatch_007_replayed_or_any_001_through_006_replayed",
+      "root_fix_expands_beyond_installer_environment_contract_without_new_CHAT_review",
+      "isolated_install_or_full_lifecycle_failure",
+      "real_runtime_touched_before_all_isolated_lifecycle_gates_pass",
+      "real_runtime_ownership_or_durable_data_safety_not_proven",
+      "blind_delete_or_unowned_path_process_or_file_mutation",
+      "no_replay_ledger_or_durable_user_data_risk",
+      "unapproved_code_path_mutation",
+      "required_test_or_security_failure",
+      "schema_dictionary_or_governance_drift",
+      "secrets_credentials_or_sensitive_data_leak",
+      "git_publication_or_remote_readback_failure",
+      "unapproved_agent_substitution",
+      "privilege_escalation_provider_broker_live_or_main_pr_merge_deploy_action"
+    ]
+  },
+  "required_tests": [
+    "INSTALL_SUBPROCESS_ENV_ISOLATION",
+    "CONTAMINATED_PARENT_ENV_REGRESSION",
+    "FIRST_RUN_SETUP",
+    "PER_USER_INSTALL",
+    "INSTALLER_PACKAGE",
+    "UPDATE_PATH",
+    "UNINSTALL_PATH",
+    "STARTUP_SINGLE_INSTANCE",
+    "SANITIZED_DIAGNOSTICS_BUNDLE",
+    "INSTALLED_TRAY_WORKER",
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "REAL_ELIGIBLE_FOX2_DISPATCH",
+    "EXACT_AGENT_CONFIGURATION",
+    "FULL_ACCESS_PERMISSION",
+    "RESULT_REMOTE_READBACK",
+    "USAGE_SNAPSHOT",
+    "RESTART_NO_REPLAY",
+    "FULL_BRIDGE_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-15T03:25:08Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006"
+}

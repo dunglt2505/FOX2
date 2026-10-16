@@ -1,0 +1,61 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "bridge",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "USE_LATEST_OWNER_FINALIZED_RELEASED_DOCUMENT_FOR_COPILOT_HANDOFF",
+  "active_policy": {
+    "version": "1.8.2",
+    "status": "RELEASED_EFFECTIVE",
+    "library_raw_sha256": "552d36d910a020de4475b1994975d09a30dd09a138476b03a4a2250d543181dc"
+  },
+  "predecessor": {
+    "name": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.3.md",
+    "disposition": "SUPERSEDED_FOR_NEW_BRIDGE_TASKS",
+    "preserve_immutable": true
+  },
+  "source_candidate": {
+    "name": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4_CANDIDATE.md",
+    "bytes": 56435,
+    "sha256": "8b213b2c1b77300696b995bfa3111e42cf832d3937e5cd37ec5726c344228d3f"
+  },
+  "release_artifact": {
+    "name": "FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "library_path": "/Trading/FOX2/02_Architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "bytes": 59353,
+    "sha256": "8a7d5e55239c07fb32834f856fbe59b33cbc90d92768a7804c9a70236907cd9e"
+  },
+  "git_mirror": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-QUOTA-RECOVERY-SPEC-chat-20261013",
+    "commit": "36e4249d10d82e258626e3e49d796d8a8f498b8d",
+    "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.4.md",
+    "blob_sha1": "e74402d294c713a07a08b2c4e68b6caafbe2ad48",
+    "exact_byte_readback_verified": true
+  },
+  "source_version_gate": {
+    "for_new_bridge_tasks": "v0.4_RELEASED_EFFECTIVE",
+    "requires_latest_effective_release_check": true,
+    "no_candidate_fallback": true,
+    "on_mismatch": "BLOCKED_SOURCE_VERSION"
+  },
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "git_code_push": false,
+    "automated_gate_a": "BLOCKED_CAPABILITY_UNAVAILABLE",
+    "bridge_host_git_credential_verified": false,
+    "bridge_origin_push_verified": false,
+    "pr_allowed": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  },
+  "independent_work_review": {
+    "v0.3_base": "historical_work_audited",
+    "v0.4_delta": "not_independently_work_audited_at_release",
+    "release_scope": "Owner-directed document publication; no runtime certification"
+  }
+}

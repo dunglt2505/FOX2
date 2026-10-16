@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-OPS-CANARY-001",
+  "wp_id": "FOX2-BRIDGE-OPS-CANARY-001",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "COPILOT",
+    "interface": "GITHUB_COPILOT_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_SUPPORTED_CONFIGURED_DEFAULT",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_COPILOT_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-OPS-CANARY-001-COPILOT",
+  "branch": "work/FOX2-BRIDGE-OPS-CANARY-001-copilot",
+  "base_sha": "973d5d5aa53a9e806d73b07b18979dee46e9f7aa",
+  "prompt": {
+    "git_commit": "97472ab53d08e8bcaef3217a517820d35ac19099",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_OPS_MVP_CANARY_001_PROMPT_20261013.md",
+    "git_blob_sha1": "57d9a6aa5aea903ceb9d37ec56adcb379627792d",
+    "sha256": "c555b3f27bb08da74a493d1fb3ba480c528d620347b1e701a8d61b947fb15cd1"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-OPS-CANARY-001/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-OPS-CANARY-001/ops_mvp.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_OPS_MVP_CANARY_OK"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "invoke_via": "copilot_cli_programmatic",
+    "working_directory_must_equal_worktree": true,
+    "minimum_permissions_only": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "vscode_existing_session_not_required": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 180
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-13",
+    "text": "triển khai OPS MVP",
+    "scope": "Operational MVP canary for run-next auto dispatch execution."
+  }
+}

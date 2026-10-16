@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.8.5",
+  "status": "RELEASED_EFFECTIVE",
+  "release_date": "2026-10-13",
+  "owner_decision": "Tốt, triển khai đi",
+  "scope": "simplified parallel routing + Bridge governance boundary; no merge/Production/LIVE grant",
+  "library": {
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.5.md",
+    "file_id": "file_000000008b38820783fac2c210fd6b2f",
+    "library_file_id": "libfile_cd709b43fad88191961d1d7eb581ef22",
+    "bytes": 8692,
+    "sha256": "351a1eb39b32894f522c0302e7af6f793c7a0a8b2f365ff82a5d169d974819e2",
+    "exact_byte_readback": "PASS"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-SIMPLIFIED-BRIDGE-V185-V06-RELEASE-chat-20261013",
+    "source_commit": "772a7e137c4257e46cf2ae14680a72324eb07dec",
+    "path": "docs/governance/FOX2_POLICY_V1.8.5.md",
+    "blob": "5b38b6bd6776b5ef3a771ba2297f4565c2d9abed"
+  },
+  "supersedes": "FOX2_POLICY_V1.8.4.md",
+  "rights_created": {
+    "dev": false,
+    "merge": false,
+    "provider_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}

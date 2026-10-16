@@ -1,0 +1,28 @@
+{
+  "document_type": "FOX2_LIBRARY_RELEASE_MANIFEST",
+  "project": "FOX2",
+  "artifact_role": "policy",
+  "release_date": "2026-10-13",
+  "status": "RELEASED_EFFECTIVE",
+  "owner_instruction": "PUBLISH_SEQUENTIALLY_ALL",
+  "source_candidate": {
+    "name": "FOX2_POLICY_V1.8.2_CANDIDATE_REV4.md",
+    "bytes": 99899,
+    "sha256": "c5939fe385abebfb93a3b3372e04eb273e3a344cb3ece9c2304d1d25c6849b85"
+  },
+  "release_artifact": {
+    "name": "FOX2_POLICY_V1.8.2.md",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.2.md",
+    "bytes": 99085,
+    "sha256": "552d36d910a020de4475b1994975d09a30dd09a138476b03a4a2250d543181dc"
+  },
+  "controls": {
+    "document_release_only": true,
+    "code_allowed": false,
+    "git_source_ready": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "project": "FOX2",
+  "status": "INTEGRATION_PENDING",
+  "skills_count": 17,
+  "catalog": "contracts.json",
+  "shared_resolver": "shared/native_registry.py",
+  "host_authority_verifier": "REQUIRED_NOT_CONFIGURED",
+  "installed": false,
+  "host_invocation": "NOT_RUN",
+  "release_readiness": "NOT_READY"
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "9bb217d14a1689495039196cc2d695185e253baf",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "9bb217d14a1689495039196cc2d695185e253baf"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "9bb217d14a1689495039196cc2d695185e253baf",
+    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-DESKTOP-BATCH-B-TRAY-LIFECYCLE-004.md",
+    "git_commit": "bc31782bd62d08127e63a9a1ebd900a389275223",
+    "git_blob_sha1": "fcdcdde88528100b30f64ed42f4a0206c652be56",
+    "sha256": "6f75de0c2d4067d122a6020f86301879c2a5bfc7cc2d3d4d2e798d7cc16c7c6d"
+  },
+  "source": {
+    "commit_sha": "9bb217d14a1689495039196cc2d695185e253baf",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner requested same-WP recovery immediately after accepted recovered-code checkpoint. CHAT verified immutable remote task head 7f027d4f and source-current PreExec v1.1 receipt published and independently read back at task head 9bb217d14a1689495039196cc2d695185e253baf, receipt source head 7f027d4f (only intervening change is receipt), status PASS, eligible_agent_route PASS, Codex PASS gpt-6.1-sol Medium FULL_ACCESS, Copilot FAIL AUTH_REQUIRED, worktree PASS/NONE_OBSERVED, all material host probes PASS. 354/354 pytest PASS reported by operator before checkpoint, 17 recovered code files verified on GitHub. Dispatch 001,002,003 CONSUMED; no replay. Exact separate, one-time Dispatch 004 authorizes ONLY repair/certification of Tray graceful exit and installed lifecycle of same Bridge Batch B WP, preserve prior code, 24 certification gates; no duplication of implementation or blanket DEV. At launch recheck current exact local SHA 9bb217d14a1689495039196cc2d695185e253baf, source/prompt hashes, host/package prereqs, exclusive writer/process and ledger consumed safeguards, Codex quota and authorization; STOP on UNKNOWN/FAIL without code mutation. No PR/main/merge/deploy/provider/broker/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "9bb217d14a1689495039196cc2d695185e253baf",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "local_appdata_per_user_write",
+      "eligible_agent_route",
+      "codex_cli",
+      "full_access_mode",
+      "exact_preexec_receipt_9bb217d1_pass",
+      "exclusive_bridge_task_worktree",
+      "source_schema_v3_dictionary_binding",
+      "installed_package_windows_tools",
+      "bounded_current_codex_capacity_at_launch",
+      "no_competing_writer_exact_lock_at_launch",
+      "prior_dispatches_001_002_003_consumed_no_replay",
+      "valid_per_user_install_runtime_and_test_fixture",
+      "source_head_9bb217d1_exact",
+      "agent_published_git_result_remote_readback"
+    ],
+    "stop_conditions": [
+      "source_or_task_prompt_binding_mismatch",
+      "wrong_branch_or_worktree",
+      "unexpected_local_changes_or_competing_material_writer",
+      "dispatch_001_002_003_replay_or_004_consumption",
+      "unauthorized_path_change",
+      "installer_or_toolchain_capability_missing",
+      "unsafe_installed_lifecycle_or_graceful_exit",
+      "agent_auth_quota_capacity_or_full_access_failure",
+      "schema_dictionary_or_runtime_contract_drift",
+      "test_or_security_gate_failure",
+      "secret_or_sensitive_data_exposure",
+      "git_push_or_exact_readback_failure",
+      "agent_substitution",
+      "provider_broker_or_live_access",
+      "unsafe_termination_of_unowned_process",
+      "unproven_single_instance_or_no_replay",
+      "unsafe_upgrade_uninstall_or_data_loss",
+      "quota_exhaustion_after_start_needs_reconciliation_no_replay",
+      "failure_to_certify_any_required_acceptance_gate"
+    ]
+  },
+  "required_tests": [
+    "FIRST_RUN_SETUP",
+    "PER_USER_INSTALL",
+    "INSTALLER_PACKAGE",
+    "UPDATE_PATH",
+    "UNINSTALL_PATH",
+    "STARTUP_SINGLE_INSTANCE",
+    "SANITIZED_DIAGNOSTICS_BUNDLE",
+    "INSTALLED_TRAY_WORKER",
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "REAL_ELIGIBLE_FOX2_DISPATCH",
+    "EXACT_AGENT_CONFIGURATION",
+    "FULL_ACCESS_PERMISSION",
+    "RESULT_REMOTE_READBACK",
+    "USAGE_SNAPSHOT",
+    "RESTART_NO_REPLAY",
+    "FULL_BRIDGE_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-15T01:55:17.651Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003"
+}

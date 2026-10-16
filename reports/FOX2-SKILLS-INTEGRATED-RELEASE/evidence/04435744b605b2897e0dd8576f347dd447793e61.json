@@ -1,0 +1,88 @@
+{
+  "document_type": "FOX2_POLICY_RELEASE_MANIFEST",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "1.8.1",
+  "change_id": "FOX2-C5B-EXECUTION-ROUTING-SELECTOR-20261012",
+  "parent_release": {
+    "version": "1.8",
+    "sha256": "226fecb094843d492e87c4768f5741726a4651b7556d5ec0abf3739e9720dd7b",
+    "retention": "RETAINED_UNCHANGED_HISTORY"
+  },
+  "owner_decision": "Owner explicitly instructed implementation of Policy V1.8.1 with the staged Execution Routing Selector: Screen 1 manual VS Code vs automated setup; Screen 2 Agent/Model/Thinking; Screen 3 Bridge/back/cancel; remove save-prompt and save-configuration choices.",
+  "publication_operator": "CHAT; Library native upload + exact raw-byte readback",
+  "published_at_utc": "2026-10-12T10:42:19.185821+00:00",
+  "official_policy": {
+    "name": "FOX2_POLICY_V1.8.1.md",
+    "path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V1.8.1.md",
+    "file_id": "file_000000003fbc8211a2c3449b30308177",
+    "library_file_id": "libfile_28cd60abae24819181bcef4882d51c21",
+    "bytes": 111880,
+    "sha256": "5d88518916cd98c3caf0e1169012d8200a21bb3789938b6f116f148317ef4ae4",
+    "readback": "PASS_EXACT_BYTES"
+  },
+  "released_supporting_artifacts": [
+    {
+      "name": "FOX2_AGENT_PROMPT_POLICY_V1_2_1_EFFECTIVE_ROUTING_INDEX_20261012.md",
+      "path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_2_1_EFFECTIVE_ROUTING_INDEX_20261012.md",
+      "file_id": "file_0000000007808206a1db93593160c147",
+      "library_file_id": "libfile_04eb878d9ce48191b1f56d8ba0458398",
+      "bytes": 2566,
+      "sha256": "7d3f2985214f0b79377af6bbf78d723fa73024978c48ab3a2766910d8a44428d",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.1.md",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v8.1.md",
+      "file_id": "file_000000002d4c8211aa74da20d7f4f236",
+      "library_file_id": "libfile_1fdd5b09fac08191a68aa65cf847bec7",
+      "bytes": 7763,
+      "sha256": "37a6210244ae275887655b24e3159411dba2c6d064410edbaabcf7cb0163d9e0",
+      "readback": "PASS_EXACT_BYTES"
+    },
+    {
+      "name": "FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.1.json",
+      "path": "/Trading/FOX2/07_Agent_Handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v1.1.json",
+      "file_id": "file_0000000084b88211b9023e4acf60f418",
+      "library_file_id": "libfile_dc33d2b559d481918adf8414daaa54b1",
+      "bytes": 6807,
+      "sha256": "33f0dbbb6271c965ed801ec909bfc0033758197114e9b5649363a43240547622",
+      "readback": "PASS_EXACT_BYTES"
+    }
+  ],
+  "routing_ui": {
+    "preferred_component": "single-select radio group + explicit confirmation CTA when interactive UI is exposed",
+    "screen_1": [
+      "MANUAL_VSCODE",
+      "CONFIGURE_AUTOMATED_AGENT"
+    ],
+    "screen_2": "OWNER_CONFIRMED_AGENT_MODEL_THINKING_OR_OPTIMIZE",
+    "screen_3": [
+      "DISPATCH_VIA_LOCAL_BRIDGE",
+      "BACK_TO_AGENT_CONFIGURATION",
+      "CANCEL_EXECUTION"
+    ],
+    "removed": [
+      "SAVE_PROMPT_ONLY",
+      "SAVE_CONFIGURATION_ONLY"
+    ],
+    "preselection_is_approval": false
+  },
+  "bridge_contract": {
+    "dispatch_schema": "1.1",
+    "result_contract": "v2 unchanged",
+    "bridge_rechecks_governance": false,
+    "silent_model_substitution": false,
+    "max_runs": 1
+  },
+  "effectivity": "RELEASED_EFFECTIVE after observed Library readback and this release manifest readback; Git operational mirror remains a separate gate",
+  "git_mirror": "PENDING_REMOTE_VERIFICATION",
+  "controls": {
+    "MAIN_PUSH": "NO",
+    "MERGE_ALLOWED": "NO",
+    "DNSE_PRODUCTION": "NO",
+    "BROKER_WRITE": "NO",
+    "LIVE": "NO",
+    "BRIDGE_SELF_GRANT": "NO",
+    "BRIDGE_REROUTE": "NO"
+  }
+}

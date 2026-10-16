@@ -1,0 +1,145 @@
+{
+    "schema_version":  "3.0",
+    "project":  "FOX2",
+    "dispatch_id":  "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-013",
+    "dispatch_action":  "EXECUTE_LOCAL_AGENT",
+    "wp_id":  "FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "target_agent":  "CODEX",
+    "workspace_id":  "FOX2_LOCAL",
+    "dictionary":  {
+                       "version":  "1.2",
+                       "git_path":  "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+                       "git_commit_sha":  "167482376e1d725e3723ccc249284a76edcf5e4e",
+                       "sha256":  "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+                   },
+    "policy":  {
+                   "version":  "1.8.9",
+                   "sha256":  "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+                   "git_path":  "docs/governance/FOX2_POLICY_V1.8.9.md",
+                   "git_commit_sha":  "167482376e1d725e3723ccc249284a76edcf5e4e"
+               },
+    "task":  {
+                 "path":  "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+                 "commit_sha":  "167482376e1d725e3723ccc249284a76edcf5e4e",
+                 "sha256":  "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+             },
+    "prompt":  {
+                   "path":  "docs/agent_handoff/RECOVERY/FOX2-BRIDGE-FINAL-CERTIFICATION-013.md",
+                   "git_commit":  "7b7675aeecaae83cd5cb3963db09be6458f6f676",
+                   "git_blob_sha1":  "f06bad6b6706b489288ace3c6f37fc40ab67a9c3",
+                   "sha256":  "7344cd1fffb4f31e4bd433693337e7adcb71104a7b1c8843dab13d93455c1d36"
+               },
+    "source":  {
+                   "commit_sha":  "167482376e1d725e3723ccc249284a76edcf5e4e",
+                   "git_source_ready":  "YES"
+               },
+    "routing":  {
+                    "model_policy":  "PINNED",
+                    "auto_tier":  null,
+                    "model":  "gpt-6.1-sol",
+                    "reasoning_effort":  "high",
+                    "permission_profile":  "FULL_ACCESS"
+                },
+    "execution_path":  "MANUAL_LOCAL",
+    "delivery_owner":  "AGENT",
+    "permissions":  {
+                        "code_allowed":  true,
+                        "git_code_push":  true,
+                        "git_report_write":  true,
+                        "git_report_push":  true,
+                        "pr_create":  false,
+                        "merge_allowed":  false,
+                        "production_provider":  false,
+                        "broker_write":  false,
+                        "live":  false
+                    },
+    "decision_receipt":  {
+                             "policy_check":  "PASS",
+                             "task_state_check":  "PASS",
+                             "source_binding_check":  "PASS",
+                             "routing_r0_r7":  "PASS",
+                             "assignment_check":  "PASS",
+                             "material_capability_check":  "PASS",
+                             "execution_authorized":  "YES",
+                             "code_allowed":  "YES",
+                             "dev_grant_ref":  "Owner authorized final in-flight Bridge reconciliation. Controller 012 is consumed. Production source is frozen. Controller 013 corrects only the proven certification observer false-negative, writes only final013 evidence, reuses immutable Canary 009 exactly once, and creates no main/merge/deploy/LIVE authority."
+                         },
+    "runtime_contract":  {
+                             "repo":  "dunglt2505/FOX2",
+                             "branch":  "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+                             "worktree":  "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+                             "base_sha":  "167482376e1d725e3723ccc249284a76edcf5e4e",
+                             "allowed_code_paths":  [
+
+                                                    ],
+                             "allowed_report_paths":  [
+                                                          "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final013/**"
+                                                      ],
+                             "required_capabilities":  [
+                                                           "git",
+                                                           "python",
+                                                           "pwsh",
+                                                           "schtasks.exe",
+                                                           "codex_cli",
+                                                           "full_access_mode",
+                                                           "certified_product_source_501822a33ef08c7365154913bbc677544856eee5",
+                                                           "corrected_process_observer_013",
+                                                           "worker_exact_executable_binding",
+                                                           "worker_corrected_module_argv_binding",
+                                                           "worker_parent_pid_tray_binding",
+                                                           "real_certified_bridge_package_installed",
+                                                           "real_startup_task_owned_and_enabled",
+                                                           "dispatch_001_through_012_non_replay",
+                                                           "final009_canary_unclaimed",
+                                                           "final009_canary_exact_base",
+                                                           "git_non_main_push_and_remote_readback"
+                                                       ],
+                             "stop_conditions":  [
+                                                     "task_source_branch_or_worktree_drift",
+                                                     "worktree_dirty_or_competing_writer",
+                                                     "controller_013_already_claimed",
+                                                     "canary_009_already_claimed_or_result_exists",
+                                                     "canary_branch_not_exact_certified_base",
+                                                     "observer_013_binding_or_materialization_failure",
+                                                     "observer_preclaim_not_zero_zero",
+                                                     "installed_package_identity_mismatch",
+                                                     "startup_task_ownership_failure",
+                                                     "tray_worker_not_exactly_one_one",
+                                                     "worker_executable_argv_or_parent_binding_failure",
+                                                     "heartbeat_failure",
+                                                     "any_product_source_mutation",
+                                                     "any_001_through_012_replay",
+                                                     "canary_agent_execution_failure",
+                                                     "agent_substitution_or_configuration_mismatch",
+                                                     "result_publication_or_remote_readback_failure",
+                                                     "changed_path_allowlist_secret_scan_or_diff_failure",
+                                                     "main_pr_merge_deploy_provider_broker_or_live_action"
+                                                 ]
+                         },
+    "required_tests":  [
+                           "CERT_OBSERVER_RAW_BYTE_MATERIALIZATION",
+                           "CERT_PROCESS_OBSERVER_SELF_EXCLUSION",
+                           "STARTUP_SINGLE_INSTANCE",
+                           "INSTALLED_TRAY_WORKER",
+                           "SANITIZED_DIAGNOSTICS_BUNDLE",
+                           "PROJECT_DICTIONARY_BINDING",
+                           "DISPATCH_V3_SCHEMA_BINDING",
+                           "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+                           "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+                           "V2_COMPATIBILITY",
+                           "V06_COMPATIBILITY",
+                           "REAL_ELIGIBLE_FOX2_DISPATCH",
+                           "EXACT_AGENT_CONFIGURATION",
+                           "FULL_ACCESS_PERMISSION",
+                           "RESULT_REMOTE_READBACK",
+                           "USAGE_SNAPSHOT",
+                           "RESTART_NO_REPLAY",
+                           "CHANGED_PATH_ALLOWLIST",
+                           "SECRET_SCAN",
+                           "GIT_DIFF_CHECK"
+                       ],
+    "created_by":  "CHAT",
+    "created_at":  "2026-10-15T13:08:24.9189041Z",
+    "max_runs":  1,
+    "retry_of_dispatch_id":  "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-012"
+}

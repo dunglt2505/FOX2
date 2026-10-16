@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-P2-01-READINESS-20261012-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-WP-M1-P2-01-DEV-READINESS",
+  "target_agent": "COPILOT",
+  "workspace_id": "FOX2_LOCAL",
+  "policy": {
+    "version": "1.8",
+    "sha256": "226fecb094843d492e87c4768f5741726a4651b7556d5ec0abf3739e9720dd7b",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.md",
+    "git_commit_sha": "736863e18c43236509130c6a683b982491d2867d"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-WP-M1-P2-01-DEV-READINESS/task.md",
+    "commit_sha": "959bd0f32d1a87015f7144bedb910d86b74fab21",
+    "sha256": "da1d33d162130f568c1f95302fc86976c5ebfcb0b5ed1885edcd8a7fbf40e8f9"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-WP-M1-P2-01-DEV-READINESS/copilot_precheck_prompt.md",
+    "sha256": "2a96aed8b001ea05be6b7244cf33c25d145a27ab0886da02bc5c0db01b936494"
+  },
+  "source": {
+    "commit_sha": "959bd0f32d1a87015f7144bedb910d86b74fab21",
+    "git_source_ready": "YES"
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "NO",
+    "dev_grant_ref": null
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-WP-M1-P2-01-DEV-READINESS-copilot",
+    "base_sha": "959bd0f32d1a87015f7144bedb910d86b74fab21",
+    "allowed_paths": [
+      "reports/FOX2-WP-M1-P2-01-DEV-READINESS/**"
+    ],
+    "forbidden_paths": [
+      "backend/**",
+      "frontend/**",
+      "fixtures/**",
+      "tests/**",
+      "docs/**",
+      "main",
+      "provider/DNSE/**",
+      "broker/**"
+    ],
+    "stop_conditions": [
+      "POLICY_OR_SOURCE_MISMATCH",
+      "TASK_OR_PROMPT_HASH_MISMATCH",
+      "WRONG_REPO_OR_WORKSPACE",
+      "UNSAFE_WIP_OR_WRITER_COLLISION",
+      "UNEXPECTED_REMOTE_HEAD",
+      "NO_REPORT_PUSH_ACCESS",
+      "ANY_APPLICATION_OR_DEPENDENCY_MUTATION",
+      "ANY_PROVIDER_OR_PRIVATE_DATA_ACCESS"
+    ]
+  },
+  "created_by": "CHAT",
+  "created_at": "2026-10-12T10:44:38Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": null
+}

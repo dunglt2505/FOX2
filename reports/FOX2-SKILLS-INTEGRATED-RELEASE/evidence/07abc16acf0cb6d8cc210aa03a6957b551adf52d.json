@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-002",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-01-02",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "CODEX",
+    "interface": "OPENAI_CODEX_CLI",
+    "requested_model_or_mode": "GPT-6.1-SOL_IF_AVAILABLE; HIGH_REASONING_PREFERRED",
+    "model_policy": "PINNED_PREFERRED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high"
+  },
+  "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-01-02-R2-CODEX",
+  "branch": "work/FOX2-BRIDGE-DESKTOP-01-02-R2-codex",
+  "base_sha": "4778d78a11e844b6938157fcb0532664169a68d3",
+  "prompt": {
+    "git_commit": "21073ae5cfa3d5976d8d393559c8ecc9316b4266",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_DESKTOP_01_02_CODEX_BRIDGE_PROMPT_20261014_REV2.md",
+    "git_blob_sha1": "0dc80681002726eedadb5e4644feab8a205ad31d",
+    "sha256": "1012826f8437f151fc00a1a1cfbabecc88cc2dc3d4e40734a91796d808436ddb"
+  },
+  "allowed_code_paths": [
+    "agent_bridge/**"
+  ],
+  "allowed_report_paths": [
+    "reports/BRIDGE-DESKTOP-01-02/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/BRIDGE-DESKTOP-01-02/report.md",
+      "reports/BRIDGE-DESKTOP-01-02/evidence_manifest.json"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_DESKTOP_01_02_DELIVERY_READY"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "invoke_via": "codex_cli_exec",
+    "working_directory_must_equal_worktree": true,
+    "sandbox": "workspace-write",
+    "windows_sandbox": "unelevated",
+    "preferred_shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "approval_policy": "never",
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning_effort": "high",
+    "bridge_owns_git_commit_push": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 1800
+  },
+  "replacement_of": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-001",
+  "replacement_reason": "Dispatch 001 was terminal FAILED before implementation because remote HEAD and writer-exclusivity checks were incorrectly delegated to the CODEX sandbox. REV2 restores responsibility: CHAT/Bridge verify provenance, claim, remote head, worktree and writer ownership; CODEX performs local implementation checks only.",
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-14",
+    "text": "triển khai tiếp đi; bổ sung trạng thái FAILED của dispatch 001",
+    "scope": "Continue authorized BRIDGE-DESKTOP-01-02 DEV through a fresh replacement dispatch without replaying terminal dispatch 001."
+  }
+}

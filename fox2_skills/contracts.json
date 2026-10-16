@@ -1,0 +1,204 @@
+{
+  "fox2-agent-prompt-builder": {
+    "inputs": [
+      "outcome",
+      "allowed_paths",
+      "permissions",
+      "tests",
+      "stop_conditions",
+      "template"
+    ],
+    "sources": [
+      "policy",
+      "routing_index",
+      "result_template"
+    ],
+    "acceptance": "Draft one measurable handoff; do not dispatch."
+  },
+  "fox2-strategic-agent-triage": {
+    "inputs": [
+      "root_causes",
+      "options",
+      "decision"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Group findings by root cause and justify one next decision."
+  },
+  "fox2-project-health": {
+    "inputs": [
+      "facts",
+      "unknowns",
+      "blockers",
+      "next_milestone"
+    ],
+    "sources": [
+      "roadmap"
+    ],
+    "acceptance": "Reconcile acceptance with evidence cutoff; never infer completion from commits."
+  },
+  "fox2-document-publication": {
+    "inputs": [
+      "identity",
+      "lineage",
+      "destination",
+      "save_status",
+      "release_status",
+      "registry_status",
+      "mirror_status"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Verify destination bytes; report save, release, Registry and mirror separately."
+  },
+  "fox2-source-resolver": {
+    "inputs": [
+      "family",
+      "bootstrap"
+    ],
+    "sources": [],
+    "acceptance": "Call native_registry.bind with host authority verifier; unresolved bootstrap holds dependent work."
+  },
+  "fox2-governance-preflight": {
+    "inputs": [
+      "operation",
+      "authorization",
+      "allowed_paths"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Evaluate applicable current controls and actual grant; no implicit rights."
+  },
+  "fox2-result-review": {
+    "inputs": [
+      "claims",
+      "tests",
+      "findings"
+    ],
+    "sources": [
+      "git_first_protocol",
+      "result_schema"
+    ],
+    "acceptance": "Compare claims to independently read evidence; self-report is not PASS."
+  },
+  "fox2-source-sync": {
+    "inputs": [
+      "inventory",
+      "diff",
+      "conflicts",
+      "receipts"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Detect same-name different-byte conflict; copy only authorized delta and read back."
+  },
+  "fox2-agent-route-runtime": {
+    "inputs": [
+      "route",
+      "capabilities",
+      "scope"
+    ],
+    "sources": [
+      "routing_index"
+    ],
+    "acceptance": "Choose one route supported by current routing and observed host capability."
+  },
+  "fox2-thread-handoff": {
+    "inputs": [
+      "source_lock",
+      "wip",
+      "completed",
+      "next_action"
+    ],
+    "sources": [
+      "git_first_protocol"
+    ],
+    "acceptance": "Transfer frozen task state and WIP without dispatch or replay."
+  },
+  "fox2-brd-change-control": {
+    "inputs": [
+      "requirements_delta",
+      "acceptance_impact",
+      "approvals"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Trace bounded BRD change and required approvals; do not alter canonical BRD."
+  },
+  "fox2-techspec-validator": {
+    "inputs": [
+      "traceability",
+      "gaps",
+      "unresolved"
+    ],
+    "sources": [
+      "data_contract"
+    ],
+    "acceptance": "Cross-check specification against BRD, interfaces and tests."
+  },
+  "fox2-dictionary-impact": {
+    "inputs": [
+      "identity_delta",
+      "consumers",
+      "impact"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Trace identity consumers; no migration without scoped authorization."
+  },
+  "fox2-feature-certification": {
+    "inputs": [
+      "feature",
+      "installed_behavior",
+      "acceptance_map",
+      "decision"
+    ],
+    "sources": [
+      "policy",
+      "git_first_protocol"
+    ],
+    "acceptance": "Check any feature, not Bridge only; absence of installed behavior blocks certification."
+  },
+  "fox2-execution-recovery": {
+    "inputs": [
+      "actual_state",
+      "completed_effects",
+      "safe_retry",
+      "risks"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Read actual task state; exclude completed effects from bounded recovery."
+  },
+  "fox2-status-roadmap": {
+    "inputs": [
+      "health_facts",
+      "milestones",
+      "unknowns"
+    ],
+    "sources": [
+      "roadmap"
+    ],
+    "acceptance": "Reuse health and plan facts with cutoff; no competing master status."
+  },
+  "fox2-research-validation": {
+    "inputs": [
+      "method",
+      "data",
+      "backtest",
+      "limits",
+      "evidence_tier"
+    ],
+    "sources": [
+      "policy"
+    ],
+    "acceptance": "Inspect method, leakage, data and applicability; no untested deployment."
+  }
+}

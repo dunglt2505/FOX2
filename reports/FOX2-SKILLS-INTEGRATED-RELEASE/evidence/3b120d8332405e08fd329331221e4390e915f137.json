@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-003",
+  "wp_id": "FOX2-BRIDGE-CODEX-CLI-01",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "CODEX",
+    "interface": "OPENAI_CODEX_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_CURRENT_CODEX_CLI_CONFIG",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-CODEX-CANARY-003-CODEX",
+  "branch": "work/FOX2-BRIDGE-CODEX-CANARY-003-codex",
+  "base_sha": "baa268fa4d99f4ac0d450ccfa327e4c446570fb3",
+  "prompt": {
+    "git_commit": "bd1724dd68c2b81019140e990ba47138eedfe0d8",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_CODEX_CLI_CANARY_003_PROMPT_20261014.md",
+    "git_blob_sha1": "1d9ff0c483cecd2d6b52a579ef781261824058ee",
+    "sha256": "e781fe9b3ad0ad1b2e1db23fe32afe9daa22eabbe5e6b5accb5e1b3e43a214bb"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-CODEX-CANARY-003/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-CODEX-CANARY-003/codex_bridge.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_CODEX_CLI_CANARY_003_OK"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "invoke_via": "codex_cli_exec",
+    "working_directory_must_equal_worktree": true,
+    "sandbox": "workspace-write",
+    "windows_sandbox": "unelevated",
+    "approval_policy": "never",
+    "bridge_owns_git_commit_push": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 180
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-14",
+    "text": "COPILOT hết token, chuyển sang CODEX CLI đi",
+    "scope": "Retry Codex Bridge canary with Windows unelevated sandbox fallback after codex-cli 0.162.1 setup refresh failure."
+  }
+}

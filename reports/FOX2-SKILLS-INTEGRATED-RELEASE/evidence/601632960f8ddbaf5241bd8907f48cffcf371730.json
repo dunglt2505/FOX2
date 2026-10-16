@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.6",
+  "project": "FOX2",
+  "type": "NORMAL_AGENT_DISPATCH",
+  "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-001",
+  "wp_id": "FOX2-BRIDGE-CODEX-CLI-01",
+  "repository": "dunglt2505/FOX2",
+  "control_ref": "refs/heads/work/FOX2-LOCAL-DISPATCH-chat",
+  "agent": {
+    "product": "CODEX",
+    "interface": "OPENAI_CODEX_CLI",
+    "requested_model_or_mode": "OWNER_NOT_PINNED_USE_CURRENT_CODEX_CLI_CONFIG",
+    "existing_vscode_session_injection": "NOT_REQUIRED"
+  },
+  "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+  "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-CODEX-CANARY-001-CODEX",
+  "branch": "work/FOX2-BRIDGE-CODEX-CANARY-001-codex",
+  "base_sha": "733f5c798c840cd55e61c8c7c029f1775c889ed6",
+  "prompt": {
+    "git_commit": "f3ade29cf57723c41283f2dd7392e445d3fec357",
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_CODEX_CLI_CANARY_001_PROMPT_20261014.md",
+    "git_blob_sha1": "837703bb12261122671b725fcf47ba440b38d21f",
+    "sha256": "cd2b942738d5a52dbfde49dbd49304ae904129c965cefbe2632756cace8bcaee"
+  },
+  "allowed_code_paths": [],
+  "allowed_report_paths": [
+    "reports/FOX2-BRIDGE-CODEX-CANARY-001/**"
+  ],
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "acceptance": {
+    "required_paths": [
+      "reports/FOX2-BRIDGE-CODEX-CANARY-001/codex_bridge.txt"
+    ],
+    "stdout_contains": "FOX2_BRIDGE_CODEX_CLI_CANARY_OK"
+  },
+  "runtime_contract": {
+    "auto_execute": true,
+    "invoke_via": "codex_cli_exec",
+    "working_directory_must_equal_worktree": true,
+    "sandbox": "workspace-write",
+    "approval_policy": "never",
+    "bridge_owns_git_commit_push": true,
+    "no_duplicate_governance": true,
+    "no_silent_substitution": true,
+    "owner_workspace_read_only": true,
+    "heartbeat_seconds": 10,
+    "hard_timeout_seconds": 180
+  },
+  "max_runs": 1,
+  "owner_decision": {
+    "date": "2026-10-14",
+    "text": "COPILOT hết token, chuyển sang CODEX CLI đi",
+    "scope": "Switch FOX2 Bridge DEV execution from Copilot CLI to Codex CLI and prove it with a fresh single-use canary."
+  }
+}

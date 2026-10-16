@@ -1,0 +1,93 @@
+{
+  "status": "BYTE_CHECK_ONLY",
+  "files": [
+    {
+      "path": "README.md",
+      "matches": true
+    },
+    {
+      "path": "manifest.json",
+      "matches": true
+    },
+    {
+      "path": "shared/git_resolver.py",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-agent-prompt-builder/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-agent-route-runtime/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-brd-change-control/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-dictionary-impact/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-document-publication/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-execution-recovery/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-feature-certification/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-governance-preflight/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-project-health/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-research-validation/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-result-review/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-source-resolver/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-source-sync/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-status-roadmap/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-strategic-agent-triage/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-techspec-validator/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "skills/fox2-thread-handoff/SKILL.md",
+      "matches": true
+    },
+    {
+      "path": "tests/test_git_resolver.py",
+      "matches": true
+    },
+    {
+      "path": "tests/test_integration.py",
+      "matches": true
+    }
+  ]
+}
