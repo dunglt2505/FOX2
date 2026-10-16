@@ -12,7 +12,7 @@ ROUTES = (
 
 def checks(profile):
     tools = {'app': ('git', 'python', 'pwsh', 'node', 'npm', 'npx'),
-             'bridge': ('git', 'python', 'pwsh', 'schtasks.exe'),
+             'bridge': ('git', 'python', 'pwsh', 'schtasks.exe', 'dotnet'),
              'rollout': ('git', 'python', 'pwsh')}[profile]
     result = {name: partial(tool_probe, name) for name in tools}
     if profile == 'app':
