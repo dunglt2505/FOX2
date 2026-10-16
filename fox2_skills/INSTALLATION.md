@@ -32,3 +32,47 @@ python tools/package_install.py rollback --receipt C:/Temp/fox2-skills-receipt.j
 Rollback verifies all owned files before deleting any. Modified files cause a conflict and remain intact. Unowned files and directories remain. Restore a prior release only from its own verified bundle/receipt into a separate new directory; no global Skill configuration is changed by these commands.
 
 Host documentation consulted: [OpenAI Skill guidance](https://learn.chatgpt.com/docs/build-skills), [portable plugin packaging](https://developers.openai.com/plugins/build/plugins). Actual local CLI exposes `plugin add/list/remove` and marketplace commands; no registration or host-invocation success is asserted here.
+
+
+## Conditional-baseline review continuation
+
+`shared.release_chain.ReleaseChainVerifier(scope, cutoff, authority_provider=None)`
+now implements applicability, authorized immutable refs, competing EFFECTIVE
+releases, Candidate exclusion, supersession closure/cycle checks, exact anchor
+digests and semantic ownership checks. The provider must return a fresh trusted
+`AuthoritySnapshot` from independently verified owning decisions. Its typed Python
+records are an adapter contract, not a new Registry or proof of authority. Never
+construct trusted snapshots by deserializing a task request or repository claims.
+No provider means `AUTHORITY_UNVERIFIED`, including the Owner's conditional baseline.
+`native_registry.bind` still requires this verifier callback and verifies actual
+Dictionary/source file records; source and manifest commits are recorded separately.
+
+For a read-only conditional audit, use `tools/verify_release_chain.py --help`.
+It requires an explicit immutable manifest commit, paths, scope and cutoff, performs
+authenticated Git refresh/readback and writes an `AUTHORITY_UNVERIFIED` receipt
+(exit 2). There is no command-line authority-file override.
+
+The observed Codex CLI 0.162.1 supports isolated local marketplace installation:
+place the entire package under the marketplace root, point a
+`.agents/plugins/marketplace.json` entry at it, then use `codex plugin marketplace
+add`, `codex plugin add`, and `codex plugin list`. App-server `skills/list` confirms
+discovery of all 17 names with prefix `fox2-skills-integrated:`. This was executed
+with a separate runtime home, followed by plugin removal and package rollback.
+The user's active host configuration was not changed. A Python runtime invocation
+is still only contract preparation, not substantive Skill acceptance.
+
+The isolated app-server reports `account=null` and `requiresOpenaiAuth=true`.
+Model-driven semantic scenarios remain NOT_RUN there. Authenticated host execution
+and real EFFECTIVE binding are separate prerequisites. See the integrated review
+report for the exact remaining source-family and authority gaps.
+
+
+The inspected local app-server protocol exposes `skills/list` with `cwds` and
+`forceReload`. Explicit model invocation uses a `turn/start` input item of shape
+`{"type":"skill","name":"<name returned by skills/list>","path":"<installed SKILL.md path>"}`
+alongside the task text. A listed/enabled skill proves discovery, not execution or
+semantic acceptance. Keep the complete package so sibling shared references resolve.
+
+Run `tools/build_distribution.py` (or `tools/assemble_delivery.py`, now a packaging
+wrapper) only after updating the integrated report and evidence. Packaging does
+not create acceptance evidence or a source authority decision.

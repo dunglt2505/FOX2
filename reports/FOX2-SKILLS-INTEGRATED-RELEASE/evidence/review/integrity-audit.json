@@ -1,0 +1,47 @@
+{
+  "inputs": {
+    "report.md": {
+      "path": "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\codex-file-preview-nvEhAE\\report.md",
+      "sha256": "ec20c53ae1cba8424bcf5178b9b201aec872c252762959dc8899edec08d71c5b",
+      "bytes": 12746
+    },
+    "delivery_manifest.json": {
+      "path": "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\codex-file-preview-zhRGAE\\delivery_manifest.json",
+      "sha256": "e9f97cd0b9398f54e9c737762e01de5c502f1f4cd35e7abd38188d50f93867e2",
+      "bytes": 22124
+    },
+    "INSTALLATION.md": {
+      "path": "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\codex-file-preview-PaauUE\\INSTALLATION.md",
+      "sha256": "8af4575a69b21da3943f6e32221cbe652e4387e14e3aab74b843e06aaf6fc143",
+      "bytes": 3725
+    },
+    "unittest.txt": {
+      "path": "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\codex-file-preview-NPucYL\\unittest.txt",
+      "sha256": "def5286d2d929f98a3a039c0d1399668578b8310eec23c06ae4fc4813317bc98",
+      "bytes": 2875
+    },
+    "FOX2-SKILLS-INTEGRATED-REVIEW.zip": {
+      "path": "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\codex-file-preview-An1pEe\\FOX2-SKILLS-INTEGRATED-REVIEW.zip",
+      "sha256": "9674d87fe288bbe8c87771aef43eff24d8b3c810858a865e88c6049a148bb012",
+      "bytes": 325356
+    },
+    "FOX2-SKILLS-INTEGRATED-REVIEW.zip.sha256": {
+      "path": "C:\\Users\\FOXLE~1\\AppData\\Local\\Temp\\codex-file-preview-YA277T\\FOX2-SKILLS-INTEGRATED-REVIEW.zip.sha256",
+      "sha256": "c6c1c5e09a82b6fcac78a35a000c064eb6d1a446812d3391944717030862bdde",
+      "bytes": 100
+    }
+  },
+  "manifest_mismatches": [],
+  "worktree_mismatches": [],
+  "standalone_mismatches": [],
+  "zip_checksum_matches": true,
+  "zip_entries": 147,
+  "duplicates": [],
+  "unsafe_paths": [],
+  "manifest_files": 146,
+  "unmanifested_entries": [],
+  "embedded_manifest_paths": [
+    "reports/FOX2-SKILLS-INTEGRATED-RELEASE/delivery_manifest.json"
+  ],
+  "embedded_manifest_equal": true
+}

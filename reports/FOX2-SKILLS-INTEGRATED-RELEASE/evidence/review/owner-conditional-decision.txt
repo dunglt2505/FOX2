@@ -1,0 +1,12 @@
+FOX2 — CHAT OWNER-DELEGATED DECISION
+Scope: FOX2-SKILLS-INTEGRATED-RELEASE
+Decision: CONDITIONAL SOURCE BASELINE — NOT YET CERTIFIED EFFECTIVE
+1. Sử dụng source_set_head = 9111c82e4a4e04cb63f0c924af4642341af6d802 làm baseline kỹ thuật để kiểm chứng, không mặc định là trust root EFFECTIVE.
+2. Sử dụng commit d2d2b8bc0116646cb83ca93e59d7209632a80aa4 làm điểm truy xuất manifest đã quan sát. Tự xác định chính xác path của manifest và Dictionary từ Git tree, sau đó xác minh nội dung, SHA-256, release chain và semantic ownership.
+3. Phạm vi kiểm chứng: Governance và source binding cần thiết cho 17 FOX2 Skills. Không mở rộng sang các project khác.
+4. Allowed refs: Chỉ sử dụng các immutable refs được chứng minh thuộc release chain có thẩm quyền. Không mặc định main, mọi work/*, hoặc latest commit đều được phép.
+5. Kiểm tra đầy đủ competing EFFECTIVE releases, supersession, applicability và trust-root authority. Nếu thiếu quyết định phát hành có thẩm quyền, giữ kết quả AUTHORITY_UNVERIFIED; không tự nâng thành VERIFIED_EFFECTIVE.
+6. Tiếp tục ngay các phần không phụ thuộc vào chứng nhận authority: verifier implementation, negative-path tests, Skill-host discovery, package installation và các host scenarios có thể chạy an toàn.
+7. Báo lại đúng bằng chứng hoặc quyết định authority còn thiếu. Không yêu cầu Owner xác nhận từng file, từng phiên bản hoặc từng bước kỹ thuật.
+Authorization: Được tiếp tục kiểm tra, triển khai và kiểm thử trong work package hiện hữu. Không được tự sửa Registry, thay đổi governance, merge, promote EFFECTIVE hoặc production release.
+Expected result: Một báo cáo tích hợp duy nhất, phân biệt VERIFIED, UNVERIFIED, BLOCKED và NOT_RUN theo bằng chứng thực tế.

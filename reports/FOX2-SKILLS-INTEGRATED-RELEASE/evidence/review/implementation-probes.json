@@ -1,0 +1,342 @@
+{
+  "scope": "Characterization probes, not substantive host acceptance",
+  "probes": {
+    "source_is_reread_after_hash_verification": {
+      "result": {
+        "returned_status": "VERIFIED_EFFECTIVE",
+        "returned_sha256": "e43df8f355f650ef9b66099d3471a910958c73c9f0dd69567f014fe98f9f2fa1",
+        "verified_sha256": "57ccec5e5c18d08dc1f94b16a500d29307748a022709cf0291bc368b5f01178b",
+        "source_reads": 2
+      }
+    },
+    "git_failure_is_not_typed_hold": {
+      "exception": "CalledProcessError",
+      "status": null,
+      "message": "Command '['git', 'show']' returned non-zero exit status 128."
+    },
+    "malformed_record_is_not_typed_hold": {
+      "exception": "Hold",
+      "status": "UNVERIFIED",
+      "message": "Incomplete/unsupported native release evidence"
+    },
+    "actual_manifest_at_source_commit": {
+      "exception": "CalledProcessError",
+      "status": null,
+      "message": "Command '['git', '-C', 'C:\\\\Projects\\\\FOX2-worktrees\\\\FOX2-SKILLS-INTEGRATED-RELEASE', 'cat-file', '-e', '9111c82e4a4e04cb63f0c924af4642341af6d802:docs/governance/FOX2_AGENT_ROUTE_MATERIALITY_RELEASE_MANIFEST_20261014.json']' returned non-zero exit status 128."
+    },
+    "actual_bind_policy": {
+      "result": {
+        "status": "VERIFIED_EFFECTIVE",
+        "family": "policy",
+        "commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+        "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+        "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+        "registry_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+        "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4",
+        "authority_evidence": [
+          "SYNTHETIC_TEST_AUTHORITY"
+        ]
+      }
+    },
+    "actual_bind_result_schema": {
+      "exception": "Hold",
+      "status": "UNVERIFIED",
+      "message": "Incomplete/unsupported native release evidence"
+    },
+    "actual_bind_result_template": {
+      "exception": "Hold",
+      "status": "UNVERIFIED",
+      "message": "Incomplete/unsupported native release evidence"
+    },
+    "actual_bind_data_contract": {
+      "exception": "Hold",
+      "status": "UNVERIFIED",
+      "message": "Incomplete/unsupported native release evidence"
+    },
+    "actual_bind_roadmap": {
+      "exception": "Hold",
+      "status": "UNVERIFIED",
+      "message": "Incomplete/unsupported native release evidence"
+    }
+  },
+  "synthetic_callback_notice": "fixture_authority is test-only; these probes establish implementation behavior, never authority",
+  "actual_release_byte_checks": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "bytes": 9386,
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "matches": true
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "bytes": 12170,
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "matches": true
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "bytes": 4920,
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "matches": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "bytes": 7041,
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "matches": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "bytes": 6688,
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "matches": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "bytes": 2783,
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "matches": true
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "bytes": 6053,
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "matches": true
+    },
+    {
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "bytes": 48809,
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "matches": true
+    },
+    {
+      "path": "docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.1.md",
+      "bytes": 4698,
+      "sha256": "8af08f9ef53e8ff63655d8e7089311de4aac06bf66a0946776e8f17bd6b3980e",
+      "matches": true
+    },
+    {
+      "path": "docs/agent_handoff/README.md",
+      "bytes": 3494,
+      "sha256": "7e4cddb923418db1f6da93a078441c7c43dfc04334e6920736760f32bd53ea8c",
+      "matches": true
+    },
+    {
+      "path": "README.md",
+      "bytes": 3444,
+      "sha256": "289699910f8841a915dc925d9f5610e38b9d53c6a1035fc5b2901d71b33b60b0",
+      "matches": true
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md",
+      "bytes": 17755,
+      "sha256": "9f066040c7f6eac1e6d82891a2e4c00a9a15200d146e499d41256b5dc84f5f7a",
+      "matches": true
+    }
+  ],
+  "family_manifest_coverage": {
+    "data_contract": {
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "covered": false
+    },
+    "git_first_protocol": {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "covered": true
+    },
+    "policy": {
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "covered": true
+    },
+    "result_schema": {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "covered": false
+    },
+    "result_template": {
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md",
+      "covered": false
+    },
+    "roadmap": {
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "covered": false
+    },
+    "routing_index": {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "covered": true
+    }
+  },
+  "remote_branch_comparison": {
+    "count": 70,
+    "different": []
+  },
+  "bootstrap_locations": [
+    {
+      "ref": "refs/remotes/origin/work/FOX2-REUSABLE-PROJECT-SOURCE-KIT-chat-20261013",
+      "commit": "98d7d9f37b1c9397613479be8429665467521c99",
+      "path": "docs/agent_handoff/SOURCE_FRESHNESS/FOX2_ACTIVE_SOURCE_REGISTRY_BOOTSTRAP_20261013.json",
+      "blob": "934472c49a9dd37ff6e9a4af88fdbd5b0a1205f7"
+    },
+    {
+      "ref": "refs/remotes/origin/work/FOX2-SFR-P0-SOURCE-FRESHNESS-chat-20261013",
+      "commit": "c6a4626dfc84e991e7f6ec860ed2e4587a68af2d",
+      "path": "docs/agent_handoff/SOURCE_FRESHNESS/FOX2_ACTIVE_SOURCE_REGISTRY_BOOTSTRAP_20261013.json",
+      "blob": "934472c49a9dd37ff6e9a4af88fdbd5b0a1205f7"
+    }
+  ],
+  "git_receipt": {
+    "head": "b466d844c141c6c172528585a1c60ab1d3503f2d",
+    "branch": "work/FOX2-SKILLS-INTEGRATED-RELEASE-codex",
+    "status": "",
+    "changed_paths_in_original_commit": [
+      ".gitignore",
+      "fox2_skills/.gitattributes",
+      "fox2_skills/INSTALLATION.md",
+      "fox2_skills/README.md",
+      "fox2_skills/contracts.json",
+      "fox2_skills/manifest.json",
+      "fox2_skills/plugin.json",
+      "fox2_skills/provenance/RELEASE_MANIFEST_CANDIDATE.json",
+      "fox2_skills/provenance/RELEASE_README.md",
+      "fox2_skills/release_manifest.json",
+      "fox2_skills/shared/__init__.py",
+      "fox2_skills/shared/core.py",
+      "fox2_skills/shared/errors.py",
+      "fox2_skills/shared/local_git.py",
+      "fox2_skills/shared/native_registry.py",
+      "fox2_skills/shared/operations.py",
+      "fox2_skills/shared/runtime.py",
+      "fox2_skills/skills/fox2-agent-prompt-builder/SKILL.md",
+      "fox2_skills/skills/fox2-agent-route-runtime/SKILL.md",
+      "fox2_skills/skills/fox2-brd-change-control/SKILL.md",
+      "fox2_skills/skills/fox2-dictionary-impact/SKILL.md",
+      "fox2_skills/skills/fox2-document-publication/SKILL.md",
+      "fox2_skills/skills/fox2-execution-recovery/SKILL.md",
+      "fox2_skills/skills/fox2-feature-certification/SKILL.md",
+      "fox2_skills/skills/fox2-governance-preflight/SKILL.md",
+      "fox2_skills/skills/fox2-project-health/SKILL.md",
+      "fox2_skills/skills/fox2-research-validation/SKILL.md",
+      "fox2_skills/skills/fox2-result-review/SKILL.md",
+      "fox2_skills/skills/fox2-source-resolver/SKILL.md",
+      "fox2_skills/skills/fox2-source-sync/SKILL.md",
+      "fox2_skills/skills/fox2-status-roadmap/SKILL.md",
+      "fox2_skills/skills/fox2-strategic-agent-triage/SKILL.md",
+      "fox2_skills/skills/fox2-techspec-validator/SKILL.md",
+      "fox2_skills/skills/fox2-thread-handoff/SKILL.md",
+      "fox2_skills/tests/legacy_git_resolver.py",
+      "fox2_skills/tests/test_core.py",
+      "fox2_skills/tests/test_git_resolver.py",
+      "fox2_skills/tests/test_install.py",
+      "fox2_skills/tests/test_integration.py",
+      "fox2_skills/tests/test_operations.py",
+      "fox2_skills/tools/assemble_delivery.py",
+      "fox2_skills/tools/build_contracts.py",
+      "fox2_skills/tools/build_distribution.py",
+      "fox2_skills/tools/discover_sources.py",
+      "fox2_skills/tools/finalize_evidence.py",
+      "fox2_skills/tools/package_install.py",
+      "fox2_skills/tools/verify_git_readback.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/FOX2-SKILLS-INTEGRATED-REVIEW.zip",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/FOX2-SKILLS-INTEGRATED-REVIEW.zip.sha256",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/delivery_manifest.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/.gitattributes",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/04435744b605b2897e0dd8576f347dd447793e61.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/07abc16acf0cb6d8cc210aa03a6957b551adf52d.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/08fbf37241f56db382672ec437d93c010604e801.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/0eb4f3145f8497906e46351f1dc402fe9e6355d0.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1062d9da7e47445c57e937af604b87088c906a03.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1208181d36ae1a858fd6d8e50fded520903ac3bc.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/12bd80fdea07880826f1337f26b02ba59c2a192f.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/16c1117e4ee7d25584b6c06974869ac247847689.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1ac5a735714316468295c7daf1b875b650a3a8b4.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1b2b6d02709a2a3f1e68679c5045532444b90dec.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1c495af9606c01ebaab5974336a88599d6f4b1a3.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1d479c8eb7e06e6420956c8c6ff896319ecb1a3b.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/1f007f408e24677356b2d337c81ebffcf6968554.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/2563fc0b397a5a8b93730fe879fc6824b85358a9.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/269d4f05f46d0113348376baa3b70ba563e66af1.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/28621bbb42350f2adb3caf19773f3c3d17705559.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/2bd895599cdcbaacc7bea5b7ced8487fa070d5ce.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/327a149517682e31c78ac6b8b09df2a8a85162a2.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/3526f13106a3aa37d7c875070da914bb28b41189.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/35b00b113fdf95273dad8669babe52929416dbbe.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/3b120d8332405e08fd329331221e4390e915f137.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/3b593fa2166ac00c881a0ce93295764efe0bd949.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/3c9618391654b00a49e92479ca222c3b768aa555.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/3df95156ff6c35123819a4865b0e677156b7a809.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/417a58993f1f90aabb3eaee6cf581129fe84c801.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/4c9b0280f04de3c0924d93ab2ac73e86114c6a33.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/52306026977bd649427e9ddb7b7000fb446609af.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/55a4be069639f342ebab24baf624477764d72493.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/5e9cfd70ce36e0c0b3261f8cdf9b8785fe1dcbbd.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/600bc7ff480a3092a481642d61bb413de9da570a.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/601632960f8ddbaf5241bd8907f48cffcf371730.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/6941646ccfaf4084fee903d3f98901b1fd067ccb.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/703f7b9c40e33bca5110f404fb4c190f36863be6.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/72c9ad82ea111f673c671cb1bed9d4ac7772d984.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/738decf275412df7209ade6f540ffa603b2cc491.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/74e1341163556dba6445a06879f5db1e2c69387e.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/7976c594f35b1d5726e57a91556f999881eb142a.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/7bba347537d48d4d7b499841efeafc06ea3e597f.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/8047d86cd54fa1d634281d8a2e2f3fc14af259a5.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/83a4a5ac4ccc6b05206f91db8a7fdfe6a1e85fea.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/871eb2af864b0d40e5dfdd14832ef0a59688d3b8.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/874b7646fb31bdd8133cb51ffcbdc4f7b9be6001.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/87a5baf57b2503528f6c669a25e5c4dc9bff1c6c.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/880cb9bd3bc4de20a27f98849ee5f9ba6dac1b78.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/887fb1752943e81629ddf507ca880bf01e8e2816.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/8c0a536601cff857b5e32a62d659fbe9c4e1ba97.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/8dccfec1fbe5b917729d6bacd6ca122f3307c535.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/8e37f4794b41a4eabd68043ce6c0d72ea7f5f843.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/9083acb34f5339dd4096274995741d8c3a217a22.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/91cf9ab9507750c61392c894e446a2a45d8093d6.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/934472c49a9dd37ff6e9a4af88fdbd5b0a1205f7.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/964dceb19c74235b9dbf0d219c77046c1b2e9a4e.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/97f548f21bd38b7dc9a8f8504af0aa77b88d2358.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/9bc92d78fc3d54b5dab323eb23be9580ef1305e6.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/9d9611397696e8ae1e512bba077f584cc8649883.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a0003a908885548e1267be7c475c394ee995a51f.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a16476f7101f7a34232c3ba63c774b0b9b1f0a74.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a25d49edf7cbd4fd9eabfdef4a9ee0e86f987b6a.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a34cf5f6b62b69901330d05e14540defb97c295a.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a37844b1485e43bd026b72ee85b4d87e75b2affb.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a8a46e6d9d2bda9ce637e3d206701f92ff976e87.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/a9999c4dd91c3518d1690dcc62645fb83536bcf4.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/afa81e7cd025226d81a2d03edb1385fc5606e4f8.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/b1b96ce8b39da378b61ab6fd3e3dc3b54e1589af.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/b33dd8941033645e1766f6e5ec7189ddac7a9fc0.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/b4f4219a1568ef1ba4a2dc1e74bcee760667ff83.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/b5ac6af502d0fa4150a0043098f222ce10842827.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/bba2d0bd5c39a3b79bfdf050b85b5eb27298b1f8.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/bca1489a57308202e4e47212b3f748745a3a2ebd.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/bdca24576ef53aa0812ee8cb9cc4d691a5c4b1db.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/bfd690333f0e4fe4feb6b7b7a938fbbdea34e64d.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/c28a3987363d4c34323299cec0e45648f0c90b5d.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/c35253ddd13a3cdc6a794f9eab75dab1a5a7cad5.py",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/c5fc564115194f5394c15924cf6aa2f27f15cd38.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/c64294bf3645f1307ef1de38a19a409eebf0ba58.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/c6a87de0ae3be692d85aa77023771b024e2f8bbc.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/candidate_import_check.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/cb84162cdac16a0aafed809f294ff4229dc7b73f.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/cd74e286cae9ad1104aefe9c8701d87c124d63dc.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/cf0565fe653b0ebe48a8c40e5df8ca78afdd9751.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/cf06b7d7f9ac238586ac54f0fdc0b401e52af577.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/d02800e39d3aa51ff92de2654fe18abd5296f9de.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/d40b6298372e2c49fe0d744816eba323db4f6c6c.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/d79a6ef37a75d63c63725f072a54474ec841abc2.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/db4d0b78a15ab7b45f1c4e848718b38223598c3d.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/dd787ffb1b2619962f5f2df54e62264927730542.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/e27561804cb308a5caa60165b402754776f68d24.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/e49f4f0fca931c6df5df69e9ac27e60e083dde7e.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/e689c1378505b8e99a78312e530b7140ac7e4311.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/e7c83b7a0854c273ee29ab09a86b90c9a227a246.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/f455145ccbaf65aba4eb1ab4040c242061a0fe45.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/f707caeb4d5d8bff4ef5011bce997888a3490c54.md",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/f8a0adef6de700f0af577b249148f24d89b2dc41.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/git_discovery.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/git_readback.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/input_inventory.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/skill_validation.json",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/unittest.txt",
+      "reports/FOX2-SKILLS-INTEGRATED-RELEASE/report.md"
+    ]
+  }
+}

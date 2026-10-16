@@ -1,0 +1,24 @@
+{
+  "FOX2_AGENT_RESULT_SCHEMA_v2.json": [
+    {
+      "manifest": "docs/governance/FOX2_POLICY_V1.3_RELEASE_MANIFEST_20261012.json",
+      "commit": "a07bb2f3fbec4dc6b3fa6643f7e56e19935d1649",
+      "blob": "dd787ffb1b2619962f5f2df54e62264927730542"
+    }
+  ],
+  "FOX2_AGENT_RESULT_TEMPLATE_v4.md": [
+    {
+      "manifest": "docs/governance/FOX2_POLICY_V1.5_RELEASE_MANIFEST_20261012.json",
+      "commit": "a07bb2f3fbec4dc6b3fa6643f7e56e19935d1649",
+      "blob": "c5fc564115194f5394c15924cf6aa2f27f15cd38"
+    }
+  ],
+  "FOX2_MARKET_DATA_CONTRACT_v0.4.md": [],
+  "FOX2_M1_ROADMAP_v0.4.md": [
+    {
+      "manifest": "docs/roadmap/FOX2_M1_ROADMAP_V0.4_RELEASE_MANIFEST_20261012.json",
+      "commit": "a07bb2f3fbec4dc6b3fa6643f7e56e19935d1649",
+      "blob": "f8a0adef6de700f0af577b249148f24d89b2dc41"
+    }
+  ]
+}

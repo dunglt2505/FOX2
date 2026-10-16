@@ -1,0 +1,314 @@
+{
+  "scope": "FOX2-SKILLS-INTEGRATED-RELEASE",
+  "rows": [
+    {
+      "skill": "fox2-agent-prompt-builder",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Build one measurable handoff from current template, bounded paths, tests and STOP conditions; save draft only.",
+      "substantive_negative_scenario": "Reject a handoff that claims merge authority absent from the scoped grant.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy",
+        "routing_index",
+        "result_template"
+      ]
+    },
+    {
+      "skill": "fox2-strategic-agent-triage",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Group three observed findings by root cause, compare bounded options and justify one next decision.",
+      "substantive_negative_scenario": "Keep an unsupported completion claim UNKNOWN rather than promote it from self-report.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-project-health",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Reconcile one passed, one failed and one unobserved acceptance at the evidence cutoff.",
+      "substantive_negative_scenario": "Do not infer completion from a commit with no installed-behavior evidence.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "roadmap"
+      ]
+    },
+    {
+      "skill": "fox2-document-publication",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Save an approved draft to a scratch destination, read exact bytes and report four distinct status classes.",
+      "substantive_negative_scenario": "Preserve same-name different-byte destination and refuse overwrite/release promotion.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-source-resolver",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Resolve a current family through independently authorized release chain with separate manifest/source commits.",
+      "substantive_negative_scenario": "Hold the Owner-conditional baseline AUTHORITY_UNVERIFIED; reject conflicting current releases.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": []
+    },
+    {
+      "skill": "fox2-governance-preflight",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Permit one read-only task with current governing sources and exact scoped paths/grant.",
+      "substantive_negative_scenario": "Hold missing source authority or an operation outside the grant.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-result-review",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Independently read tests and byte receipts, separate acceptance evidence from executor claims.",
+      "substantive_negative_scenario": "Reject a PASS claim whose evidence is absent or mismatched.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "git_first_protocol",
+        "result_schema"
+      ]
+    },
+    {
+      "skill": "fox2-source-sync",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Copy one explicitly authorized new local file, read back bytes and recognize identical retry.",
+      "substantive_negative_scenario": "Preserve different bytes at an existing destination.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-agent-route-runtime",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Choose one CHAT-allowed route supported by actual observed capabilities.",
+      "substantive_negative_scenario": "Hold missing pinned capability and do not silently switch Agent.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "routing_index"
+      ]
+    },
+    {
+      "skill": "fox2-thread-handoff",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Transfer WIP, completed effects, next action and the frozen source lock without dispatch.",
+      "substantive_negative_scenario": "Refuse completed-dispatch replay or unreviewed source-lock rebind.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "git_first_protocol"
+      ]
+    },
+    {
+      "skill": "fox2-brd-change-control",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Trace a bounded requirement delta to acceptance and needed owning approvals; return draft assessment.",
+      "substantive_negative_scenario": "Hold a proposed canonical semantic change without owning approval.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-techspec-validator",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Trace a supplied technical interface to owning BRD, data contract and executable acceptance evidence.",
+      "substantive_negative_scenario": "Report an unimplemented interface or missing BRD trace as a gap, never PASS.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "data_contract"
+      ]
+    },
+    {
+      "skill": "fox2-dictionary-impact",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Map a candidate identifier/path delta to actual consumers and prospective impact without mutation.",
+      "substantive_negative_scenario": "Hold semantic conflict with owning source; do not migrate Registry.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-feature-certification",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Verify one non-Bridge feature through installed behavior and acceptance evidence.",
+      "substantive_negative_scenario": "Block certification when only source code/unit assertions exist.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy",
+        "git_first_protocol"
+      ]
+    },
+    {
+      "skill": "fox2-execution-recovery",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Read partial actual state and plan retries excluding already completed effects.",
+      "substantive_negative_scenario": "Hold uncertain execution/consumed dispatch instead of blind replay.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    },
+    {
+      "skill": "fox2-status-roadmap",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Reuse cutoff-bound health evidence to update a draft milestone view.",
+      "substantive_negative_scenario": "Do not create a competing master status from stale or unsupported facts.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "roadmap"
+      ]
+    },
+    {
+      "skill": "fox2-research-validation",
+      "host_discovery": "VERIFIED",
+      "installed_helper_negative": "VERIFIED",
+      "negative_helper_reason": "Operation lacks scoped grant",
+      "substantive_positive_scenario": "Inspect method, data split, leakage, backtest and applicability limits; return bounded evidence tier.",
+      "substantive_negative_scenario": "Reject leakage/unsupported generalization and grant no deployment rights.",
+      "model_host_positive": "NOT_RUN",
+      "model_host_negative": "NOT_RUN",
+      "acceptance": "BLOCKED",
+      "blockers": [
+        "AUTHORITY_UNVERIFIED",
+        "isolated host requires OpenAI authentication"
+      ],
+      "required_contract_families": [
+        "policy"
+      ]
+    }
+  ],
+  "notice": "Helper negatives and host metadata discovery are not model workflow acceptance."
+}

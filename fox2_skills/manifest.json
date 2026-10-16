@@ -4,8 +4,15 @@
   "skills_count": 17,
   "catalog": "contracts.json",
   "shared_resolver": "shared/native_registry.py",
-  "host_authority_verifier": "REQUIRED_NOT_CONFIGURED",
+  "host_authority_verifier": "IMPLEMENTED_TRUSTED_AUTHORITY_PROVIDER_NOT_CONFIGURED",
   "installed": false,
   "host_invocation": "NOT_RUN",
-  "release_readiness": "NOT_READY"
+  "release_readiness": "NOT_READY",
+  "isolated_host_installation": "VERIFIED",
+  "host_discovery": {
+    "enabled_skills": 17,
+    "errors": 0
+  },
+  "source_authority_status": "AUTHORITY_UNVERIFIED",
+  "isolated_host_model_auth": "UNAVAILABLE_REQUIRES_OPENAI_AUTH"
 }

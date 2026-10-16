@@ -6,6 +6,7 @@ One package containing 17 bounded Skill contracts, shared native Dictionary/rele
 
 - `skills/` and `contracts.json`: Candidate-derived workflows, input/output contracts, relevant dependencies and acceptance.
 - `shared/native_registry.py`: production adapter; requires a real host authority verifier. No invented Registry schema is authority.
+- `shared/release_chain.py`: host-integrated release-chain decision engine; independent authority provider required, conditional baseline stays AUTHORITY_UNVERIFIED.
 - `shared/local_git.py`: authenticated CLI/Git readback.
 - `shared/core.py`: task locks, drift, scoped preflight and evidence.
 - `shared/operations.py`: sync/save receipts, health, traceability, triage, recovery and research utilities.

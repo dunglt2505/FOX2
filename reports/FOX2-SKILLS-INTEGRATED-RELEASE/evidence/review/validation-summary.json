@@ -1,0 +1,9 @@
+{
+  "unittest_exit": 0,
+  "conditional_verifier": {
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "stdout": "{\"status\": \"AUTHORITY_UNVERIFIED\", \"families_checked\": 7, \"effects\": []}\n",
+    "stderr": ""
+  }
+}

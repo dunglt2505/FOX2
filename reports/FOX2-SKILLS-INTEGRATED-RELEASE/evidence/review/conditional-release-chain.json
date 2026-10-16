@@ -1,0 +1,148 @@
+{
+  "status": "AUTHORITY_UNVERIFIED",
+  "scope": "FOX2-SKILLS-INTEGRATED-RELEASE",
+  "cutoff": "2026-10-16",
+  "bootstrap": {
+    "commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+    "manifest_path": "docs/governance/FOX2_AGENT_ROUTE_MATERIALITY_RELEASE_MANIFEST_20261014.json",
+    "dictionary_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json"
+  },
+  "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+  "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+  "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4",
+  "families": {
+    "data_contract": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md"
+    },
+    "git_first_protocol": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md"
+    },
+    "policy": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md"
+    },
+    "result_schema": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json"
+    },
+    "result_template": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md"
+    },
+    "roadmap": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md"
+    },
+    "routing_index": {
+      "decision": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot",
+        "evidence": [],
+        "observed": {
+          "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+          "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+          "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+          "manifest_sha256": "b6a715b5b325352551fb043926cfeebca2c5e374171b0908e96f995c774887d4"
+        }
+      },
+      "binding": {
+        "status": "AUTHORITY_UNVERIFIED",
+        "reason": "Conditional baseline has no independently certified authority snapshot"
+      },
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md"
+    }
+  },
+  "effects": [],
+  "missing_authority": [
+    "independently certified trust root and release approval",
+    "complete applicable competing-release inventory and supersession closure",
+    "approved immutable refs and owning semantic source evidence"
+  ],
+  "host_semantic_acceptance": "NOT_RUN"
+}

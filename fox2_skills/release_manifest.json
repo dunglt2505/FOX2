@@ -1,9 +1,9 @@
 {
   "status": "INTEGRATION_PENDING_NOT_READY",
-  "generated_utc": "2026-10-16T11:58:00.433934+00:00",
-  "source_lock": "../reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/git_readback.json",
-  "source_binding_evidence_sha256": "3c72441eb1d61949f2761d281cb667807438f78f46d1707e9891c99260e56a11",
-  "source_authority_status": "UNVERIFIED",
+  "generated_utc": "2026-10-16T12:45:59.288050+00:00",
+  "source_lock": "../reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/review/conditional-release-chain.json",
+  "source_binding_evidence_sha256": "35cf70bb40b86d02bda61d6bc4979c768dcc5c5eb505d3bf8dd50475f67b253e",
+  "source_authority_status": "AUTHORITY_UNVERIFIED",
   "excludes": [
     "release_manifest.json",
     "__pycache__",
@@ -19,12 +19,12 @@
       "bytes": 4797
     },
     "INSTALLATION.md": {
-      "sha256": "8af4575a69b21da3943f6e32221cbe652e4387e14e3aab74b843e06aaf6fc143",
-      "bytes": 3725
+      "sha256": "9142d14d68cda9085bd1b570ae3ce24fd2dba8b055b872b599b9a578c938b1b3",
+      "bytes": 6479
     },
     "manifest.json": {
-      "sha256": "87fadef4253aaa8f9c91d04b749b80d72ae5ad0d38eac68b408baf1f406caee4",
-      "bytes": 317
+      "sha256": "7a45b9f3e38e446f94659642253753377c3bd72bc7e928f3c75b299c1514058d",
+      "bytes": 570
     },
     "plugin.json": {
       "sha256": "082df5dafadd29187dc443a21bd8c7f0b071533f6424f148c5b9043ce4a06aaa",
@@ -39,8 +39,8 @@
       "bytes": 359
     },
     "README.md": {
-      "sha256": "67177adbdca3da4e690c26f745438c9c957d633413783790b3ac00f40f32b3f6",
-      "bytes": 1729
+      "sha256": "62b5ab1ea8cea9a5d90088d545a2fbb511b3cf2534e511010234d9b46959d461",
+      "bytes": 1895
     },
     "shared/__init__.py": {
       "sha256": "1b1abd30604e0093b5751e8c966e7ffd2a4478e83544a161c6f8a3ab85bb80e1",
@@ -59,12 +59,16 @@
       "bytes": 1114
     },
     "shared/native_registry.py": {
-      "sha256": "9104da6517b58e66801fc7f68e997bc184e25dba90527805f42556d32ae54daa",
-      "bytes": 3525
+      "sha256": "71bce6d2086a1760999419b66c3625d61daded211fd56190a80734d0f7508c89",
+      "bytes": 3943
     },
     "shared/operations.py": {
       "sha256": "edb459e5ded8ee46e0ae9eac7979715ca4c3a7019f46c5b799b343a0708a8627",
       "bytes": 3657
+    },
+    "shared/release_chain.py": {
+      "sha256": "ad83ef97c7961b774f82c38668ff36c856031514fdab4fd9416c1589eb004fb3",
+      "bytes": 6749
     },
     "shared/runtime.py": {
       "sha256": "b533cb5692498e8d1120e2443d8991fa8cd8350ecc3cba6cb0acea60286cc5bb",
@@ -158,13 +162,21 @@
       "sha256": "a5b08eb8b40584888a7711a9de54b4503dabe1aeec7ba9e54aed817907dce9a0",
       "bytes": 1123
     },
+    "tests/test_native_release.py": {
+      "sha256": "ccdbe8f71bf75b0750e7dc69d9d3389cf16f315435169dd72e44711ac55ef94a",
+      "bytes": 3927
+    },
     "tests/test_operations.py": {
       "sha256": "ab920ff5ed5db7f8f32724cc22a80db6419c73b2c56936eae9ab24dd34c97810",
       "bytes": 2843
     },
+    "tests/test_release_chain.py": {
+      "sha256": "26c01f6adf18b990fc84d8fe7097e21216a13135005aa5d86c8e9e74fce4554c",
+      "bytes": 5533
+    },
     "tools/assemble_delivery.py": {
-      "sha256": "8a3b38f7640177428a4e3dfa4a933597684d0a1287fc2b86ce056566d2165143",
-      "bytes": 14477
+      "sha256": "d697d03e12af038a2a9033205182d42a093270312a40ec149b36cd6f12dabf01",
+      "bytes": 460
     },
     "tools/build_contracts.py": {
       "sha256": "8d620f2a48afe1f779cf13923f05935e290f4cc0bd10f869942856c31957dd7e",
@@ -189,6 +201,10 @@
     "tools/verify_git_readback.py": {
       "sha256": "27539ca87a79510eaab4910cb7662178a0127ec60eca9ce24fa9e6bcb625bd15",
       "bytes": 2149
+    },
+    "tools/verify_release_chain.py": {
+      "sha256": "186d9107a692fcd9bb79498b3eb97fd571ad0095a74d53d3c7620afed46da4ca",
+      "bytes": 2874
     }
   }
 }
