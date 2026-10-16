@@ -13,7 +13,7 @@ from fox2_agent_bridge import project_dictionary as registry
 from fox2_agent_bridge.preexec import PreExec, Requirements
 from fox2_agent_bridge.preexec.engine import InfrastructureFailure, canonical, git, writer_lock
 from fox2_agent_bridge.preexec.probes import observation, proof_marker, agent_probe, classify
-from fox2_agent_bridge.preexec.profiles import ROUTES
+from fox2_agent_bridge.preexec.profiles import ROUTES, checks
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -425,3 +425,9 @@ def test_thin_adapters(wp, profile):
     assert len(text.splitlines()) < 30 and 'agent_bridge/scripts/preexec.py' in text
     assert f'"{profile}"' in text
     assert 'git ' not in text and 'Probe-' not in text and 'ConvertTo-Json' not in text
+
+
+def test_bridge_profile_requires_dotnet_for_rc1():
+    bridge_checks = checks('bridge')
+    assert 'dotnet' in bridge_checks
+    assert {'git', 'python', 'pwsh', 'schtasks.exe', 'local_appdata_per_user_write'} <= set(bridge_checks)
