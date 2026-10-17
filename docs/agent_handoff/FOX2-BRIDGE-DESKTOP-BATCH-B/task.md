@@ -1,7 +1,8 @@
 # FOX2-BRIDGE-DESKTOP-BATCH-B — Whole-WP Task / RC1 Rebind
 
-**Status:** SOURCE_READY_RC1_REBIND / PREEXEC_HOLD  
+**Status:** ACTIVE_WP1_SOURCE_FREEZE / PREEXEC_HOLD  
 **Project phase:** Bridge final productization before INTERNAL_FOX2_BRIDGE_READY  
+**Owner-facing Whole-WP:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`  
 **Governance:** Project Dictionary v1.2 -> Policy V1.8.9 -> Routing Index V1.3.0  
 **Protocol:** PreExec Evidence v1.1 + Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dispatch Schema v3 + Git-first Protocol v12  
 **Final implementation Agent assignment:** PENDING fresh current-source R3/R5 receipt + CHAT Intake  
@@ -40,6 +41,13 @@ Normative RC1 planning artifacts:
 - `BRIDGE_RC1_GIT_MANIFEST.json`
 
 Current Project Dictionary: v1.2 / `docs/governance/FOX2_PROJECT_DICTIONARY_v1.json`.
+
+Current RC1 source/trust-root manifest:
+
+`reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_CURRENT_SOURCE_SET.json`
+
+For fresh PreExec, use the exact Git publication head that contains this task rebind, the current source-set manifest, and the Bridge-first Master Plan directive. Historical roadmap/controller commits remain evidence only and are not executable trust roots for RC1.
+
 
 The previous PreExec receipt under:
 

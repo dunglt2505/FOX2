@@ -1,0 +1,140 @@
+{
+  "format": "FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "state": "SOURCE_FREEZE_DECLARED_PREEXEC_REQUIRED",
+  "owner_priority": "BRIDGE_FIRST",
+  "source_set": {
+    "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_head_before_freeze_publication": "cc6099eb842b5e9112a2b3d91ee233c7f19dfc2c",
+    "publication_head_rule": "Fresh PreExec MUST bind the exact commit produced by publishing this manifest together with the RC1 task status and current Bridge-first Master Plan directive.",
+    "task_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "task_blob_before_freeze": "97ac9ed27853f7528a7cb55d43134e5b79d18c83",
+    "writable_paths": [
+      "agent_bridge/**",
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "read_only_everything_else": true
+  },
+  "trust_root": {
+    "dictionary": {
+      "version": "1.2",
+      "status": "RELEASED_EFFECTIVE",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "blob_sha": "a37844b1485e43bd026b72ee85b4d87e75b2affb",
+      "generated_binding_path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "generated_binding_blob_sha": "738decf275412df7209ade6f540ffa603b2cc491",
+      "generated_binding_source_commit": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07"
+    },
+    "contracts": {
+      "policy": {
+        "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+        "blob_sha": "85b6d5b4700ff863e4fef0a7474ffd0f7a6469c0"
+      },
+      "routing_index": {
+        "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+        "blob_sha": "be42004e7fb15e82b1e2fab90268a0cc50566018"
+      },
+      "preexec_evidence_protocol": {
+        "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+        "blob_sha": "a452a2c9cdd71e613d6fe378927831ed840c9398"
+      },
+      "preflight_receipt_schema": {
+        "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+        "blob_sha": "25fe465f82a16edf29ebf773a220969192f546e8"
+      },
+      "chat_preflight_intake": {
+        "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+        "blob_sha": "e7b7772183c19e58d28d8c9d3851f283a9d9c22a"
+      },
+      "dispatch_schema": {
+        "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+        "blob_sha": "a53956cad7809cc53f92ecdc5d91a1ff2119b421"
+      },
+      "git_first_protocol": {
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+        "blob_sha": "d34a022f2bda39a167a404c8530e57b30f337cb9"
+      },
+      "bridge_technical_spec": {
+        "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+        "blob_sha": "5a82bd74b30f71f7b46652f67a70cd7768f68143"
+      }
+    }
+  },
+  "allowed_refs": {
+    "task_branch": {
+      "ref": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+      "mode": "WRITE_BOUNDED",
+      "paths": [
+        "agent_bridge/**",
+        "reports/BRIDGE-DESKTOP-BATCH-B/**"
+      ]
+    },
+    "control_branch": {
+      "ref": "work/FOX2-DISPATCH-chat",
+      "mode": "CONTROL_ONLY_AFTER_CHAT_PASS_TO_ASSIGN"
+    },
+    "canary_branch": {
+      "ref": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+      "head": "501822a33ef08c7365154913bbc677544856eee5",
+      "mode": "READ_ONLY_UNTIL_PRECANARY_PASS",
+      "max_runs": 1
+    },
+    "app_branch": {
+      "ref": "work/FOX2-M1-A-APP-BATCH-B",
+      "head": "fc8aba202e15bddfcc5156b2c1bb36ed222329eb",
+      "mode": "PAUSED_READ_ONLY"
+    },
+    "main": {
+      "ref": "main",
+      "head": "40e653f009548f4b1c3d906aba9358e2210a6ab3",
+      "mode": "READ_ONLY_NO_PUSH"
+    }
+  },
+  "supersession": {
+    "9111c82e4a4e04cb63f0c924af4642341af6d802": "HISTORICAL roadmap aggregate-route baseline; not the current RC1 executable trust root.",
+    "d2d2b8bc0116646cb83ca93e59d7209632a80aa4": "HISTORICAL Controller-012 roadmap binding; superseded for RC1 execution authority. Preserve as evidence; do not replay.",
+    "ac41a7e0b543e79e470bed46b1aeb0101ba77405": "Historical final closure is INVALID/SUPERSEDED; its PreExec receipt is stale for RC1.",
+    "4b48116583e3488bf0b81215fa94a84c8cb9f9c7": "Historical RC1 planning-manifest publication head; current source freeze supersedes it prospectively.",
+    "cc6099eb842b5e9112a2b3d91ee233c7f19dfc2c": "Immediate base for this source-freeze publication; fresh PreExec must use the resulting publication head, not this base."
+  },
+  "release_competition_resolution": {
+    "active_schedule": "WP1 Bridge-first serial execution",
+    "app_batch_b": "PAUSED_UNTIL_INTERNAL_FOX2_BRIDGE_READY",
+    "historical_controller_chain": "EVIDENCE_ONLY_NO_REPLAY",
+    "historical_final_closure": "INVALID_SUPERSEDED"
+  },
+  "canary_009": {
+    "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "head": "501822a33ef08c7365154913bbc677544856eee5",
+    "state": "PRESERVE_UNCONSUMED",
+    "execution_rule": "Exactly once only after FOX2_BRIDGE_RC1_PRECANARY_READY."
+  },
+  "preexec": {
+    "current_historical_receipt_source": "ac41a7e0b543e79e470bed46b1aeb0101ba77405",
+    "current_historical_receipt_disposition": "STALE_DO_NOT_AUTHORIZE_RC1",
+    "required_material_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "dotnet",
+      "local_appdata_per_user_write",
+      "eligible_agent_route",
+      "worktree ownership",
+      "no competing writer"
+    ],
+    "next_gate": "FRESH_PREEXEC_ON_EXACT_SOURCE_FREEZE_PUBLICATION_HEAD"
+  },
+  "authority": {
+    "code_allowed_for_execution": "HOLD_UNTIL_FRESH_PREEXEC_PASS_AND_CHAT_PASS_TO_ASSIGN",
+    "pr_create": false,
+    "main_push": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  }
+}

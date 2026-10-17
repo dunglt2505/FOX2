@@ -331,3 +331,48 @@ Project-wide disposition:
 - no executable Dispatch for the rollout, APP-BATCH-B or BRIDGE-BATCH-B is valid until CHAT reads the fresh re-bound receipt.
 
 `MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / PREEXEC=V1.1 / PREFLIGHT_RECEIPT=V1 / AGENT_ROUTE_MATERIALITY=AGGREGATE / DISPATCH=V3 / PROTOCOL=V12 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=PROJECT_WIDE_PREEXEC_ROLLOUT_THEN_APP_B+BRIDGE_B / PROJECT_WIDE_PREEXEC_ROLLOUT=OWNER_AUTHORIZED / MICRO_WP_DEFAULT=NO`
+
+## Current consolidated execution directive — 2026-10-17
+
+This section is the current Owner-directed execution ordering and supersedes earlier scheduling text that permitted APP-BATCH-B and BRIDGE-BATCH-B to run in parallel. Historical sections remain evidence and are not deleted.
+
+Owner-facing work is consolidated into three Whole-WPs:
+
+```text
+WP1 — FOX2-BRIDGE-RC1-TO-INTERNAL-READY
+  source/trust-root freeze
+  -> fresh PreExec
+  -> final Agent selection
+  -> RC1 implementation
+  -> build/package/installed lifecycle certification
+  -> independent pre-Canary audit
+  -> Canary 009 exactly once
+  -> restart/no-replay
+  -> CHAT final intake
+  -> INTERNAL_FOX2_BRIDGE_READY
+
+WP2 — FOX2-M1-A-TO-INTERNAL-GOLIVE
+  resume APP-BATCH-B only after WP1
+  -> complete UI/integration/offline acceptance
+  -> M1-A release integration
+  -> FOX2_INTERNAL_GO_LIVE_READY
+
+WP3 — FOX2-M1-B-MARKET-DATA-GOLIVE
+  provider REST read-only
+  -> market WebSocket
+  -> recovery/PIT/freshness/soak
+  -> FOX2_MARKET_DATA_GO_LIVE_READY
+```
+
+Anti-fragmentation rule: PreExec, implementation, reconciliation, build/test, independent audit, Canary and final intake are internal stages of their Whole-WP, not new Owner-facing micro-WPs unless a material scope or authority boundary changes.
+
+Current scheduling:
+- WP1 = ACTIVE.
+- APP-BATCH-B = PAUSED / WAIT_BRIDGE_READY.
+- Canary 009 = PRESERVE / UNCONSUMED until WP1 pre-Canary readiness.
+- main/merge/deploy/provider/broker/LIVE authority = NO.
+- historical Controller 009–013 and historical final closure are not replayable execution authority for RC1.
+- fresh RC1 PreExec must bind the exact publication head containing the current RC1 task + current source-set manifest + this directive.
+
+`CURRENT_OWNER_PRIORITY=BRIDGE_FIRST / CURRENT_WHOLE_WP=FOX2-BRIDGE-RC1-TO-INTERNAL-READY / APP_BATCH_B=PAUSED / CANARY_009=PRESERVE_UNCONSUMED / MICRO_WP_DEFAULT=NO / NEXT=FRESH_PREEXEC_ON_EXACT_SOURCE_FREEZE_HEAD / MERGE=NO / LIVE=NO`
+
