@@ -46,3 +46,11 @@ NO main push; NO merge; NO release promotion; NO dispatch; NO production/provide
 - Portable V07-based bundle and branch-specific Git candidate SKILL.md sources are separately versioned artifacts, NOT asserted byte-identical. The Git 17-source manifest remains the separate candidate source record.
 - Plugin-cloud installed Skill readback still contains prior guidance and no newly embedded CHAT-FIRST skill-local obligation; there is no exposed package publisher/update endpoint in currently connected tools. Therefore INSTALLED_PLUGIN_UPDATED=NO / HOST_PUBLICATION_PENDING.
 - Released EFFECTIVE governance chain remains unresolved; no Registry promotion, main merge, production or LIVE effects performed.
+
+
+## Verified library package REV2 (supersedes initial candidate ZIP)
+- Revision 2 archive eliminates a stale V07 release manifest embedded in revision 1. The historical V07 release manifest is retained under historical/ with an explicit reference-only warning and is NOT used as a v0.2.0 release assertion.
+- Preferred Library candidate: /Trading/FOX2/02_Architecture/FOX2_SKILLS_CHAT_FIRST_V0.2.0_CANDIDATE_REV2_20261017.zip
+- Bytes: 62556; SHA256: 89a88a5b2a6cbfe3fadb0ce4a47c32446dde6618d6f0ca6f01721c2cf52bebf8.
+- Original source archive and materialized Library destination: BYTE_IDENTICAL true; ZIP integrity PASS; 17 SKILL.md; 14 local/unit tests PASS.
+- This portable bundle is V07-based and does not assert byte identity with the 17 separately recorded Git source candidates. Actual cloud-plugin publication is still not supported in this tool environment; INSTALLED_PLUGIN_UPDATED=NO.
