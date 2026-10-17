@@ -1,6 +1,13 @@
 {
   "agent_execution_started": false,
-  "blockers": [],
+  "blockers": [
+    {
+      "class": "CAPABILITY",
+      "code": "CHECK_DOTNET",
+      "material": true,
+      "sanitized_detail": "Required capability did not prove readiness."
+    }
+  ],
   "candidate_route": {
     "auto_tier": null,
     "model": "gpt-6.1-sol",
@@ -23,6 +30,13 @@
       "failure_class": "AUTH_REQUIRED",
       "material": false,
       "status": "FAIL"
+    },
+    "dotnet": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": null,
+      "failure_class": "TOOL_MISSING",
+      "material": true,
+      "status": "MISSING"
     },
     "eligible_agent_route": {
       "evidence": "Bounded readiness observation; raw output omitted.",
@@ -67,7 +81,7 @@
       "status": "PASS"
     }
   },
-  "checked_at": "2026-10-15T14:04:27.209987+00:00",
+  "checked_at": "2026-10-17T04:56:07.880369+00:00",
   "dispatch_state": {
     "dispatch_consumed": false,
     "executable_dispatch_published": false
@@ -79,13 +93,13 @@
   "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
   "receipt_type": "FOX2_PREEXEC_RECEIPT",
   "schema_version": "1.0",
-  "source_head": "ac41a7e0b543e79e470bed46b1aeb0101ba77405",
-  "status": "PASS",
+  "source_head": "7b19ba6181c6b365f10c7f855d193c5c0e817fb4",
+  "status": "BLOCKED",
   "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
   "task_source": {
-    "git_commit_sha": "ac41a7e0b543e79e470bed46b1aeb0101ba77405",
+    "git_commit_sha": "7b19ba6181c6b365f10c7f855d193c5c0e817fb4",
     "git_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
-    "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec"
+    "sha256": "f482df8de83bd2c137eaa4ca91532e67229e1e34c7f71daed38b578f1f9ab74c"
   },
   "worktree": {
     "competing_writer": "NONE_OBSERVED",
