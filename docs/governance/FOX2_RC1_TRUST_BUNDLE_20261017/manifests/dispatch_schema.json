@@ -1,0 +1,22 @@
+{
+  "family": "dispatch_schema",
+  "version": "3.0",
+  "status": "EFFECTIVE",
+  "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+  "source_sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+  "superseded_by": null,
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "release_scope": "WP_ONLY_TRUST_BINDING",
+  "global_semantic_promotion": false,
+  "owner_release_approval_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  }
+}

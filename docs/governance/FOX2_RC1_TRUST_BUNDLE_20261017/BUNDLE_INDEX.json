@@ -1,0 +1,72 @@
+{
+  "schema": "FOX2_RC1_TRUST_BUNDLE_INDEX_1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "status": "OWNER_APPROVED_MANIFESTS_EFFECTIVE_FOR_WP_TRUST_BINDING",
+  "source_commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "owner_release_approval_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+  "families": [
+    {
+      "family": "dictionary",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json",
+      "source_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "source_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+    },
+    {
+      "family": "dictionary_generated_binding",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json",
+      "source_path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "source_sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f"
+    },
+    {
+      "family": "policy",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json",
+      "source_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "source_sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782"
+    },
+    {
+      "family": "routing",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json",
+      "source_path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "source_sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e"
+    },
+    {
+      "family": "preexec_protocol",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json",
+      "source_path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "source_sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b"
+    },
+    {
+      "family": "preflight_receipt_schema",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json",
+      "source_path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "source_sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352"
+    },
+    {
+      "family": "chat_preflight_intake",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json",
+      "source_path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "source_sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c"
+    },
+    {
+      "family": "dispatch_schema",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json",
+      "source_path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+      "source_sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea"
+    },
+    {
+      "family": "git_first_protocol",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json",
+      "source_path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "source_sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6"
+    },
+    {
+      "family": "bridge_technical_spec",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json",
+      "source_path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "source_sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6"
+    }
+  ],
+  "source_bytes_changed": false,
+  "global_semantic_promotion": false
+}

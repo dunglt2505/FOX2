@@ -1,0 +1,22 @@
+{
+  "family": "preexec_protocol",
+  "version": "1.1",
+  "status": "EFFECTIVE",
+  "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+  "source_sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+  "superseded_by": null,
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "release_scope": "WP_ONLY_TRUST_BINDING",
+  "global_semantic_promotion": false,
+  "owner_release_approval_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  }
+}

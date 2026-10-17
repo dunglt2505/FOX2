@@ -1,0 +1,22 @@
+{
+  "family": "git_first_protocol",
+  "version": "12",
+  "status": "EFFECTIVE",
+  "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+  "source_sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+  "superseded_by": null,
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "release_scope": "WP_ONLY_TRUST_BINDING",
+  "global_semantic_promotion": false,
+  "owner_release_approval_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  }
+}

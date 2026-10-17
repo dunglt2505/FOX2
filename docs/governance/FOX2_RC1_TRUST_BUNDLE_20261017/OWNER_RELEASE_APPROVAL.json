@@ -1,0 +1,24 @@
+{
+  "schema": "FOX2_OWNER_RELEASE_APPROVAL_1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "status": "APPROVED",
+  "authority_source": "OWNER_DIRECTIVE_IN_ACTIVE_CHAT",
+  "recorded_by": "CHAT",
+  "recorded_at": "2026-10-17T10:09:03.931Z",
+  "directive": "OWNER RELEASE APPROVAL — FOX2 RC1 TRUST BUNDLE: Phê duyệt CHAT phát hành Registry và các release manifests EFFECTIVE cho đúng immutable sources hiện đang bound trong FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_3, chỉ để xác lập source authority cho Whole-WP FOX2-BRIDGE-RC1-TO-INTERNAL-READY. Không thay đổi source bytes, không cấp main/merge/deploy/provider/broker/LIVE.",
+  "immutable_source_commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "current_source_set_path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_CURRENT_SOURCE_SET.json",
+  "scope": {
+    "trust_binding_effective_for_whole_wp": true,
+    "global_semantic_promotion": false,
+    "source_bytes_change": false,
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  },
+  "note": "This Git receipt records an external Owner directive observed by CHAT; it is not a cryptographic signature and does not grant authority beyond the stated Whole-WP trust-binding scope."
+}

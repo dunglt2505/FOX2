@@ -1,0 +1,22 @@
+{
+  "family": "preflight_receipt_schema",
+  "version": "1",
+  "status": "EFFECTIVE",
+  "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+  "source_sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+  "superseded_by": null,
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "release_scope": "WP_ONLY_TRUST_BINDING",
+  "global_semantic_promotion": false,
+  "owner_release_approval_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  }
+}

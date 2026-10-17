@@ -1,0 +1,22 @@
+{
+  "family": "dictionary_generated_binding",
+  "version": "1.2",
+  "status": "EFFECTIVE",
+  "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+  "source_sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+  "superseded_by": null,
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "release_scope": "WP_ONLY_TRUST_BINDING",
+  "global_semantic_promotion": false,
+  "owner_release_approval_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  }
+}
