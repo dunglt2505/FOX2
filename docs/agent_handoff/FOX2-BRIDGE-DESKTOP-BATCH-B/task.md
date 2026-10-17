@@ -76,6 +76,23 @@ Two gates require reconciliation before a recovery dispatch:
 
 This reconciliation creates a new exact source freeze and upgrades the shared Bridge PreExec profile with a material `dotnet_wpf_build` probe that compiles a minimal `net8.0-windows` WPF project. The next fresh PreExec MUST bind the exact reconciliation source-freeze publication head. If it PASSes, CHAT may publish a recovery Dispatch with `retry_of_dispatch_id=FOX2-DISPATCH-BRIDGE-RC1-CODEX-001`.
 
+### Probe-infrastructure correction
+
+The exact-head PreExec at `4236afbe0791dd52e58d37a4ba1aa5bdebd44b12` published `INFRA_FAILED` at `8011a29a23fe373e924bf4d1809718036171b211`.
+
+This did NOT prove a WPF/.NET product capability failure. The only material blocker was `CHECK_DOTNET_WPF_BUILD` with `CHECK_INFRA_FAILED`.
+
+Root cause found in the probe implementation: generated Python source supplied a literal escaped newline value to `Path.write_text(..., newline=...)`, raising before `dotnet build` could execute.
+
+The correction remains inside this Whole-WP:
+- write probe files with explicit UTF-8 bytes and real LF bytes;
+- catch bounded probe-construction failures as sanitized capability failure instead of leaking an unclassified exception;
+- regression-test real LF content;
+- publish one new exact source freeze;
+- run one fresh PreExec on that exact head.
+
+No product implementation, Canary execution, APP-B resume, merge/deploy/provider/broker/LIVE action occurred.
+
 ## 2. Owner priority and project ordering
 
 Owner priority is now serial:

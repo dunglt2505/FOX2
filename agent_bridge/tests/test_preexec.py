@@ -474,3 +474,21 @@ def test_dotnet_wpf_build_probe_failure_is_material(tmp_path, monkeypatch):
     result = dotnet_wpf_build(tmp_path)
     assert result['status'] == 'FAIL'
     assert result['failure_class'] == 'WPF_BUILD_UNAVAILABLE'
+
+
+def test_dotnet_wpf_probe_writes_real_newlines(tmp_path, monkeypatch):
+    import fox2_agent_bridge.preexec.probes as probes
+    from types import SimpleNamespace
+
+    monkeypatch.setattr(probes, 'resolve_tool',
+                        lambda name: 'dotnet' if name == 'dotnet' else None)
+
+    def fake_run(arguments, *, cwd, timeout=30, input=None):
+        raw = (Path(cwd) / 'Probe.csproj').read_bytes()
+        assert b'\\n' not in raw
+        assert b'\n' in raw
+        assert b'<UseWPF>true</UseWPF>' in raw
+        return SimpleNamespace(returncode=0, stdout='', stderr='')
+
+    monkeypatch.setattr(probes, 'run_tool', fake_run)
+    assert dotnet_wpf_build(tmp_path)['status'] == 'PASS'

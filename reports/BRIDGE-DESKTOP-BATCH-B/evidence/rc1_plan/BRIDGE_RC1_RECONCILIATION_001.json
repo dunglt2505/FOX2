@@ -18,18 +18,26 @@
       "detail": "PASS receipt bound the evidence-only blocked-receipt head rather than the earlier freeze publication; governing source bytes were unchanged but exact-source STOP correctly fired."
     },
     {
-      "code": "WPF_BUILD_CAPABILITY_UNPROVEN",
+      "code": "WPF_BUILD_PROBE_INFRA_BUG",
       "material": true,
-      "detail": "dotnet --version proved SDK CLI availability only; RC1 requires an actual Windows WPF build proof."
+      "detail": "The exact-head PreExec reached the WPF probe, but the probe raised during file construction because of invalid escaped newline handling. Actual dotnet WPF build readiness was not tested."
     }
   ],
   "corrective_action": [
-    "publish a new exact RC1 reconciliation source freeze",
-    "add material dotnet_wpf_build probe to Bridge PreExec",
-    "add regression guards",
-    "run one fresh PreExec on the exact new freeze head",
-    "CHAT intake and publish recovery dispatch only after PASS"
+    "fix WPF probe file construction with real LF UTF-8 bytes",
+    "regression-test that generated csproj contains real LF bytes and no literal backslash-n sequences",
+    "publish one exact Whole-WP source freeze",
+    "run one fresh PreExec on that exact head",
+    "CHAT intake and publish one recovery dispatch only after PASS"
   ],
   "prior_dispatch_replay_allowed": false,
-  "merge_deploy_provider_broker_live_authority": false
+  "merge_deploy_provider_broker_live_authority": false,
+  "latest_preexec": {
+    "source_head": "4236afbe0791dd52e58d37a4ba1aa5bdebd44b12",
+    "receipt_commit": "8011a29a23fe373e924bf4d1809718036171b211",
+    "status": "INFRA_FAILED",
+    "material_blocker": "CHECK_DOTNET_WPF_BUILD",
+    "capability_status": "UNKNOWN",
+    "failure_class": "CHECK_INFRA_FAILED"
+  }
 }

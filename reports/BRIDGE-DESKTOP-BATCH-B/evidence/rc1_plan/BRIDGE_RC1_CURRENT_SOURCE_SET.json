@@ -1,15 +1,15 @@
 {
-  "format": "FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_2",
+  "format": "FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_3",
   "project": "FOX2",
   "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-  "state": "RECONCILING_SOURCE_FREEZE_PREEXEC_REQUIRED",
+  "state": "RECONCILING_PROBE_INFRA_SOURCE_FREEZE_PREEXEC_REQUIRED",
   "owner_priority": "BRIDGE_FIRST",
   "source_set": {
     "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
-    "base_head_before_freeze_publication": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
-    "publication_head_rule": "Fresh reconciliation PreExec MUST bind the exact commit produced by publishing source-set v2 together with the WPF build probe, its regression guards, the reconciliation record and the RC1 task status.",
+    "base_head_before_freeze_publication": "8011a29a23fe373e924bf4d1809718036171b211",
+    "publication_head_rule": "Fresh Whole-WP PreExec MUST bind the exact commit produced by this v3 publication after the WPF probe-infrastructure correction.",
     "task_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
-    "task_blob_before_freeze": "11de49038e62dbe5dfdbca774dbef90656ea0da1",
+    "task_blob_before_freeze": "443edb5256e5485502064fe999d7aa9c376ac913",
     "writable_paths": [
       "agent_bridge/**",
       "reports/BRIDGE-DESKTOP-BATCH-B/**"
@@ -99,7 +99,9 @@
     "cc6099eb842b5e9112a2b3d91ee233c7f19dfc2c": "Immediate base for this source-freeze publication; fresh PreExec must use the resulting publication head, not this base.",
     "7b19ba6181c6b365f10c7f855d193c5c0e817fb4": "Prior RC1 source freeze; superseded by reconciliation 001 because subsequent blocked/pass receipts exposed source-lineage ambiguity and insufficient WPF capability proof.",
     "afad5e8c8cf066fb473f1a55b1642aed51689d02": "Evidence-only BLOCKED receipt head; historical input to reconciliation 001.",
-    "bfc015eb60a04479c812abd55e537ab6f9f1a559": "PASS receipt/execution base for Dispatch RC1-CODEX-001; superseded for authorization after the verifier STOP."
+    "bfc015eb60a04479c812abd55e537ab6f9f1a559": "PASS receipt/execution base for Dispatch RC1-CODEX-001; superseded for authorization after the verifier STOP.",
+    "4236afbe0791dd52e58d37a4ba1aa5bdebd44b12": "Prior reconciliation source freeze; exact-head PreExec reached the WPF probe but the probe itself raised CHECK_INFRA_FAILED before dotnet build.",
+    "8011a29a23fe373e924bf4d1809718036171b211": "INFRA_FAILED receipt publication; evidence only, no product implementation, superseded as authorization source by the WPF probe-infrastructure correction."
   },
   "release_competition_resolution": {
     "active_schedule": "WP1 Bridge-first serial execution",
@@ -115,8 +117,8 @@
     "execution_rule": "Exactly once only after FOX2_BRIDGE_RC1_PRECANARY_READY."
   },
   "preexec": {
-    "latest_prior_receipt_commit": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
-    "latest_prior_receipt_disposition": "SUPERSEDED_BY_RECONCILIATION_001",
+    "latest_prior_receipt_commit": "8011a29a23fe373e924bf4d1809718036171b211",
+    "latest_prior_receipt_disposition": "INFRA_FAILED_PROBE_IMPLEMENTATION_BUG_SUPERSEDED",
     "required_material_capabilities": [
       "git",
       "python",
@@ -129,10 +131,10 @@
       "worktree ownership",
       "no competing writer"
     ],
-    "next_gate": "FRESH_PREEXEC_ON_EXACT_RECONCILIATION_SOURCE_FREEZE_HEAD"
+    "next_gate": "FRESH_PREEXEC_ON_EXACT_SOURCE_SET_V3_PUBLICATION_HEAD"
   },
   "authority": {
-    "code_allowed_for_execution": "HOLD_UNTIL_RECONCILIATION_PREEXEC_PASS_AND_CHAT_PASS_TO_ASSIGN",
+    "code_allowed_for_execution": "HOLD_UNTIL_V3_PREEXEC_PASS_AND_CHAT_PASS_TO_ASSIGN",
     "pr_create": false,
     "main_push": false,
     "merge": false,
@@ -152,6 +154,15 @@
       "prior PASS receipt source_head did not equal the earlier freeze publication after evidence-only reconciliation",
       "dotnet version probe did not prove Windows WPF compilation capability"
     ],
-    "recovery_rule": "Do not replay prior dispatch. Publish a retry dispatch only after fresh exact-head PreExec PASS and CHAT intake."
+    "recovery_rule": "Do not replay prior dispatch. Publish a retry dispatch only after fresh exact-head PreExec PASS and CHAT intake.",
+    "probe_infra_correction": {
+      "receipt_commit": "8011a29a23fe373e924bf4d1809718036171b211",
+      "blocker": "CHECK_DOTNET_WPF_BUILD",
+      "observed_status": "UNKNOWN",
+      "failure_class": "CHECK_INFRA_FAILED",
+      "root_cause": "WPF probe construction used an invalid literal escaped newline value before dotnet build could run.",
+      "product_capability_failure_proven": false,
+      "corrective_action": "Write UTF-8 probe files with real LF bytes, regression-test newline bytes, then rerun one exact-head PreExec."
+    }
   }
 }

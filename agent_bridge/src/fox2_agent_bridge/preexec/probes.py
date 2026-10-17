@@ -78,52 +78,46 @@ def dotnet_wpf_build(worktree):
     try:
         with tempfile.TemporaryDirectory(prefix='fox2-wpf-preexec-') as directory:
             root = Path(directory)
+            files = {
+                'Probe.csproj': (
+                    '<Project Sdk="Microsoft.NET.Sdk">\n'
+                    '  <PropertyGroup>\n'
+                    '    <OutputType>WinExe</OutputType>\n'
+                    '    <TargetFramework>net8.0-windows</TargetFramework>\n'
+                    '    <UseWPF>true</UseWPF>\n'
+                    '    <Nullable>enable</Nullable>\n'
+                    '    <ImplicitUsings>enable</ImplicitUsings>\n'
+                    '    <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>\n'
+                    '  </PropertyGroup>\n'
+                    '</Project>\n'
+                ),
+                'App.xaml': (
+                    '<Application x:Class="Probe.App" '
+                    'xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" '
+                    'xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" '
+                    'StartupUri="MainWindow.xaml"/>\n'
+                ),
+                'App.xaml.cs': (
+                    'using System.Windows;\n'
+                    'namespace Probe;\n'
+                    'public partial class App : Application { }\n'
+                ),
+                'MainWindow.xaml': (
+                    '<Window x:Class="Probe.MainWindow" '
+                    'xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" '
+                    'xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" '
+                    'Title="Probe"><Grid/></Window>\n'
+                ),
+                'MainWindow.xaml.cs': (
+                    'using System.Windows;\n'
+                    'namespace Probe;\n'
+                    'public partial class MainWindow : Window { '
+                    'public MainWindow() { InitializeComponent(); } }\n'
+                ),
+            }
+            for name, content in files.items():
+                (root / name).write_bytes(content.encode('utf-8'))
             project = root / 'Probe.csproj'
-            project.write_text(
-                '<Project Sdk="Microsoft.NET.Sdk">\\n'
-                '  <PropertyGroup>\\n'
-                '    <OutputType>WinExe</OutputType>\\n'
-                '    <TargetFramework>net8.0-windows</TargetFramework>\\n'
-                '    <UseWPF>true</UseWPF>\\n'
-                '    <Nullable>enable</Nullable>\\n'
-                '    <ImplicitUsings>enable</ImplicitUsings>\\n'
-                '    <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>\\n'
-                '  </PropertyGroup>\\n'
-                '</Project>\\n',
-                encoding='utf-8',
-                newline='\\n',
-            )
-            (root / 'App.xaml').write_text(
-                '<Application x:Class="Probe.App" '
-                'xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" '
-                'xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" '
-                'StartupUri="MainWindow.xaml"/>\\n',
-                encoding='utf-8',
-                newline='\\n',
-            )
-            (root / 'App.xaml.cs').write_text(
-                'using System.Windows;\\n'
-                'namespace Probe;\\n'
-                'public partial class App : Application { }\\n',
-                encoding='utf-8',
-                newline='\\n',
-            )
-            (root / 'MainWindow.xaml').write_text(
-                '<Window x:Class="Probe.MainWindow" '
-                'xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" '
-                'xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" '
-                'Title="Probe"><Grid/></Window>\\n',
-                encoding='utf-8',
-                newline='\\n',
-            )
-            (root / 'MainWindow.xaml.cs').write_text(
-                'using System.Windows;\\n'
-                'namespace Probe;\\n'
-                'public partial class MainWindow : Window { '
-                'public MainWindow() { InitializeComponent(); } }\\n',
-                encoding='utf-8',
-                newline='\\n',
-            )
             result = run_tool(
                 [tool, 'build', str(project), '-c', 'Release', '--nologo',
                  '--verbosity', 'quiet', '-p:RestoreIgnoreFailedSources=true'],
@@ -137,7 +131,7 @@ def dotnet_wpf_build(worktree):
             )
     except subprocess.TimeoutExpired:
         return observation('UNKNOWN', failure='WPF_BUILD_PROBE_TIMEOUT', code=None)
-    except OSError:
+    except (OSError, ValueError, TypeError):
         return observation('FAIL', failure='WPF_BUILD_PROBE_FAILED', code=None)
 
 
