@@ -14,8 +14,7 @@
   },
   "limitations": [
     "Not the installed plugin package",
-    "Independent release authority not verified",
-    "SHA256 release digests not yet independently verified"
+    "Independent release authority not verified"
   ],
   "readback": "GIT_TREE_AND_WRITTEN_FILE_CHECKS",
   "package": "fox2-skills-integrated",
@@ -80,49 +79,49 @@
       "path": "skills/fox2-skills-integrated/fox2-research-validation/SKILL.md",
       "git_blob_sha": "3f6daaa2acc95286fa913a74d21c3e610d167fbf",
       "bytes": 4281,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "0404e93e26f46e2a7e9b06c95f4ae7b8c5e5c862277b1c2d1640e3f70fd6f47c"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-result-review/SKILL.md",
       "git_blob_sha": "c6b965e6de2669585e426432ded98ee711b83d45",
       "bytes": 4303,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "170f18698e8a298d716a1e6fccee9df5dfdff34838b0002ad30b705358f3a89e"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-source-resolver/SKILL.md",
       "git_blob_sha": "af4c5d849a44da3e1d6c6d59cafc51cc14e87b14",
       "bytes": 4754,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "7501f9f571e8bfdf1a4d2ffd7e00768701fc0edead7118b52d997d51e5360853"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-source-sync/SKILL.md",
       "git_blob_sha": "c4bc6770a36aff36295f8633d1515f950acf3053",
       "bytes": 4476,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "816ae5de4d9c5bca7a98dcb98ba960f2c4c89151eff7f71eceb68df9cd250272"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-status-roadmap/SKILL.md",
       "git_blob_sha": "39fb90bc713a03ae6ed20bf662c73d663d8ca7ed",
       "bytes": 4217,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "2847dffa0c439294368d341a999d04c8978693aa6f647c162426b2d036cda074"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-strategic-agent-triage/SKILL.md",
       "git_blob_sha": "85983a665ca95f815066d75e010351009f2978f6",
       "bytes": 4333,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "c99c3047e2c21d5bf35dcf9ea2678550980b63b2802c7ac598a6bc17d9c2f371"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-techspec-validator/SKILL.md",
       "git_blob_sha": "15361b9996667583a670c7039d334433554ee194",
       "bytes": 4424,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "eabaaec83b0f7863ed06e8ec60af0407e02406490e6b9ec6a6801e93f5969f95"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-thread-handoff/SKILL.md",
       "git_blob_sha": "662a45919316361f91754ecde03114583e75d2f2",
       "bytes": 4302,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "0af6473fcb924daca60839981ccc6fe03717e71f4f048068d2523931bce73827"
     }
   ],
   "required_checks": [
@@ -131,6 +130,6 @@
     "OLD_GUARDS_PRESERVED",
     "PACKAGE_PUBLISH_AND_INSTALLED_READBACK"
   ],
-  "sha256_verified_count": 9,
-  "sha256_status": "PARTIAL_9_OF_17"
+  "sha256_verified_count": 17,
+  "sha256_status": "VERIFIED_ALL_17"
 }
