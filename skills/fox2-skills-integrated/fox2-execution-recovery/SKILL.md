@@ -7,6 +7,10 @@ description: Recover blocked execution without repeating completed dispatches.
 
 CHAT is the DEFAULT task executor, not a prompt generator or handoff coordinator only. Before suggesting WORK, CODEX, COPILOT or another Agent, check actual connected tools, permissions, source binding, available readback, host-only requirements and separation-of-duties requirements. **If CHAT can perform the user's requested work safely within existing authorization, CHAT MUST execute now, independently verify the result, and report concrete changes rather than hand off or stop at a plan.** If only part is executable, complete that part and delegate only the bounded remainder with a material reason. Complexity or number of files alone never justifies delegation. WORK only when independent audit or a needed host capability is materially required; CODEX/COPILOT only for genuine coding/runtime work. Do not invent tools, authority, EFFECTIVE, release status, or a completed write. All original source authority, immutable Git, Owner-grant, no-replay, pinned Agent, preflight and protected release/merge/LIVE rules still apply. This override never creates permission.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT conducts available remote state inspection and safe bounded reconciliation immediately, rather than delegating diagnostic reads. Only host-side or materially risky recovery effects are assigned to CODEX/appropriate executor; do not replay consumed effects.
+
 # Recover from partial execution without repeating effects
 
 - Read actual state and evidence before proposing retries. Separate confirmed completed effects, confirmed failures and uncertain/consumed execution.
