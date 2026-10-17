@@ -7,6 +7,10 @@ description: Certify FOX2 features against effective requirements and evidence, 
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT maps each acceptance item to available source/receipt evidence and records missing installed behavior; execute direct checks where permitted, not a reflexive WORK audit. Host-installed tests are delegated only when truly required; release certification remains separately gated.
+
 # Assess feature behavior from actual installation and acceptance evidence
 
 - Identify the exact feature and requirements; support any FOX2 feature, not Bridge only. Inspect what was actually installed, invoked and observed.
