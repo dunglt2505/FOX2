@@ -62,6 +62,16 @@ All cases below are REQUIRED, NOT RUN in this continuation:
 
 ## Current boundary
 
-Existing contract and release-hold receipt were inspected remotely. No current independently trusted Registry location was supplied. No runtime worktree ownership or current PreExec receipt was verified. No runtime files changed, tests executed, dispatch replayed or protected gates altered.
+Continuation evidence: the RC1 Registry was read at control commit b27f1085ee13d8dce56fd2735e100ea1616e6e23; its manifests/approval are at d8e2331674ef1921844f369bfa9e48b82a73c6a1. It is WP_ONLY_TRUST_BINDING for FOX2-BRIDGE-RC1-TO-INTERNAL-READY, not project-wide authority. Ten immutable source digests and Git blobs match. Independent authority for project-wide execution remains UNVERIFIED.
+
+The named Windows worktree exists and was read with approved read-only access. Its clean HEAD e85ccaadd1fb49664bae07ec71ab607368fc1f0d matches the observed remote task head. This is not a writer-ownership grant or current PreExec. The historical receipt source_head c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359 differs; reconcile material changes before reusing it. No new PreExec was run.
+
+Fifteen static checks passed on captured Git data, including ten source byte identities, digest-tamper rejection, RC1 scope, historical receipt drift and two Python syntax parses. These do not satisfy the twelve runtime acceptance cases above. No runtime source was modified or executed, dispatch replayed, or protected gate altered. See reports/FOX2-LATEST-EXECUTION-20261017/CONTINUATION_REVIEW.md and static_results.json.
 
 This addendum is reviewable candidate guidance only. Existing governance manifest digests are not rewritten; future authorized publication must generate a new immutable manifest after all coordinated source changes and readback. Local save, Git publication, installed Skills behavior and EFFECTIVE release are separate outcomes.
+
+## RC1 scope and independent authority requirement
+
+Every future admission service MUST validate the requested project/Whole-WP/environment against Registry, manifest and independent approval scope before returning an admissible bundle. Reject a project-wide request supplied only the RC1 trust wrapper even when all file hashes match. Preserve the original RC1 immutable source identities; do not rewrite historical manifests to make this change appear approved.
+
+The existing helper's bind_effective return value and its CLI VERIFIED_EFFECTIVE label are not sufficient proof of authority: independent authority/scope validation is delegated to the caller. Candidate Skills must surface technical binding separately from AUTHORITY_PASS and must not promote that label into execution permission. Add scope-mismatch and self-asserted-approval cases to the runtime authority acceptance tests.
