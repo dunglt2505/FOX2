@@ -7,6 +7,10 @@ description: Review agent results, tests, receipts, path compliance and no-repla
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT directly performs independent remote source/commit/report/test receipt readback and acceptance analysis. Do not assign WORK for routine result review; require external auditor only at an explicit independence/release gate.
+
 # Review claims against independently available evidence
 
 - List the material claims and their acceptance criteria, then inspect the actual artifacts, tests, destination readback and observed behavior available to this review.
