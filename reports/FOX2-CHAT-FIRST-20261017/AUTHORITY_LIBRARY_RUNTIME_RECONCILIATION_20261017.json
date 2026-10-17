@@ -2,7 +2,7 @@
   "schema": "FOX2_CHAT_FIRST_AUTHORITY_LIBRARY_RUNTIME_RECONCILIATION_1",
   "date": "2026-10-17",
   "scope": "FOX2_ONLY",
-  "status": "PARTIAL_EXECUTION_COMPLETE",
+  "status": "CANDIDATE_LIBRARY_SOURCE_SYNC_PASS_9_OF_9__EFFECTIVE_AUTHORITY_UNVERIFIED",
   "owner_grant": "CHAT is directly authorized to perform bounded FOX2 governance and Skills source reconciliation in this conversation",
   "skills_used": [
     "fox2-source-resolver",
@@ -21,12 +21,18 @@
     "governance_candidate_status": "CANDIDATE_NOT_EFFECTIVE"
   },
   "library": {
-    "uploaded_path": "/Trading/FOX2/00_Governance/FOX2_CHAT_FIRST_SOURCE_STATUS_20261017.md",
-    "uploaded_sha256": "194b5189b379f20cb8b66177b6f8491b24ac6c383d423b0db86ef3377bc3c77f",
-    "destination_readback_sha256_same": true,
-    "scope": "INDEX_ONLY_NOT_FULL_GOVERNANCE_DOCUMENT_BYTES",
-    "exact_byte_mirror_of_all_9": "NOT_DONE",
-    "reason": "GitHub connector exposes authenticated source text; available Library writer accepts an exported file/container path, and isolated container cannot access authenticated GitHub source. No supported direct exact-byte transfer across connectors was exposed. Must not claim source sync of full documents from an index."
+    "synced_document_count": 9,
+    "verified_document_count": 9,
+    "total_bytes": 59841,
+    "operation": "GIT_IMMUTABLE_CANDIDATE_TO_LIBRARY_EXACT_BYTE_SYNC",
+    "origin_manifest": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_MANIFEST_20261017_CANDIDATE.json",
+    "immutable_git_content_commit": "9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1f",
+    "destination_root": "/Trading/FOX2",
+    "receipt_path": "/Trading/FOX2/00_Governance/FOX2_CHAT_FIRST_LIBRARY_SYNC_RECEIPT_20261017.json",
+    "outcome": "9_OF_9_SHA256_MATCH_AND_LIB_READBACK_BYTE_IDENTICAL",
+    "previous_source_index_saved": "/Trading/FOX2/00_Governance/FOX2_CHAT_FIRST_SOURCE_STATUS_20261017.md",
+    "old_effective_files_overwritten": false,
+    "canonical_effective_promotion": false
   },
   "bridge": {
     "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
@@ -71,8 +77,8 @@
     "no main/merge/deploy/LIVE"
   ],
   "next_actions": [
-    "complete true nine-document exact-byte Library mirror using compatible authenticated Git-to-Library file transfer",
-    "verify owning release authority and release chain",
-    "after valid release, plan prospective Bridge migration without rebinding in-flight work"
+    "VERIFY_RELEASE_CHAIN_AUTHORITY_FOR_CANDIDATE_EFFECTIVE",
+    "PRESERVE_BRIDGE_RUNTIME_1_2_SOURCE_LOCK_AND_CONSUMED_DISPATCHES",
+    "ONLY_PROSPECTIVELY_MIGRATE_GENERATED_BINDING_AFTER_TRUSTED_RELEASE_AND_HOST_TESTS"
   ]
 }
