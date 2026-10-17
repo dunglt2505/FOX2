@@ -11,7 +11,7 @@ Immutable source snapshot for manifests: 9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1
 3. Created PreExec v1.2 Candidate, CHAT Preflight Intake v1.2 Candidate and CHAT Result Intake v10 Candidate; actual Agent execution still requires existing PreExec/dispatch rules.
 4. Created project-wide Master Plan CHAT-FIRST Addendum and governance release map.
 5. Populated all 17 FOX2 SKILL.md candidate source files, with embedded shared guidance and skill-specific CHAT-FIRST execution rules. Direct Git readback checks: 17/17 structural PASS.
-6. Created Skills package manifest v0.2.0 Candidate and governance candidate manifest with immutable Git blob SHA and recorded file byte lengths; SHA-256 release-grade independent byte verification remains pending.
+6. Created Skills package manifest v0.2.0 Candidate and governance candidate manifest with immutable Git blob SHA and recorded file byte lengths; SHA-256 digests now computed from immutable Git file contents for all 17 Skills and 9 governance candidate documents; manifests updated and read back. Independent release authority and Library destination readback still pending.
 7. Compared base commit bfc015eb60a04479c812abd55e537ab6f9f1a559 to candidate branch: 31 added files, no code/runtime/BRD semantic modifications and no existing tracked files changed (at comparison point). Restored historical three documents byte-identically on branch after exploratory edits.
 
 ## Operating model
@@ -25,7 +25,7 @@ Governance declares source/permissions -> Skills describe safe execution -> CHAT
 - Only docs/skills/report paths changed vs base: PASS
 - Agent host test, installed-plugin behavior, plugin republish: NOT_RUN
 - Independent release authority and Library exact byte release verification: NOT_VERIFIED
-- SHA-256 manifest completion: PENDING
+- SHA-256 manifest source digests: PASS 26/26; cryptographic hash computation validated with known SHA-256 abc vector and records tied to immutable source commit.
 
 ## Withheld effects
 NO main push; NO merge; NO release promotion; NO dispatch; NO production/provider/broker/LIVE; NO rewriting Library canonical files; NO claim that installed plugin 0.1.1 has been updated.
