@@ -1,6 +1,6 @@
 {
-  "status": "INTEGRATION_PENDING_NOT_READY",
-  "generated_utc": "2026-10-16T12:45:59.288050+00:00",
+  "status": "INSTALLED_ANALYTICAL_USE_VALIDATED_NOT_RELEASE_CERTIFIED",
+  "generated_utc": "2026-10-17T04:51:05.999719+00:00",
   "source_lock": "../reports/FOX2-SKILLS-INTEGRATED-RELEASE/evidence/review/conditional-release-chain.json",
   "source_binding_evidence_sha256": "35cf70bb40b86d02bda61d6bc4979c768dcc5c5eb505d3bf8dd50475f67b253e",
   "source_authority_status": "AUTHORITY_UNVERIFIED",
@@ -10,21 +10,25 @@
     "*.pyc"
   ],
   "files": {
+    ".agents/plugins/marketplace.json": {
+      "sha256": "0007be0fc58cd2f3bc310200f0f6c3740511816eccf15d9e76ef602118199016",
+      "bytes": 310
+    },
     ".gitattributes": {
       "sha256": "0e1a7053b643dce4294fc6702fca6e374e3d0d7d505c041aee4acb6fe3ba2adc",
       "bytes": 89
     },
     "contracts.json": {
-      "sha256": "8feebc077893037b1f0ebf84b0f9277eb22cb90086ace6379ec88b3cd6e13812",
-      "bytes": 4797
+      "sha256": "90752b0839d0ff3df21a967664aca3f3b7ddd495732c39fa1b4354dae8f049a2",
+      "bytes": 4594
     },
     "INSTALLATION.md": {
-      "sha256": "9142d14d68cda9085bd1b570ae3ce24fd2dba8b055b872b599b9a578c938b1b3",
-      "bytes": 6479
+      "sha256": "625d9dac636bad27be139236040a1d6670bb5b14748d89cfcf1bbb22a5fdce45",
+      "bytes": 4606
     },
     "manifest.json": {
-      "sha256": "7a45b9f3e38e446f94659642253753377c3bd72bc7e928f3c75b299c1514058d",
-      "bytes": 570
+      "sha256": "025337f9517352fac00b4987e5529e9e42e7802e126e77bf9f9244b681efa6bf",
+      "bytes": 837
     },
     "plugin.json": {
       "sha256": "082df5dafadd29187dc443a21bd8c7f0b071533f6424f148c5b9043ce4a06aaa",
@@ -39,8 +43,8 @@
       "bytes": 359
     },
     "README.md": {
-      "sha256": "62b5ab1ea8cea9a5d90088d545a2fbb511b3cf2534e511010234d9b46959d461",
-      "bytes": 1895
+      "sha256": "846aa3e4ef35bd43c8477bb66a79f4e2bffe1fab0ec2a05bfd58f142ac6d89f6",
+      "bytes": 1193
     },
     "shared/__init__.py": {
       "sha256": "1b1abd30604e0093b5751e8c966e7ffd2a4478e83544a161c6f8a3ab85bb80e1",
@@ -53,6 +57,10 @@
     "shared/errors.py": {
       "sha256": "f391051cfc316b17ecf8e67c26c1207ced2d7b51546b7d8aa09adeea8a1f8918",
       "bytes": 101
+    },
+    "shared/host_guidance.md": {
+      "sha256": "3e4b0fb932e05c9fdca2cc69ddb4b77614f42d17584714eb9321029658bed6e2",
+      "bytes": 1920
     },
     "shared/local_git.py": {
       "sha256": "fc533f90ee0dbe17ab2bae9b0d6894cd4147a5304e40f8b534a1aa1562a21898",
@@ -75,72 +83,72 @@
       "bytes": 2084
     },
     "skills/fox2-agent-prompt-builder/SKILL.md": {
-      "sha256": "c76406f6f0aca934dab88ac9b0f0fa1cd3edc5c7ea293905669e16cce270ffea",
-      "bytes": 4072
+      "sha256": "ee1711e5f4f2c643d4e1968b48c088ad63d305a176816544e7fd0d1d23e3af52",
+      "bytes": 1104
     },
     "skills/fox2-agent-route-runtime/SKILL.md": {
-      "sha256": "270dddd6230203744e45f11257aae3265e39cdc10abb20315d48b3508c1678f2",
-      "bytes": 4018
+      "sha256": "985dd5bdb387431a508c60c9b0cf5d8034843a8d68de6fa4501cd4a0054c4c00",
+      "bytes": 1093
     },
     "skills/fox2-brd-change-control/SKILL.md": {
-      "sha256": "5af914035ff5e3b67aaab72009f8d0b0d4e946f43861a32852812c882d963f50",
-      "bytes": 3955
+      "sha256": "c13795f5af6063c8b69e59744d1a90f7392a8a0e7ffcb609f1561bb94017166a",
+      "bytes": 893
     },
     "skills/fox2-dictionary-impact/SKILL.md": {
-      "sha256": "a88dd070e081cd1b57bda7cf88bb9f65196d4b543ba066a99409ddca9c11dab3",
-      "bytes": 3919
+      "sha256": "b8fce24697a66201fda32e1e4e82c1b847ec34d6017fa8a372b1d960369a1368",
+      "bytes": 1003
     },
     "skills/fox2-document-publication/SKILL.md": {
-      "sha256": "4812f5f294d0c558f11b998f6bfd7de78c9685939ac1f3c8362f1e98a5799540",
-      "bytes": 4107
+      "sha256": "6d4f37ed365fd8f82bc780e59b1457a00997552e4826fd01e1cb27af6fed82d4",
+      "bytes": 1042
     },
     "skills/fox2-execution-recovery/SKILL.md": {
-      "sha256": "5193402be78822d1e0b62a193a6abad977b7b3dcad4706f6252e675ad24e2a33",
-      "bytes": 3967
+      "sha256": "6cb5bd5d6919cea62438fd5f87b776827bac5b2e31af4d9ab715828158d123fd",
+      "bytes": 930
     },
     "skills/fox2-feature-certification/SKILL.md": {
-      "sha256": "9d3cb15cc461b10e4f0b0df0bf570978038ea820045840f6dbde3ffc3afe0371",
-      "bytes": 4080
+      "sha256": "7929b96eae213912d680b01a4e105d7e059a76e981a616ba05da3d1cc8ab8fa8",
+      "bytes": 989
     },
     "skills/fox2-governance-preflight/SKILL.md": {
-      "sha256": "c71977b1a4616658a04973682ae5429f8cfb369477e22f4b27a5660f3523b723",
-      "bytes": 3976
+      "sha256": "e59d460a577e02266f0501bbddd2a3b173c3dfddda76c8b0062fa4f5b4473428",
+      "bytes": 990
     },
     "skills/fox2-project-health/SKILL.md": {
-      "sha256": "95b6d8d9ce3f4d373a753416bc77840c195ec5e8ae2bc86e638b3d640d992c63",
-      "bytes": 4010
+      "sha256": "d50c113649ed44d152d57678313580877a8ad6b496cfa60f2846c8b74663de59",
+      "bytes": 958
     },
     "skills/fox2-research-validation/SKILL.md": {
-      "sha256": "1f626f060cc7e3990c0eea3b6e56c375c7e5bb8e0aa0b4f1a09e67f782dc2805",
-      "bytes": 4009
+      "sha256": "cb3fd84784f31f5b8634ab8071a5f72629570bb9c2b74454da6fec2b3103b027",
+      "bytes": 941
     },
     "skills/fox2-result-review/SKILL.md": {
-      "sha256": "ccb657f79d3303b28a8c26f06d8fb1ac84670acf8d76b23741d856e02889f2da",
-      "bytes": 4006
+      "sha256": "d6d874882d93a900ef82c61fc1c57756b871ecea185095db7a98155950f28e2c",
+      "bytes": 986
     },
     "skills/fox2-source-resolver/SKILL.md": {
-      "sha256": "5474187269225905e0d8051f88044df7a6b6e723a5fc42ba81bac911661efeb0",
-      "bytes": 4041
+      "sha256": "bc2e64eb92870810cc38c19d593d7695ab7a6b8a660b3333ded19767dcf8cffd",
+      "bytes": 1296
     },
     "skills/fox2-source-sync/SKILL.md": {
-      "sha256": "7dacf66cdf06ee2a0fb877f33566e06a92e64d78e9b4684bb66241cf6a3ea711",
-      "bytes": 4012
+      "sha256": "279a0f4bf6ce5835204a767450116226a895be6380960771dfbe0096d5f6595b",
+      "bytes": 1048
     },
     "skills/fox2-status-roadmap/SKILL.md": {
-      "sha256": "2495ba9f74feb67ec2b4dba2ddbeeb86c6130aa7a4bafe7c62ba9da85cfea543",
-      "bytes": 3957
+      "sha256": "7e9c2d3be71ac864a9a5ed56d9283bb087bc874903e0c77802969283192d6167",
+      "bytes": 888
     },
     "skills/fox2-strategic-agent-triage/SKILL.md": {
-      "sha256": "ab9852c202081b4743ebf800e96ac927259986d6667e694fad9f36a79c1e53aa",
-      "bytes": 3995
+      "sha256": "9c4188fbdcbb935f66dba3df3dfc82bc579ede67e140b5a8bef52e70cf7aaf20",
+      "bytes": 928
     },
     "skills/fox2-techspec-validator/SKILL.md": {
-      "sha256": "7ea28af13619ea13ee31c4002879bc65771477623635653cb8c0c91d6ac8da05",
-      "bytes": 3981
+      "sha256": "5960d92383c54319238f73df9906c5e9d1d3c987ef3b1036d4aebb89f509bae0",
+      "bytes": 1086
     },
     "skills/fox2-thread-handoff/SKILL.md": {
-      "sha256": "fd0263b3d20fbb3eb301cd39699081f328c88953024757df5f6e235bfeba8959",
-      "bytes": 3974
+      "sha256": "83a45a0d3ab8ab870fbce5498b5453e6b9aa89b4aea7d82b674ba61123bbe44c",
+      "bytes": 960
     },
     "tests/legacy_git_resolver.py": {
       "sha256": "a2d5627398cbf7c3f8c99b588e0922db9d71c1a09afd0d0531689f9e35cdc101",
@@ -159,8 +167,8 @@
       "bytes": 1787
     },
     "tests/test_integration.py": {
-      "sha256": "a5b08eb8b40584888a7711a9de54b4503dabe1aeec7ba9e54aed817907dce9a0",
-      "bytes": 1123
+      "sha256": "02a792bc2d1ddd21acdc10fb13eabb7151b88f8eb12ad0955b631fcab0b8e995",
+      "bytes": 1273
     },
     "tests/test_native_release.py": {
       "sha256": "ccdbe8f71bf75b0750e7dc69d9d3389cf16f315435169dd72e44711ac55ef94a",
@@ -179,8 +187,8 @@
       "bytes": 460
     },
     "tools/build_contracts.py": {
-      "sha256": "8d620f2a48afe1f779cf13923f05935e290f4cc0bd10f869942856c31957dd7e",
-      "bytes": 4994
+      "sha256": "3dd6c924db2652583ad4b9eb79397922c9249e47977f5210a4dd4ef86ad63215",
+      "bytes": 3301
     },
     "tools/build_distribution.py": {
       "sha256": "715db3a2e5b0cf5289ba21cddb96c4dca91550ec1b07fd374783547c4a3a4784",

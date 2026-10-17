@@ -1,0 +1,389 @@
+{
+  "rows": [
+    {
+      "skill": "fox2-agent-prompt-builder",
+      "result": {
+        "handoff": "DRAFT — Candidate template provenance. Continue the existing cache-reader work package. Outcome: correct cache-miss behavior. Allowed code scope: src/cache.py and tests/test_cache.py. Implement missing-cache handling that returns typed MISS and corrupt-cache handling that reports an error. Preserve unrelated work. Acceptance: demonstrate both behaviors with focused tests and return the patch summary, test commands/results, and unresolved issues. Do not push, merge, dispatch, or expand scope. Stop if required changes extend beyond the allowed paths or the MISS/error contract cannot be established. No completed effects were supplied for exclusion.",
+        "unresolved_material_bindings": [
+          "Exact typed MISS representation and corrupt-cache error contract.",
+          "Candidate template body was not supplied; this is a self-contained draft, not a claim of template fidelity.",
+          "Executable assignment would require applicable routing and governing-source checks."
+        ]
+      },
+      "withheld_effects": [
+        "Code edits",
+        "Test execution",
+        "Dispatch",
+        "Push",
+        "Merge"
+      ],
+      "limitations": [
+        "Draft based solely on supplied conditional inputs; no repository inspection."
+      ]
+    },
+    {
+      "skill": "fox2-strategic-agent-triage",
+      "result": {
+        "observations": {
+          "A": "Interrupted sync left a Dictionary pointer to old bytes.",
+          "B": "The same manifest still lists the old Dictionary digest.",
+          "C": "One UI opening took 8 seconds; no baseline exists."
+        },
+        "assessment": "A and B support investigating one coherent source-binding inconsistency. They do not prove the precise failure mechanism or establish which bytes should become authoritative. C is an isolated timing observation with unknown cause and no demonstrated connection to A or B.",
+        "comparison": "One bounded binding investigation can reconcile pointer, manifest digest and intended bytes together, reducing duplicated work and inconsistent fixes. Three separate micro-WPs add coordination cost and risk treating related symptoms independently; a UI remediation WP is premature.",
+        "next_action": "Compare the pointer, manifest record, intended immutable bytes and interruption evidence; draft a coordinated repair proposal. Record or repeat UI timing under comparable conditions before proposing performance work. Separate ownership or evidence of unrelated causes would justify splitting the work."
+      },
+      "withheld_effects": [
+        "Assignments",
+        "Source-binding changes",
+        "Dispatch",
+        "Release"
+      ],
+      "limitations": [
+        "Root cause, intended binding authority and UI performance baseline remain unknown."
+      ]
+    },
+    {
+      "skill": "fox2-project-health",
+      "result": {
+        "cutoff": "2026-10-16",
+        "A1": "VERIFIED for installed discovery: supplied native-host receipt lists 17 enabled Skills.",
+        "A2": "NOT_RUN: substantive workflow acceptance is incomplete.",
+        "A3": "AUTHORITY_UNVERIFIED: release authority is unresolved.",
+        "reconciliation": "The executor's all-complete claim exceeds the evidence. Commit existence proves none of the missing behavioral or authority gates.",
+        "next_milestone": "Complete substantive workflow evaluation with requirement-linked evidence while preserving A1; resolve release authority separately before any release-readiness decision."
+      },
+      "withheld_effects": [
+        "Authoritative completion status",
+        "Release acceptance",
+        "Test execution"
+      ],
+      "limitations": [
+        "Findings use supplied receipts and cutoff facts without independent inspection."
+      ]
+    },
+    {
+      "skill": "fox2-document-publication",
+      "result": {
+        "comparison": "draft.md contains draft-v1; incoming draft-v2 differs. Preserve draft.md.",
+        "save": "PLANNED_ONLY: propose a distinct local draft destination, such as draft-v2.md, within the permitted area; verify that destination is absent before saving.",
+        "release": "NOT_PERFORMED; no release authority supplied.",
+        "Registry": "UNCHANGED.",
+        "mirror": "NOT_PERFORMED.",
+        "next_action": "Prepare the new-destination save plan. If later executed under the existing local-save grant, check destination bytes, save only to an absent permitted path, then read back and compare exact draft-v2 bytes and record a digest."
+      },
+      "withheld_effects": [
+        "Actual save",
+        "Overwrite of draft.md",
+        "Release",
+        "Registry update",
+        "Mirroring"
+      ],
+      "limitations": [
+        "No destination inspection or file write occurred; the proposed filename is not verified absent."
+      ]
+    },
+    {
+      "skill": "fox2-source-resolver",
+      "result": {
+        "manifest_commit": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+        "source_commit": "9111c82e4a4e04cb63f0c924af4642341af6d802",
+        "observed_file_blob_matches": "12/12",
+        "Dictionary_digest": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+        "provenance": "Supplied inspected-baseline fixture; Owner designated conditional technical baseline only.",
+        "decision": "AUTHORITY_UNVERIFIED. The consumer may report the supplied byte-match findings but may not label the source VERIFIED_EFFECTIVE.",
+        "missing_binding": "Independent owning authority and the relevant current release chain, scope, supersession and competing-authority checks."
+      },
+      "withheld_effects": [
+        "VERIFIED_EFFECTIVE designation",
+        "Registry promotion",
+        "Source rebinding"
+      ],
+      "limitations": [
+        "Hashes and matching bytes establish technical identity, not current authority; no actual competing authority was supplied."
+      ]
+    },
+    {
+      "skill": "fox2-governance-preflight",
+      "result": {
+        "operation_decisions": [
+          {
+            "operation": "Read-only package inspection",
+            "decision": "Within the stated live Owner grant; no inspection is performed in this response."
+          },
+          {
+            "operation": "Local technical tests",
+            "decision": "Within the stated live Owner grant, but this analytical request explicitly excludes rerunning tests."
+          },
+          {
+            "operation": "Conditional technical analysis",
+            "decision": "Proceed using labeled conditional inputs."
+          },
+          {
+            "operation": "Registry promotion",
+            "decision": "HELD: candidate input cannot grant this effect; Owner authorization and governing authority are absent."
+          },
+          {
+            "operation": "Merge",
+            "decision": "HELD: no Owner merge grant."
+          },
+          {
+            "operation": "Agent assignment or external effect",
+            "decision": "Not requested or authorized."
+          }
+        ]
+      },
+      "withheld_effects": [
+        "Inspection execution",
+        "Tests",
+        "Registry promotion",
+        "Merge",
+        "Assignment",
+        "External actions"
+      ],
+      "limitations": [
+        "Source authority remains conditional; routing analysis would not itself confer execution rights."
+      ]
+    },
+    {
+      "skill": "fox2-result-review",
+      "result": {
+        "claim": "17 Skills passed full host acceptance.",
+        "evidence": {
+          "metadata_discoveries": 17,
+          "missing_grant_helper_refusals": 17,
+          "unit_tests": 53,
+          "substantive_model_workflow_tests": 0
+        },
+        "discrepancy": "The claim promotes discovery, helper refusal behavior and unit-test evidence into full substantive host workflow acceptance.",
+        "bounded_acceptance": "Accept the supplied discovery counts, missing-grant refusal evidence and reported unit-test results at their respective layers. Full host/domain workflow acceptance is NOT_DEMONSTRATED.",
+        "next_action": "Define and evaluate substantive requirement-linked workflows for the Skills before making a full acceptance claim."
+      },
+      "withheld_effects": [
+        "Full host acceptance",
+        "Release acceptance",
+        "Test execution"
+      ],
+      "limitations": [
+        "Receipts are accepted as accurately quoted fixture evidence; unit-test coverage and substantive behavior were not independently inspected."
+      ]
+    },
+    {
+      "skill": "fox2-source-sync",
+      "result": {
+        "safe_delta": "a.txt is absent: plan a new copy only within the authorized scratch root, after confirming the target remains absent.",
+        "unchanged_delta": "b.txt has identical bytes: leave unchanged; do not count it as a new copy.",
+        "conflicting_delta": "c.txt differs: preserve destination WIP and hold that copy pending comparison and explicit conflict resolution.",
+        "required_readback": "For any later a.txt copy, read destination bytes back, compare exact bytes with the source and record source/destination digests. Record b.txt's supplied identical classification and c.txt's unresolved conflict separately.",
+        "execution_status": "No copies performed."
+      },
+      "withheld_effects": [
+        "File copies",
+        "Conflict overwrite",
+        "Canonical replacement",
+        "Publication"
+      ],
+      "limitations": [
+        "Comparison classifications are supplied; exact paths, bytes and digests were not independently inspected."
+      ]
+    },
+    {
+      "skill": "fox2-agent-route-runtime",
+      "result": {
+        "routes": {
+          "CODEX": "Native-host login and capability observed; current 5-hour usage is 73%. Best-supported capability match for native Codex Skill verification.",
+          "COPILOT": "CLI exists; authentication and quota UNKNOWN. Native Codex host capability is not established.",
+          "WORK": "Separate-runtime capability UNKNOWN; suitability is unestablished.",
+          "CHAT": "Supports this analytical recommendation; the fixture supplies no evidence of its ability to execute native Codex host verification."
+        },
+        "recommendation": "Conditionally recommend CODEX for bounded native-host Skill verification. Before any assignment, apply the routing precheck, verify current capability and sufficient quota, and establish the required execution grant and material source bindings. Then evaluate discovery and substantive workflows with separate evidence.",
+        "stop_conditions": [
+          "Required native-host capability unavailable.",
+          "Insufficient execution capacity.",
+          "Material assignment or authority gates unresolved."
+        ],
+        "permission": "This recommendation grants no dispatch or execution rights; do not silently substitute another runtime."
+      },
+      "withheld_effects": [
+        "Final executable assignment",
+        "Dispatch",
+        "Runtime launch",
+        "Permission changes"
+      ],
+      "limitations": [
+        "Policy baseline is conditional; 73% usage alone does not establish capacity for an unspecified workload."
+      ]
+    },
+    {
+      "skill": "fox2-thread-handoff",
+      "result": {
+        "handoff": "DRAFT — Continue the same existing work package under source lock L1. Preserve that lock; do not rebind to newer sources. Completed effect: a.txt was copied and verified; do not replay it. WIP: b.txt has a same-name byte conflict and must remain preserved. Remaining work: inspect both versions of b.txt and available lineage, document the differences, and resolve the conflict without overwriting existing content. Acceptance: retain verified a.txt, preserve conflicting bytes, and record the agreed resolution and any readback required by a later authorized operation. Do not restart the task or dispatch implementation from this draft.",
+        "next_action": "Read-only inspection of b.txt's competing bytes and provenance."
+      },
+      "withheld_effects": [
+        "Replay of a.txt",
+        "Overwrite",
+        "Task restart",
+        "Source rebinding",
+        "Dispatch"
+      ],
+      "limitations": [
+        "L1 and completion/readback evidence are supplied fixture facts; b.txt bytes and resolution authority are not supplied."
+      ]
+    },
+    {
+      "skill": "fox2-brd-change-control",
+      "result": {
+        "classification": "Candidate business-behavior change: audit cardinality changes from one to two records per completed operation.",
+        "impacts": [
+          "Existing exactly-one acceptance would fail under the proposed behavior.",
+          "A downstream reader rejects duplicate operation IDs; two records using the same operation ID would violate that interface.",
+          "Audit emission, record identity/schema, reader behavior and tests require coordinated review."
+        ],
+        "draft_resolution": "Clarify why two records are required and define their identities and meanings. Either retain one record or propose an approved compatible multi-record contract; do not assume different IDs alone preserve required semantics.",
+        "required_approvals": "Obtain owning BRD approval for the semantic change, acceptance-owner approval for revised criteria, affected interface/consumer-owner agreement, and applicable release approval before promotion.",
+        "decision": "Candidate delta is incompatible with current supplied acceptance and reader behavior."
+      },
+      "withheld_effects": [
+        "Canonical BRD edits",
+        "Acceptance promotion",
+        "Implementation changes",
+        "Release"
+      ],
+      "limitations": [
+        "No approved revised schema, consumer contract or canonical change authority is supplied."
+      ]
+    },
+    {
+      "skill": "fox2-techspec-validator",
+      "result": {
+        "trace": {
+          "requirement": "R1 requires numeric price.",
+          "specification": "price is number; aligned with supplied R1.",
+          "implementation_fixture": "{\"price\":\"123.45\"} encodes price as a string; violates the supplied numeric interface.",
+          "tests": "Presence-only assertion does not validate type and can pass the incompatible response."
+        },
+        "decision": "Technical validation FAIL for the implementation fixture; specification alignment is supported only for the supplied price-type requirement.",
+        "next_action": "Return a numeric price and add a response-type assertion that rejects string prices. Obtain any missing precision, range and error-handling requirements before assessing those dimensions."
+      },
+      "withheld_effects": [
+        "Code changes",
+        "Test execution",
+        "Canonical conformance claim",
+        "Release acceptance"
+      ],
+      "limitations": [
+        "Conditional artifacts support this type finding only; other interface and lifecycle requirements are unspecified."
+      ]
+    },
+    {
+      "skill": "fox2-dictionary-impact",
+      "result": {
+        "change": "Machine path changes from old/result.md to new/result.md; no business-semantic change is proposed.",
+        "consumers": {
+          "A": "Generated binding requires its generation input and resulting path reference to be checked and, if approved, regenerated.",
+          "B": "Hardcoded old/result.md is directly impacted and would retain the obsolete reference without a change.",
+          "C": "Uninspected; impact UNKNOWN."
+        },
+        "draft_plan": "Preserve the existing source lock. Inventory path references, inspect C, propose coordinated binding and hardcoded-reference updates, and decide whether compatibility support is needed. Before any approved migration, verify the new target and define old-path behavior.",
+        "verification": "Check generated output, B's path resolution, C's actual references, target byte identity and tests for expected old/new-path behavior. Record coverage gaps."
+      },
+      "withheld_effects": [
+        "Migration",
+        "Regeneration",
+        "Consumer edits",
+        "Registry rewrite",
+        "Promotion"
+      ],
+      "limitations": [
+        "Actual consumer content, target bytes and compatibility requirements are not supplied; path-only changes can still break consumers."
+      ]
+    },
+    {
+      "skill": "fox2-feature-certification",
+      "result": {
+        "feature": "FOX2 Skill discovery",
+        "requirements": {
+          "F1_discover17": "TECHNICALLY_VERIFIED from supplied real-host evidence: plugin installed/enabled and skills/list returned 17 Skills.",
+          "F2_complete_domain_workflows": "NOT_DEMONSTRATED: helper PASS does not establish full domain behavior.",
+          "F3_release_approval": "UNVERIFIED: no approval receipt supplied."
+        },
+        "bounded_acceptance": "Accept installed discovery only. Full feature certification and release acceptance remain incomplete."
+      },
+      "withheld_effects": [
+        "Full-domain certification",
+        "Canonical certification",
+        "Release"
+      ],
+      "limitations": [
+        "Host artifact and helper results are supplied evidence; no substantive workflow observations or release approval are available."
+      ]
+    },
+    {
+      "skill": "fox2-execution-recovery",
+      "result": {
+        "A": "Completed with readback; preserve and exclude from replay.",
+        "B": "Dispatch consumed, runtime result UNKNOWN; neither failure nor absence of effects is established.",
+        "C": "Not started and depends on B; hold pending B's outcome.",
+        "safe_next_observation": "Read the existing B dispatch/runtime receipt and inspect its expected output or effect destination using the original execution identity. Determine completion, partial effects or confirmed failure before considering retry.",
+        "recovery_plan": "Preserve completed work, WIP and source locks. Reconcile B first; if complete, verify its result before planning C. If partial or failed, prepare only the unresolved recovery delta under the existing grant. Do not redispatch blindly or switch Agents automatically."
+      },
+      "withheld_effects": [
+        "Replay of A",
+        "Retry of B",
+        "Start of C",
+        "Agent switching"
+      ],
+      "limitations": [
+        "B's runtime state and effect evidence are unavailable; no retry is authorized by this request."
+      ]
+    },
+    {
+      "skill": "fox2-status-roadmap",
+      "result": {
+        "cutoff": "2026-10-16",
+        "draft_milestone_update": {
+          "A": "VERIFIED — installed Skill discovery.",
+          "B": "IN_PROGRESS — substantive workflow evaluation.",
+          "C": "UNKNOWN — source release authority."
+        },
+        "next_milestone": "Complete B with substantive acceptance evidence; resolve C as a separate prerequisite for a release decision.",
+        "plan_relationship": "This is a factual draft milestone delta within the unchanged existing master plan.",
+        "completion_assessment": "Project completion is not established; commit creation does not close B or resolve C."
+      },
+      "withheld_effects": [
+        "Master-plan modification",
+        "Authoritative status publication",
+        "Release decision"
+      ],
+      "limitations": [
+        "Uses only supplied current health facts; no new schedule, completion date or authority is inferred."
+      ]
+    },
+    {
+      "skill": "fox2-research-validation",
+      "result": {
+        "defects": [
+          "Using candle close at t+1 to predict a trade at t introduces lookahead: the feature is unavailable at the decision time.",
+          "Shared train/test rows contaminate evaluation and undermine independence.",
+          "Gross returns omit fees and slippage, so executable net performance is unestablished.",
+          "No independent holdout exists to assess generalization."
+        ],
+        "evidence_tier": "Method-level analytical evidence with an invalid basis for predictive or deployable-performance claims. The reported backtest does not establish out-of-sample efficacy.",
+        "next_validation": "Rebuild features using only information available at each decision time, create chronological nonoverlapping splits with appropriate boundary controls, include realistic execution costs, and reserve an untouched holdout for evaluation after model selection.",
+        "unknowns": "Survivorship bias, data lineage, tuning history and actual performance magnitude cannot be determined from the supplied method."
+      },
+      "withheld_effects": [
+        "Backtest execution",
+        "Performance endorsement",
+        "Deployment",
+        "Provider or broker access",
+        "LIVE trading"
+      ],
+      "limitations": [
+        "Analytical fixture review only; no datasets, code or independent empirical results were inspected."
+      ]
+    }
+  ],
+  "effects": []
+}

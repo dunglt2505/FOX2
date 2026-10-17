@@ -1,0 +1,17 @@
+{
+  "name": "fox2-local",
+  "plugins": [
+    {
+      "name": "fox2-skills-integrated",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

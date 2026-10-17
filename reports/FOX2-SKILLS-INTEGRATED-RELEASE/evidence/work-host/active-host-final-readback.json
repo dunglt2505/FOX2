@@ -1,0 +1,17 @@
+{
+  "status": "ACTIVE_HOST_INSTALLED_AND_ENABLED",
+  "plugin_id": "fox2-skills-integrated@fox2-local",
+  "installed_path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local",
+  "source_package": "C:\\Projects\\FOX2-worktrees\\FOX2-SKILLS-INTEGRATED-RELEASE\\fox2_skills",
+  "verified_package_files": 52,
+  "mismatches": [],
+  "enabled_skills": 17,
+  "authentication": {
+    "account_present": true,
+    "requiresOpenaiAuth": true,
+    "account_type": "chatgpt"
+  },
+  "source_authority": "AUTHORITY_UNVERIFIED",
+  "native_gui_visual_inspection": "NOT_PERFORMED",
+  "current_chat_skill_catalog": "17 FOX2 Skills are available in the current chat skill catalog"
+}

@@ -1,0 +1,99 @@
+{
+  "reviewer": "Primary agent, separate from native-host evaluation subject",
+  "scope": "One explicit multi-Skill native-host batch with 17 supplied analytical fixtures; no write-side or implicit-activation acceptance",
+  "host_completed": true,
+  "effects_observed": [],
+  "rows": [
+    {
+      "skill": "fox2-agent-prompt-builder",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Draft is self-contained, scoped to two paths, covers MISS/corrupt-cache tests and preserves no-push/no-dispatch limits."
+    },
+    {
+      "skill": "fox2-strategic-agent-triage",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Groups related binding symptoms A/B, keeps UI observation C causal status unknown and compares coherent work against micro-WPs."
+    },
+    {
+      "skill": "fox2-project-health",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Accepts discovery only, keeps workflow NOT_RUN and authority unresolved, rejects completion inferred from commit."
+    },
+    {
+      "skill": "fox2-document-publication",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Preserves differing destination, proposes an absent new path and separates four publication statuses without claiming a write."
+    },
+    {
+      "skill": "fox2-source-resolver",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Retains separate immutable source/manifest identities and byte findings while withholding VERIFIED_EFFECTIVE."
+    },
+    {
+      "skill": "fox2-governance-preflight",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Allows explicitly granted technical work, refuses candidate-requested Registry/merge rights and issues no assignment."
+    },
+    {
+      "skill": "fox2-result-review",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Identifies promotion of metadata/helper/unit evidence into unsupported full domain host acceptance."
+    },
+    {
+      "skill": "fox2-source-sync",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Plans missing a.txt, leaves identical b.txt, preserves conflicting c.txt, and specifies actual copy readback."
+    },
+    {
+      "skill": "fox2-agent-route-runtime",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Compares all four relevant routes from supplied capability/quota observations and distinguishes recommendation from permission."
+    },
+    {
+      "skill": "fox2-thread-handoff",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Preserves L1 and completed a.txt, retains conflicting b.txt and no-replay/no-restart constraints."
+    },
+    {
+      "skill": "fox2-brd-change-control",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Finds audit cardinality incompatibility with acceptance and duplicate-ID consumer; maps owning approvals before canonical change."
+    },
+    {
+      "skill": "fox2-techspec-validator",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Finds string-vs-number implementation mismatch and inadequate presence-only test; proposes type validation."
+    },
+    {
+      "skill": "fox2-dictionary-impact",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Maps generated A and hardcoded B, preserves C UNKNOWN and source lock; no invented migration."
+    },
+    {
+      "skill": "fox2-feature-certification",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Separates demonstrated native discovery F1 from unobserved workflow F2 and unverified approval F3."
+    },
+    {
+      "skill": "fox2-execution-recovery",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Preserves completed A, treats consumed B as uncertain, holds dependent C and specifies state readback before retry."
+    },
+    {
+      "skill": "fox2-status-roadmap",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Preserves supplied cutoff and existing master plan, gives factual A/B/C states without commit-based completion."
+    },
+    {
+      "skill": "fox2-research-validation",
+      "decision": "PASS_FOR_SUPPLIED_ANALYTICAL_SCENARIO",
+      "reviewed_observation": "Identifies future-candle lookahead, train/test contamination, omitted costs and absent holdout without granting deployment."
+    }
+  ],
+  "limitations": [
+    "Fixtures supplied inline, not independently fetched live domain data",
+    "All 17 Skills explicitly selected together, not 17 isolated sessions or implicit routing tests",
+    "No native-host file-write/sync execution was requested",
+    "Source-governed release remains AUTHORITY_UNVERIFIED"
+  ]
+}

@@ -1,4 +1,4 @@
-"""Reconcile Candidate contracts with the integrated product contract."""
+"""Rebuild helper contracts only; curated host workflows are maintained separately."""
 import json
 from pathlib import Path
 
@@ -25,16 +25,4 @@ catalog = {}
 for name, inputs, sources, acceptance in ROWS:
     name = 'fox2-' + name
     catalog[name] = {'inputs': inputs, 'sources': sources, 'acceptance': acceptance}
-    path = ROOT / 'skills' / name / 'SKILL.md'
-    old = path.read_text(encoding='utf-8').split('\n## Integrated input/output contract')[0]
-    # Preserve Candidate workflow/provenance while replacing static resolver linkage.
-    old = old.replace('`../../shared/git_resolver.py`', '`../../shared/native_registry.py`')
-    old += '\n## Integrated input/output contract\n\n'
-    old += 'Required input: task_id, cutoff, actual state, scoped authority, source lock, evidence receipts, and ' + ', '.join(inputs) + '.\n\n'
-    old += 'Resolve only relevant source families: ' + (', '.join(sources) or 'requested family') + '. Use the host-authorized native Registry adapter; no synthetic Registry schema is runtime authority.\n\n'
-    old += acceptance + '\n\n'
-    old += 'Use [shared runtime](../../shared/runtime.py) for contract/preflight and evidence readback. `PREPARED_FOR_HOST_REVIEW` validates supplied input structure and byte receipts only; complete the Skill-specific workflow above in the host before judging semantic acceptance. Return output, source lock, cutoff, factual evidence, unknowns, and typed holds.\n\n'
-    old += 'STOP dependent actions for missing material source/authority, conflict, replay, failed readback or writer collision. Continue independent work. Errors: UNVERIFIED, SOURCE_CONFLICT, UNAVAILABLE, BLOCKED. Never interpret helper success as host acceptance or release authority.\n\n'
-    old += 'Acceptance scenarios: provide the listed inputs with valid host bindings and evidence; reject missing inputs, material unverified sources and completed task replay. Host behavior must also satisfy: ' + acceptance + '\n'
-    path.write_text(old, encoding='utf-8', newline='\n')
 (ROOT / 'contracts.json').write_text(json.dumps(catalog, indent=2), encoding='utf-8', newline='\n')

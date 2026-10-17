@@ -8,10 +8,12 @@ class SkillIntegration(unittest.TestCase):
   self.assertEqual(len(files),17)
   for f in files:
    s=f.read_text()
-   self.assertIn('shared/native_registry.py',s)
-   self.assertIn('Before **every new task',s)
-   self.assertIn('SOURCE_UNVERIFIED',s)
-   self.assertIn('source lock',s)
+   front=s.split('---',2)[1]
+   self.assertRegex(front,r'(?m)^name: '+re.escape(f.parent.name)+r'$')
+   self.assertRegex(front,r'(?m)^description: .+')
+   for target in re.findall(r'\]\(([^)]+)\)',s):
+    if not target.startswith(('http:','https:')):
+     self.assertTrue((f.parent/target).resolve().is_file(),target)
    self.assertNotRegex(s,r'(?i)(?:policy|routing|dictionary|protocol)\s*(?:v|version)\s*\d+\.\d+')
  def test_general_certification(self):
   s=(ROOT/'skills/fox2-feature-certification/SKILL.md').read_text()

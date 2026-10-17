@@ -1,21 +1,18 @@
 # FOX2 integrated Skills
 
-One package containing 17 bounded Skill contracts, shared native Dictionary/release adapter, task locks, scoped preflight, evidence verification, workflow utilities, tests and reversible package installation.
+17 task-specific Skills installed in the active user's native Skills host.
 
-**Status: INTEGRATION_PENDING / NOT_READY.** Host semantic acceptance and real EFFECTIVE source binding remain blocked.
+**Status: INSTALLED / ANALYTICAL_USE_VALIDATED.** Source-governed release acceptance
+remains NOT_READY / AUTHORITY_UNVERIFIED. Installation is not EFFECTIVE promotion.
 
-- `skills/` and `contracts.json`: Candidate-derived workflows, input/output contracts, relevant dependencies and acceptance.
-- `shared/native_registry.py`: production adapter; requires a real host authority verifier. No invented Registry schema is authority.
-- `shared/release_chain.py`: host-integrated release-chain decision engine; independent authority provider required, conditional baseline stays AUTHORITY_UNVERIFIED.
-- `shared/local_git.py`: authenticated CLI/Git readback.
-- `shared/core.py`: task locks, drift, scoped preflight and evidence.
-- `shared/operations.py`: sync/save receipts, health, traceability, triage, recovery and research utilities.
-- `shared/runtime.py`: contract/evidence preparation, not host certification.
-- `tests/legacy_git_resolver.py`: imported Candidate compatibility code for regression tests only; synthetic Registry is not production authority and its CLI binder is disabled.
-- `tests/`, `tools/`, `plugin.json`: verification and integrated packaging.
-- `provenance/`: original Candidate release claims, preserved as historical input.
+- `skills/`: useful domain workflows for draft/analysis and gated canonical effects.
+- `shared/host_guidance.md`: conditional technical work, source locks and authority boundaries.
+- `shared/native_registry.py`, `shared/release_chain.py`: exact-byte binding and host-provided authority verification.
+- `shared/runtime.py`, `contracts.json`: optional helper contracts, not semantic Skill execution.
+- `tests/`: 53 deterministic regressions; synthetic authority fixtures never certify real releases.
+- `.agents/plugins/marketplace.json`: local marketplace for this one maintained package.
 - `release_manifest.json`: exact package hashes, excluding itself and bytecode.
 
-Read [installation and rollback](INSTALLATION.md). Run tests from here: `python -m unittest discover -s tests -v`. Runtime has no third-party Python dependency. Metadata QA uses isolated PyYAML.
-
-The full readiness report and evidence are in `../reports/FOX2-SKILLS-INTEGRATED-RELEASE/` in the source checkout. No release, global host installation or production effect is claimed.
+Read [installation, use and rollback](INSTALLATION.md). The single integrated report
+and raw host evidence are in `../reports/FOX2-SKILLS-INTEGRATED-RELEASE/`.
+No Registry, canonical governance, merge, production or LIVE effect is authorized by a Skill.

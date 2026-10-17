@@ -1,0 +1,76 @@
+{
+  "scope": "FOX2-SKILLS-INTEGRATED-RELEASE",
+  "date": "2026-10-17",
+  "instruction_source": "Live Owner instruction and current project AGENTS.md",
+  "POLICY_CHECK": {
+    "baseline_policy": "FOX2_POLICY_V1.8.9.md at 9111c82e4a4e04cb63f0c924af4642341af6d802, read from retained authenticated readback",
+    "current_effective_authority": "UNKNOWN",
+    "rule": "Do not claim latest EFFECTIVE policy certified; conditional technical continuation is explicitly Owner-authorized"
+  },
+  "R0": {
+    "task": "existing integrated package",
+    "head": "663ef6530c7baeff56bcb2c373418dc5e5a12cc7",
+    "worktree": "known continuation edits to 17 candidate Skills, shared guidance, test metadata checks and local marketplace; original commit preserved",
+    "completed": "53 regressions PASS and 17 metadata PASS after refinement; active host installed/enabled17; new concrete forward evaluation in progress"
+  },
+  "R1": {
+    "stage": "native Work Skills installation and analytical host validation; source-governed release separate"
+  },
+  "R2": {
+    "CODE_ALLOWED": "Owner-authorized bounded technical implementation/testing",
+    "source_authority": "AUTHORITY_UNVERIFIED",
+    "release_gates": "BLOCKED",
+    "no_registry_or_governance_mutation": true
+  },
+  "R3": {
+    "CODEX": {
+      "authentication": "Logged in using ChatGPT, actual CLI status",
+      "ordinary_usage_allowed": true,
+      "five_hour_used_percent": 2,
+      "weekly_used_percent": 60
+    },
+    "COPILOT": {
+      "cli": "available outside sandbox",
+      "authentication": "UNKNOWN",
+      "quota": "UNKNOWN"
+    },
+    "WORK": {
+      "separate_authenticated_model_runtime": "UNKNOWN"
+    }
+  },
+  "R4": {
+    "CHAT": "authority/evidence reconciliation and acceptance; cannot invent release approval",
+    "CODEX": "already selected executor; actual authenticated native host and sufficient observed quota; direct fit for Codex Skill evaluation",
+    "COPILOT": "considered, but auth/quota unproven and not a substitute for Codex native-host evidence",
+    "WORK": "no extra lane needed; avoids duplicate implementation",
+    "other_agents": "none needed"
+  },
+  "R5": {
+    "branch": "work/FOX2-SKILLS-INTEGRATED-RELEASE-codex",
+    "scope": "existing fox2_skills and reports/FOX2-SKILLS-INTEGRATED-RELEASE; local task scratch",
+    "git": "no push/merge or Registry changes",
+    "sources_mirror": "read-only and empty in current project"
+  },
+  "R6": {
+    "host_authentication_blocker": "use existing Codex host login; do not copy credentials",
+    "source_sync": "70 current GitHub branch heads compared; conditional baseline unchanged",
+    "full_acceptance": "still needs independently authoritative source closure"
+  },
+  "R7": {
+    "executor": "continue existing Owner-assigned CODEX technical scope; no new delegated implementation lane",
+    "model_and_reasoning": "CURRENT_CONFIG, no override",
+    "sequence": [
+      "native authenticated host Skill discovery/invocation",
+      "source-family byte closure",
+      "regressions for actual failures",
+      "update one report/package"
+    ],
+    "STOP": [
+      "no fabricated authority",
+      "no privileged external effects",
+      "no replay of completed task effects",
+      "hold authority-dependent release actions"
+    ]
+  },
+  "ASSIGNMENT_CHECK": "Existing technical continuation authorized; release-dependent assignment is not finalized by this checkpoint"
+}

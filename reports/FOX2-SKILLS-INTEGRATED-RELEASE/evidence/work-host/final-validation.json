@@ -1,0 +1,9 @@
+{
+  "unittest_exit_code": 0,
+  "tests": 53,
+  "contract_generator_exit": 0,
+  "skill_workflows_preserved": true,
+  "helper_contract_bytes_idempotent": true,
+  "catalog_newlines": "LF; semantic content unchanged from uploaded catalog",
+  "metadata_validated": 17
+}

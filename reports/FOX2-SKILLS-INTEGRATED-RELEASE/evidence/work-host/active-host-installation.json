@@ -1,0 +1,41 @@
+{
+  "destination": "ACTIVE_USER_HOST_NOT_ISOLATED",
+  "package": "C:\\Projects\\FOX2-worktrees\\FOX2-SKILLS-INTEGRATED-RELEASE\\fox2_skills",
+  "steps": [
+    {
+      "args": [
+        "plugin",
+        "marketplace",
+        "add",
+        "C:\\Projects\\FOX2-worktrees\\FOX2-SKILLS-INTEGRATED-RELEASE\\fox2_skills",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"marketplaceName\": \"fox2-local\",\n  \"installedRoot\": \"C:\\\\Projects\\\\FOX2-worktrees\\\\FOX2-SKILLS-INTEGRATED-RELEASE\\\\fox2_skills\",\n  \"alreadyAdded\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "plugin",
+        "add",
+        "fox2-skills-integrated@fox2-local",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"pluginId\": \"fox2-skills-integrated@fox2-local\",\n  \"name\": \"fox2-skills-integrated\",\n  \"marketplaceName\": \"fox2-local\",\n  \"version\": \"local\",\n  \"installedPath\": \"C:\\\\Users\\\\Fox Le\\\\.codex\\\\plugins\\\\cache\\\\fox2-local\\\\fox2-skills-integrated\\\\local\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "plugin",
+        "list",
+        "--marketplace",
+        "fox2-local",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"fox2-skills-integrated@fox2-local\",\n      \"name\": \"fox2-skills-integrated\",\n      \"marketplaceName\": \"fox2-local\",\n      \"version\": \"local\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"C:\\\\Projects\\\\FOX2-worktrees\\\\FOX2-SKILLS-INTEGRATED-RELEASE\\\\fox2_skills\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"\\\\\\\\?\\\\C:\\\\Projects\\\\FOX2-worktrees\\\\FOX2-SKILLS-INTEGRATED-RELEASE\\\\fox2_skills\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": ""
+    }
+  ]
+}

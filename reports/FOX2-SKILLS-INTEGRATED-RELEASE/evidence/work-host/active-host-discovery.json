@@ -1,0 +1,167 @@
+{
+  "host": "ACTIVE_DEFAULT_USER_RUNTIME",
+  "source_authority": "AUTHORITY_UNVERIFIED",
+  "initialize": {
+    "id": 1,
+    "result": {
+      "userAgent": "Codex Desktop/0.162.1 (Windows 10.0.26300; x86_64) dumb (fox2_work_skills_acceptance; 1.0)",
+      "codexHome": "C:\\Users\\Fox Le\\.codex",
+      "platformFamily": "windows",
+      "platformOs": "windows"
+    }
+  },
+  "skills_list": {
+    "id": 2,
+    "result": {
+      "data": [
+        {
+          "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-SKILLS-INTEGRATED-RELEASE",
+          "skills": [
+            {
+              "name": "fox2-skills-integrated:fox2-agent-prompt-builder",
+              "description": "Build source-bound, permission-bounded agent prompts from task requirements and approved templates.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-agent-prompt-builder\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-agent-route-runtime",
+              "description": "Route tasks according to current effective routing policy and execution capabilities.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-agent-route-runtime\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-brd-change-control",
+              "description": "Control BRD changes, impact assessment and release linkage.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-brd-change-control\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-dictionary-impact",
+              "description": "Analyze dictionary term changes and downstream references.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-dictionary-impact\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-document-publication",
+              "description": "Prepare publication with effective source binding, release approvals and immutable evidence.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-document-publication\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-execution-recovery",
+              "description": "Recover blocked execution without repeating completed dispatches.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-execution-recovery\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-feature-certification",
+              "description": "Certify FOX2 features against effective requirements and evidence, not Bridge only.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-feature-certification\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-governance-preflight",
+              "description": "Enforce governance source verification and pre-execution permissions.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-governance-preflight\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-project-health",
+              "description": "Assess FOX2 health from current Git evidence, work states, risks and open gates.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-project-health\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-research-validation",
+              "description": "Assess research quality, reproducibility, limitations and application readiness.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-research-validation\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-result-review",
+              "description": "Review agent results, tests, receipts, path compliance and no-replay requirements.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-result-review\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-source-resolver",
+              "description": "Resolve trusted Git Registry, release manifests, provenance and effective sources.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-source-resolver\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-source-sync",
+              "description": "Reconcile Git documents with destination copies, preserving conflicts and history.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-source-sync\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-status-roadmap",
+              "description": "Produce status and roadmap grounded in current task and source evidence.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-status-roadmap\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-strategic-agent-triage",
+              "description": "Triage strategic tasks and identify owners, constraints, blockers and acceptance gates.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-strategic-agent-triage\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-techspec-validator",
+              "description": "Validate technical specifications against BRD, interfaces and acceptance criteria.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-techspec-validator\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            },
+            {
+              "name": "fox2-skills-integrated:fox2-thread-handoff",
+              "description": "Prepare thread handoff with source lock, decisions, open items and evidence.",
+              "path": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\fox2-local\\fox2-skills-integrated\\local\\skills\\fox2-thread-handoff\\SKILL.md",
+              "scope": "user",
+              "enabled": true,
+              "pluginId": "fox2-skills-integrated@fox2-local"
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  },
+  "authentication": {
+    "account_present": true,
+    "requiresOpenaiAuth": true,
+    "account_type": "chatgpt"
+  }
+}

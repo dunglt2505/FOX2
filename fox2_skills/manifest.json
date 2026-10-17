@@ -1,12 +1,12 @@
 {
   "project": "FOX2",
-  "status": "INTEGRATION_PENDING",
+  "status": "INSTALLED_ANALYTICAL_USE_VALIDATED",
   "skills_count": 17,
   "catalog": "contracts.json",
   "shared_resolver": "shared/native_registry.py",
   "host_authority_verifier": "IMPLEMENTED_TRUSTED_AUTHORITY_PROVIDER_NOT_CONFIGURED",
-  "installed": false,
-  "host_invocation": "NOT_RUN",
+  "installed": true,
+  "host_invocation": "17_CONCRETE_ANALYTICAL_FIXTURES_COMPLETED",
   "release_readiness": "NOT_READY",
   "isolated_host_installation": "VERIFIED",
   "host_discovery": {
@@ -14,5 +14,8 @@
     "errors": 0
   },
   "source_authority_status": "AUTHORITY_UNVERIFIED",
-  "isolated_host_model_auth": "UNAVAILABLE_REQUIRES_OPENAI_AUTH"
+  "isolated_host_model_auth": "UNAVAILABLE_REQUIRES_OPENAI_AUTH",
+  "installation_scope": "ACTIVE_USER_HOST",
+  "plugin_id": "fox2-skills-integrated@fox2-local",
+  "host_acceptance_scope": "explicit multi-Skill analytical fixture batch; release and write-side behavior not certified"
 }

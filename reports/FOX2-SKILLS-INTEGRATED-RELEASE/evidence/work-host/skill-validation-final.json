@@ -1,0 +1,87 @@
+[
+  {
+    "skill": "fox2-agent-prompt-builder",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-agent-route-runtime",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-brd-change-control",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-dictionary-impact",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-document-publication",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-execution-recovery",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-feature-certification",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-governance-preflight",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-project-health",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-research-validation",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-result-review",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-source-resolver",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-source-sync",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-status-roadmap",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-strategic-agent-triage",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-techspec-validator",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "fox2-thread-handoff",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  }
+]
