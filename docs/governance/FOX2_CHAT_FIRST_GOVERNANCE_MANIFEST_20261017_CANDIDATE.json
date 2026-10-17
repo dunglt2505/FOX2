@@ -1,0 +1,88 @@
+{
+  "project": "FOX2",
+  "date": "2026-10-17",
+  "status": "CANDIDATE_NOT_EFFECTIVE",
+  "branch": "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017",
+  "immutable_source_commit": "9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1f",
+  "owner_direction": "CHAT-FIRST execution authorized in active conversation",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "live": false,
+    "release_effective": false
+  },
+  "limitations": [
+    "Not the installed plugin package",
+    "Independent release authority not verified",
+    "SHA256 release digests not yet independently verified"
+  ],
+  "readback": "GIT_TREE_AND_WRITTEN_FILE_CHECKS",
+  "governance_count": 9,
+  "files": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "git_blob_sha": "2b35f85d7282e8f3a352b81e8b69516e24c22b42",
+      "bytes": 11104,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "git_blob_sha": "ab530da0c4d88c5ffde1c35f6ede6c4e3b14fbde",
+      "bytes": 14983,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "git_blob_sha": "b3118e218b037366c39a160c3d38fcf2639c928d",
+      "bytes": 6090,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "git_blob_sha": "8d318d297fe001f3cf3a37a63f1ffbe21ebdb951",
+      "bytes": 7098,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "git_blob_sha": "122bacc02f8370e748ce1419774895da7fbf1895",
+      "bytes": 7958,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "git_blob_sha": "ab40f50daff641438086a91e7a651346e1088edc",
+      "bytes": 3389,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "git_blob_sha": "82b08ad1da034c911a8abac3bf7615587d06d7b7",
+      "bytes": 2770,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "git_blob_sha": "aed1e86cc974091e903b83bf53b634224bd09704",
+      "bytes": 3156,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "git_blob_sha": "2d26ada4013524f391e54345b42a096b2195667e",
+      "bytes": 3293,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    }
+  ],
+  "proposed_versions": {
+    "dictionary": "1.3",
+    "policy": "1.9.0",
+    "routing": "1.4.0",
+    "protocol": "13",
+    "preexec": "1.2",
+    "preflight_intake": "1.2",
+    "result_intake": "10"
+  },
+  "effective_requires": "OWNER_AUTHORITY_PLUS_RELEASE_MANIFEST_SHA256_AND_DESTINATION_READBACK"
+}
