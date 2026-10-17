@@ -34,3 +34,15 @@ NO main push; NO merge; NO release promotion; NO dispatch; NO production/provide
 1. Locate actual canonical plugin publisher/package source; publish candidate Skills as a new package version and read back installed files before calling plugin updated. Git candidate alone does not update the ChatGPT plugin.
 2. Obtain independently trusted Owner release-chain evidence plus SHA-256 and destination readback; if sufficient, perform governed prospective release of new Dictionary/Policy/Routing/Protocol/PreExec/Intakes and update generated bindings only when warranted.
 3. Continue using CHAT-FIRST directly for tasks possible with currently connected tools, without interpreting pending publication as new executable source authority.
+
+
+## 2026-10-17 — Owner standing full execution authorization / Library package delivery
+- Owner directly granted CHAT full execution responsibility for FOX2 CHAT-FIRST governance and Skills migration; no repeated handoff for ordinary available actions. This records user authorization, NOT an independent trusted Registry or cloud plugin publication receipt.
+- Found /Trading/FOX2/02_Architecture/FOX2_SKILLS_V07_CANDIDATE_DISTRIBUTION_20261016.zip (17 Skills). Built a separate portable CHAT-FIRST v0.2.0 candidate bundle from this V07 distribution, preserving original resolver/tests and adding shared/host_guidance.md, per-Skill direct-CHAT obligations, embedded guidance, and 6 smoke fixtures.
+- Original V07 tests 8/8 PASS, updated package combined test suite 14/14 PASS (local unit/structural tests; no live cloud-host certification).
+- Exact new bundle: /Trading/FOX2/02_Architecture/FOX2_SKILLS_CHAT_FIRST_V0.2.0_CANDIDATE_20261017.zip
+- ZIP bytes: 62114; SHA256: 1d4da71adc0d2d4f67e03712408bf099af042b25bcf571ee954da7b669bead1c
+- Library upload returned success, and independently materialized destination matched original package byte-for-byte (ZIP integrity PASS, SKILL.md count 17).
+- Portable V07-based bundle and branch-specific Git candidate SKILL.md sources are separately versioned artifacts, NOT asserted byte-identical. The Git 17-source manifest remains the separate candidate source record.
+- Plugin-cloud installed Skill readback still contains prior guidance and no newly embedded CHAT-FIRST skill-local obligation; there is no exposed package publisher/update endpoint in currently connected tools. Therefore INSTALLED_PLUGIN_UPDATED=NO / HOST_PUBLICATION_PENDING.
+- Released EFFECTIVE governance chain remains unresolved; no Registry promotion, main merge, production or LIVE effects performed.
