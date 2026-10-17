@@ -1,0 +1,152 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "sha256": "a7a3f7d8eb8cb84d5690649c8a70f557dadfde51729cb9a87b7417330dca7e95"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_RC1_WHOLE_WP_RECOVERY_PROMPT_20261017.md",
+    "git_commit": "2a7cf4c94eda10c11d93cac0f2680e4cb1ba65e5",
+    "git_blob_sha1": "5c7754f2a23764d88c0c619763791fa0deb31813",
+    "sha256": "ac7838f54f0e816411a2d544c303d100e55e389e6e1fc405c0670ac21fc77a4c"
+  },
+  "source": {
+    "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner release approval for FOX2 RC1 TRUST BUNDLE is recorded at d8e2331674ef1921844f369bfa9e48b82a73c6a1:docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json. Resolver Registry is b27f1085ee13d8dce56fd2735e100ea1616e6e23:docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json with authority=FOX2 and 10 EFFECTIVE family manifests at d8e233... binding exact immutable source commit c916de.... Existing fresh PreExec receipt 67e0147fc03e4396b3e58fe3d8863902e950d4ec PASSed for c916de... including dotnet_wpf_build, Codex, eligible route, worktree and no competing writer. Subsequent task-branch commits only added bounded evidence; no product/task/spec/capability drift. Dispatch 001/002 are STOPPED_NEEDS_RECONCILIATION and MUST NOT be replayed. No main/PR/merge/deploy/provider/broker/LIVE authority."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "e85ccaadd1fb49664bae07ec71ab607368fc1f0d",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "dotnet",
+      "dotnet_wpf_build",
+      "local_appdata_per_user_write",
+      "codex_cli",
+      "full_access_mode",
+      "eligible_agent_route",
+      "worktree_ownership",
+      "no_competing_writer",
+      "source_registry_authority_chain"
+    ],
+    "stop_conditions": [
+      "owner_approved_registry_or_manifest_chain_mismatch",
+      "source_task_prompt_or_dispatch_binding_mismatch",
+      "wrong_worktree_branch_or_base_sha",
+      "competing_agent_bridge_writer",
+      "unauthorized_path_change",
+      "selected_agent_configuration_auth_capacity_or_permission_failure",
+      "desktop_app_direct_git_ledger_or_agent_execution",
+      "worker_ui_process_or_replay_safety_regression",
+      "installer_update_uninstall_or_startup_cannot_be_repaired_within_scope",
+      "required_test_or_security_failure_remains_after_bounded_repair",
+      "secret_private_or_licensed_data_exposure",
+      "push_or_remote_readback_failure",
+      "canary_009_claim_or_execution",
+      "app_batch_b_resume",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "SOURCE_REGISTRY_AUTHORITY_CHAIN",
+    "SOURCE_BINDING",
+    "FRESH_PREEXEC",
+    "DOTNET_WPF_BUILD_CAPABILITY",
+    "DESKTOP_APP_BUILD",
+    "DESKTOP_APP_CONTRACT_TESTS",
+    "DESKTOP_APP_SINGLE_INSTANCE",
+    "WORKER_UI_PROCESS_SEPARATION",
+    "FIRST_RUN_SETUP",
+    "PER_USER_INSTALL",
+    "INSTALLER_PACKAGE",
+    "UPDATE_PATH",
+    "UNINSTALL_PATH",
+    "START_WITH_WINDOWS",
+    "STARTUP_SINGLE_INSTANCE",
+    "PAUSE_RESUME",
+    "CHECK_NOW",
+    "OPEN_LOGS",
+    "SUPPORT_BUNDLE",
+    "ARTIFACT_LOCAL_SAVE",
+    "ARTIFACT_SHA256_VERIFY",
+    "ARTIFACT_ATOMIC_INDEX",
+    "LOCAL_SAVED_NOT_GIT_SYNCED",
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "REAL_INSTALLED_POLL",
+    "CONTROL_STORE_PATH",
+    "FULL_BRIDGE_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-17T10:21:12.972Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-002"
+}
