@@ -1,0 +1,60 @@
+{
+  "project": "FOX2",
+  "operation": "CHAT_DIRECT_GOVERNANCE_EFFECTIVE_RELEASE_GATE",
+  "date": "2026-10-17",
+  "requested_action": "Owner expressly requests immediate EFFECTIVE certification",
+  "verdict": "RELEASE_HOLD_AUTHORITY_UNVERIFIED_AND_CONTRACT_MARKERS_PENDING",
+  "source": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017",
+    "branch_head_before_receipt": "cb504317ebf98bcdde94f816a5c034b06222534d",
+    "immutable_content_commit": "9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1f",
+    "governance_manifest": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_MANIFEST_20261017_CANDIDATE.json",
+    "source_git_blob_check": "9_OF_9_PASS",
+    "library_sync": "9_OF_9_PASS",
+    "library_receipt": "/Trading/FOX2/00_Governance/FOX2_CHAT_FIRST_LIBRARY_SYNC_RECEIPT_20261017.json"
+  },
+  "authority": {
+    "owner_request": "EXPLICIT_OWNER_DIRECTION_IN_CHAT_PRESENT",
+    "trusted_release_provider": "NOT_EXPOSED_IN_CURRENT_CONNECTED_TOOLS",
+    "source_commit_signature": "UNSIGNED_VERIFIED_FALSE",
+    "independent_owner_release_attestation": "NOT_VERIFIED",
+    "manifest_current_status": "CANDIDATE_NOT_EFFECTIVE",
+    "candidate_registry_current_status": "CANDIDATE_NOT_EFFECTIVE",
+    "effective_claim_permitted": false,
+    "source_conflict_proven": false,
+    "classification": "AUTHORITY_UNVERIFIED_NOT_SOURCE_CONFLICT"
+  },
+  "content_gates": {
+    "policy": "FOX2_POLICY_V1.9.0_CANDIDATE.md still includes legacy FOX2_POLICY_V1_8_9_STATUS=RELEASED_EFFECTIVE marker; must tag as historical or replace in prospective release",
+    "routing": "FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md marker says POLICY=V1.8.9 and PROJECT_DICTIONARY=V1.2; prospective marker must identify proposed successor or distinguish legacy binding",
+    "protocol": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md references Protocol v11 and a V13_CANDIDATE marker still resolves Dictionary v1.2, Policy v1.8.9, Routing v1.3.0; prospective release needs explicit active/new binding semantics",
+    "generated_binding": "Bridge generated project_dictionary.py still frozen Dictionary v1.2. Do not auto-rebind issued RC1/consumed dispatches",
+    "release_verdict": "GATE_NOT_PASS"
+  },
+  "routing_precheck": {
+    "R0": "SYNC_COMPLETED_9_OF_9; EFFECTIVE_NOT_COMPLETED",
+    "R1": "PRE_RELEASE_SOURCE_AND_AUTHORITY_VERIFICATION",
+    "R2": "BLOCKED_INDEPENDENT_AUTHORITY_AND_CONTENT_CONSISTENCY; CODE_ALLOWED_FOR_NEW_RUNTIME_WORK=HOLD",
+    "R3": "CHAT_GIT_AND_LIBRARY_READ_ACCESS_PASS; COPILOT_CODEX_WORK_HOST_AUTH_QUOTA_UNKNOWN; TRUST_VERIFIER_UNAVAILABLE",
+    "R4": "CHAT_DIRECT_READONLY_AND_REPORT_PREFERRED; NO_VALID_AGENT_ASSIGNMENT",
+    "R5": "NONMAIN_CANDIDATE_REPORT_SCOPE_ONLY; RUNTIME_WORKTREE_OWNERSHIP_NOT_REPROBED",
+    "R6": "LIBRARY_CANDIDATE_SYNC_PASS; CANONICAL_SUPERSESSION_AND_RELEASE_CHAIN_NOT_VERIFIED",
+    "R7": "CHAT_WRITES_HOLD_REPORT; STOP_EFFECTIVE_AND_RUNTIME_REBIND; NO_AGENT_DISPATCH"
+  },
+  "steps_to_unblock": [
+    "CORRECT_PROSPECTIVE_RELEASE_MARKERS_WITHOUT_MODIFYING_IMMUTABLE_RELEASED_DOCS",
+    "REVERIFY_VERSIONED_MANIFEST_WITH_EXACT_SOURCE_GIT_BYTES_AND_LIBRARY_READBACK",
+    "OBTAIN_INDEPENDENT_TRUSTED_OWNER_RELEASE_RECORD_AND_RELEASE_CHAIN_VERIFICATION",
+    "VALIDATE_PROSPECTIVE_DICTIONARY_GENERATED_BINDINGS_AND_COMPATIBILITY_AT_HOST_BEFORE_NEW_WP_CUTOVER",
+    "PUBLISH_SUPERSESSION_WITH_DISTINCT_CANONICAL_AUTHORITY_AND_READBACK; NO_INFLIGHT_REBIND"
+  ],
+  "forbidden": [
+    "NO_SELF_CERTIFICATION_AS_EFFECTIVE",
+    "NO_CANDIDATE_STATUS_TOGGLE",
+    "NO_MAIN_MERGE",
+    "NO_BLIND_DISPATCH_REPLAY",
+    "NO_BRIDGE_RUNTIME_REBIND",
+    "NO_DEPLOY_LIVE"
+  ]
+}
