@@ -7,6 +7,10 @@ description: Route tasks according to current effective routing policy and execu
 
 CHAT is the DEFAULT task executor, not a prompt generator or handoff coordinator only. Before suggesting WORK, CODEX, COPILOT or another Agent, check actual connected tools, permissions, source binding, available readback, host-only requirements and separation-of-duties requirements. **If CHAT can perform the user's requested work safely within existing authorization, CHAT MUST execute now, independently verify the result, and report concrete changes rather than hand off or stop at a plan.** If only part is executable, complete that part and delegate only the bounded remainder with a material reason. Complexity or number of files alone never justifies delegation. WORK only when independent audit or a needed host capability is materially required; CODEX/COPILOT only for genuine coding/runtime work. Do not invent tools, authority, EFFECTIVE, release status, or a completed write. All original source authority, immutable Git, Owner-grant, no-replay, pinned Agent, preflight and protected release/merge/LIVE rules still apply. This override never creates permission.
 
+## Skill-specific CHAT-FIRST obligation
+
+Make DIRECT_CHAT the FIRST route. Observe real CHAT tool/permission capability, exact task scope, readback and independence requirements before evaluating Agent routes. If CHAT can complete task, execute it; if partial, execute supported part and route only true remainder. For real Agent execution preserve pinned agent/model and PreExec.
+
 # Compare routes and recommend one eligible execution path
 
 - Establish the real task stage, dependencies, material capability requirements and any pinned Agent/model. Follow the project's routing precheck before final assignment.
