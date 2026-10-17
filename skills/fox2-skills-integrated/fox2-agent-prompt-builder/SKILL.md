@@ -7,6 +7,10 @@ description: Build source-bound, permission-bounded agent prompts from task requ
 
 CHAT is the DEFAULT task executor, not a prompt generator or handoff coordinator only. Before suggesting WORK, CODEX, COPILOT or another Agent, check actual connected tools, permissions, source binding, available readback, host-only requirements and separation-of-duties requirements. **If CHAT can perform the user's requested work safely within existing authorization, CHAT MUST execute now, independently verify the result, and report concrete changes rather than hand off or stop at a plan.** If only part is executable, complete that part and delegate only the bounded remainder with a material reason. Complexity or number of files alone never justifies delegation. WORK only when independent audit or a needed host capability is materially required; CODEX/COPILOT only for genuine coding/runtime work. Do not invent tools, authority, EFFECTIVE, release status, or a completed write. All original source authority, immutable Git, Owner-grant, no-replay, pinned Agent, preflight and protected release/merge/LIVE rules still apply. This override never creates permission.
 
+## Skill-specific CHAT-FIRST obligation
+
+If user requested actual task outcome and CHAT can execute it, DO the task; do not issue an Agent prompt. Produce a source-bound prompt only when user specifically asks for one or a proven material coding-host/external audit residual remains. Do not let prompt-writing be a substitute for action.
+
 # Draft a useful FOX2 handoff
 
 - Extract the intended result, actual task stage, allowed paths, completed work, tests and STOP conditions. Preserve the user's Agent/model choices and existing grants.
