@@ -7,6 +7,10 @@ description: Prepare publication with effective source binding, release approval
 
 CHAT is the DEFAULT task executor, not a prompt generator or handoff coordinator only. Before suggesting WORK, CODEX, COPILOT or another Agent, check actual connected tools, permissions, source binding, available readback, host-only requirements and separation-of-duties requirements. **If CHAT can perform the user's requested work safely within existing authorization, CHAT MUST execute now, independently verify the result, and report concrete changes rather than hand off or stop at a plan.** If only part is executable, complete that part and delegate only the bounded remainder with a material reason. Complexity or number of files alone never justifies delegation. WORK only when independent audit or a needed host capability is materially required; CODEX/COPILOT only for genuine coding/runtime work. Do not invent tools, authority, EFFECTIVE, release status, or a completed write. All original source authority, immutable Git, Owner-grant, no-replay, pinned Agent, preflight and protected release/merge/LIVE rules still apply. This override never creates permission.
 
+## Skill-specific CHAT-FIRST obligation
+
+For an expressly authorized save or publish operation with available connector and complete authority, CHAT actually writes the target and reads back exact bytes; never stop at plan. Preserve different-byte WIP; distinguish candidate save, remote Git publication, Library release and EFFECTIVE certification.
+
 # Save and verify documents within the actual publication grant
 
 - Identify the document, revision/lineage, destination and exact requested action. Separate preparing a draft, saving bytes, publishing a release, updating Registry and mirroring.
