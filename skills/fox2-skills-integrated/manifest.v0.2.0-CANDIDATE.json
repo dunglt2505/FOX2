@@ -26,55 +26,55 @@
       "path": "skills/fox2-skills-integrated/fox2-agent-prompt-builder/SKILL.md",
       "git_blob_sha": "a5dd33a2559100c07f139dd3d592ee1981ced4dc",
       "bytes": 5053,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "85361d274e6411cf9d45e66584d5d1d6b3afb8ba3467bced578d2d0cc52fc60d"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-agent-route-runtime/SKILL.md",
       "git_blob_sha": "496045e922b98da235efd73f174bf2cd6acec17a",
       "bytes": 5084,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "024ee81fbc26654988c92139f8f384f9aca374a496f542c7b0ebbb6f098c7724"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-brd-change-control/SKILL.md",
       "git_blob_sha": "4c55940f5e5d4cbd44d982cca62d71d730e484ee",
       "bytes": 4783,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "1fb7679237044ccd54a2acc6f6d50e2eacf9fcf57f90f2bf1266fd43e2ad5c17"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-dictionary-impact/SKILL.md",
       "git_blob_sha": "de7f6c09c7897b0f1a5d1c0f5744e1fe32c9285d",
       "bytes": 4943,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "d5f9fb3c7577e76885dae2873f6b0e48616994c3e49946e295a88143d20add95"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-document-publication/SKILL.md",
       "git_blob_sha": "e4cb17e674462b98d648b300785ea80a8376d00a",
       "bytes": 5003,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "a532647c95452179b4f71649ce727c6f7c22ec0ebd8074b8a0c048c8a7a9f300"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-execution-recovery/SKILL.md",
       "git_blob_sha": "1605e6bb5ff7c70cc71df92139ed3e07791626c1",
       "bytes": 4842,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "77d9eb8169c5d48a8a45c6c24022f420c11c605223df2b645475546731c935bf"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-feature-certification/SKILL.md",
       "git_blob_sha": "8f2abb913319bbbbe89f1b8e75d736685ac8d53f",
       "bytes": 4370,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "c7f07de68b2f014b4ee440acae884f735f53f5203c483272a367670655dc0997"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-governance-preflight/SKILL.md",
       "git_blob_sha": "57f251da331cba37bc342f95de0a1a9e470045fa",
       "bytes": 4404,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "994d274572e32c84549298c50bb65334ac9b7809fb86fad0fa92bf7a4f219af3"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-project-health/SKILL.md",
       "git_blob_sha": "db7f2785009d94f4899fad2628e375d664c92bd2",
       "bytes": 4293,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "4f802e581e969a5125325249df2af6bfe609eb51e78af4aea444ba308cf36e76"
     },
     {
       "path": "skills/fox2-skills-integrated/fox2-research-validation/SKILL.md",
@@ -130,5 +130,7 @@
     "EMBEDDED_SHARED_GUIDANCE",
     "OLD_GUARDS_PRESERVED",
     "PACKAGE_PUBLISH_AND_INSTALLED_READBACK"
-  ]
+  ],
+  "sha256_verified_count": 9,
+  "sha256_status": "PARTIAL_9_OF_17"
 }
