@@ -1,13 +1,6 @@
 {
   "agent_execution_started": false,
-  "blockers": [
-    {
-      "class": "CAPABILITY",
-      "code": "CHECK_DOTNET_WPF_BUILD",
-      "material": true,
-      "sanitized_detail": "Required capability did not prove readiness."
-    }
-  ],
+  "blockers": [],
   "candidate_route": {
     "auto_tier": null,
     "model": "gpt-6.1-sol",
@@ -40,10 +33,10 @@
     },
     "dotnet_wpf_build": {
       "evidence": "Bounded readiness observation; raw output omitted.",
-      "exit_code": null,
-      "failure_class": "CHECK_INFRA_FAILED",
+      "exit_code": 0,
+      "failure_class": null,
       "material": true,
-      "status": "UNKNOWN"
+      "status": "PASS"
     },
     "eligible_agent_route": {
       "evidence": "Bounded readiness observation; raw output omitted.",
@@ -88,26 +81,25 @@
       "status": "PASS"
     }
   },
-  "checked_at": "2026-10-17T09:46:57.072074+00:00",
+  "checked_at": "2026-10-17T09:50:56.943485+00:00",
   "dispatch_state": {
     "dispatch_consumed": false,
     "executable_dispatch_published": false
   },
   "notes": [
-    "Routing evidence only. CHAT selects the final implementation Agent.",
-    "HOLD_UNKNOWN: a material observation remains unproven."
+    "Routing evidence only. CHAT selects the final implementation Agent."
   ],
   "project": "FOX2",
   "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
   "receipt_type": "FOX2_PREEXEC_RECEIPT",
   "schema_version": "1.0",
-  "source_head": "4236afbe0791dd52e58d37a4ba1aa5bdebd44b12",
-  "status": "INFRA_FAILED",
+  "source_head": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "status": "PASS",
   "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
   "task_source": {
-    "git_commit_sha": "4236afbe0791dd52e58d37a4ba1aa5bdebd44b12",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
     "git_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
-    "sha256": "652aefeaf2d074cdc33907e4347c5746a885cb5e3121dad0811557f53483f730"
+    "sha256": "a7a3f7d8eb8cb84d5690649c8a70f557dadfde51729cb9a87b7417330dca7e95"
   },
   "worktree": {
     "competing_writer": "NONE_OBSERVED",
