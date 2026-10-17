@@ -14,8 +14,7 @@
   },
   "limitations": [
     "Not the installed plugin package",
-    "Independent release authority not verified",
-    "SHA256 release digests not yet independently verified"
+    "Independent release authority not verified"
   ],
   "readback": "GIT_TREE_AND_WRITTEN_FILE_CHECKS",
   "governance_count": 9,
@@ -24,55 +23,55 @@
       "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
       "git_blob_sha": "2b35f85d7282e8f3a352b81e8b69516e24c22b42",
       "bytes": 11104,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "6640c5b584ef176c27be6332c54c1637f7358b0aab07a86f79b0beb00838e033"
     },
     {
       "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
       "git_blob_sha": "ab530da0c4d88c5ffde1c35f6ede6c4e3b14fbde",
       "bytes": 14983,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "ccabcebc17ab192e426558069af1decb1303d5b43989b1bf7c91f5a2080d25fe"
     },
     {
       "path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
       "git_blob_sha": "b3118e218b037366c39a160c3d38fcf2639c928d",
       "bytes": 6090,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "42a7365cbbdbca5d395c2e23cfcc01f6d45a4a82390d325e8166fd154345fd53"
     },
     {
       "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
       "git_blob_sha": "8d318d297fe001f3cf3a37a63f1ffbe21ebdb951",
       "bytes": 7098,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "59c8e75bbc217492ea2a1a7736f1091fe0498dd1f6234f17392962cc742667c5"
     },
     {
       "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
       "git_blob_sha": "122bacc02f8370e748ce1419774895da7fbf1895",
       "bytes": 7958,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "1bc63cf88475819983716f1de152bf4c7aaeb23d6fdcbe4f48fd4dff677d89fd"
     },
     {
       "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
       "git_blob_sha": "ab40f50daff641438086a91e7a651346e1088edc",
       "bytes": 3389,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "da1ae986726be42b136f83d0326178ecbdda5b34582f7f674a8258dcd5eb4025"
     },
     {
       "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
       "git_blob_sha": "82b08ad1da034c911a8abac3bf7615587d06d7b7",
       "bytes": 2770,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "5a8e1813a9d410d758ce4c6b2b97e544bbe7d13805edf69a6fc090c6ba738c10"
     },
     {
       "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
       "git_blob_sha": "aed1e86cc974091e903b83bf53b634224bd09704",
       "bytes": 3156,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "35c7a5cad7c9357d8eda63d3de98e73095536e6e63f02526ce2a32cc2396e511"
     },
     {
       "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
       "git_blob_sha": "2d26ada4013524f391e54345b42a096b2195667e",
       "bytes": 3293,
-      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+      "sha256": "379ef6ecc6e3128138a67e0606548139fccf04f601c83ff0729663b70682f737"
     }
   ],
   "proposed_versions": {
@@ -84,5 +83,7 @@
     "preflight_intake": "1.2",
     "result_intake": "10"
   },
-  "effective_requires": "OWNER_AUTHORITY_PLUS_RELEASE_MANIFEST_SHA256_AND_DESTINATION_READBACK"
+  "effective_requires": "OWNER_AUTHORITY_PLUS_RELEASE_MANIFEST_SHA256_AND_DESTINATION_READBACK",
+  "sha256_verified_count": 9,
+  "sha256_status": "VERIFIED_ALL_9"
 }
