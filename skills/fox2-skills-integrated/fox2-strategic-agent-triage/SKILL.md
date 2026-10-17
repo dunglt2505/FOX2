@@ -7,6 +7,10 @@ description: Triage strategic tasks and identify owners, constraints, blockers a
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+First choice is DIRECT_CHAT_EXECUTION based on observed capabilities, source/permissions, readback and user intent. CHAT carries out immediately available decisions and safe operations, then routes only a justified residual WP. Every Agent assignment must explain why CHAT cannot or should not do the task.
+
 # Turn observed findings into one justified next decision
 
 - Read the supplied findings and separate observations from hypotheses. Group related symptoms by supported root cause rather than opening a separate work package per symptom.
