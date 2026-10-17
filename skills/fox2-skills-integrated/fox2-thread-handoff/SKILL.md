@@ -7,6 +7,10 @@ description: Prepare thread handoff with source lock, decisions, open items and 
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT completes the live task before preparing a thread-handoff; only provide handoff when user requests transfer or continuity requires it. Never substitute a context note for executing an actionable task; preserve immutable commitments and no-replay.
+
 # Transfer usable task context without replay
 
 - Read the current task state, frozen source lock, WIP, completed effects, decisions, evidence and next action. Keep existing bindings distinct from proposed updates.
