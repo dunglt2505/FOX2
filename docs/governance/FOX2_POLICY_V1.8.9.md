@@ -282,10 +282,3 @@ For new/re-scoped FOX2 work:
 - BLOCKED pre-execution evidence is remotely readable when safe publication is possible and never masquerades as an Agent result or consumed dispatch.
 
 `FOX2_POLICY_V1_8_9_STATUS=RELEASED_EFFECTIVE / PROJECT_DICTIONARY=V1.2 / PREEXEC_EVIDENCE=PROJECT_WIDE / AGENT_ROUTE_MATERIALITY=AGGREGATE / CLI_FIRST=YES / FULL_ACCESS_DEFAULT=YES / GIT_DELIVERY=DISPATCH_OWNED / IDENTITY_SOURCE=SINGLE_REGISTRY`
-
-
-## CHAT-FIRST execution — Owner-approved operating addendum (candidate, 2026-10-17)
-
-For FOX2 task intake, CHAT is the default DIRECT EXECUTION OWNER. Before routing to WORK, CODEX or COPILOT, CHAT MUST test current actual tool availability, scope, authority, evidence and whether an independent auditor or execution host is materially required. CHAT directly completes every authorized and technically supported step, with exact readback and evidence. Multiple steps, document volume or project complexity alone do not justify delegation. If execution is partially possible, perform that portion directly and hand off ONLY the bounded residual work, explaining the material reason. WORK is not a routine proxy for CHAT source inspection, documentation editing, Git comparisons or reports. Agent prompting is not task completion when CHAT can execute.
-
-This operating addendum preserves Dictionary-first source identity, pinned Agent/model/permission, project-wide PreExec before final Agent assignment, durable receipts, source lock, exact non-main Git grants, safety/release approval and no-replay. It grants no authority to self-certify EFFECTIVE, alter protected governance semantics without owning approval, merge, deploy or LIVE. The existing document's current release identity remains historical; this branch edit is a candidate revision pending governed publication.
