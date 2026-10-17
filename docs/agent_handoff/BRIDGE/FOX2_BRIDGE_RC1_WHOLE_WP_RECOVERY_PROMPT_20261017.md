@@ -55,34 +55,50 @@ RC1 planning sources:
 - reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_ROUTING_INTAKE.md
 - reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_DESKTOP_IMPLEMENTATION_SPEC.md
 
-Machine registry:
+Project Dictionary:
 docs/governance/FOX2_PROJECT_DICTIONARY_v1.json
 
-Resolve Policy, Routing, Dispatch Schema, Git-first Protocol, PreExec Protocol, Receipt Schema and CHAT Preflight Intake from the current Dictionary/source-set manifest. Never select versions from filename, recency or main.
+Resolver Registry for this Whole-WP:
+- Registry commit: b27f1085ee13d8dce56fd2735e100ea1616e6e23
+- Registry path: docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json
+- Registry authority: FOX2
+- EFFECTIVE family-manifest commit: d8e2331674ef1921844f369bfa9e48b82a73c6a1
+- Owner approval: d8e2331674ef1921844f369bfa9e48b82a73c6a1:docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json
+- Scope: WP_ONLY_TRUST_BINDING for FOX2-BRIDGE-RC1-TO-INTERNAL-READY
+- Global semantic promotion: NO
+- main/merge/deploy/provider/broker/LIVE authority: NO
+
+Run fox2-source-resolver read-only against that exact Registry before product implementation. Resolve the required families through Registry -> EFFECTIVE manifest -> immutable source commit/path -> SHA-256. The Owner approval receipt is the external release-authority evidence for this Whole-WP trust binding. Do not substitute main, filename recency, candidate governance, or the historical RC1 source-set as the Registry itself.
+
+Resolve Policy, Routing, Dispatch Schema, Git-first Protocol, PreExec Protocol, Receipt Schema, CHAT Preflight Intake, Dictionary/generated binding and Bridge Technical Spec through the exact Registry above. Never select versions from filename, recency or main.
 
 If the executable recovery Dispatch binds an evidence-only PreExec publication descended directly from this freeze, use the Dispatch-bound execution base. The INFRA_FAILED receipt commit 8011a29a23fe373e924bf4d1809718036171b211 is historical evidence only. Any other material source drift requires STOP.
 
 ## 3. No-replay / recovery state
 
-Prior Dispatch:
+Historical Dispatch 001:
 FOX2-DISPATCH-BRIDGE-RC1-CODEX-001
+Control commit: e2eff7ef5d30026757aa929807eeccc1d6d9d6f6
+Disposition: STOPPED_NEEDS_RECONCILIATION / DO_NOT_REPLAY
 
-Prior control commit:
-e2eff7ef5d30026757aa929807eeccc1d6d9d6f6
+Historical Dispatch 002:
+FOX2-DISPATCH-BRIDGE-RC1-CODEX-002
+Control commit: c007bb3795997ab1a8937e61f0a3ac6b2042f5f2
+Result head: e85ccaadd1fb49664bae07ec71ab607368fc1f0d
+Disposition: STOPPED_NEEDS_RECONCILIATION / DO_NOT_REPLAY
 
-Disposition:
-STOPPED_NEEDS_RECONCILIATION
+Dispatch 002 stopped before product implementation because the installed source-resolver required a compatible Registry plus independently validated release authority. That authority gap is now reconciled by the Owner-approved RC1 trust bundle at Registry commit b27f1085ee13d8dce56fd2735e100ea1616e6e23 and manifest/approval commit d8e2331674ef1921844f369bfa9e48b82a73c6a1.
 
 Facts:
-- Agent started only to perform source/capability verification.
-- No accepted product implementation/result was published.
-- Canary 009 was not claimed or executed.
-- APP-BATCH-B remained paused.
-- No main/PR/merge/deploy/provider/broker/LIVE action occurred.
+- no accepted product implementation was created by Dispatch 001 or 002;
+- e85cca... added only bounded reconciliation evidence under reports/BRIDGE-DESKTOP-BATCH-B/**;
+- Canary 009 was not claimed or executed;
+- APP-BATCH-B remained paused;
+- no main/PR/merge/deploy/provider/broker/LIVE action occurred.
 
-NEVER replay Dispatch 001.
+NEVER replay Dispatch 001 or 002.
 
-Recovery execution requires a new Dispatch with retry_of_dispatch_id = FOX2-DISPATCH-BRIDGE-RC1-CODEX-001, max_runs = 1, exact source/worktree/base binding and one selected Agent tuple.
+Recovery execution requires one new Dispatch with retry_of_dispatch_id = FOX2-DISPATCH-BRIDGE-RC1-CODEX-002, max_runs = 1, exact source/worktree/base binding and one selected Agent tuple.
 
 ## 3A. Probe-infrastructure recovery
 
@@ -90,7 +106,22 @@ The exact-head PreExec published at 8011a29a23fe373e924bf4d1809718036171b211 ret
 
 This is not a proven .NET/WPF capability failure. The source freeze c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359 corrects the probe to write real UTF-8 LF bytes and regression-tests the generated WPF project content.
 
-Do not replay any earlier Dispatch. Run exactly one fresh PreExec on c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359. Only a durable PASS receipt may open the recovery Dispatch.
+Do not replay any earlier Dispatch. The fresh PreExec already PASSed at receipt publication commit 67e0147fc03e4396b3e58fe3d8863902e950d4ec for source c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359, including dotnet_wpf_build=PASS, Codex=PASS, eligible_agent_route=PASS, worktree=PASS and no competing writer. The later task-branch commits through e85ccaadd1fb49664bae07ec71ab607368fc1f0d changed only bounded PreExec/reconciliation evidence; no code/task/spec/capability binding changed. Therefore do NOT rerun PreExec solely because of those evidence-only descendants. Rerun only if a material source/code/task/capability/worktree drift is observed.
+
+## 3B. Source-authority reconciliation
+
+Dispatch 002 produced SOURCE_UNVERIFIED because the prior RC1 source-set was not a resolver Registry and did not itself provide independent release approval.
+
+Owner subsequently issued an explicit release approval for the exact immutable sources already bound in FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_3, solely for this Whole-WP trust binding and without changing source bytes or granting protected authority.
+
+CHAT published:
+- Owner approval + ten EFFECTIVE per-family manifests at d8e2331674ef1921844f369bfa9e48b82a73c6a1;
+- resolver-compatible Registry at b27f1085ee13d8dce56fd2735e100ea1616e6e23;
+- Registry authority = FOX2;
+- all family manifests bind source commit c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359 and exact source SHA-256;
+- protected authority remains false for main/merge/deploy/provider/broker/LIVE.
+
+This is a WP-scoped trust binding, not a global semantic promotion. Before coding, verify the Registry and manifests read-only with the installed source-resolver. If the exact chain verifies, continue the same Whole-WP; do not open another authority micro-task.
 
 ## 4. Singular pre-execution gate
 
