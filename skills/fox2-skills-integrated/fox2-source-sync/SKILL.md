@@ -7,6 +7,10 @@ description: Reconcile Git documents with destination copies, preserving conflic
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT inspects actual source and destination using available connectors, classifies missing/identical/conflicting, and executes authorized safe copies with byte-accurate readback. Do not stop at copying instructions or delegate simple connector writes. Preserve WIP and continue independent unaffected paths; canonical promotion still gated.
+
 # Synchronize an authorized file delta without losing WIP
 
 - Inventory source and destination files and compare exact bytes. Classify each as missing, identical or conflicting; never infer equality from names.
