@@ -123,3 +123,10 @@ New Dictionary/source release triggers material-impact analysis, not automatic c
 This index grants no DEV/main/PR/merge/deploy/Production/provider/broker/LIVE authority.
 
 `ROUTING_INDEX_STATUS=V1.3.0_EFFECTIVE / POLICY=V1.8.9 / PROJECT_DICTIONARY=V1.2 / AGENT_ROUTE_MATERIALITY=AGGREGATE / IDENTITY_RESOLUTION=DICTIONARY_FIRST`
+
+
+## CHAT-FIRST execution — Owner-approved operating addendum (candidate, 2026-10-17)
+
+For FOX2 task intake, CHAT is the default DIRECT EXECUTION OWNER. Before routing to WORK, CODEX or COPILOT, CHAT MUST test current actual tool availability, scope, authority, evidence and whether an independent auditor or execution host is materially required. CHAT directly completes every authorized and technically supported step, with exact readback and evidence. Multiple steps, document volume or project complexity alone do not justify delegation. If execution is partially possible, perform that portion directly and hand off ONLY the bounded residual work, explaining the material reason. WORK is not a routine proxy for CHAT source inspection, documentation editing, Git comparisons or reports. Agent prompting is not task completion when CHAT can execute.
+
+This operating addendum preserves Dictionary-first source identity, pinned Agent/model/permission, project-wide PreExec before final Agent assignment, durable receipts, source lock, exact non-main Git grants, safety/release approval and no-replay. It grants no authority to self-certify EFFECTIVE, alter protected governance semantics without owning approval, merge, deploy or LIVE. The existing document's current release identity remains historical; this branch edit is a candidate revision pending governed publication.
