@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-17",
+  "task": "FOX2 project-wide latest Git at execution",
+  "POLICY_CHECK": "AUTHORITY_UNVERIFIED; live Git candidate sources inspected; current trusted Registry not supplied; resolver not run without trusted inputs",
+  "TASK_STATE_CHECK": "Existing contract at 5d6fab38448a4c33a052fc64f3212eac25972a38 already defines requirement; explicitly says runtime tests not implemented",
+  "R0": "No contract duplication or consumed dispatch replay; candidate implementation remains unverified",
+  "R1": "Coordinated guidance candidate; runtime admission enforcement pending",
+  "R2": {
+    "source": "AUTHORITY_UNVERIFIED",
+    "CODE_ALLOWED": "HOLD_PENDING_SOURCE_PREEXEC_OWNERSHIP",
+    "release": "HOLD",
+    "owner_request": "Explicit implementation request; does not bypass required prechecks"
+  },
+  "R3": {
+    "CHAT": "Authenticated GitHub read/create/readback demonstrated",
+    "CODEX": "ordinaryUsageAllowed=true; five-hour used 14%; weekly used 76%",
+    "COPILOT": "Executable found; sandbox package startup EPERM; auth/quota UNKNOWN",
+    "WORK": "runtime access and quota UNKNOWN"
+  },
+  "R4": "DIRECT_CHAT for candidate guidance; CODEX considered for runtime but not admitted; COPILOT considered with unproven readiness; WORK only if actual residual capability missing; no other agent necessary",
+  "R5": "Workspace is not Git checkout; no attached worktree; no runtime ownership verified. Fresh dedicated documentation branch created from observed immutable parent; no existing branch overwritten.",
+  "R6": "Remote candidate exact-content readback verified; no Library/installed plugin/effective publication claimed",
+  "R7": "Direct candidate docs completed; runtime STOP until trusted Registry, authorized worktree ownership and material PreExec evidence verified; model current configuration; no delegation",
+  "ASSIGNMENT_CHECK": "No executable Agent assignment issued",
+  "artifact": {
+    "branch": "work/FOX2-LATEST-EXECUTION-GUIDANCE-chat-20261017",
+    "commit": "a759f8c54e6d2f9730813a49af1c833f3d499238",
+    "path": "docs/governance/FOX2_PROJECT_WIDE_EXECUTION_REFRESH_GUIDANCE_20261017_CANDIDATE.md",
+    "readback_exact": true
+  },
+  "tests": "NOT_RUN; runtime unchanged",
+  "protected_effects": "No merge/LIVE/release/dispatch mutation"
+}
