@@ -1,0 +1,167 @@
+{
+  "status": "GIT_CANDIDATE_DELIVERY_VERIFIED_NOT_RELEASE_ACCEPTANCE",
+  "commit": "b10a109c52a6c437e3bf2a1e7db7396505919bf0",
+  "branch": "work/FOX2-PHASE-A-LATEST-EXECUTION-chat-20261017",
+  "files_verified": 31,
+  "manifest_records_blob_verified": 26,
+  "readback": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "exact_byte_content": true,
+      "blob": "6c9a5a2c4338489181794a2f2591989ded3ac01c"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "e4c084838dd5b1079e2371b9052714cf817443e2"
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "exact_byte_content": true,
+      "blob": "1894b65cdd67a812cf8bc3ac28bc1a7c0e0e663d"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "713f6c7fef9b3144ee484849d03c4a5f5b8f8220"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "ecdc7c9e2fe50494fa1a98c02467b7426c202fde"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "f1cfcc58857f401cda7a07640b606b8ec73e4628"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "e53e89b1ab595b6d8022317c8ceb784e9f985205"
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "a9cdd1a7057574025174f7c299a06243b30b2bfd"
+    },
+    {
+      "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "exact_byte_content": true,
+      "blob": "e7af58afc3704bd897c0d1be02d0d099224b0504"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-prompt-builder/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "53d8faa9a4e76a2aeb868392d1859c1a24a53420"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-route-runtime/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "90721c7fb43dc51af73b480128aae44d084aebd8"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-brd-change-control/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "9a805617b7743fcc3b02232b5fdd152f166d7382"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-dictionary-impact/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "57028ddbadad37849c36a1f193c67449d6003f76"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-document-publication/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "8998c501e38798e70962b47c5b76643cdd0272b8"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-execution-recovery/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "afa66113f6ed62cd05821b358eaf6bfe7ca81274"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-feature-certification/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "a5ef9b1fd1ba98795fd97c11442fe9bca87315fe"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-governance-preflight/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "8bd5c892dd76d8bfddbc615ebcee9003e04e4ef7"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-project-health/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "040d48f39763ef8397a7c32c64395382ed75ae5c"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-research-validation/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "b52bfea4809660cb727459e73244142fc060de4b"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-result-review/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "04cd70212ffb28b6c8a2c60b079b413e8bd59d38"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-resolver/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "23d671cb5e86b569f60e9d6f3b2f5b21b2217a6a"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-sync/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "16c2830a5b0a7e4b5f0fe229c38627a5731b3d1d"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-status-roadmap/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "e71dd353dc437b56b31215db7d466ae2215b635d"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-strategic-agent-triage/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "cc357548c78b0e1d736319942fd2f131cf04a2f3"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-techspec-validator/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "faae7613d8e883d334f1b22d25dcc0e1b0f36f25"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-thread-handoff/SKILL.md",
+      "exact_byte_content": true,
+      "blob": "49229dbdee68034d91fb08c9be29eaf80d19e730"
+    },
+    {
+      "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_MANIFEST_20261017_CANDIDATE.json",
+      "exact_byte_content": true,
+      "blob": "6eb5aa8fddd0ac2545c3ac18e7ad50ef66edd317"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/manifest.v0.2.0-CANDIDATE.json",
+      "exact_byte_content": true,
+      "blob": "944dfdfc560dd92955f3014ab4669fa8bc2e1f26"
+    },
+    {
+      "path": "reports/FOX2-PHASE-A-LATEST-EXECUTION-20261017/routing_precheck.json",
+      "exact_byte_content": true,
+      "blob": "cfdab3f1fc61452b407394b4614d63b859d963a3"
+    },
+    {
+      "path": "reports/FOX2-PHASE-A-LATEST-EXECUTION-20261017/document_validation.json",
+      "exact_byte_content": true,
+      "blob": "4966c3184769aafb63fcc90bc71ffedb4716fb38"
+    },
+    {
+      "path": "reports/FOX2-PHASE-A-LATEST-EXECUTION-20261017/report.md",
+      "exact_byte_content": true,
+      "blob": "38212ce360d657d5322e27148b684f6b12bab00f"
+    }
+  ],
+  "library_sync": "PENDING_NO_LIBRARY_WRITE_READBACK_TOOL",
+  "effective": "NOT_CLAIMED",
+  "runtime": "NOT_CHANGED_NOT_TESTED"
+}
