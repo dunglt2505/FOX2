@@ -1,0 +1,92 @@
+{
+  "bindings": {
+    "dictionary": {
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "status": "PASS"
+    },
+    "policy": {
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "status": "PASS"
+    },
+    "prompt": {
+      "commit": "5c2e36ea8ea12d44d8a9e50629f9cf2dfd4687df",
+      "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_RC1_WHOLE_WP_RECOVERY_PROMPT_20261017.md",
+      "sha256": "18918ea8864152b87ed74fc35712c18101536b7a6623448e3488029eb4977d56",
+      "status": "PASS"
+    },
+    "task": {
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "sha256": "a7a3f7d8eb8cb84d5690649c8a70f557dadfde51729cb9a87b7417330dca7e95",
+      "status": "PASS"
+    }
+  },
+  "boundaries": {
+    "app_batch_b": "NO_RESUME_OR_EDIT",
+    "canary_009": "UNTOUCHED",
+    "main_pr_merge_deploy_provider_broker_live": "NO_ACTION"
+  },
+  "checked_at": "2026-10-17T09:58:27.487218+00:00",
+  "dispatch_001_replayed": false,
+  "dispatch_002_worker_claim_created": false,
+  "dispatch_control_commit": "c007bb3795997ab1a8937e61f0a3ac6b2042f5f2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-002",
+  "dispatch_path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-CODEX-002.json",
+  "dispatch_sha256": "4dfa792860aca5509947be01ba69fa5a75bba94b8d21c3b429f02b810d0d5bb4",
+  "dispatch_v3_structural_validation": "PASS",
+  "execution_base": "67e0147fc03e4396b3e58fe3d8863902e950d4ec",
+  "execution_tuple_observation": {
+    "evidence": "Sanitized ancestor process arguments and session permissions.",
+    "model": "gpt-6.1-sol",
+    "permission_profile": "danger-full-access",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "existing_preexec": {
+    "dotnet_wpf_build": "PASS",
+    "publication_commit": "67e0147fc03e4396b3e58fe3d8863902e950d4ec",
+    "rerun": false,
+    "source_head": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "status": "PASS"
+  },
+  "format": "FOX2_RC1_RECOVERY_002_SOURCE_VERIFICATION_1",
+  "historical_evidence_rewritten": false,
+  "independent_gate": "PRECANARY_INDEPENDENT_AUDIT remains pending",
+  "initial_local_head": "67e0147fc03e4396b3e58fe3d8863902e950d4ec",
+  "initial_remote_head": "67e0147fc03e4396b3e58fe3d8863902e950d4ec",
+  "initial_worktree_clean": true,
+  "installed_runtime": "NOT_RUN",
+  "known_runtime_ledgers_dispatch_002_rows": {
+    "legacy_dispatches": 0,
+    "legacy_executions": 0,
+    "per_user_dispatches": 0,
+    "per_user_executions": 0
+  },
+  "new_preexec_executed": false,
+  "package": "NOT_BUILT",
+  "product_implementation_started": false,
+  "product_paths_changed": [],
+  "publication_scope": "New additive evidence only; no product or historical evidence edits.",
+  "real_installed_poll": "NOT_RUN",
+  "regression_tests": "NOT_RUN; dependent implementation held at source-authority gate",
+  "source_authority_gate": {
+    "interpretation": "The RC1 source-set manifest uses FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_3 rather than the shared resolver Registry contract. It has no families map; its authority object lists execution restrictions. No separate authenticated Registry location/release-manifest chain or independently validated release approval was supplied or discovered in the inspected source set. This does not prove incorrect RC1 bytes, invalid Dispatch authority, or a WPF capability failure.",
+    "method": "Executed bind_effective against the user-nominated source-set manifest at the exact freeze, using a local read-only Git transport; task/control heads separately verified with git ls-remote.",
+    "observed_error": "Untrusted registry identity",
+    "origin": "Installed fox2-source-resolver / fox2-execution-recovery skill instructions",
+    "required_chain": "Authenticated current Registry -> release manifest -> immutable Git bytes; independent Registry authority and release approval",
+    "resolution_needed": "Reconcile the installed skill source-resolution requirement with the approved locked RC1 source set, or supply the authenticated Registry/release-manifest authority chain. Do not fabricate authority or replay Dispatch 001; CHAT must reconcile Dispatch 002 before further execution.",
+    "resolver_path": "C:/Users/Fox Le/.codex/plugins/cache/created-by-me-remote/fox2-skills-integrated/0.2.0/shared/git_resolver.py",
+    "status": "SOURCE_UNVERIFIED"
+  },
+  "source_freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_set_contract_blob_checks": {
+    "count": 8,
+    "status": "PASS"
+  },
+  "status": "STOPPED_NEEDS_RECONCILIATION"
+}
