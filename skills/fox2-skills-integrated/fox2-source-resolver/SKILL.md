@@ -7,6 +7,10 @@ description: Resolve trusted Git Registry, release manifests, provenance and eff
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT performs available Registry, manifest, immutable commit, digest, lineage, supersession and competing-release inspections itself. If trusted host authority unavailable, report AUTHORITY_UNVERIFIED with observed bytes; no WORK handoff merely to read Git; do not certify EFFECTIVE without independent owning authority.
+
 # Resolve source identities without manufacturing authority
 
 - Determine whether the request needs technical byte inspection or a certified current EFFECTIVE binding. Use the Owner's exact conditional anchor for inspection when supplied.
