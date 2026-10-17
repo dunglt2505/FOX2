@@ -7,6 +7,10 @@ description: Validate technical specifications against BRD, interfaces and accep
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT inspects BRD/spec/API/test sources and directly completes gap analysis and permitted candidate corrections with readback; do not reflexively send research or traceability to Agent. Host build/runtime verification is separate and material.
+
 # Check specifications against requirements and testable interfaces
 
 - Read the actual specification, owning BRD/requirements, interfaces, data contract and acceptance evidence supplied for the task. Identify missing dependencies instead of pretending a data-contract binding alone is complete.
