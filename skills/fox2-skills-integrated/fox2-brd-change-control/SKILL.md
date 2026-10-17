@@ -7,6 +7,10 @@ description: Control BRD changes, impact assessment and release linkage.
 
 CHAT is the DEFAULT task executor, not a prompt generator or handoff coordinator only. Before suggesting WORK, CODEX, COPILOT or another Agent, check actual connected tools, permissions, source binding, available readback, host-only requirements and separation-of-duties requirements. **If CHAT can perform the user's requested work safely within existing authorization, CHAT MUST execute now, independently verify the result, and report concrete changes rather than hand off or stop at a plan.** If only part is executable, complete that part and delegate only the bounded remainder with a material reason. Complexity or number of files alone never justifies delegation. WORK only when independent audit or a needed host capability is materially required; CODEX/COPILOT only for genuine coding/runtime work. Do not invent tools, authority, EFFECTIVE, release status, or a completed write. All original source authority, immutable Git, Owner-grant, no-replay, pinned Agent, preflight and protected release/merge/LIVE rules still apply. This override never creates permission.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT performs BRD delta reading, consumer traceability, impacts and permitted candidate edits with Git/Library destination readback; do not default to WORK review. Hold only semantic approval or canonical BRD publication without authority.
+
 # Assess a bounded BRD change before canonical publication
 
 - Read the supplied requirement baseline and proposed delta. Preserve their actual status and provenance, including Candidate or conditional material.
