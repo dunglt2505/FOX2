@@ -3,7 +3,7 @@
   "operation": "CHAT_DIRECT_GOVERNANCE_EFFECTIVE_RELEASE_GATE",
   "date": "2026-10-17",
   "requested_action": "Owner expressly requests immediate EFFECTIVE certification",
-  "verdict": "RELEASE_HOLD_AUTHORITY_UNVERIFIED_AND_CONTRACT_MARKERS_PENDING",
+  "verdict": "RELEASE_HOLD_AUTHORITY_UNVERIFIED_ONLY__STATIC_OLD_VERSION_REFERENCES_ALLOWED",
   "source": {
     "repository": "dunglt2505/FOX2",
     "branch": "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017",
@@ -26,28 +26,31 @@
     "classification": "AUTHORITY_UNVERIFIED_NOT_SOURCE_CONFLICT"
   },
   "content_gates": {
-    "policy": "FOX2_POLICY_V1.9.0_CANDIDATE.md still includes legacy FOX2_POLICY_V1_8_9_STATUS=RELEASED_EFFECTIVE marker; must tag as historical or replace in prospective release",
-    "routing": "FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md marker says POLICY=V1.8.9 and PROJECT_DICTIONARY=V1.2; prospective marker must identify proposed successor or distinguish legacy binding",
-    "protocol": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md references Protocol v11 and a V13_CANDIDATE marker still resolves Dictionary v1.2, Policy v1.8.9, Routing v1.3.0; prospective release needs explicit active/new binding semantics",
-    "generated_binding": "Bridge generated project_dictionary.py still frozen Dictionary v1.2. Do not auto-rebind issued RC1/consumed dispatches",
-    "release_verdict": "GATE_NOT_PASS"
+    "status": "STATIC_OLD_REFERENCES_NOT_MATERIAL_RELEASE_BLOCKER_PER_OWNER_CLARIFICATION",
+    "correction": "Do not fail release solely because documents still contain older version names or historical markers; enforce fresh Git latest-at-execution resolution separately.",
+    "historical_policy_ref": "Policy v1.8.9 and Dictionary v1.2 mentions may remain in text",
+    "historical_routing_ref": "Policy v1.8.9 / Dictionary v1.2 may remain as historical metadata",
+    "historical_protocol_ref": "Protocol v11/v12 mentions may remain historical references",
+    "required_runtime_gate": "AUTOMATIC_LIVE_GIT_REFRESH_AND_LATEST_APPLICABLE_SELECTION_BEFORE_EXECUTION_NOT_YET_TESTED",
+    "owner_clarification_contract": "docs/governance/FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+    "release_verdict": "AUTHORITY_GATE_HOLD; STATIC_MARKER_GATE_REMOVED"
   },
   "routing_precheck": {
     "R0": "SYNC_COMPLETED_9_OF_9; EFFECTIVE_NOT_COMPLETED",
     "R1": "PRE_RELEASE_SOURCE_AND_AUTHORITY_VERIFICATION",
-    "R2": "BLOCKED_INDEPENDENT_AUTHORITY_AND_CONTENT_CONSISTENCY; CODE_ALLOWED_FOR_NEW_RUNTIME_WORK=HOLD",
+    "R2": "RELEASE_AUTHORITY_UNVERIFIED; STATIC_VERSION_REFS_ARE_NOT_MATERIAL_ERRORS; EXECUTION_TIME_REFRESH_NOT_YET_CERTIFIED",
     "R3": "CHAT_GIT_AND_LIBRARY_READ_ACCESS_PASS; COPILOT_CODEX_WORK_HOST_AUTH_QUOTA_UNKNOWN; TRUST_VERIFIER_UNAVAILABLE",
     "R4": "CHAT_DIRECT_READONLY_AND_REPORT_PREFERRED; NO_VALID_AGENT_ASSIGNMENT",
     "R5": "NONMAIN_CANDIDATE_REPORT_SCOPE_ONLY; RUNTIME_WORKTREE_OWNERSHIP_NOT_REPROBED",
-    "R6": "LIBRARY_CANDIDATE_SYNC_PASS; CANONICAL_SUPERSESSION_AND_RELEASE_CHAIN_NOT_VERIFIED",
+    "R6": "LIBRARY_CANDIDATE_SYNC_PASS; OWNER_CORRECTED_LATEST_GIT_EXECUTION_CONTRACT_CANDIDATE; CANONICAL_RELEASE_CHAIN_UNVERIFIED",
     "R7": "CHAT_WRITES_HOLD_REPORT; STOP_EFFECTIVE_AND_RUNTIME_REBIND; NO_AGENT_DISPATCH"
   },
   "steps_to_unblock": [
-    "CORRECT_PROSPECTIVE_RELEASE_MARKERS_WITHOUT_MODIFYING_IMMUTABLE_RELEASED_DOCS",
-    "REVERIFY_VERSIONED_MANIFEST_WITH_EXACT_SOURCE_GIT_BYTES_AND_LIBRARY_READBACK",
+    "IMPLEMENT_AND_PROVE_LIVE_GIT_LATEST_SOURCE_REFRESH_AT_EXECUTION_ADMISSION",
+    "IDENTIFY_LATEST_GIT_OBSERVED_VS_LATEST_APPLICABLE_WITH_TRUSTED_AUTHORITY",
     "OBTAIN_INDEPENDENT_TRUSTED_OWNER_RELEASE_RECORD_AND_RELEASE_CHAIN_VERIFICATION",
-    "VALIDATE_PROSPECTIVE_DICTIONARY_GENERATED_BINDINGS_AND_COMPATIBILITY_AT_HOST_BEFORE_NEW_WP_CUTOVER",
-    "PUBLISH_SUPERSESSION_WITH_DISTINCT_CANONICAL_AUTHORITY_AND_READBACK; NO_INFLIGHT_REBIND"
+    "ENSURE_PROSPECTIVE_RUNTIME_GENERATED_BINDINGS_AND_COMPATIBILITY_GATES_WHERE_MATERIAL",
+    "PUBLISH_AUTHORIZED_CANONICAL_SUPERSESSION_WITH_REMOTE_READBACK_NO_INFLIGHT_REBIND"
   ],
   "forbidden": [
     "NO_SELF_CERTIFICATION_AS_EFFECTIVE",
@@ -56,5 +59,12 @@
     "NO_BLIND_DISPATCH_REPLAY",
     "NO_BRIDGE_RUNTIME_REBIND",
     "NO_DEPLOY_LIVE"
-  ]
+  ],
+  "owner_correction": {
+    "date": "2026-10-17",
+    "principle": "Old static version references are allowed; each execution must automatically refresh Git and select/apply the latest applicable source. Historical citations are not execution authority.",
+    "previous_assessment": "Incorrectly treated stale static markers as a material release blocker",
+    "corrected_assessment": "Classification superseded prospectively; older markers alone are NOT blockers",
+    "git_candidate_contract": "docs/governance/FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md"
+  }
 }
