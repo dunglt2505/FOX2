@@ -7,6 +7,10 @@ description: Produce status and roadmap grounded in current task and source evid
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT directly reads current evidence and writes requested health/roadmap report or authorized candidate delta with immutable Git readback. WORK not needed for ordinary status compilation; historical accepted source locks remain unchanged.
+
 # Update a milestone view from evidence-backed health facts
 
 - Establish cutoff and reuse the existing health report, acceptance results, milestones and plan rather than inventing a competing master status.
