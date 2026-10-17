@@ -1,0 +1,134 @@
+{
+  "project": "FOX2",
+  "date": "2026-10-17",
+  "status": "CANDIDATE_NOT_EFFECTIVE",
+  "branch": "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017",
+  "immutable_source_commit": "9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1f",
+  "owner_direction": "CHAT-FIRST execution authorized in active conversation",
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "live": false,
+    "release_effective": false
+  },
+  "limitations": [
+    "Not the installed plugin package",
+    "Independent release authority not verified",
+    "SHA256 release digests not yet independently verified"
+  ],
+  "readback": "GIT_TREE_AND_WRITTEN_FILE_CHECKS",
+  "package": "fox2-skills-integrated",
+  "proposed_version": "0.2.0",
+  "skill_count": 17,
+  "files": [
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-prompt-builder/SKILL.md",
+      "git_blob_sha": "a5dd33a2559100c07f139dd3d592ee1981ced4dc",
+      "bytes": 5053,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-route-runtime/SKILL.md",
+      "git_blob_sha": "496045e922b98da235efd73f174bf2cd6acec17a",
+      "bytes": 5084,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-brd-change-control/SKILL.md",
+      "git_blob_sha": "4c55940f5e5d4cbd44d982cca62d71d730e484ee",
+      "bytes": 4783,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-dictionary-impact/SKILL.md",
+      "git_blob_sha": "de7f6c09c7897b0f1a5d1c0f5744e1fe32c9285d",
+      "bytes": 4943,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-document-publication/SKILL.md",
+      "git_blob_sha": "e4cb17e674462b98d648b300785ea80a8376d00a",
+      "bytes": 5003,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-execution-recovery/SKILL.md",
+      "git_blob_sha": "1605e6bb5ff7c70cc71df92139ed3e07791626c1",
+      "bytes": 4842,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-feature-certification/SKILL.md",
+      "git_blob_sha": "8f2abb913319bbbbe89f1b8e75d736685ac8d53f",
+      "bytes": 4370,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-governance-preflight/SKILL.md",
+      "git_blob_sha": "57f251da331cba37bc342f95de0a1a9e470045fa",
+      "bytes": 4404,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-project-health/SKILL.md",
+      "git_blob_sha": "db7f2785009d94f4899fad2628e375d664c92bd2",
+      "bytes": 4293,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-research-validation/SKILL.md",
+      "git_blob_sha": "3f6daaa2acc95286fa913a74d21c3e610d167fbf",
+      "bytes": 4281,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-result-review/SKILL.md",
+      "git_blob_sha": "c6b965e6de2669585e426432ded98ee711b83d45",
+      "bytes": 4303,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-resolver/SKILL.md",
+      "git_blob_sha": "af4c5d849a44da3e1d6c6d59cafc51cc14e87b14",
+      "bytes": 4754,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-sync/SKILL.md",
+      "git_blob_sha": "c4bc6770a36aff36295f8633d1515f950acf3053",
+      "bytes": 4476,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-status-roadmap/SKILL.md",
+      "git_blob_sha": "39fb90bc713a03ae6ed20bf662c73d663d8ca7ed",
+      "bytes": 4217,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-strategic-agent-triage/SKILL.md",
+      "git_blob_sha": "85983a665ca95f815066d75e010351009f2978f6",
+      "bytes": 4333,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-techspec-validator/SKILL.md",
+      "git_blob_sha": "15361b9996667583a670c7039d334433554ee194",
+      "bytes": 4424,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-thread-handoff/SKILL.md",
+      "git_blob_sha": "662a45919316361f91754ecde03114583e75d2f2",
+      "bytes": 4302,
+      "sha256": "PENDING_RELEASE_BYTE_VERIFICATION"
+    }
+  ],
+  "required_checks": [
+    "SKILL_LOCAL_CHAT_FIRST",
+    "EMBEDDED_SHARED_GUIDANCE",
+    "OLD_GUARDS_PRESERVED",
+    "PACKAGE_PUBLISH_AND_INSTALLED_READBACK"
+  ]
+}
