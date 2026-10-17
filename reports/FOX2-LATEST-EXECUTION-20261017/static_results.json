@@ -1,0 +1,96 @@
+{
+  "mode": "STATIC_CAPTURED_GIT_REVIEW_NO_EXECUTION_ADMISSION",
+  "checks": [
+    {
+      "case": "immutable_bytes:dictionary",
+      "status": "PASS",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "blob": "a37844b1485e43bd026b72ee85b4d87e75b2affb"
+    },
+    {
+      "case": "immutable_bytes:dictionary_generated_binding",
+      "status": "PASS",
+      "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+      "blob": "738decf275412df7209ade6f540ffa603b2cc491"
+    },
+    {
+      "case": "immutable_bytes:policy",
+      "status": "PASS",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "blob": "85b6d5b4700ff863e4fef0a7474ffd0f7a6469c0"
+    },
+    {
+      "case": "immutable_bytes:routing",
+      "status": "PASS",
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "blob": "be42004e7fb15e82b1e2fab90268a0cc50566018"
+    },
+    {
+      "case": "immutable_bytes:preexec_protocol",
+      "status": "PASS",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "blob": "a452a2c9cdd71e613d6fe378927831ed840c9398"
+    },
+    {
+      "case": "immutable_bytes:preflight_receipt_schema",
+      "status": "PASS",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "blob": "25fe465f82a16edf29ebf773a220969192f546e8"
+    },
+    {
+      "case": "immutable_bytes:chat_preflight_intake",
+      "status": "PASS",
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "blob": "e7b7772183c19e58d28d8c9d3851f283a9d9c22a"
+    },
+    {
+      "case": "immutable_bytes:dispatch_schema",
+      "status": "PASS",
+      "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+      "blob": "a53956cad7809cc53f92ecdc5d91a1ff2119b421"
+    },
+    {
+      "case": "immutable_bytes:git_first_protocol",
+      "status": "PASS",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "blob": "d34a022f2bda39a167a404c8530e57b30f337cb9"
+    },
+    {
+      "case": "immutable_bytes:bridge_technical_spec",
+      "status": "PASS",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "blob": "5a82bd74b30f71f7b46652f67a70cd7768f68143"
+    },
+    {
+      "case": "tampered_manifest_digest_rejected",
+      "status": "PASS"
+    },
+    {
+      "case": "scope_is_rc1_only",
+      "status": "PASS"
+    },
+    {
+      "case": "historical_receipt_head_differs",
+      "status": "PASS",
+      "meaning": "Reconciliation required; not evidence of current readiness or a build failure."
+    },
+    {
+      "case": "ast_parse:engine.py",
+      "status": "PASS"
+    },
+    {
+      "case": "ast_parse:dispatch_poller.py",
+      "status": "PASS"
+    }
+  ],
+  "passed": 15,
+  "resolver_sha256": "c9a44ee1df0b5a767939c2a3308bc76893eed971cb882f6cef4b38c3e7cee057",
+  "authority": "AUTHORITY_UNVERIFIED_FOR_PROJECT_WIDE_EXECUTION",
+  "limitations": [
+    "Captured authenticated Git reads, not a live execution-time resolver test.",
+    "Resolver bind_effective checks bytes/status but delegates independent trust to its caller.",
+    "Resolver does not enforce whole-WP scope, atomic claim, candidate discovery or independent release approval.",
+    "AST parse is syntax validation only; neither runtime module was imported or executed.",
+    "No runtime tests, WPF rebuild, current PreExec, dispatch claim or installed-host test performed."
+  ]
+}
