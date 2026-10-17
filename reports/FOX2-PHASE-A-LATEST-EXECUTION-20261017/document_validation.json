@@ -1,0 +1,111 @@
+{
+  "mode": "STATIC_DOCUMENT_COVERAGE_ONLY",
+  "checks": [
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-prompt-builder/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-route-runtime/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-brd-change-control/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-dictionary-impact/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-document-publication/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-execution-recovery/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-feature-certification/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-governance-preflight/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-project-health/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-research-validation/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-result-review/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-resolver/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-sync/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-status-roadmap/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-strategic-agent-triage/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-techspec-validator/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-thread-handoff/SKILL.md",
+      "five_rule_document_coverage": "PASS"
+    }
+  ],
+  "runtime_enforcement": "NOT_TESTED",
+  "release_authority": "NOT_CERTIFIED"
+}

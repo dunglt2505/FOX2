@@ -1,89 +1,180 @@
 {
   "project": "FOX2",
-  "date": "2026-10-17",
   "status": "CANDIDATE_NOT_EFFECTIVE",
-  "branch": "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017",
-  "immutable_source_commit": "9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1f",
-  "owner_direction": "CHAT-FIRST execution authorized in active conversation",
-  "protected_authority": {
-    "main": false,
-    "merge": false,
-    "deploy": false,
-    "live": false,
-    "release_effective": false
-  },
-  "limitations": [
-    "Not the installed plugin package",
-    "Independent release authority not verified"
-  ],
-  "readback": "GIT_TREE_AND_WRITTEN_FILE_CHECKS",
+  "date": "2026-10-17",
+  "branch": "work/FOX2-PHASE-A-LATEST-EXECUTION-chat-20261017",
+  "base_commit": "5f1a6b6b4aaf6ed50e0e78fa8b6818586e029745",
+  "source_commit_rule": "Use immutable commit containing this manifest; never self-reference own commit",
+  "reused_skills_head": "5d6fab38448a4c33a052fc64f3212eac25972a38",
   "governance_count": 9,
+  "skills_count": 17,
   "files": [
     {
       "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
-      "git_blob_sha": "2b35f85d7282e8f3a352b81e8b69516e24c22b42",
-      "bytes": 11104,
-      "sha256": "6640c5b584ef176c27be6332c54c1637f7358b0aab07a86f79b0beb00838e033"
+      "bytes": 12012,
+      "sha256": "9682563aaa56f0f566cd4eebd25d83b9b5d8986ef49bd4ff37e30b4894f840c6",
+      "git_blob_sha": "6c9a5a2c4338489181794a2f2591989ded3ac01c"
     },
     {
       "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
-      "git_blob_sha": "ab530da0c4d88c5ffde1c35f6ede6c4e3b14fbde",
-      "bytes": 14983,
-      "sha256": "ccabcebc17ab192e426558069af1decb1303d5b43989b1bf7c91f5a2080d25fe"
+      "bytes": 17908,
+      "sha256": "69e6659da89460e513ee6b7fe8e904508496d81f78e104d7618c669bc214dee6",
+      "git_blob_sha": "e4c084838dd5b1079e2371b9052714cf817443e2"
     },
     {
       "path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
-      "git_blob_sha": "b3118e218b037366c39a160c3d38fcf2639c928d",
-      "bytes": 6090,
-      "sha256": "42a7365cbbdbca5d395c2e23cfcc01f6d45a4a82390d325e8166fd154345fd53"
+      "bytes": 9015,
+      "sha256": "636b6ce99ad8f0cd001dd247131456de688992357b4dd195a0f9dd4e69329917",
+      "git_blob_sha": "1894b65cdd67a812cf8bc3ac28bc1a7c0e0e663d"
     },
     {
       "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
-      "git_blob_sha": "8d318d297fe001f3cf3a37a63f1ffbe21ebdb951",
-      "bytes": 7098,
-      "sha256": "59c8e75bbc217492ea2a1a7736f1091fe0498dd1f6234f17392962cc742667c5"
+      "bytes": 10023,
+      "sha256": "fb0eb10fb6525edb8fb221ef5e5a980461272a31dae2ff80f4c8dd5fb51716f9",
+      "git_blob_sha": "713f6c7fef9b3144ee484849d03c4a5f5b8f8220"
     },
     {
       "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
-      "git_blob_sha": "122bacc02f8370e748ce1419774895da7fbf1895",
-      "bytes": 7958,
-      "sha256": "1bc63cf88475819983716f1de152bf4c7aaeb23d6fdcbe4f48fd4dff677d89fd"
+      "bytes": 10883,
+      "sha256": "700101049ed106387e1f22d1ca5b6b1e909c76da2dc2f535c6fd29c8a358d55a",
+      "git_blob_sha": "ecdc7c9e2fe50494fa1a98c02467b7426c202fde"
     },
     {
       "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
-      "git_blob_sha": "ab40f50daff641438086a91e7a651346e1088edc",
-      "bytes": 3389,
-      "sha256": "da1ae986726be42b136f83d0326178ecbdda5b34582f7f674a8258dcd5eb4025"
+      "bytes": 6314,
+      "sha256": "39ba00d1bef9deecc0298eca19556251d40d546513b208043e251520d3aedd10",
+      "git_blob_sha": "f1cfcc58857f401cda7a07640b606b8ec73e4628"
     },
     {
       "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
-      "git_blob_sha": "82b08ad1da034c911a8abac3bf7615587d06d7b7",
-      "bytes": 2770,
-      "sha256": "5a8e1813a9d410d758ce4c6b2b97e544bbe7d13805edf69a6fc090c6ba738c10"
+      "bytes": 5695,
+      "sha256": "a39942855db944c6762a57e5ab7a87eac1330630125ee72dcec5627c87818bbe",
+      "git_blob_sha": "e53e89b1ab595b6d8022317c8ceb784e9f985205"
     },
     {
       "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
-      "git_blob_sha": "aed1e86cc974091e903b83bf53b634224bd09704",
-      "bytes": 3156,
-      "sha256": "35c7a5cad7c9357d8eda63d3de98e73095536e6e63f02526ce2a32cc2396e511"
+      "bytes": 6081,
+      "sha256": "f16477a3a1541ef08a639eecdf404842bb1c43349f0b17e33aecc4d06eec04fe",
+      "git_blob_sha": "a9cdd1a7057574025174f7c299a06243b30b2bfd"
     },
     {
       "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
-      "git_blob_sha": "2d26ada4013524f391e54345b42a096b2195667e",
-      "bytes": 3293,
-      "sha256": "379ef6ecc6e3128138a67e0606548139fccf04f601c83ff0729663b70682f737"
+      "bytes": 6218,
+      "sha256": "47938a01079e856d3139d06fae9cfc93a228900b8a8ea5af0d5108e90a463190",
+      "git_blob_sha": "e7af58afc3704bd897c0d1be02d0d099224b0504"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-prompt-builder/SKILL.md",
+      "bytes": 7978,
+      "sha256": "882b4ae18b97f778a4c5107fac3b6f83b0fe80b30aff3506a05e48e977be04db",
+      "git_blob_sha": "53d8faa9a4e76a2aeb868392d1859c1a24a53420"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-agent-route-runtime/SKILL.md",
+      "bytes": 8009,
+      "sha256": "68f1f861543d79d264714f94116b9d9eaff454390e4ac3fb127caddd0ab6ef02",
+      "git_blob_sha": "90721c7fb43dc51af73b480128aae44d084aebd8"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-brd-change-control/SKILL.md",
+      "bytes": 7708,
+      "sha256": "10ba41c1f004df777f22086e053bed1028be91493cf49bf1bf3f48fb6885aba6",
+      "git_blob_sha": "9a805617b7743fcc3b02232b5fdd152f166d7382"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-dictionary-impact/SKILL.md",
+      "bytes": 7868,
+      "sha256": "a004f1234d7af1c452fd537480673c51c55b7aa825e9d38c531947605f41a4e5",
+      "git_blob_sha": "57028ddbadad37849c36a1f193c67449d6003f76"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-document-publication/SKILL.md",
+      "bytes": 7928,
+      "sha256": "c0678260f8f44d1bf8e0cb1057f51afb606951f1a4ee23ad683daeb998afa758",
+      "git_blob_sha": "8998c501e38798e70962b47c5b76643cdd0272b8"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-execution-recovery/SKILL.md",
+      "bytes": 7767,
+      "sha256": "948a6d73558cd377c5d8b7435967a20e6d2b02802f8270cda4366d67de80a0a8",
+      "git_blob_sha": "afa66113f6ed62cd05821b358eaf6bfe7ca81274"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-feature-certification/SKILL.md",
+      "bytes": 7295,
+      "sha256": "76e1b854e611eaf110b0ef348a3a6e320239600e437c1a058afc32109c47f563",
+      "git_blob_sha": "a5ef9b1fd1ba98795fd97c11442fe9bca87315fe"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-governance-preflight/SKILL.md",
+      "bytes": 7329,
+      "sha256": "54058557776e4a736d6aab5a461f393c6ed1f94c259667c7bfd693933e809263",
+      "git_blob_sha": "8bd5c892dd76d8bfddbc615ebcee9003e04e4ef7"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-project-health/SKILL.md",
+      "bytes": 7218,
+      "sha256": "87ab1ea71d6e390a2d4838b995e3f491d4e681390ed67b040aa23926a8e786f1",
+      "git_blob_sha": "040d48f39763ef8397a7c32c64395382ed75ae5c"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-research-validation/SKILL.md",
+      "bytes": 7206,
+      "sha256": "cb04680067f3644bfd110acbf1c3db966f654a2b98d7a3d120fd880c58c6bbcf",
+      "git_blob_sha": "b52bfea4809660cb727459e73244142fc060de4b"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-result-review/SKILL.md",
+      "bytes": 7228,
+      "sha256": "db62e13a972fbb97389cedc260ae914fdc3c4fece3d65da6010b89a71e4c3997",
+      "git_blob_sha": "04cd70212ffb28b6c8a2c60b079b413e8bd59d38"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-resolver/SKILL.md",
+      "bytes": 7679,
+      "sha256": "0f35b0d3d1e1e55975382b3d9ebe48f22ac145e7eaccc0bb8a939a172a41cba3",
+      "git_blob_sha": "23d671cb5e86b569f60e9d6f3b2f5b21b2217a6a"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-source-sync/SKILL.md",
+      "bytes": 7401,
+      "sha256": "a98ffcd282e22bfd3ffb00a03a2c7911a7c0a23658c02670cd939d7a3a3c913f",
+      "git_blob_sha": "16c2830a5b0a7e4b5f0fe229c38627a5731b3d1d"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-status-roadmap/SKILL.md",
+      "bytes": 7142,
+      "sha256": "1ce70d1deb2e13511ff6b3f6cf796f91e6277d1f757a4bee43772c4b3137368f",
+      "git_blob_sha": "e71dd353dc437b56b31215db7d466ae2215b635d"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-strategic-agent-triage/SKILL.md",
+      "bytes": 7258,
+      "sha256": "b2953adfcf2a47c0f1d64de9facb056aa927252eb3f4c283f4fbbbb3a6296131",
+      "git_blob_sha": "cc357548c78b0e1d736319942fd2f131cf04a2f3"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-techspec-validator/SKILL.md",
+      "bytes": 7349,
+      "sha256": "eafeea26727a4958d9e5438168e4c0f66bcb7bc9d9b4dae5fecc8df73b6e851a",
+      "git_blob_sha": "faae7613d8e883d334f1b22d25dcc0e1b0f36f25"
+    },
+    {
+      "path": "skills/fox2-skills-integrated/fox2-thread-handoff/SKILL.md",
+      "bytes": 7227,
+      "sha256": "8e79663db2a90262a15b1afb7d2afd2caadaf55f7cb8f21661131d7d6b981331",
+      "git_blob_sha": "49229dbdee68034d91fb08c9be29eaf80d19e730"
     }
   ],
-  "proposed_versions": {
-    "dictionary": "1.3",
-    "policy": "1.9.0",
-    "routing": "1.4.0",
-    "protocol": "13",
-    "preexec": "1.2",
-    "preflight_intake": "1.2",
-    "result_intake": "10"
-  },
-  "effective_requires": "OWNER_AUTHORITY_PLUS_RELEASE_MANIFEST_SHA256_AND_DESTINATION_READBACK",
-  "sha256_verified_count": 9,
-  "sha256_status": "VERIFIED_ALL_9"
+  "authority": "AUTHORITY_UNVERIFIED",
+  "library_sync": "PENDING_NO_LIBRARY_WRITE_TOOL",
+  "runtime_tests": "NOT_RUN_OUT_OF_SCOPE",
+  "protected_effects": {
+    "effective": false,
+    "merge": false,
+    "dev": false,
+    "runtime": false,
+    "live": false,
+    "replay": false
+  }
 }

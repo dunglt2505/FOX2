@@ -11,7 +11,7 @@
   },
   "authority_model": {
     "purpose": "Machine-readable identity, version, path and compatibility registry. Semantic authority remains in Policy, BRDs, Contracts and Technical Specifications.",
-    "current_source_resolution": "PROPOSED ONLY: Do not apply this candidate registry to executable dispatches until manifest, independently verified Owner release and remote readback. Existing v1.2 remains current for issued WPs.",
+    "current_source_resolution": "Candidate only; issued/started WPs retain their exact original source lock. New executions must discover live authorized Registry and newest applicable sources; no static version is execution authority.",
     "released_documents_immutable": true
   },
   "current": {
@@ -309,5 +309,30 @@
       "LIBRARY_PUBLICATION_AND_READBACK"
     ],
     "immutable_source_disclaimer": "This file is not current execution authority"
+  },
+  "latest_at_execution": {
+    "status": "CANDIDATE_NOT_EFFECTIVE",
+    "contract_path": "docs/governance/FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+    "historical_references_allowed": true,
+    "automatic_live_git_refresh_before_execution": true,
+    "selection": "NEWEST_APPLICABLE_BY_AUTHORITY_SCOPE_COMPATIBILITY",
+    "required_evidence": [
+      "refresh_at",
+      "registry_ref",
+      "registry_commit",
+      "manifest_commit",
+      "candidates_and_rejection_reasons",
+      "selected_source_path",
+      "selected_source_commit",
+      "git_blob_sha",
+      "sha256",
+      "authority_evidence",
+      "compatibility_verdict",
+      "drift_before_claim"
+    ],
+    "git_unavailable": "FAIL_CLOSED_NO_CACHE_FALLBACK",
+    "newest_unqualified": "LATEST_PRESENT_BUT_BLOCKED_GATE_REQUIRED",
+    "freeze_before_claim": true,
+    "in_flight": "IMMUTABLE_NO_HOT_SWAP_NO_REPLAY"
   }
 }

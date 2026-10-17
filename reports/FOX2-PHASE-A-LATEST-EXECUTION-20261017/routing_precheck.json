@@ -1,0 +1,23 @@
+{
+  "task": "FOX2 Phase A latest-at-execution governance and 17 Skills",
+  "date": "2026-10-17",
+  "POLICY_CHECK": "Live routing V1.3.0 and candidate V1.4.0 read; independent project-wide authority UNKNOWN. Owner explicitly authorizes candidate documentation.",
+  "R0": "Reuse skills 5d6fab38448a4c33a052fc64f3212eac25972a38 and guidance 5f1a6b6b4aaf6ed50e0e78fa8b6818586e029745; contract exists; consumer propagation missing; no replay.",
+  "R1": "Candidate documentation integration only; runtime enforcement excluded.",
+  "R2": {
+    "authority": "AUTHORITY_UNVERIFIED",
+    "CODE_ALLOWED": "NO_RUNTIME; OWNER_AUTHORIZED_CANDIDATE_DOCUMENT_WRITES",
+    "release": "HOLD"
+  },
+  "R3": {
+    "CHAT": "Authenticated GitHub live read and write tools exposed",
+    "CODEX": "ordinaryUsageAllowed=true; 5h used45%; weekly81%",
+    "COPILOT": "auth/quota UNKNOWN; not launched",
+    "WORK": "host/quota UNKNOWN"
+  },
+  "R4": "DIRECT_CHAT is sufficient for documents and Git readback; CODEX host runtime unnecessary, COPILOT routine coding unnecessary; WORK independent release review deferred; no delegation.",
+  "R5": "Existing local worktree git inspection permission denied; leave untouched. Create isolated remote non-main candidate branch from immutable guidance HEAD; only listed candidate docs/Skills/reports; no existing WIP overwritten.",
+  "R6": "Verify bytes/blob/SHA256 and manifest at immutable remote commit. Library connector unavailable; package for manual import, never claim sync.",
+  "R7": "CHAT current configuration; precheck -> new isolated branch -> candidate consumer amendments -> digest/manifest -> remote readback. STOP on head drift/path conflict/Git failure; no canonical promotion/main/merge/DEV/runtime/LIVE/dispatch.",
+  "ASSIGNMENT_CHECK": "No executable Agent assignment; direct owner-authorized candidate document work only."
+}
