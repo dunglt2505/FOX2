@@ -12,7 +12,7 @@ from jsonschema import ValidationError
 from fox2_agent_bridge import project_dictionary as registry
 from fox2_agent_bridge.preexec import PreExec, Requirements
 from fox2_agent_bridge.preexec.engine import InfrastructureFailure, canonical, git, writer_lock
-from fox2_agent_bridge.preexec.probes import observation, proof_marker, agent_probe, classify
+from fox2_agent_bridge.preexec.probes import observation, proof_marker, agent_probe, classify, dotnet_wpf_build
 from fox2_agent_bridge.preexec.profiles import ROUTES, checks
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -431,3 +431,46 @@ def test_bridge_profile_requires_dotnet_for_rc1():
     bridge_checks = checks('bridge')
     assert 'dotnet' in bridge_checks
     assert {'git', 'python', 'pwsh', 'schtasks.exe', 'local_appdata_per_user_write'} <= set(bridge_checks)
+
+
+def test_bridge_profile_requires_wpf_build_for_rc1():
+    bridge_checks = checks('bridge')
+    assert 'dotnet' in bridge_checks
+    assert 'dotnet_wpf_build' in bridge_checks
+
+
+def test_dotnet_wpf_build_probe_compiles_minimal_project(tmp_path, monkeypatch):
+    import fox2_agent_bridge.preexec.probes as probes
+    from types import SimpleNamespace
+    seen = {}
+
+    monkeypatch.setattr(probes, 'resolve_tool',
+                        lambda name: 'dotnet' if name == 'dotnet' else None)
+
+    def fake_run(arguments, *, cwd, timeout=30, input=None):
+        seen['arguments'] = arguments
+        project = Path(arguments[2])
+        assert project.name == 'Probe.csproj'
+        assert '<UseWPF>true</UseWPF>' in project.read_text(encoding='utf-8')
+        assert (project.parent / 'App.xaml').is_file()
+        assert (project.parent / 'MainWindow.xaml').is_file()
+        return SimpleNamespace(returncode=0, stdout='', stderr='')
+
+    monkeypatch.setattr(probes, 'run_tool', fake_run)
+    result = dotnet_wpf_build(tmp_path)
+    assert result['status'] == 'PASS'
+    assert seen['arguments'][1] == 'build'
+
+
+def test_dotnet_wpf_build_probe_failure_is_material(tmp_path, monkeypatch):
+    import fox2_agent_bridge.preexec.probes as probes
+    from types import SimpleNamespace
+
+    monkeypatch.setattr(probes, 'resolve_tool',
+                        lambda name: 'dotnet' if name == 'dotnet' else None)
+    monkeypatch.setattr(
+        probes, 'run_tool',
+        lambda *_a, **_k: SimpleNamespace(returncode=1, stdout='', stderr='fixed failure'))
+    result = dotnet_wpf_build(tmp_path)
+    assert result['status'] == 'FAIL'
+    assert result['failure_class'] == 'WPF_BUILD_UNAVAILABLE'

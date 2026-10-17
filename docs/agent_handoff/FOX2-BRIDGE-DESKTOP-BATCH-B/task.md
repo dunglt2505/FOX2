@@ -1,11 +1,11 @@
 # FOX2-BRIDGE-DESKTOP-BATCH-B — Whole-WP Task / RC1 Rebind
 
-**Status:** ACTIVE_WP1_SOURCE_FREEZE / PREEXEC_HOLD  
+**Status:** RECONCILING_PREEXEC_001 / PREEXEC_HOLD  
 **Project phase:** Bridge final productization before INTERNAL_FOX2_BRIDGE_READY  
 **Owner-facing Whole-WP:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`  
 **Governance:** Project Dictionary v1.2 -> Policy V1.8.9 -> Routing Index V1.3.0  
 **Protocol:** PreExec Evidence v1.1 + Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dispatch Schema v3 + Git-first Protocol v12  
-**Final implementation Agent assignment:** PENDING fresh current-source R3/R5 receipt + CHAT Intake  
+**Final implementation Agent assignment:** PENDING fresh reconciliation receipt + CHAT Intake  
 **Execution path:** MANUAL_LOCAL candidate for RC1 implementation; installed Bridge is the certification target  
 **Delivery owner:** AGENT candidate  
 **CODE_ALLOWED_FOR_EXECUTION:** HOLD until fresh PreExec PASS + CHAT PASS_TO_ASSIGN
@@ -54,6 +54,27 @@ The previous PreExec receipt under:
 `reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json`
 
 binds source `ac41a7e0b543e79e470bed46b1aeb0101ba77405` and is HISTORICAL/STALE for RC1. It MUST NOT authorize RC1 implementation.
+
+## 1A. RC1 reconciliation 001
+
+The first RC1 manual Codex execution under `FOX2-DISPATCH-BRIDGE-RC1-CODEX-001` started and then STOPPED without product/report changes.
+
+Disposition:
+
+- state: `STOPPED_NEEDS_RECONCILIATION`;
+- prior executable control commit: `e2eff7ef5d30026757aa929807eeccc1d6d9d6f6`;
+- prior execution base: `bfc015eb60a04479c812abd55e537ab6f9f1a559`;
+- Canary 009: NOT CLAIMED / NOT EXECUTED;
+- APP-BATCH-B: remains PAUSED;
+- no main/PR/merge/deploy/provider/broker/LIVE action;
+- do not replay Dispatch `FOX2-DISPATCH-BRIDGE-RC1-CODEX-001`.
+
+Two gates require reconciliation before a recovery dispatch:
+
+1. The earlier PASS receipt was produced after an evidence-only BLOCKED receipt, so its `source_head=afad5e8...` did not equal the earlier `7b19ba6...` freeze publication even though the bound source bytes were unchanged.
+2. The earlier material `dotnet` probe proved only CLI availability/version, not the task-required Windows WPF build capability.
+
+This reconciliation creates a new exact source freeze and upgrades the shared Bridge PreExec profile with a material `dotnet_wpf_build` probe that compiles a minimal `net8.0-windows` WPF project. The next fresh PreExec MUST bind the exact reconciliation source-freeze publication head. If it PASSes, CHAT may publish a recovery Dispatch with `retry_of_dispatch_id=FOX2-DISPATCH-BRIDGE-RC1-CODEX-001`.
 
 ## 2. Owner priority and project ordering
 
@@ -258,7 +279,7 @@ Before final implementation Agent assignment:
 1. exact current branch/source head = PASS;
 2. exact worktree ownership = PASS;
 3. no competing `agent_bridge/**` writer = PASS;
-4. .NET 8 / Windows WPF build capability = PASS;
+4. .NET 8 CLI capability AND material `dotnet_wpf_build` compilation capability = PASS;
 5. Python/PowerShell/Git/install prerequisites = PASS;
 6. at least one CHAT-allowed Agent route demonstrates current execution readiness with required permission profile;
 7. receipt is durable/pushed/read back under project-wide PreExec v1.1;

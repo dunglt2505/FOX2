@@ -1,6 +1,6 @@
 """Task-specific registrations only; lifecycle belongs to the shared engine."""
 from functools import partial
-from .probes import tool_probe, npm_registry, local_appdata
+from .probes import tool_probe, npm_registry, local_appdata, dotnet_wpf_build
 
 ROUTES = (
     {'product': 'COPILOT', 'model_policy': 'NATIVE_AUTO', 'model': 'auto', 'auto_tier': 'balance',
@@ -19,6 +19,7 @@ def checks(profile):
         result['npm_registry'] = npm_registry
     if profile == 'bridge':
         result['local_appdata_per_user_write'] = local_appdata
+        result['dotnet_wpf_build'] = dotnet_wpf_build
     return result
 
 

@@ -1,0 +1,35 @@
+{
+  "format": "FOX2_BRIDGE_RC1_RECONCILIATION_001",
+  "state": "STOPPED_NEEDS_RECONCILIATION",
+  "wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "prior_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-001",
+  "prior_dispatch_control_commit": "e2eff7ef5d30026757aa929807eeccc1d6d9d6f6",
+  "prior_execution_base": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
+  "remote_task_branch_head_at_intake": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
+  "agent_started": true,
+  "product_changes_observed_on_remote": false,
+  "report_changes_observed_on_remote": false,
+  "canary_009": "NOT_CLAIMED_NOT_EXECUTED",
+  "app_batch_b": "PAUSED",
+  "blockers": [
+    {
+      "code": "SOURCE_FREEZE_BINDING_AMBIGUITY",
+      "material": true,
+      "detail": "PASS receipt bound the evidence-only blocked-receipt head rather than the earlier freeze publication; governing source bytes were unchanged but exact-source STOP correctly fired."
+    },
+    {
+      "code": "WPF_BUILD_CAPABILITY_UNPROVEN",
+      "material": true,
+      "detail": "dotnet --version proved SDK CLI availability only; RC1 requires an actual Windows WPF build proof."
+    }
+  ],
+  "corrective_action": [
+    "publish a new exact RC1 reconciliation source freeze",
+    "add material dotnet_wpf_build probe to Bridge PreExec",
+    "add regression guards",
+    "run one fresh PreExec on the exact new freeze head",
+    "CHAT intake and publish recovery dispatch only after PASS"
+  ],
+  "prior_dispatch_replay_allowed": false,
+  "merge_deploy_provider_broker_live_authority": false
+}

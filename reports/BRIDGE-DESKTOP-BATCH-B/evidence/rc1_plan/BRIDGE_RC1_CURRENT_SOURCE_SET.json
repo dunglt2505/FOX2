@@ -1,15 +1,15 @@
 {
-  "format": "FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_1",
+  "format": "FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_2",
   "project": "FOX2",
   "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-  "state": "SOURCE_FREEZE_DECLARED_PREEXEC_REQUIRED",
+  "state": "RECONCILING_SOURCE_FREEZE_PREEXEC_REQUIRED",
   "owner_priority": "BRIDGE_FIRST",
   "source_set": {
     "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
-    "base_head_before_freeze_publication": "cc6099eb842b5e9112a2b3d91ee233c7f19dfc2c",
-    "publication_head_rule": "Fresh PreExec MUST bind the exact commit produced by publishing this manifest together with the RC1 task status and current Bridge-first Master Plan directive.",
+    "base_head_before_freeze_publication": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
+    "publication_head_rule": "Fresh reconciliation PreExec MUST bind the exact commit produced by publishing source-set v2 together with the WPF build probe, its regression guards, the reconciliation record and the RC1 task status.",
     "task_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
-    "task_blob_before_freeze": "97ac9ed27853f7528a7cb55d43134e5b79d18c83",
+    "task_blob_before_freeze": "11de49038e62dbe5dfdbca774dbef90656ea0da1",
     "writable_paths": [
       "agent_bridge/**",
       "reports/BRIDGE-DESKTOP-BATCH-B/**"
@@ -96,7 +96,10 @@
     "d2d2b8bc0116646cb83ca93e59d7209632a80aa4": "HISTORICAL Controller-012 roadmap binding; superseded for RC1 execution authority. Preserve as evidence; do not replay.",
     "ac41a7e0b543e79e470bed46b1aeb0101ba77405": "Historical final closure is INVALID/SUPERSEDED; its PreExec receipt is stale for RC1.",
     "4b48116583e3488bf0b81215fa94a84c8cb9f9c7": "Historical RC1 planning-manifest publication head; current source freeze supersedes it prospectively.",
-    "cc6099eb842b5e9112a2b3d91ee233c7f19dfc2c": "Immediate base for this source-freeze publication; fresh PreExec must use the resulting publication head, not this base."
+    "cc6099eb842b5e9112a2b3d91ee233c7f19dfc2c": "Immediate base for this source-freeze publication; fresh PreExec must use the resulting publication head, not this base.",
+    "7b19ba6181c6b365f10c7f855d193c5c0e817fb4": "Prior RC1 source freeze; superseded by reconciliation 001 because subsequent blocked/pass receipts exposed source-lineage ambiguity and insufficient WPF capability proof.",
+    "afad5e8c8cf066fb473f1a55b1642aed51689d02": "Evidence-only BLOCKED receipt head; historical input to reconciliation 001.",
+    "bfc015eb60a04479c812abd55e537ab6f9f1a559": "PASS receipt/execution base for Dispatch RC1-CODEX-001; superseded for authorization after the verifier STOP."
   },
   "release_competition_resolution": {
     "active_schedule": "WP1 Bridge-first serial execution",
@@ -112,23 +115,24 @@
     "execution_rule": "Exactly once only after FOX2_BRIDGE_RC1_PRECANARY_READY."
   },
   "preexec": {
-    "current_historical_receipt_source": "ac41a7e0b543e79e470bed46b1aeb0101ba77405",
-    "current_historical_receipt_disposition": "STALE_DO_NOT_AUTHORIZE_RC1",
+    "latest_prior_receipt_commit": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
+    "latest_prior_receipt_disposition": "SUPERSEDED_BY_RECONCILIATION_001",
     "required_material_capabilities": [
       "git",
       "python",
       "pwsh",
       "schtasks.exe",
       "dotnet",
+      "dotnet_wpf_build",
       "local_appdata_per_user_write",
       "eligible_agent_route",
       "worktree ownership",
       "no competing writer"
     ],
-    "next_gate": "FRESH_PREEXEC_ON_EXACT_SOURCE_FREEZE_PUBLICATION_HEAD"
+    "next_gate": "FRESH_PREEXEC_ON_EXACT_RECONCILIATION_SOURCE_FREEZE_HEAD"
   },
   "authority": {
-    "code_allowed_for_execution": "HOLD_UNTIL_FRESH_PREEXEC_PASS_AND_CHAT_PASS_TO_ASSIGN",
+    "code_allowed_for_execution": "HOLD_UNTIL_RECONCILIATION_PREEXEC_PASS_AND_CHAT_PASS_TO_ASSIGN",
     "pr_create": false,
     "main_push": false,
     "merge": false,
@@ -136,5 +140,18 @@
     "provider_write": false,
     "broker_write": false,
     "live": false
+  },
+  "reconciliation_001": {
+    "prior_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-001",
+    "prior_control_commit": "e2eff7ef5d30026757aa929807eeccc1d6d9d6f6",
+    "prior_execution_base": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
+    "outcome": "STOPPED_NEEDS_RECONCILIATION",
+    "product_or_report_changes": false,
+    "canary_009_executed": false,
+    "reasons": [
+      "prior PASS receipt source_head did not equal the earlier freeze publication after evidence-only reconciliation",
+      "dotnet version probe did not prove Windows WPF compilation capability"
+    ],
+    "recovery_rule": "Do not replay prior dispatch. Publish a retry dispatch only after fresh exact-head PreExec PASS and CHAT intake."
   }
 }

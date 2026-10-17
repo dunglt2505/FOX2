@@ -68,6 +68,79 @@ def tool_probe(name: str, worktree: Path):
         return observation('UNKNOWN', failure='TOOL_PROBE_FAILED', code=None)
 
 
+def dotnet_wpf_build(worktree):
+    """Prove that the installed .NET SDK can compile a minimal net8.0-windows WPF app."""
+    tool = resolve_tool('dotnet')
+    if not tool:
+        return observation('MISSING', failure='TOOL_MISSING', code=None)
+    if os.name != 'nt':
+        return observation('FAIL', failure='WINDOWS_WPF_REQUIRED', code=None)
+    try:
+        with tempfile.TemporaryDirectory(prefix='fox2-wpf-preexec-') as directory:
+            root = Path(directory)
+            project = root / 'Probe.csproj'
+            project.write_text(
+                '<Project Sdk="Microsoft.NET.Sdk">\\n'
+                '  <PropertyGroup>\\n'
+                '    <OutputType>WinExe</OutputType>\\n'
+                '    <TargetFramework>net8.0-windows</TargetFramework>\\n'
+                '    <UseWPF>true</UseWPF>\\n'
+                '    <Nullable>enable</Nullable>\\n'
+                '    <ImplicitUsings>enable</ImplicitUsings>\\n'
+                '    <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>\\n'
+                '  </PropertyGroup>\\n'
+                '</Project>\\n',
+                encoding='utf-8',
+                newline='\\n',
+            )
+            (root / 'App.xaml').write_text(
+                '<Application x:Class="Probe.App" '
+                'xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" '
+                'xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" '
+                'StartupUri="MainWindow.xaml"/>\\n',
+                encoding='utf-8',
+                newline='\\n',
+            )
+            (root / 'App.xaml.cs').write_text(
+                'using System.Windows;\\n'
+                'namespace Probe;\\n'
+                'public partial class App : Application { }\\n',
+                encoding='utf-8',
+                newline='\\n',
+            )
+            (root / 'MainWindow.xaml').write_text(
+                '<Window x:Class="Probe.MainWindow" '
+                'xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" '
+                'xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" '
+                'Title="Probe"><Grid/></Window>\\n',
+                encoding='utf-8',
+                newline='\\n',
+            )
+            (root / 'MainWindow.xaml.cs').write_text(
+                'using System.Windows;\\n'
+                'namespace Probe;\\n'
+                'public partial class MainWindow : Window { '
+                'public MainWindow() { InitializeComponent(); } }\\n',
+                encoding='utf-8',
+                newline='\\n',
+            )
+            result = run_tool(
+                [tool, 'build', str(project), '-c', 'Release', '--nologo',
+                 '--verbosity', 'quiet', '-p:RestoreIgnoreFailedSources=true'],
+                cwd=root,
+                timeout=90,
+            )
+            return observation(
+                'PASS' if result.returncode == 0 else 'FAIL',
+                failure=None if result.returncode == 0 else 'WPF_BUILD_UNAVAILABLE',
+                code=result.returncode,
+            )
+    except subprocess.TimeoutExpired:
+        return observation('UNKNOWN', failure='WPF_BUILD_PROBE_TIMEOUT', code=None)
+    except OSError:
+        return observation('FAIL', failure='WPF_BUILD_PROBE_FAILED', code=None)
+
+
 def npm_registry(worktree):
     tool = resolve_tool('npm')
     if not tool:
