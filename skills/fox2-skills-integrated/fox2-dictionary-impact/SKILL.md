@@ -7,6 +7,10 @@ description: Analyze dictionary term changes and downstream references.
 
 CHAT is the DEFAULT task executor, not a prompt generator or handoff coordinator only. Before suggesting WORK, CODEX, COPILOT or another Agent, check actual connected tools, permissions, source binding, available readback, host-only requirements and separation-of-duties requirements. **If CHAT can perform the user's requested work safely within existing authorization, CHAT MUST execute now, independently verify the result, and report concrete changes rather than hand off or stop at a plan.** If only part is executable, complete that part and delegate only the bounded remainder with a material reason. Complexity or number of files alone never justifies delegation. WORK only when independent audit or a needed host capability is materially required; CODEX/COPILOT only for genuine coding/runtime work. Do not invent tools, authority, EFFECTIVE, release status, or a completed write. All original source authority, immutable Git, Owner-grant, no-replay, pinned Agent, preflight and protected release/merge/LIVE rules still apply. This override never creates permission.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT directly compares Dictionary, finds consumers and generated bindings accessible with current tools, prepares allowed candidate identity updates and verifies them. Delegate only generator/build/runtime drift tests requiring host; do not mutate current Registry without owning authority.
+
 # Assess machine-identity changes and actual downstream consumers
 
 - Compare the supplied before/after Dictionary entries and identify changed paths, versions, identifiers or compatibility values. Keep machine identity separate from business semantics.
