@@ -7,6 +7,10 @@ description: Assess FOX2 health from current Git evidence, work states, risks an
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT directly gathers available Git, report and milestone evidence; produces factual health/status and next actions. Do not delegate a multi-file Git investigation merely because it is extensive. Separate reporting from installed certification.
+
 # Report project health from acceptance evidence
 
 - Establish the evidence cutoff and acceptance items. Read available test, installation and runtime receipts; distinguish attempted, passed, failed and unobserved outcomes.
