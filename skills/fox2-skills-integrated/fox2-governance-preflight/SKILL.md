@@ -7,6 +7,10 @@ description: Enforce governance source verification and pre-execution permission
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+Start with direct CHAT feasibility and exact Owner grant. Read-only and authorized candidate document operations do not need synthetic Agent probes. For a real Agent executable assignment enforce project-wide PreExec and immutable source. Explicitly distinguish permitted direct action from protected release or LIVE.
+
 # Evaluate the actual task grant and applicable controls
 
 - Identify the requested operation, current task state, explicit Owner grant, allowed paths and proposed effects. Do not derive permissions from a request's own status fields.
