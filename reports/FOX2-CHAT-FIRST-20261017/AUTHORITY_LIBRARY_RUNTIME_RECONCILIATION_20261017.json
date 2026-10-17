@@ -1,0 +1,78 @@
+{
+  "schema": "FOX2_CHAT_FIRST_AUTHORITY_LIBRARY_RUNTIME_RECONCILIATION_1",
+  "date": "2026-10-17",
+  "scope": "FOX2_ONLY",
+  "status": "PARTIAL_EXECUTION_COMPLETE",
+  "owner_grant": "CHAT is directly authorized to perform bounded FOX2 governance and Skills source reconciliation in this conversation",
+  "skills_used": [
+    "fox2-source-resolver",
+    "fox2-source-sync",
+    "fox2-document-publication",
+    "fox2-dictionary-impact",
+    "fox2-governance-preflight",
+    "fox2-result-review"
+  ],
+  "git": {
+    "candidate_branch": "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017",
+    "verified_head_before_receipt": "591c41e4657d62be8c4f739b4fccbfb33065dd20",
+    "manifest_path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_MANIFEST_20261017_CANDIDATE.json",
+    "manifest_source_commit": "9b4c0edc85f7546b0c1eaa331d80ec9402bd9d1f",
+    "governance_sources_sha256_count": 9,
+    "governance_candidate_status": "CANDIDATE_NOT_EFFECTIVE"
+  },
+  "library": {
+    "uploaded_path": "/Trading/FOX2/00_Governance/FOX2_CHAT_FIRST_SOURCE_STATUS_20261017.md",
+    "uploaded_sha256": "194b5189b379f20cb8b66177b6f8491b24ac6c383d423b0db86ef3377bc3c77f",
+    "destination_readback_sha256_same": true,
+    "scope": "INDEX_ONLY_NOT_FULL_GOVERNANCE_DOCUMENT_BYTES",
+    "exact_byte_mirror_of_all_9": "NOT_DONE",
+    "reason": "GitHub connector exposes authenticated source text; available Library writer accepts an exported file/container path, and isolated container cannot access authenticated GitHub source. No supported direct exact-byte transfer across connectors was exposed. Must not claim source sync of full documents from an index."
+  },
+  "bridge": {
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "observed_commit": "4236afbe0791dd52e58d37a4ba1aa5bdebd44b12",
+    "source_dictionary_version": "1.2",
+    "source_policy_version": "1.8.9",
+    "source_routing_version": "1.3.0",
+    "source_gitfirst_protocol_version": "12",
+    "generated_dictionary_binding_path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+    "generated_dictionary_version": "1.2",
+    "existing_dispatch_source_frozen": true,
+    "rebind_action": "NO_CHANGE_SAFETY_PRESERVE_IMMUTABLE_SOURCE",
+    "prospective_migration_requires": [
+      "independent_effective_release_chain",
+      "generation_from_verified_v1.3",
+      "generated_binding_diff_and_runtime_contract_tests",
+      "new_EXACT_source_lock_and_preexec",
+      "CHAT_RESULT_INTAKE"
+    ]
+  },
+  "authority": {
+    "owner_action_to_perform_bounded_work": "AUTHORIZED",
+    "source_effective_verification": "AUTHORITY_UNVERIFIED",
+    "source_conflict": "NOT_DEMONSTRATED",
+    "trusted_host_adapter_available": false,
+    "standalone_owner_release_manifest_for_dictionary_v1_3": "NOT_FOUND",
+    "candidate_manifest_grants_effective": false,
+    "required": [
+      "independent_owner_release_authority",
+      "manifest_sha256_commit_applicability_and_supersession",
+      "trusted_host_verifier_result",
+      "final_git_library_byte_readback"
+    ]
+  },
+  "operations_not_performed": [
+    "no canonical overwrite",
+    "no Registry promotion",
+    "no release EFFECTIVE",
+    "no Bridge runtime edit",
+    "no Agent dispatch",
+    "no replay",
+    "no main/merge/deploy/LIVE"
+  ],
+  "next_actions": [
+    "complete true nine-document exact-byte Library mirror using compatible authenticated Git-to-Library file transfer",
+    "verify owning release authority and release chain",
+    "after valid release, plan prospective Bridge migration without rebinding in-flight work"
+  ]
+}
