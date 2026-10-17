@@ -38,7 +38,7 @@ Task branch:
 work/FOX2-BRIDGE-DESKTOP-BATCH-B
 
 Current reconciliation source-freeze:
-4236afbe0791dd52e58d37a4ba1aa5bdebd44b12
+c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359
 
 Primary task:
 docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md
@@ -60,7 +60,7 @@ docs/governance/FOX2_PROJECT_DICTIONARY_v1.json
 
 Resolve Policy, Routing, Dispatch Schema, Git-first Protocol, PreExec Protocol, Receipt Schema and CHAT Preflight Intake from the current Dictionary/source-set manifest. Never select versions from filename, recency or main.
 
-If the executable recovery Dispatch binds an evidence-only PreExec publication descended directly from this freeze, use the Dispatch-bound execution base. Any material source drift requires STOP.
+If the executable recovery Dispatch binds an evidence-only PreExec publication descended directly from this freeze, use the Dispatch-bound execution base. The INFRA_FAILED receipt commit 8011a29a23fe373e924bf4d1809718036171b211 is historical evidence only. Any other material source drift requires STOP.
 
 ## 3. No-replay / recovery state
 
@@ -83,6 +83,14 @@ Facts:
 NEVER replay Dispatch 001.
 
 Recovery execution requires a new Dispatch with retry_of_dispatch_id = FOX2-DISPATCH-BRIDGE-RC1-CODEX-001, max_runs = 1, exact source/worktree/base binding and one selected Agent tuple.
+
+## 3A. Probe-infrastructure recovery
+
+The exact-head PreExec published at 8011a29a23fe373e924bf4d1809718036171b211 returned INFRA_FAILED because the WPF capability probe itself raised before dotnet build.
+
+This is not a proven .NET/WPF capability failure. The source freeze c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359 corrects the probe to write real UTF-8 LF bytes and regression-tests the generated WPF project content.
+
+Do not replay any earlier Dispatch. Run exactly one fresh PreExec on c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359. Only a durable PASS receipt may open the recovery Dispatch.
 
 ## 4. Singular pre-execution gate
 
