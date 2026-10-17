@@ -1,0 +1,145 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "8f23c3791d599e4e1f391d1dddbc9e34bd81da07"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "afad5e8c8cf066fb473f1a55b1642aed51689d02",
+    "sha256": "f482df8de83bd2c137eaa4ca91532e67229e1e34c7f71daed38b578f1f9ab74c"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "git_commit": "afad5e8c8cf066fb473f1a55b1642aed51689d02",
+    "git_blob_sha1": "11de49038e62dbe5dfdbca774dbef90656ea0da1",
+    "sha256": "f482df8de83bd2c137eaa4ca91532e67229e1e34c7f71daed38b578f1f9ab74c"
+  },
+  "source": {
+    "commit_sha": "afad5e8c8cf066fb473f1a55b1642aed51689d02",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner instruction 2026-10-17: execute consolidated WP1 FOX2-BRIDGE-RC1-TO-INTERNAL-READY. Fresh PreExec PASS receipt published at bfc015eb60a04479c812abd55e537ab6f9f1a559; Codex PASS, dotnet PASS, worktree PASS, no competing writer; Copilot AUTH_REQUIRED is non-material because eligible_agent_route PASS. No main/merge/deploy/provider/broker/LIVE authority."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "bfc015eb60a04479c812abd55e537ab6f9f1a559",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "dotnet",
+      "local_appdata_per_user_write",
+      "codex_cli",
+      "full_access_mode",
+      "eligible_agent_route",
+      "worktree_ownership",
+      "no_competing_writer"
+    ],
+    "stop_conditions": [
+      "source_task_or_branch_binding_mismatch",
+      "wrong_worktree_or_base_sha",
+      "competing_agent_bridge_writer",
+      "unauthorized_path_change",
+      "desktop_app_direct_git_ledger_or_agent_execution",
+      "worker_ui_process_separation_regression",
+      "installer_update_uninstall_or_startup_failure",
+      "required_test_or_security_failure",
+      "secret_private_or_licensed_data_exposure",
+      "agent_configuration_or_permission_mismatch",
+      "capability_or_quota_failure_after_start_requires_reconciliation",
+      "push_or_remote_readback_failure",
+      "canary_009_claim_or_execution",
+      "app_batch_b_resume",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "DESKTOP_APP_BUILD",
+    "DESKTOP_APP_CONTRACT_TESTS",
+    "DESKTOP_APP_SINGLE_INSTANCE",
+    "WORKER_UI_PROCESS_SEPARATION",
+    "FIRST_RUN_SETUP",
+    "PER_USER_INSTALL",
+    "INSTALLER_PACKAGE",
+    "UPDATE_PATH",
+    "UNINSTALL_PATH",
+    "START_WITH_WINDOWS",
+    "STARTUP_SINGLE_INSTANCE",
+    "PAUSE_RESUME",
+    "CHECK_NOW",
+    "OPEN_LOGS",
+    "SUPPORT_BUNDLE",
+    "ARTIFACT_LOCAL_SAVE",
+    "ARTIFACT_SHA256_VERIFY",
+    "ARTIFACT_ATOMIC_INDEX",
+    "LOCAL_SAVED_NOT_GIT_SYNCED",
+    "PROJECT_DICTIONARY_BINDING",
+    "DISPATCH_V3_SCHEMA_BINDING",
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+    "V2_COMPATIBILITY",
+    "V06_COMPATIBILITY",
+    "REAL_INSTALLED_POLL",
+    "CONTROL_STORE_PATH",
+    "FULL_BRIDGE_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-17T05:06:27.486Z",
+  "max_runs": 1
+}
