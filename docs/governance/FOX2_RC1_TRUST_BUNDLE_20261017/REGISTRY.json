@@ -1,0 +1,66 @@
+{
+  "authority": "FOX2",
+  "families": {
+    "dictionary": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json"
+    },
+    "dictionary_generated_binding": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json"
+    },
+    "policy": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json"
+    },
+    "routing": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json"
+    },
+    "preexec_protocol": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json"
+    },
+    "preflight_receipt_schema": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json"
+    },
+    "chat_preflight_intake": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json"
+    },
+    "dispatch_schema": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json"
+    },
+    "git_first_protocol": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json"
+    },
+    "bridge_technical_spec": {
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json"
+    }
+  },
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "registry_scope": "WP_ONLY_TRUST_BINDING",
+  "owner_release_approval": {
+    "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+    "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json"
+  },
+  "source_set": {
+    "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_CURRENT_SOURCE_SET.json",
+    "version": "FOX2_BRIDGE_RC1_CURRENT_SOURCE_SET_3"
+  },
+  "protected_authority": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider_write": false,
+    "broker_write": false,
+    "live": false
+  },
+  "note": "Resolver-compatible Registry wrapper for the Owner-approved RC1 trust bundle. It binds existing immutable source bytes and grants no authority outside this Whole-WP trust-binding scope."
+}
