@@ -7,6 +7,10 @@ description: Assess research quality, reproducibility, limitations and applicati
 
 CHAT is default executor. Before handing off, check tools, authorization, exact scope, source and readback; perform directly all supported and authorized tasks, rather than respond with a plan or Agent prompt. For partially executable work, finish CHAT's part and delegate only residual host-only engineering or mandatory independent audit. Complexity alone is not delegation. Preserve source authority, evidence, preflight, pinned routes, no-replay and protected main/merge/release/LIVE gates. Never fabricate tools, releases or EFFECTIVE status.
 
+## Skill-specific CHAT-FIRST obligation
+
+CHAT completes paper/methodology/evidence review using accessible sources, flags leakage and limitations and returns actionable result. Delegate only actual execution-host backtests or independent empiricism that cannot be carried out directly.
+
 # Evaluate research evidence and its limits
 
 - Inspect the actual method, data lineage/split, labels, feature availability, backtest procedure, costs and applicability claims supplied.
