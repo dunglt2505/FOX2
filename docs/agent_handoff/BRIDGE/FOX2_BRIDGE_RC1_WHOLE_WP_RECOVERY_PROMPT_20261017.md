@@ -123,6 +123,105 @@ CHAT published:
 
 This is a WP-scoped trust binding, not a global semantic promotion. Before coding, verify the Registry and manifests read-only with the installed source-resolver. If the exact chain verifies, continue the same Whole-WP; do not open another authority micro-task.
 
+
+
+## 3C. Final technical closure after Dispatch 003
+
+Dispatch 003 is historical and MUST NOT be replayed.
+
+Dispatch 003 result head:
+`dbaefdf686e06ffdf78b277288515deca9011710`
+
+Fresh final-closure PreExec publication:
+`0789e5d8c3944fdc078090f50f18fb2a3abe6b64`
+
+Fresh PreExec source head:
+`dbaefdf686e06ffdf78b277288515deca9011710`
+
+Fresh routing evidence:
+- Codex PASS;
+- Copilot AUTH_REQUIRED / non-material;
+- dotnet PASS;
+- dotnet_wpf_build PASS;
+- eligible_agent_route PASS;
+- worktree PASS;
+- competing writer NONE_OBSERVED.
+
+The diff from `dbaefdf...` to `0789e5d...` is receipt-only. Use `0789e5d...` as execution base and preserve `dbaefdf...` as the product WIP source/result head.
+
+CHAT result intake accepted these Dispatch 003 facts as already executed evidence:
+- 399 Python tests PASS;
+- 30 Desktop checks PASS;
+- WPF Release build PASS;
+- package determinism PASS;
+- package `FOX2-Bridge-RC1.zip` SHA-256 `a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac`;
+- install/update/uninstall/startup/single-instance/process-separation/control-store/support bundle PASS;
+- real installed poll PASS / NO_CHANGE / no claims or executions;
+- Registry/source authority PASS;
+- Canary 009 untouched;
+- APP-BATCH-B paused;
+- no main/PR/merge/deploy/provider/broker/LIVE action.
+
+Do NOT rerun those gates merely to repeat evidence when there is no relevant code/package change.
+
+### Final-closure objective
+
+Close the remaining technical pre-Canary gap in the SAME Whole-WP:
+
+1. prove a fresh Artifact Vault save initiated through the current installed WPF UI;
+2. bind the proof to the current installed UI process and current installed package;
+3. verify the newly selected source file SHA-256;
+4. verify copied Vault object SHA-256 equals source SHA-256;
+5. verify the new record is written atomically into the Vault index;
+6. verify record state is exactly `LOCAL_SAVED`;
+7. verify `git_synced=false` / not GIT_SYNCED;
+8. verify `released=false`;
+9. verify the saved record timestamp is newer than the current installed UI process start and this final-closure attempt start;
+10. close all four gates together:
+   - `ARTIFACT_LOCAL_SAVE=PASS`
+   - `ARTIFACT_SHA256_VERIFY=PASS`
+   - `ARTIFACT_ATOMIC_INDEX=PASS`
+   - `LOCAL_SAVED_NOT_GIT_SYNCED=PASS`.
+
+The proof MUST traverse the installed UI save path. A direct service/assembly call, stale Vault record, Core-only test, pre-existing object, or PowerShell remainder-harness PASS is not sufficient.
+
+Use a fresh synthetic benign file with unique content/name for the attempt. Record before/after Vault index state, installed UI PID/process-start time, installed package hash, source path/hash, resulting artifact ID/path/hash/state, and attempt timestamps in bounded evidence.
+
+### Repair policy
+
+First try certification with no product-code changes.
+
+If the installed UI save cannot be driven or observed because of a genuine product defect, repair only the minimum in-scope code under `agent_bridge/**`, then:
+- rebuild/repackage/reinstall only as required by that change;
+- rerun tests and installed gates materially affected by that change;
+- preserve prior PASS evidence for unaffected gates;
+- update the evidence manifest truthfully.
+
+Do not add a test-only production bypass that skips the actual installed UI interaction.
+
+If the remaining failure is only host UI-automation tooling and the product path itself is demonstrably functional, collect a fresh human-observable/UIAutomation receipt only if it still proves the actual installed UI action end-to-end. Never convert a direct service call into UI acceptance.
+
+### Icon disposition
+
+The branded FOX2 icon is NOT a normative RC1 acceptance gate in the bound task/technical spec. No authorized branded icon asset exists in the bound source. Keep the current generic Windows icon for RC1 and record `ICON_NON_GATING_NO_AUTHORIZED_ASSET`. Do not fabricate or source an unapproved icon and do not block pre-Canary technical readiness on it.
+
+### Final-closure completion
+
+If all four Artifact Vault gates PASS and no newly affected required gate fails:
+- update report/evidence manifest/acceptance gates;
+- mark installed runtime technical certification PASS;
+- keep `PRECANARY_INDEPENDENT_AUDIT=PENDING`;
+- push only authorized task-branch paths;
+- remote-readback exact bytes;
+- finish with `FOX2_BRIDGE_RC1_IMPLEMENTATION_PUSHED_UNREVIEWED`.
+
+If a genuine material blocker remains after bounded repair:
+- preserve truthful failure evidence;
+- push bounded evidence/WIP;
+- finish with `FOX2_BRIDGE_RC1_STOPPED_NEEDS_RECONCILIATION`.
+
+Do not claim `FOX2_BRIDGE_RC1_PRECANARY_READY`; CHAT/WORK own the independent audit and that marker.
+
 ## 4. Singular pre-execution gate
 
 Do not implement until executable Dispatch proves CHAT already completed:
