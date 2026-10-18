@@ -1,0 +1,57 @@
+{
+  "format": "FOX2_PRECANARY_AUDIT_ADMISSION_RESULT_1",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "PRECANARY_INDEPENDENT_AUDIT": "BLOCKED",
+  "review_type": "CONDITIONAL_GIT_PACKAGE_EVIDENCE_REVIEW_COMPLETED",
+  "audit_source": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+  "handoff_commit": "62cfceee81279596a5ca409630d1b88ac142b33b",
+  "source_registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+  "manifests_owner_approval": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+  "source_freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "reviewer": {
+    "host": "CODEX_WORK_MODE_LINUX",
+    "role": "BOUNDED_EVIDENCE_REVIEWER_NOT_ADMITTED_WORK",
+    "git_principal": "dunglt2505",
+    "independent_work_admission": "UNVERIFIED",
+    "signature": "NOT_AVAILABLE",
+    "numeric_quota": "NOT_EXPOSED",
+    "capacity": "LIVE_ANALYSIS_AND_AUTHENTICATED_READS_DEMONSTRATED",
+    "exact_model_thinking": "NOT_EXPOSED"
+  },
+  "blockers": [
+    "REQUIRED_WORK_REVIEWER_ADMISSION_AND_INDEPENDENCE_UNVERIFIED",
+    "CLOUD_SHARED_GIT_RESOLVER_RESOURCE_UNAVAILABLE_NOT_EXECUTED"
+  ],
+  "limits": [
+    "CURRENT_INSTALLED_WINDOWS_HOST_POINTER_PAYLOAD_AND_LEDGER_NOT_ACCESSED",
+    "RECORDED_HOST_RECEIPTS_NOT_FRESH_ATTESTATION"
+  ],
+  "counts": {
+    "checks": 34,
+    "checks_passed": 34,
+    "new_manifest_digests": 26,
+    "new_manifest_digests_matched": 26,
+    "historical_manifest_digests": 67,
+    "historical_manifest_digests_matched": 67,
+    "historical_paths_unchanged": 66,
+    "package_payload_hashes": 252,
+    "package_payload_hashes_matched": 252,
+    "source_families": 10,
+    "source_families_matched": 10,
+    "carried_gates_prior_pass": 25,
+    "junit_cases": 399,
+    "junit_failures": 0,
+    "junit_errors": 0,
+    "junit_skips": 0
+  },
+  "audit_checks_sha256": "7a80b88bcb363f14b5baca3449a451f8dcb345b6c75ddcb358542092e153e27f",
+  "protected_actions": "NONE",
+  "dispatches_replayed": [],
+  "canary_009": "NOT_RUN_NOT_CLAIMED",
+  "app_b": "NOT_RESUMED",
+  "precanary_ready": "NOT_GRANTED",
+  "result_status": "REPORT_PUBLISHED_FOR_CHAT_INTAKE_NOT_CERTIFICATION",
+  "branch": "work/FOX2-BRIDGE-RC1-PRECANARY-AUDIT-20261018-readonly",
+  "parent_commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+  "commit_identity": "CONTAINING_GIT_COMMIT_REMOTE_BYTE_READBACK_REPORTED_SEPARATELY"
+}

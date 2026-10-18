@@ -1,0 +1,1977 @@
+{
+  "format": "FOX2_PRECANARY_CONDITIONAL_EVIDENCE_REVIEW_1",
+  "observed_utc": "2026-10-18T08:24:22.552839+00:00",
+  "audit_source": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+  "checks": {
+    "changed_paths_exact_manifest": true,
+    "report_only_27_paths": true,
+    "product_tree_unchanged": true,
+    "package_blob_unchanged": true,
+    "preexec_only_descendant": true,
+    "task_binding": true,
+    "prompt_binding": true,
+    "control_dispatch_exact_bytes": true,
+    "dispatch_max_runs_one_retry_003": true,
+    "dispatch_v3_schema_using_bound_runtime_validator": true,
+    "implementation_preexec_pass": true,
+    "source_object_exact_bytes_size_hash": true,
+    "one_new_record_preserves_three": true,
+    "canonical_local_saved_only": true,
+    "content_addressing": true,
+    "fresh_timestamps_ordered": true,
+    "stable_ui_process": true,
+    "rename_pair_adjacent": true,
+    "rename_after_save": true,
+    "index_identity_changes": true,
+    "raw_index_hashes_explained_by_lf_normalization": true,
+    "ui_picker_selection_and_result_receipts": true,
+    "certification_27_true_checks": true,
+    "package_sha_size_crc": true,
+    "package_252_member_hashes": true,
+    "package_ui_hash_binding": true,
+    "package_source_pointer_binding": true,
+    "junit_399_no_failures_errors_skips": true,
+    "carried_gates_prior_pass": true,
+    "gate_matrix_38_pass_pending_audit_icon": true,
+    "historical_report.md_preserved": true,
+    "historical_evidence_manifest.json_preserved": true,
+    "changed_text_secret_scan_no_pattern_hits": true,
+    "git_diff_check": true
+  },
+  "check_count": 34,
+  "checks_passed": 34,
+  "carried_forward_gate_count": 25,
+  "package_payload_hashes": [
+    {
+      "path": "desktop/Accessibility.dll",
+      "sha256": "7f22f7b8441ffb1e704332ed0ae06897eb5f496d0a61f2a84e4796b2b386578b",
+      "pass": true
+    },
+    {
+      "path": "desktop/D3DCompiler_47_cor3.dll",
+      "sha256": "a05f99734f7c4822fefc12b367af21fd0976ed6608752fb1e1e80b6ece7ecbbb",
+      "pass": true
+    },
+    {
+      "path": "desktop/DirectWriteForwarder.dll",
+      "sha256": "9010a2589ac04f44bf5f4bf5000c4b42bdf800c9d8292eadd7cf881ec1dfbdc5",
+      "pass": true
+    },
+    {
+      "path": "desktop/FOX2.Bridge.Desktop.deps.json",
+      "sha256": "6c8ae7e4c32bd37c3eddba10a69122359563f1215c1af7fc81c288af23c6ea17",
+      "pass": true
+    },
+    {
+      "path": "desktop/FOX2.Bridge.Desktop.dll",
+      "sha256": "c37d3a846151e626c1bcff212602589f7c7cad6fc212a2b3a107f30235725f63",
+      "pass": true
+    },
+    {
+      "path": "desktop/FOX2.Bridge.Desktop.exe",
+      "sha256": "370a21ffd3bd240ef6560823ac5e687a440eb400fa45607cafef0053dbc090fe",
+      "pass": true
+    },
+    {
+      "path": "desktop/FOX2.Bridge.Desktop.runtimeconfig.json",
+      "sha256": "75fb370af8706b001be62fb47b5ec686af69ca2aef2d5648fc31cedae0ce0487",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.CSharp.dll",
+      "sha256": "f8695984287e917af1a939ae5a9f00164a2861ae0a16f58105c942c0af4eca83",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.DiaSymReader.Native.amd64.dll",
+      "sha256": "70e4b89978ce57ef87b28f4921f3140c383b04aa96e7f3bdb3c4ebb898fd8a72",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.VisualBasic.Core.dll",
+      "sha256": "4313f3b400c4fedd81d8921e01e6de442b0cc9e75285c7a2c0892fe149f79920",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.VisualBasic.Forms.dll",
+      "sha256": "f0b49ac82d4d4aef79bea6312350efe4d0370ee9052c47e7ef4bb1c589383087",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.VisualBasic.dll",
+      "sha256": "6d6488946099f8fdbdebe06c5eab806c9854fa18e38a8e547f5a62e248a3ee8f",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.Win32.Primitives.dll",
+      "sha256": "7fb0fbb9ff0686dfeaf79c07619135a1cd16d763b234a43c7893c5316373e3f2",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.Win32.Registry.AccessControl.dll",
+      "sha256": "7bf013cfcd7a23be5878ae42d31e888d783cdc9cb5f1267ec4215768be9523ab",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.Win32.Registry.dll",
+      "sha256": "e1e86b7e104e10ba1625ebee8b7dcae2775bb14f170ee8317beddda99d505125",
+      "pass": true
+    },
+    {
+      "path": "desktop/Microsoft.Win32.SystemEvents.dll",
+      "sha256": "746a19d7f189af3bccaadfb6c23b6953228bc410f58ac2d47187f26be23f3322",
+      "pass": true
+    },
+    {
+      "path": "desktop/PenImc_cor3.dll",
+      "sha256": "88490911d1957603b9ee052eb6ca374f8c487cd7f7769729fb945853ab1aa29a",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationCore.dll",
+      "sha256": "985ec96fcccf539677a944fd1b3c4d33eea7ecc37c99b4a6d4b0d0e96a6cff19",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework-SystemCore.dll",
+      "sha256": "8676512c7a02719cfc2b2eff6eec019945bd52aef76a38ae8ff64323b9727381",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework-SystemData.dll",
+      "sha256": "c194f86696a35d3222188e8dd4ec4a783c4720a558df99f3efff88381eb9ef12",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework-SystemDrawing.dll",
+      "sha256": "c71c0ad9fa27bb1cb7a2e56c7503955dcdfe26ce55f605c51d76c793ec91486c",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework-SystemXml.dll",
+      "sha256": "9053721562a3cf2879ea1f3ad71b4ff09bc1ac0a13dc7f2c49257993a12b19a9",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework-SystemXmlLinq.dll",
+      "sha256": "980a769634bd31f739667d982d96ea9b913a3f07b25943a1b88375fba07b1fc6",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.Aero.dll",
+      "sha256": "5a602e3c028ef5e54908ee7a45f867f4092f3c33f843f27698e6a66c1213fa50",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.Aero2.dll",
+      "sha256": "93828936ed7e324f444fa0665891bb21a1abf7b416cc6b4d49eabfbbaa24d7a8",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.AeroLite.dll",
+      "sha256": "ac2d1f6906104999817ecaec964ee61b4905f1a2357fe5c26cfd22e05bb24f26",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.Classic.dll",
+      "sha256": "bc1cb7a37251c476ada364b1875f4506be905d0f4dfa977191a980f41588fa92",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.Luna.dll",
+      "sha256": "c8cb9ccd7444a7d0b8f13d4038fe2c3e7b6aa527f6cc542342e46bd51f8569b2",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.Royale.dll",
+      "sha256": "2d9c2aa79e7ed1265b02e50c50358046aaef0ac8a039ba0600b3fcf23f89e70a",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationFramework.dll",
+      "sha256": "700b69b597278624e581e8efd4d07936264adbbf98e701bac6e50e61bd7acf2b",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationNative_cor3.dll",
+      "sha256": "c9de9598d1ae7d7b9cfd3e83c7201bf2ad23b97121000c475de01a868ac2e618",
+      "pass": true
+    },
+    {
+      "path": "desktop/PresentationUI.dll",
+      "sha256": "9ecb3261f46ef6e93d42ed2cbee4f60d0dcc4a7f3df2c29e6dd125e11a21faa5",
+      "pass": true
+    },
+    {
+      "path": "desktop/ReachFramework.dll",
+      "sha256": "feb1af4eb85768d17fbc26fcb3d07c85c1aaace9dacf503819b2855dd886bad5",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.AppContext.dll",
+      "sha256": "b7b1d115a707ca5ac6e819f969ee4281fe813ff1da2b219edcef915d94a7d302",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Buffers.dll",
+      "sha256": "d1222b8642c75039e3408beddd7f2ca7753683af1a894d11322a896ca94bf428",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.CodeDom.dll",
+      "sha256": "1c7adee7b782abc3b55ae483fe2ba76231a80253fa54a6c01534f5e38a1309dd",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Collections.Concurrent.dll",
+      "sha256": "f9966b6f207b9b0fca7a8035008f414adc5ea2ba8baf83d847891781aa46a69f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Collections.Immutable.dll",
+      "sha256": "dbd34baede4aadba87cfd0d4f0b140b054ca0dfc19e0d8967be923aa22027941",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Collections.NonGeneric.dll",
+      "sha256": "1f8e46621250baa782ac5b4c735f272059b80445c7b7c4975ae78a3b1f55ae2f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Collections.Specialized.dll",
+      "sha256": "96c06abadeda1ef45bb9c9e9caca0fe1e6461ad61beab564c866f708685c621c",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Collections.dll",
+      "sha256": "a5116ecad89983a6c9670faeead52def6248bf9017acff9264d4972dfdb94062",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ComponentModel.Annotations.dll",
+      "sha256": "ab41f89f6beadd5bdd9311f6d544425f4451dcadc3929e2e5ad8217180b4afe5",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ComponentModel.DataAnnotations.dll",
+      "sha256": "3ba174aa522a0e6c43e87b59709df2919d29b77571aa62d4e121d9228f00b8a6",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ComponentModel.EventBasedAsync.dll",
+      "sha256": "a89dadb4077947a5f6041dad22308d3e573ce0c04dc36717ce99b5100532b643",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ComponentModel.Primitives.dll",
+      "sha256": "c7368f5d4e32ff30600ab0efcd1272830c8d82852b82e21e872caa27ed20596b",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ComponentModel.TypeConverter.dll",
+      "sha256": "3276d54e3b2b3ea00feccc317a5fa276b6bed9c08214d53570919a7dce2f46d4",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ComponentModel.dll",
+      "sha256": "40559bb72151a338ca9b5da79e6e484aea4deef7f1cc5922996542480f452aff",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Configuration.ConfigurationManager.dll",
+      "sha256": "7664002418166251bfec7bca608c824aa21720a69b6b8dc8c0c416c292fdb281",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Configuration.dll",
+      "sha256": "7094342509bb169a9fd2e96d110eeba4935069da317061acd0c36e3add23e0e7",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Console.dll",
+      "sha256": "b6a30433fc4ae294d83a4b0d13a5fd21d1d64ddacabd7d7c9cd26ec80b16d4b8",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Core.dll",
+      "sha256": "6af7bfd04f29ed0acb14443f480e81f543ea6ec586e99ad4ddff0bb2aa63e72a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Data.Common.dll",
+      "sha256": "a8ee9550de066a72be91d9b87adb4155256c4b961d178ae2788dace022811ad2",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Data.DataSetExtensions.dll",
+      "sha256": "735c6543a16f6a700903a09d7bea815b9143b9f679af4a2a112f056835b1dfd9",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Data.dll",
+      "sha256": "f6fbe3819391faee13aa732ac1bb126fe81ff85b053c5ee3159a1ec9c9680e00",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Design.dll",
+      "sha256": "1ad621d432b8674254f98e04f415a6a223536ac329c8890046857d1e2445bbd1",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.Contracts.dll",
+      "sha256": "08af8da38dfb1ddb18e797e7fc71363d15a5922cea752842b9e894c009ed3d75",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.Debug.dll",
+      "sha256": "f6b686611906a6eecad54f9af505f3eae03c4a604a9154361e4ac8cdf13e9250",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.DiagnosticSource.dll",
+      "sha256": "8aa37a917a3748647fc984f777d56e5a393022474fd66d09d7bb98fd3eb69c5e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.EventLog.Messages.dll",
+      "sha256": "d31f80e4d8bd9ee5f0eb19f8169b44c241ad97c648c371c227fead3d026a7fc3",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.EventLog.dll",
+      "sha256": "b308999953bbea3c7be713bf213df7708ccc90d7468e55b23c6d50fbebe73f5d",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.FileVersionInfo.dll",
+      "sha256": "c322c2dcac6940c6e20676cda0752b2f6e2e5194cb5043a957e5754a16870185",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.PerformanceCounter.dll",
+      "sha256": "ec0e31940758ab6b11fbc1adb2efeede68449f0d785441e03e7d5264ada97b41",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.Process.dll",
+      "sha256": "b532a720f07df58e3a4891d57d0309f3eb17d651ded8c61dd554880ffd450c65",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.StackTrace.dll",
+      "sha256": "6a030932791cec65c932cd41ee1afc3c31fc2d0cd49375ecbceea0e46f1f1f69",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.TextWriterTraceListener.dll",
+      "sha256": "d32ced1b6ec54420a4cf91d4e7b009ab56737778472462e33371e4f870ed0433",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.Tools.dll",
+      "sha256": "b8f9ea78eaca682d30807e105e8cc26d63ac4ec725fc61267f3617e27372c1fa",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.TraceSource.dll",
+      "sha256": "ad5e60214e43e47930e282d52dbc21c137d780d6a9de57ca881d1566682c247e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Diagnostics.Tracing.dll",
+      "sha256": "fdfe02cd9a9f0e9bf400f869b295c0c9f62dac8d0b5a9fae9f6f7214c27601d7",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.DirectoryServices.dll",
+      "sha256": "e2f8d956f148cf922adf0d4c42610711ec66c507f9b6f954db12c399c5f10c0a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Drawing.Common.dll",
+      "sha256": "9cc51fa0a3b3d6a1059b5d6d65865eebab0078b5aaa45ecbe43eec4f06a72964",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Drawing.Design.dll",
+      "sha256": "08615576caf6332fbc63882605a88f8bbac36c53750ea70aeab78c162d6c318a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Drawing.Primitives.dll",
+      "sha256": "9fd5ae89278c8db0fdd5804a210c69a1a59862af61fdc3b78817f97d253be5fb",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Drawing.dll",
+      "sha256": "12e63ea797e801e11fcf25afc6ae48759f60749fc818b1cdfbc3f9f8c40c0f52",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Dynamic.Runtime.dll",
+      "sha256": "2511e513f1f3260be23edeeb1fd4f0fff36b8e94317a9ab3caecacb27bc619de",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Formats.Asn1.dll",
+      "sha256": "07b316621ad4c603b8e11c4fc9f329c07d42b64dd8911760c1432c5b71c025d8",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Formats.Tar.dll",
+      "sha256": "11d1f405631ba52be402242df1d9fe4d8768d28894e73a473fd689d926c94e0e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Globalization.Calendars.dll",
+      "sha256": "29431cfd2dcbb00dfeb5741a9780bf1b4dbcb56408a6d3b4126caa9191a2642a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Globalization.Extensions.dll",
+      "sha256": "3fcef2b02dfa1c9cbadc2605695cb39d0fabc80b699751e9fd83647c33078625",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Globalization.dll",
+      "sha256": "af9e738b239ae0c50c96d9d880568ea476541f03e63273f345d33f18a3addd5f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Compression.Brotli.dll",
+      "sha256": "826e4272c182b738096c625ac172c08e9883e5f403f8bc2c265c66c148b598b7",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Compression.FileSystem.dll",
+      "sha256": "ae562081c19665c492648114187e99e2b208c0097fc1ac8a68b0cc2c7a303ff1",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Compression.Native.dll",
+      "sha256": "11f20a71f8e5d847b7fc26c75cd8f0cce71bac242837a762b30cbd95deec6d01",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Compression.ZipFile.dll",
+      "sha256": "22ee80573022e797a3e77688f4b66d50fb66fc8455bfcb5fd6a53c813450ea1a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Compression.dll",
+      "sha256": "4735ea7324369c962b301fd43a6232ed28ebc2f726f9b0798cf62a3381d4af51",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.FileSystem.AccessControl.dll",
+      "sha256": "e571fb2430b4bf60854b52a68a646a5f19605e05b7b97aab0b53787a281325c9",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.FileSystem.DriveInfo.dll",
+      "sha256": "1bce944cfae3e124380aef60163988c315b232e4309dd8f01206c12ef84f6eee",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.FileSystem.Primitives.dll",
+      "sha256": "91c28d44b18d039f319d5433229fd9003b24fe07199ce861935a2651482e31dc",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.FileSystem.Watcher.dll",
+      "sha256": "e65aee46a84388611f97fe8dd6100bfb7ba3fe37119e255e9b3ef11171061c50",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.FileSystem.dll",
+      "sha256": "0388b935578e434c400cf29513cfe0445ae4e5ce6f16cef4151405907931509e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.IsolatedStorage.dll",
+      "sha256": "c8bff13359a2d0a14c644a8b60aef0e940127cc3f810acd813b521e2512f9a3a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.MemoryMappedFiles.dll",
+      "sha256": "e29f98eb15b7ce8aa4af5b2560ea30f57fc897233bed892062823d643ab2f57e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Packaging.dll",
+      "sha256": "26c9a549dd2765252b39fed1562da85ad1ba8c67da8c0de1d23eaa6bd0cf8e71",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Pipes.AccessControl.dll",
+      "sha256": "3444d887b589fbdc709c64ee68cd30187a8021ae5fd90a2fa9cefe7e8f2010d0",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.Pipes.dll",
+      "sha256": "a518eef58923a0519635bded25b776c39551112f9523470132719826afc80cac",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.UnmanagedMemoryStream.dll",
+      "sha256": "b7e31eef62e2e81e42f6fa592bbc0344ed5ec29fb8cd539e8121e0dfa8011785",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.IO.dll",
+      "sha256": "c09e39a8b39c8f0d54907a8bb7f0a95ce380a912a80a42c90a61fe7479eaf185",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Linq.Expressions.dll",
+      "sha256": "2f66911d8bbae820428fda2a32b20ec8773e17c103694207f178580e2ec397fa",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Linq.Parallel.dll",
+      "sha256": "c199cf92172c54123278a2f83b1ffdfae74bad52b349e78d105507d328860baa",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Linq.Queryable.dll",
+      "sha256": "44ab55d1304a7cb5bf42ac2c562e4c618fa6b2d0e34fb9bb0eade336da57cbd3",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Linq.dll",
+      "sha256": "7108e362744f21f5d1002ce59ddcfa2deffd1fa778a4f0471b30cb19f94dd2f4",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Memory.dll",
+      "sha256": "8c0c3e2561cdfabab3510ec3a5af174fb0ec6aadf2b02fe22685e39f8a28128f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Http.Json.dll",
+      "sha256": "26d72f2089e533d78dc43e4d107f6cba6fd1dcecc2c087134157d8da6f44ee3f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Http.dll",
+      "sha256": "32b82169fa80294b867b81c978cc6c1232e3706f509633e8477aaef9b6910f4c",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.HttpListener.dll",
+      "sha256": "7823eb41f1517d148ece1a0e379ecd80804c57c106394d593af41cd280a557e3",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Mail.dll",
+      "sha256": "73ad866370ce4e2a7b7ce3a4317a1803b14a4eb0e465aff340ba13cc9ea53e5f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.NameResolution.dll",
+      "sha256": "91fde67fe46e11bae06a853a3f3db9d6076d633fb614c19a9811825e3af5d111",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.NetworkInformation.dll",
+      "sha256": "63fce974e689befe1022edc446f281e529aa4f84cc531d60e21c7f68d43b05ba",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Ping.dll",
+      "sha256": "28643f73194d803efeb0760135346006112ce931c353aa18cd80573ffc9f6c21",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Primitives.dll",
+      "sha256": "4e464cf88666ae6e9af33d663054efa4885f8350e2c00a5aec193f022b7042f9",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Quic.dll",
+      "sha256": "48253dd7648e23c65dc888c709d3ff23452a59b04e3ae95e838c00a19993e82c",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Requests.dll",
+      "sha256": "143372b516f47e2017a6b53cabae3bbf0100a43c0507bdb6d97e3f22a05f4393",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Security.dll",
+      "sha256": "7f373d8d95ce5fe80e8c2fa76169349db4936ac56cf2067ea79a7a32987b097b",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.ServicePoint.dll",
+      "sha256": "719e334097c934fabdfbc8b313c943e27b25533a4b80a9708e440f5efbeb9dbc",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.Sockets.dll",
+      "sha256": "d536ed205297634940896f45fbb0e506270ceb7de469fb076448103338b7d534",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.WebClient.dll",
+      "sha256": "1b85587af566f0d003e510418183fe7ae72662d3a6758fe5cf2880879d2f147a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.WebHeaderCollection.dll",
+      "sha256": "4d990f12e3be647f9e2ac0c726d45907008aff7259cd9fa01544ab9428d9e68d",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.WebProxy.dll",
+      "sha256": "da0492fb6400e45206720f58518783046497c19b067f41228ad5d8c7365583fc",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.WebSockets.Client.dll",
+      "sha256": "260aa500e6333753723a99a1aaf99ae9f9c4513a2d30e35e735889c64596ca8d",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.WebSockets.dll",
+      "sha256": "0e1613a9d0fac0a756fbe7069214bc01e5af8c2c312dd77bb1fded30011dd8da",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Net.dll",
+      "sha256": "92833a473e5409a73219b5daa10fa215300fe29ac44fdfe747d91e30675604c0",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Numerics.Vectors.dll",
+      "sha256": "f31765d06e52cd9136041ba73de02b2873c957634972ee18b359729753cd8eb6",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Numerics.dll",
+      "sha256": "0dc62e3cee7ae47c063801cb2a0d058cb64cf7e6e17b494d351f65cf1856e25d",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ObjectModel.dll",
+      "sha256": "6543df5b88d72adb9184908c5f3a2b084755956b247a4f559d3cd171a9bda4bd",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Printing.dll",
+      "sha256": "9fb8450a630435387159648ee1b246652778b13e8d1743c1add73dff03371820",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Private.CoreLib.dll",
+      "sha256": "e7816c58140bfae07f2a046779c7049048daa94fcd042cd866849865e5cff054",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Private.DataContractSerialization.dll",
+      "sha256": "5a4f804117d9809b475c90960effa732cda08c7dcf237dd0dac8a75e3b4368c1",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Private.Uri.dll",
+      "sha256": "18c7ab19dcbc6ba4927f0cbb6a536a6dd1d958369e4400e61fafc5c865c92c34",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Private.Xml.Linq.dll",
+      "sha256": "dde3e9e8ff5dc4b59225235cd214bf438cde8534ec781ac95640aaf4110baab0",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Private.Xml.dll",
+      "sha256": "212f6cd75d277df2a7d4ff7d50f58745a7169cf38fc127a93ecb890276cbbcae",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.DispatchProxy.dll",
+      "sha256": "1c29bef9ae0b2a4f0ba79cb6af0ea2961d446d3aebdc42a0ce602eaaf2b43662",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.Emit.ILGeneration.dll",
+      "sha256": "bb615ddf45de16583a2fe7205e814ec820ae2719d88f1df71fcc059c0eee6ba7",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.Emit.Lightweight.dll",
+      "sha256": "1dcd4bd45fbf16ce575fb9b0272001f314a40641bd445abb2857ebe439395ac9",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.Emit.dll",
+      "sha256": "6c86419c0026c3bc3d29db984cbc53ea20a2d15aaff7f430da8bfa773d528fef",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.Extensions.dll",
+      "sha256": "81de7b9ac0ca4473c2c951cbe45dfe8502468cd9ff4488822d4aefcf6d405e4b",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.Metadata.dll",
+      "sha256": "126835b3baf64bfe149961e649ba1dbd747276b7f60597cd5c9f4c58cc12e644",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.Primitives.dll",
+      "sha256": "53fe1251af758ffe9fa66e658cc6c21fa371598e8d05cae9e77904890846f8b7",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.TypeExtensions.dll",
+      "sha256": "dfa95e81019d2e1726f98af642a62296c141117e2d087b88adb2482298e64d93",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Reflection.dll",
+      "sha256": "abbbd5f095403c3b51fe671f6315daa8153c2d277de497f654b7a9ac4fb46f3f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Resources.Extensions.dll",
+      "sha256": "ecf0360b9b9db3828bfc6df05e102a087377d5cc33300818a46a489ebd7d152e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Resources.Reader.dll",
+      "sha256": "0d145d99ff948fb5a30e6193f593dc55fcbc2bd3aea7bd5e0a515ebba0223410",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Resources.ResourceManager.dll",
+      "sha256": "c0e4c2c1552d8dfe52a22787eefa612eb4b84679cc2cd6cc3732f7ad98c4738b",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Resources.Writer.dll",
+      "sha256": "7803c153fe0dbf1fe068179f243bac7b2df9d2377e562b8491c8764bdc85274f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.CompilerServices.Unsafe.dll",
+      "sha256": "ea1985572f996da445c7b8d236886f890ff64caac0851d542c6e366b4cf475ea",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.CompilerServices.VisualC.dll",
+      "sha256": "7a17580361f95e2828612a95e27caab20f23533dcc707e2115f10ae6ccc24319",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Extensions.dll",
+      "sha256": "67bc281769ba0a81e7d725ee0329d221f9827b2805988e62e91e72cf32c5549c",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Handles.dll",
+      "sha256": "b2260d6f30cd9bd12e9fb8c2d433d2b04749a670823a23a6549ab3482d19dbdb",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.InteropServices.JavaScript.dll",
+      "sha256": "cbbb4c7105175fe7f80638378956c25d57e93bcd486cb9acb63b37cb418dbe31",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.InteropServices.RuntimeInformation.dll",
+      "sha256": "0a5b800566f00cf9e5f063b6240150e2441d4f52746dba260068901326bf8302",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.InteropServices.dll",
+      "sha256": "db2cfc2b5e96fea5e79cbb84f0c4e4e670592dbd875e04d2a4d1e05024581231",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Intrinsics.dll",
+      "sha256": "34461ffa71df5123b883c6dfb9c3d8b9f56fa7178d565bf1fd2c808c900f83d4",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Loader.dll",
+      "sha256": "5b5061346d1f7e1adb208207dd5d1a812db3984e1c9a0109dc875b1712811e9a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Numerics.dll",
+      "sha256": "2d115dbb4845d3c3b5bcbdd8acf552a1c3e657910a28485040d9cf0d5ec83489",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Serialization.Formatters.dll",
+      "sha256": "123ce2c5f0c2f63ac56d9e9105d749d14639f3edd0bc8ccc567c3c637e2cadf6",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Serialization.Json.dll",
+      "sha256": "175a5783313651ac27809a6c39740b120d62c63e37181dd0e39af3a3567eb074",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Serialization.Primitives.dll",
+      "sha256": "684f0c2b09851d2fb2ed514ae4bd913cdc248ca3079529f2f7f9741fcc9572bb",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Serialization.Xml.dll",
+      "sha256": "d974efc6c48ebdfaef676a05878d8cdc69be521ee7f25a5fbd8c934251414cb6",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.Serialization.dll",
+      "sha256": "c19537522408a91cc82195dfac95960275fab4ccb845c8f4f405b2b9709f8fb2",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Runtime.dll",
+      "sha256": "e044d7caa0b903794245b593ae7ea793ee270374e2daacb3035fa11031f7fb57",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.AccessControl.dll",
+      "sha256": "23046dbf9e26a154dd80bd4706070d76bf4045d55bbcc680951a731a4ef22195",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Claims.dll",
+      "sha256": "80bb6cef3de39852ecdf7e51aa0d327e23da9aac171c0469193498334e70709a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Algorithms.dll",
+      "sha256": "2606a842244b54e9f0570e690a64c56eb2b9beea1165efb0a905e87893f89371",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Cng.dll",
+      "sha256": "0588b9db131f749f0ba0f766714320a2b426616cff70eb688b85fe1894b16b5c",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Csp.dll",
+      "sha256": "a2b17f45461e2acd99cf18165cf19eb5880bd3a2df7f416e2302941619bc6a50",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Encoding.dll",
+      "sha256": "42f08361253c11391602bb3a340d5a965cb9ace48510112997ab4f30c60c7d47",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.OpenSsl.dll",
+      "sha256": "21c46ce3805ac6a3244c0d013e77f6b8353ee38b694a4f357d079ed2cab72cdc",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Pkcs.dll",
+      "sha256": "f4a154eb14720b95ca786df260a02365f3048728d0ef4da7429eb64a4489e657",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Primitives.dll",
+      "sha256": "174d7d2a4beb1f1939ada8c4736803ace662a502fb862999f48f9f7c0fc1c409",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.ProtectedData.dll",
+      "sha256": "28a50e8b3a0867e9f8294edd67f3c24fea33c26cdc7d66f367066577cbf74be2",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.X509Certificates.dll",
+      "sha256": "4e830c798c51766a5ac2c5befdfefe8bec48d7417bff8fcf359d3bad0b5eda18",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.Xml.dll",
+      "sha256": "3bd82cb2787e2a8ea18b14cb5d593d07a2f5e7e55b2855396d243d09aa9f0fad",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Cryptography.dll",
+      "sha256": "dddc9d393781aa1a5d729a4eb0ec5e6c48a37eb5dda8c878b6c0e226345d6324",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Permissions.dll",
+      "sha256": "247480e166b92a7a225340d8445d901f9f6234401ce04e321d43499c1c9bd5aa",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Principal.Windows.dll",
+      "sha256": "d911278230756f0bd75756e99227d6c5d40dd766c2153f59431c3e77e75b8f47",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.Principal.dll",
+      "sha256": "46fe40f5f195b614a4e9f58f04ffc976837a4e4649eb1b514b1209f6e0fb8e6e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.SecureString.dll",
+      "sha256": "efb94a3b5f774eeffabc2fb2b3b3b64262c390dfe2641cc2267156ab48dba42d",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Security.dll",
+      "sha256": "82a02dd492366f6f36d1620783749b5e0f471e85fe1c34a5c554741dac48fcbb",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ServiceModel.Web.dll",
+      "sha256": "e8e62b9ee550bbcc3271e98358177dd29ac30e9258242c5e11353d5c2f7a9401",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ServiceProcess.dll",
+      "sha256": "58a589a7e6316449a8f42905d0c60272e88ec5e588e664c31c605ae8eb6817dc",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Text.Encoding.CodePages.dll",
+      "sha256": "0f279749ab0f71876709615437bd29d19b76d296ca89f1a4251f721949ed8f2e",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Text.Encoding.Extensions.dll",
+      "sha256": "99271fb38bf8dea56c91771b933a9e458c85ceca4e2cc64e8fb8c8463455b92f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Text.Encoding.dll",
+      "sha256": "c45c1b5945b0003440d918ab031401991850d0f7c3c479213259eb756e1906a5",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Text.Encodings.Web.dll",
+      "sha256": "7af35cc384947815d9882296c38b60fdd402c5aa7ef7f431f6fb32c45a2c3849",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Text.Json.dll",
+      "sha256": "5752903625e9cc781568588b0f40ed6d45cbfbf2513fd16580f76a32d06b927d",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Text.RegularExpressions.dll",
+      "sha256": "b56c9187c58d890d2b76975d9af6a245969f5aa4fc5afaa17a76783a106f2241",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.AccessControl.dll",
+      "sha256": "47d1b6a60ef4a10e1aac36bfdcf285de6bb4d7691322bff2d71ef5c4dfcc30f1",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Channels.dll",
+      "sha256": "ddb956dfe00106230cdc47aff1d13c034a8a4cc59a2e881ac16de458e797af61",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Overlapped.dll",
+      "sha256": "39b9ef70cb9dcad01c0b0e1a0f7b606e4c37088cb86b46ea68be7f596bb4b912",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Tasks.Dataflow.dll",
+      "sha256": "2fa7af13081b940051bf9ec8a5eb9141cec42740a694136937a519bbeeab04d9",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Tasks.Extensions.dll",
+      "sha256": "7d03dd463f9446b199af9e33131004e35959e0985b0bb0df481e6b955064bc07",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Tasks.Parallel.dll",
+      "sha256": "e1c7565fa52a2fd4a1d2a1ac2f0fb1a6b824d247a715eefb9977b5dd24af01d3",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Tasks.dll",
+      "sha256": "761fc15d6982272bf690b25d63b473021bbe6f00e55556077e1bacaee9340591",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Thread.dll",
+      "sha256": "6eba1e430e4ea204555b53c8cb0b3de62596b342efe780fca49f231d8c827d47",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.ThreadPool.dll",
+      "sha256": "4fc486ed4f5f498a0faa1e67ace016674109b10b41b254ff9021107ac610c036",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.Timer.dll",
+      "sha256": "08a43ac40a8e4c0110688209d9fe03b1d4fea94b8ace6ad5797b32176da8f2f3",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Threading.dll",
+      "sha256": "9dba530a9b5c3883f7a21cfc2fda1f17a11dcafcd1792159322861ae7ca914ea",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Transactions.Local.dll",
+      "sha256": "42a5f309f01e38398c4f2b55a40bb50350f7428916c5840e96085ef6e2e4aa0f",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Transactions.dll",
+      "sha256": "96884aa9d725c3ff25ce34b347e08a2642cc6082da31e892c6df1bad909e8e56",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.ValueTuple.dll",
+      "sha256": "a144a0e9780c808b6bf82b4fa9185de2eedbbf638e6cc6cf8dd19049bfc9b26a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Web.HttpUtility.dll",
+      "sha256": "57904e0d4ea5f38e110cff78d8324dd2b83e894f3f34f1990c93ed831e7fab11",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Web.dll",
+      "sha256": "760d8d57a9fc4f8701fad2524355bb702e96ecea45bac45fcd6a29837f050659",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Controls.Ribbon.dll",
+      "sha256": "231904a91d85d30d1bc6bde2e4adfce43654d1d76d07d4dcd38a4a12a87efd86",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Extensions.dll",
+      "sha256": "cfe10fb87da3a4b87c355cdf083c82a4c2c6a8146e88a5196c5394338d1ad489",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Forms.Design.Editors.dll",
+      "sha256": "b9c65dc4e06ac80f9727860d1629b3f379d5e702071433df33f54d5d45c9502b",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Forms.Design.dll",
+      "sha256": "238c8cc700ba037c68b9829ec7cdf9ff4d3927e2b98e219fcd26f83d91b6bcc7",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Forms.Primitives.dll",
+      "sha256": "4f1eb01f08978d6aa737ecab9151a639648fca6616eb5d23ae98c1b0e61d2b52",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Forms.dll",
+      "sha256": "865cd709f662e6367659e8a6060ae2d4017b2be10f1bb6a126e45d361dd8b573",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Input.Manipulations.dll",
+      "sha256": "c445c9ecbcaae75de20653e8699ef5b20a429eb3d446dfd544ea1f1e87d952aa",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.Presentation.dll",
+      "sha256": "e1c942d5f8615ec8cf620c5d6b6ba6a9ebe57fb69bd6d4bbae3bd834c7fc0839",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Windows.dll",
+      "sha256": "354a1e77a180c0785b74e4c37270e9480aa18b9cbf6a5744e0f99549e6373013",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xaml.dll",
+      "sha256": "a95b216fbdc783e607380773369e261fa6c7e5bd79d9bca92d00522002c1b0a8",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.Linq.dll",
+      "sha256": "26c46868a5858796ece01d569aa7a8d225511127480cedfd42e463b50116ef2a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.ReaderWriter.dll",
+      "sha256": "b0440916bb4a21d67f787c82277ac514e9886aee28e2c6536ff12be344cf5981",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.Serialization.dll",
+      "sha256": "d2ea99f530d94390d7be1a978ef3c73adf4ce6a2e8cde8e4ba211a32fe7d4435",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.XDocument.dll",
+      "sha256": "b97e7405af292578b97613bac7bf982b14b3839fa01226792d72fc33ef01fa00",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.XPath.XDocument.dll",
+      "sha256": "11df2474b7e8ac0d57a31bb646525dd90730f88f3a84358fe176d288ecb42217",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.XPath.dll",
+      "sha256": "56418254f5844fc62a5084cd9c65f98d5f620ed52b37dcc5085b2ef9f1050986",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.XmlDocument.dll",
+      "sha256": "3ca525e8114113bc6c808ab8e68dae4e3c966e81dcd930e9ccd55ae2570f1d1a",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.XmlSerializer.dll",
+      "sha256": "54d21f57128bfadac70e52b07c26ccb000b3bd66b5f7b22c06ef02762e7744f1",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.Xml.dll",
+      "sha256": "d720384c0eea1185f6b8ed595cdd3abe9b9e1ed485855df58cc896f830617a4c",
+      "pass": true
+    },
+    {
+      "path": "desktop/System.dll",
+      "sha256": "3b43f811ed2e3e3ca97516708e659a58d31a569b641e8c1c09f92800d81e5933",
+      "pass": true
+    },
+    {
+      "path": "desktop/UIAutomationClient.dll",
+      "sha256": "9d6f2514a10f1ce94e16dab6ebd9a6b8e65fcc4cc959f764252b05715da82f7f",
+      "pass": true
+    },
+    {
+      "path": "desktop/UIAutomationClientSideProviders.dll",
+      "sha256": "11f8b101250d19288f0195e892770680545cb4837dc128712cf73a2e75d9933b",
+      "pass": true
+    },
+    {
+      "path": "desktop/UIAutomationProvider.dll",
+      "sha256": "9fced7220734781309e03085efa6de01fb84b66192bfc48e60d2c55e84474ab1",
+      "pass": true
+    },
+    {
+      "path": "desktop/UIAutomationTypes.dll",
+      "sha256": "7c2791855c0325b2e2b7bedfd6ab8861a2044d1ba541c4dbaafd9073745966ed",
+      "pass": true
+    },
+    {
+      "path": "desktop/WindowsBase.dll",
+      "sha256": "3c51918a2f4c935194a0a0c44271cc4a0226fb65078e67dfc0b8b86817b67dce",
+      "pass": true
+    },
+    {
+      "path": "desktop/WindowsFormsIntegration.dll",
+      "sha256": "a5bf752682d25444a3e1d1e4668ded4b5eb3d969c933f6578b08596fae4f5b53",
+      "pass": true
+    },
+    {
+      "path": "desktop/clretwrc.dll",
+      "sha256": "b6b2766b5d8fcefda131bcc59e7c740ff5ca7ac7b546661b7e655dc4b6d3b004",
+      "pass": true
+    },
+    {
+      "path": "desktop/clrgc.dll",
+      "sha256": "4162d8f8a0efd5e52deb3c5f48bdacb25b59f62ffe44b6ebac4040e1b9a414ab",
+      "pass": true
+    },
+    {
+      "path": "desktop/clrjit.dll",
+      "sha256": "6398f7187de13a8e6b11b77ab86d71d22125eb39fbbdc9ac0bb4606d85df56e8",
+      "pass": true
+    },
+    {
+      "path": "desktop/coreclr.dll",
+      "sha256": "7fc8457f13ec008995422500685b7997efee80878f59419b76ef50a0e67327d9",
+      "pass": true
+    },
+    {
+      "path": "desktop/createdump.exe",
+      "sha256": "3310877926020c5503854382f264da7ac0163a7942099a964744e4c0100b1734",
+      "pass": true
+    },
+    {
+      "path": "desktop/hostfxr.dll",
+      "sha256": "d579c8d05dd7456be1551ab0cc3a86bd298b5cd5675936332cc4c8e56e59984d",
+      "pass": true
+    },
+    {
+      "path": "desktop/hostpolicy.dll",
+      "sha256": "55fe7413bddacab3b3583a407c2425da69d67e4189d8c13df608470fc0315103",
+      "pass": true
+    },
+    {
+      "path": "desktop/mscordaccore.dll",
+      "sha256": "6298650dd58f53623b9dee84ffe939a4cf7c927ad6ec61d3f734f187b4d9d4d3",
+      "pass": true
+    },
+    {
+      "path": "desktop/mscordaccore_amd64_amd64_8.0.3226.50405.dll",
+      "sha256": "6298650dd58f53623b9dee84ffe939a4cf7c927ad6ec61d3f734f187b4d9d4d3",
+      "pass": true
+    },
+    {
+      "path": "desktop/mscordbi.dll",
+      "sha256": "356924526f3d512f92d0d7e4e1f62cedc463fc4fdf23547e0b8aeec0d82fba14",
+      "pass": true
+    },
+    {
+      "path": "desktop/mscorlib.dll",
+      "sha256": "dec19a9faa5c4787986568875f6022a95ce5a377fece41d0cd2444fbda2fec83",
+      "pass": true
+    },
+    {
+      "path": "desktop/mscorrc.dll",
+      "sha256": "6fd8b3e76ee4723f07c33b6dbc9969bed141fa27d2c76919460421a114f88b52",
+      "pass": true
+    },
+    {
+      "path": "desktop/msquic.dll",
+      "sha256": "7b32a336b638570bff7b2f4782ebdc05b8c70fac76fdb412f3e8a3c181c32a61",
+      "pass": true
+    },
+    {
+      "path": "desktop/netstandard.dll",
+      "sha256": "c5edb40c726a5a60db6018962821e84ec60b91186df65660a1a0ecbb67ef6dc4",
+      "pass": true
+    },
+    {
+      "path": "desktop/vcruntime140_cor3.dll",
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "pass": true
+    },
+    {
+      "path": "desktop/wpfgfx_cor3.dll",
+      "sha256": "71700535124ff9acf894092d510b809382e89653c47b86f8e8a39ab87f2ba752",
+      "pass": true
+    },
+    {
+      "path": "scripts/desktop_launcher.ps1",
+      "sha256": "05abf67481d288e1db1f3ae676161edd24e91718b88952e4326a0a481b29a8b2",
+      "pass": true
+    },
+    {
+      "path": "scripts/desktop_setup.ps1",
+      "sha256": "0fc236103d1e249aa6ca13c2c06a6aa63d3fd6d108c67b81c169e27a2671824e",
+      "pass": true
+    },
+    {
+      "path": "scripts/desktop_startup.ps1",
+      "sha256": "e9f7bd07ae6fa01094631a1522dc19877b4ceec422810de1a0697c7fd000558a",
+      "pass": true
+    },
+    {
+      "path": "scripts/desktop_tray.ps1",
+      "sha256": "f264cc578b93c384aeeb4ced017ec2091294d4404b9b3b13c4e14c15b086f1fe",
+      "pass": true
+    },
+    {
+      "path": "wheels/attrs-26.1.0-py3-none-any.whl",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "pass": true
+    },
+    {
+      "path": "wheels/fox2_agent_bridge-0.1.0-py3-none-any.whl",
+      "sha256": "c429623c0e8e96f513aff208889ef5a0c33acdef0e944c33b66a696603f2072d",
+      "pass": true
+    },
+    {
+      "path": "wheels/jsonschema-4.26.0-py3-none-any.whl",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "pass": true
+    },
+    {
+      "path": "wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "pass": true
+    },
+    {
+      "path": "wheels/referencing-0.37.0-py3-none-any.whl",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "pass": true
+    },
+    {
+      "path": "wheels/rpds_py-2026.9.1-cp313-cp313-win_amd64.whl",
+      "sha256": "3e93b2cd69a9830be33e03945cd7cda940a0a8bfcfbff41d6144f0cb0d3d8bd9",
+      "pass": true
+    }
+  ],
+  "new_manifest_hashes": [
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json",
+      "expected": "6c77535b77b191156a1b3c2ea4ee8f80a0c831598eb129a63c4c3f7223995035",
+      "actual": "6c77535b77b191156a1b3c2ea4ee8f80a0c831598eb129a63c4c3f7223995035",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt",
+      "expected": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+      "actual": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/artifact_ui_certification.json",
+      "expected": "1467b561b419fcbda01b2c29d39fb5359793a29531e5edcf52225c339e0a4862",
+      "actual": "1467b561b419fcbda01b2c29d39fb5359793a29531e5edcf52225c339e0a4862",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/atomic_index_events.json",
+      "expected": "b82237e0069454bc01360511f6e716db99589620b41bab6df39bc5f5f283cbc3",
+      "actual": "b82237e0069454bc01360511f6e716db99589620b41bab6df39bc5f5f283cbc3",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/attempt.json",
+      "expected": "ca3bff906e2e224cff336e7ffca8987749336d72beba6b4256d310b47c8bdb1d",
+      "actual": "ca3bff906e2e224cff336e7ffca8987749336d72beba6b4256d310b47c8bdb1d",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/dispatch.json",
+      "expected": "03f0bd14bed5f3969ec5f4b377a58815a39c77c4954f11bf4da064b09e8a0cb5",
+      "actual": "03f0bd14bed5f3969ec5f4b377a58815a39c77c4954f11bf4da064b09e8a0cb5",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/final_readback.py",
+      "expected": "00b5d967d9bc8e963f9363837ec3e9eeef5cf92808404c4e971c1a957f4c1620",
+      "actual": "00b5d967d9bc8e963f9363837ec3e9eeef5cf92808404c4e971c1a957f4c1620",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/final_runtime_readback.json",
+      "expected": "42f817da961b610c4aa0549b69e651ebe7eea98f927f7ac358dc5098962d5155",
+      "actual": "42f817da961b610c4aa0549b69e651ebe7eea98f927f7ac358dc5098962d5155",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/historical_dispatch_003_evidence_manifest.json",
+      "expected": "9a1846f657d6fdb1e4d6a5df61d25383a8e25a89287d7e3c824e234fdd0202cc",
+      "actual": "9a1846f657d6fdb1e4d6a5df61d25383a8e25a89287d7e3c824e234fdd0202cc",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/historical_dispatch_003_report.md",
+      "expected": "2a969c928a6bf8f20d5a3e616c1a194c35cd1a2fc2569e93c61d70b436f83ddc",
+      "actual": "2a969c928a6bf8f20d5a3e616c1a194c35cd1a2fc2569e93c61d70b436f83ddc",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/installed_ui_fresh_save.jpg",
+      "expected": "1cf3c101c46ceb0ff55c6a3ebbef531b4ccaacaa7dd91e9ca2265d2d7fbad8b8",
+      "actual": "1cf3c101c46ceb0ff55c6a3ebbef531b4ccaacaa7dd91e9ca2265d2d7fbad8b8",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/observe_atomic_index.py",
+      "expected": "ffe18b2cf764aab810f7d386f6a6b78d884ca6556209fd8d46f5b9ce8d2cf6a0",
+      "actual": "ffe18b2cf764aab810f7d386f6a6b78d884ca6556209fd8d46f5b9ce8d2cf6a0",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/observer_ready.json",
+      "expected": "cf753fd4671f39eebf389db6a6b8bb4a04d8b7dd035276d1dfddfc4a50d9fc12",
+      "actual": "cf753fd4671f39eebf389db6a6b8bb4a04d8b7dd035276d1dfddfc4a50d9fc12",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/preflight.json",
+      "expected": "3dccc61648f8a0b6054698e46997132473919ba9d950000f9bee7ed0f3881956",
+      "actual": "3dccc61648f8a0b6054698e46997132473919ba9d950000f9bee7ed0f3881956",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/preflight.py",
+      "expected": "33500cc1aec41c44a4f75cce589c551f206948860dbeb915007caae7c22c04f4",
+      "actual": "33500cc1aec41c44a4f75cce589c551f206948860dbeb915007caae7c22c04f4",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/prepare_publication.py",
+      "expected": "af7ec445876b9a20fe0e2a4fcc6775ecf0de11f06e90be9e81f6943ed1f76642",
+      "actual": "af7ec445876b9a20fe0e2a4fcc6775ecf0de11f06e90be9e81f6943ed1f76642",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/quality_checks.json",
+      "expected": "c88572a7ab80251cf40025753dcff1d36403dfb430a6251f8547e8d419818c91",
+      "actual": "c88572a7ab80251cf40025753dcff1d36403dfb430a6251f8547e8d419818c91",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/quality_publication.py",
+      "expected": "b73e20960f0d630b2fa54e896535e6d6049e206e4baae5663cdcbc90ac08e66b",
+      "actual": "b73e20960f0d630b2fa54e896535e6d6049e206e4baae5663cdcbc90ac08e66b",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/saved_vault_object.txt",
+      "expected": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+      "actual": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/ui_action_receipt.json",
+      "expected": "87b7acf70da706a39f565de9bae885393bc0ee82ad2671b97acd6ad1c036b545",
+      "actual": "87b7acf70da706a39f565de9bae885393bc0ee82ad2671b97acd6ad1c036b545",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/ui_process_after.json",
+      "expected": "8c1bba769759cd6ce9f1f16a0c469bc3c65910e9ff6976a007c8c3882ff56ab2",
+      "actual": "8c1bba769759cd6ce9f1f16a0c469bc3c65910e9ff6976a007c8c3882ff56ab2",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/ui_process_before.json",
+      "expected": "8d2ece2916a2810b34c602b84a05b831190192d19a20be853eebfec0d0990d2b",
+      "actual": "8d2ece2916a2810b34c602b84a05b831190192d19a20be853eebfec0d0990d2b",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/vault_index_after.json",
+      "expected": "31f78d18d4d90d09cef63837973f2150e592cd50e186b97fb2647a2da0c1818c",
+      "actual": "31f78d18d4d90d09cef63837973f2150e592cd50e186b97fb2647a2da0c1818c",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/vault_index_before.json",
+      "expected": "3146c968ca82e79157f8819c33056a26deaa19354ad6f6b8cdbab5b98becc3be",
+      "actual": "3146c968ca82e79157f8819c33056a26deaa19354ad6f6b8cdbab5b98becc3be",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/verify_closure.py",
+      "expected": "93615f9b55f4c90e6df49a98cbc0a7efe92711513091e1f2eed83e847280f8ed",
+      "actual": "93615f9b55f4c90e6df49a98cbc0a7efe92711513091e1f2eed83e847280f8ed",
+      "pass": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/report.md",
+      "expected": "df8f358e04fb86288c3299b2d9eeb81dcbcc7fba4dfd77e38fd5ab645f492b66",
+      "actual": "df8f358e04fb86288c3299b2d9eeb81dcbcc7fba4dfd77e38fd5ab645f492b66",
+      "pass": true
+    }
+  ],
+  "prior_manifest_hashes": [
+    {
+      "path": "agent_bridge/.gitignore",
+      "sha256": "0a8042afdd16afcf275d1345fc5f26eea2d883cd8ba8f39bfeebe25891ee1f3c",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/FOX2.Bridge.Desktop.sln",
+      "sha256": "c72f479219ac2d1562ab0992be2dd615a57c245eeae1ccc6e0be57b5e80187e7",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/README.md",
+      "sha256": "d6eba39b8f09ae2755e2ba8148a4d6a6379ab3e4106d88d5a5c2401f742188bf",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml",
+      "sha256": "b5856d5e053850b53c74e8d6a00de269fc005c605965f27d56b886d16dd472b1",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml.cs",
+      "sha256": "c4b80c604d0bf0a93018f68a1ec967b8b2a0c536f1318981b51dfb7faaebb66c",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/AssemblyInfo.cs",
+      "sha256": "85b4ae146e23a04afc50bf81aafd2a40ef3a4eb5d741cf756f49b82cc3d02946",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj",
+      "sha256": "eb045f341239b8f8141821ecf4d2288b9228ea79c772f200eacd6e91266945b8",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml",
+      "sha256": "33377c1e2f653ffe0d1885376b8276965704abec88e977e28f7c2a7063f5f897",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml.cs",
+      "sha256": "c0ddfca9750ed4584039869c4a4f0d0fae9bf6b6f978ba6abd4e431af4b9ea1f",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/ArtifactVaultService.cs",
+      "sha256": "cbc8a5d7666f84309db70ecf119f5157c3fedcef2ddb4a24f5b49d7ea96d5d2a",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/BridgeControlClient.cs",
+      "sha256": "58fbc02fc904bde6747e43a352bb1c053bf0686355d58c33baa829e344813efe",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/DesktopPreferences.cs",
+      "sha256": "6e1cdd2f0a0d9dec85f366689584e7dea4a4d4670255ab341b2d782105edf53a",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/ViewModels/MainViewModel.cs",
+      "sha256": "1649b8445ae62e25667ec1f2f75c5c3a2c9dcbbe2e21b6e4c95c69ef603f3c01",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/FOX2.Bridge.Desktop.ContractTests.csproj",
+      "sha256": "21e77174f4c7095a6e38104d742fd39b32c4c01902d5ab9825988f0855f8347a",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/Program.cs",
+      "sha256": "71d4aae8c7bb30aac9d4f88a399f6668b57cdf54916f6f37141c7c3466b5cd28",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/scripts/build_user_package.py",
+      "sha256": "8e80f5346d7dbba47bdde63c1a18be2dcac93bd9020d16c7fd54d84de3775173",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/scripts/certify_rc1_installed.py",
+      "sha256": "459f172d40abe8996c348e2623af06a66233775c356ad6069fc85c50674d1fe0",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/scripts/certify_rc1_ui.ps1",
+      "sha256": "50ae4a8ea0eebc47cae5533595b629a5414510d00a6e6e3c1e8cdae9901d4727",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/scripts/desktop_launcher.ps1",
+      "sha256": "05abf67481d288e1db1f3ae676161edd24e91718b88952e4326a0a481b29a8b2",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/scripts/desktop_tray.ps1",
+      "sha256": "f264cc578b93c384aeeb4ced017ec2091294d4404b9b3b13c4e14c15b086f1fe",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/agent_policy.py",
+      "sha256": "993dd8bf27cd3b44ce6179d57687b8851441aa02d23673fc9ef669699011fd5c",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
+      "sha256": "12fd4705348ffa1ff82ea4bbe1e5571bc57f3afa7e72b806215b406c7ef8cf99",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
+      "sha256": "d4886cd3777334f55062992e158a61adf78915eb4789b9c3513645bacc93b48d",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+      "sha256": "c02a3a9dd2298ed898ba7207c5d47447b705c8bc76d44f0637fdc3dbef5efcc6",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "sha256": "e795e114b77cc9c3c574fdeaa6b5c5a1d6eb1407ba2cddec338a739ff1469907",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/installation.py",
+      "sha256": "5c16615042141689f841f0db97754cba93ec91df91702e82898f23fe16fbce64",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/launcher.py",
+      "sha256": "2d9215133d8f5c8b372bef64a1396fd09a51845d4c097f5ea9917e63b6c03e5b",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+      "sha256": "0c727a82ccca43ee7a1b63dae142e92282c108acf78d196ef1eb0017d4aa978d",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/probes.py",
+      "sha256": "6beb9f92c54ed5ed237b9159f7d22a7eeeb03ccdc609e882899fd55fbb6cff96",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/runtime_tools.py",
+      "sha256": "22779eeed6c3a8de21fee74ae75849aae9b306b78f09aac9a2814b73ad4322bd",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/startup.py",
+      "sha256": "ce4b584464ed4962a5a479de93f5e3726f627ffce37cb4b5bca1eadc1c69d74d",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/tests/test_desktop.py",
+      "sha256": "44654753026950476c335bcf593f454dd166b6bb14e12f450481b4fcedc1016f",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_first_run.py",
+      "sha256": "33ffa34012b897b4e609fcc56e2408c4122079cbcedae15b75d7a5fe2c79395f",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_launcher.py",
+      "sha256": "2dbbc5952866cf11be2b006aa8a0720562da5942775e8d4f9c7f0eee2877dc5a",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "sha256": "c30021dfbf99d4977e5783ac62b34c47a9bf3388090b7e8ad19f822f04d04c22",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/FOX2-Bridge-RC1.json",
+      "sha256": "d899469739897654e64bfeb71fa4ceb5d4f44f6a0289f6090242794b4ed636be",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/FOX2-Bridge-RC1.zip",
+      "sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "sha256": "8b05df741d7bcf8e6e06482ff012ab3151afeed8608fc2066083edfc89727780",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/app_pause_readback.json",
+      "sha256": "38823f6c042999aff6a249370dd4232768116b4394b704856b7641af80f06a96",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/artifact-local-save.txt",
+      "sha256": "72f8662ed5e05173910357618ffc1d3aa7036c69ab9b09be0c5d6bae67791adc",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/attempt_reconciliation.json",
+      "sha256": "f2eaceb7c9f61d7e386ff4815cb0e410f1128dc45bfda75eefc0a87fa7ba83b7",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/desktop_visual.png",
+      "sha256": "84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/final_runtime_readback.json",
+      "sha256": "888ab9a6a04992cdaa506c2fc34a0e3dd83ef113b8aa70dde324769516ecc386",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/full_bridge_tests.xml",
+      "sha256": "7aa0b12a280fd2f390c05fe39530330c0a039d81d7a0a758711a1d433b368c6d",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/historical_dispatch_004_manifest.json",
+      "sha256": "7b8c4e994cbe6128611662095afbec95c62273a79fa608e4caf672104fd244de",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/historical_dispatch_004_report.md",
+      "sha256": "b4afee73017b49879371e3c66ae46362aabe0dc9353a1e918c4baf6a9067eb7e",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed-support.zip",
+      "sha256": "5fe7cb58e4a07b37e3e1af8ed3d6b1974d56cc560d70923532d5ae6b433d0673",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_001.json",
+      "sha256": "245a076f5da878148b6edb1e8e20299339e666928d59033dbac41f787b7be3e9",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_002.json",
+      "sha256": "2e7cf115405e95a34f733350affc298234734dd3a83530807f745e8fb330e7f3",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_003.json",
+      "sha256": "fa10470ffc99846a09df3873762cdb0bc889515b70252bc034ef724f1ca962ff",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_004.json",
+      "sha256": "cfa602717d803ec0a1f946fe207f8153cf066cb5455f314d138df2e88282dd1f",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_005.json",
+      "sha256": "e1b2c5697fba3600f70871e29062ce8220daf815350feb68c7320a09aeb7bc42",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_006.json",
+      "sha256": "680f05cb9729c087a29d57f233ce1e25786faf4a094f2017d7420b9a4e27feae",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_007.json",
+      "sha256": "dbd4c8d063892bf8b13696ed4cdeb59e9b7ba4e1bb2076fe671d5cb24b4a3bb4",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_008.json",
+      "sha256": "f2e672dfd2d8cada6985b289702373e3cd3051622d4de6994011e6161573de77",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_attempt_009.json",
+      "sha256": "b9bb80c907da0e71950b05396e96a552fa2d9b7d7e053f8ecd7a0fc28d8a4df2",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_certification.json",
+      "sha256": "2ed99962a6a8e8d570aaadd1f072af3076340ec16294bc7182234237a6e72c91",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/installed_raw_harness_result.json",
+      "sha256": "3444bf2b710bd0a26bef9f7e3b7caec7deea74fdf22c06466ca34081aa162200",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/junit_redaction.json",
+      "sha256": "f8b17193b5530f76e3eccc69386b30aea23afb769501180eb9517ca5f0746912",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/manual_artifact_ui_receipt.json",
+      "sha256": "e223dba49f37f6e3c9da47106dcc7327f99083da2129253254168dd90c12d1ec",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/planning_source_readback.json",
+      "sha256": "88d513051d1f192449418a8e33312408141b1f6f848eb181a2de1c66ac604558",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/preflight.json",
+      "sha256": "89f4176b01220a1f82bca13a1620a96f9f0001e42154e4df58751937a0aa75ef",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/prior_package_certification.json",
+      "sha256": "af4bae5d43f6eae711ab1256b0c20d5c4ecaad2ea4c2692f44e0a38772f76e06",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/quality_checks.json",
+      "sha256": "73c5f08a044a16bc93944f3a6434ca4cee2f8f8f90160b4d4e471b62363198a7",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/rejected_manual_artifact_ui_receipt.json",
+      "sha256": "775b5eeb72fa1a7aba428bffc6c0dd266f6153a7c42751f933576e5365a6aee9",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/stop_receipt.json",
+      "sha256": "803be9b9997483b274ca51faf83cdebf019fd9ddd0542b943dfc38e80fc6da15",
+      "pass": true,
+      "unchanged_at_audit_head": true
+    },
+    {
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/report.md",
+      "sha256": "2a969c928a6bf8f20d5a3e616c1a194c35cd1a2fc2569e93c61d70b436f83ddc",
+      "pass": true,
+      "unchanged_at_audit_head": false
+    }
+  ],
+  "source_chain": [
+    {
+      "family": "bridge_technical_spec",
+      "version": "0.7-REV10",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "chat_preflight_intake",
+      "version": "1.1",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "dictionary",
+      "version": "1.2",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "dictionary_generated_binding",
+      "version": "1.2",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "dispatch_schema",
+      "version": "3.0",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+      "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "git_first_protocol",
+      "version": "12",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "policy",
+      "version": "1.8.9",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "preexec_protocol",
+      "version": "1.1",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "preflight_receipt_schema",
+      "version": "1",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    },
+    {
+      "family": "routing",
+      "version": "1.3.0",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "pass": true,
+      "scope": "WP_ONLY_TRUST_BINDING",
+      "superseded_by": null
+    }
+  ],
+  "secret_scan_hits": [],
+  "limitations": [
+    "Git evidence review, not admitted WORK certification",
+    "Package members independently verified; installed host files not re-attested",
+    "No live installed-ledger access",
+    "Cloud shared git_resolver.py resource read failed; independent equivalent byte checks are conditional evidence only"
+  ]
+}
