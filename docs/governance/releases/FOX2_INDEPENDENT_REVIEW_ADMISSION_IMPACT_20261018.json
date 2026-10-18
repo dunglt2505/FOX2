@@ -1,0 +1,133 @@
+{
+  "format": "FOX2_INDEPENDENT_REVIEW_ADMISSION_IMPACT_1",
+  "project": "FOX2",
+  "created_date": "2026-10-18",
+  "status": "CANDIDATE_GIT_PUBLISHED_ACTIVATION_HOLD",
+  "purpose": "Separate substantive mandatory independent WORK audit from a particular unavailable host-issued admission proof mechanism; propose verifiable alternative without waiving independence.",
+  "governing_documents": {
+    "owner_chat_delegation": {
+      "path": "docs/governance/releases/FOX2_OWNER_CHAT_FULL_DELEGATION_20261018.json",
+      "known_blob": "c912af6ff0c29c13ccfb59241393d51ab4a91b78",
+      "scope": "AUTHORIZED_PROSPECTIVE_GOVERNANCE_DOCS_ONLY"
+    },
+    "frozen_task": {
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "required_work_audit": true,
+      "canary_requires_independent_audit_pass": true
+    },
+    "registry": {
+      "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+      "commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "scope": "WP_ONLY_TRUST_BINDING"
+    },
+    "existing_handoff": {
+      "path": "docs/roadmap/FOX2_BRIDGE_RC1_PRECANARY_WORK_AUDIT_HANDOFF_20261018.md",
+      "commit": "38a6e2d265cfca1f14305c11b535800a5494f873"
+    }
+  },
+  "published_candidate_artifacts": [
+    {
+      "path": "docs/governance/FOX2_INDEPENDENT_REVIEW_ADMISSION_CONTRACT_v1_CANDIDATE.md",
+      "created_commit": "7e4494360711376567900a30f606288df494ea1e",
+      "expected_blob": "eb7f8c70d0da24cb09cf49115f9231b05d4443a9"
+    },
+    {
+      "path": "docs/governance/FOX2_INDEPENDENT_AUDIT_RECEIPT_SCHEMA_v1_CANDIDATE.json",
+      "last_verified_commit": "f0305b3aa293d5f07420553a9802a04da4585b0a",
+      "expected_blob": "8125a81f38da1be2791df40873b1afcc59416bbe"
+    },
+    {
+      "path": "docs/roadmap/FOX2_BRIDGE_RC1_REVIEW_ADMISSION_ADDENDUM_20261018_CANDIDATE.md",
+      "created_commit": "93601faf2c1c5c027c07a77263f2836ffcd8cc27",
+      "expected_blob": "4836fad8a4d4534836d1cb1c6f7793e998c25451"
+    }
+  ],
+  "authority_matrix": {
+    "prospective_document_draft": "AUTHORIZED_BY_OWNER_CHAT_DELEGATION",
+    "non_main_git_document_publication": "AUTHORIZED_BY_OWNER_CHAT_DELEGATION",
+    "candidate_schema_and_byte_readback": "PERMITTED",
+    "change_existing_frozen_work_task": "NOT_AUTHORIZED_OR_NOT_PERFORMED",
+    "global_effective_release": "BLOCKED_UNTIL_TRUSTED_RELEASE_GATES",
+    "approve_mode_b_as_binding_audit_method": "NOT_YET_APPROVED",
+    "replace_required_work_reviewer_with_other_role": "NOT_AUTHORIZED_WITHOUT_SEPARATE_TASK_AMENDMENT",
+    "self_issue_work_admission": "PROHIBITED",
+    "issue_precanary_ready": "PROHIBITED_UNTIL_INDEPENDENT_AUDIT_PASS",
+    "canary_009_execution": "HOLD"
+  },
+  "change_classification": "MATERIAL_ACCEPTANCE_PROOF_METHOD_PROPOSAL_NOT_PRODUCT_OR_RELEASE_CHANGE",
+  "source_impact": {
+    "Dictionary_v1_2": "UNMODIFIED_FROZEN_RC1",
+    "Policy_v1_8_9": "UNMODIFIED_EFFECTIVE",
+    "Routing_v1_3_0": "UNMODIFIED_EFFECTIVE",
+    "Git_first_Protocol_v12": "UNMODIFIED_EFFECTIVE",
+    "BRIDGE_RC1_CODE": "UNMODIFIED",
+    "BRIDGE_RC1_40_GATES": "UNMODIFIED",
+    "CANARY_009": "UNTOUCHED",
+    "APP_B": "PAUSED",
+    "new_Governance_v1_3_v1_9": "CANDIDATE_NOT_EFFECTIVE_UNCHANGED",
+    "FOX2_Skills_cloud_v0_2_3": "UNMODIFIED"
+  },
+  "reused_audit_evidence": {
+    "initial_audit_commit": "d48aea2e22449ee4435cd81cb89101b653e7dbc8",
+    "resolver_recovery_commit": "980335cae53904f4cc0b06ae5b3a6ba59516ae90",
+    "final_admission_report_commit": "541bf35e3bdb95b701bd1cdc22b0bdbe87333110",
+    "source_family_resolver": "CLOSED_PASS_10_OF_10",
+    "initial_consistency_checks": "PASS_34_OF_34",
+    "junit_cases": "HISTORICAL_399_PASS",
+    "desktop_tests": "HISTORICAL_30_PASS",
+    "installed_package_files": "HASH_MATCH_252_OF_252",
+    "reviewer_admission": "BLOCKED",
+    "precanary_independent_audit": "BLOCKED"
+  },
+  "candidate_acceptance": {
+    "contract_published_and_exact_remote_readback": "PASS",
+    "receipt_schema_git_json_parse": "PASS",
+    "receipt_json_schema_runtime_validate": "NOT_RUN",
+    "addendum_git_exact_remote_readback": "PASS",
+    "semantic_impact_assessed": "PASS_PROSPECTIVE_ONLY",
+    "external_admission_method_approved": "NOT_RUN",
+    "actually_independent_work_reviewer": "NOT_VERIFIED",
+    "actual_precanary_audit": "BLOCKED",
+    "library_candidate_mirror": "NOT_RUN_NOT_REQUIRED_FOR_THIS_GIT_CANDIDATE",
+    "global_effective_status": "NOT_GRANTED"
+  },
+  "risk_controls": [
+    {
+      "risk": "SELF_ATTESTATION_MASQUERADES_AS_INDEPENDENT_REVIEW",
+      "level": "CRITICAL",
+      "control": "Externally verifiable independent reviewer/principal + non-conflicting role + CHAT verification required before ADMITTED; prompt or Owner Git identity alone fails"
+    },
+    {
+      "risk": "CANDIDATE_METHOD_B_CIRCUMVENTS_FROZEN_TASK",
+      "level": "CRITICAL",
+      "control": "Mode B blocked until owner/owning authority prospectively approves the proof contract, preserve mandatory WORK role and gate"
+    },
+    {
+      "risk": "HISTORICAL_EVIDENCE_TREATED_AS_CURRENT_WINDOWS_LEDGER",
+      "level": "HIGH",
+      "control": "Require new read-only current ledger and fresh PreExec before future Canary claim"
+    },
+    {
+      "risk": "UNNECESSARY_AUDIT_REPLAY",
+      "level": "MEDIUM",
+      "control": "Reuse 34/34 checks, 399/30 historical tests, 10/10 resolver, 252/252 package unless material drift"
+    },
+    {
+      "risk": "CROSS_BRANCH_SOURCE_DRIFT",
+      "level": "HIGH",
+      "control": "Compare authoritative non-main HEAD, file SHA, WP-only source lock and keep immutable task/Bridge/APP/Canary untouched"
+    }
+  ],
+  "routing_precheck": {
+    "R0": "All prior implemented/audit work preserved; do not repeat",
+    "R1": "Governance candidate doc and scoped proof-method clarification, not coding or release",
+    "R2": "Source authority WP-only; owner permission for prospective docs; promotion/admission gates blocked",
+    "R3": "CHAT Git tools usable; WORK independent admission, host capability and numeric quota unknown",
+    "R4": "DIRECT_CHAT selected for docs; COPILOT/CODEX not justified; WORK awaits eligible admission",
+    "R5": "Non-main CHAT documentation branch only; no Windows worktree, protected branches or concurrent writer touched",
+    "R6": "Exact Git byte readback of candidate files performed; Library promotion not claimed",
+    "R7": "No Agent execution assignment; STOP before changed frozen task, independent PASS, Canary, APP resume or EFFECTIVE"
+  },
+  "next_decision": "Owning Governance authority must approve a verifiable proof method prospectively and ensure it does not relax WORK role or audit independence; then an actual independent eligible WORK reviewer may certify. If no real reviewer can be evidenced, remain BLOCKED."
+}
