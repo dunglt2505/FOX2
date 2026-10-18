@@ -1,5 +1,9 @@
 # FOX2 — Bridge RC1 Pre-Canary Independent Audit: CHAT Evidence Intake and WORK Handoff
 
+> **SUPERSEDING OWNER RC1 WAIVER DECISION (2026-10-18):** For THIS WP ONLY, Owner approved `PRECANARY_INDEPENDENT_AUDIT=WAIVED_BY_OWNER`; the historical `PENDING/BLOCKED` audit facts below are preserved. The request to obtain new independent WORK admission/audit for RC1 has been **superseded prospectively**, NOT marked PASS. Do not replay reviewer administration or repeat the prior prompt.
+> [Owner-approved acceptance addendum](../agent_handoff/FOX2_BRIDGE_RC1_OWNER_WAIVER_ACCEPTANCE_ADDENDUM_20261018.md) • [Owner approval](../governance/releases/FOX2_OWNER_BRIDGE_RC1_PRECANARY_AUDIT_WAIVER_APPROVAL_20261018.json) • [scoped Git publication](../governance/releases/FOX2_OWNER_WAIVER_SCOPED_PUBLICATION_20261018.json) • [current CHAT status](FOX2_BRIDGE_RC1_CHAT_CONSOLIDATED_STATUS_20261018.md).
+> Technical/material host/evaluator checks, current Canary 009 ledger and fresh PreExec still gate any separate CHAT readiness decision. `CANARY_009=HOLD`; `APP_B=PAUSED`. Prospective general Policy addendum is not EFFECTIVE. No rights granted.
+
 > **CURRENT CHAT STATUS — Owner instruction (2026-10-18):** The latest factual status is
 > [FOX2_BRIDGE_RC1_CHAT_CONSOLIDATED_STATUS_20261018.md](FOX2_BRIDGE_RC1_CHAT_CONSOLIDATED_STATUS_20261018.md)
 > (published with verified Git readback). Owner controls reviewer appointment and has stopped repeated administrative admission/host-certificate investigations. This does **not** certify independent audit PASS. B2=CLOSED_PASS; PRECANARY_INDEPENDENT_AUDIT=BLOCKED; Canary009/APP-B=HOLD.
