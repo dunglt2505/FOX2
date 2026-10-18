@@ -1,0 +1,133 @@
+{
+  "schema": "FOX2_CHAT_GOVERNANCE_PUBLICATION_EVIDENCE_1",
+  "project": "FOX2",
+  "date": "2026-10-18",
+  "actor": "CHAT_DIRECT",
+  "status": "DOCS_PUBLISHED_OWNER_APPROVED_GLOBAL_EFFECTIVE_BLOCKED",
+  "plugin": {
+    "name": "fox2-skills-integrated",
+    "version": "0.2.3",
+    "release_id": "pluginrel_6ad44b76c59c8191a78e1f40300e17c6"
+  },
+  "source_immutable_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+  "governance_release_branch": "work/FOX2-GOVERNANCE-OWNER-RELEASE-20261018",
+  "owner_grant_git_commit": "194cd740540e0ef1cb2b8fe53f7db129434c1652",
+  "current_release_manifest_commit_prior_to_this_report": "65c5381a4b30e4621b9b6b49994b980279630eed",
+  "library_folder": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018",
+  "source_count": 10,
+  "file_verifications": [
+    {
+      "file": "FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "sha256": "9682563aaa56f0f566cd4eebd25d83b9b5d8986ef49bd4ff37e30b4894f840c6",
+      "bytes": 12012,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "sha256": "69e6659da89460e513ee6b7fe8e904508496d81f78e104d7618c669bc214dee6",
+      "bytes": 17908,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "sha256": "636b6ce99ad8f0cd001dd247131456de688992357b4dd195a0f9dd4e69329917",
+      "bytes": 9015,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "sha256": "fb0eb10fb6525edb8fb221ef5e5a980461272a31dae2ff80f4c8dd5fb51716f9",
+      "bytes": 10023,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "sha256": "700101049ed106387e1f22d1ca5b6b1e909c76da2dc2f535c6fd29c8a358d55a",
+      "bytes": 10883,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "sha256": "39ba00d1bef9deecc0298eca19556251d40d546513b208043e251520d3aedd10",
+      "bytes": 6314,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "sha256": "a39942855db944c6762a57e5ab7a87eac1330630125ee72dcec5627c87818bbe",
+      "bytes": 5695,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "sha256": "f16477a3a1541ef08a639eecdf404842bb1c43349f0b17e33aecc4d06eec04fe",
+      "bytes": 6081,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "sha256": "47938a01079e856d3139d06fae9cfc93a228900b8a8ea5af0d5108e90a463190",
+      "bytes": 6218,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    },
+    {
+      "file": "FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+      "sha256": "ddb763ed1e3e768a5bf4a9214ea23bce640ed0d1c69f062cb34e673617b84314",
+      "bytes": 5250,
+      "git_source_snapshot_sha256_match": true,
+      "library_readback_sha256_match": true
+    }
+  ],
+  "checks": {
+    "10_git_library_source_hashes": true,
+    "owner_delegation_in_github": "RELEASE_RECORD_PUBLISHED_194cd740",
+    "chat_first_routing_present": true,
+    "latest_applicable_source_rule_present": true,
+    "no_hot_swap_no_replay_present": true,
+    "bridge_generated_binding_v1_3_runtime_test": "NOT_RUN",
+    "host_release_chain_attestation": "NOT_AVAILABLE_NOT_RUN",
+    "projectwide_registry_effective_binding": "NOT_RUN"
+  },
+  "blockers": [
+    {
+      "name": "HOST_TRUSTED_RELEASE_CHAIN_ATTESTATION",
+      "status": "NOT_RUN",
+      "reason": "Current connected tools cannot attest as native_registry.bind / ReleaseChainVerifier or equivalent trusted host process."
+    },
+    {
+      "name": "DICTIONARY_V1_3_RUNTIME_CONSUMERS",
+      "status": "NOT_RUN",
+      "reason": "Installed Bridge generated binding still v1.2. Actual v1.3 regeneration and compatibility tests are not evidenced; RC1 source lock must remain unchanged."
+    },
+    {
+      "name": "GLOBAL_EFFECTIVE_REGISTRY_BIND",
+      "status": "NOT_RUN",
+      "reason": "No governed projectwide effective registry write or independent readback."
+    }
+  ],
+  "preserved": [
+    "BRIDGE_RC1_SOURCE_LOCK",
+    "CANARY_009_UNCONSUMED",
+    "APP_BATCH_B_PAUSED",
+    "NO_DEV",
+    "NO_MERGE",
+    "NO_LIVE",
+    "NO_REPLAY"
+  ],
+  "classification": {
+    "owner_authorization": "CONFIRMED",
+    "git_publication": "CONFIRMED",
+    "library_stage_publication": "CONFIRMED",
+    "global_semantic_effective": "NOT_GRANTED"
+  },
+  "non_substitution": "WORK is not a default requirement; runtime/host verification cannot be replaced by CHAT self-attestation."
+}
