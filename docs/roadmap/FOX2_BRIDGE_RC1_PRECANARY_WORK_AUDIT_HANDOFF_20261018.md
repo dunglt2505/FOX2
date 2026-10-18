@@ -1,4 +1,9 @@
 # FOX2 — Bridge RC1 Pre-Canary Independent Audit: CHAT Evidence Intake and WORK Handoff
+
+> **CURRENT CHAT STATUS — Owner instruction (2026-10-18):** The latest factual status is
+> [FOX2_BRIDGE_RC1_CHAT_CONSOLIDATED_STATUS_20261018.md](FOX2_BRIDGE_RC1_CHAT_CONSOLIDATED_STATUS_20261018.md)
+> (published with verified Git readback). Owner controls reviewer appointment and has stopped repeated administrative admission/host-certificate investigations. This does **not** certify independent audit PASS. B2=CLOSED_PASS; PRECANARY_INDEPENDENT_AUDIT=BLOCKED; Canary009/APP-B=HOLD.
+> Historical status lines and previous handoff recovery recommendations below remain provenance, not new instructions to repeat the blocked admission loop.
 **Date:** 2026-10-18
 **Status:** `CHAT_GIT_EVIDENCE_CHECK_PASS / WORK_INDEPENDENT_AUDIT_PENDING / NO_PRECANARY_READY`
 **Project:** FOX2 ONLY
