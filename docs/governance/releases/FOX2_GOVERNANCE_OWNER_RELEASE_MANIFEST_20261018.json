@@ -1,0 +1,164 @@
+{
+  "schema": "FOX2_GOVERNANCE_OWNER_RELEASE_MANIFEST_1",
+  "project": "FOX2",
+  "release_date": "2026-10-18",
+  "release_scope": "PROJECT_WIDE_PROSPECTIVE_DOCUMENTATION",
+  "status": "OWNER_APPROVED_GIT_AND_LIBRARY_SOURCES_VERIFIED_EFFECTIVE_PENDING_INDEPENDENT_AUTHORITY",
+  "source": {
+    "repository": "dunglt2505/FOX2",
+    "source_branch": "work/FOX2-PHASE-A-LATEST-EXECUTION-chat-20261017",
+    "immutable_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+    "source_candidate_manifest": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_MANIFEST_20261017_CANDIDATE.json"
+  },
+  "owner_release_authorization": {
+    "record": "docs/governance/releases/FOX2_OWNER_GOVERNANCE_RELEASE_APPROVAL_20261018.json",
+    "record_commit": "015460d23ecfacf21f39b33e88c4aec106f22e34",
+    "approved": "YES",
+    "scope": "DOC_GOVERNANCE_ONLY"
+  },
+  "publication": {
+    "git_source_hashes": "PASS_9_OF_9",
+    "library_destination": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018",
+    "library_remote_byte_readback": "PASS_9_OF_9",
+    "prior_library_copies": "HISTORICAL_PARTIAL_MISSING_GIT_LATEST_APPEND",
+    "prior_library_copies_overwritten": false,
+    "cloud_plugin": "fox2-skills-integrated 0.2.3, separate publishing track"
+  },
+  "sources": [
+    {
+      "family": "dictionary",
+      "version": "1.3",
+      "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "6c9a5a2c4338489181794a2f2591989ded3ac01c",
+      "sha256": "9682563aaa56f0f566cd4eebd25d83b9b5d8986ef49bd4ff37e30b4894f840c6",
+      "bytes": 12012,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "library_file_id": "libfile_229ed6d01f3881919c09f6a20a7afcee",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "policy",
+      "version": "1.9.0",
+      "git_path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "e4c084838dd5b1079e2371b9052714cf817443e2",
+      "sha256": "69e6659da89460e513ee6b7fe8e904508496d81f78e104d7618c669bc214dee6",
+      "bytes": 17908,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "library_file_id": "libfile_15bdfaf7d3588191b47ddceeb1612c26",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "routing",
+      "version": "1.4.0",
+      "git_path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "1894b65cdd67a812cf8bc3ac28bc1a7c0e0e663d",
+      "sha256": "636b6ce99ad8f0cd001dd247131456de688992357b4dd195a0f9dd4e69329917",
+      "bytes": 9015,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "library_file_id": "libfile_c3443f42e294819193d1b89d382a675a",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "git_first_protocol",
+      "version": "13",
+      "git_path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "713f6c7fef9b3144ee484849d03c4a5f5b8f8220",
+      "sha256": "fb0eb10fb6525edb8fb221ef5e5a980461272a31dae2ff80f4c8dd5fb51716f9",
+      "bytes": 10023,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "library_file_id": "libfile_ced7ab81ed6081919ffaa40265b292c8",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "preexec",
+      "version": "1.2",
+      "git_path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "ecdc7c9e2fe50494fa1a98c02467b7426c202fde",
+      "sha256": "700101049ed106387e1f22d1ca5b6b1e909c76da2dc2f535c6fd29c8a358d55a",
+      "bytes": 10883,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "library_file_id": "libfile_0ad83b71a8388191a9d8045c27e81361",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "chat_preflight",
+      "version": "1.2",
+      "git_path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "f1cfcc58857f401cda7a07640b606b8ec73e4628",
+      "sha256": "39ba00d1bef9deecc0298eca19556251d40d546513b208043e251520d3aedd10",
+      "bytes": 6314,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "library_file_id": "libfile_19fb582ef4408191ba6baf16c87ebb02",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "chat_result_intake",
+      "version": "10",
+      "git_path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "e53e89b1ab595b6d8022317c8ceb784e9f985205",
+      "sha256": "a39942855db944c6762a57e5ab7a87eac1330630125ee72dcec5627c87818bbe",
+      "bytes": 5695,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "library_file_id": "libfile_34c44394cf408191b523bd21579a9678",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "master_plan_addendum",
+      "version": "20261017",
+      "git_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "a9cdd1a7057574025174f7c299a06243b30b2bfd",
+      "sha256": "f16477a3a1541ef08a639eecdf404842bb1c43349f0b17e33aecc4d06eec04fe",
+      "bytes": 6081,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "library_file_id": "libfile_a5bc7fee35c48191a2ae3ffdcb6f9c15",
+      "library_sha256_verified": true
+    },
+    {
+      "family": "governance_release_map",
+      "version": "20261017",
+      "git_path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "e7af58afc3704bd897c0d1be02d0d099224b0504",
+      "sha256": "47938a01079e856d3139d06fae9cfc93a228900b8a8ea5af0d5108e90a463190",
+      "bytes": 6218,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "library_file_id": "libfile_da1cff7f392881919d1b89da67355c4b",
+      "library_sha256_verified": true
+    }
+  ],
+  "release_gates": {
+    "owner_authorization": "PASS",
+    "source_github_immutable": "PASS",
+    "source_digest": "PASS_9_OF_9",
+    "library_exact_byte_readback": "PASS_9_OF_9",
+    "source_release_candidate_consistency": "PASS",
+    "semantic_consumer_compatibility": "PENDING",
+    "trusted_independent_authority_verifier": "UNAVAILABLE_NOT_RUN",
+    "effective_registry_binding": "NOT_RUN",
+    "global_effective": "HOLD"
+  },
+  "in_flight": {
+    "bridge_rc1": "PRESERVE_SOURCE_LOCK",
+    "canary_009": "UNCONSUMED_NO_ACTION",
+    "app_batch_b": "PAUSED_NO_ACTION"
+  },
+  "prohibited_effects": [
+    "NO_MAIN",
+    "NO_MERGE",
+    "NO_DEV",
+    "NO_LIVE",
+    "NO_PROVIDER_WRITE",
+    "NO_BROKER_WRITE",
+    "NO_DISPATCH_REPLAY",
+    "NO_INFLIGHT_SOURCE_REBIND"
+  ],
+  "next_verified_action": "Independent trusted authority verification and compatibility/readiness gate, then an independently authorized EFFECTIVE Registry release and Library readback. Do not relabel candidate source bytes as EFFECTIVE without this gate."
+}
