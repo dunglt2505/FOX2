@@ -1,0 +1,18 @@
+{
+  "git_sync_or_release": "NOT_IMPLEMENTED",
+  "method": "Production installed native OpenFileDialog: focused file-name control, supplied exact owned rendered PNG path, confirmed Open; saved index and both hashes read back. Earlier TXT picker automation attempts remain unaccepted.",
+  "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+  "record": {
+    "ArtifactId": "sha256:84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+    "FileName": "file_desktop_visual.png",
+    "SavedAtUtc": "2026-10-17T15:06:29.4925419+00:00",
+    "Sha256": "84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+    "SizeBytes": 55015,
+    "State": "LOCAL_SAVED",
+    "VaultPath": "objects\\84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018\\file_desktop_visual.png"
+  },
+  "source_selection": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\reports\\BRIDGE-DESKTOP-BATCH-B\\evidence\\rc1_recovery_003\\desktop_visual.png",
+  "source_sha256": "84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+  "state": "LOCAL_SAVED",
+  "status": "PASS"
+}

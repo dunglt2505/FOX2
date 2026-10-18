@@ -1,0 +1,42 @@
+{
+  "agent_invocation": "NONE",
+  "app_batch_b": "NO_RESUME",
+  "canary_009": "UNTOUCHED",
+  "configuration_preserved": true,
+  "first_run": {
+    "configuration": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  },
+  "format": "FOX2_RC1_INSTALLED_CERTIFICATION_1",
+  "initial_package": "6d6b66b6fa8d1b986835e3bf4368a9f7a8749a37f687c79d2ed4d95d88f3d5a6",
+  "pause_resume_check_now": "PASS_WITH_WORKER_STOPPED_NO_AGENT_INTAKE",
+  "per_user_update": {
+    "package_sha256": "98a5a2a01f1cf60e75c48825feba294b86642947970e129efc1c8d2ec36133c8",
+    "source_sha256": "d8233092f7bfb8f59610f0dcf86f9210d7f3885bb0ebda38224279a56143f9fb",
+    "status": "UPDATED"
+  },
+  "startup_enable": {
+    "scope": "CURRENT_USER_LOGON_LIMITED",
+    "start_with_windows": true
+  },
+  "status": "IN_PROGRESS",
+  "task_scheduler": {
+    "instances": "IgnoreNew",
+    "level": "Limited",
+    "logon": "Interactive",
+    "stable": true
+  }
+}

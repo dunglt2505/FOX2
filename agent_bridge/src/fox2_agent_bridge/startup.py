@@ -18,7 +18,8 @@ def startup_command(config: BridgeConfig, enabled: bool) -> list[str]:
 
 def set_start_with_windows(config: BridgeConfig, enabled: bool) -> dict[str, object]:
     result = subprocess.run(startup_command(config, enabled), capture_output=True,
-                            text=True, timeout=30, check=False)
+                            text=True, timeout=30, check=False,
+                            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     if result.returncode:
         raise ToolExecFailed('per-user startup registration failed; no alternate privilege path')
     from .desktop import initialize_runtime

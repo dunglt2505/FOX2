@@ -199,6 +199,7 @@ class GitTransport:
         try:
             result = subprocess.run(
                 command,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 capture_output=True,
                 text=not binary,
                 encoding=None if binary else "utf-8",
@@ -225,6 +226,7 @@ class GitTransport:
         if not self.store_path.exists():
             init = subprocess.run(
                 [self.git_executable, "init", "--bare", str(self.store_path)],
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 capture_output=True,
                 text=True,
                 encoding="utf-8",

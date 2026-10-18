@@ -1,5 +1,10 @@
 param()
 $ErrorActionPreference = 'Stop'
+# Installed RC1's authoritative WPF surface replaces this legacy primary UI.
+if (Test-Path -LiteralPath (Join-Path $PSScriptRoot '../desktop/FOX2.Bridge.Desktop.exe')) {
+    & (Join-Path $PSScriptRoot 'desktop_launcher.ps1')
+    exit
+}
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 $Identity = [System.Security.Principal.WindowsIdentity]::GetCurrent()

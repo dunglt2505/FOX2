@@ -25,7 +25,8 @@ class InfrastructureFailure(Exception):
 
 def git(root, *args):
     try:
-        result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60)
+        result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
     except (OSError, subprocess.TimeoutExpired) as exc:
         raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
     if result.returncode:
@@ -107,7 +108,8 @@ if ($writers.Count -gt 0) { exit 20 } else { exit 0 }'''
     try:
         result = subprocess.run(['pwsh', '-NoLogo', '-NoProfile', '-Command', script],
                                 env={**os.environ, 'FOX2_PREFLIGHT_TARGET': str(worktree)},
-                                capture_output=True, timeout=15)
+                                capture_output=True, timeout=15,
+                                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
     except (OSError, subprocess.TimeoutExpired) as exc:
         raise InfrastructureFailure('WRITER_STATE_UNKNOWN') from exc
     if result.returncode not in (0, 20):

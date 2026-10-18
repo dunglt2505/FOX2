@@ -1,0 +1,7 @@
+{
+  "failures": 0,
+  "passed": 399,
+  "raw_sha256": "3b2a2f9af5ef87f6a29fc867757e80a21f8f19b00df72879a0d232dd245043f3",
+  "reason": "Synthetic credential-bearing remote-validation fixtures; no test result or count changed",
+  "redacted_test_name_urls": 3
+}

@@ -1,0 +1,38 @@
+{
+  "agent_dispatch_runs": 1,
+  "attempt_receipts_immutable": true,
+  "attempts": [
+    {
+      "issue": "Inherited child output pipes blocked captured launcher return; fixed product child DEVNULL handles.",
+      "receipt": "installed_attempt_001.json"
+    },
+    {
+      "issue": "Harness attempted live Windows lock-file read; replaced with generation and duplicate-worker rejection.",
+      "receipt": "installed_attempt_002.json"
+    },
+    {
+      "issue": "Harness poll correctly rejected while Worker owned runtime lock; moved safe poll after graceful exit.",
+      "receipt": "installed_attempt_003.json"
+    },
+    {
+      "issue": "Native picker automation of a TXT filename was unreliable. Those attempts were not accepted as GUI artifact PASS. Actual confirmed PNG save is independently hash-bound in manual_artifact_ui_receipt.json; installed Vault assembly separately saved the exact TXT successfully.",
+      "receipts": [
+        "installed_attempt_004.json",
+        "installed_attempt_005.json",
+        "installed_attempt_006.json",
+        "installed_attempt_007.json",
+        "installed_attempt_008.json"
+      ]
+    },
+    {
+      "issue": "Resumed harness missing local interpreter variable after safe poll PASS; variable/remainder continuation repaired.",
+      "receipt": "installed_attempt_009.json"
+    }
+  ],
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003",
+  "final_disposition": "STOPPED_NEEDS_RECONCILIATION",
+  "final_installed_result": "PARTIAL_NOT_CERTIFIED; see stop_receipt.json",
+  "historical_dispatch_001_002_replayed": false,
+  "manual_gui_artifact_validation": "REJECTED for final UI freshness: record predates current installed UI. Retained hashes/Core probe are not sufficient for end-to-end UI acceptance.",
+  "protected_boundaries": "No Agent invocation in certification; Canary 009 zero claims/executions; APP Batch B paused; no protected actions."
+}

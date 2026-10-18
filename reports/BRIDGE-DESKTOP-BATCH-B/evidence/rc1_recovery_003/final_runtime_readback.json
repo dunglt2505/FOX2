@@ -1,0 +1,27 @@
+{
+  "app_batch_b": "NO_ACTION",
+  "canary_009_ledger_rows": {
+    "legacy": {
+      "dispatches": 0,
+      "executions": 0
+    },
+    "per_user": {
+      "dispatches": 0,
+      "executions": 0
+    }
+  },
+  "certification": "PARTIAL_NOT_CERTIFIED",
+  "installed_package": {
+    "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+    "source_sha256": "9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8"
+  },
+  "product_source_pythonpath": "UNSET",
+  "protected_authority": "NO_ACTION",
+  "worker": {
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "state": "STOPPED",
+    "stop_requested": true
+  }
+}

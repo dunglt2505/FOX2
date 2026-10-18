@@ -1,0 +1,165 @@
+{
+  "agent_invocation": "NONE",
+  "app_batch_b": "NO_RESUME",
+  "artifact_gate": "NOT_CERTIFIED_FRESH_INSTALLED_UI_SAVE",
+  "artifact_vault_preserved_by_uninstall": true,
+  "canary_009": "UNTOUCHED",
+  "close_hides_worker_survives": "PASS",
+  "configuration_preserved": true,
+  "control_store": {
+    "installed_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac\\runtime\\Scripts\\python.exe",
+    "path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\data\\control.git",
+    "remote": "https://github.com/dunglt2505/FOX2.git",
+    "source_pythonpath": "UNSET"
+  },
+  "durable_no_replay": {
+    "FOX2-DISPATCH-BRIDGE-RC1-CODEX-001": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-RC1-CODEX-002": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003": "NEEDS_RECONCILIATION"
+  },
+  "failed_update_keeps_previous_usable": "PASS_REAL_INTEGRITY_FAILURE_PLUS_STAGED_FAILURE_UNIT_TESTS",
+  "final_package": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+  "first_run": {
+    "configuration": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  },
+  "format": "FOX2_RC1_INSTALLED_CERTIFICATION_1",
+  "graceful_exit_lock_released": true,
+  "initial_package": "d720102d19a5bcc6981937b02b48d3c1904c81ce3518ad353cf1c2a1af6f6513",
+  "installed_artifact_vault": {
+    "atomic_index_valid": true,
+    "copied_sha256_verified": true,
+    "explicit_file_selection": true,
+    "git_synced": false,
+    "record": {
+      "ArtifactId": "sha256:84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+      "FileName": "file_desktop_visual.png",
+      "SavedAtUtc": "2026-10-17T15:06:29.4925419+00:00",
+      "Sha256": "84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+      "SizeBytes": 55015,
+      "State": "LOCAL_SAVED",
+      "VaultPath": "objects\\84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018\\file_desktop_visual.png"
+    },
+    "released": false
+  },
+  "limitation": "PowerShell continued to the remainder harness after the separate fresh-save assertion failed. Raw harness PASS cannot override that failed assertion.",
+  "live_desktop_blocks_uninstall_before_deletion": "PASS_WITH_WORKER_STOPPED",
+  "open_logs": {
+    "log_directory": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\logs"
+  },
+  "pause_resume_check_now": "PASS_WITH_WORKER_STOPPED_NO_AGENT_INTAKE",
+  "paused_check_now": "PAUSED_CHECK_DISABLED",
+  "per_user_update": {
+    "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+    "source_sha256": "9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8",
+    "status": "UPDATED"
+  },
+  "raw_harness_pass_rejected": true,
+  "raw_harness_status": "PASS",
+  "real_installed_poll": {
+    "already_seen_count": 0,
+    "candidates": [],
+    "control_branch": "work/FOX2-DISPATCH-chat",
+    "error": null,
+    "new_candidate_count": 0,
+    "observed_remote_sha": "ff42a0d777ede4a1a9ad6e048626c19da0d5e25c",
+    "previous_cursor": "ff42a0d777ede4a1a9ad6e048626c19da0d5e25c",
+    "reason": null,
+    "repository": "dunglt2505/FOX2",
+    "status": "NO_CHANGE",
+    "trusted_for_execution": false
+  },
+  "real_poll_did_not_claim_or_execute": {
+    "dispatches": 26,
+    "executions": 15
+  },
+  "reinstall": {
+    "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+    "source_sha256": "9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8",
+    "status": "INSTALLED"
+  },
+  "reinstalled_setup": {
+    "configuration": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  },
+  "resumed_after": "Installed lifecycle PASS; manual GUI artifact receipt bound to same package",
+  "startup_enable": {
+    "scope": "CURRENT_USER_LOGON_LIMITED",
+    "start_with_windows": true
+  },
+  "startup_restored": {
+    "scope": "CURRENT_USER_LOGON_LIMITED",
+    "start_with_windows": true
+  },
+  "startup_single_instance": {
+    "two_launches": true,
+    "ui_count": 1,
+    "worker_generation": "f2e4d457-81f5-47f1-bd35-c5fa87bec231",
+    "worker_pid": "LOCK_OWNER_PROVEN_BY_DUPLICATE_WORKER_REJECTION"
+  },
+  "status": "PARTIAL_NOT_CERTIFIED",
+  "support_bundle": {
+    "files": [
+      "support.json"
+    ],
+    "sha256": "5fe7cb58e4a07b37e3e1af8ed3d6b1974d56cc560d70923532d5ae6b433d0673",
+    "status": "EXPORTED"
+  },
+  "task_scheduler": {
+    "instances": "IgnoreNew",
+    "level": "Limited",
+    "logon": "Interactive",
+    "stable": true
+  },
+  "ui_crash_worker_survives": "PASS",
+  "ui_restart_no_second_worker": "PASS",
+  "ui_screens": {
+    "check_now_enabled": false,
+    "process_id": 13516,
+    "screens": [
+      "Dashboard",
+      "Activity",
+      "Agents",
+      "Diagnostics",
+      "Artifacts",
+      "Settings"
+    ]
+  },
+  "uninstall": {
+    "preserved": [
+      "config",
+      "data",
+      "logs",
+      "reports"
+    ],
+    "project_worktrees": "UNTOUCHED",
+    "status": "UNINSTALLED"
+  },
+  "worker_single_instance": "LOCK_HELD"
+}

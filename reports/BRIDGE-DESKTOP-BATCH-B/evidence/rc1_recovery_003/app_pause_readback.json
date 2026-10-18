@@ -1,0 +1,7 @@
+{
+  "action": "READ_ONLY; no APP edits/resume",
+  "canary_009_remote_commit": "501822a33ef08c7365154913bbc677544856eee5",
+  "observed_status": "PAUSED_AFTER_UI_SLICE / WAIT_BRIDGE_READY",
+  "remote_commit": "fc8aba202e15bddfcc5156b2c1bb36ed222329eb",
+  "task": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/task.md"
+}

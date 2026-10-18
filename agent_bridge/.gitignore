@@ -16,3 +16,7 @@ test_artifacts/
 .test-tmp/
 test_runtime_2/
 .pytest_cache/
+desktop_app/**/bin/
+desktop_app/**/obj/
+desktop_app/publish/
+.build-venv/

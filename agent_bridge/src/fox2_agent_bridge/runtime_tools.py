@@ -42,6 +42,7 @@ def _run(
     try:
         return subprocess.run(
             [str(executable), *arguments],
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
             capture_output=True,
             text=True,
             encoding="utf-8",

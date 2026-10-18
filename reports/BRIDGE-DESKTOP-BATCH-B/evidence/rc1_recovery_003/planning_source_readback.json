@@ -1,0 +1,59 @@
+{
+  "checks": {
+    "BRIDGE_RC1_ACCEPTANCE.json": {
+      "blob_sha": "3e1c093ac4a7353267493c6a6dcaa8fd9baab632",
+      "sha256": "fe46c26fd7bcda4ba51048559886ae981a8e136f5f123e928229f1d80f5edcc1",
+      "status": "PASS"
+    },
+    "BRIDGE_RC1_DESKTOP_IMPLEMENTATION_SPEC.md": {
+      "blob_sha": "0f660356a41cd7a7e48774be7e7e4817e4c91255",
+      "sha256": "fa45f32e66066e851ad58f288c421f8024cb29d1b9a5e1bb6e15c977c0e2d2c5",
+      "status": "PASS"
+    },
+    "BRIDGE_RC1_RELEASE_PLAN.md": {
+      "blob_sha": "2827b23bcb3703cfae9d72c9cf4049ec995f841d",
+      "sha256": "c895f558d08a710ae0d5f39b2e46fa9abff81c44ee4686591046b74017caac56",
+      "status": "PASS"
+    },
+    "BRIDGE_RC1_ROUTING_INTAKE.md": {
+      "blob_sha": "050770d6c7b0896050a84e297da5f388303006de",
+      "sha256": "5ed77c5b45295e119b96bbb5ee75234d0d7c3fc42522403f6ca0afb6f6248206",
+      "status": "PASS"
+    },
+    "bridge_technical_spec": {
+      "blob_sha": "5a82bd74b30f71f7b46652f67a70cd7768f68143",
+      "status": "PASS"
+    },
+    "chat_preflight_intake": {
+      "blob_sha": "e7b7772183c19e58d28d8c9d3851f283a9d9c22a",
+      "status": "PASS"
+    },
+    "dispatch_schema": {
+      "blob_sha": "a53956cad7809cc53f92ecdc5d91a1ff2119b421",
+      "status": "PASS"
+    },
+    "git_first_protocol": {
+      "blob_sha": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "status": "PASS"
+    },
+    "policy": {
+      "blob_sha": "85b6d5b4700ff863e4fef0a7474ffd0f7a6469c0",
+      "status": "PASS"
+    },
+    "preexec_evidence_protocol": {
+      "blob_sha": "a452a2c9cdd71e613d6fe378927831ed840c9398",
+      "status": "PASS"
+    },
+    "preflight_receipt_schema": {
+      "blob_sha": "25fe465f82a16edf29ebf773a220969192f546e8",
+      "status": "PASS"
+    },
+    "routing_index": {
+      "blob_sha": "be42004e7fb15e82b1e2fab90268a0cc50566018",
+      "status": "PASS"
+    }
+  },
+  "registry_is_separate_from_historical_source_set": true,
+  "source_freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "status": "PASS"
+}

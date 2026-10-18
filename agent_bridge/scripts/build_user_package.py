@@ -39,7 +39,7 @@ def build(output: Path, python: Path) -> dict:
         stage = Path(td)
         source = stage / 'source'
         shutil.copytree(ROOT, source, ignore=shutil.ignore_patterns(
-            '.venv', '__pycache__', '*.pyc', '*.egg-info', 'build', 'dist', '.pytest_cache', 'reports', 'test_artifacts'))
+            '.venv', '.build-venv', '__pycache__', '*.pyc', '*.egg-info', 'build', 'dist', '.pytest_cache', 'reports', 'test_artifacts', 'bin', 'obj', 'publish'))
         resources = source / 'src/fox2_agent_bridge/resources'
         resources.mkdir()
         scripts = {p.name: p.read_bytes() for p in (ROOT/'scripts').glob('desktop_*.ps1')}
@@ -54,15 +54,29 @@ def build(output: Path, python: Path) -> dict:
              *[f'{n}=={v}' for n,v in check['dependencies'].items()]])
         files = {f'wheels/{p.name}': p.read_bytes() for p in sorted(wheels.glob('*.whl'))}
         files.update({f'scripts/{name}': raw.replace(b'\r\n', b'\n') for name,raw in scripts.items()})
+        desktop = ROOT / 'desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj'
+        desktop_output = stage / 'desktop'
+        # Self-contained WPF is usable on clean Windows without a shared .NET runtime.
+        run(['dotnet', 'publish', desktop, '-c', 'Release', '-r', 'win-x64', '--self-contained', 'true',
+             '-p:PublishSingleFile=false', '-p:ContinuousIntegrationBuild=true',
+             '-p:PathMap=' + str(ROOT / 'desktop_app') + '=/_/desktop_app', '-o', desktop_output])
+        files.update({f'desktop/{p.name}': p.read_bytes() for p in sorted(desktop_output.iterdir())
+                      if p.is_file() and p.suffix in ('.exe', '.dll', '.json', '.config')})
+        if 'desktop/FOX2.Bridge.Desktop.exe' not in files:
+            raise ValueError('complete Desktop publication is required')
         sha = lambda b: hashlib.sha256(b).hexdigest()
         source_files = {str(p.relative_to(source)).replace('\\','/'):sha(p.read_bytes())
                         for p in sorted((source/'src').rglob('*')) if p.is_file() and
                         not p.name.endswith('.pyc') and '.egg-info' not in str(p)}
+        source_files.update({str(p.relative_to(ROOT)).replace('\\','/'):sha(p.read_bytes())
+                             for p in (ROOT/'desktop_app').rglob('*') if p.is_file() and
+                             p.suffix in ('.cs', '.xaml', '.csproj') and not {'bin','obj','publish'} & set(p.parts)})
         sys.path.insert(0,str(ROOT/'src'))
         from fox2_agent_bridge import project_dictionary as registry
         manifest = {'format':'FOX2_USER_PACKAGE_1', 'python':f'{sys.version_info.major}.{sys.version_info.minor}',
                     'platform':sys.platform, 'dictionary_sha256':registry.SOURCE_SHA256,
                     'dictionary_version':registry.DICTIONARY_VERSION,
+                    'desktop':'NET8_WPF_SELF_CONTAINED_WIN_X64',
                     'source_sha256':sha(json.dumps(source_files,sort_keys=True).encode()),
                     'dependencies':check['dependencies'],
                     'files':{n:sha(b) for n,b in files.items()}}

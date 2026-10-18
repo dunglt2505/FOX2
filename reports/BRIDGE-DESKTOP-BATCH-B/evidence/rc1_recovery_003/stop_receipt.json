@@ -1,0 +1,29 @@
+{
+  "app_batch_b": "PAUSED_NO_ACTION",
+  "canary_009": "UNTOUCHED_ZERO_CLAIMS_EXECUTIONS",
+  "desktop_contract_tests": {
+    "failed": 0,
+    "passed": 30
+  },
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003",
+  "disposition": "STOPPED_NEEDS_RECONCILIATION",
+  "do_not_replay": true,
+  "failure": "Fresh final installed UI Artifact Vault save was not established. Retained record predates current UI process. Core Vault tests pass, but stale data cannot certify current UI.",
+  "format": "FOX2_RC1_STOP_1",
+  "full_python_tests": {
+    "failed": 0,
+    "passed": 399,
+    "skipped": 0
+  },
+  "icon": "OPEN_NO_AUTHORIZED_SOURCE_ASSET",
+  "independent_gate": "PRECANARY_INDEPENDENT_AUDIT_PENDING_NOT_ELIGIBLE_YET",
+  "installed_runtime": "PARTIAL_NOT_CERTIFIED",
+  "owner_whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+  "protected_actions": "NONE",
+  "real_installed_poll": "NO_CHANGE",
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-002",
+  "rule": "User prompt section 15: required test failure remains unresolved after bounded repair; section 16 STOP completion contract",
+  "source_authority": "PASS",
+  "wip_publication": "AUTHORIZED_TASK_BRANCH_ONLY_UNREVIEWED"
+}

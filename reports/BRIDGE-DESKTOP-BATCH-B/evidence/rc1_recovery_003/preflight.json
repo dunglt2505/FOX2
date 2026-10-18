@@ -1,0 +1,251 @@
+{
+  "authority_basis": "Exact external Owner approval nominated by current user; scope verified against receipt. No global semantic promotion.",
+  "base": "e85ccaadd1fb49664bae07ec71ab607368fc1f0d",
+  "dispatch_control_commit": "ff42a0d777ede4a1a9ad6e048626c19da0d5e25c",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003",
+  "dispatch_sha256": "35784316709218206bcb4b40c92a5c0cba1c8875642ad3b79efab988d617cf80",
+  "dispatch_v3_structural_validation": "PASS",
+  "execution_tuple_observed": {
+    "method": "Sanitized ancestor codex.exe options",
+    "model": "gpt-6.1-sol",
+    "permission_profile": "danger-full-access",
+    "reasoning_effort": "medium"
+  },
+  "families": {
+    "bridge_technical_spec": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "bridge_technical_spec",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "version": "0.7-REV10"
+    },
+    "chat_preflight_intake": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "chat_preflight_intake",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json",
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "version": "1.1"
+    },
+    "dictionary": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "dictionary",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "version": "1.2"
+    },
+    "dictionary_generated_binding": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "dictionary_generated_binding",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json",
+      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+      "version": "1.2"
+    },
+    "dispatch_schema": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "dispatch_schema",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json",
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+      "version": "3.0"
+    },
+    "git_first_protocol": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "git_first_protocol",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "version": "12"
+    },
+    "policy": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "policy",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "version": "1.8.9"
+    },
+    "preexec_protocol": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "preexec_protocol",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "version": "1.1"
+    },
+    "preflight_receipt_schema": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "preflight_receipt_schema",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json",
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "version": "1"
+    },
+    "routing": {
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "family": "routing",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "version": "1.3.0"
+    }
+  },
+  "format": "FOX2_RC1_RECOVERY_003_PREFLIGHT_1",
+  "historical_dispatches_replayed": false,
+  "independent_audit": "PENDING",
+  "initial_worktree_clean": true,
+  "no_competing_task_writer": "NONE_OBSERVED_IN_PROCESS_INVENTORY",
+  "owner_approval_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+  "preexec": {
+    "agent_execution_started": false,
+    "blockers": [],
+    "candidate_route": {
+      "auto_tier": null,
+      "model": "gpt-6.1-sol",
+      "model_policy": "PINNED",
+      "permission_profile": "FULL_ACCESS",
+      "product": "CODEX",
+      "reasoning_effort": "medium"
+    },
+    "capabilities": {
+      "codex": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": false,
+        "status": "PASS"
+      },
+      "copilot": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 1,
+        "failure_class": "AUTH_REQUIRED",
+        "material": false,
+        "status": "FAIL"
+      },
+      "dotnet": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "dotnet_wpf_build": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "eligible_agent_route": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "git": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "local_appdata_per_user_write": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "pwsh": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "python": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      },
+      "schtasks.exe": {
+        "evidence": "Bounded readiness observation; raw output omitted.",
+        "exit_code": 0,
+        "failure_class": null,
+        "material": true,
+        "status": "PASS"
+      }
+    },
+    "checked_at": "2026-10-17T09:50:56.943485+00:00",
+    "dispatch_state": {
+      "dispatch_consumed": false,
+      "executable_dispatch_published": false
+    },
+    "notes": [
+      "Routing evidence only. CHAT selects the final implementation Agent."
+    ],
+    "project": "FOX2",
+    "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
+    "receipt_type": "FOX2_PREEXEC_RECEIPT",
+    "schema_version": "1.0",
+    "source_head": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "status": "PASS",
+    "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "task_source": {
+      "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "git_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "sha256": "a7a3f7d8eb8cb84d5690649c8a70f557dadfde51729cb9a87b7417330dca7e95"
+    },
+    "worktree": {
+      "competing_writer": "NONE_OBSERVED",
+      "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+      "stale_receipt_cleanup": "NOT_NEEDED",
+      "status": "PASS"
+    },
+    "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B"
+  },
+  "preexec_publication_commit": "67e0147fc03e4396b3e58fe3d8863902e950d4ec",
+  "preexec_reused": true,
+  "registry_commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+  "registry_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+  "remote_readback": [
+    "e85ccaadd1fb49664bae07ec71ab607368fc1f0d\trefs/heads/work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "501822a33ef08c7365154913bbc677544856eee5\trefs/heads/work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "ff42a0d777ede4a1a9ad6e048626c19da0d5e25c\trefs/heads/work/FOX2-DISPATCH-chat"
+  ],
+  "resolver": "C:\\Users\\Fox Le\\.codex\\plugins\\cache\\created-by-me-remote\\fox2-skills-integrated\\0.2.0\\shared\\git_resolver.py",
+  "source_freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_to_base_changed_paths": [
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_002/report.md",
+    "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_002/source_verification_stop.json",
+    "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json"
+  ],
+  "status": "PASS",
+  "transport": "Read-only immutable local Git objects; authenticated origin refs verified with git ls-remote"
+}

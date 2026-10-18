@@ -107,6 +107,7 @@ class CopilotAdapter:
         if os.name == "nt":
             subprocess.run(
                 ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 capture_output=True,
                 text=True,
                 check=False,
@@ -206,6 +207,7 @@ class CopilotAdapter:
             process = subprocess.Popen(
                 command,
                 cwd=resolved_worktree,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,

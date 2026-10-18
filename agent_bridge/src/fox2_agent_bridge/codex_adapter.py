@@ -98,6 +98,7 @@ class CodexAdapter:
         if os.name == "nt":
             subprocess.run(
                 ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 capture_output=True,
                 text=True,
                 check=False,
@@ -159,6 +160,7 @@ class CodexAdapter:
             process = subprocess.Popen(
                 command,
                 cwd=resolved_worktree,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,

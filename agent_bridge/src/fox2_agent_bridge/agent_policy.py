@@ -88,7 +88,8 @@ def validate_selection(agent: dict[str, object]) -> dict[str, object]:
 def help_text(executable: Path, *subcommand: str) -> str:
     try:
         result = subprocess.run([str(executable), *subcommand, '--help'],
-                                capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=15, check=False)
+                                capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=15, check=False,
+                                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         return result.stdout if result.returncode == 0 else ''
     except (OSError, subprocess.TimeoutExpired):
         return ''
@@ -97,7 +98,8 @@ def help_text(executable: Path, *subcommand: str) -> str:
 def version_text(executable: Path) -> str | None:
     try:
         result = subprocess.run([str(executable), '--version'], capture_output=True, text=True,
-                                encoding='utf-8', errors='replace', timeout=15, check=False)
+                                encoding='utf-8', errors='replace', timeout=15, check=False,
+                                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         output = result.stdout.strip() or result.stderr.strip()
         return output.splitlines()[0][:200] if result.returncode == 0 and output else None
     except (OSError, subprocess.TimeoutExpired):

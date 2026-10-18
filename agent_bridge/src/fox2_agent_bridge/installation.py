@@ -45,16 +45,21 @@ def verified_package(package: Path, expected_sha256: str) -> tuple[dict, dict[st
     import io
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
         entries = archive.infolist()
-        if len(entries) > 500 or sum(i.file_size for i in entries) > 100_000_000:
+        if len(entries) > 1000 or sum(i.file_size for i in entries) > 300_000_000:
             raise ValueError('package exceeds limits')
         files = {}
+        identities = set()
         for item in entries:
             name = item.filename
             path = PurePosixPath(name)
             if (path.is_absolute() or '\\' in name or ':' in name or
                     any(p in ('', '.', '..') for p in name.split('/')) or
-                    name in files or (item.external_attr >> 16) & 0o170000 == 0o120000):
+                    name.casefold() in identities or
+                    any(p.endswith((' ', '.')) or re.fullmatch(r'(?i)(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\..*)?', p)
+                        for p in name.split('/')) or
+                    (item.external_attr >> 16) & 0o170000 == 0o120000):
                 raise ValueError('unsafe package member')
+            identities.add(name.casefold())
             files[name] = archive.read(item)
     manifest = json.loads(files.pop('manifest.json'))
     if (manifest.get('format') != 'FOX2_USER_PACKAGE_1' or
@@ -65,8 +70,13 @@ def verified_package(package: Path, expected_sha256: str) -> tuple[dict, dict[st
         raise ValueError('package manifest or runtime binding mismatch')
     for name in files:
         if not (name.startswith('wheels/') and name.endswith('.whl') or
-                name.startswith('scripts/') and name.endswith('.ps1')):
+                name.startswith('scripts/') and name.endswith('.ps1') or
+                name.startswith('desktop/') and name.endswith(('.exe', '.dll', '.json', '.config'))):
             raise ValueError('unexpected package payload')
+    if manifest.get('desktop') and not all(name in files for name in (
+            'desktop/FOX2.Bridge.Desktop.exe', 'desktop/FOX2.Bridge.Desktop.dll',
+            'desktop/FOX2.Bridge.Desktop.runtimeconfig.json', 'desktop/FOX2.Bridge.Desktop.deps.json')):
+        raise ValueError('incomplete Desktop payload')
     return manifest, files
 
 
@@ -239,7 +249,8 @@ def first_run(*, root: Path = BRIDGE_ROOT) -> dict:
     for required in ('git', 'codex', 'pwsh', 'python'):
         if not tools[required] or not tools[required].is_file():
             raise ValueError('setup requires tool: ' + required)
-    auth = subprocess.run([str(tools['codex']), 'login', 'status'], capture_output=True, timeout=30)
+    auth = subprocess.run([str(tools['codex']), 'login', 'status'], capture_output=True, timeout=30,
+                          creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
     if auth.returncode:
         raise ValueError('sign in using the official Codex login flow before setup')
     from .paths import PROJECT_ROOT, WORKTREE_ROOT
@@ -273,7 +284,13 @@ def uninstall(*, root: Path = BRIDGE_ROOT) -> dict:
         raise ValueError('installed interpreter cannot uninstall itself; run the stable Bridge uninstall.ps1')
     from .config import load_config
     from .startup import set_start_with_windows
-    with ProcessLock(root / 'data/install.lock'), ProcessLock(root / 'data/bridge.lock'):
+    desktop_lock = root.parent / 'BridgeDesktop/desktop.lock'
+    for path in (desktop_lock, *desktop_lock.parents):
+        if path.is_symlink() or path.is_junction():
+            raise ValueError('presentation lock path contains a link')
+    # Refuse before deleting anything while presentation has mapped binaries.
+    with ProcessLock(root / 'data/install.lock'), ProcessLock(root / 'data/bridge.lock'), \
+            ProcessLock(desktop_lock):
         if (root / 'config/bridge.toml').exists():
             set_start_with_windows(load_config(root / 'config/bridge.toml'), False)
         versions = root / 'versions'

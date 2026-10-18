@@ -1,0 +1,177 @@
+{
+  "format": "FOX2_RC1_IMPLEMENTATION_GATES_1",
+  "icon_acceptance": "OPEN_NO_AUTHORIZED_SOURCE_ASSET",
+  "implementation_disposition": "STOPPED_NEEDS_RECONCILIATION",
+  "precanary_ready_claimed": false,
+  "technical_gates": {
+    "ARTIFACT_ATOMIC_INDEX": {
+      "core_contract_tests": "PASS",
+      "evidence": [
+        "manual_artifact_ui_receipt.json",
+        "installed_certification.json"
+      ],
+      "reason": "Core checks and retained object hashes pass; final installed UI save freshness failed.",
+      "status": "NOT_CERTIFIED_INSTALLED_UI"
+    },
+    "ARTIFACT_LOCAL_SAVE": {
+      "core_contract_tests": "PASS",
+      "evidence": [
+        "manual_artifact_ui_receipt.json",
+        "installed_certification.json"
+      ],
+      "reason": "Core checks and retained object hashes pass; final installed UI save freshness failed.",
+      "status": "NOT_CERTIFIED_INSTALLED_UI"
+    },
+    "ARTIFACT_SHA256_VERIFY": {
+      "core_contract_tests": "PASS",
+      "evidence": [
+        "manual_artifact_ui_receipt.json",
+        "installed_certification.json"
+      ],
+      "reason": "Core checks and retained object hashes pass; final installed UI save freshness failed.",
+      "status": "NOT_CERTIFIED_INSTALLED_UI"
+    },
+    "CHANGED_PATH_ALLOWLIST": {
+      "evidence": "quality_checks.json",
+      "status": "PASS"
+    },
+    "CHECK_NOW": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "CONTROL_STORE_PATH": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "DESKTOP_APP_BUILD": {
+      "evidence": "quality_checks.json",
+      "status": "PASS"
+    },
+    "DESKTOP_APP_CONTRACT_TESTS": {
+      "evidence": "quality_checks.json",
+      "status": "PASS"
+    },
+    "DESKTOP_APP_SINGLE_INSTANCE": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+      "evidence": "full_bridge_tests.xml",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_SCHEMA_BINDING": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "DOTNET_WPF_BUILD_CAPABILITY": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "FIRST_RUN_SETUP": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "FRESH_PREEXEC": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "FULL_BRIDGE_TESTS": {
+      "evidence": "full_bridge_tests.xml",
+      "status": "PASS"
+    },
+    "GIT_DIFF_CHECK": {
+      "evidence": "quality_checks.json",
+      "status": "PASS"
+    },
+    "INSTALLER_PACKAGE": {
+      "evidence": "quality_checks.json",
+      "status": "PASS"
+    },
+    "LOCAL_SAVED_NOT_GIT_SYNCED": {
+      "core_contract_tests": "PASS",
+      "evidence": [
+        "manual_artifact_ui_receipt.json",
+        "installed_certification.json"
+      ],
+      "reason": "Core checks and retained object hashes pass; final installed UI save freshness failed.",
+      "status": "NOT_CERTIFIED_INSTALLED_UI"
+    },
+    "OPEN_LOGS": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "PAUSE_RESUME": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "PER_USER_INSTALL": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "PRECANARY_INDEPENDENT_AUDIT": {
+      "owner": "WORK/CHAT",
+      "self_certified": false,
+      "status": "PENDING"
+    },
+    "PROJECT_DICTIONARY_BINDING": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "REAL_INSTALLED_POLL": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "SECRET_SCAN": {
+      "evidence": "quality_checks.json",
+      "status": "PASS"
+    },
+    "SOURCE_BINDING": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "SOURCE_FREEZE": {
+      "evidence": "planning_source_readback.json",
+      "status": "PASS"
+    },
+    "SOURCE_REGISTRY_AUTHORITY_CHAIN": {
+      "evidence": "preflight.json",
+      "status": "PASS"
+    },
+    "STARTUP_SINGLE_INSTANCE": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "START_WITH_WINDOWS": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "SUPPORT_BUNDLE": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "UNINSTALL_PATH": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "UPDATE_PATH": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    },
+    "V06_COMPATIBILITY": {
+      "evidence": "full_bridge_tests.xml",
+      "status": "PASS"
+    },
+    "V2_COMPATIBILITY": {
+      "evidence": "full_bridge_tests.xml",
+      "status": "PASS"
+    },
+    "WORKER_UI_PROCESS_SEPARATION": {
+      "evidence": "installed_certification.json",
+      "status": "PASS"
+    }
+  }
+}

@@ -212,7 +212,8 @@ def test_tray_fixed_actions_hidden_launch_and_state_mapping():
         assert state in tray and state in STATES
     assert 'Mutex.WaitOne(0)' in tray and 'CreateNoWindow = $true' in tray
     assert 'UseShellExecute = $false' in tray and 'ArgumentList.Add' in tray
-    assert '-WindowStyle Hidden' in launcher
+    assert 'CreateNoWindow = $true' in launcher and 'UseShellExecute = $false' in launcher
+    assert "fox2_agent_bridge.launcher" in launcher
     assert 'current_dispatch' in tray and 'last_result.status' in tray
     assert 'Invoke-Expression' not in tray
 

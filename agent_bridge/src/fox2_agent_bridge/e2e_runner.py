@@ -140,6 +140,7 @@ class BridgeE2ERunner:
             result = subprocess.run(
                 command,
                 cwd=cwd,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 capture_output=True,
                 text=not binary,
                 encoding=None if binary else "utf-8",

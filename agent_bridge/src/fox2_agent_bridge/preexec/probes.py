@@ -48,7 +48,8 @@ def run_tool(arguments, *, cwd, timeout=30, input=None):
     if os.name == 'nt' and str(arguments[0]).lower().endswith(('.cmd', '.bat')):
         arguments = [os.environ.get('COMSPEC', 'cmd.exe'), '/d', '/s', '/c', subprocess.list2cmdline(arguments)]
     return subprocess.run(arguments, cwd=cwd, input=input, capture_output=True,
-                          text=True, encoding='utf-8', errors='replace', timeout=timeout)
+                          text=True, encoding='utf-8', errors='replace', timeout=timeout,
+                          creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
 
 
 def tool_probe(name: str, worktree: Path):

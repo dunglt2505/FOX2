@@ -1,0 +1,76 @@
+{
+  "agent_invocation": "NONE",
+  "app_batch_b": "NO_RESUME",
+  "canary_009": "UNTOUCHED",
+  "close_hides_worker_survives": "PASS",
+  "configuration_preserved": true,
+  "failed_update_keeps_previous_usable": "PASS_REAL_INTEGRITY_FAILURE_PLUS_STAGED_FAILURE_UNIT_TESTS",
+  "first_run": {
+    "configuration": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  },
+  "format": "FOX2_RC1_INSTALLED_CERTIFICATION_1",
+  "initial_package": "dfff9da32600d8678ad3c2f21749ab7c1f81a74dc02cc49287ebed47a42c0a13",
+  "open_logs": {
+    "log_directory": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\logs"
+  },
+  "pause_resume_check_now": "PASS_WITH_WORKER_STOPPED_NO_AGENT_INTAKE",
+  "paused_check_now": "PAUSED_CHECK_DISABLED",
+  "per_user_update": {
+    "package_sha256": "a71d91458742ba9ef9f5b8ef7064aee97318850af59d843051ed8108af867367",
+    "source_sha256": "e863dd1066959687ce94ffd37d634929be0c1ebc590e8f5365493302d1209990",
+    "status": "UPDATED"
+  },
+  "startup_enable": {
+    "scope": "CURRENT_USER_LOGON_LIMITED",
+    "start_with_windows": true
+  },
+  "startup_single_instance": {
+    "two_launches": true,
+    "ui_count": 1,
+    "worker_generation": "30e70467-cb6c-47d6-83ab-ecdd843fcb0a",
+    "worker_pid": "LOCK_OWNER_PROVEN_BY_DUPLICATE_WORKER_REJECTION"
+  },
+  "status": "IN_PROGRESS",
+  "support_bundle": {
+    "files": [
+      "support.json"
+    ],
+    "sha256": "dd0d050c9dcef6845a46ab903029f465a54b95e43d360d7b7ed646f41890ff42",
+    "status": "EXPORTED"
+  },
+  "task_scheduler": {
+    "instances": "IgnoreNew",
+    "level": "Limited",
+    "logon": "Interactive",
+    "stable": true
+  },
+  "ui_crash_worker_survives": "PASS",
+  "ui_restart_no_second_worker": "PASS",
+  "ui_screens": {
+    "check_now_enabled": false,
+    "process_id": 24200,
+    "screens": [
+      "Dashboard",
+      "Activity",
+      "Agents",
+      "Diagnostics",
+      "Artifacts",
+      "Settings"
+    ]
+  },
+  "worker_single_instance": "LOCK_HELD"
+}
