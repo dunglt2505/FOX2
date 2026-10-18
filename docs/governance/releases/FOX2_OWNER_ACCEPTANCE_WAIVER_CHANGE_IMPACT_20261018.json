@@ -1,0 +1,150 @@
+{
+  "format": "FOX2_OWNER_WAIVER_POLICY_AND_WP_ACCEPTANCE_IMPACT_V1",
+  "project": "FOX2",
+  "date": "2026-10-18",
+  "status": "OWNER_APPROVED_RC1_SCOPE; GENERAL_POLICY_CANDIDATE; MATERIAL_RUNTIME_GATES_HOLD",
+  "owner_instruction": "Explicit Owner approval to waive only RC1 PRECANARY_INDEPENDENT_AUDIT and to add Owner Acceptance Waiver mechanism for future Policy decisions; no other WP waived, no Canary executed.",
+  "inputs": {
+    "approval": {
+      "path": "docs/governance/releases/FOX2_OWNER_BRIDGE_RC1_PRECANARY_AUDIT_WAIVER_APPROVAL_20261018.json",
+      "commit": "451aaaf617cc2c9b7e4a9f8f6503e75bbc8e95a1",
+      "blob": "a39c92cb385f36c9eaa12d34e4299c885ae649e4"
+    },
+    "wp_addendum": {
+      "path": "docs/agent_handoff/FOX2_BRIDGE_RC1_OWNER_WAIVER_ACCEPTANCE_ADDENDUM_20261018.md",
+      "commit": "aa074802dd12673defd61f43c347c119e9770caf",
+      "blob": "d65fba987cb3777dfb3fd8dbaa46a9f21b00e47f"
+    },
+    "policy_candidate": {
+      "path": "docs/governance/FOX2_POLICY_OWNER_ACCEPTANCE_WAIVER_v1_CANDIDATE.md",
+      "commit": "d7df003df29b534d02208e440b2b5b8ef55a8902",
+      "blob": "9825082b29065a8eaa4a0ff3cca8d79630860dc1"
+    },
+    "historical_task": {
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "status": "PRESERVED"
+    },
+    "historical_gate_matrix": {
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json",
+      "blob": "fc126e1b4dd4d4978a322b51aef31e11aaee2e39",
+      "status": "PRESERVED"
+    },
+    "wp_registry": {
+      "commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+      "status": "WP_ONLY_EARLIER_RELEASE_UNCHANGED"
+    },
+    "policy_effective": {
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md"
+    },
+    "policy_projectwide_inflight": {
+      "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "immutable_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "status": "NOT_EFFECTIVE_NOT_MODIFIED"
+    }
+  },
+  "matrix_actual_from_authenticated_git": {
+    "total": 40,
+    "pass": 38,
+    "pending": [
+      "PRECANARY_INDEPENDENT_AUDIT"
+    ],
+    "nongating": [
+      "ICON_DISPOSITION"
+    ],
+    "historical_precanary_result": "PENDING_IN_ORIGINAL_MATRIX; LATER_BOUNDED_REPORT_BLOCKED",
+    "source_check": "LIVE_GIT_READ",
+    "owner_overlay": {
+      "gate": "PRECANARY_INDEPENDENT_AUDIT",
+      "disposition": "WAIVED_BY_OWNER",
+      "relabel_as_pass": false,
+      "applies_to_one_wp_only": true
+    },
+    "static_eligibility_expression": {
+      "historical_technical_gate_count": 38,
+      "all_original_technical_gates_pass": true,
+      "owner_review_step_waived": true,
+      "original_icon_gate_nongating": true,
+      "full_precanary_ready": "NOT_EVALUATED_REQUIRE_HOST_LEDGER_AND_FRESH_PREEXEC"
+    }
+  },
+  "affected_consumers_and_impact": [
+    {
+      "consumer": "Task acceptance contract section 7/11",
+      "impact": "Prospective Owner-approved waiver addendum supersedes only audit gate; historical task immutable",
+      "status": "DOC_ADDENDUM_PUBLISHED"
+    },
+    {
+      "consumer": "Whole-WP master sequencing",
+      "impact": "Bridge RC1 remains first; audit step waived only for RC1, Canary and APP dependency gates unchanged",
+      "status": "UNCHANGED_FLOW_WITH_WP_EXCEPTION"
+    },
+    {
+      "consumer": "Acceptance gates JSON 40 entries",
+      "impact": "Historical original entries remain exactly 38 PASS, one PENDING, one non-gating icon; overlay WAIVED_BY_OWNER must be handled separately",
+      "status": "IMMUTABLE"
+    },
+    {
+      "consumer": "Any all-gates-PASS evaluator/schema/parser",
+      "impact": "Could reject WAIVED_BY_OWNER or require all 40 to be PASS; needs focused read-only compatibility check before use; never falsify PASS",
+      "status": "UNKNOWN_NOT_TESTED"
+    },
+    {
+      "consumer": "Bridge runtime Dictionary v1.2 / Policy v1.8.9 / Routing v1.3",
+      "impact": "No runtime or source rebinding; proposal does not change machine binding",
+      "status": "PRESERVED"
+    },
+    {
+      "consumer": "Canary 009 exact-once host ledger",
+      "impact": "Fresh Windows package pointer/ledger, source lock, PreExec, permissions and no-replay admission still required",
+      "status": "NOT_RUN_HOLD"
+    },
+    {
+      "consumer": "Prospective Policy v1.9.0 & Dictionary v1.3 release chain",
+      "impact": "New owner waiver mechanism to incorporate in future governed revision; existing Git+Library parity and release proofs not mutated",
+      "status": "CANDIDATE_GLOBAL_EFFECTIVE_HOLD"
+    },
+    {
+      "consumer": "Other WPs APP-B/M1-A/M1-B",
+      "impact": "NO waiver inheritance; APP-B continues waiting for INTERNAL_FOX2_BRIDGE_READY",
+      "status": "NO_CHANGE"
+    }
+  ],
+  "owner_approved_invariants": [
+    "ONLY_ONE_BRIDGE_RC1_AUDIT_GATE_WAIVED",
+    "NO_TECHNICAL_TEST_RESULTS_REWRITTEN",
+    "NO_MATERIAL_FAULT_OR_SOURCE_MISMATCH_WAIVED",
+    "NO_NEW_DISPATCH_OR_CANARY_EXECUTION",
+    "NO_HISTORICAL_FILE_CHANGE",
+    "NO_GLOBAL_EFFECTIVE_CLAIM",
+    "NO_MAIN_MERGE_LIVE_PROVIDER_BROKER_RIGHTS",
+    "NO_AUTOMATIC_APP_B_RESUME"
+  ],
+  "verification": {
+    "original_acceptance_count": "PASS_40_ENTRIES_READ",
+    "original_technical_pass": "PASS_38_OF_38",
+    "original_audit_not_pass": "PASS_FACTUAL_UNCHANGED",
+    "owner_scope": "PASS_EXPLICIT_RC1_APPROVAL",
+    "source_immutability": "PASS_ONLY_NEW_GOVERNANCE_DOCUMENTS_SO_FAR",
+    "policy_v1_9_0_manifest_parity": "NOT_RETESTED_NO_TOUCH",
+    "automated_evaluator_waiver_compatibility": "UNKNOWN_NOT_RUN",
+    "current_windows_ledger": "UNKNOWN_NOT_READ",
+    "fresh_canary_preexec": "NOT_RUN",
+    "release_chain_global_policy": "HOLD_EXISTING_EXTERNAL_ATTESTATION_AND_COMPATIBILITY",
+    "rc1_precanary_ready": "HOLD"
+  },
+  "routing_precheck": {
+    "R0": "Dispatch004 completed and no replay; 34 bounded checks/B2 resolver preserved",
+    "R1": "Governance prospective semantic policy change + single WP internal audit gate waiver; not DEV",
+    "R2": "Owner explicitly authorized RC1 waiver; Policy global EFFECTIVE still separate trusted release process",
+    "R3": "CHAT authenticated Git docs write/remote readback available; Windows host/Copilot/Work/Codex quota unverified",
+    "R4": "CHAT directly publishes docs; no Agent needed for docs; CODEX/COPILOT only if evaluator is shown incompatible",
+    "R5": "Existing CHAT-owned non-main Governance branch, new unique docs paths only; no local Windows worktree affected",
+    "R6": "Git immutable commits/blob source chain/readback; Library Policy candidate sync not claimed",
+    "R7": "STOP Canary, APP-B, main/merge/LIVE, global EFFECTIVE, replay, or WAIVED->PASS falsification"
+  },
+  "next_safe_action": "Publish independent scoped release/publication record with confirmed immutable content and exact remote byte readback. CHAT then performs read-only Canary readiness evidence intake, and if material host/ledger unavailable reports HOLD with exact limitation; no Canary execution."
+}
