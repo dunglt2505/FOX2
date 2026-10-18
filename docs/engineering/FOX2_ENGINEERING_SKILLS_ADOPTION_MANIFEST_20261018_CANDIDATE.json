@@ -1,0 +1,75 @@
+{
+  "project": "FOX2",
+  "operation": "PROJECTWIDE_ENGINEERING_SKILLS_SELECTIVE_ADOPTION",
+  "status": "CANDIDATE_NOT_EFFECTIVE",
+  "date": "2026-10-18",
+  "owner_instruction": "Evaluate and implement for entire FOX2 project (2026-10-18)",
+  "target_repository": "dunglt2505/FOX2",
+  "target_base_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+  "target_base_branch": "work/FOX2-PHASE-A-LATEST-EXECUTION-chat-20261017",
+  "reference_repository": "addyosmani/agent-skills",
+  "upstream_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+  "upstream_release": "0.6.13",
+  "license": "MIT",
+  "methods": [
+    "constraint-driven-development",
+    "test-driven-development",
+    "code-review-and-quality",
+    "doubt-driven-development",
+    "context-engineering",
+    "api-and-interface-design"
+  ],
+  "applies_to": [
+    "docs/governance",
+    "docs/brd_mirror",
+    "docs/architecture",
+    "docs/data_contracts",
+    "docs/acceptance",
+    "docs/roadmap",
+    "backend",
+    "frontend",
+    "fixtures",
+    "tests",
+    "agent_bridge",
+    "skills/fox2-skills-integrated",
+    "docs/agent_handoff",
+    "reports",
+    ".github",
+    "future FOX2 components"
+  ],
+  "independent_authority": "AUTHORITY_UNVERIFIED",
+  "runtime_preexec": "NOT_RUN",
+  "live_agent_ab": "NOT_RUN",
+  "tests_executed": "NOT_RUN",
+  "security_exclusions": [
+    "upstream optional shell hooks",
+    "wholesale 25-skill installation",
+    "auto build/ship",
+    "blind Dispatch replay"
+  ],
+  "no_effects": [
+    "NO_MAIN_MERGE",
+    "NO_RUNTIME_AGENT_REBIND",
+    "NO_PLUGIN_UPDATE",
+    "NO_CANARY_009",
+    "NO_BRD_SEMANTIC_CHANGE",
+    "NO_GOVERNANCE_EFFECTIVE_CLAIM",
+    "NO_LIVE"
+  ],
+  "changed_paths": [
+    "AGENTS.md",
+    "docs/engineering/FOX2_ENGINEERING_QUALITY_STANDARD_v0.1_CANDIDATE.md",
+    "docs/engineering/FOX2_AGENT_SKILLS_ADOPTION_v0.1_CANDIDATE.md",
+    "docs/engineering/FOX2_ENGINEERING_SKILLS_EVAL_v0.1_CANDIDATE.md",
+    "docs/engineering/FOX2_ENGINEERING_SKILLS_ADOPTION_MANIFEST_20261018_CANDIDATE.json"
+  ],
+  "next_gates": [
+    "exact_remote_blob_readback",
+    "trusted governance/source check",
+    "affected-consumer review",
+    "risk-based independent audit",
+    "preexec before agent POC",
+    "sandbox comparative execution",
+    "owner-authorized promotion"
+  ]
+}
