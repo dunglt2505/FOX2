@@ -1,0 +1,143 @@
+{
+  "schema": "FOX2_GOVERNANCE_PROSPECTIVE_COMPATIBILITY_EVIDENCE_V1",
+  "project": "FOX2",
+  "created_utc": "2026-10-18T05:53:25+00:00",
+  "actor": "CHAT_DIRECT_OFFLINE_TEST",
+  "framework": "python3 pytest jsonschema Draft202012",
+  "provenance": {
+    "source_repository": "dunglt2505/FOX2",
+    "immutable_candidate_source_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+    "generator_repository_commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "actual_generator_git_blob_sha": "a8a46e6d9d2bda9ce637e3d206701f92ff976e87",
+    "generated_binding_current_installed_version": "1.2"
+  },
+  "candidate_source_files": [
+    {
+      "family": "dictionary",
+      "filename": "FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "bytes": 12012,
+      "sha256": "9682563aaa56f0f566cd4eebd25d83b9b5d8986ef49bd4ff37e30b4894f840c6",
+      "git_blob_sha": "6c9a5a2c4338489181794a2f2591989ded3ac01c",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "policy",
+      "filename": "FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "bytes": 17908,
+      "sha256": "69e6659da89460e513ee6b7fe8e904508496d81f78e104d7618c669bc214dee6",
+      "git_blob_sha": "e4c084838dd5b1079e2371b9052714cf817443e2",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "routing",
+      "filename": "FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "bytes": 9015,
+      "sha256": "636b6ce99ad8f0cd001dd247131456de688992357b4dd195a0f9dd4e69329917",
+      "git_blob_sha": "1894b65cdd67a812cf8bc3ac28bc1a7c0e0e663d",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "git_first_protocol",
+      "filename": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "bytes": 10023,
+      "sha256": "fb0eb10fb6525edb8fb221ef5e5a980461272a31dae2ff80f4c8dd5fb51716f9",
+      "git_blob_sha": "713f6c7fef9b3144ee484849d03c4a5f5b8f8220",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "preexec",
+      "filename": "FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "bytes": 10883,
+      "sha256": "700101049ed106387e1f22d1ca5b6b1e909c76da2dc2f535c6fd29c8a358d55a",
+      "git_blob_sha": "ecdc7c9e2fe50494fa1a98c02467b7426c202fde",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "chat_preflight",
+      "filename": "FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "bytes": 6314,
+      "sha256": "39ba00d1bef9deecc0298eca19556251d40d546513b208043e251520d3aedd10",
+      "git_blob_sha": "f1cfcc58857f401cda7a07640b606b8ec73e4628",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "chat_result",
+      "filename": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "bytes": 5695,
+      "sha256": "a39942855db944c6762a57e5ab7a87eac1330630125ee72dcec5627c87818bbe",
+      "git_blob_sha": "e53e89b1ab595b6d8022317c8ceb784e9f985205",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "master_plan",
+      "filename": "FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "bytes": 6081,
+      "sha256": "f16477a3a1541ef08a639eecdf404842bb1c43349f0b17e33aecc4d06eec04fe",
+      "git_blob_sha": "a9cdd1a7057574025174f7c299a06243b30b2bfd",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "release_map",
+      "filename": "FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "bytes": 6218,
+      "sha256": "47938a01079e856d3139d06fae9cfc93a228900b8a8ea5af0d5108e90a463190",
+      "git_blob_sha": "e7af58afc3704bd897c0d1be02d0d099224b0504",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    },
+    {
+      "family": "latest_git",
+      "filename": "FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+      "bytes": 5250,
+      "sha256": "ddb763ed1e3e768a5bf4a9214ea23bce640ed0d1c69f062cb34e673617b84314",
+      "git_blob_sha": "ea83fff4efe81772ac9ba03436b9afdfc8d99c09",
+      "manifest_sha256_match": true,
+      "manifest_git_blob_match": true
+    }
+  ],
+  "source_digest_gate": "PASS_10_OF_10_LOCAL_IMMUTABLE_SOURCE_PARITY",
+  "unit_test_result": {
+    "tests": 47,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS",
+    "scope": "isolated contract and prospective generation only",
+    "junit_file": "FOX2_GOVERNANCE_CONTRACT_TESTS_20261018.xml"
+  },
+  "dry_run_generator": {
+    "status": "PASS_ISOLATED",
+    "reference_generator_byte_exact_with_repo": true,
+    "immutable_commit_overridden_in_sandbox": "09dc4051e6a308f72a103e879489d275770a8761",
+    "generated_dictionary_version": "1.3",
+    "output_executed_in_memory": true,
+    "repo_generated_binding_unchanged": true,
+    "installer_host_tested": false
+  },
+  "compatibility_evidence": {
+    "dispatch_schema_v3": "SCHEMA_DRAFT_202012_CHECK_PASS",
+    "preflight_receipt_v1": "SCHEMA_DRAFT_202012_CHECK_PASS",
+    "inflight_rc1_binding_v1_2": "DO_NOT_MUTATE",
+    "candidate_dictionary_v1_3": "OFFLINE_GENERATION_PASS",
+    "preexec_shared_contracts_still_v1_1": true,
+    "preexec_candidate_current_v1_2": true,
+    "prospective_host_runtime": "NOT_RUN"
+  },
+  "release_gates": {
+    "OWNER_AUTHORITY": "OWNER_DIRECTIVE_CONFIRMED_CHAT",
+    "SOURCE_DIGEST": "PASS",
+    "CHAT_DIRECT_OFFLINE_COMPATIBILITY": "PASS",
+    "INSTALLED_CONSUMER_RUNTIME": "NOT_RUN",
+    "TRUSTED_INDEPENDENT_AUTHORITY_RELEASE_CHAIN": "NOT_AVAILABLE",
+    "GLOBAL_EFFECTIVE_REGISTRY": "HOLD",
+    "BRIDGE_CANARY_AND_APP": "UNCHANGED"
+  },
+  "conclusion": "PROSPECTIVE_DOCS_VERIFIED_AND_OFFLINE_47_PASS; NOT_GLOBAL_EFFECTIVE; installed runtime and trusted authority are not proven by this evidence."
+}
