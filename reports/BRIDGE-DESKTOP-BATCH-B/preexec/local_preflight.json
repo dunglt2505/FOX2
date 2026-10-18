@@ -81,7 +81,7 @@
       "status": "PASS"
     }
   },
-  "checked_at": "2026-10-17T09:50:56.943485+00:00",
+  "checked_at": "2026-10-18T02:44:01.993128+00:00",
   "dispatch_state": {
     "dispatch_consumed": false,
     "executable_dispatch_published": false
@@ -93,11 +93,11 @@
   "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/preexec/local_preflight.json",
   "receipt_type": "FOX2_PREEXEC_RECEIPT",
   "schema_version": "1.0",
-  "source_head": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "source_head": "dbaefdf686e06ffdf78b277288515deca9011710",
   "status": "PASS",
   "task_branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
   "task_source": {
-    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "git_commit_sha": "dbaefdf686e06ffdf78b277288515deca9011710",
     "git_path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
     "sha256": "a7a3f7d8eb8cb84d5690649c8a70f557dadfde51729cb9a87b7417330dca7e95"
   },
