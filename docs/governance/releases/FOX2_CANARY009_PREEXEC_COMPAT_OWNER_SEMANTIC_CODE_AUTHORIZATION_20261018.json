@@ -1,0 +1,97 @@
+{
+  "schema": "FOX2_OWNER_SCOPED_COMPAT_SEMANTIC_AND_CODE_AUTHORIZATION_1",
+  "project": "FOX2",
+  "date": "2026-10-18",
+  "authority_type": "OWNER_EXPLICIT_CHAT_DIRECTIVE_RECORDED_BY_CHAT_NOT_CRYPTOGRAPHIC_SIGNATURE",
+  "owner_message": "owner phê duyệt và làm tiếp đi",
+  "owner_message_binds_to": "CHAT preceding completed FOX2_CANARY009_PREEXEC_COMPATIBILITY_CHANGE_PACKAGE_20261018.json and request for semantic contract approval plus independently scoped bounded code authorization",
+  "owner_approval": {
+    "semantic": "APPROVED_FOR_CANDIDATE_ENGINEERING_AND_GOVERNED_RELEASE_PROCESS_NOT_AUTOMATIC_GLOBAL_EFFECTIVE",
+    "code": "APPROVED_BOUNDED_FOR_NEW_COMPATIBILITY_CODING_WP_SUBJECT_TO_OWN_V1_PREEXEC_PASS_AND_CHAT_ASSIGNMENT",
+    "scope": "Only resolve existing published immutable Canary009 dispatch preflight compatibility and split receipt publication locator in reusable shared PreExec; retain existing pre-dispatch v1 behavior",
+    "contract_source": {
+      "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+      "commit": "1e01fa9936a7f4b7c1ad097e55801c27c5319bf0",
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_COMPATIBILITY_CONTRACT_CANDIDATE_20261018.md"
+    },
+    "consumer_matrix": {
+      "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+      "commit": "1e01fa9936a7f4b7c1ad097e55801c27c5319bf0",
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_COMPATIBILITY_CONSUMER_MATRIX_20261018.json"
+    },
+    "implementation_scope": {
+      "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+      "commit": "1e01fa9936a7f4b7c1ad097e55801c27c5319bf0",
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_IMPLEMENTATION_SCOPE_CANDIDATE_20261018.md"
+    },
+    "preapproved_location_exception": "84ac87fbccc947c16490fb9365dc5a3d8e49661c",
+    "no_second_approval_needed_for_location": true
+  },
+  "implementation_binding": {
+    "repository": "dunglt2505/FOX2",
+    "source_base": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "task_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/task.md",
+    "preexec_profile": "LEGACY_V1_PRE_DISPATCH_FOR_NEW_CODE_TASK_ONLY",
+    "preexec_receipt_path": "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/preexec/preflight_receipt.json",
+    "code_paths": [
+      "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+      "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
+      "agent_bridge/scripts/preexec.py",
+      "agent_bridge/tests/test_preexec.py"
+    ],
+    "new_contract_candidate_paths": [
+      "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_EXISTING_DISPATCH_EXTENSION_CANDIDATE_20261018.json",
+      "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_EXISTING_DISPATCH_INTAKE_CANDIDATE_20261018.md",
+      "docs/agent_handoff/FOX2_PREEXEC_EXISTING_DISPATCH_CONTRACT_ADDENDUM_CANDIDATE_20261018.md"
+    ],
+    "conditional_dependency_paths": {
+      "status": "NOT_YET_ALLOWED_FOR_UNBOUNDED_EDIT",
+      "require_specific_source_impact_and_CHAT_scope_adjustment_before_touch": [
+        "agent_bridge/src/fox2_agent_bridge/preexec/probes.py",
+        "agent_bridge/scripts/generate_project_dictionary.py",
+        "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+        "agent_bridge/tests/test_project_dictionary.py",
+        "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+        "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+        "agent_bridge/src/fox2_agent_bridge/config.py"
+      ]
+    },
+    "allowed_delivery": "Exact non-main branch source/test/report commits after valid own PreExec and CHAT PASS_TO_ASSIGN. No blanket agent_bridge/** allowance."
+  },
+  "preexec_and_assignment_gates": {
+    "requires_before_code_execution": [
+      "Source-ready task commit and exact remote readback",
+      "Actual Windows worktree correctly bound, no unrelated WIP",
+      "Single writer and Git owner exclusion proven",
+      "R3 current capability/auth/quota and permission profile evidenced for each material candidate",
+      "Legacy effective PreExec v1 PASS for new coding task, receipt committed and pushed on exact coding task branch, then CHAT remote byte readback",
+      "CHAT issues PASS_TO_ASSIGN and selects eligible coding Agent; no automatic dispatch"
+    ],
+    "new_code_wp_has_no_executable_dispatch_published_yet": true,
+    "legacy_v1_receipt_must_truthfully_preserve_unpublished_false_for_this_new_code_task": true,
+    "existing_Canary009_dispatch_published_true": true,
+    "no_forged_Canary009_v1_receipt": true,
+    "model_for_Canary009_remains": "CODEX / gpt-6.1-sol / medium / FULL_ACCESS"
+  },
+  "future_release_gates": [
+    "Run old PreExec v1 regression plus new existing-published revalidation and race tests",
+    "Review actual diff, dynamic consumer selection and generated binding only if materially required",
+    "Validate all known consumer paths and explicit unknown material consumers",
+    "Separate semantic contract candidate source publication and trusted release approval before EFFECTIVE",
+    "Windows compatible installed runtime adoption after acceptance; no hot-swap",
+    "Canary host new fresh state/ledger and its own durable evidence PreExec in approved evidence branch",
+    "CHAT separate pre-Canary readiness decision"
+  ],
+  "prohibited": [
+    "No Canary009 claim/launch/run/replay/replace",
+    "No original schema-v1 or historical receipt rewrite",
+    "No mutation of four published location-exception files",
+    "No immutable Canary branch/head/dispatch/prompt change",
+    "No main/merge/deploy/provider/broker/LIVE",
+    "No editing unrelated or unapproved paths",
+    "No automatic global Policy/Registry EFFECTIVE"
+  ],
+  "status": "OWNER_APPROVED_SCOPED_SEMANTIC_AND_BOUNDED_CODE_SCOPE; EXECUTION_NOT_YET_ADMITTED; GLOBAL_EFFECTIVE_NOT_GRANTED"
+}
