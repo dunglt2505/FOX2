@@ -29,8 +29,12 @@
     "cloud_plugin": "fox2-skills-integrated 0.2.3, separate publishing track",
     "chat_first_publication_addendum": "docs/governance/releases/FOX2_CHAT_FIRST_GOVERNANCE_PUBLICATION_ADDENDUM_20261018.md",
     "consumer_impact_receipt": "docs/governance/releases/FOX2_GOVERNANCE_CONSUMER_IMPACT_PRECHECK_20261018.json",
-    "new_release_records_git_byte_readback": "PASS_3_OF_3",
-    "new_release_records_library_readback": "PENDING"
+    "new_release_records_git_byte_readback": "PASS_5_OF_5_DOC_REFS",
+    "new_release_records_library_readback": "PASS_2_OF_2_NEW_PUBLICATION_REPORT_AND_MACHINE_EVIDENCE;_3_OLDER_GIT_ONLY",
+    "chat_direct_publication_result": "docs/governance/releases/FOX2_GOVERNANCE_PUBLICATION_RESULT_20261018.md",
+    "chat_direct_publication_evidence": "docs/governance/releases/FOX2_GOVERNANCE_PUBLICATION_EVIDENCE_20261018.json",
+    "report_library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_GOVERNANCE_PUBLICATION_RESULT_20261018.md",
+    "evidence_library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_GOVERNANCE_PUBLICATION_EVIDENCE_20261018.json"
   },
   "sources": [
     {
@@ -158,13 +162,13 @@
   "release_gates": {
     "owner_authorization": "PASS_CHAT_FULL_SCOPE",
     "source_github_immutable": "PASS",
-    "source_digest": "PASS_10_OF_10",
+    "source_digest": "PASS_10_OF_10_GITHUB_AND_LIBRARY",
     "library_exact_byte_readback": "PASS_10_OF_10",
     "source_release_candidate_consistency": "PASS_9_OF_9_BASE_MANIFEST_PLUS_1_LINKED_CONTRACT",
     "semantic_consumer_compatibility": "PARTIAL_PASS_RUNTIME_DICTIONARY_BINDING_V1_2_TO_V1_3_NOT_TESTED",
     "trusted_independent_authority_verifier": "UNAVAILABLE_NOT_RUN; NOT_A_DEFAULT_WORK_ASSIGNMENT",
     "effective_registry_binding": "NOT_RUN",
-    "global_effective": "HOLD_PENDING_VERIFIER_AND_MATERIAL_RUNTIME_COMPATIBILITY"
+    "global_effective": "HOLD_PENDING_EXTERNAL_TRUST_ATTESTATION_AND_RUNTIME_COMPATIBILITY"
   },
   "in_flight": {
     "bridge_rc1": "PRESERVE_SOURCE_LOCK",
@@ -181,5 +185,5 @@
     "NO_DISPATCH_REPLAY",
     "NO_INFLIGHT_SOURCE_REBIND"
   ],
-  "next_verified_action": "CHAT completes no-duplicate documentation and release-evidence work; obtain trusted host verifier evidence and actual material Dictionary v1.3 runtime/consumer regression before asserting global EFFECTIVE. WORK not required by default. No repeat Owner approval for same scope."
+  "next_verified_action": "No further Owner approval required. CHAT direct documentation publication is complete. Global EFFECTIVE requires an actually trusted source release authority verifier and material v1.3 consumer runtime compatibility; do not self-certify. WORK is not a default reviewer."
 }
