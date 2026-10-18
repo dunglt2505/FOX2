@@ -14,7 +14,11 @@
     "record": "docs/governance/releases/FOX2_OWNER_GOVERNANCE_RELEASE_APPROVAL_20261018.json",
     "record_commit": "015460d23ecfacf21f39b33e88c4aec106f22e34",
     "approved": "YES",
-    "scope": "DOC_GOVERNANCE_ONLY"
+    "scope": "DOC_GOVERNANCE_ONLY",
+    "full_chat_delegation_record": "docs/governance/releases/FOX2_OWNER_CHAT_FULL_DELEGATION_20261018.json",
+    "full_chat_delegation_commit": "194cd740540e0ef1cb2b8fe53f7db129434c1652",
+    "chat_direct_execution": "AUTHORIZED_FOR_GOVERNANCE_DOCS",
+    "no_repeated_owner_approval": true
   },
   "publication": {
     "git_source_hashes": "PASS_10_OF_10_INCLUDING_LATEST_AT_EXECUTION_CONTRACT",
@@ -22,7 +26,11 @@
     "library_remote_byte_readback": "PASS_10_OF_10",
     "prior_library_copies": "HISTORICAL_PARTIAL_MISSING_GIT_LATEST_APPEND",
     "prior_library_copies_overwritten": false,
-    "cloud_plugin": "fox2-skills-integrated 0.2.3, separate publishing track"
+    "cloud_plugin": "fox2-skills-integrated 0.2.3, separate publishing track",
+    "chat_first_publication_addendum": "docs/governance/releases/FOX2_CHAT_FIRST_GOVERNANCE_PUBLICATION_ADDENDUM_20261018.md",
+    "consumer_impact_receipt": "docs/governance/releases/FOX2_GOVERNANCE_CONSUMER_IMPACT_PRECHECK_20261018.json",
+    "new_release_records_git_byte_readback": "PASS_3_OF_3",
+    "new_release_records_library_readback": "PENDING"
   },
   "sources": [
     {
@@ -148,15 +156,15 @@
     }
   ],
   "release_gates": {
-    "owner_authorization": "PASS",
+    "owner_authorization": "PASS_CHAT_FULL_SCOPE",
     "source_github_immutable": "PASS",
     "source_digest": "PASS_10_OF_10",
     "library_exact_byte_readback": "PASS_10_OF_10",
     "source_release_candidate_consistency": "PASS_9_OF_9_BASE_MANIFEST_PLUS_1_LINKED_CONTRACT",
-    "semantic_consumer_compatibility": "PENDING",
-    "trusted_independent_authority_verifier": "UNAVAILABLE_NOT_RUN",
+    "semantic_consumer_compatibility": "PARTIAL_PASS_RUNTIME_DICTIONARY_BINDING_V1_2_TO_V1_3_NOT_TESTED",
+    "trusted_independent_authority_verifier": "UNAVAILABLE_NOT_RUN; NOT_A_DEFAULT_WORK_ASSIGNMENT",
     "effective_registry_binding": "NOT_RUN",
-    "global_effective": "HOLD"
+    "global_effective": "HOLD_PENDING_VERIFIER_AND_MATERIAL_RUNTIME_COMPATIBILITY"
   },
   "in_flight": {
     "bridge_rc1": "PRESERVE_SOURCE_LOCK",
@@ -173,5 +181,5 @@
     "NO_DISPATCH_REPLAY",
     "NO_INFLIGHT_SOURCE_REBIND"
   ],
-  "next_verified_action": "Independent trusted authority verification and compatibility/readiness gate, then an independently authorized EFFECTIVE Registry release and Library readback. Do not relabel candidate source bytes as EFFECTIVE without this gate."
+  "next_verified_action": "CHAT completes no-duplicate documentation and release-evidence work; obtain trusted host verifier evidence and actual material Dictionary v1.3 runtime/consumer regression before asserting global EFFECTIVE. WORK not required by default. No repeat Owner approval for same scope."
 }
