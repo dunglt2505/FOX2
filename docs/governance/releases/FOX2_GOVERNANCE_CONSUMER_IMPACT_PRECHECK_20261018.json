@@ -1,0 +1,111 @@
+{
+  "schema": "FOX2_GOVERNANCE_CONSUMER_IMPACT_PRECHECK_1",
+  "project": "FOX2",
+  "date": "2026-10-18",
+  "reviewer": "CHAT",
+  "scope": "PROJECT_WIDE_GOVERNANCE_PROMOTION_STATIC_PRECHECK",
+  "review_method": "AUTHENTICATED_GITHUB_DIRECT_READ_ONLY",
+  "status": "PARTIAL_PASS_WITH_MATERIAL_RUNTIME_GATES_NOT_RUN",
+  "source": {
+    "candidate_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+    "legacy_effective_policy": "1.8.9",
+    "legacy_routing": "1.3.0",
+    "candidate_dictionary": "1.3",
+    "candidate_policy": "1.9.0",
+    "candidate_routing": "1.4.0",
+    "candidate_git_first": "13"
+  },
+  "checks": [
+    {
+      "id": "OWNER_DELEGATION",
+      "result": "PASS",
+      "evidence": "docs/governance/releases/FOX2_OWNER_CHAT_FULL_DELEGATION_20261018.json",
+      "note": "Owner authorizes direct CHAT publication; WORK is not a default reviewer."
+    },
+    {
+      "id": "GIT_LIB_BYTES",
+      "result": "PASS",
+      "evidence": "docs/governance/releases/FOX2_GOVERNANCE_OWNER_RELEASE_MANIFEST_20261018.json",
+      "note": "10 linked source files staged with SHA256 Git-Library parity."
+    },
+    {
+      "id": "CHANGE_CLASSIFICATION",
+      "result": "PASS_DOCUMENTARY",
+      "note": "Prospective governance semantics: CHAT-first delegation, live newest-applicable discovery, source authority and no-replay; existing protected effects stay unchanged."
+    },
+    {
+      "id": "BRIDGE_GENERATED_DICTIONARY_BINDING",
+      "result": "PENDING_RUNTIME_COMPATIBILITY",
+      "evidence": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py at f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "facts": {
+        "current_generated_version": "1.2",
+        "generated_source_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+        "proposed_dictionary_version": "1.3"
+      },
+      "note": "Existing installed Bridge generated binding still references v1.2. Do not rebind or regenerate in-flight RC1. Verify prospective new-execution compatibility and generator/drift tests before global runtime source promotion."
+    },
+    {
+      "id": "PREFLIGHT_DISPATCH_RESULT_SCHEMA",
+      "result": "STATIC_SOURCE_EXISTS_TEST_NOT_RUN",
+      "sources": [
+        "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+        "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json"
+      ],
+      "note": "No evidence of actual compatibility test run in this assessment."
+    },
+    {
+      "id": "BRIDGE_RC1_INFLIGHT",
+      "result": "SOURCE_LOCK_PRESERVED",
+      "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+      "source_commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "no_replay": true
+    },
+    {
+      "id": "CANARY_009",
+      "result": "NO_ACTION",
+      "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+      "note": "No rebind, no claim, no execution."
+    },
+    {
+      "id": "APP_BATCH_B",
+      "result": "PAUSED",
+      "branch": "work/FOX2-M1-A-APP-BATCH-B",
+      "note": "No resumed execution."
+    },
+    {
+      "id": "TRUSTED_AUTHORITY_VERIFICATION",
+      "result": "NOT_RUN",
+      "note": "No evidence of host-native verifier or equivalent independent authenticated release attestation in this environment; WORK is not per se the mandatory verifier."
+    },
+    {
+      "id": "EFFECTIVE_REGISTRY_WRITE",
+      "result": "NOT_RUN",
+      "note": "Do not issue effective_registry or EFFECTIVE flag while material runtime/authority release gates remain outstanding."
+    }
+  ],
+  "routing": {
+    "R0": "PASS_REUSE_PRIOR_EVIDENCE",
+    "R1": "PROSPECTIVE_GOVERNANCE_RELEASE",
+    "R2": "DOC_AUTHORIZED_NO_RUNTIME_DEV",
+    "R3": "CHAT_AUTHORIZED_GITHUB_LIBRARY_WORK_RUNTIME_UNKNOWN",
+    "R4": "DIRECT_CHAT_PREFERRED_COPILOT_CODEX_NOT_ASSIGNED_WORK_ONLY_IF_INDEPENDENT_RESIDUAL",
+    "R5": "NON_MAIN_BRANCH_SINGLE_CHAT_WRITER; WINDOWS_WORKTREE_NOT_INSPECTED",
+    "R6": "10_SOURCE_GIT_LIBRARY_STAGING_BYTES_VERIFIED",
+    "R7": "PUBLISH_DOC_AND_REPORT_ONLY; EFFECTIVE_HOLD"
+  },
+  "release_verdict": "GOVERNANCE_DOC_PUBLICATION_AUTHORIZED_EFFECTIVE_PENDING_TECHNICAL_GATES",
+  "blockers": [
+    "MATERIAL_CONSUMER_RUNTIME_COMPATIBILITY_UNVERIFIED",
+    "HOST_TRUSTED_RELEASE_AUTHORITY_VERIFIER_UNAVAILABLE",
+    "EFFECTIVE_REGISTRY_BINDING_NOT_RUN"
+  ],
+  "no_effects": [
+    "DEV",
+    "MERGE",
+    "LIVE",
+    "PROVIDER_WRITE",
+    "BROKER_WRITE",
+    "REPLAY",
+    "IN_FLIGHT_REBIND"
+  ]
+}
