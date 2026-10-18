@@ -1,0 +1,543 @@
+{
+  "format": "FOX2_RC1_PREEXEC_BINDING_DOCUMENTARY_INTAKE_V1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "recorded_at": "2026-10-18T22:03:53.339011+07:00",
+  "record_type": "SOURCE_BOUND_DOCUMENTARY_DECISION_NOT_PREFLIGHT_RECEIPT_NOT_AGENT_RESULT",
+  "authorization": "Current Owner request permits bounded non-main documentation; no normative source amendment inferred.",
+  "continued_from": {
+    "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+    "path": "docs/roadmap/FOX2_BRIDGE_RC1_WINDOWS_READONLY_INTAKE_20261018.json",
+    "sha256": "0a0b88a910779874b489e206626e83bd75ae7b7529a39dc7fb73e9db47b78b7b"
+  },
+  "frozen_source_resolution": {
+    "governance_branch": "work/FOX2-GOVERNANCE-OWNER-RELEASE-20261018",
+    "head": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+    "heads": {
+      "main": "40e653f009548f4b1c3d906aba9358e2210a6ab3",
+      "work/FOX2-20261013-RELEASE-SOURCE-SYNC-chat": "a07bb2f3fbec4dc6b3fa6643f7e56e19935d1649",
+      "work/FOX2-AGENT-PROMPT-SOURCE-FRESHNESS-chat-20261013": "1cba7d9857a6c04cf7f112449e447f00c7a679ad",
+      "work/FOX2-AGENT-USAGE-TELEMETRY-01-chat": "d2d2b8bc0116646cb83ca93e59d7209632a80aa4",
+      "work/FOX2-ARCH-STAGE-POLICY-RELEASE-chat-20261013": "031905a4fd59249c88683ace1d542828a3a711d2",
+      "work/FOX2-BRG-003-MANIFEST-RECOVERY-chat-20261013": "27446ffaffc18d8487f0582695062b567339bb2e",
+      "work/FOX2-BRG-003-SOURCE-BASELINE-copilot": "58efb364098b69e1723dcf2097bb1b77192e7415",
+      "work/FOX2-BRIDGE-CODEX-CANARY-001-codex": "733f5c798c840cd55e61c8c7c029f1775c889ed6",
+      "work/FOX2-BRIDGE-CODEX-CANARY-002-codex": "8204e2adef42761e53cf768aa8b65eab8f8b3d66",
+      "work/FOX2-BRIDGE-CODEX-CANARY-003-codex": "baa268fa4d99f4ac0d450ccfa327e4c446570fb3",
+      "work/FOX2-BRIDGE-CODEX-CANARY-004-codex": "6706206fca18421b428f8e89da05610dcb1ad3b2",
+      "work/FOX2-BRIDGE-CODEX-CLI-01-chat-20261014": "398bebf9c48e7694c69c3416a5780715f025e7b5",
+      "work/FOX2-BRIDGE-DELIVERY-HOTFIX-01-codex": "308edc7bdabbc541216a97318590d2394acc9096",
+      "work/FOX2-BRIDGE-DESKTOP-01-02-FIX-01-codex": "ef9f290e73c4f4500900528656212c38acf43a4f",
+      "work/FOX2-BRIDGE-DESKTOP-01-02-R2-codex": "3497356d5fc74785ab3377c1a49ea5330c0dab13",
+      "work/FOX2-BRIDGE-DESKTOP-01-02-codex": "c730e6d70a9cae707caa7dea0666ac7381f152ad",
+      "work/FOX2-BRIDGE-DESKTOP-01-worker-codex": "19098b21abac34a00372759f7635d6e2b97c605a",
+      "work/FOX2-BRIDGE-DESKTOP-APP-V1": "edbaeeaeb139b5c494b7e1ec00df38709a7206e7",
+      "work/FOX2-BRIDGE-DESKTOP-BATCH-A-codex": "3013f34d7ad91d1462e44495c873a84c41297b6b",
+      "work/FOX2-BRIDGE-DESKTOP-BATCH-B": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "work/FOX2-BRIDGE-DESKTOP-SPEC-chat-20261014": "3b21ac21a11e901ea97389336a0d2e60190308ee",
+      "work/FOX2-BRIDGE-E2E-CANARY-002-copilot": "7825bc8959f8c7a5bd825f31ebb16dad58249045",
+      "work/FOX2-BRIDGE-E2E-CANARY-003-copilot": "198c40e53034382e76dfc06ed5ea3950ec7dba30",
+      "work/FOX2-BRIDGE-E2E-CANARY-copilot": "1a9e7ce85b18aa1776f77f0fc64d8bfcfc3e906c",
+      "work/FOX2-BRIDGE-FINAL-CANARY-009": "501822a33ef08c7365154913bbc677544856eee5",
+      "work/FOX2-BRIDGE-OPS-CANARY-001-copilot": "62242983ccb040bc26699a1c169116176b234328",
+      "work/FOX2-BRIDGE-OPS-DEV-01-chat-20261013": "a3a6d0f0148d3bd66f6f564676704d856d52c002",
+      "work/FOX2-BRIDGE-OPS-DEV-CANARY-001-copilot": "dc87dfe0a63337963de4e590ab50433f05241911",
+      "work/FOX2-BRIDGE-OPS-DEV-CANARY-002-copilot": "a3a6d0f0148d3bd66f6f564676704d856d52c002",
+      "work/FOX2-BRIDGE-OPS-MVP-01-chat-20261013": "973d5d5aa53a9e806d73b07b18979dee46e9f7aa",
+      "work/FOX2-BRIDGE-QUOTA-RECOVERY-SPEC-chat-20261013": "92178766f3609e5c4c7f9be8a5eb584e988b8a0d",
+      "work/FOX2-BRIDGE-RC1-PRECANARY-AUDIT-20261018-readonly": "541bf35e3bdb95b701bd1cdc22b0bdbe87333110",
+      "work/FOX2-BRIDGE-RELAY-MVP-chat-20261013": "d8c7fa26f698eb72d8bb2521c82223cc3c5001c8",
+      "work/FOX2-BRIDGE-RELAY-MVP-copilot": "398bebf9c48e7694c69c3416a5780715f025e7b5",
+      "work/FOX2-BRIDGE-V05-BOOTSTRAP-TRUST-chat-20261013": "ed9f07c860182e1029aaaed45a06008ddadc224b",
+      "work/FOX2-C6F-POLICY-V16-P1-DELIVERY-chat-20261012": "881a380e4cfb2e8b64b3d063c50ffcfb3be7000b",
+      "work/FOX2-CHAT-FIRST-POLICY-RELEASE-chat-20261013": "5cd2d2985ddac572da3a38b77dbb01f81e1709c0",
+      "work/FOX2-CHAT-FIRST-SKILLS-CANDIDATE-20261017": "5d6fab38448a4c33a052fc64f3212eac25972a38",
+      "work/FOX2-DISPATCH-V2-chat-20261014": "f159627df32fde912b912b97f08ce98299e4b81e",
+      "work/FOX2-DISPATCH-chat": "dc79f8143eec471508bf37565bff38442ce0548a",
+      "work/FOX2-ENGINEERING-STANDARDS-PROJECTWIDE-CANDIDATE-20261018": "b8ffd6bf701f4892195020e33589947c5038c4b1",
+      "work/FOX2-EXECUTION-REBASE-chat-20261013": "9cbac45ca0f171084fa52b7cd695a145d6e1e094",
+      "work/FOX2-GITFIRST-BOOTSTRAP-chat-20261012": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+      "work/FOX2-GITFIRST-OFFICIAL-SYNC-work-20261012": "1534e021c952147c42816a7f95c086ab59829b38",
+      "work/FOX2-GITFIRST-SYNC-RECOVERY-001-work-20261012": "bd44dc2bb2fa1ba43070ea1052764320a86507c3",
+      "work/FOX2-GOVERNANCE-OWNER-RELEASE-20261018": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+      "work/FOX2-LATEST-EXECUTION-GUIDANCE-chat-20261017": "5f1a6b6b4aaf6ed50e0e78fa8b6818586e029745",
+      "work/FOX2-LOCAL-DISPATCH-chat": "987c3fc7fcbb67f042823d38cdeaaaad3aa0f9b9",
+      "work/FOX2-M0-MAIN-SOURCE-DOCS-20261011": "f311c1fc5b2f37962b30d4af3d90cc8dc30bd8a8",
+      "work/FOX2-M0-SOURCE-MIRROR-20261011": "60892265d752d773829139c50039f9d81530e849",
+      "work/FOX2-M1-A-APP-BATCH-A-codex": "3db6298e4286022e5820eb7b712c436cbade6a62",
+      "work/FOX2-M1-A-APP-BATCH-B": "fc8aba202e15bddfcc5156b2c1bb36ed222329eb",
+      "work/FOX2-M1-P2-01-BRIDGE-copilot": "98ecc26f4c0100c7d4731ac7e39644e92a2d7d30",
+      "work/FOX2-M1-P2-01-DELIVERY-REBIND-chat-20261013": "78b8060b170debf81f155d54fd254284e03bf264",
+      "work/FOX2-M1-P2-01-DEV-READINESS-chat-20261012": "71841cf5841b6716088d9acf0e5035d60cae72db",
+      "work/FOX2-M1-P2-01-PREDEV-LOCK-chat-20261013": "a374142d191c84a6a9e0bd8e4c21593797d31794",
+      "work/FOX2-M1-P2-01-foundation-codex": "4bbbdf02387727e7d3c6900f163d7b1eedc5e2b3",
+      "work/FOX2-M1-P2-02-store-codex": "f70f0237356c4f27afb0e6760b01870228ba3739",
+      "work/FOX2-M1-P2-03-dsm-codex": "d90987afd861a41aef01059d95ca039509ede09c",
+      "work/FOX2-M1-P2-ROADMAP-PLANNING-chat-20261012": "f6e76c3a727dd06b8b25dac9537a6ebe61c94b71",
+      "work/FOX2-M1-V04-ROADMAP-RELEASE-chat-20261012": "ba9714b697f26172fbbcd67704698bc1aae43b70",
+      "work/FOX2-M1-V04-SOURCE-RECOVERY-chat-20261012": "955e74ff67e6b4ed184dc2c2dcd4260c51dc529b",
+      "work/FOX2-PARALLEL-EXECUTION-PROMPTS-chat-20261013": "1e37dc5252837f861e23641e11a1ffaad27d251e",
+      "work/FOX2-PHASE-A-LATEST-EXECUTION-chat-20261017": "09dc4051e6a308f72a103e879489d275770a8761",
+      "work/FOX2-POLICY-V17-STANDING-REPORTING-chat-20261012": "def8985155db6329e42d480cc8c728ebbfa4d4f5",
+      "work/FOX2-POLICY-V18-LOCAL-BRIDGE-chat-20261012": "d23fdfb4c89c8317eddbe43523c1896d3c03d3a1",
+      "work/FOX2-POLICY-V181-EXECUTION-ROUTING-UI-chat-20261012": "20baf4ce8b8fa390bd8e42d4cad81f5b64d414c0",
+      "work/FOX2-PREEXEC-ROLLOUT-V1": "fd5b27456ecd1511cc66273bfc6b546db5ce29bd",
+      "work/FOX2-REUSABLE-PROJECT-SOURCE-KIT-chat-20261013": "98d7d9f37b1c9397613479be8429665467521c99",
+      "work/FOX2-REVIEW-EVENTS-bridge": "c9dc41b97ca8bc58f06cc2f3701832ba083422e3",
+      "work/FOX2-SFR010-OFFLINE-SOURCE-RELEASE-chat-20261013": "96460d92da51c3fa5e92ceff4ff0154f7fddf884",
+      "work/FOX2-SFR-P0-SOURCE-FRESHNESS-chat-20261013": "c6a4626dfc84e991e7f6ec860ed2e4587a68af2d",
+      "work/FOX2-SIMPLIFIED-BRIDGE-V185-V06-RELEASE-chat-20261013": "63c9c0e86ba8892f96566189def63cb8afe33cf2",
+      "work/FOX2-V182-BRD05-TECH-RELEASE-SYNC-chat-20261013": "36e2674c7a2480bfc82e4a5a5ae3633eca4bcc26",
+      "work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot": "0dba7673ee8ad3b2d64ceabfeacce21564f3bed3",
+      "work/FOX2-WP-M1-P2-01-DEV-READINESS-copilot": "959bd0f32d1a87015f7144bedb910d86b74fab21"
+    },
+    "documents": [
+      {
+        "path": "docs/agent_handoff/FOX2_BRIDGE_RC1_OWNER_WAIVER_ACCEPTANCE_ADDENDUM_20261018.md",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "6f2ff68a28169dd63d4db9346148314891fb981b5fb614f45766b1406b5724bb"
+      },
+      {
+        "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_CHAT_FIRST_GOVERNANCE_PUBLICATION_ADDENDUM_20261018.md",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "687e9fbc275cf3222cdba8d3b615cc42a8706c6d1bd9abec503e46092d397904"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_COMPATIBILITY_EVIDENCE_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "13779739ea4e219a76fc14ecea6b20154ced6ad998b7d02673746b5c70dee601"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_CONSUMER_IMPACT_PRECHECK_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "5bb5ae539275ae3366bbcd8550109e3a70c1b0844c024df655e3bc2c65bea83a"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_CONTRACT_TESTS_20261018.xml",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "37525a20c16875cc22bb5952411b6914213669ff4ce49b8a386afde0ad3be8e1"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_FINAL_INTAKE_20261018.md",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "b7daf8956cbd4c94f65671f5fd3e431fd2f33534136caf6c120bd62a914ae026"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_OWNER_RELEASE_MANIFEST_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "bdf59a0f79c0ea3268279645bbab7253c3dd9d3f07ca45356c9591969e097aa3"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_PUBLICATION_EVIDENCE_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "22caa1a3fc97ad5e9ff9f42e8becfd9e7588c89330ee304853fab0dddfd9f862"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_GOVERNANCE_PUBLICATION_RESULT_20261018.md",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "f4e37c1a812709d4c5d7441fa9caf1f62b4e2c010f440cf102db4d836270fbdf"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_INDEPENDENT_REVIEW_ADMISSION_IMPACT_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "4d30ebb2df7b3aaebcd306f255a0fc1e457fae6d35e1fa3fb01dec9a265aded9"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_INDEPENDENT_REVIEW_ADMISSION_METHOD_DECISION_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "119a30c58886492ba776e096da521890701ab49e4f8aea0acae903c29b762151"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_OWNER_ACCEPTANCE_WAIVER_CHANGE_IMPACT_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "3c758788475b186f08ee0753364933efe205612aa0d0b1155ce534632d249f92"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_OWNER_BRIDGE_RC1_PRECANARY_AUDIT_WAIVER_APPROVAL_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "ea3a6955d32f4be58aae0208b29b81d2a9fd7e6e1596abd91321cf74c0639ab1"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_OWNER_CHAT_FULL_DELEGATION_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "9445fc6bc2538695f6ce765e2be56505d901e042b0d4ea9707dccea31e714632"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_OWNER_GOVERNANCE_RELEASE_APPROVAL_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "d9cc72ccde8aad5539798ce2fbaf67ef50e4f1a143dbff1255edfb1bd64f49f4"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_OWNER_WAIVER_SCOPED_PUBLICATION_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "be0c4cd9640257ff9d52fc2e07d2c4d278e871175baeba15a1acd534382ec151"
+      },
+      {
+        "path": "docs/governance/releases/FOX2_PROJECTWIDE_REGISTRY_PREPROMOTION_20261018.json",
+        "commit": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+        "sha256": "f8f3dbe2df8984048afb3c71a2e2d0afdc65e0b5749da48046157f12da5367f2"
+      }
+    ],
+    "frozen_registry_commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+    "bindings": {
+      "dictionary": {
+        "family": "dictionary",
+        "version": "1.2",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+        "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "dictionary_generated_binding": {
+        "family": "dictionary_generated_binding",
+        "version": "1.2",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+        "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "policy": {
+        "family": "policy",
+        "version": "1.8.9",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+        "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "routing": {
+        "family": "routing",
+        "version": "1.3.0",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+        "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "preexec_protocol": {
+        "family": "preexec_protocol",
+        "version": "1.1",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+        "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "preflight_receipt_schema": {
+        "family": "preflight_receipt_schema",
+        "version": "1",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+        "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "chat_preflight_intake": {
+        "family": "chat_preflight_intake",
+        "version": "1.1",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+        "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "dispatch_schema": {
+        "family": "dispatch_schema",
+        "version": "3.0",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+        "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "git_first_protocol": {
+        "family": "git_first_protocol",
+        "version": "12",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+        "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      },
+      "bridge_technical_spec": {
+        "family": "bridge_technical_spec",
+        "version": "0.7-REV10",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+        "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "approval_sha256": "6185200cc2585e9a6c3fda620ed4c12841f5863b9462ba77d874253ace13de53",
+    "intake_sha256": "0a0b88a910779874b489e206626e83bd75ae7b7529a39dc7fb73e9db47b78b7b"
+  },
+  "latest_prospective_sources_checked": [
+    {
+      "family": "dictionary",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "sha256": "9682563aaa56f0f566cd4eebd25d83b9b5d8986ef49bd4ff37e30b4894f840c6",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "policy",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/governance/FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "sha256": "69e6659da89460e513ee6b7fe8e904508496d81f78e104d7618c669bc214dee6",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "routing",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "sha256": "636b6ce99ad8f0cd001dd247131456de688992357b4dd195a0f9dd4e69329917",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "git_first_protocol",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "sha256": "fb0eb10fb6525edb8fb221ef5e5a980461272a31dae2ff80f4c8dd5fb51716f9",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "preexec",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "sha256": "700101049ed106387e1f22d1ca5b6b1e909c76da2dc2f535c6fd29c8a358d55a",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "chat_preflight",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "sha256": "39ba00d1bef9deecc0298eca19556251d40d546513b208043e251520d3aedd10",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "chat_result_intake",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "sha256": "a39942855db944c6762a57e5ab7a87eac1330630125ee72dcec5627c87818bbe",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "master_plan_addendum",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "sha256": "f16477a3a1541ef08a639eecdf404842bb1c43349f0b17e33aecc4d06eec04fe",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "governance_release_map",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/governance/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "sha256": "47938a01079e856d3139d06fae9cfc93a228900b8a8ea5af0d5108e90a463190",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    },
+    {
+      "family": "latest_at_execution_contract",
+      "commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "path": "docs/governance/FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+      "sha256": "ddb763ed1e3e768a5bf4a9214ea23bce640ed0d1c69f062cb34e673617b84314",
+      "verification": "REMOTE_BYTES_MATCH_RELEASE_MANIFEST",
+      "applicability": "PROSPECTIVE_GLOBAL_HOLD_NOT_REBOUND_TO_CANARY"
+    }
+  ],
+  "immutable_canary": {
+    "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "locked_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-FINAL-CANARY-009",
+    "dispatch_control_commit": "dc79f8143eec471508bf37565bff38442ce0548a",
+    "dispatch_path": "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json",
+    "dispatch_blob": "7bba347537d48d4d7b499841efeafc06ea3e597f",
+    "prompt_commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+    "prompt_path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_FINAL_CANARY_009_PROMPT.md",
+    "prompt_sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+    "agent": "CODEX",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "permission_profile": "FULL_ACCESS",
+    "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+    "delivery_owner": "BRIDGE",
+    "max_runs": 1,
+    "allowed_code_paths": [],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/**"
+    ],
+    "permission_interpretation": "Legacy code_allowed=true does not expand the empty code allowlist. Frozen prompt limits writes to the Canary report and forbids Agent commit/push. No permission is exercised by this intake."
+  },
+  "dispatch_reverified": {
+    "blob": "7bba347537d48d4d7b499841efeafc06ea3e597f",
+    "sha256": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a",
+    "prompt_blob": "a3eec972f19d84866b2915edd4bca7a4a02af335",
+    "prompt_sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+    "remote_head": "501822a33ef08c7365154913bbc677544856eee5"
+  },
+  "owner_waiver": "WAIVED_BY_OWNER_FOR_PRECANARY_INDEPENDENT_AUDIT_ONLY; not a PreExec source amendment",
+  "routing_precheck": {
+    "sequence": [
+      "POLICY_CHECK",
+      "TASK_STATE_CHECK",
+      "ROUTING_R0_R7",
+      "ASSIGNMENT_CHECK",
+      "RESPONSE"
+    ],
+    "POLICY_CHECK": "Verified frozen Dictionary1.2/Policy1.8.9/Routing1.3.0/Protocol12/PreExec1.1 using shared resolver 0.2.5, 10/10 families. Read current release and verified 10/10 prospective source digests; global promotion HOLD, preserve in-flight lock.",
+    "TASK_STATE_CHECK": "Continue exact Git intake 899572d; no repeat of implementation/technical tests. Legacy Canary dispatch exists, unchanged; current ledger consumption UNKNOWN, previous H2 observation only at 21:46:06+07.",
+    "R0": "Existing intake and publication bytes reverified; implementation and earlier audits not repeated.",
+    "R1": "RC1 pre-Canary source-binding and host preparation, no product implementation.",
+    "R2": "Documentation only; PreExec exact-task-branch constraint unresolved for immutable Canary; scoped audit waiver retained, no expanded exception. CODE_ALLOWED=[]; no DEV/main/merge/LIVE.",
+    "R3": {
+      "host": "FOXLE-PC",
+      "user": "foxle-pc\\fox le",
+      "access": "ACTUAL_LOCAL_SHELL_CONFIRMED_NOT_CLOUD_WORK",
+      "intended_worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-FINAL-CANARY-009",
+      "path_exists": false,
+      "registered_worktree_on_canary_branch": false,
+      "local_canary_branch_exists": false,
+      "remote_tracking_head": "501822a33ef08c7365154913bbc677544856eee5",
+      "locked_object_present": true,
+      "parent_acl_owner": "FOXLE-PC\\Fox Le",
+      "primary_repo_wip": "CLEAN_AT_OBSERVATION_USING_NO_OPTIONAL_LOCKS",
+      "primary_repo_branch": "work/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY-copilot",
+      "single_writer": "UNKNOWN_NO_EXCLUSIVE_RESERVATION_ESTABLISHED",
+      "process_check": "No visible inspected process command line mentioned target; one sandbox-service command line unavailable. Absence of a matching process is not exclusive-writer proof.",
+      "codex_cli": "0.162.1",
+      "codex_auth": "Logged in using ChatGPT",
+      "codex_account_quota_remaining_percent": {
+        "primary": 61,
+        "secondary": 71
+      },
+      "ordinary_usage_allowed": true,
+      "quota_scope": "Actual desktop telemetry for calling host account; not pinned-model execution proof",
+      "copilot_cli": "1.0.98",
+      "copilot_quota": "UNKNOWN",
+      "copilot_auth_and_model_capability": "UNKNOWN_NOT_PROBED",
+      "full_access_probe": "NOT_RUN",
+      "pinned_model_capability": "UNKNOWN",
+      "session_permission_profile": "WORKSPACE_WRITE_WITH_REVIEWED_ESCALATION_NOT_FULL_ACCESS_MODEL_PROOF",
+      "worktree_created": false,
+      "writer_lock_created": false,
+      "ledger_refreshed": false
+    },
+    "R4": "DIRECT_CHAT selected for actual reads and one authorized documentation intake publication, avoiding another model call. CODEX is only pinned candidate for future capability proof; COPILOT considered but cannot replace pinned model, quota unknown. WORK has no established independent-host access and waived audit does not need it. No invented cost ranking.",
+    "R5": "Host worktree absent; local Canary branch absent; frozen object and exact origin tracking ref present. Parent ACL owner observed, exclusive writer UNKNOWN. Governance branch has no registered local checkout; new exact documentation path and expected-head/non-fast-forward guards used for publication.",
+    "R6": "This documentary decision is not Preflight Receipt or Agent Result. Exact remote byte readback required. Preserve source lock, dispatch, max_runs, delivery owner, and historical H1/H2 as-of boundaries.",
+    "R7": "CHAT documentation only; no implementation assignment. CODEX gpt-6.1-sol/medium/FULL_ACCESS remains candidate HOLD. Stop host mutations on unknown writer ownership, tuple/profile mismatch, drift, WIP, ambiguous ledger or unapproved evidence binding.",
+    "ASSIGNMENT_CHECK": "PASS_FOR_DIRECT_DOCUMENTARY_SCOPE_ONLY; EXECUTABLE_ASSIGNMENT_NOT_ISSUED"
+  },
+  "binding_decision": {
+    "status": "BLOCKED_CANONICAL_CANARY_PREEXEC_EVIDENCE_LOCATION",
+    "rule_sources": [
+      {
+        "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+        "section": "4 Git publication",
+        "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+        "rule": "Receipts committed/pushed to exact non-main task branch under authorized report/evidence path."
+      },
+      {
+        "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+        "section": "2 Remote publication",
+        "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+        "rule": "Receipt exists on exact non-main task branch."
+      },
+      {
+        "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+        "section": "12 Project-wide pre-execution evidence protocol",
+        "rule": "WP-specific checks must not weaken or replace shared semantics."
+      }
+    ],
+    "interpretation": "A separate preparation/evidence branch may hold documentary preparation facts, but cannot satisfy canonical Canary PreExec1.1 by CHAT location binding alone. Advancing the immutable Canary ref to publish receipt is forbidden. No applicable exception found in current release, scoped audit waiver, acceptance addendum or original intake.",
+    "owner_source_amendment_required_for_cross_branch_canonical_receipt": true,
+    "current_user_proceed_authorization": "Authorizes investigation/preparation and supported docs publication, not an explicit normative exception to exact-task-branch rule; user expressly preserves immutable Canary head.",
+    "amendment_requirements": [
+      "Explicit Owner-scoped prospective exception covering PreExec1.1 section4 AND intake1.1 section2 for this Canary only; not merely a location recommendation.",
+      "Exact evidence branch/path and immutable Canary branch/head/task/prompt/dispatch linkage; report original executable dispatch as existing, do not falsify absent-dispatch fields.",
+      "Exact authorized host preparer paths, single-writer reservation, gpt-6.1-sol/medium with danger-full-access and approval-never mapping for one non-implementation capability probe.",
+      "CHAT remote-readback acceptance plus consumer compatibility check; no Canary/ref/source/prompt/tuple replacement, no worker start or readiness grant."
+    ],
+    "candidate_destination_not_yet_authorized_as_preexec": {
+      "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/preexec/preflight_receipt.json",
+      "created": false,
+      "canonical_binding": "NOT_GRANTED"
+    }
+  },
+  "bounded_host_preparation": {
+    "status": "PREPARED_CONDITIONAL_NOT_EXECUTED",
+    "scope": "Host preparation only, same Whole-WP; no executable dispatch",
+    "ordered_operations": [
+      {
+        "step": 1,
+        "action": "Recheck current remote Canary head, path absence, local ref and worktree registrations, source approvals and quota. Establish bounded exclusive writer reservation under an explicitly authorized host location; STOP if exclusion cannot be proved."
+      },
+      {
+        "step": 2,
+        "action": "Host preparer attaches existing remote task branch to absent target at exact locked head, with checkout hooks and external smudge filters disabled; no reset/stash/rebase and no product edits. Verify resolved path, ACL/owner, branch, HEAD, clean status and reservation. Local branch is currently absent; create tracking local ref only if remote still matches immutable lock."
+      },
+      {
+        "step": 3,
+        "action": "After exact scoped FULL_ACCESS admission, run ONE minimal marker-only Codex probe in a separate empty directory outside repo/control/watch paths, with verified CLI flags gpt-6.1-sol, medium, danger-full-access, approval never. No Canary prompt/marker, tools, Git or Bridge actions. Sanitized exit/actual tuple/marker only; no fallback or auto-retry."
+      },
+      {
+        "step": 4,
+        "action": "Only after explicit canonical evidence-location exception is source-bound and accepted, perform fresh shared-v1.1 material preflight and safe read-only ledger snapshot. Preserve original preexisting dispatch facts. Publish to approved location and exact-byte read back. This step was NOT_RUN."
+      }
+    ],
+    "stop": "No host worktree/probe mutation in this run: exclusive writer and exact probe permission admission unproven. Binding amendment is separately required for canonical PreExec publication."
+  },
+  "final_states": {
+    "H1": "PASS_AS_USER_REPORTED_NOT_REHASHED_THIS_RUN",
+    "H2": "PASS_ONLY_AS_OF_2026-10-18T21:46:06+07:00_CURRENT_UNKNOWN",
+    "H3": "BLOCKED",
+    "H5": "BLOCKED",
+    "durable_preexec": "NOT_RUN",
+    "canary_consumption_current": "UNKNOWN_NOT_REOBSERVED",
+    "canary_executed_by_this_run": false,
+    "worker_launched": false,
+    "bridge_status_used": false,
+    "product_changed": false,
+    "readiness": "NOT_GRANTED",
+    "new_dev_main_merge_live_grant": false
+  },
+  "publication_intent": {
+    "branch": "work/FOX2-GOVERNANCE-OWNER-RELEASE-20261018",
+    "expected_parent": "899572d2ce0cccc98c93c58293295f1baf4f5d16",
+    "allowed_paths": [
+      "docs/roadmap/FOX2_BRIDGE_RC1_PREEXEC_BINDING_DECISION_20261018.json"
+    ],
+    "status": "READBACK_REQUIRED_AFTER_COMMIT"
+  }
+}
