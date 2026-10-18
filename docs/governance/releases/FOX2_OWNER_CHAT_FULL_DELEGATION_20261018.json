@@ -1,0 +1,46 @@
+{
+  "schema": "FOX2_OWNER_CHAT_FULL_DELEGATION_1",
+  "project": "FOX2",
+  "authorized_at": "2026-10-18",
+  "authorized_by": "OWNER_DIRECTIVE_IN_ACTIVE_CHAT",
+  "source_scope": "FOX2_GOVERNANCE_PROJECTWIDE_PROSPECTIVE",
+  "status": "OWNER_DIRECTLY_DELEGATED_TO_CHAT",
+  "directive": "Owner giao toan quyen cho CHAT thuc hien cong viec Governance FOX2 trong pham vi da duyet. Khong can xin phe duyet lai tung buoc; CHAT truc tiep thuc hien khi co cong cu, quyen va bang chung.",
+  "actor": "CHAT",
+  "execution_default": "DIRECT_CHAT",
+  "allowed_operations": [
+    "live_git_source_discovery_and_diff",
+    "governance_impact_review",
+    "prospective_versioned_documentation_changes",
+    "new_non_main_git_branch_and_docs_publication",
+    "immutable_manifest_and_owner_authorization_receipts",
+    "conflict_safe_library_publication_and_readback",
+    "trusted_source_and_digest_checks",
+    "consumer_static_compatibility_review",
+    "effectivity_promotion_when_all_pre_existing_release_gates_proven",
+    "result_intake_and_handoff_decision"
+  ],
+  "no_repeat_owner_approval_when_same_scope": true,
+  "not_equivalent_to": [
+    "independent_host_attestation",
+    "successful_runtime_tests",
+    "WORK_independent_signoff_when_materially_required",
+    "source_registry_effective_by_self_assertion",
+    "auto_hot_swap_of_inflight_dispatch"
+  ],
+  "execution_principle": "Authorized operations are carried out immediately and verified, without WORK as a default intermediate approval. Missing capabilities produce a specific BLOCKED gate only.",
+  "preserved_protections": [
+    "NO_NEW_DEV_GRANT",
+    "NO_MAIN_MERGE",
+    "NO_PRODUCTION_OR_LIVE",
+    "NO_PROVIDER_OR_BROKER_WRITE",
+    "NO_INFLIGHT_SOURCE_REBIND",
+    "NO_DISPATCH_REPLAY",
+    "NO_UNVERIFIED_EFFECTIVE_CLAIM"
+  ],
+  "governance_source_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+  "governance_release_branch": "work/FOX2-GOVERNANCE-OWNER-RELEASE-20261018",
+  "previous_release_manifest": "docs/governance/releases/FOX2_GOVERNANCE_OWNER_RELEASE_MANIFEST_20261018.json",
+  "effectivity_authority": "Owner delegates execution, but required source/compatibility/independent-host release proofs must still be obtained rather than invented.",
+  "owner_approval_required_again": false
+}
