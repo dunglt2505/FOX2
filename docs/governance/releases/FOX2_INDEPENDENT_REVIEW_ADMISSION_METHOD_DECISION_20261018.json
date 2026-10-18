@@ -1,0 +1,115 @@
+{
+  "schema": "FOX2_REVIEW_ADMISSION_GOVERNANCE_DECISION_1",
+  "project": "FOX2",
+  "date": "2026-10-18",
+  "decision_id": "FOX2-REVIEW-ADMISSION-METHOD-SELECT-20261018",
+  "decision_owner": "CHAT — delegated prospective Governance document execution",
+  "decision_origin": "Owner instruction in current FOX2 conversation to implement next Governance decision; this is NOT a host-issued reviewer attestation, an independent release verifier, or a waiver of the frozen task.",
+  "decision_state": "METHOD_SELECTED_FOR_PROSPECTIVE_GOVERNANCE_CANDIDATE_ONLY",
+  "effective": false,
+  "registry_promotion_performed": false,
+  "release_gate_granted": false,
+  "document_precedence": "Candidate decision is subordinate to EFFECTIVE FOX2 Policy, Registry, frozen Bridge task and actual independent release-chain authority.",
+  "authority": {
+    "owner_chat_delegation": {
+      "path": "docs/governance/releases/FOX2_OWNER_CHAT_FULL_DELEGATION_20261018.json",
+      "blob_sha1": "c912af6ff0c29c13ccfb59241393d51ab4a91b78",
+      "scope": "AUTHORIZE_PROSPECTIVE_DOCS_AND_NONMAIN_PUBLICATION_NOT_UNVERIFIED_EFFECTIVE"
+    },
+    "wp_only_registry": {
+      "ref": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+      "status": "EFFECTIVE_FOR_FROZEN_BRIDGE_WP_ONLY"
+    },
+    "frozen_wp": {
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "mandated_role": "WORK",
+      "required_precanary_gate": "PRECANARY_INDEPENDENT_AUDIT=PASS"
+    },
+    "candidate_contract": {
+      "path": "docs/governance/FOX2_INDEPENDENT_REVIEW_ADMISSION_CONTRACT_v1_CANDIDATE.md",
+      "sha1": "eb7f8c70d0da24cb09cf49115f9231b05d4443a9"
+    },
+    "candidate_schema": {
+      "path": "docs/governance/FOX2_INDEPENDENT_AUDIT_RECEIPT_SCHEMA_v1_CANDIDATE.json",
+      "sha1": "8125a81f38da1be2791df40873b1afcc59416bbe"
+    },
+    "candidate_bridge_addendum": {
+      "path": "docs/roadmap/FOX2_BRIDGE_RC1_REVIEW_ADMISSION_ADDENDUM_20261018_CANDIDATE.md",
+      "sha1": "4836fad8a4d4534836d1cb1c6f7793e998c25451"
+    },
+    "impact_record": {
+      "path": "docs/governance/releases/FOX2_INDEPENDENT_REVIEW_ADMISSION_IMPACT_20261018.json",
+      "sha1": "106dc05f33b02ae7c0f9923d4d97265f09134f2c"
+    }
+  },
+  "selection": {
+    "preferred_mode": "HOST_NATIVE",
+    "fallback_mode": "EXTERNALLY_CORROBORATED_REVIEWER_OF_RECORD",
+    "fallback_decision": "SELECTED_FOR_PROSPECTIVE_GOVERNED_ACTIVATION; NOT EFFECTIVE; NO CURRENT REVIEWER ADMITTED",
+    "mandatory_principles": [
+      "Reviewer identity, permitted WORK role, and actual distinct execution or person must be corroborated outside reviewer's own prompt/report.",
+      "Reviewer must be distinct from Dispatch-004 implementer and prior CODEX_WORK_MODE_LINUX bounded reviewer, without material review conflict.",
+      "Original WORK role remains mandatory; non-WORK substitution requires separately authorized frozen-task amendment.",
+      "Fresh independent reviewer must actually assess acceptance and may return FAIL or BLOCKED.",
+      "CHAT intake role is distinct from independent reviewer; no CHAT self-signoff.",
+      "No self-issued signature, shared Owner Git account, AI model label, new chat title or prompt text qualifies as independent admission."
+    ],
+    "mode_A": "Accept verified authentic host job/session and role provenance that actually demonstrates eligible WORK reviewer independence.",
+    "mode_B": "Accept only after separate source-bound effective Governance method approval and when an independent verification source corroborates eligible WORK reviewer identity/role, assignment, execution separation, conflict absence, and a genuinely performed new read-only audit.",
+    "mode_B_not_automatically_sufficient": "A source-signed Git reviewer report by itself does not demonstrate the required reviewer role/independence.",
+    "role_substitution": "NOT_APPROVED"
+  },
+  "method_activation_gate": {
+    "owner_direction_to_prepare_decision": "OBSERVED_IN_CURRENT_CHAT",
+    "source_release_manifest_and_immutable_provenance": "CANDIDATE_PREPARED_NOT_EFFECTIVE",
+    "trusted_independent_release_authority": "UNVERIFIED_BLOCKED",
+    "prospective_approval_for_mode_B": "PENDING_AUTHORIZED_SOURCE_BOUND_EFFECTIVE_PUBLICATION",
+    "machine_schema_syntactic_parse": "PASS",
+    "machine_schema_runtime_contract_validation": "NOT_RUN",
+    "actually_eligible_independent_WORK_reviewer": "NOT_PROVEN",
+    "reviewer_host_access_and_quota": "NOT_VERIFIED",
+    "windows_live_ledger_attestation": "NOT_PERFORMED_AND_MATERIALITY_TO_BE_DECIDED_BY_ADMITTED_REVIEWER"
+  },
+  "existing_evidence": {
+    "bridge_impl": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "initial_bounded_audit": "d48aea2e22449ee4435cd81cb89101b653e7dbc8",
+    "resolver_recovery": "980335cae53904f4cc0b06ae5b3a6ba59516ae90",
+    "admission_final": "541bf35e3bdb95b701bd1cdc22b0bdbe87333110",
+    "B2_SHARED_RESOLVER": "CLOSED_PASS",
+    "SOURCE_FAMILIES": "10_OF_10_PASS",
+    "JUNIT": "399_HISTORICAL_PASS",
+    "DESKTOP": "30_HISTORICAL_PASS",
+    "PAYLOAD_SHA256": "252_OF_252_PASS",
+    "B1_WORK_ADMISSION": "BLOCKED",
+    "PRECANARY_INDEPENDENT_AUDIT": "BLOCKED",
+    "FOX2_BRIDGE_RC1_PRECANARY_READY": "NOT_GRANTED"
+  },
+  "next_minimal_allowed_actions": [
+    "Record this decision in candidate documentation and exact Git remote readback; do not overwrite frozen work package.",
+    "Governance authority must attest the prospective admission-method release and source binding under actual established release mechanisms; do not call candidate EFFECTIVE.",
+    "Determine whether there exists a real independently attributable eligible WORK reviewer with objective non-self-authored evidence; if no, record PLATFORM_ADMISSION_UNAVAILABLE and STOP rather than spawn repeated prompts.",
+    "If method becomes EFFECTIVE and eligible reviewer proven, independently assess existing immutable Bridge evidence once and perform only material minimal read-only Windows check if truly necessary.",
+    "Only after independent audit PASS and CHAT intake, separately consider PRECANARY_READY; check Canary 009 ledger/PreExec and single-use gates before any execution."
+  ],
+  "routing_precheck": {
+    "POLICY_CHECK": "EFFECTIVE WP-only source and Owner limited prospective authorization verified; candidate not yet effective",
+    "TASK_STATE_CHECK": "B2 PASS, B1 BLOCKED; 399/30 tests historical, no material product regression found",
+    "R0": "Reuse completed evidence without replay",
+    "R1": "Choose admission method for a prospective Governance candidate, not execute/waive audit",
+    "R2": "No main/merge/DEV/LIVE/Canary or global EFFECTIVE rights granted",
+    "R3": "CHAT Git document tools available; WORK independent capability and quota UNKNOWN; CODEX/COPILOT live quota UNKNOWN",
+    "R4": "CHAT direct publication selected, no new WORK/CODEX/COPILOT execution eligible; prospective eligible WORK required later",
+    "R5": "Only CHAT-owned non-main Governance branch, no audited branches or worktree mutations",
+    "R6": "Source SHA and file readback required; source synchronization to Library not claimed",
+    "R7": "STOP before Mode B activation, new audit, Canary 009, APP-B or global EFFECTIVE"
+  },
+  "stop_conditions": [
+    "Any source/authority drift or missing provenance",
+    "Any self-attested WORK role or same-session reviewer",
+    "Any attempt to retroactively relabel CODEX audit independent",
+    "Any new request to run/replay Dispatch 001–004, Canary 009 or resume APP-B",
+    "Any unapproved task role substitution or effective release without attestation"
+  ]
+}
