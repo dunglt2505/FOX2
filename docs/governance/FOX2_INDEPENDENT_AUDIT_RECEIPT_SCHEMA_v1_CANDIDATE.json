@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:fox2:governance:independent-audit-receipt:v1:candidate",
   "title": "FOX2 Independent Reviewer Admission and Audit Receipt v1 — CANDIDATE",
-  "description": "Candidate data structure only. Passing JSON Schema is NOT evidence of reviewer admission, independent audit, Governance EFFECTIVE status, or Canary authority.",
+  "description": "Candidate data structure only. Passing JSON Schema is NOT evidence of reviewer admission, independent audit, Governance EFFECTIVE status, or Canary authority. Review authority and role equivalence must be verified by CHAT against immutable source; JSON Schema validates syntax/conditional consistency only.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -21,7 +21,7 @@
   ],
   "properties": {
     "format": {
-      "const": "FOX2_INDEPENDENT_AUDIT_RECEIPT_V1_CANDIDATE"
+      "const": "FOX2_INDEPENDENT_AUDIT_RECEIPT_V1"
     },
     "contract": {
       "type": "object",
@@ -34,7 +34,9 @@
       ],
       "properties": {
         "path": {
-          "const": "docs/governance/FOX2_INDEPENDENT_REVIEW_ADMISSION_CONTRACT_v1_CANDIDATE.md"
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact immutable contract path resolved and checked against release authority; not hardcoded to the staging candidate filename."
         },
         "version": {
           "const": "1"
