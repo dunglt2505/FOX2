@@ -1,0 +1,107 @@
+{
+  "schema": "FOX2_PROJECTWIDE_REGISTRY_PREPROMOTION_V1",
+  "project": "FOX2",
+  "created_utc": "2026-10-18T05:53:25+00:00",
+  "status": "PREPROMOTION_CANDIDATE_NOT_EFFECTIVE",
+  "authority_scope": "FOX2_PROJECT_WIDE_PROSPECTIVE",
+  "owner_authorization_record": "docs/governance/releases/FOX2_OWNER_CHAT_FULL_DELEGATION_20261018.json",
+  "owner_authorization_git_commit": "194cd740540e0ef1cb2b8fe53f7db129434c1652",
+  "owner_release_manifest": "docs/governance/releases/FOX2_GOVERNANCE_OWNER_RELEASE_MANIFEST_20261018.json",
+  "candidate_source_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+  "sources": [
+    {
+      "family": "dictionary",
+      "filename": "FOX2_PROJECT_DICTIONARY_v1.3_CANDIDATE.json",
+      "bytes": 12012,
+      "sha256": "9682563aaa56f0f566cd4eebd25d83b9b5d8986ef49bd4ff37e30b4894f840c6",
+      "git_blob_sha": "6c9a5a2c4338489181794a2f2591989ded3ac01c"
+    },
+    {
+      "family": "policy",
+      "filename": "FOX2_POLICY_V1.9.0_CANDIDATE.md",
+      "bytes": 17908,
+      "sha256": "69e6659da89460e513ee6b7fe8e904508496d81f78e104d7618c669bc214dee6",
+      "git_blob_sha": "e4c084838dd5b1079e2371b9052714cf817443e2"
+    },
+    {
+      "family": "routing",
+      "filename": "FOX2_AGENT_PROMPT_ROUTING_INDEX_V1_4_0_CANDIDATE_20261017.md",
+      "bytes": 9015,
+      "sha256": "636b6ce99ad8f0cd001dd247131456de688992357b4dd195a0f9dd4e69329917",
+      "git_blob_sha": "1894b65cdd67a812cf8bc3ac28bc1a7c0e0e663d"
+    },
+    {
+      "family": "git_first_protocol",
+      "filename": "FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13_CANDIDATE.md",
+      "bytes": 10023,
+      "sha256": "fb0eb10fb6525edb8fb221ef5e5a980461272a31dae2ff80f4c8dd5fb51716f9",
+      "git_blob_sha": "713f6c7fef9b3144ee484849d03c4a5f5b8f8220"
+    },
+    {
+      "family": "preexec",
+      "filename": "FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.2_CANDIDATE.md",
+      "bytes": 10883,
+      "sha256": "700101049ed106387e1f22d1ca5b6b1e909c76da2dc2f535c6fd29c8a358d55a",
+      "git_blob_sha": "ecdc7c9e2fe50494fa1a98c02467b7426c202fde"
+    },
+    {
+      "family": "chat_preflight",
+      "filename": "FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.2_CANDIDATE.md",
+      "bytes": 6314,
+      "sha256": "39ba00d1bef9deecc0298eca19556251d40d546513b208043e251520d3aedd10",
+      "git_blob_sha": "f1cfcc58857f401cda7a07640b606b8ec73e4628"
+    },
+    {
+      "family": "chat_result",
+      "filename": "FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v10_CANDIDATE.md",
+      "bytes": 5695,
+      "sha256": "a39942855db944c6762a57e5ab7a87eac1330630125ee72dcec5627c87818bbe",
+      "git_blob_sha": "e53e89b1ab595b6d8022317c8ceb784e9f985205"
+    },
+    {
+      "family": "master_plan",
+      "filename": "FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+      "bytes": 6081,
+      "sha256": "f16477a3a1541ef08a639eecdf404842bb1c43349f0b17e33aecc4d06eec04fe",
+      "git_blob_sha": "a9cdd1a7057574025174f7c299a06243b30b2bfd"
+    },
+    {
+      "family": "release_map",
+      "filename": "FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
+      "bytes": 6218,
+      "sha256": "47938a01079e856d3139d06fae9cfc93a228900b8a8ea5af0d5108e90a463190",
+      "git_blob_sha": "e7af58afc3704bd897c0d1be02d0d099224b0504"
+    },
+    {
+      "family": "latest_git",
+      "filename": "FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+      "bytes": 5250,
+      "sha256": "ddb763ed1e3e768a5bf4a9214ea23bce640ed0d1c69f062cb34e673617b84314",
+      "git_blob_sha": "ea83fff4efe81772ac9ba03436b9afdfc8d99c09"
+    }
+  ],
+  "forward_compatibility": {
+    "isolated_tests": "PASS_47",
+    "installed_bridge_worker": "NOT_RUN",
+    "runtime_dictionary_binding": "PRESERVE_1_2_FOR_INFLIGHT",
+    "current_preexec_shared_contracts": "V1_1_AND_CHAT_FIRST_ADOPTION_PENDING"
+  },
+  "authority_verification": {
+    "owner_grant": "PASS",
+    "authenticated_GitHub_connector_permission": "PASS_FOR_NONMAIN_DOCS",
+    "independent_host_release_chain_verifier": "NOT_AVAILABLE_NOT_RUN",
+    "global_effective_registry_binding": "NOT_PERFORMED"
+  },
+  "supersession": "PENDING_VERIFIED_EFFECTIVE_PROMOTION",
+  "effective": false,
+  "prohibited": [
+    "NO_DEFAULT_MAIN",
+    "NO_MERGE",
+    "NO_LIVE",
+    "NO_DEV_GRANT",
+    "NO_REPLAY",
+    "NO_PROVIDER_BROKER_WRITES",
+    "NO_INFLIGHT_SOURCE_REBIND"
+  ],
+  "note": "This prepromotion registry is not an effective source Registry and must not be resolved by runtime as current authority."
+}
