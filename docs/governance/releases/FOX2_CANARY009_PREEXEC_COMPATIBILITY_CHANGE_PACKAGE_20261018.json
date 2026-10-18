@@ -1,0 +1,132 @@
+{
+  "format": "FOX2_CANARY009_PREEXEC_COMPATIBILITY_CHANGE_PACKAGE_CANDIDATE_V1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "status": "CHAT_DOC_PACKAGE_GIT_PUBLISHED_CANDIDATE_NOT_EFFECTIVE",
+  "authority_scope": "USER_AUTHORIZED_CHAT_DOCS_ON_EXISTING_EVIDENCE_BRANCH_ONLY_NO_SEMANTIC_RELEASE_NO_CODE",
+  "source": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+    "publication_parent_head_before_package": "dd7f3fb5129290d32da70b9f6bc462ebb99019b3",
+    "wp_registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+    "frozen_source": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "runtime_base": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "prior_decision": "c73d1146463490e62bb698744e0f14ad9b189e0b",
+    "location_exception": "84ac87fbccc947c16490fb9365dc5a3d8e49661c",
+    "locked_canary_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "dispatch_commit": "dc79f8143eec471508bf37565bff38442ce0548a",
+    "dispatch_sha256": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a",
+    "prompt_commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+    "prompt_sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0",
+    "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/preexec/preflight_receipt.json",
+    "receipt_exists": false
+  },
+  "artifacts": [
+    {
+      "role": "CONTRACT_CANDIDATE",
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_COMPATIBILITY_CONTRACT_CANDIDATE_20261018.md",
+      "commit": "a27320ebd7f63949f0671febd294f6dcb4eea5c1",
+      "blob": "0182d8e3d402296532c9144755289d5e6668380d",
+      "sha256": "22661944d953f27479dfbbb8c01df3aacb835d1960f43a0ced9d103d4a5c3c26",
+      "bytes": 12187,
+      "exact_git_readback": "PASS"
+    },
+    {
+      "role": "CONSUMER_MATRIX",
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_COMPATIBILITY_CONSUMER_MATRIX_20261018.json",
+      "commit": "ea18a8e352333cb0a1215be90ba72039bb716ef6",
+      "blob": "ed75397f623a401ff808093bd4b3b0952f5ea05c",
+      "sha256": "46717060fdbd015e693ec9d2a2c5ee4a7eba9f971b75eb76e37c57cd94ccb90e",
+      "bytes": 18631,
+      "exact_git_readback": "PASS"
+    },
+    {
+      "role": "IMPLEMENTATION_SCOPE",
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_IMPLEMENTATION_SCOPE_CANDIDATE_20261018.md",
+      "commit": "dd7f3fb5129290d32da70b9f6bc462ebb99019b3",
+      "blob": "306c499244fa49c4375949bb33c8a1c4dd69e99a",
+      "sha256": "3d320d474685a74cfa59b2200794bb728cb00c82b1ab0be4f3c07871a81171c7",
+      "bytes": 11264,
+      "exact_git_readback": "PASS"
+    }
+  ],
+  "actual_findings": {
+    "frozen_manifest_source_sha256_verification": "PASS_10_OF_10_AUTHENTICATED_GIT",
+    "installed_resolver_executed_in_windows_this_turn": false,
+    "plugin_skills": "fox2-skills-integrated_v0.2.5_read_source-resolver_agent-route-runtime_agent-prompt-builder_document-publication",
+    "schema_v1_published_false_conflict": "CONFIRMED",
+    "intake_pre_dispatch_false_conflict": "CONFIRMED",
+    "shared_engine_one_branch_source_head_and_hardcoded_false": "CONFIRMED",
+    "producer_cli_preexisting_canary_profile": "NOT_SUPPORTED",
+    "evidence_exception_original_four_docs_unchanged": "PASS_GIT_BLOB_READBACK",
+    "docs_integrity_static_assertions": "PASS_12_OF_12",
+    "contract_new_runtime_tests": "NOT_RUN",
+    "full_v1_regression": "NOT_RUN",
+    "current_windows_ledger": "UNKNOWN_NOT_REOBSERVED",
+    "code_worktree_and_writer": "UNKNOWN_NOT_PREPARED",
+    "host_probe": "NOT_RUN",
+    "durable_canary_preexec": "NOT_RUN",
+    "canary_ready": "NOT_GRANTED"
+  },
+  "migration_decision": {
+    "chosen_canonical_version": "NOT_CHOSEN",
+    "candidate_preferred_strategy": "SEPARATE_GOVERNED_VERSIONED_EXISTING_DISPATCH_PROFILE; V1_LEGACY_UNCHANGED",
+    "schema_v1_historical_bytes": "PRESERVED",
+    "intake_v1_1_historical_bytes": "PRESERVED",
+    "owner_location_exception": "ALREADY_APPROVED_NOT_REOPENED",
+    "need_semantic_contract_authority": true,
+    "need_bounded_code_authority": true,
+    "need_own_v1_preexec_for_new_code_task": true,
+    "need_consumer_release_and_installed_adoption": true,
+    "no_current_dispatch_claim_or_replay": true
+  },
+  "implementation_proposal": {
+    "base": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "created": false,
+    "primary_allowlist": [
+      "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+      "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
+      "agent_bridge/scripts/preexec.py",
+      "agent_bridge/tests/test_preexec.py"
+    ],
+    "writer": "NOT_ASSIGNED_SINGLE_WRITER_UNVERIFIED",
+    "git_push_right": "NOT_GRANTED_UNDER_THIS_DOC_ACTION",
+    "codex": "CANDIDATE_REQUIRES_FRESH_R3_R5",
+    "copilot": "CANDIDATE_REQUIRES_FRESH_R3_R5",
+    "work": "NOT_REQUIRED_FOR_WAIVED_RC1_AUDIT"
+  },
+  "consumer_coverage": {
+    "identified": 14,
+    "fully_certified": false,
+    "unknown_external_consumers": "UNKNOWN_MATERIALITY_NOT_ASSESSED",
+    "generated_dictionary_change": "CONDITIONAL_NEEDS_SEPARATE_SOURCE_RELEASE_IF_USED"
+  },
+  "routing_precheck": {
+    "order": "POLICY_CHECK → TASK_STATE_CHECK → ROUTING_R0_R7 → ASSIGNMENT_CHECK",
+    "POLICY_CHECK": "Bound WP-only source set and ten manifest families hash verified; global prospective Governance NOT PROMOTED",
+    "TASK_STATE_CHECK": "Existing Canary Dispatch published=true, previously reported unconsumed at a historical observation; current unconsumed UNKNOWN",
+    "R0": "Reuse earlier H1/H2 and 38 prior technical PASS with time scope, previous location grant, no replay",
+    "R1": "Document-only compatibility contract candidate before engineering authorization",
+    "R2": "Scope allows new documentation on evidence branch only; CODE_ALLOWED=NO; source/prompt/dispatch locked; safety release gates preserved",
+    "R3": "CHAT Git authenticated push/readback verified; Codex/Copilot actual host capacity, model, worktree and quota at execution now UNKNOWN",
+    "R4": "CHAT directly handles docs. After authorization choose eligible COPILOT/CODEX from fresh evidence; pinned CODEX remains exact for Canary; WORK not needed for waived audit",
+    "R5": "New docs only, expected-head and no-overwrite guards; no local code worktree or writer claim, no Canary branch write",
+    "R6": "Three candidate remote exact bytes read back and this package must also be read back; no Library sync/EFFECTIVE certification",
+    "R7": "STOP code assignment/release/runtime adoption/Canary until separate source authority, implementation PreExec and tests/host gates",
+    "ASSIGNMENT_CHECK": "PASS_DIRECT_DOCS_ONLY; CODE_ASSIGNMENT_HOLD"
+  },
+  "stop": [
+    "NO_SCHEMA_V1_MUTATION",
+    "NO_HISTORIC_RECEIPT_MUTATION",
+    "NO_EXCEPTION_FOUR_DOC_MUTATION",
+    "NO_DEV_OR_SEMANTIC_EFFECTIVE",
+    "NO_CANARY_BRANCH_HEAD_CHANGE",
+    "NO_DISPATCH_CLAIM_REPLAY_EXECUTION",
+    "NO_MAIN_MERGE_PROVIDER_BROKER_LIVE",
+    "NO_FAKE_PREFLIGHT_RECEIPT",
+    "NO_UNAUTHORIZED_AGENT_ROUTE"
+  ],
+  "planned_next": "Owner/owning source must explicitly authorize semantics+bounded code separately; then host-specific v1 PreExec for new coding WP and evidence-backed Agent assignment; CHAT controls review and release."
+}
