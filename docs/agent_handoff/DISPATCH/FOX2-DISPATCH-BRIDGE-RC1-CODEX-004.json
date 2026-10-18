@@ -1,0 +1,128 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-004",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-DESKTOP-BATCH-B",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+    "commit_sha": "dbaefdf686e06ffdf78b277288515deca9011710",
+    "sha256": "a7a3f7d8eb8cb84d5690649c8a70f557dadfde51729cb9a87b7417330dca7e95"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_RC1_WHOLE_WP_RECOVERY_PROMPT_20261017.md",
+    "git_commit": "b6caea263a38c95a55eb86524de8c6a7601e9e56",
+    "git_blob_sha1": "e6253a246a834cbaab610766b7dabac75b042f58",
+    "sha256": "51522be4b6e8d447a650ddccb76af2942784bb8fa9bd731eb0bdddedcd0816bd"
+  },
+  "source": {
+    "commit_sha": "dbaefdf686e06ffdf78b277288515deca9011710",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Whole-WP final technical closure. Fresh PreExec receipt publication 0789e5d8c3944fdc078090f50f18fb2a3abe6b64 PASSed for current WIP source dbaefdf686e06ffdf78b277288515deca9011710, including Codex PASS, dotnet_wpf_build PASS, eligible_agent_route PASS, worktree PASS and NONE_OBSERVED competing writer. Copilot AUTH_REQUIRED is non-material. Dispatch 001/002/003 are historical STOP/DO_NOT_REPLAY. Owner-approved Registry chain remains b27f1085ee13d8dce56fd2735e100ea1616e6e23 with approval/manifests d8e2331674ef1921844f369bfa9e48b82a73c6a1. No main/PR/merge/deploy/provider/broker/LIVE authority."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "base_sha": "0789e5d8c3944fdc078090f50f18fb2a3abe6b64",
+    "allowed_code_paths": [
+      "agent_bridge/**"
+    ],
+    "allowed_report_paths": [
+      "reports/BRIDGE-DESKTOP-BATCH-B/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "schtasks.exe",
+      "dotnet",
+      "dotnet_wpf_build",
+      "local_appdata_per_user_write",
+      "codex_cli",
+      "full_access_mode",
+      "eligible_agent_route",
+      "worktree_ownership",
+      "no_competing_writer",
+      "source_registry_authority_chain"
+    ],
+    "stop_conditions": [
+      "source_registry_authority_chain_mismatch",
+      "source_task_prompt_or_dispatch_binding_mismatch",
+      "wrong_worktree_branch_or_base_sha",
+      "competing_agent_bridge_writer",
+      "unauthorized_path_change",
+      "selected_agent_configuration_auth_capacity_or_permission_failure",
+      "installed_ui_artifact_save_cannot_be_truthfully_certified_after_bounded_repair",
+      "required_repair_crosses_authorized_paths_or_changes_release_authority",
+      "secret_private_or_licensed_data_exposure",
+      "push_or_remote_readback_failure",
+      "canary_009_claim_or_execution",
+      "app_batch_b_resume",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "SOURCE_REGISTRY_AUTHORITY_CHAIN",
+    "FRESH_PREEXEC",
+    "ARTIFACT_LOCAL_SAVE",
+    "ARTIFACT_SHA256_VERIFY",
+    "ARTIFACT_ATOMIC_INDEX",
+    "LOCAL_SAVED_NOT_GIT_SYNCED",
+    "INSTALLED_UI_ARTIFACT_FRESHNESS",
+    "FINAL_INSTALLED_READBACK",
+    "AFFECTED_TESTS_IF_CODE_CHANGED",
+    "PACKAGE_DETERMINISM_IF_PACKAGE_CHANGED",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-18T02:46:48.285Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003"
+}
