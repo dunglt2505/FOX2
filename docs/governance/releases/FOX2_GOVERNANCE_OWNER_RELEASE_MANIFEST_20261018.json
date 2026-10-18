@@ -17,9 +17,9 @@
     "scope": "DOC_GOVERNANCE_ONLY"
   },
   "publication": {
-    "git_source_hashes": "PASS_9_OF_9",
+    "git_source_hashes": "PASS_10_OF_10_INCLUDING_LATEST_AT_EXECUTION_CONTRACT",
     "library_destination": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018",
-    "library_remote_byte_readback": "PASS_9_OF_9",
+    "library_remote_byte_readback": "PASS_10_OF_10",
     "prior_library_copies": "HISTORICAL_PARTIAL_MISSING_GIT_LATEST_APPEND",
     "prior_library_copies_overwritten": false,
     "cloud_plugin": "fox2-skills-integrated 0.2.3, separate publishing track"
@@ -132,14 +132,27 @@
       "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md",
       "library_file_id": "libfile_da1cff7f392881919d1b89da67355c4b",
       "library_sha256_verified": true
+    },
+    {
+      "family": "latest_at_execution_contract",
+      "version": "1",
+      "git_path": "docs/governance/FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+      "git_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+      "git_blob_sha": "ea83fff4efe81772ac9ba03436b9afdfc8d99c09",
+      "sha256": "ddb763ed1e3e768a5bf4a9214ea23bce640ed0d1c69f062cb34e673617b84314",
+      "bytes": 5250,
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_OWNER_GOV_RELEASE_STAGING_20261018/FOX2_GIT_LATEST_AT_EXECUTION_CONTRACT_v1_CANDIDATE.md",
+      "library_file_id": "libfile_ff41f661ea248191a6d4cbaf52e2c85d",
+      "library_sha256_verified": true,
+      "role": "linked material dependent contract not in original 9-file Phase-A manifest"
     }
   ],
   "release_gates": {
     "owner_authorization": "PASS",
     "source_github_immutable": "PASS",
-    "source_digest": "PASS_9_OF_9",
-    "library_exact_byte_readback": "PASS_9_OF_9",
-    "source_release_candidate_consistency": "PASS",
+    "source_digest": "PASS_10_OF_10",
+    "library_exact_byte_readback": "PASS_10_OF_10",
+    "source_release_candidate_consistency": "PASS_9_OF_9_BASE_MANIFEST_PLUS_1_LINKED_CONTRACT",
     "semantic_consumer_compatibility": "PENDING",
     "trusted_independent_authority_verifier": "UNAVAILABLE_NOT_RUN",
     "effective_registry_binding": "NOT_RUN",
