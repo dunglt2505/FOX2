@@ -1,0 +1,50 @@
+{
+  "schema": "FOX2_OWNER_GOVERNANCE_RELEASE_APPROVAL_1",
+  "project": "FOX2",
+  "date": "2026-10-18",
+  "status": "OWNER_AUTHORIZED_FOR_GOVERNED_PUBLICATION",
+  "authorization_source": "OWNER_DIRECTIVE_IN_ACTIVE_CHAT",
+  "authorization_note": "Owner explicitly requested implementation and granted authority to execute release/publication without repeated approval. This is an authorization record, not an independent cryptographic signature.",
+  "approved_source_branch": "work/FOX2-PHASE-A-LATEST-EXECUTION-chat-20261017",
+  "approved_source_commit": "09dc4051e6a308f72a103e879489d275770a8761",
+  "approved_governance_versions": {
+    "dictionary": "1.3",
+    "policy": "1.9.0",
+    "routing": "1.4.0",
+    "git_first_protocol": "13",
+    "preexec": "1.2",
+    "chat_preflight": "1.2",
+    "chat_result_intake": "10"
+  },
+  "approved_related_documents": [
+    "FOX2_MASTER_EXECUTION_PLAN_CHAT_FIRST_ADDENDUM_20261017_CANDIDATE.md",
+    "FOX2_CHAT_FIRST_GOVERNANCE_RELEASE_MAP_20261017_CANDIDATE.md"
+  ],
+  "scope": "FOX2 project-wide prospective governed documentation release; source freeze and readback required",
+  "release_gates": {
+    "git_immutable_bytes": true,
+    "library_same_bytes": true,
+    "owning_authority": true,
+    "independent_release_chain_verification": true,
+    "consumer_compatibility": true
+  },
+  "excluded_powers": {
+    "automatic_governance_effective": true,
+    "main_merge": true,
+    "dev_grant": true,
+    "live": true,
+    "provider_write": true,
+    "broker_write": true,
+    "retroactive_inflight_rebind": true,
+    "dispatch_replay": true
+  },
+  "prior_bridge_rc1_approval": "d8e2331674ef1921844f369bfa9e48b82a73c6a1 scope WP_ONLY; not reused for this project-wide release",
+  "immutable_tasks_preserved": [
+    "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+    "FOX2-BRIDGE-FINAL-CANARY-009",
+    "FOX2-M1-A-APP-BATCH-B"
+  ],
+  "publisher": "CHAT_GITHUB_CONNECTOR",
+  "independent_authority_verification": "NOT_YET_RUN",
+  "effectivity": "NOT_YET_GRANTED"
+}
