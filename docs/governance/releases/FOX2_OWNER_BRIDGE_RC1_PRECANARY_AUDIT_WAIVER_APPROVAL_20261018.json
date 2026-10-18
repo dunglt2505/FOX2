@@ -1,0 +1,75 @@
+{
+  "format": "FOX2_OWNER_WP_ACCEPTANCE_WAIVER_APPROVAL_V1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "date": "2026-10-18",
+  "authority": {
+    "actor": "OWNER",
+    "evidence_source": "EXPLICIT_OWNER_DIRECTIVE_IN_CURRENT_CHAT",
+    "recorded_by": "CHAT",
+    "directive": "Owner phê duyệt miễn PRECANARY_INDEPENDENT_AUDIT cho FOX2 Bridge RC1 và cập nhật cơ chế Owner Acceptance Waiver trong Policy cho các quyết định tương lai. CHAT thực hiện tài liệu, source binding, kiểm tra phát hành; không tự miễn các WP khác, không chạy Canary.",
+    "scope": "THIS_WHOLE_WP_ONLY",
+    "permission_for_chat": "AUTHOR_DERIVED_OWNER_WAIVER_DOCUMENTATION_ON_EXISTING_NONMAIN_GOVERNANCE_BRANCH",
+    "not_equivalent_to": [
+      "INDEPENDENT_AUDIT_PASS",
+      "TECHNICAL_TEST_PASS",
+      "CANARY_PERMISSION",
+      "DEV_OR_MERGE_OR_LIVE",
+      "GLOBAL_POLICY_EFFECTIVE_RELEASE"
+    ]
+  },
+  "approved_exception": {
+    "gate": "PRECANARY_INDEPENDENT_AUDIT",
+    "previous_required_status": "PASS",
+    "prospective_exception_status": "WAIVED_BY_OWNER",
+    "applicable_to": "PRECANARY_READINESS_ACCEPTANCE_DECISION_FOR_FOX2_BRIDGE_RC1_ONLY",
+    "owner_risk_acceptance": "ACCEPTS_REMAINING_INDEPENDENT_REVIEW_ASSURANCE_RISK",
+    "reason": "Prior bounded audits and source-hash verification yielded no proven material product defect; same-session reviewer cannot qualify as independent WORK, repeated host admission investigations did not produce new evidence.",
+    "history_retained": {
+      "historical_implementation_gate": "PENDING",
+      "latest_bounded_reviewer_verdict": "BLOCKED",
+      "new_independent_audit_conducted": false,
+      "past_audit_pass_claim": false
+    }
+  },
+  "source_binding": {
+    "repository": "dunglt2505/FOX2",
+    "approved_registry": {
+      "commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+      "scope": "WP_ONLY"
+    },
+    "source_set": {
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_CURRENT_SOURCE_SET.json"
+    },
+    "frozen_task": {
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md"
+    },
+    "acceptance_gate_json": {
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json"
+    },
+    "latest_chat_status": {
+      "commit": "422972f91373ade84d9bff84cd680fa7e9cf2f68",
+      "path": "docs/roadmap/FOX2_BRIDGE_RC1_CHAT_CONSOLIDATED_STATUS_20261018.md"
+    },
+    "prior_wp_approval_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+    "effective_wp_governance": "DICTIONARY_1_2_POLICY_1_8_9_ROUTING_1_3_PROTOCOL_12_UNMODIFIED"
+  },
+  "must_remain_gated": [
+    "ALL_38_TECHNICAL_PASS_RECEIPTS_AND_SOURCE_BINDING_MUST_STILL_BE_VALID",
+    "ANY_MATERIAL_TECHNICAL_FAIL_OR_SOURCE_DRIFT_STOPS_RELEASE",
+    "CURRENT_WINDOWS_INSTALLER_PACKAGE_POINTER_AND_LEDGER_MUST_BE_VERIFIED_BEFORE_CANARY_CLAIM",
+    "FRESH_PREEXEC_AND_WORKTREE_OR_PERMISSION_ADMISSION_FOR_CANARY",
+    "CANARY_009_CONSUMED_STATE_AND_SINGLE_USE_NO_REPLAY",
+    "CHAT_SEPARATE_PRECANARY_READINESS_DECISION",
+    "CANARY_009_EXACTLY_ONCE_AND_RESTART_NO_REPLAY_CERTIFICATION_BEFORE_BRIDGE_INTERNAL_READY",
+    "NO_MAIN_MERGE_LIVE_OR_BROKER_PROVIDER_WRITES"
+  ],
+  "status": "OWNER_APPROVED_SCOPED_WAIVER; PUBLICATION_AND_APPLICATION_SEPARATELY_VERIFIED",
+  "waiver_applies_to_other_wps": false,
+  "waiver_changes_implementation_source": false,
+  "waiver_alters_frozen_historical_receipts": false
+}
