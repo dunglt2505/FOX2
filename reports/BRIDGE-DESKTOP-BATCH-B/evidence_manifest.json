@@ -169,7 +169,7 @@
   },
   "preexec_publication_commit": "67e0147fc03e4396b3e58fe3d8863902e950d4ec",
   "protected_actions": "NONE",
-  "real_installed_poll": "PASS_CANDIDATES_DISCOVERED_NO_CLAIMS_EXECUTIONS",
+  "real_installed_poll": "PASS_NO_CHANGE_NO_CLAIMS_EXECUTIONS",
   "registry_commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
   "remaining_independent_gate": "PRECANARY_INDEPENDENT_AUDIT_NOT_ELIGIBLE_YET",
   "result_identity": "Containing Git commit; exact local/remote SHA and remote byte readback reported externally after push",
