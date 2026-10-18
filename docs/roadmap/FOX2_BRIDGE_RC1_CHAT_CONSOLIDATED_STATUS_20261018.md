@@ -1,5 +1,10 @@
 # FOX2 — Bridge RC1: CHAT Consolidated Status and Release Gate Reconciliation
 
+> **NEWER OWNER ACCEPTANCE DECISION (2026-10-18):** Owner explicitly waived **only** `PRECANARY_INDEPENDENT_AUDIT` for `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`. Current scoped disposition is `WAIVED_BY_OWNER` (not `PASS`), with accepted residual independent-review assurance risk. This notice supersedes only this historical document's *requirement to obtain a new independent WORK audit*; it does not change the original 40-entry receipt or other tasks.
+> Approved source-bound WP addendum: [FOX2_BRIDGE_RC1_OWNER_WAIVER_ACCEPTANCE_ADDENDUM_20261018.md](../agent_handoff/FOX2_BRIDGE_RC1_OWNER_WAIVER_ACCEPTANCE_ADDENDUM_20261018.md). Owner approval: [FOX2_OWNER_BRIDGE_RC1_PRECANARY_AUDIT_WAIVER_APPROVAL_20261018.json](../governance/releases/FOX2_OWNER_BRIDGE_RC1_PRECANARY_AUDIT_WAIVER_APPROVAL_20261018.json). Publication record: [FOX2_OWNER_WAIVER_SCOPED_PUBLICATION_20261018.json](../governance/releases/FOX2_OWNER_WAIVER_SCOPED_PUBLICATION_20261018.json).
+> **Current execution boundary:** `RC1_AUDIT_REQUIREMENT=WAIVED_BY_OWNER / RC1_PRECANARY_READY=NOT_GRANTED / CANARY_009=HOLD / APP_B=PAUSED`. Verify remaining technical acceptance, any WAIVED_BY_OWNER gate-evaluator compatibility, current Windows package/ledger, exact Canary single-use and fresh PreExec before issuing a separate readiness marker. Future global Policy waiver mechanism remains CANDIDATE_NOT_EFFECTIVE; no other WPs automatically waived.
+> Historical status and reviewer-BLOCKED evidence below remain factual prior snapshots. **Do not** restart the admission loop.
+
 **Recorded:** 2026-10-18
 **Project / Whole-WP:** FOX2 / `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`
 **Document nature:** Owner-authorized CHAT status/intake delta on a non-main Governance documentation branch; **not** a new effective Policy, frozen task amendment, independent audit report, or pre-Canary release marker.
