@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-10-18T02:52:28.059300+00:00",
+  "dispatch_v3_structural_validation": "PASS",
+  "installed_package": {
+    "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+    "source_sha256": "9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8"
+  },
+  "installed_python": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\AgentBridge\\versions\\a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac\\runtime\\Scripts\\python.exe",
+  "source_pythonpath": "UNSET",
+  "worker": {
+    "state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "stop_requested": true
+  },
+  "manual_consumption": {
+    "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-004",
+    "recorded": true,
+    "previous_ids_preserved": true,
+    "sha256": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c"
+  },
+  "canary_009_ledger_rows": {
+    "per_user": {
+      "dispatches": 0,
+      "executions": 0
+    },
+    "legacy": {
+      "readback": "not present at default path; historical zero-row evidence preserved"
+    }
+  },
+  "remote_refs": [
+    "0789e5d8c3944fdc078090f50f18fb2a3abe6b64\trefs/heads/work/FOX2-BRIDGE-DESKTOP-BATCH-B",
+    "501822a33ef08c7365154913bbc677544856eee5\trefs/heads/work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "fc8aba202e15bddfcc5156b2c1bb36ed222329eb\trefs/heads/work/FOX2-M1-A-APP-BATCH-B"
+  ],
+  "real_poll": "PASS carried forward; package/code unchanged; no new poll or Agent invocation",
+  "app_batch_b": "PAUSED_NO_ACTION",
+  "protected_actions": "NONE"
+}

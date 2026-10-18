@@ -1,0 +1,225 @@
+{
+  "format": "FOX2_RC1_FINAL_CLOSURE_GATES_1",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-004",
+  "gates": {
+    "ARTIFACT_ATOMIC_INDEX": {
+      "status": "PASS",
+      "evidence": "artifact_ui_certification.json",
+      "method": "Fresh native installed UI action; hashes, timestamp and atomic filesystem rename verified"
+    },
+    "ARTIFACT_LOCAL_SAVE": {
+      "status": "PASS",
+      "evidence": "artifact_ui_certification.json",
+      "method": "Fresh native installed UI action; hashes, timestamp and atomic filesystem rename verified"
+    },
+    "ARTIFACT_SHA256_VERIFY": {
+      "status": "PASS",
+      "evidence": "artifact_ui_certification.json",
+      "method": "Fresh native installed UI action; hashes, timestamp and atomic filesystem rename verified"
+    },
+    "CHANGED_PATH_ALLOWLIST": {
+      "status": "PASS",
+      "evidence": "quality_checks.json"
+    },
+    "CHECK_NOW": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "CONTROL_STORE_PATH": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "DESKTOP_APP_BUILD": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "DESKTOP_APP_CONTRACT_TESTS": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "DESKTOP_APP_SINGLE_INSTANCE": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "DISPATCH_V3_RUNTIME_COMPATIBILITY": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "DISPATCH_V3_SCHEMA_BINDING": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "DISPATCH_V3_STRUCTURAL_CONFORMANCE": {
+      "status": "PASS",
+      "evidence": "final_runtime_readback.json"
+    },
+    "DOTNET_WPF_BUILD_CAPABILITY": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "FIRST_RUN_SETUP": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "FRESH_PREEXEC": {
+      "status": "PASS",
+      "evidence": "preflight.json"
+    },
+    "FULL_BRIDGE_TESTS": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "GIT_DIFF_CHECK": {
+      "status": "PASS",
+      "evidence": "quality_checks.json"
+    },
+    "INSTALLER_PACKAGE": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "LOCAL_SAVED_NOT_GIT_SYNCED": {
+      "status": "PASS",
+      "evidence": "artifact_ui_certification.json",
+      "method": "Fresh native installed UI action; hashes, timestamp and atomic filesystem rename verified"
+    },
+    "OPEN_LOGS": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "PAUSE_RESUME": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "PER_USER_INSTALL": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "PRECANARY_INDEPENDENT_AUDIT": {
+      "status": "PENDING",
+      "owner": "WORK/CHAT",
+      "self_certified": false
+    },
+    "PROJECT_DICTIONARY_BINDING": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "REAL_INSTALLED_POLL": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "SECRET_SCAN": {
+      "status": "PASS",
+      "evidence": "quality_checks.json"
+    },
+    "SOURCE_BINDING": {
+      "status": "PASS",
+      "evidence": "preflight.json"
+    },
+    "SOURCE_FREEZE": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "SOURCE_REGISTRY_AUTHORITY_CHAIN": {
+      "status": "PASS",
+      "evidence": "preflight.json"
+    },
+    "STARTUP_SINGLE_INSTANCE": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "START_WITH_WINDOWS": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "SUPPORT_BUNDLE": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "UNINSTALL_PATH": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "UPDATE_PATH": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "V06_COMPATIBILITY": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "V2_COMPATIBILITY": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "WORKER_UI_PROCESS_SEPARATION": {
+      "status": "PASS",
+      "evidence": "dbaefdf686e06ffdf78b277288515deca9011710:reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/acceptance_gates.json",
+      "carried_forward": true,
+      "reason": "CHAT accepted prior executed evidence; all 252 installed payload files and package hash unchanged; no product changes"
+    },
+    "INSTALLED_UI_ARTIFACT_FRESHNESS": {
+      "status": "PASS",
+      "evidence": "artifact_ui_certification.json"
+    },
+    "INSTALLED_RUNTIME_TECHNICAL_CERTIFICATION": {
+      "status": "PASS",
+      "evidence": [
+        "artifact_ui_certification.json",
+        "final_runtime_readback.json"
+      ],
+      "composition": "Prior accepted installed lifecycle/poll gates plus fresh UI Vault closure"
+    },
+    "ICON_DISPOSITION": {
+      "status": "ICON_NON_GATING_NO_AUTHORIZED_ASSET",
+      "gating": false
+    }
+  }
+}

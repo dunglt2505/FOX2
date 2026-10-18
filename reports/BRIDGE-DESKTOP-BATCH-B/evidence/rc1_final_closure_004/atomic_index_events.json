@@ -1,0 +1,30 @@
+{
+  "started_utc": "2026-10-18T02:50:04.781214+00:00",
+  "events": [
+    {
+      "observed_utc": "2026-10-18T02:50:58.182695+00:00",
+      "action": "ADDED",
+      "name": ".index-3cc73c786c4946f0bc402b9f79786bb4"
+    },
+    {
+      "observed_utc": "2026-10-18T02:50:58.183565+00:00",
+      "action": "MODIFIED",
+      "name": ".index-3cc73c786c4946f0bc402b9f79786bb4"
+    },
+    {
+      "observed_utc": "2026-10-18T02:50:58.183589+00:00",
+      "action": "REMOVED",
+      "name": "index.json"
+    },
+    {
+      "observed_utc": "2026-10-18T02:50:58.183596+00:00",
+      "action": "RENAMED_OLD_NAME",
+      "name": ".index-3cc73c786c4946f0bc402b9f79786bb4"
+    },
+    {
+      "observed_utc": "2026-10-18T02:50:58.183602+00:00",
+      "action": "RENAMED_NEW_NAME",
+      "name": "index.json"
+    }
+  ]
+}

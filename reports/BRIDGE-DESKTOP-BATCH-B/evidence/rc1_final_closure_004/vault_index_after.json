@@ -1,0 +1,38 @@
+[
+  {
+    "ArtifactId": "sha256:84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+    "FileName": "file_desktop_visual.png",
+    "Sha256": "84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018",
+    "SizeBytes": 55015,
+    "SavedAtUtc": "2026-10-17T15:06:29.4925419+00:00",
+    "State": "LOCAL_SAVED",
+    "VaultPath": "objects\\84b0123216dd0757e19d29633a4b8490cf4461eecafa795085f5c82ae5e6b018\\file_desktop_visual.png"
+  },
+  {
+    "ArtifactId": "sha256:72f8662ed5e05173910357618ffc1d3aa7036c69ab9b09be0c5d6bae67791adc",
+    "FileName": "file_artifact-local-save.txt",
+    "Sha256": "72f8662ed5e05173910357618ffc1d3aa7036c69ab9b09be0c5d6bae67791adc",
+    "SizeBytes": 45,
+    "SavedAtUtc": "2026-10-17T15:07:11.8843324+00:00",
+    "State": "LOCAL_SAVED",
+    "VaultPath": "objects\\72f8662ed5e05173910357618ffc1d3aa7036c69ab9b09be0c5d6bae67791adc\\file_artifact-local-save.txt"
+  },
+  {
+    "ArtifactId": "sha256:38823f6c042999aff6a249370dd4232768116b4394b704856b7641af80f06a96",
+    "FileName": "file_app_pause_readback.json",
+    "Sha256": "38823f6c042999aff6a249370dd4232768116b4394b704856b7641af80f06a96",
+    "SizeBytes": 314,
+    "SavedAtUtc": "2026-10-18T02:35:24.5819731+00:00",
+    "State": "LOCAL_SAVED",
+    "VaultPath": "objects\\38823f6c042999aff6a249370dd4232768116b4394b704856b7641af80f06a96\\file_app_pause_readback.json"
+  },
+  {
+    "ArtifactId": "sha256:098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+    "FileName": "file_artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt",
+    "Sha256": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+    "SizeBytes": 148,
+    "SavedAtUtc": "2026-10-18T02:50:58.1589729+00:00",
+    "State": "LOCAL_SAVED",
+    "VaultPath": "objects\\098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e\\file_artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt"
+  }
+]

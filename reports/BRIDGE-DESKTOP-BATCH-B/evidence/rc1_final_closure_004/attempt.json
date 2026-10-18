@@ -1,0 +1,15 @@
+{
+  "vault_root": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\BridgeDesktop\\Artifacts",
+  "execution_pid": 21168,
+  "attempt_id": "a90dc9380a0943318e82d58dbf9cc732",
+  "source_sha256": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+  "source_size": 148,
+  "competing_writer": "NONE_OBSERVED: fresh PreExec plus current process/worktree observation",
+  "source_path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\reports\\BRIDGE-DESKTOP-BATCH-B\\evidence\\rc1_final_closure_004\\artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt",
+  "tuple": {
+    "reasoning": "medium",
+    "model": "gpt-6.1-sol",
+    "permission": "danger-full-access"
+  },
+  "attempt_started_utc": "2026-10-18T02:49:33.0920818Z"
+}

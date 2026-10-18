@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "checks_passed": 27,
+  "checks": {
+    "package_archive_matches_installed_pointer": true,
+    "installed_payload_all_manifest_hashes": true,
+    "current_ui_path_is_installed_package": true,
+    "same_ui_process_before_after": true,
+    "ui_exe_and_assembly_match_manifest": true,
+    "selected_source_hash_unchanged": true,
+    "fresh_hash_not_in_prior_index": true,
+    "exactly_one_new_record": true,
+    "prior_records_unchanged": true,
+    "content_addressed_artifact_id": true,
+    "content_addressed_object_path": true,
+    "object_hash_matches_selected_source": true,
+    "exact_source_object_bytes": true,
+    "source_record_object_size_matches": true,
+    "exact_local_saved_state": true,
+    "not_git_synced": true,
+    "not_released": true,
+    "saved_after_ui_process_start": true,
+    "saved_after_final_closure_attempt_start": true,
+    "saved_before_readback": true,
+    "native_temporary_to_index_rename_observed": true,
+    "atomic_rename_after_saved_record_timestamp": true,
+    "index_replaced_by_new_file_identity": true,
+    "complete_live_index_equals_after_snapshot": true,
+    "no_pending_index_or_copy_files": true,
+    "actual_installed_ui_picker_and_result": true,
+    "no_product_changes_since_certified_source": true
+  },
+  "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+  "installed_payload_files_verified": 252,
+  "ui": {
+    "assembly_sha256": "c37d3a846151e626c1bcff212602589f7c7cad6fc212a2b3a107f30235725f63",
+    "start_utc": "2026-10-18T02:49:33.8294088Z",
+    "path": "C:\\Users\\Fox Le\\appdata\\local\\fox2\\agentbridge\\versions\\a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac\\payload\\desktop\\fox2.bridge.desktop.exe",
+    "exe_sha256": "370a21ffd3bd240ef6560823ac5e687a440eb400fa45607cafef0053dbc090fe",
+    "pid": 2568
+  },
+  "ui_after": {
+    "path": "C:\\Users\\Fox Le\\appdata\\local\\fox2\\agentbridge\\versions\\a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac\\payload\\desktop\\fox2.bridge.desktop.exe",
+    "pid": 2568,
+    "observed_utc": "2026-10-18T02:51:06.4307257Z",
+    "start_utc": "2026-10-18T02:49:33.8294088Z"
+  },
+  "attempt_started_utc": "2026-10-18T02:49:33.0920818Z",
+  "completed_utc": "2026-10-18T02:52:00.086393+00:00",
+  "source": {
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-DESKTOP-BATCH-B\\reports\\BRIDGE-DESKTOP-BATCH-B\\evidence\\rc1_final_closure_004\\artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt",
+    "sha256": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+    "bytes": 148
+  },
+  "artifact": {
+    "ArtifactId": "sha256:098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+    "FileName": "file_artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt",
+    "Sha256": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+    "SizeBytes": 148,
+    "SavedAtUtc": "2026-10-18T02:50:58.1589729+00:00",
+    "State": "LOCAL_SAVED",
+    "VaultPath": "objects\\098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e\\file_artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt"
+  },
+  "object_absolute_path": "C:\\Users\\Fox Le\\AppData\\Local\\FOX2\\BridgeDesktop\\Artifacts\\objects\\098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e\\file_artifact-ui-a90dc9380a0943318e82d58dbf9cc732.txt",
+  "object_sha256": "098e31fb461b62f75bccf5eb135607e3b0ab48207734cf48910a2cc467a4c65e",
+  "index_before_sha256": "469112d8949556d1eb6bf6fc2c2650eb18d6eba4265c1e5ba7c531c1383d8043",
+  "index_after_sha256": "ff16829db711814de7ab8ab169e7e89fe9a030c1f61cf5594d0856ba5ee93239",
+  "index_counts": {
+    "before": 3,
+    "after": 4
+  },
+  "index_file_ids": {
+    "before": 3940649674237553,
+    "after": 7881299348113868
+  },
+  "normalized_semantics": {
+    "state": "LOCAL_SAVED",
+    "git_synced": false,
+    "released": false,
+    "basis": "Raw RC1 record serializes canonical State only; LOCAL_SAVED is neither GIT_SYNCED nor RELEASED. Boolean values here are explicit semantic interpretation, not claimed persisted fields.",
+    "persisted_git_synced_field": false,
+    "persisted_released_field": false
+  },
+  "gates": {
+    "ARTIFACT_LOCAL_SAVE": "PASS",
+    "ARTIFACT_SHA256_VERIFY": "PASS",
+    "ARTIFACT_ATOMIC_INDEX": "PASS",
+    "LOCAL_SAVED_NOT_GIT_SYNCED": "PASS",
+    "INSTALLED_UI_ARTIFACT_FRESHNESS": "PASS"
+  }
+}

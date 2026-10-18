@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "changed_path_allowlist": "PASS",
+  "product_changes": [],
+  "secret_scan": "PASS",
+  "patterns_scanned": [
+    "private_key",
+    "github_token",
+    "openai_key",
+    "aws_access_key",
+    "credential_url"
+  ],
+  "text_files_scanned": 26,
+  "private_data_review": "Only synthetic artifact, bounded installed identity/status and app UI receipts. Native picker unrelated folder listings omitted from published UI receipt.",
+  "git_diff_check": "PASS",
+  "fresh_artifact_readback_checks": 27,
+  "installed_payload_hashes": 252,
+  "prior_tests_carried_forward": {
+    "python": 399,
+    "desktop": 30
+  },
+  "prior_package_determinism": "PASS_UNCHANGED_PACKAGE",
+  "icon_disposition": "ICON_NON_GATING_NO_AUTHORIZED_ASSET",
+  "independent_audit": "PENDING"
+}
