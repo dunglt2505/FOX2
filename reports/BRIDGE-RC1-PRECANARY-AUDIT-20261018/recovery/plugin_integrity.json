@@ -1,0 +1,20 @@
+[
+  {
+    "path": "shared/git_resolver.py",
+    "sha256": "c9a44ee1df0b5a767939c2a3308bc76893eed971cb882f6cef4b38c3e7cee057",
+    "bytes": 5563,
+    "pass": true
+  },
+  {
+    "path": "shared/host_guidance.md",
+    "sha256": "c3b57a05afc9ca98ef0d434f2d6b4d929c13f444434b5bb5d1650633fefc6824",
+    "bytes": 3810,
+    "pass": true
+  },
+  {
+    "path": "shared/engineering_guidance.md",
+    "sha256": "93db6643d11ace6c672aa2981bc30aab98889d3634c1c84166e9e5b744a182e1",
+    "bytes": 8690,
+    "pass": true
+  }
+]

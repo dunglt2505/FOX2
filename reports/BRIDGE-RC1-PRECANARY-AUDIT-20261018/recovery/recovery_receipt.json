@@ -1,0 +1,69 @@
+{
+  "format": "FOX2_PRECANARY_AUDIT_RECOVERY_RESULT_1",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "WORK_PRECANARY_AUDIT_RECOVERY": "BLOCKED",
+  "PRECANARY_INDEPENDENT_AUDIT": "BLOCKED",
+  "READY_FOR_CHAT_INTAKE": "YES",
+  "WORK_REVIEWER_ADMISSION": "BLOCKED",
+  "bridge_source": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+  "previous_audit": "d48aea2e22449ee4435cd81cb89101b653e7dbc8",
+  "chat_intake": "dd78af0e1ecd7204b80f28302e72549f9af69aa8",
+  "registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+  "manifests_approval": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+  "source_freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "reviewer": {
+    "actual_host": "CODEX_WORK_MODE_LINUX",
+    "continuity": "SAME_SESSION_AS_PRIOR_BOUNDED_AUDIT",
+    "independent_work_admission": "NOT_EXPOSED_NOT_VERIFIED",
+    "git_principal": "dunglt2505",
+    "exact_model_thinking": "NOT_EXPOSED",
+    "numeric_quota": "NOT_EXPOSED",
+    "capacity": "LIVE_TOOLS_AND_AUTHENTICATED_RESOLVER_EXECUTION_DEMONSTRATED",
+    "signature": "NONE_NOT_FABRICATED"
+  },
+  "B1": {
+    "status": "BLOCKED",
+    "missing": "HOST_ISSUED_WORK_ADMISSION_AND_INDEPENDENCE_PROVENANCE",
+    "remediable_in_current_session": false,
+    "minimal_remedy": "Actual independent admitted reviewer host record; no prompt self-attestation or new coding Dispatch"
+  },
+  "B2": {
+    "status": "CLOSED_PASS",
+    "plugin_id": "Plugin_09a3ebea839481919e879d0f414e6cde",
+    "release_id": "pluginrel_6ad44b76c59c8191a78e1f40300e17c6",
+    "resolver_sha256": "c9a44ee1df0b5a767939c2a3308bc76893eed971cb882f6cef4b38c3e7cee057",
+    "python": "3.12.14",
+    "actual_execution": true,
+    "families_verified": 10,
+    "authenticated_live_requests": 24,
+    "transport": "Resolver-supported Callable backed by authenticated GitHub connector",
+    "exit_code": 0,
+    "initial_transport_infra_failures": 2,
+    "resolver_modified": false
+  },
+  "windows": {
+    "current_host_access": "NOT_AVAILABLE",
+    "automatic_regression_or_lifecycle_rerun": "NOT_REQUIRED",
+    "historical_technical_gates": "REUSED",
+    "final_independent_materiality_decision": "REQUIRES_ADMITTED_REVIEWER",
+    "current_canary_ledger_before_future_claim": "REQUIRED_BY_HANDOFF_NOT_ATTESTED_HERE"
+  },
+  "tests": {
+    "prior_checks_reused": 34,
+    "product_regressions_new": 0,
+    "prior_junit_pass": 399,
+    "prior_desktop_pass": 30,
+    "prior_package_hashes_match": 252,
+    "new_work": "REQUIRED_SHARED_RESOLVER_AND_PROVENANCE_ONLY"
+  },
+  "protected_actions": "NONE",
+  "dispatch_created": false,
+  "dispatch_replay": false,
+  "canary_run": false,
+  "app_b_resumed": false,
+  "precanary_ready": "NOT_GRANTED",
+  "source_lock_changed": false,
+  "git_branch": "work/FOX2-BRIDGE-RC1-PRECANARY-AUDIT-20261018-readonly",
+  "parent": "d48aea2e22449ee4435cd81cb89101b653e7dbc8",
+  "publication": "APPEND_ONLY_REPORT_DELTA_REMOTE_READBACK_REPORTED_AFTER_COMMIT"
+}

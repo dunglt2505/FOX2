@@ -1,0 +1,274 @@
+{
+  "status": "PASS",
+  "resolver_sha256": "c9a44ee1df0b5a767939c2a3308bc76893eed971cb882f6cef4b38c3e7cee057",
+  "python": "3.12.14",
+  "transport": "Authenticated GitHub connector via resolver supported Callable; each uncached get served live, no substitute resolver",
+  "local_token": "NOT_PRESENT_NOT_REQUIRED_FOR_CONNECTOR_TRANSPORT",
+  "registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+  "registry_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+  "families": {
+    "dictionary": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "dictionary",
+        "version": "1.2",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+        "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "dictionary_generated_binding": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "dictionary_generated_binding",
+        "version": "1.2",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+        "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "policy": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "policy",
+        "version": "1.8.9",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+        "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "routing": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "routing",
+        "version": "1.3.0",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+        "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "preexec_protocol": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "preexec_protocol",
+        "version": "1.1",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+        "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "preflight_receipt_schema": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "preflight_receipt_schema",
+        "version": "1",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+        "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "chat_preflight_intake": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "chat_preflight_intake",
+        "version": "1.1",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+        "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "dispatch_schema": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "dispatch_schema",
+        "version": "3.0",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+        "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "git_first_protocol": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "git_first_protocol",
+        "version": "12",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+        "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    },
+    "bridge_technical_spec": {
+      "status": "VERIFIED_EFFECTIVE",
+      "binding": {
+        "family": "bridge_technical_spec",
+        "version": "0.7-REV10",
+        "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+        "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+        "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+        "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+        "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json",
+        "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+      }
+    }
+  },
+  "caller_owner_trust_checks": {
+    "externally_nominated_by_current_owner_request": true,
+    "registry_wp_scope": true,
+    "owner_approval_sha256": true,
+    "owner_wp_matches": true,
+    "owner_status_approved": true,
+    "owner_source_freeze_matches": true,
+    "no_protected_authority": true,
+    "no_global_promotion": true
+  },
+  "requests": [
+    {
+      "path": "commits/b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "received_utc": "2026-10-18T08:40:10.156120+00:00",
+      "response_sha256_canonical_json": "5d1d85bdf2479532501dba727865129839dc055ab24dbb1937b87c69ab258804"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json?ref=b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "received_utc": "2026-10-18T08:40:12.479644+00:00",
+      "response_sha256_canonical_json": "9075674ee09e28ff21d4e256af3208be9dc426b99d7c9f3435035aafaf880ae5"
+    },
+    {
+      "path": "commits/d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:15.383384+00:00",
+      "response_sha256_canonical_json": "fba9f8e8e48ef22919ac8c09153bf6ce6d4598556f1dc06bb7dbdce4c8b0a494"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:17.776219+00:00",
+      "response_sha256_canonical_json": "ac3e75dbfa50ab941838dd0a572d20389c0edb3486311a11130978ca59ba715c"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_PROJECT_DICTIONARY_v1.json?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:20.477962+00:00",
+      "response_sha256_canonical_json": "ffc60f6775414ac2716ac4161e303b6e3101e6dd99bb4b6f7443b20d64c837a9"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:22.726733+00:00",
+      "response_sha256_canonical_json": "1075fc4aac9aefbe7b8a12a5e50d0b745a019064929e55721d47a8a0406c4af1"
+    },
+    {
+      "path": "contents/agent_bridge/src/fox2_agent_bridge/project_dictionary.py?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:25.771960+00:00",
+      "response_sha256_canonical_json": "2d21928f5d82e556c7171859d69dcde619818e3d896d4b2f27fe271766036115"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:28.040111+00:00",
+      "response_sha256_canonical_json": "bc031d6cc337327a067fc00980f59d0ded7fb27ddc5956176f8ecb240922b81d"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_POLICY_V1.8.9.md?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:30.719399+00:00",
+      "response_sha256_canonical_json": "a4118ba90a606352dde319363b84ccc9d7c2d1664d8c06a95f4816f2bbb047bb"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:32.998907+00:00",
+      "response_sha256_canonical_json": "37c865db45210510dcecbe0906d9d13aa43717a563344bc028dd26d38af575ee"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:35.544785+00:00",
+      "response_sha256_canonical_json": "e5b73e69f91a1049db4ef1ea8e899b196d0ec18d0fe09a9cc498aad3f77ae0f9"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:37.813195+00:00",
+      "response_sha256_canonical_json": "dd1254f2c0412cd43b1016b860d7f89563a2d67e3a414bf77012f3d23bff793c"
+    },
+    {
+      "path": "contents/docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:40.135369+00:00",
+      "response_sha256_canonical_json": "2cb7c1625f6a3025998176878ed31d858f71356b7035a96f7382fe907b839c74"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:42.406781+00:00",
+      "response_sha256_canonical_json": "8b3bcc752ba85b24b0eb752edb21462bb51e0f6d7229dc6fc04840220d16a807"
+    },
+    {
+      "path": "contents/docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:44.882236+00:00",
+      "response_sha256_canonical_json": "a96e0b707d6d76651d203af3e4a57c4332f6a7ea3f9555c623988b6c63d2efa7"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:47.592629+00:00",
+      "response_sha256_canonical_json": "9accc0a77cb82b186c3dce56543cd978376b43032cdc5ef0377849359abdfd9d"
+    },
+    {
+      "path": "contents/docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:49.871256+00:00",
+      "response_sha256_canonical_json": "687ab791fa41c8965c6844e4fb4a8dce721cce05ce334033b54f9fb5c8471752"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:52.155857+00:00",
+      "response_sha256_canonical_json": "ac8b90440c64e9d538bdbcb3534b860fdb524bcb0aa29c5f8caa2abfee5690ee"
+    },
+    {
+      "path": "contents/docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:54.945667+00:00",
+      "response_sha256_canonical_json": "c8f71109e6a6726f4e9329a8df10c0b0e639bff4cf20aa4e5797398bd748c833"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:40:57.308381+00:00",
+      "response_sha256_canonical_json": "f80cef9e7b9ade9e235c28779e2fe979a9a99d2ce75807f15f48dec3e2ae3088"
+    },
+    {
+      "path": "contents/docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:40:59.770418+00:00",
+      "response_sha256_canonical_json": "e1740fd4f28243c4c794dd2935cfb6ce88457bcb7716a39e5562b72aa9a8ebf0"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:41:02.157648+00:00",
+      "response_sha256_canonical_json": "ceb84d488538ff8ab8db4db1430ea36679bd5adff65a4a4f427fc80398cbc7be"
+    },
+    {
+      "path": "contents/docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md?ref=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "received_utc": "2026-10-18T08:41:04.851845+00:00",
+      "response_sha256_canonical_json": "14d31eab302ccd69ee4f7a6baaab9ae245da137342be315e4825115ecb77c2bc"
+    },
+    {
+      "path": "contents/docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json?ref=d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "received_utc": "2026-10-18T08:41:07.173803+00:00",
+      "response_sha256_canonical_json": "e646b6b67e156904e59bf2451f937a3b99464efdcd1e51d024d62780447fe1c9"
+    }
+  ],
+  "completed_utc": "2026-10-18T08:41:07.173946+00:00"
+}
