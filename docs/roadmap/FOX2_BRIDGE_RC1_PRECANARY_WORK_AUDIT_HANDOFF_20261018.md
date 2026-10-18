@@ -62,3 +62,42 @@
 Only after externally executed WORK audit PASS can CHAT independently verify the audit receipt and, if all other gates and source integrity remain PASS, issue a scoped pre-Canary READY decision. Canary 009 must still be checked for no prior claim and freshly preflighted under its existing immutable Dispatch, then executed **exactly once** by the eligible authorized executor. Afterwards verify restart/no-replay and issue `INTERNAL_FOX2_BRIDGE_READY` only after final CHAT intake.
 
 **Prohibited:** Do not run or replay Canary now. Do not create Canary 010, resume APP-B, modify in-flight bindings, promote new Governance EFFECTIVE, merge/main, provider/broker, or LIVE.
+
+---
+
+## 6. CHAT intake of subsequently published bounded reviewer result — 2026-10-18
+
+**Status:** `PRECANARY_INDEPENDENT_AUDIT=BLOCKED` (accepted as truthful blocked admission; not product failure; not release readiness).
+**Reviewer Git commit:** `d48aea2e22449ee4435cd81cb89101b653e7dbc8`
+**Reviewer result branch:** `work/FOX2-BRIDGE-RC1-PRECANARY-AUDIT-20261018-readonly` (HEAD exact match at intake).
+**Published records (3 new paths only):**
+- `reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/audit_receipt.json` — Git blob `03cd2342c97441986ed95fa11ece5ceef7dc763e`
+- `reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/audit_checks.json` — Git blob `618cc3f38b08dcc6d76a493aaa96d3f7cc13d5e0`
+- `reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/report.md` — Git blob `ff6841b96ce9f75803f1edf2084cc81009026284`
+
+### Evidence accepted and inherited
+
+- 34/34 bounded independent Git/package evidence checks PASS, not product retests.
+- 26/26 Dispatch-004 declared digests and 67/67 historical digests verified, 10/10 source-family digests and 252/252 ZIP archive member hashes verified; 399 JUnit cases with 0 failures/errors/skips and previously accepted 30 Desktop PASS. All are evidence-based and not fresh installed-host tests.
+- No material code or package defect found by this review. Exactly three report files added after Bridge product commit; Bridge source/Canary/APP branches unchanged at intake. No replay or protected execution performed.
+- `PRECANARY_INDEPENDENT_AUDIT` remains BLOCKED; `FOX2_BRIDGE_RC1_PRECANARY_READY` NOT_GRANTED; Canary 009 and APP-B remain HOLD.
+
+### Remaining exact blockers and limits
+
+1. **B1 REVIEWER_ADMISSION_UNVERIFIED (blocking):** the reviewer receipt identifies `CODEX_WORK_MODE_LINUX`, role `BOUNDED_EVIDENCE_REVIEWER_NOT_ADMITTED_WORK`, not admitted independent WORK. Its Git principal, permission and read access cannot substitute for verified independent WORK reviewer identity/admission. Do not label this work WORK PASS.
+2. **B2 SHARED_RESOLVER_NOT_EXECUTED (procedural):** the reviewer could not read/execute `shared/git_resolver.py` from its cloud skill mount. CHAT has since verified in the authenticated **FOX2 Skills Plugin v0.2.3** backend release `pluginrel_6ad44b76c59c8191a78e1f40300e17c6` that exact `shared/git_resolver.py` and `shared/host_guidance.md` exist and are readable via Plugin Creator `get_plugin_files`; this is a **review-host exposure/execution** gap, not absence of source in the plugin. Merely retrieving it in CHAT does not discharge the execution gate. The resolver requires Python 3.11+ and authenticated live GitHub token for actual remote reads; the caller separately validates the Owner trust policy.
+3. **L1 CURRENT_HOST_NOT_REATTESTED:** Windows installed payload/pointer, manually consumed Dispatch store and current ledger were not directly accessible in the reviewer Linux session. Admitted WORK auditor must decide if one bounded read-only host evidence attestation is material; do not automatically repeat Windows reinstall, 399/30 tests or the fresh UI save.
+4. Reviewer model/thinking, numeric quota and independent signature are NOT_EXPOSED; reported live analysis capacity alone is not independent admission.
+
+### CHAT routing intake (R0–R7)
+
+- R0: This result is new evidence, not a new implementation request; preserve Dispatch 001–004 no-replay and all historical PASS.
+- R1: Phase is **WORK independent pre-Canary certification admission**, not implementation repair or Canary.
+- R2: RC1 WP-only approved source authority remains pinned, but audit release gate is BLOCKED; no new DEV/merge/LIVE/Canary rights.
+- R3: CHAT can verify Git & Plugin Creator source; actual independent WORK reviewer identity, access to resolver execution, Windows host and quota remain **UNKNOWN/BLOCKED** until verified in its own host.
+- R4: CHAT performs this factual intake; CODEX implemented and CODEX_WORK_MODE_LINUX did not satisfy WORK independence; COPILOT is not established as independent eligible reviewer; use actual admitted WORK as normative gate owner only after fresh preflight.
+- R5: This delta is confined to CHAT-owned non-main roadmap path; no Bridge, Canary, APP worktree or protected branch is modified.
+- R6: New reviewer result immutable Git commit and blob refs above; this CHAT update requires its own remote byte readback.
+- R7: Status `BLOCKED`; next meaningful action is one **admitted WORK** review that reuses 34/34 verified checks, runs trusted resolver, assesses any minimal host attestation, then issues truly independent PASS/FAIL/BLOCKED receipt. STOP before `PRECANARY_READY`.
+
+**Do not create another CODEX implementation Dispatch or retry the bounded CODEX reviewer as WORK.** First secure legitimate independent reviewer admission and actual resolver access; if impossible, report the exact platform/host capability limitation to Owner for a governed decision, without relaxing the acceptance gate.
