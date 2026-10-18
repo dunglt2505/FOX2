@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/dunglt2505/FOX2/blob/candidate/docs/governance/FOX2_INDEPENDENT_AUDIT_RECEIPT_SCHEMA_v1_CANDIDATE.json",
+  "$id": "urn:fox2:governance:independent-audit-receipt:v1:candidate",
   "title": "FOX2 Independent Reviewer Admission and Audit Receipt v1 — CANDIDATE",
   "description": "Candidate data structure only. Passing JSON Schema is NOT evidence of reviewer admission, independent audit, Governance EFFECTIVE status, or Canary authority.",
   "type": "object",
