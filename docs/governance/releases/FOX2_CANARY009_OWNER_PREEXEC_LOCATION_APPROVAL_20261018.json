@@ -1,0 +1,19 @@
+{
+  "record_type": "EXACT_OWNER_DIRECTIVE_RECORD_NOT_CRYPTOGRAPHIC_SIGNATURE",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "recorded_at": "2026-10-18T22:11:45.572606+07:00",
+  "authority": "Current human Owner message in active chat; referenced conversation is contextual evidence only",
+  "owner_directive_exact": "Continuing from [Xác minh Git Dispatch 004](chatgpt-conversation://6ad43505-fcec-83ec-8995-e37965e90a95): FOX2 only. Owner explicitly approves the narrowly scoped exception to PreExec v1.1 §4 and CHAT Intake Checklist v1.1 §2 allowing the immutable Canary009's durable preflight receipt to be published on evidence-only branch work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018, path reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/preexec/preflight_receipt.json, rather than on the locked Canary task branch. Owner delegates CHAT full authority to execute the approved scoped documentation, source binding, publication and readback, but not Canary execution or DEV/merge/LIVE. Execute mandatory POLICY_CHECK→TASK_STATE_CHECK→ROUTING_R0-R7→ASSIGNMENT_CHECK, read actual source of frozen PreExec v1.1, intake v1.1, Registry WP-only, Git result c73d1146463490e62bb698744e0f14ad9b189e0b and live heads. Publish exact Owner approval and prospective WP-only effective exception addendum with immutable Canary dispatch identity FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001, branch head 501822a33ef08c7365154913bbc677544856eee5, task/prompt immutable hash and source-set binding; preserve original policy bytes, historic receipts, existing executable dispatch and immutable branch. Confirm receipt schema and what is allowed when executable dispatch was already published but unclaimed; do not claim false published=false. Check consumer compatibility; if proven need change report BLOCKED instead of forging PASS. Use Git-verified publication/readback and scoped impact evidence, no global Policy EFFECTIVE. If warranted prepare evidence-only branch with unambiguous source ancestry, ensure it is not accidentally an executable or watched control branch. Do not create durable PASS receipt until real Windows host PreExec/worktree/agent probe succeeds. CHAT remains release decision maker. User wants actual authorized documentation action now, not only a prompt/plan; distinguish actions completed versus host steps still unperformed. End in Vietnamese with Phân công.",
+  "directive_sha256_utf8": "58dd322771ac3e238545ba30f2eab338f26bb3d7defd609105704c02f946f6ad",
+  "approval": "APPROVED_LOCATION_EXCEPTION_ONLY",
+  "delegated_to": "CHAT",
+  "excluded": [
+    "Canary execution/claim/replay",
+    "DEV",
+    "merge",
+    "LIVE",
+    "global Policy EFFECTIVE",
+    "unapproved schema or producer changes"
+  ]
+}

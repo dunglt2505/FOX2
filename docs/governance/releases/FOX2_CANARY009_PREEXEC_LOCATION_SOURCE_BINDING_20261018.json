@@ -1,0 +1,189 @@
+{
+  "record_type": "WP_ONLY_LOCATION_EXCEPTION_SOURCE_BINDING_NOT_RECEIPT_NOT_DISPATCH",
+  "recorded_at": "2026-10-18T22:11:45.572606+07:00",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "scope": "PROSPECTIVE_CANARY009_RECEIPT_LOCATION_ONLY",
+  "effectivity": "Owner-approved location exception takes effect at the immutable publication commit containing this set, after successful exact remote readback; no retroactive receipt validation",
+  "approval": {
+    "path": "docs/governance/releases/FOX2_CANARY009_OWNER_PREEXEC_LOCATION_APPROVAL_20261018.json",
+    "sha256": "5aff45f9a14ab43d5247709964639bd014ea2c21147900beff20bf8e5c250cfd"
+  },
+  "addendum_path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_LOCATION_EXCEPTION_ADDENDUM_20261018.md",
+  "immutable_canary": {
+    "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "task_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "task_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "executable_task_source": {
+      "name": "dispatch.json",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-FINAL-CANARY-009/dispatch/FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001.json",
+      "commit": "dc79f8143eec471508bf37565bff38442ce0548a",
+      "sha256": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a"
+    },
+    "prompt": {
+      "name": "prompt.md",
+      "path": "docs/agent_handoff/BRIDGE/FOX2_BRIDGE_FINAL_CANARY_009_PROMPT.md",
+      "commit": "530cc64feedbab463cefb0f5baed4e9919f25f15",
+      "sha256": "dd9f45c5ac5f62bc8c65c53fe629a15d67381fe794e18956347fd1e9999ba3e0"
+    },
+    "enclosing_task_context": {
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "commit": "501822a33ef08c7365154913bbc677544856eee5",
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "role": "Frozen enclosing Batch-B task context; immutable Canary-specific executable task identity is dispatch.json plus prompt, no separate Canary task.md in locked tree"
+    },
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "product": "CODEX",
+    "permission_profile": "FULL_ACCESS",
+    "execution_path": "BRIDGE_DIRECT_CODEX_CLI",
+    "delivery_owner": "BRIDGE",
+    "max_runs": 1
+  },
+  "source_registry": {
+    "registry_commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+    "registry_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json",
+    "registry_sha256": "813cf22ac9284012236c3a0b68b26f7290a7b3eebd1efe8857e3d5563bed203e"
+  },
+  "frozen_bindings": {
+    "dictionary": {
+      "family": "dictionary",
+      "version": "1.2",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+      "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "dictionary_generated_binding": {
+      "family": "dictionary_generated_binding",
+      "version": "1.2",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dictionary_generated_binding.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "policy": {
+      "family": "policy",
+      "version": "1.8.9",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+      "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/policy.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "routing": {
+      "family": "routing",
+      "version": "1.3.0",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md",
+      "sha256": "cd5eb24087c0e7e59aa7702377dc1de6657f01d08d20d29e2eb7561ab6e0b12e",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/routing.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "preexec_protocol": {
+      "family": "preexec_protocol",
+      "version": "1.1",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preexec_protocol.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "preflight_receipt_schema": {
+      "family": "preflight_receipt_schema",
+      "version": "1",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/preflight_receipt_schema.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "chat_preflight_intake": {
+      "family": "chat_preflight_intake",
+      "version": "1.1",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "sha256": "5b40f354d862cd11886f75cf7215effee1d8e7925acbe58c0675f22c03bbd55c",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/chat_preflight_intake.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "dispatch_schema": {
+      "family": "dispatch_schema",
+      "version": "3.0",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+      "sha256": "2d6f752ab93eb2750f84496c71ddc9b82da5ef9946e0e7856026a9cc791d74ea",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/dispatch_schema.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "git_first_protocol": {
+      "family": "git_first_protocol",
+      "version": "12",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/git_first_protocol.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    },
+    "bridge_technical_spec": {
+      "family": "bridge_technical_spec",
+      "version": "0.7-REV10",
+      "ref": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "manifest_path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/manifests/bridge_technical_spec.json",
+      "manifest_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1"
+    }
+  },
+  "frozen_authority_and_source_set": [
+    {
+      "name": "frozen_approval.json",
+      "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/OWNER_RELEASE_APPROVAL.json",
+      "commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+      "sha256": "6185200cc2585e9a6c3fda620ed4c12841f5863b9462ba77d874253ace13de53"
+    },
+    {
+      "name": "source_set.json",
+      "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_plan/BRIDGE_RC1_CURRENT_SOURCE_SET.json",
+      "commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "sha256": "325d20ba6599f012f73046449e882c85c66395aeaeebce027a85d4a5fcf5841e"
+    }
+  ],
+  "prior_decision": {
+    "name": "prior_decision.json",
+    "path": "docs/roadmap/FOX2_BRIDGE_RC1_PREEXEC_BINDING_DECISION_20261018.json",
+    "commit": "c73d1146463490e62bb698744e0f14ad9b189e0b",
+    "sha256": "55a7535b39a525771f7aa6702a307a803d179b6438744b697c92eeaa8f8cc0dc"
+  },
+  "publication_ancestry": {
+    "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+    "sole_parent": "c73d1146463490e62bb698744e0f14ad9b189e0b",
+    "source": "documentation lineage from prior binding decision; not a Canary execution checkout",
+    "canary_head_inheritance": false,
+    "runtime_source_head": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9"
+  },
+  "receipt_binding": {
+    "publication_branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+    "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/preexec/preflight_receipt.json",
+    "task_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "source_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "task_identity_rule": "Retain actual Canary task identity; evidence branch is publication locator only, never substitute it into task_branch/source_head. Full source-set link is this immutable sidecar binding, not unapproved schema fields.",
+    "state": "RESERVED_NOT_CREATED",
+    "compatibility": "BLOCKED_SCHEMA_AND_PRODUCER",
+    "future_publication_requires": "Approved compatible contract/producer plus real fresh host checks and CHAT intake; never use current engine unchanged"
+  },
+  "global_policy_effective": false,
+  "original_sources_modified": false
+}

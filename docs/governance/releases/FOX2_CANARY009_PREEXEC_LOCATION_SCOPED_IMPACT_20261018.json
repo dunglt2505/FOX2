@@ -1,0 +1,181 @@
+{
+  "record_type": "SCOPED_COMPATIBILITY_IMPACT_NOT_PREFLIGHT_RECEIPT",
+  "recorded_at": "2026-10-18T22:11:45.572606+07:00",
+  "project": "FOX2",
+  "location_exception": "OWNER_APPROVED_PROSPECTIVE_WP_ONLY",
+  "amended_clauses": [
+    "PreExec v1.1 section4: receipt publication location only",
+    "CHAT Preflight Intake v1.1 item2: receipt lookup location only"
+  ],
+  "unchanged_clauses": [
+    "PreExec v1.1 section3 dispatch-state truth",
+    "CHAT intake v1.1 item7 pre-dispatch state",
+    "receipt schema v1 false constants",
+    "all capability/worktree/source/release/no-replay gates"
+  ],
+  "compatibility": {
+    "receipt_schema_result": "BLOCKED_EXISTING_PUBLISHED_DISPATCH_INCOMPATIBLE",
+    "negative_check": {
+      "executed": true,
+      "validator": "jsonschema.Draft202012Validator",
+      "scope": "dispatch_state subschema only; no host receipt generated",
+      "truthful_input": {
+        "executable_dispatch_published": true,
+        "dispatch_consumed": false
+      },
+      "consumed_value": "hypothetical unclaimed premise for contract test, not current ledger observation",
+      "error_path": "dispatch_state.executable_dispatch_published",
+      "error": "False was expected"
+    },
+    "producer_result": "BLOCKED_ENGINE_HARDCODES_FALSE_AND_COUPLES_TASK_AND_PUBLICATION_BRANCH",
+    "producer_lines": {
+      "hardcoded_published_false": [
+        190,
+        281
+      ],
+      "task_branch_head_and_ownership": [
+        231,
+        233,
+        238
+      ],
+      "publication_branch_head_and_push": [
+        327,
+        349,
+        353
+      ]
+    },
+    "branch_safety": {
+      "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+      "base": "c73d1146463490e62bb698744e0f14ad9b189e0b",
+      "supported_control_branches": [
+        "work/FOX2-DISPATCH-chat",
+        "work/FOX2-LOCAL-DISPATCH-chat"
+      ],
+      "not_supported_control_branch": true,
+      "base_dispatch_candidate_paths": [],
+      "base_github_workflows": [],
+      "poller": "queries only configured supported control branch; no branch enumeration",
+      "installed_or_unknown_external_watchers": "NOT_REOBSERVED; no claim of universal watcher absence; runtime/config not changed"
+    },
+    "task_context": {
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/task.md",
+      "commit": "501822a33ef08c7365154913bbc677544856eee5",
+      "sha256": "ecea6438e322eef000cbb3c4573af31676f5448a91b06e969bf74d07b5ac89ec",
+      "role": "Frozen enclosing Batch-B task context; immutable Canary-specific executable task identity is dispatch.json plus prompt, no separate Canary task.md in locked tree"
+    },
+    "tests": "PASS_FOR_CONTRACT_CONFLICT_DETECTION_AND_KNOWN_BRANCH_SAFETY_ONLY_NOT_PREFLIGHT_PASS"
+  },
+  "consumer_bindings": [
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "0c727a82ccca43ee7a1b63dae142e92282c108acf78d196ef1eb0017d4aa978d"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "f037e908419a68fad2b65e3e853afed38ec0f1805c06b577eb709ef3abe6e6d0"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/probes.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "6beb9f92c54ed5ed237b9159f7d22a7eeeb03ccdc609e882899fd55fbb6cff96"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "c02a3a9dd2298ed898ba7207c5d47447b705c8bc76d44f0637fdc3dbef5efcc6"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/config.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "5389a285947ef17ab4f746c0b4c7b74f9e6f9de645dfaf634c2997bf0a788527"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f"
+    },
+    {
+      "path": "agent_bridge/tests/test_preexec.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "bfb4fa17d9f86a35b37501f17c0935cad1ff8b75d7fd910cb067ec1546493d67"
+    },
+    {
+      "path": "agent_bridge/scripts/preexec.py",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "46556418363f26ea46c6384b3a61d85bf1022482814961365a5021ed746e3f22"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/preflight.ps1",
+      "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "sha256": "0adf0a41496530467aa824ee3d6ef13092e4a5b2d91783c98c7a9195ac44cfd8"
+    }
+  ],
+  "routing_precheck": {
+    "ordered_sequence": [
+      "POLICY_CHECK",
+      "TASK_STATE_CHECK",
+      "ROUTING_R0_R7",
+      "ASSIGNMENT_CHECK"
+    ],
+    "POLICY_CHECK": "Frozen Dictionary1.2 -> Policy1.8.9 -> Routing1.3.0 and 10 Registry families live verified. WP-only release approval verified; current human Owner supplies independent authority only for this location exception. Prospective global registry remains PREPROMOTION_CANDIDATE_NOT_EFFECTIVE; no global rebind.",
+    "TASK_STATE_CHECK": "Read c73d114 prior binding decision and live dispatch/prompt. Existing dispatch published=true; max_runs=1. No new assignment, no claim or replay. H1/H2 historical observations retained without rerun or fresh PASS. Current consumed/start state UNKNOWN (last reported unconsumed at 2026-10-18T21:46:06+07:00).",
+    "R0": "Continue prior documentary decision; new delta is explicit Owner location approval. Preserve old receipts and approvals; do not repeat completed H1/audit.",
+    "R1": "Scoped prospective documentation publication and compatibility assessment; not executable PreExec or implementation.",
+    "R2": "CODE_ALLOWED=false for this action. Four new docs only on evidence branch; no Canary/control/runtime/global Registry/source-byte edits. Gates and max_runs preserved.",
+    "R3": {
+      "CHAT": "Authenticated GitHub reads proven; bounded direct document publication available; this current route uses host tools, not the pinned Canary agent. Underlying assistant model/effort not exposed by telemetry; do not equate with pinned capability.",
+      "CODEX": "Candidate pinned gpt-6.1-sol/medium/FULL_ACCESS for future host step; probe NOT_RUN, worktree/writer UNKNOWN; account remaining 44%/69% from actual usage telemetry, ordinary usage allowed; quota is not capability proof.",
+      "COPILOT": "Compared; auth/quota/current pinned-compatible capability UNKNOWN, not permitted as silent replacement for materially pinned Canary. No probe needed for direct documentation.",
+      "WORK": "Independent host access/quota UNKNOWN; RC1 audit WAIVED_BY_OWNER; no required audit action.",
+      "other_agents": "No additional eligible candidate evidenced; none dispatched."
+    },
+    "R4": "Select DIRECT_CHAT for authorized docs: tools suffice, no Agent/WORK credit or extra independent reviewer required. Keep CODEX pending for pinned host work; COPILOT/WORK do not improve this documentation acceptance.",
+    "R5": "Remote Git objects only, no local Canary checkout/worktree mutation. Evidence branch absent at live enumeration, use create-ref at complete documentation commit (reject existing ref); immutable parent c73d114, allowlist four new files, no overwrite. Verify protected live heads immediately before/after publication. Canary single-writer is unproven and not closed by this operation.",
+    "R6": "Source synchronization is Git publication plus exact immutable remote readback only; no Drive/Library parity claimed. No executable handoff. Current ledger UNKNOWN remains a future gate.",
+    "R7": "CHAT executes docs now; CODEX candidate HOLD; COPILOT waits; WORK not needed. STOP publication on head drift/existing destination/changed-path mismatch or readback failure. STOP canonical receipt/Canary on schema/producer conflict, unknown ledger, absent pinned capability/worktree/writer or missing CHAT readiness.",
+    "ASSIGNMENT_CHECK": "PASS_SCOPED_DOCUMENTATION_ONLY; NO_EXECUTABLE_ASSIGNMENT; CHAT retains release/acceptance decision"
+  },
+  "material_blockers": [
+    {
+      "code": "PUBLISHED_DISPATCH_SCHEMA_CONFLICT",
+      "evidence": "Schema requires false, actual immutable dispatch exists; intake item7 also requires false. Location grant does not authorize changing either."
+    },
+    {
+      "code": "SPLIT_PUBLICATION_PRODUCER_UNSUPPORTED",
+      "evidence": "Shared engine binds hygiene and push to requirements.branch/source_head; cannot use separate evidence branch and preserve task identity unchanged."
+    }
+  ],
+  "allowed_now": [
+    "Publish exact Owner approval, location addendum and bindings/impact as documentation",
+    "Keep dispatch immutable and on HOLD; truthful documentary record published=true",
+    "Collect safe read-only facts; future host probe/worktree only under valid scoped host authorization and gates"
+  ],
+  "not_allowed": [
+    "Claim PASS_TO_ASSIGN or readiness based on location approval",
+    "Set published=false or reinterpret it as no new dispatch",
+    "Run existing shared PreExec producer unchanged for this legacy dispatch",
+    "Modify schema/producer/Dictionary/global Policy under this location-only grant",
+    "Publish new/replacement dispatch or alter/replay current dispatch"
+  ],
+  "required_resolution": "Separately authorized compatible shared schema/intake/producer design for already-published immutable dispatch and split receipt destination, with consumer evidence; scope not granted by this exception. Do not implement here.",
+  "host_steps": {
+    "worktree_preparation": "NOT_PERFORMED_THIS_ACTION",
+    "single_writer": "NOT_ESTABLISHED",
+    "pinned_agent_probe": "NOT_RUN",
+    "Windows_host_PreExec": "NOT_RUN",
+    "durable_receipt": "NOT_CREATED",
+    "current_dispatch_consumed": "UNKNOWN_NOT_REOBSERVED",
+    "implementation_start": "NOT_STARTED_BY_THIS_ACTION; external current state UNKNOWN",
+    "CHAT_readiness": "NOT_GRANTED"
+  },
+  "preservation": [
+    "Original frozen source bytes",
+    "All historic receipts",
+    "Existing executable dispatch/prompt and max_runs",
+    "Canary branch head",
+    "Global candidate release HOLD"
+  ],
+  "global_effective": false
+}
