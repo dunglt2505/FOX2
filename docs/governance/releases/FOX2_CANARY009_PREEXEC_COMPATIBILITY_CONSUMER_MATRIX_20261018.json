@@ -1,0 +1,308 @@
+{
+  "format": "FOX2_CANARY009_PREEXEC_COMPATIBILITY_CONSUMER_MATRIX_CANDIDATE_1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "status": "CANDIDATE_NOT_EFFECTIVE",
+  "authority": "CHAT_OWNER_AUTHORIZED_DOC_PACKAGE_ONLY_NO_CODE_OR_SEMANTIC_RELEASE",
+  "baseline": {
+    "wp_registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+    "source_commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "code_commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "prior_binding_decision": "c73d1146463490e62bb698744e0f14ad9b189e0b",
+    "location_exception_commit": "84ac87fbccc947c16490fb9365dc5a3d8e49661c",
+    "contract_candidate": {
+      "path": "docs/governance/releases/FOX2_CANARY009_PREEXEC_COMPATIBILITY_CONTRACT_CANDIDATE_20261018.md",
+      "commit": "a27320ebd7f63949f0671febd294f6dcb4eea5c1",
+      "git_blob_sha": "0182d8e3d402296532c9144755289d5e6668380d"
+    },
+    "locked_task_branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+    "locked_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "existing_dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+    "published_dispatch": true,
+    "current_consumed": "UNKNOWN_NOT_REOBSERVED",
+    "receipt_publication_branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+    "receipt_path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/preexec/preflight_receipt.json",
+    "receipt_created": false
+  },
+  "consumer_matrix": [
+    {
+      "id": "M01",
+      "consumer": "Preflight Receipt Schema v1",
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "ref": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "git_blob": "25fe465f82a16edf29ebf773a220969192f546e8",
+      "observed": "const false for executable_dispatch_published and dispatch_consumed; agent_execution_started=false; additionalProperties=false",
+      "impact": "MATERIAL_INCOMPATIBLE_FOR_EXISTING_PUBLISHED_DISPATCH",
+      "minimum_delta": "Governed separate version/profile or controlled extension; retain original schema and historical receipts byte-for-byte; new profile must truthfully represent published=true and fail closed on consumed/started/UNKNOWN",
+      "test": "Old v1 fixture unchanged + new published-true positive with verified fresh host + false-label and unknown-state negatives",
+      "change_authority": "SEPARATE_NORMATIVE_CONTRACT_APPROVAL_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M02",
+      "consumer": "CHAT Preflight Intake v1.1",
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md",
+      "ref": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "git_blob": "e7b7772183c19e58d28d8c9d3851f283a9d9c22a",
+      "observed": "Item2 exact task-branch publication and Item7 published=false; location Item2 already has owner-approved WP-only exception, Item7 does NOT",
+      "impact": "MATERIAL_REVALIDATION_SEMANTIC_CONFLICT",
+      "minimum_delta": "Governed explicit existing-published-dispatch revalidation intake lane; require source-bound evidence locator and contemporary ledger; do not change v1 pre-dispatch intake behavior",
+      "test": "Correct existing-published lane accepts only verified published=true/consumed=false/started=false; original false predispatch lane intact",
+      "change_authority": "SEPARATE_NORMATIVE_INTAKE_APPROVAL_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M03",
+      "consumer": "PreExec Evidence Protocol v1.1",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "ref": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+      "git_blob": "a452a2c9cdd71e613d6fe378927831ed840c9398",
+      "observed": "Protocol framed before executable Dispatch; receipt publication on task branch; location-only exception approved for Canary but semantic pre-dispatch/observability unchanged",
+      "impact": "MATERIAL_SEMANTIC_CONTRACT_DELTA_REQUIRED",
+      "minimum_delta": "Prospective governed existing-dispatch revalidation procedure, no second executable Dispatch, location exception stays scoped; no global release without trust and compatibility chain",
+      "test": "No premature PASS_TO_ASSIGN, receipt-failure and no-replay scenarios",
+      "change_authority": "SEPARATE_NORMATIVE_PROTOCOL_APPROVAL_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M04",
+      "consumer": "Shared PreExec engine Requirements/build/failure_receipt/hygiene/publish",
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "9740fd959277e189e47f6d6a2e75dcf0e13dadfd",
+      "observed": "Requirements single branch/worktree/source_head; failure_receipt line190/build281 hardcode published=false; hygiene231-249 enforces one task checkout; publish327-363 writes/pushes task branch",
+      "impact": "MATERIAL_CODE_DELTA",
+      "minimum_delta": "Add explicitly gated existing-dispatch profile, distinct task_source and publication locator/checkout/head; preserve legacy default path exactly. Query fresh ledger via safe host read-only method. Verify source, writer, WIP, expected remote and exact immutable readback on both branches.",
+      "test": "Pre-dispatch regression + two-worktree positive/negative fixtures, stale receipts, remote drift, no unsafe reset, no false PASS",
+      "change_authority": "SEPARATE_CODE_SCOPE_AND_IMPLEMENTATION_PREEXEC_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M05",
+      "consumer": "Shared PreExec CLI",
+      "path": "agent_bridge/scripts/preexec.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "eba34947099212fe112dfe716149747f9605ed0c",
+      "observed": "Only profiles app/bridge/rollout; identity(profile) fixes single task branch and source head; no Canary009 existing-dispatch profile or receipt destination args",
+      "impact": "MATERIAL_CODE_DELTA",
+      "minimum_delta": "Add exact source-bound existing-dispatch invocation requiring approved exception and explicit publication locator; refuse ad hoc branch substitution; defaults unchanged",
+      "test": "Correct args and denied unknown/mismatched profile, no direct Canary action",
+      "change_authority": "SEPARATE_CODE_SCOPE_AND_IMPLEMENTATION_PREEXEC_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M06",
+      "consumer": "Task-specific PreExec profiles",
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "0ccf2045df264aa388a2cbb39249d762163558d9",
+      "observed": "identity() defines app, bridge, rollout; bridge means Bridge Batch-B task and legacy receipt, not immutable Canary dispatch; CODEX route pinned gpt-6.1-sol/medium supported",
+      "impact": "MATERIAL_PROFILE_REGISTRATION_DELTA",
+      "minimum_delta": "Exact Canary009 revalidation profile under authorized contract; preserve three existing profiles and model tuple; separate publication branch is not task branch",
+      "test": "Legacy profile outputs unchanged; Canary profile binds full frozen dispatch/task/prompt hashes",
+      "change_authority": "SEPARATE_CODE_SCOPE_AND_IMPLEMENTATION_PREEXEC_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M07",
+      "consumer": "PreExec agent probes",
+      "path": "agent_bridge/src/fox2_agent_bridge/preexec/probes.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": null,
+      "observed": "Agent probes are shared by current engine. Existing pinned-model probe is a non-implementation capability check; current Windows Canary probe was NOT_RUN",
+      "impact": "DEPENDENCY_VERIFY_NO_AUTOMATIC_EDIT",
+      "minimum_delta": "Reuse existing bounded pinned-model probe if proven safe; modify only if test demonstrates capability-proof deficiency",
+      "test": "Exact model/medium/FULL_ACCESS route, no prompt/marker Canary, no tools/side effects",
+      "change_authority": "ONLY_IF_PROVEN_MATERIAL_DEPENDENCY",
+      "status": "SOURCE_READ_PREVIOUS_IMPACT_ONLY_NO_FRESH_IMPLEMENTATION"
+    },
+    {
+      "id": "M08",
+      "consumer": "Generated Dictionary runtime binding",
+      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "738decf275412df7209ade6f540ffa603b2cc491",
+      "observed": "PREFLIGHT_RECEIPT_SCHEMA const published=false and CURRENT binding to schema v1, pinned SOURCE SHA256; generated file says do not edit",
+      "impact": "MATERIAL_IF_NEW_SCHEMA_PROFILE_REGISTERED",
+      "minimum_delta": "Regenerate only through authorized Dictionary generator and prospective source-bound release if a new profile is registered in Dictionary; do not manually patch generated constants or existing frozen generated bytes",
+      "test": "Deterministic generation, old Dictionary/Schema v1 remains byte-stable; explicit candidate-vs-effective gating",
+      "change_authority": "SEPARATE_GOVERNANCE_SOURCE_AND_CODE_APPROVAL_IF_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M09",
+      "consumer": "Dictionary generated-binding regression test",
+      "path": "agent_bridge/tests/test_project_dictionary.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "c35253ddd13a3cdc6a794f9eab75dab1a5a7cad5",
+      "observed": "test_project_dictionary_binding_deterministic_drift references generator at agent_bridge/scripts/generate_project_dictionary.py",
+      "impact": "REGRESSION_CONSUMER",
+      "minimum_delta": "Test authorized generator compatibility only if new Dictionary schema binding is proposed; no change to frozen baseline",
+      "test": "Generated bytes and source SHA match intended prospective source, no silent binding/release",
+      "change_authority": "TEST_ONLY_IF_DICTIONARY_DELTA_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M10",
+      "consumer": "Shared preexec test suite",
+      "path": "agent_bridge/tests/test_preexec.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "bad4ebaeb233198920a367e6232d6192cf05d55c",
+      "observed": "test_preflight_durable_statuses asserts published=false and one-branch receipt diff; adversarial tests cover writer, WIP, hook, readback, drift; pinned model args",
+      "impact": "MANDATORY_CODE_TEST_DELTA",
+      "minimum_delta": "Preserve existing suite and add parametrized separate cohort tests, two-checkout mocked remote, read-only ledger tri-state, no replay and publication race guards",
+      "test": "All acceptance cases in candidate contract section7 plus exact old test regression",
+      "change_authority": "SEPARATE_CODE_SCOPE_AND_IMPLEMENTATION_PREEXEC_REQUIRED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M11",
+      "consumer": "Bridge Batch-B PowerShell PreExec adapter",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-DESKTOP-BATCH-B/preflight.ps1",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": null,
+      "observed": "Thin adapter calls scripts/preexec.py --profile bridge; not a Canary-specific identity",
+      "impact": "SHOULD_REMAIN_UNCHANGED_FOR_LEGACY",
+      "minimum_delta": "Do not overload Batch-B adapter; use authorized explicit Canary-only wrapper only if necessary",
+      "test": "Existing adapter remains byte-stable; no Canary invocation when Batch-B profile runs",
+      "change_authority": "ONLY_IF_NEW_EXPLICIT_ADAPTER_JUSTIFIED",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M12",
+      "consumer": "Dispatch poller and configured control refs",
+      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "8c0b491617a2a56204a1a687735eb7c922477b2b",
+      "observed": "Poller queries configured control branch rather than enumerating all docs/evidence branches; no need to change configured control refs",
+      "impact": "EXPLICIT_NON_CONSUMER_FOR_SCOPED_DOC_PUBLISH",
+      "minimum_delta": "No poller refactor; do not place new dispatch on control branch",
+      "test": "Evidence-only receipt publication creates no new dispatch candidate or claim",
+      "change_authority": "NO_CHANGE",
+      "status": "SOURCE_READ_VERIFIED_NO_CHANGE"
+    },
+    {
+      "id": "M13",
+      "consumer": "Bridge runner / existing immutable Canary acceptance",
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "ref": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "git_blob": "8271a8ef2ce92eb84d7ac263469330e73f5a0ef5",
+      "observed": "Already inspected; no proven pre-Canary all-PASS evaluator in selected source modules",
+      "impact": "NO_CODE_CHANGE_SHOWN_BUT_NOT_FULL_REPO_COVERAGE",
+      "minimum_delta": "Do not modify runner unless a specific consumer conflict is demonstrated",
+      "test": "No claim/e2e-once/run-next in compatibility tests",
+      "change_authority": "DEPENDENCY_ONLY_IF_EVIDENCED",
+      "status": "PARTIAL_INSPECTION_NOT_WHOLE_REPO_PROOF"
+    },
+    {
+      "id": "M14",
+      "consumer": "Unknown outside GitHub Actions/host automation/Library dashboards",
+      "path": null,
+      "ref": null,
+      "git_blob": null,
+      "observed": "UNKNOWN_NOT_ENUMERATED; cannot assert global consumer compatibility",
+      "impact": "UNKNOWN_FAIL_CLOSED_IF_MATERIAL",
+      "minimum_delta": "Before contract EFFECTIVE adoption, identify consumer by source path/service and verify each matching version; missing material consumer inventory retains HOLD",
+      "test": "Consumer inventory and material compatibility evidence required",
+      "change_authority": "AUTHORITY_AND_ACCESS_UNKNOWN",
+      "status": "UNKNOWN"
+    }
+  ],
+  "routing": {
+    "POLICY_CHECK": "10/10 frozen WP-only manifest families and SHA-256 source bytes live authenticated Git verified; approved location exception does not grant semantic/code rights",
+    "TASK_STATE_CHECK": "Existing published Canary dispatch already present; no new dispatch, latest consumed state unknown; historical earlier tests not replayed",
+    "R0": "Reuse frozen tests and previous source-binding/exception receipts",
+    "R1": "Prospective compatibility-contract design and source review, not runtime/code implementation",
+    "R2": "Owner authorized docs on evidence branch only; source lock, release gates/no replay intact",
+    "R3": "CHAT authenticated Git fetch/write/readback capability verified; CODEX observed Windows 0.162.1 with last quota 44%/69% at earlier snapshot but current model capability and worktree/writer still UNKNOWN; COPILOT 1.0.98 quota UNKNOWN; WORK host capacity UNKNOWN",
+    "R4": "DIRECT_CHAT for docs; CODEX pinned only for later gated runtime task, COPILOT not silent substitute, WORK unnecessary for waived audit; no new Agent task issued",
+    "R5": "Existing evidence branch currently owned by authorized CHAT Git-doc writes; no local host code worktree ownership/permission evidence; no protected branch touched",
+    "R6": "Candidate docs on Git readback only; no Library/installed release, no source rebind, no PreExec receipt",
+    "R7": "STOP semantic EFFECTIVE/DEV/claim/Canary until separate contract/code authorization, implementation PreExec and consumer tests",
+    "ASSIGNMENT_CHECK": "PASS_FOR_DIRECT_DOCS_ONLY_CODE_ASSIGNMENT_HOLD"
+  },
+  "acceptance_scenarios": [
+    {
+      "id": "T01",
+      "given": "Original pre-dispatch v1 PASS/BLOCKED/INFRA_FAILED input",
+      "expected": "All existing v1 semantics and tests unchanged"
+    },
+    {
+      "id": "T02",
+      "given": "Published immutable dispatch=true plus fresh consumed=false started=false and all exact bindings PASS",
+      "expected": "Candidate revalidation MAY be evaluated under authorized new profile; never v1 false"
+    },
+    {
+      "id": "T03",
+      "given": "published=true forced into existing v1 schema false",
+      "expected": "Schema validation rejection"
+    },
+    {
+      "id": "T04",
+      "given": "Wrong dispatch ID/hash/task head/prompt/Owner exception/Registry",
+      "expected": "Reject binding before probe or publication"
+    },
+    {
+      "id": "T05",
+      "given": "Consumed or started=true; unknown/stale/contradictory ledger",
+      "expected": "HOLD/STOP no readiness, claim or replay"
+    },
+    {
+      "id": "T06",
+      "given": "Publication branch substituted as task branch or receipt commit advances frozen Canary head",
+      "expected": "Hard rejection"
+    },
+    {
+      "id": "T07",
+      "given": "Competing writer or unrelated staged/untracked WIP",
+      "expected": "INFRA_FAILED with no out-of-scope cleanup"
+    },
+    {
+      "id": "T08",
+      "given": "Remote branch/head drift; failed push; remote bytes mismatch",
+      "expected": "Fail closed and no RECEIPT_PUSHED"
+    },
+    {
+      "id": "T09",
+      "given": "Probe incorrectly uses executable Canary prompt/marker",
+      "expected": "Reject probe as unsafe/invalid"
+    },
+    {
+      "id": "T10",
+      "given": "Publish approved receipt to evidence-only branch",
+      "expected": "Only exact one receipt path, frozen Canary ref/dispatch remains unchanged; authenticated remote byte-readback required"
+    },
+    {
+      "id": "T11",
+      "given": "Any test invokes actual dispatch/worker, e2e-once or run-next",
+      "expected": "Forbidden/no test pass"
+    },
+    {
+      "id": "T12",
+      "given": "Unrecognized consumer or effective-version mismatch",
+      "expected": "HOLD on source release/adoption until resolved"
+    }
+  ],
+  "tests_actual": {
+    "authenticated_wp_source_resolution": "PASS_10_OF_10_SHA256",
+    "original_runtime_source_observation": "PASS_KNOWN_CODE_PATHS",
+    "frozen_schema_conflict": "CONFIRMED_SOURCE_CONST_FALSE",
+    "split_producer_conflict": "CONFIRMED_SOURCE_SINGLE_BRANCH_HEAD",
+    "new_compatibility_unit_tests": "NOT_RUN",
+    "installed_host_probe": "NOT_RUN",
+    "v1_full_regression": "NOT_RUN",
+    "unknown_consumers": "UNKNOWN",
+    "real_receipt_created": false,
+    "canary_execution": "NOT_RUN"
+  },
+  "implementation_authority": {
+    "code_allowed_from_this_document": false,
+    "normative_contract_approval": "MISSING_FOR_SEMANTIC_CHANGE",
+    "runtime_producer_change_authority": "MISSING",
+    "writer_and_worktree": "UNKNOWN",
+    "fresh_preexec_for_code_task": "NOT_RUN",
+    "release_and_host_adoption": "NOT_GRANTED",
+    "no_claim_replay_live": true
+  },
+  "no_existing_docs_modified": true
+}
