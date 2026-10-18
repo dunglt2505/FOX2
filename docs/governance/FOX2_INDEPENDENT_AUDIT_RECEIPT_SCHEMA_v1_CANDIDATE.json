@@ -1,0 +1,538 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dunglt2505/FOX2/blob/candidate/docs/governance/FOX2_INDEPENDENT_AUDIT_RECEIPT_SCHEMA_v1_CANDIDATE.json",
+  "title": "FOX2 Independent Reviewer Admission and Audit Receipt v1 — CANDIDATE",
+  "description": "Candidate data structure only. Passing JSON Schema is NOT evidence of reviewer admission, independent audit, Governance EFFECTIVE status, or Canary authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "contract",
+    "whole_wp",
+    "source_binding",
+    "implementer",
+    "reviewer",
+    "proof_mode",
+    "independence_evidence",
+    "admission",
+    "audit",
+    "created_utc",
+    "protected_actions"
+  ],
+  "properties": {
+    "format": {
+      "const": "FOX2_INDEPENDENT_AUDIT_RECEIPT_V1_CANDIDATE"
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "version",
+        "authority_status",
+        "approval_reference"
+      ],
+      "properties": {
+        "path": {
+          "const": "docs/governance/FOX2_INDEPENDENT_REVIEW_ADMISSION_CONTRACT_v1_CANDIDATE.md"
+        },
+        "version": {
+          "const": "1"
+        },
+        "authority_status": {
+          "enum": [
+            "CANDIDATE_NOT_EFFECTIVE",
+            "APPROVED_EFFECTIVE"
+          ]
+        },
+        "approval_reference": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "whole_wp": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_commit",
+        "registry_path",
+        "source_commit",
+        "source_scope",
+        "verified_against_approved_manifest"
+      ],
+      "properties": {
+        "registry_commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "registry_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "source_scope": {
+          "enum": [
+            "WP_ONLY",
+            "PROJECTWIDE_EFFECTIVE",
+            "UNKNOWN"
+          ]
+        },
+        "verified_against_approved_manifest": {
+          "type": "boolean"
+        }
+      }
+    },
+    "implementer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent",
+        "dispatch_id",
+        "result_commit"
+      ],
+      "properties": {
+        "agent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dispatch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result_commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "execution_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_role",
+        "claimed_role",
+        "observed_role",
+        "identity_reference",
+        "host_run_reference",
+        "model",
+        "thinking",
+        "quota"
+      ],
+      "properties": {
+        "required_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claimed_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "identity_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "host_run_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thinking": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quota": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "proof_mode": {
+      "enum": [
+        "HOST_NATIVE",
+        "EXTERNALLY_CORROBORATED",
+        "NOT_ESTABLISHED"
+      ]
+    },
+    "independence_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "externally_verifiable_items",
+        "identity_correlated",
+        "role_verified",
+        "separate_from_implementer",
+        "separate_from_previous_bounded_reviewer",
+        "no_material_conflict",
+        "basis_for_nonoverlap"
+      ],
+      "properties": {
+        "externally_verifiable_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "issuer",
+              "reference",
+              "source_type",
+              "verified_by_intake",
+              "verification_result"
+            ],
+            "properties": {
+              "issuer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_type": {
+                "enum": [
+                  "HOST_RUN",
+                  "INDEPENDENT_IDENTITY",
+                  "AUTHORIZED_ASSIGNMENT",
+                  "AUDIT_TRAIL",
+                  "OTHER"
+                ]
+              },
+              "verified_by_intake": {
+                "type": "boolean"
+              },
+              "verification_result": {
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "UNVERIFIED"
+                ]
+              }
+            }
+          }
+        },
+        "identity_correlated": {
+          "type": "boolean"
+        },
+        "role_verified": {
+          "type": "boolean"
+        },
+        "separate_from_implementer": {
+          "type": "boolean"
+        },
+        "separate_from_previous_bounded_reviewer": {
+          "type": "boolean"
+        },
+        "no_material_conflict": {
+          "type": "boolean"
+        },
+        "basis_for_nonoverlap": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "decided_by",
+        "decision_evidence",
+        "permission_scope"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "ADMITTED",
+            "BLOCKED",
+            "REJECTED"
+          ]
+        },
+        "decided_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permission_scope": {
+          "enum": [
+            "READ_ONLY",
+            "READ_ONLY_PLUS_AUTHORIZED_NONMAIN_REPORT",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "evidence_refs",
+        "reviewer_report_ref",
+        "limitations"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "BLOCKED",
+            "NOT_STARTED"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reviewer_report_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "created_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "protected_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "git_result": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "changed_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remote_readback": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "admission": {
+            "properties": {
+              "status": {
+                "const": "ADMITTED"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "contract": {
+            "properties": {
+              "authority_status": {
+                "const": "APPROVED_EFFECTIVE"
+              },
+              "approval_reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "source_binding": {
+            "properties": {
+              "verified_against_approved_manifest": {
+                "const": true
+              }
+            }
+          },
+          "proof_mode": {
+            "enum": [
+              "HOST_NATIVE",
+              "EXTERNALLY_CORROBORATED"
+            ]
+          },
+          "independence_evidence": {
+            "properties": {
+              "externally_verifiable_items": {
+                "minItems": 1,
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "verified_by_intake": {
+                      "const": true
+                    },
+                    "verification_result": {
+                      "const": "PASS"
+                    }
+                  },
+                  "required": [
+                    "verified_by_intake",
+                    "verification_result"
+                  ]
+                }
+              },
+              "identity_correlated": {
+                "const": true
+              },
+              "role_verified": {
+                "const": true
+              },
+              "separate_from_implementer": {
+                "const": true
+              },
+              "separate_from_previous_bounded_reviewer": {
+                "const": true
+              },
+              "no_material_conflict": {
+                "const": true
+              }
+            }
+          },
+          "admission": {
+            "properties": {
+              "permission_scope": {
+                "enum": [
+                  "READ_ONLY",
+                  "READ_ONLY_PLUS_AUTHORIZED_NONMAIN_REPORT"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "audit": {
+            "properties": {
+              "status": {
+                "const": "PASS"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "admission": {
+            "properties": {
+              "status": {
+                "const": "ADMITTED"
+              }
+            }
+          },
+          "audit": {
+            "properties": {
+              "reviewer_report_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "contract": {
+            "properties": {
+              "authority_status": {
+                "const": "CANDIDATE_NOT_EFFECTIVE"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "admission": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "BLOCKED",
+                  "REJECTED"
+                ]
+              }
+            }
+          },
+          "audit": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "BLOCKED",
+                  "NOT_STARTED",
+                  "FAIL"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
