@@ -101,3 +101,18 @@ Only after externally executed WORK audit PASS can CHAT independently verify the
 - R7: Status `BLOCKED`; next meaningful action is one **admitted WORK** review that reuses 34/34 verified checks, runs trusted resolver, assesses any minimal host attestation, then issues truly independent PASS/FAIL/BLOCKED receipt. STOP before `PRECANARY_READY`.
 
 **Do not create another CODEX implementation Dispatch or retry the bounded CODEX reviewer as WORK.** First secure legitimate independent reviewer admission and actual resolver access; if impossible, report the exact platform/host capability limitation to Owner for a governed decision, without relaxing the acceptance gate.
+
+---
+## 2026-10-18 — CHAT intake: final reviewer-admission determination
+
+Input Git Result: `541bf35e3bdb95b701bd1cdc22b0bdbe87333110`; report `reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/final_admission_determination.md`. Verified single new report file, exact audit-branch commit, and unchanged Bridge/Canary/APP heads.
+
+Disposition: `CHAT_INTAKE=PASS`; `B2_SHARED_RESOLVER=CLOSED_PASS`; `WORK_REVIEWER_ADMISSION=BLOCKED`; `PRECANARY_INDEPENDENT_AUDIT=BLOCKED`; `PRECANARY_READY=NOT_GRANTED`.
+
+The frozen RC1 task section 11 requires an independent WORK pre-Canary review. That task does **not expressly specify** a host-issued identity certificate, cryptographic signature, or a particular model-telemetry field as the sole admissible way to evidence reviewer eligibility. More specific host-issued provenance wording was introduced by the later CHAT handoff. It must not silently replace the owning acceptance specification or be silently waived. Distinguish the substantive mandatory **independence of reviewer** from any unverified **particular attestation mechanism**.
+
+The new report states its execution was a continuation of the earlier reviewer session and cannot establish a fresh admitted WORK role; no audit PASS is issued. Existing 34/34 evidence checks, 10/10 source families, 252/252 package hashes, 399 JUnit tests and historical 30 desktop PASS are preserved.
+
+Next allowed decision: CHAT and the governance-owning authority should determine an actual independently evidenced reviewer admission route supported by the product/host, or approve a prospective explicit audit-admission evidence contract. Such contract must preserve independent review, read-only scoped evidence and final acceptance, not retroactively assert this review as admitted. If no eligible WORK reviewer can be established, retain BLOCKED. Do not repeat the same prompt/recovery session.
+
+Canary 009 and APP-B remain HOLD; no replay, code change, source rebind, merge or release authority follows from this note.
