@@ -74,7 +74,9 @@
     "global_machine_registry_effective": "NOT_ATTESTED",
     "owner_windows_installed_runtime": "NOT_ATTESTED",
     "app_offline_dev_route": "INDEPENDENT_CODE_FIRST_NOT_BLOCKED_BY_BRIDGE_ONLY",
-    "master_plan_library_divergence": "OBSERVED_HISTORICAL_LIBRARY_COPY; CORRECTION_ADDENDUM_REQUIRED; NO_SILENT_OVERWRITE"
+    "master_plan_library_divergence": "PRESERVED_HISTORICAL_COPY; CURRENT_OPERATING_ADDENDUM_MIRRORED",
+    "master_plan_operating_addendum": "GIT_AND_LIBRARY_EXACT_BYTES_READBACK_PASS",
+    "master_plan_operating_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md"
   },
   "instructions_for_CHAT": [
     "At task start resolve Owner-approved source applicable to that scope; never use highest filename or stale document header as operative current",
@@ -87,7 +89,15 @@
     "policy_release_manifest": "docs/governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
     "migration_ci_run": "https://github.com/dunglt2505/FOX2/actions/runs/39214187564",
     "ci_tests": "111_LINUX_AND_414_WINDOWS_PASS",
-    "full_runtime_effective_claim": false
+    "full_runtime_effective_claim": false,
+    "operating_addendum": {
+      "git_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
+      "git_source_commit": "5923cb51bb85e333d6963d8cde65845e39bf1844",
+      "git_blob_sha1": "01918d2559da1e2a17e0354405cef463af94590d",
+      "sha256": "516bd7c1004f5a58a2c91353ac93e982fd7cac768bcc372bc4c18bb58d6189bb",
+      "library_path": "/Trading/FOX2/06_Roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
+      "library_readback": "PASS_EXACT_BYTES"
+    }
   },
   "protected_permissions": {
     "main": false,
