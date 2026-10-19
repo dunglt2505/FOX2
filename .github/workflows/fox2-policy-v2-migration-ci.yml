@@ -1,0 +1,42 @@
+name: FOX2 Policy v2 migration CI
+on:
+  push:
+    branches:
+      - work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019
+    paths:
+      - 'agent_bridge/**'
+      - 'docs/governance/FOX2_POLICY_V2.0.0.md'
+      - 'docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json'
+      - 'docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md'
+      - '.github/workflows/fox2-policy-v2-migration-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fox2-policy-v2-migration-ci
+  cancel-in-progress: false
+
+jobs:
+  migration-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Read only checkout including immutable dictionary source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install unit test dependencies only
+        run: python -m pip install -e './agent_bridge[dev]'
+      - name: Pinned dictionary generator --check
+        run: python agent_bridge/scripts/generate_project_dictionary.py --check
+      - name: Focused source migration and dictionary tests
+        run: python -m pytest -q agent_bridge/tests/test_policy_v2_source_migration.py agent_bridge/tests/test_project_dictionary.py
+      - name: Full Bridge regression (Linux fixture mode)
+        run: python -m pytest -q agent_bridge/tests
