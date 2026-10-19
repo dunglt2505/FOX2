@@ -1,0 +1,67 @@
+{
+  "project": "FOX2",
+  "evidence_kind": "DICTIONARY_FIRST_SOURCE_RESOLUTION_REMEDIATION",
+  "recorded_by": "CHAT",
+  "date": "2026-10-19",
+  "originating_scope": "Existing FOX2 Policy v2.0.0 migration branch; no new Whole-WP",
+  "source_ref": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+    "tested_commit": "2c42554edcd7e5c3649ec42c0d470c83e6b097a5",
+    "base_commit": "916873d695666ab9a9cd4b1aa7bfc8b1186feb86"
+  },
+  "recovery_from": "Manual Dictionary path enum in Dispatch v3/schema, BRD/Technical/Policy version literals duplicated in task handoffs, missing Git prompt binding helper",
+  "implementation": {
+    "source_resolver": "agent_bridge/src/fox2_agent_bridge/source_set.py",
+    "handoff_generator": "agent_bridge/scripts/resolve_source_set.py",
+    "schema": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+    "schema_generator": "agent_bridge/scripts/generate_dispatch_schema_v3_contract.py",
+    "schema_binding": "agent_bridge/src/fox2_agent_bridge/dispatch_schema_v3_contract.py",
+    "tests": "agent_bridge/tests/test_dictionary_first_source_set.py",
+    "description": "Generate exact immutable Policy/BRD/TechSpec/Contract source set from explicitly authority-selected Dictionary. Never select highest filename; candidate docs excluded unless bounded Owner ref+explicit key. Optional Git-first task/prompt binding requires committed prompt and exact blob/SHA. Structural schema accepts future Dictionary paths; runtime normalizer continues exact SOURCE_PATH/SOURCE_COMMIT/SOURCE_SHA256 checks."
+  },
+  "ci": {
+    "run_id": 39214187564,
+    "url": "https://github.com/dunglt2505/FOX2/actions/runs/39214187564",
+    "status": "completed",
+    "conclusion": "success",
+    "tested_commit": "2c42554edcd7e5c3649ec42c0d470c83e6b097a5",
+    "linux": {
+      "job_id": 117934453549,
+      "passed": 111,
+      "failed": 0,
+      "generators": "PASS"
+    },
+    "windows": {
+      "job_id": 117934453849,
+      "passed": 414,
+      "failed": 0,
+      "generators": "PASS"
+    }
+  },
+  "scope_validation": {
+    "files": [
+      ".github/workflows/fox2-policy-v2-migration-ci.yml",
+      "agent_bridge/scripts/generate_dispatch_schema_v3_contract.py",
+      "agent_bridge/scripts/resolve_source_set.py",
+      "agent_bridge/src/fox2_agent_bridge/dispatch_schema_v3_contract.py",
+      "agent_bridge/src/fox2_agent_bridge/source_set.py",
+      "agent_bridge/tests/test_dictionary_first_source_set.py",
+      "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json"
+    ],
+    "changed_path_allowlist": "PASS",
+    "old_dispatch_mutation": "NO",
+    "canary009_mutation": "NO",
+    "old_task_rebinding": "NO",
+    "agent_execution": "NO"
+  },
+  "limitations": {
+    "source_selection_requires_external_authority": "YES. Registry/trust-root verification is a separate decision. No automatic highest-filename promotion.",
+    "global_dictionary_v13_effective": "NO",
+    "installed_owner_host_adoption": "NOT_RUN",
+    "cli_real_git_first_handoff_generation": "NOT_RUN_END_TO_END_WITH_REAL_PROMPT",
+    "automatic_agent_pickup_or_result_push": "NOT_IMPLEMENTED_BY_THIS_RESOLVER",
+    "app_batch_b_coding_started": "NO"
+  },
+  "release_verdict": "SOURCE_REMEDIATION_CI_ACCEPTED_ONLY_NOT_GLOBAL_EFFECTIVE"
+}
