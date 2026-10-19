@@ -156,7 +156,7 @@ def git_source() -> dict:
     try:
         def query(*args):
             p = subprocess.run(
-                [git, "-C", str(SOURCE_WORKTREE), *args],
+                [git, "--no-optional-locks", "-C", str(SOURCE_WORKTREE), *args],
                 capture_output=True, text=True, timeout=10, check=False,
                 creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
             )
