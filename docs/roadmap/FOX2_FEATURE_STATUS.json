@@ -1,0 +1,38 @@
+{
+  "schema": "FOX2_FEATURE_STATUS_OPERATIONAL_V1",
+  "project": "FOX2",
+  "authority": "OPERATIONAL_RECORD_ONLY_NOT_GOVERNANCE_AUTHORITY",
+  "features": [
+    {
+      "feature_id": "FOX2-BRIDGE-RC1",
+      "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+      "target": "INTERNAL_FOX2_BRIDGE_READY",
+      "stage": "TEST",
+      "status": "BLOCKED",
+      "evidence": "CHAT_ACCEPTED",
+      "evidence_scope": "FROZEN_TECHNICAL_AND_C3_ONLY_NOT_CURRENT_CANARY_OR_RELEASE",
+      "source_sha": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "evidence_refs": [
+        {
+          "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+          "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json"
+        },
+        {
+          "commit": "435154487e8e9bf6eab54a12f1f329e63787aa84",
+          "path": "reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/CHAT_INDEPENDENT_AUDIT_INTAKE_20261019.json"
+        },
+        {
+          "commit": "1ce109b9a4c538b255c6d8ffc6be8b4dccecf65d",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/preflight_receipt.json"
+        }
+      ],
+      "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
+      "blocker": "BRIDGE_BOOTSTRAP_CONTROLS_BLOCKED; ADMISSION_COMPATIBILITY_ADOPTION_UNATTESTED; FINAL_CANARY_GATES_NOT_RUN",
+      "as_of": "2026-10-19T23:23:08.562605+07:00",
+      "next_safe_action": "READ_ONLY_Q0_Q1_AND_SUPPORTED_BOOTSTRAP_CONTROL_EVIDENCE_REVIEW; NO_EXECUTION_UNDER_CURRENT_OWNER_SCOPE",
+      "c3": "PASS_ACCEPTED_SCOPED",
+      "canary009": "HOLD",
+      "internal_ready": "NOT_ATTESTED"
+    }
+  ]
+}
