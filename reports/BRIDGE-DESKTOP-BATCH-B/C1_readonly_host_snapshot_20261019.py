@@ -130,7 +130,7 @@ $found = @(
     }
   }
 )
-@($found) | ConvertTo-Json -Depth 4 -Compress
+ConvertTo-Json -InputObject @($found) -Depth 4 -Compress
 """
 
 STARTUP_QUERY = r"""
@@ -143,7 +143,7 @@ $found = @(
     [pscustomobject]@{state = [string]$_.State; enabled = [bool]$_.Settings.Enabled}
   }
 )
-@($found) | ConvertTo-Json -Depth 4 -Compress
+ConvertTo-Json -InputObject @($found) -Depth 4 -Compress
 """
 
 
