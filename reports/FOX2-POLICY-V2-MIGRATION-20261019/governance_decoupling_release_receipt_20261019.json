@@ -1,0 +1,87 @@
+{
+  "schema": "FOX2_GOVERNANCE_DECOUPLED_RELEASE_EVIDENCE_V1",
+  "date": "2026-10-19",
+  "recorded_by": "CHAT",
+  "repo": "dunglt2505/FOX2",
+  "branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+  "source_base": "0a2e56d0ac7a93a67b4e1109839eb72b600eec9b",
+  "release_source_tip": "b04ded4b9d7fb241dc69ad25097eb474807cf68c",
+  "release_status": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+  "authority": {
+    "owner_directive": "Explicit Owner FOX2 conversation 2026-10-19, governance decoupling and direct CHAT execution",
+    "owner_internal_approval": "ACCEPTED_FOR_SCOPE",
+    "cryptographic_independent_authority": "NOT_ATTESTED",
+    "not_a_product_release": true
+  },
+  "source_readback": "GIT_PINNED_BLOBS_VERIFIED",
+  "library_readback": "PASS_4_OF_4_EXACT_GIT_BLOB_AND_SHA256",
+  "release_artifacts": [
+    {
+      "git_path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+      "git_blob_sha1": "cc9ea16d18507f5bc52583cc2c29529a6b54e42b",
+      "sha256": "b039ef3f4c5d6eac45f0f31d4faea5ecc27da842f84bc9bb2a9288dd5bcda753",
+      "bytes": 5849,
+      "library": "/Trading/FOX2/00_Governance/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+      "result": "PASS_GITHUB_AND_LIBRARY_EXACT_BYTES_READBACK"
+    },
+    {
+      "git_path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "git_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+      "sha256": "bb590e0117436af6f8bd1b863a20097aa43904f996cddbb84e4e54cf0361393a",
+      "bytes": 6831,
+      "library": "/Trading/FOX2/00_Governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "result": "PASS_GITHUB_AND_LIBRARY_EXACT_BYTES_READBACK"
+    },
+    {
+      "git_path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+      "git_blob_sha1": "186fdbc72dc1b22e97330895142d68600591ac21",
+      "sha256": "474b971e375d8c51eeeedffa746781ff65aac743d71f21c3508b246c75fdb9b3",
+      "bytes": 8080,
+      "library": "/Trading/FOX2/00_Governance/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+      "result": "PASS_GITHUB_AND_LIBRARY_EXACT_BYTES_READBACK"
+    },
+    {
+      "git_path": "docs/governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
+      "git_blob_sha1": "fec50a8504988d3a5d3c0e1ec980dc6edd428cd3",
+      "sha256": "81eca14b85bba05a6ba457be8915f4c60cae14cc218e8ee1e462d1b4c8d48686",
+      "bytes": 10200,
+      "library": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
+      "result": "PASS_GITHUB_AND_LIBRARY_EXACT_BYTES_READBACK"
+    }
+  ],
+  "consistency": {
+    "governance_sources": {
+      "policy": "2.0.0",
+      "dictionary": "1.3",
+      "routing": "1.4.0"
+    },
+    "brd_and_m1_specs": "PRESERVED_ORIGINAL_RELEASED_SEMANTIC_SOURCES",
+    "dictionary_and_routing_embedded_candidate_markers": "PRESERVED_HISTORICAL_BYTES",
+    "hosted_ci_reference": "39214187564_111_LINUX_414_WINDOWS_PASS_HISTORICAL_NOT_RELEASE_GATE",
+    "registry_scope": "PROJECTWIDE_GOVERNANCE_DOCUMENT_AUTHORITY_ONLY",
+    "bridge_rc1_trust_registry": "WP_ONLY_UNMODIFIED",
+    "old_dispatch001": "UNMODIFIED",
+    "canary009": "UNMODIFIED",
+    "app_batch_b": "UNMODIFIED",
+    "main": "UNMODIFIED",
+    "change_allowlist": "PASS_ONLY_GOVERNANCE_AND_HANDOFF_README"
+  },
+  "routing_precheck": {
+    "R0": "Reuse prior published release and 111+414 CI; no rerun or duplicate micro-WP",
+    "R1": "GOVERNANCE_DOCUMENT_RELEASE not AGENT_EXECUTION",
+    "R2": "Owner-approved limited Governance scope; source pinned, external signer not attested; no runtime/DEV/merge/LIVE authority",
+    "R3": "CHAT GitHub/Library read/write capability verified; Agent quota not material because no Agent assigned",
+    "R4": "CHAT direct; COPILOT/CODEX/WORK not needed for bounded document operations",
+    "R5": "Remote non-main release branch, guarded expected HEAD; Windows worktree NOT_TOUCHED; no parallel local writer claims",
+    "R6": "Git source and Library exact-byte readback 4/4, historical Dispatch not rebound",
+    "R7": "CHAT done; STOP Agent execution, machine-effective claim, merge and broker/LIVE"
+  },
+  "separated_states": {
+    "governance": "EFFECTIVE_SCOPED",
+    "machine_contract": "HOSTED_CI_SOURCE_COMPAT_REFERENCE_ONLY",
+    "owner_installed_bridge": "NOT_ATTESTED",
+    "product": "NOT_CLAIMED",
+    "agent_execution": "NOT_STARTED"
+  },
+  "limits": "Projectwide governance release was Owner-approved in-chat, not externally cryptographically attested. Does not amend past failed/unrun tests or installed Bridge runtime."
+}
