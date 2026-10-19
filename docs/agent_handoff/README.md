@@ -1,11 +1,11 @@
 # FOX2 — Git-first handoff entrypoint (Dictionary-first, CHAT-first)
 
 **Audience:** CHAT and authorized FOX2 Agent/host coordinators.  
-**Source class:** Controlled handoff entrypoint on the Policy v2 migration branch. This file is NOT a global Registry promotion or a host admission PASS.
+**Source class:** Controlled handoff entrypoint on the Policy v2 migration branch. This file points to the separate Owner-authorized Governance Registry; it is NOT a machine-runtime adoption or host admission PASS.
 
 Do **not** infer a current Policy, Protocol, BRD, Technical Spec, schema, or model from this README, a versioned filename, `main`, or a previous prompt. The older README's references to Policy v1.5, Protocol v4 and an empty frontend/backend were historical, not current project status.
 
-**Owner-approved current operating sources (2026-10-19):** resolve `docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json` for new CHAT planning, and apply `docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md` over older conflicting BRIDGE_FIRST scheduling. These documents do not assert global trusted machine Registry EFFECTIVE or installed Bridge adoption; retain immutable task-specific source locks.
+**Owner-approved CURRENT Governance (2026-10-19):** resolve `docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json` first (projectwide GOVERNANCE_DOCUMENT authority only), then its pinned Dictionary/Policy/Routing sources and `docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json`. Apply `docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md` over conflicting old BRIDGE_FIRST scheduling. `GOVERNANCE_EFFECTIVE` does NOT mean Bridge/APP installed, machine runtime-ready, Agent admitted or product accepted. Product/installed tests apply only to the consumer's real checkpoint. Keep immutable prior task locks.
 
 ## Before any CHAT assignment: apply relevant Skills in order
 
