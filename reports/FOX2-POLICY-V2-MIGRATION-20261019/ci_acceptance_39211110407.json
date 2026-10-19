@@ -1,0 +1,90 @@
+{
+  "evidence_type": "FOX2_POLICY_V2_GIT_CI_ACCEPTANCE",
+  "project": "FOX2",
+  "recorded_date": "2026-10-19",
+  "recorded_by": "CHAT",
+  "scope": "SOURCE_MIGRATION_AND_HOSTED_CI_FIXTURE_ONLY",
+  "source": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+    "tested_commit": "2b53fcd534f54b02c9be194fc055e99cc018a52c",
+    "policy_source_commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+    "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "dictionary_source_commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "dictionary_sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+    "dispatch_schema_compat_source_commit": "759d0e324838c7d34a1d74f7b5aa1fb2d5696470",
+    "dispatch_schema_sha256": "a374a98236db9888ba3ed5aa9af174df58732a2c79de53433d6219c8bb62a7c0"
+  },
+  "github_actions": {
+    "run_id": 39211110407,
+    "run_url": "https://github.com/dunglt2505/FOX2/actions/runs/39211110407",
+    "trigger": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "checks": [
+      {
+        "name": "migration-check",
+        "job_id": 117924470917,
+        "platform": "ubuntu-latest",
+        "status": "PASS",
+        "tests": "99 passed in 0.82s",
+        "generator_dictionary": "PASS",
+        "generator_dispatch_schema": "PASS"
+      },
+      {
+        "name": "full-bridge-windows",
+        "job_id": 117924470699,
+        "platform": "windows-latest",
+        "status": "PASS",
+        "tests": "402 passed in 140.10s",
+        "generator_dictionary": "PASS",
+        "generator_dispatch_schema": "PASS",
+        "fixture": "Clean isolated detached Git worktree at C:\\Projects\\FOX2. No installed Owner workstation or broker."
+      }
+    ]
+  },
+  "fixes": [
+    "Compatibility expansion: external Dispatch schema 3.0 accepts source-bound Dictionary git_path v1.0 legacy path or v1.3 new path, while runtime normalizer still enforces exact current SOURCE_PATH/SHA/COMMIT.",
+    "Dispatch schema generated Python binding and immutable generator pin updated.",
+    "Dictionary regression test passes explicit cross-platform BridgeConfig fixture rather than Windows-only default executable paths.",
+    "Windows CI fixture uses clean disposable C:\\Projects\\FOX2 isolated worktree so original source-mutability assertions remain enabled."
+  ],
+  "verification": {
+    "ci_result": "PASS",
+    "dictionary_binding_deterministic": "PASS",
+    "dispatch_schema_binding_deterministic": "PASS",
+    "focused_tests": "99_PASS_0_FAIL",
+    "windows_full_suite": "402_PASS_0_FAIL",
+    "core_code_and_tests": "VERIFIED_CI_SNAPSHOT",
+    "installed_owner_windows_runtime": "NOT_TESTED",
+    "local_bridge_singleton": "NOT_TESTED",
+    "global_registry_policy_pointer_activation": "NOT_DONE",
+    "actual_canary": "NOT_RUN",
+    "no_dispatch_agent_execution": "CONFIRMED_WITHIN_CI_SCOPE"
+  },
+  "release_boundary": {
+    "policy_git_library_mirror": "PASS",
+    "dictionary_v13_and_routing_v14_git_library_mirror": "PASS",
+    "migration_branch_runtime_binding": "COMMITTED_AND_CI_TESTED",
+    "legacy_global_source_registry_effective_pointer": "UNMODIFIED",
+    "machine_installed_adoption": "NOT_ATTESTED",
+    "app_batch_b": "INDEPENDENT_CODE_FIRST_NOT_BLOCKED_BY_BRIDGE_REGRESSION",
+    "original_dispatch001": "HOLD_NO_REPLAY",
+    "canary009": "HOLD_NO_REPLAY"
+  },
+  "changed_paths_from_migration_base": [
+    ".github/workflows/fox2-policy-v2-migration-ci.yml",
+    "agent_bridge/scripts/generate_dispatch_schema_v3_contract.py",
+    "agent_bridge/scripts/generate_project_dictionary.py",
+    "agent_bridge/src/fox2_agent_bridge/dispatch_schema_v3_contract.py",
+    "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+    "agent_bridge/tests/test_policy_v2_source_migration.py",
+    "agent_bridge/tests/test_project_dictionary.py",
+    "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json",
+    "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+    "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "docs/governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
+    "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json"
+  ],
+  "conclusion": "CI_ACCEPTED_FOR_MIGRATION_SOURCE; NOT AN INSTALLED RUNTIME / GLOBAL POLICY EFFECTIVE ATTESTATION"
+}
