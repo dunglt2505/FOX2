@@ -24,6 +24,36 @@
 
 CHAT must validate current `POLICY_CHECK -> TASK_STATE_CHECK -> ROUTING R0-R7 -> ASSIGNMENT_CHECK`, original source authority and existing PreExec receipt, real Windows worktree clean/unique/writer exclusive, expected current local and remote branch HEAD, no active CODEX/COPILOT writer, actual chosen CODEX CLI auth/model/permission and capacity. Unknown is BLOCKED, not PASS. A host read-only probe may verify state; no historical `AUTH_REQUIRED` COPILOT substitution or old generic Batch-B PreExec rerun. Only a separate explicit `PASS_TO_ASSIGN` permits starting implementation, and only one writer may execute once.
 
+## PHASE 0 — Skill-driven FOXLE-PC host gate (READ_ONLY; STOP before coding)
+
+**Role:** CODEX host reviewer ONLY when a separate authorized local read-only check is actually invoked. **Engine/Thinking:** `gpt-6.1-sol / medium` requested only if available; do not assume model was applied or make a paid probe. **Scope:** current worktree/writer, remote task tip, agent CLI auth/capability; no source edits, Git pushes, receipt publication, Dispatch claim, Worker control or Canary action. This phase is *not* self-admission for coding, and the mere existence of this prompt does not authorize invoking CODEX. CHAT owns the eventual `PASS_TO_ASSIGN`.
+
+Use existing tools on FOXLE-PC **without asking Owner to copy/run a bespoke PowerShell file** if an eligible host execution is available:
+1. Read the task Git remote branch (no fetch/reset/checkout), bound task source commit, PreExec receipt and owner approval. Require remote coding branch tip `fd3141f8e825931f9ee17d68c740e3b36230aa96`; task source `502f2aefbda35e4fec134dfb9d5f15f3222660d5`. If HEAD or source hashes drift, report BLOCKED; do not repair.
+2. Inspect `C:\Projects\FOX2-worktrees\FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018` with read-only `git rev-parse`, `git status --porcelain`, `git worktree list --porcelain`, `git branch --show-current` and `git ls-remote origin`. Require this worktree to be correctly registered, task-branch-bound, clean (including untracked files), free from merge/rebase, and one-writer exclusive. Observe relevant Windows processes without revealing command lines, user secrets or environment strings. A snapshot proving no observed rival writer is not a durable lock; revalidate before actual coding start.
+3. Inspect Codex CLI version and local **non-billable** authentication state, requested routing/model/approval flags and explicitly observable capacity if the CLI offers it; do not call the real model, invoke `codex exec`, run `copilot` paid probes, or invent quota. `NOT_EXPOSED` is honest where numeric quota is unavailable; inability to prove material authentication/capability is `UNKNOWN/BLOCKED`, not PASS. Prior CODEX probe PASS and COPILOT AUTH_REQUIRED are historical, not current.
+4. Confirm from task source only the approved allowlist, exclusive writer and exact owner authorization; use the already-published PreExec v1 receipt, do **not** rerun it simply for ceremony. No proof here of Canary-specific PreExec, no inspection that claims live Canary ledger untouched unless actually read.
+5. Return a **sanitized read-only finding to CHAT**, without writing to the repo or publishing a readiness receipt:
+```json
+{
+  "format": "FOX2_COMPAT_HOST_GATE_OBSERVATION_V1",
+  "task_branch": "work/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+  "remote_head": "OBSERVED_OR_UNKNOWN",
+  "local_head": "OBSERVED_OR_UNKNOWN",
+  "worktree_registered": "PASS_OR_BLOCKED_OR_UNKNOWN",
+  "worktree_clean": "PASS_OR_BLOCKED_OR_UNKNOWN",
+  "exclusive_writer_observation": "PASS_OR_BLOCKED_OR_UNKNOWN",
+  "codex_auth": "PASS_OR_BLOCKED_OR_UNKNOWN",
+  "codex_model_capability": "PASS_OR_BLOCKED_OR_UNKNOWN",
+  "quota_numeric": "NOT_EXPOSED_OR_OBSERVED",
+  "existing_v1_preexec_receipt": "PASS_HISTORICAL_OR_DRIFT",
+  "code_or_runtime_mutation": false,
+  "verdict": "PENDING_CHAT_ASSIGNMENT_OR_BLOCKED"
+}
+```
+
+**STOP at Phase 0.** Do not automatically continue to coding even when all local checks pass. CHAT evaluates evidence, performs any required final route-specific PreExec/lease check, and explicitly publishes a separate `PASS_TO_ASSIGN` decision against the existing source lock **before** code is touched. If no eligible local host executor is available, report `HOST_EXECUTION_NOT_AVAILABLE` truthfully; do not replace it with invented results or shift scripting onto Owner without a demonstrated need.
+
 ## Exact change scope after PASS_TO_ASSIGN
 
 Only these existing files:
