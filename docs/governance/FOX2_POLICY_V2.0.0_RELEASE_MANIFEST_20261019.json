@@ -1,0 +1,193 @@
+{
+  "release_id": "FOX2-POLICY-V2.0.0-OWNER-20261019",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "2.0.0",
+  "project": "FOX2",
+  "release_date": "2026-10-19",
+  "recorded_by": "CHAT",
+  "classification": "OWNER_APPROVED_GOVERNANCE_EFFECTIVE_SCOPED__MACHINE_ADOPTION_NOT_ATTESTED",
+  "explicit_owner_decision": {
+    "direction": "Owner là quyền cao nhất, quyết định bypass và duyệt bypass mọi vấn đề trong dự án. Tổng hợp các thông tin đã trao đổi rồi phát hành chính sách mới đi",
+    "incorporated": "Owner highest internal FOX2 authority, explicit scoped gate bypass, CODE-FIRST offline DEV, CHAT-FIRST direct execution, WORK independent only, one Whole-WP continuity, risk-proportionate release safety.",
+    "source": "Current 2026-10-19 project conversation",
+    "evidence_limit": "Recorded by CHAT from active Owner instruction; not a cryptographic signature."
+  },
+  "policy_source": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+    "immutable_commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+    "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "utf8_bytes": 19761,
+    "publication_git_readback": "PASS_EXACT_BYTES"
+  },
+  "release_scope": {
+    "owner_human_operational_direction": "APPLY_POLICY_V2_OWNER_APPROVED_NEW_WORK",
+    "project_git_policy_source": "PUBLISHED_VERIFIED",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0.md",
+    "library_publication": "PASS_EXACT_BYTES_2026-10-19",
+    "dictionary_v1_2_current_policy": "1.8.9",
+    "dictionary_v2_policy_pointer_update": "GIT_SOURCE_MIGRATION_CANDIDATE_PUBLISHED_NOT_EFFECTIVE",
+    "generated_runtime_binding_recertification": "PASS_GITHUB_ACTIONS_111_LINUX_PLUS_414_WINDOWS",
+    "globally_machine_effective": "NOT_CLAIMED_INSTALLED_ADOPTION_NOT_ATTESTED",
+    "pre_existing_wp_autorebinding": false,
+    "projectwide_human_operating_resolution": "OWNER_APPROVED_SOURCE_MAP_GIT_LIBRARY_PUBLISHED",
+    "projectwide_human_source_map": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+    "governance_document_effectivity": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_FOR_NEW_CHAT_WORK",
+    "governance_registry_path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "governance_registry_git_publication_commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+    "governance_registry_git_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+    "product_acceptance": "NOT_CLAIMED_NO_PRODUCT_TEST_REQUIRED_FOR_DOCUMENT_RELEASE"
+  },
+  "supersession": {
+    "predecessor": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "owner_priority_and_internal_decision_precedence": "V2_OWNER_DIRECTIVE_SUPERSEDES_CONFLICTING_PRIOR_INTERNAL_ORDERING",
+    "immutable_old_git_library_registry": "PRESERVED_UNCHANGED"
+  },
+  "historical_protections": {
+    "blocked_bridge_preexec_commit": "1ce109b9a4c538b255c6d8ffc6be8b4dccecf65d",
+    "dispatch001_commit": "3f885b2d24cb131b5e96dfdb67a44677599197e2",
+    "canary009_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "no_fake_pass": true,
+    "no_dispatched_execution": true,
+    "no_main_merge_live": true
+  },
+  "next_publication_requirement": "Governance effective for Owner-approved new/re-scoped CHAT work with projectwide Governance Registry; keep actual machine/host adoption NOT_ATTESTED, route-specific product and execution checks separate. Legacy source locks and Bridge WP-only trust stay frozen. Do not require repeat Policy approval or Bridge installed tests for future routine Governance publication.",
+  "mirror_readbacks": [
+    {
+      "role": "POLICY",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0.md",
+      "bytes": 19761,
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "result": "PASS_EXACT_BYTES"
+    },
+    {
+      "role": "DICTIONARY_CANDIDATE",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "bytes": 10059,
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "result": "PASS_EXACT_BYTES"
+    },
+    {
+      "role": "ROUTING_CANDIDATE",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "bytes": 7165,
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "result": "PASS_EXACT_BYTES"
+    }
+  ],
+  "migration": {
+    "source_registry_frozen_snapshot": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "dictionary_source_sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+    "generated_python_binding_blob_sha1": "ae2a771ed133cc1a4b4856cd86bc59c8fd0c3ff3",
+    "generator_source_commit": "83b928200fa2a728854565417b3085cba2da2019",
+    "binding_commit": "6f9fcaa672e416394f6aae356cfa2c0e71cd5ce8",
+    "migration_test_source_commit": "6eee259bf04525c1890b956e31dd534e873cd436",
+    "validation": {
+      "git_exact_readback": "PASS",
+      "library_sha256_readback": "PASS_3_OF_3",
+      "dictionary_json_validation": "PASS",
+      "offline_generator_equivalent_pprint_expected_git_blob": "PASS_EXACT_BLOB",
+      "python_ast_compile_generated": "PASS",
+      "binding_fields_policy_v2_routing_v14": "PASS",
+      "git_pinned_generator_pytest": "PASS_111_LINUX_PLUS_414_WINDOWS",
+      "full_bridge_regression": "PASS_414_OF_414_GITHUB_HOSTED_WINDOWS_CI",
+      "installed_runtime_adoption": "NOT_RUN_ON_OWNER_WORKSTATION",
+      "dispatch_schema_v3_compatibility": "PASS_STRUCTURAL_FUTURE_VERSION_TESTS_HOSTED_CI",
+      "bridge_worker_singleton_on_owner_host": "NOT_RUN"
+    },
+    "legacy_protection": {
+      "effective_dictionary_current": "1.2",
+      "effective_policy_current": "1.8.9",
+      "global_registry_pointer_promotion": "NOT_RUN",
+      "old_bridge_dispatch_canary": "HOLD_UNMODIFIED",
+      "existing_frozen_wps": "NO_AUTO_REBIND"
+    },
+    "github_actions": {
+      "run_id": 39214187564,
+      "url": "https://github.com/dunglt2505/FOX2/actions/runs/39214187564",
+      "tested_commit": "2c42554edcd7e5c3649ec42c0d470c83e6b097a5",
+      "conclusion": "success",
+      "linux_migration_tests": {
+        "passed": 111,
+        "failed": 0
+      },
+      "windows_full_bridge_regression": {
+        "passed": 414,
+        "failed": 0
+      },
+      "dictionary_generator_check": "PASS",
+      "dispatch_schema_generator_check": "PASS",
+      "evidence_commit": "3cd8942c753ffc878c654744dd14dc1421e684dc",
+      "evidence_path": "reports/FOX2-POLICY-V2-MIGRATION-20261019/dictionary_first_remediation_ci_39214187564.json"
+    },
+    "dispatch_schema_compatibility": {
+      "source_commit": "759d0e324838c7d34a1d74f7b5aa1fb2d5696470",
+      "source_sha256": "a374a98236db9888ba3ed5aa9af174df58732a2c79de53433d6219c8bb62a7c0",
+      "schema_version": "3.0",
+      "backwards_compatible_paths": [
+        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json"
+      ],
+      "runtime_normalizer_still_exact_pinned": true
+    },
+    "github_actions_previous": {
+      "run_id": 39211110407,
+      "url": "https://github.com/dunglt2505/FOX2/actions/runs/39211110407",
+      "tested_commit": "2b53fcd534f54b02c9be194fc055e99cc018a52c",
+      "conclusion": "success",
+      "linux_migration_tests": {
+        "passed": 99,
+        "failed": 0
+      },
+      "windows_full_bridge_regression": {
+        "passed": 402,
+        "failed": 0
+      },
+      "dictionary_generator_check": "PASS",
+      "dispatch_schema_generator_check": "PASS",
+      "evidence_commit": "09749cfb3b68d49bec285edaae400ca2321016fe",
+      "evidence_path": "reports/FOX2-POLICY-V2-MIGRATION-20261019/ci_acceptance_39211110407.json"
+    }
+  },
+  "owner_operating_source_resolution": {
+    "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+    "publication_commit": "94c08fae700a81110ed0f4728818bcd39cff5ac2",
+    "status": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_IN_SCOPE",
+    "dictionary_v13_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+    "routing_v14_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+    "document_effectivity": "OWNER_APPROVED_OPERATIONAL",
+    "machine_registry_effectivity": "NOT_ATTESTED_SEPARATE_ADOPTION",
+    "owner_host_installed_bridge": "NOT_ATTESTED",
+    "rc1_wp_trust_registry": "UNCHANGED_WP_ONLY",
+    "prior_work_source_locks": "UNCHANGED",
+    "source_map_library": "PASS_EXACT_BYTES",
+    "operating_addendum_git_library": "PASS_EXACT_BYTES"
+  },
+  "governance_decoupling_release": {
+    "decision_path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+    "decision_commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
+    "decision_git_blob_sha1": "cc9ea16d18507f5bc52583cc2c29529a6b54e42b",
+    "registry_path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "registry_commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+    "registry_git_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+    "owner_scope": "FOX2_INTERNAL_GOVERNANCE_NEW_AND_RESCOPED_CHAT_TASKS",
+    "documents": {
+      "policy": "2.0.0",
+      "dictionary": "1.3",
+      "routing": "1.4.0"
+    },
+    "embedded_candidate_status_preserved": true,
+    "legacy_source_locks_preserved": true,
+    "owner_approval_method": "OWNER_IN_CHAT_2026_10_19",
+    "cryptographic_signer_claim": "NONE",
+    "machine_contract_supported": "ONLY_AFFECTED_CONSUMERS_PER_TEST_EVIDENCE",
+    "installed_runtime_adopted": "NOT_ATTESTED",
+    "product_accepted": "NOT_CLAIMED",
+    "test_policy": "No mandatory APP/Bridge/Canary tests for Governance document release. Keep route-specific technical compatibility and installed-runtime checks at their actual checkpoints."
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schema": "FOX2_CURRENT_SOURCE_RESOLUTION_V1",
+  "project": "FOX2",
+  "recorded_date": "2026-10-19",
+  "recorded_by": "CHAT",
+  "purpose": "Governance current selection for new/re-scoped FOX2 CHAT work per Owner-approved projectwide Governance Registry; independent machine deployment remains tracked separately.",
+  "status": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED__MACHINE_INSTALLED_ADOPTION_NOT_ATTESTED",
+  "owner_authority": {
+    "basis": "Direct Owner instruction in FOX2 conversation on 2026-10-19 to apply approved newest Policy and complete Governance source publication",
+    "scope": "FOX2 projectwide Governance documents and new/re-scoped CHAT coordination, not installed runtime or executable Agent grant",
+    "approval": "EXPLICIT_OWNER_IN_CHAT",
+    "cryptographic_signature": "NOT_PROVIDED",
+    "independent_release_chain_attestation": "NOT_PROVIDED; OWNER_CHAT_SCOPE_ACCEPTED_FOR_INTERNAL_GOVERNANCE_ONLY",
+    "reapproval_required_for_same_scope": false
+  },
+  "current_for_new_work": {
+    "policy": {
+      "version": "2.0.0",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "source_commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "operational_use": "OWNER_APPROVED",
+      "governance_release": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED"
+    },
+    "dictionary": {
+      "version": "1.3",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "source_commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "source_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+      "operational_use": "GOVERNANCE_EFFECTIVE_BY_SCOPED_RELEASE_RECORD; ORIGINAL_CANDIDATE_BYTES_PRESERVED; NO_MACHINE_INSTALL_CLAIM",
+      "governance_release": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED"
+    },
+    "routing": {
+      "version": "1.4.0",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "source_commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "source_embedded_status": "MIGRATION_CANDIDATE",
+      "operational_use": "GOVERNANCE_EFFECTIVE_BY_SCOPED_RELEASE_RECORD; NOT_INSTALLED_EFFECTIVE_HEADER_PRESERVED",
+      "governance_release": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED"
+    },
+    "protocol": {
+      "version": "12",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "source_commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "operational_use": "CURRENT_RELEASED_PROTOCOL_NO_AUTOMATIC_V13_CANDIDATE_PROMOTION"
+    }
+  },
+  "unchanged_semantics": {
+    "brds": [
+      "BRD-00 v0.5 RELEASED_EFFECTIVE",
+      "BRD-06 v0.5 RELEASED_EFFECTIVE",
+      "BRD-08 v0.5 RELEASED_EFFECTIVE"
+    ],
+    "brd09": "CANDIDATE_NO_PROMOTION",
+    "m1_technical_spec": "v0.1 RELEASED_EFFECTIVE",
+    "bridge_technical_spec": "v0.7 REV10 CANDIDATE_NO_PROMOTION",
+    "market_data_contract": "v0.4 UNCHANGED",
+    "acceptance": "v0.4 UNCHANGED"
+  },
+  "supersession": {
+    "human_operating": "Owner 2026-10-19 Policy v2.0.0 and CODE-FIRST directive supersede conflicting older v1.8.9 governance instructions and BRIDGE_FIRST scheduling for NEW and rescoping work",
+    "older_sources": "Preserved as immutable historical evidence; in-flight tasks/Dispatches stay pinned and require material review before any rebind",
+    "rc1_wp_registry": "WP_ONLY_TRUST_BINDING at docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json is not a global project registry",
+    "governance_20261018": "10-source Policy v1.9 prospective package remains historical/candidate, not silently promoted to effective",
+    "schema_protection": "No change to old Dispatch001, Canary009, existing source lock, generated installed bindings"
+  },
+  "lifecycle": {
+    "policy_document_git_and_library": "PUBLISHED_AND_MIRRORED_PRIOR_VERIFIED",
+    "candidate_dictionary_git_library": "PUBLISHED_AND_MIRRORED_PRIOR_VERIFIED",
+    "owner_human_operating_rule": "GOVERNANCE_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+    "global_machine_registry_effective": "NOT_CLAIMED; PROJECTWIDE_GOVERNANCE_REGISTRY_ONLY",
+    "owner_windows_installed_runtime": "NOT_ATTESTED_NO_LONGER_GOVERNANCE_RELEASE_GATE",
+    "app_offline_dev_route": "INDEPENDENT_CODE_FIRST_NOT_BLOCKED_BY_BRIDGE_ONLY",
+    "master_plan_library_divergence": "PRESERVED_HISTORICAL_COPY; CURRENT_OPERATING_ADDENDUM_MIRRORED",
+    "master_plan_operating_addendum": "GIT_AND_LIBRARY_EXACT_BYTES_READBACK_PASS",
+    "master_plan_operating_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md"
+  },
+  "instructions_for_CHAT": [
+    "At the start of a new task, verify the projectwide GOVERNANCE Registry and this source-map on the owner-approved release branch, apply Governance EFFECTIVE source and independently check actual machine route support; NEVER treat product tests as a Governance document release requirement.",
+    "At task start resolve Owner-approved source applicable to that scope; never use highest filename or stale document header as operative current",
+    "Use this recorded Owner-operating resolution as a scoped human directive, not a cryptographically verified global machine Registry",
+    "Freeze immutable source-set for each eligible new executable task only after task precheck, Git-first prompt publication, source/authority and route-specific gates",
+    "Preserve old pinned Dispatches and forbid replay; no automatic full machine/Bridge adoption or test PASS invention",
+    "Use CODE-FIRST for independent offline app task preparation under real permissions; do not block it on Bridge worker installed READY"
+  ],
+  "source_evidence": {
+    "policy_release_manifest": "docs/governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
+    "migration_ci_run": "https://github.com/dunglt2505/FOX2/actions/runs/39214187564",
+    "ci_tests": "111_LINUX_AND_414_WINDOWS_PASS",
+    "full_runtime_effective_claim": false,
+    "operating_addendum": {
+      "git_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
+      "git_source_commit": "5923cb51bb85e333d6963d8cde65845e39bf1844",
+      "git_blob_sha1": "01918d2559da1e2a17e0354405cef463af94590d",
+      "sha256": "516bd7c1004f5a58a2c91353ac93e982fd7cac768bcc372bc4c18bb58d6189bb",
+      "library_path": "/Trading/FOX2/06_Roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
+      "library_readback": "PASS_EXACT_BYTES"
+    },
+    "governance_release_rule": {
+      "path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+      "commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
+      "scope": "OWNER_APPROVED_SCOPED"
+    },
+    "governance_library_readback": {
+      "decision_document": "PASS_EXACT_BYTES",
+      "projectwide_registry": "PASS_EXACT_BYTES",
+      "release_manifest": "PASS_EXACT_BYTES_BEFORE_THIS_SOURCE_MAP_UPDATE",
+      "source_map": "PASS_EXACT_BYTES_BEFORE_THIS_UPDATE",
+      "method": "Git blob hash and SHA-256 compared with materialized Library snapshot",
+      "date": "2026-10-19"
+    }
+  },
+  "protected_permissions": {
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider": false,
+    "broker": false,
+    "LIVE": false
+  },
+  "governance_registry": {
+    "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "published_commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+    "published_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+    "scope": "GOVERNANCE_DOCUMENT_CURRENT_FOR_NEW_CHAT_WORK",
+    "source_readback": "GIT_VERIFIED",
+    "library_mirror": "PASS_EXACT_BYTES_PREVIOUS_PUBLISHED_REGISTRY"
+  }
+}

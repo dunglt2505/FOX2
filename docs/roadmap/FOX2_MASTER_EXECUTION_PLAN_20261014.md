@@ -1,0 +1,422 @@
+# FOX2 — MASTER EXECUTION PLAN — 2026-10-14
+
+**Status:** `ACTIVE / OWNER-DIRECTED / CONSOLIDATED EXECUTION PLAN`  
+**Project:** `FOX2 ONLY`  
+**Governance:** Project Dictionary v1.2 -> FOX2 Policy V1.8.9 + Routing Index V1.3.0  
+**Execution contract:** PreExec Evidence Protocol v1.1 + Preflight Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dictionary-resolved Dispatch Schema v3 + Git-first Protocol v12 + Result Contract v2 + CHAT Result Intake v9  
+**Planning rule:** maximize delivery progress with whole-WP/batch execution; do not create Owner-facing micro-WPs for operational reconciliation, metadata cleanup, validator reruns or non-material tool/version deviations.
+
+## 1. Current immutable status
+
+### Governance / orchestration
+
+- `FOX2_PROJECT_DICTIONARY_v1.json` is the single machine-readable identity/compatibility registry for all new/re-scoped FOX2 WPs.
+- The Dictionary v1.2 currently resolves Policy V1.8.9 and Routing Index V1.3.0.
+- New/re-scoped execution uses Dictionary-resolved Dispatch Schema v3 and stable version-neutral dispatch paths.
+- New/re-scoped task/result flow uses project-wide PreExec Evidence Protocol v1.1 before Dispatch and Git-first Protocol v12 after PASS_TO_ASSIGN.
+- Codex CLI and Copilot CLI are the primary implementation engines.
+- Normal coding permission baseline is `FULL_ACCESS`.
+- Git publication ownership is dispatch-owned: `delivery_owner=AGENT|BRIDGE`.
+- CHAT owns source binding, routing, preflight intake/final assignment, and independent result acceptance.
+- Bridge is transport/supervision and only publishes when explicitly assigned as delivery owner.
+- Readiness is capability-based; exact version equality is not a hard gate by itself.
+- Every new/re-scoped executable WP must publish/read a durable Preflight Receipt before final Agent assignment and executable Dispatch publication.
+- `PASS` may close R3/R5; `BLOCKED` and safely-publishable `INFRA_FAILED` must remain durable Git evidence.
+- Pre-start failure does not consume a Dispatch and is not an Agent Result.
+- Owner-authorized project-wide implementation mandate: `docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.md`; rollout is one systemic infrastructure change, not task-local micro-fixes.
+
+### Project Dictionary / identity registry
+
+- Current canonical control branch: `work/FOX2-DISPATCH-chat`.
+- Current canonical dispatch path: `docs/agent_handoff/DISPATCH/<dispatch_id>.json`.
+- Current dispatch schema: `3.0`.
+- Supported legacy schemas: `2.0`, `0.6`.
+- Bridge/runtime consumers must load the Dictionary or a generated binding and must not hand-code competing current constants.
+- Released BRD-00/06/08 semantics remain unchanged; BRD identity binding is handled by the BRD Project Dictionary Binding v1.
+
+### Main branch
+
+`main = 40e653f009548f4b1c3d906aba9358e2210a6ab3`.
+
+Main remains a bootstrap/document state and is not the runnable M1-A product. Accepted application and Bridge work remains on bounded non-main branches until a later explicit integration/release boundary.
+
+### M1-A application lane
+
+Accepted/current upstream:
+
+1. **P2-01 Foundation / Contract**
+   - accepted remote result: `4bbbdf02387727e7d3c6900f163d7b1eedc5e2b3`;
+   - offline foundation/DTO/validator/health scope accepted;
+   - canonical integrated acceptance remains partial.
+
+2. **P2-02 SQLite Store**
+   - current accepted upstream used by P2-03: `f70f0237356c4f27afb0e6760b01870228ba3739`;
+   - atomic/revisioned SQLite store, PIT/rights/watchlist repository offline scope delivered;
+   - provider/integrated acceptance remains partial.
+
+3. **P2-03 DSM**
+   - implementation commit: `7478e09bcae1f890058fd134e79fd6f7013103c6`;
+   - CHAT evidence-metadata head: `d90987afd861a41aef01059d95ca039509ede09c`;
+   - CHAT verdict: `P2_03_OFFLINE_DSM_ACCEPTED`;
+   - 98 P2-03 tests PASS; 175 upstream regressions PASS with 2 obsolete stage assertions deselected;
+   - provider/API/UI/Production/LIVE remain NOT_RUN.
+
+**Next application base:** `d90987afd861a41aef01059d95ca039509ede09c`.
+
+### Bridge lane
+
+`BRIDGE-DESKTOP-01-02-FIX-01` is accepted.
+
+- result SHA: `ef9f290e73c4f4500900528656212c38acf43a4f`;
+- parent/base: `ceeb2bb2db3e09c2c2ad485a82a70c4f446e8e6a`;
+- ahead 1 / behind 0;
+- only `agent_bridge/**` and `reports/BRIDGE-DESKTOP-01-02/**` changed;
+- 134 tests PASS;
+- validator PASS;
+- post-launch non-zero -> `NEEDS_RECONCILIATION`;
+- consumed dispatch replay blocked;
+- no automatic Agent substitution.
+
+Pre-publication metadata wording that no longer describes the final remote state is classified as non-material evidence debt. No FIX-02 is created. The systemic artifact-canonicalization fix is already absorbed into Bridge Batch A.
+
+**Next Bridge base:** `ef9f290e73c4f4500900528656212c38acf43a4f`.
+
+## 2. Project assessment
+
+FOX2 is no longer at bootstrap architecture stage. The backend foundation, durable store and offline DSM core exist and have bounded CHAT acceptance. The largest product gap is now **integration into an actually usable localhost application**, not additional foundational decomposition.
+
+The Bridge has enough proven core behavior to move from repeated corrective/hotfix work into consolidated productization. The remaining Bridge work should be completed in two batches, not by reopening Desktop-01/02 or individual telemetry/permission/artifact WPs.
+
+The project therefore has two material critical paths:
+
+```text
+LANE A — M1-A APPLICATION
+accepted P2-03
+ -> APP-BATCH-A: API + WATCHLIST + BACKEND INTEGRATION
+ -> APP-BATCH-B: UI + OFFLINE ACCEPTANCE
+ -> M1-A RELEASE INTEGRATION
+ -> RUNNABLE LOCALHOST FOX2
+
+LANE B — BRIDGE
+accepted FIX-01
+ -> BRIDGE-DESKTOP-BATCH-A
+ -> BRIDGE-DESKTOP-BATCH-B
+ -> INTERNAL FOX2 BRIDGE READY
+```
+
+These lanes are dependency-safe for parallel execution because their primary code paths are disjoint (`backend/frontend/tests` vs `agent_bridge`) and FOX2 Policy permits up to two independent material writers.
+
+## 3. Immediate execution phase — run two whole batches in parallel
+
+### Lane A — `FOX2-M1-A-APP-BATCH-A` — ACCEPTED
+
+**Result:** accepted at `3db6298e4286022e5820eb7b712c436cbade6a62` with 364 PASS / 3 superseded stage-only deselections. The next application gate is APP-BATCH-B (UI + integrated offline acceptance).
+
+**Base:** accepted P2-03 evidence head `d90987afd861a41aef01059d95ca039509ede09c`.
+
+**Scope:**
+- wire accepted P2-01 DTO/validators + P2-02 store + P2-03 DSM;
+- approved read-only market API endpoints;
+- watchlist preference service/CAS behavior using existing repository ownership;
+- loopback Host/Origin/content-type/security guards;
+- explicit `UNKNOWN/UNAVAILABLE` behavior when provider data is not available;
+- no synthetic investor prices;
+- no provider transport/network construction;
+- full P2-01/P2-02/P2-03 regression set adjusted only for superseded stage-boundary assertions;
+- one final backend integration evidence package.
+
+**Do not split** API routes, watchlist, integration wiring and backend negative tests into separate Owner-facing WPs.
+
+**Candidate routing:** Copilot CLI / `NATIVE_AUTO` / Balance for clear implementation if current capacity is available; otherwise Codex CLI / pinned model / Medium. CHAT selects at dispatch from current usage/capability evidence.
+
+**Exit:** backend M1-A API/watchlist offline integration accepted; API DTOs frozen for frontend.
+
+### Lane B — `BRIDGE-DESKTOP-BATCH-A` — OWNER ACCEPTED WITH VALIDATION WAIVER
+
+**Final code head:** `3013f34d7ad91d1462e44495c873a84c41297b6b`.
+
+**Parent validated result:** `b2de4a10f259c4baf40a83372783e11fc7edd64a` with 243 PASS / 0 fail / 0 skip.
+
+Owner explicitly waived a separate post-patch Windows rerun after CHAT corrected the Dispatch-v3 structural-conformance gap. Therefore Batch A is operationally closed and may feed Batch B, but the waived post-patch tests remain `NOT_RUN` and MUST NOT be rewritten as PASS.
+
+Carry-forward rule into Batch B final certification:
+
+- include current code head `3013f34...`;
+- exercise the canonical Dispatch-v3 schema binding/structural-conformance gates as part of the single Batch-B certification cycle;
+- do not reopen Batch A as a standalone validation WP;
+- if final Batch-B certification exposes a material regression from the CHAT patch, resolve it inside Batch B or the release-readiness decision, not as a historical micro-fix.
+
+`BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER`  
+`POST_PATCH_FULL_WINDOWS_RERUN=WAIVED`  
+`TECHNICAL_TEST_PASS_FOR_3013F34=NOT_CLAIMED`
+
+## 4. Second execution phase
+
+### `FOX2-M1-A-APP-BATCH-B` — UI + offline acceptance
+
+Start after APP-BATCH-A freezes the accepted API shape.
+
+This one batch absorbs historical P3 + P4:
+
+- React/TypeScript/Vite localhost UI;
+- Overview, Watchlist, Stock360 and Data Source Diagnostics;
+- browser talks only to FOX2 backend;
+- explicit unavailable/unknown/source/freshness/gap display;
+- responsive 1440/1024/390;
+- no fake trend/zero substitution;
+- frontend + backend integrated offline tests;
+- localhost startup/restart/navigation/security evidence;
+- acceptance-matrix attribution for M1-A only;
+- one independent acceptance checkpoint at the end.
+
+This is the first target where FOX2 should be considered **runnable locally as an M1-A product**, even with real provider data still disabled/unavailable.
+
+### `BRIDGE-DESKTOP-BATCH-B` — setup/package/real certification
+
+Start from Owner-accepted Bridge Batch A head `3013f34d7ad91d1462e44495c873a84c41297b6b`.
+
+Batch A's post-patch Windows rerun was explicitly waived by Owner. Batch B therefore carries one bounded certification debt: its final certification must exercise the current Dispatch-v3 schema binding/structural-conformance behavior together with the normal Batch-B installed-runtime/E2E gates. This is not a separate Batch-A rerun.
+
+Scope:
+- first-run setup;
+- installed per-user runtime;
+- installer/update/uninstall;
+- sanitized diagnostics/support bundle;
+- one real eligible FOX2 WP through the installed Bridge;
+- exact selected Agent/model/permission;
+- result delivery + CHAT readback;
+- usage snapshot available for next routing;
+- restart confirms no replay.
+
+Exit: `INTERNAL FOX2 BRIDGE READY`.
+
+APP-BATCH-B and BRIDGE-BATCH-B may run in parallel if writer/path checks remain disjoint.
+
+## 5. Genuine milestone boundary — M1-A release integration
+
+After APP-BATCH-B independent acceptance, create one explicit integration/release decision.
+
+This is a genuine boundary because it may authorize integration/merge into the release/main line. It is not implied by coding acceptance.
+
+Required:
+- exact accepted application heads;
+- full regression and offline acceptance receipt;
+- diff/ancestry review;
+- no provider/broker/LIVE rights;
+- explicit merge/release authority.
+
+Do not merge partial P2 branches one by one merely to make main appear current.
+
+## 6. M1-B provider integration — one milestone, internal sub-blocks
+
+Only after M1-A runnable-local acceptance and provider rights/network gates are verified.
+
+Treat historical P5/P6/P7 as one Owner-facing milestone:
+
+`FOX2-M1-B-PROVIDER-INTEGRATION`
+
+Internal technical blocks:
+1. DNSE REST historical/read capability;
+2. market-only WebSocket capability;
+3. disconnect/restart/overflow/recovery/PIT/freshness end-to-end certification.
+
+Keep separate capability/rights gates internally because REST and WebSocket entitlements differ, but do not create repeated Owner approvals when the already-bound milestone authority is unchanged.
+
+No account/order/broker-write/LIVE authority is implied.
+
+## 7. Source Freshness / SFR consolidation
+
+Do not run `SFR-010 -> SFR-050` as a third parallel product program.
+
+For current delivery:
+- CHAT resolves the Project Dictionary first and binds the newest applicable released Policy/Technical/source at new/re-scoped handoff creation;
+- Dispatch Schema v3 binds exact Dictionary/Policy/source/task identities;
+- Protocol v12 enforces pre-exec-to-dispatch-to-result lifecycle, alternative-route materiality, source binding and in-flight materiality;
+- Bridge uses the Project-Dictionary-generated compatibility binding for task-material runtime/source attestation.
+
+Standalone release-hook/Library-CAS hardening is deferred until it is materially required for automated release publishing. Reopen it as one consolidated hardening milestone only if current CHAT + Git provenance is insufficient.
+
+Issue #11 therefore remains historical/design backlog, not a blocker for M1-A or Bridge Batch A.
+
+## 8. WORK usage
+
+WORK is not a routine checkpoint.
+
+Use WORK only at:
+- final M1-A offline acceptance if an independent audit materially improves confidence;
+- Bridge Batch A/B release-readiness where concurrency/recovery/security evidence warrants independent review;
+- provider-rights / WebSocket / recovery acceptance before M1-B release.
+
+Do not insert WORK between normal implementation sub-blocks.
+
+## 9. Project-wide STOP conditions
+
+STOP only on material conditions:
+- source/task/branch mismatch;
+- overlapping writer on same writable path;
+- unauthorized scope expansion;
+- required test failure that affects task correctness;
+- secret/private/licensed-data exposure;
+- missing required capability;
+- permission-profile mismatch;
+- actual exhausted quota/capacity that prevents execution;
+- provider/broker/LIVE access without explicit authority;
+- remote publication/readback failure.
+
+Do not STOP solely for:
+- non-material version mismatch;
+- missing numeric quota telemetry while Agent can execute;
+- staging/index cleanup;
+- stale local metadata;
+- evidence wording that does not alter correctness and can be handled by the consolidated artifact pipeline.
+
+## 10. Execution ordering summary
+
+```text
+NOW — SECOND EXECUTION PHASE
+  ├─ APP-BATCH-B
+  │    P3 + P4 -> runnable localhost M1-A
+  │
+  └─ BRIDGE-BATCH-B
+       setup/package/installed-runtime certification
+       + carry-forward current-schema certification debt
+       -> INTERNAL FOX2 BRIDGE READY
+
+THEN
+  -> M1-A RELEASE INTEGRATION
+
+THEN
+  -> M1-B PROVIDER INTEGRATION (P5+P6+P7 as one milestone)
+
+LATER
+  -> M2 coverage/PIT/corporate-actions/soak
+  -> M3/M4 analytics/risk/capital/exit/shadow under their own BRDs
+```
+
+### Project-wide PreExec protocol release / incident disposition — 2026-10-14
+
+The first Batch-B local preflight incident exposed a project-wide evidence gap. It did **not** launch an implementation Agent and consumed no executable Dispatch. The incident-specific fixes are now superseded by the released FOX2-wide PreExec Evidence Protocol v1.1 / Receipt Schema v1 / CHAT Preflight Intake v1.1.
+
+Observed:
+- APP preflight: Node/npm/npx absent on the local host;
+- APP and Bridge minimal Agent probes returned failure, but the original preflight did not preserve a safe failure classification;
+- Bridge retained a staged preflight receipt from the failed attempt;
+- the original receipt writer used platform newlines, causing `git diff --check` to flag CRLF as trailing whitespace;
+- the original outer runner piped scripts through `pwsh -Command -`, so terminating errors did not reliably terminate the whole streamed session and misleading PUSHED markers could still print.
+
+CHAT corrected the same pre-execution tooling:
+- blocked preflights now publish sanitized Git receipts before returning non-zero;
+- receipts are canonical UTF-8/LF;
+- only stale preflight receipt state may be auto-cleaned; any other WIP remains fail-closed;
+- Agent probe receipts record exit code + failure class without raw output/secrets;
+- APP has an explicit Node.js LTS bootstrap;
+- the recovery runner executes scripts via temporary files with `pwsh -File`, runs both lanes independently, and distinguishes BLOCKED receipt from infrastructure failure.
+
+No product code changed. No executable Dispatch v3 has been published for either Batch-B lane.
+
+Project-wide disposition:
+- Policy V1.8.9 makes durable pre-execution evidence mandatory and defines aggregate Agent-route materiality;
+- Routing V1.3.0 inserts PreExec evidence before final assignment and compares alternative Agent candidates;
+- Protocol v12 separates pre-start BLOCKED/INFRA_FAILED from post-start NEEDS_RECONCILIATION and forbids silent route substitution;
+- Bridge Technical v0.7 Candidate REV10 defines shared tooling behavior;
+- Project Dictionary v1.2 exposes all current machine pointers and aggregate-route identifiers;
+- project-wide rollout is Owner-authorized with bounded CODE_ALLOWED, but final implementation Agent remains gated by current R3/R5 evidence.
+
+### Current pre-execution facts for the two next batches
+
+- project-wide rollout branch `work/FOX2-PREEXEC-ROLLOUT-V1` has a live PASS receipt proving Codex current execution readiness and clean dedicated worktree;
+- Copilot remains `AUTH_REQUIRED`; under the project-wide alternative-route rule this is routing evidence, not a blocker when Codex is an allowed route and passes;
+- the previous receipt is historical because it predates the aggregate-route semantic release; a fresh v1 receipt must be regenerated from the re-bound source before final assignment;
+- APP-BATCH-B and BRIDGE-BATCH-B remain PREEXEC_HOLD and will consume the shared engine after rollout acceptance instead of keeping independent lifecycle semantics;
+- no executable Dispatch for the rollout, APP-BATCH-B or BRIDGE-BATCH-B is valid until CHAT reads the fresh re-bound receipt.
+
+`MASTER_PLAN_STATUS=ACTIVE / GOVERNANCE=PROJECT_DICTIONARY_V1.2+POLICY_V1.8.9+ROUTING_V1.3.0 / PREEXEC=V1.1 / PREFLIGHT_RECEIPT=V1 / AGENT_ROUTE_MATERIALITY=AGGREGATE / DISPATCH=V3 / PROTOCOL=V12 / APP_BATCH_A=ACCEPTED / BRIDGE_BATCH_A=OWNER_ACCEPTED_WITH_VALIDATION_WAIVER / CURRENT_PHASE=PROJECT_WIDE_PREEXEC_ROLLOUT_THEN_APP_B+BRIDGE_B / PROJECT_WIDE_PREEXEC_ROLLOUT=OWNER_AUTHORIZED / MICRO_WP_DEFAULT=NO`
+
+## Current consolidated execution directive — 2026-10-17
+
+This section is the current Owner-directed execution ordering and supersedes earlier scheduling text that permitted APP-BATCH-B and BRIDGE-BATCH-B to run in parallel. Historical sections remain evidence and are not deleted.
+
+Owner-facing work is consolidated into three Whole-WPs:
+
+```text
+WP1 — FOX2-BRIDGE-RC1-TO-INTERNAL-READY
+  source/trust-root freeze
+  -> fresh PreExec
+  -> final Agent selection
+  -> RC1 implementation
+  -> build/package/installed lifecycle certification
+  -> independent pre-Canary audit
+  -> Canary 009 exactly once
+  -> restart/no-replay
+  -> CHAT final intake
+  -> INTERNAL_FOX2_BRIDGE_READY
+
+WP2 — FOX2-M1-A-TO-INTERNAL-GOLIVE
+  resume APP-BATCH-B only after WP1
+  -> complete UI/integration/offline acceptance
+  -> M1-A release integration
+  -> FOX2_INTERNAL_GO_LIVE_READY
+
+WP3 — FOX2-M1-B-MARKET-DATA-GOLIVE
+  provider REST read-only
+  -> market WebSocket
+  -> recovery/PIT/freshness/soak
+  -> FOX2_MARKET_DATA_GO_LIVE_READY
+```
+
+Anti-fragmentation rule: PreExec, implementation, reconciliation, build/test, independent audit, Canary and final intake are internal stages of their Whole-WP, not new Owner-facing micro-WPs unless a material scope or authority boundary changes.
+
+Current scheduling:
+- WP1 = ACTIVE.
+- APP-BATCH-B = PAUSED / WAIT_BRIDGE_READY.
+- Canary 009 = PRESERVE / UNCONSUMED until WP1 pre-Canary readiness.
+- main/merge/deploy/provider/broker/LIVE authority = NO.
+- historical Controller 009–013 and historical final closure are not replayable execution authority for RC1.
+- fresh RC1 PreExec must bind the exact publication head containing the current RC1 task + current source-set manifest + this directive.
+
+`CURRENT_OWNER_PRIORITY=BRIDGE_FIRST / CURRENT_WHOLE_WP=FOX2-BRIDGE-RC1-TO-INTERNAL-READY / APP_BATCH_B=PAUSED / CANARY_009=PRESERVE_UNCONSUMED / MICRO_WP_DEFAULT=NO / NEXT=FRESH_PREEXEC_ON_EXACT_SOURCE_FREEZE_HEAD / MERGE=NO / LIVE=NO`
+
+
+
+---
+
+## Owner-approved priority amendment — 2026-10-19: CODE-FIRST / CHAT-FIRST
+
+**Status:** Owner-approved operational priority and architecture decision; release synchronization pending. This amendment supersedes prior `BRIDGE_FIRST` and `APP_BATCH_B=PAUSED / WAIT_BRIDGE_READY` scheduling dependencies only, not historical receipts, immutable Dispatches or EFFECTIVE governance.
+
+**Decision:** Coding is the default when task scope, Owner authorization, source and DEV environment are safe. Governance controls material risk; production-grade release gates protect operational use, not unrelated offline development. CHAT directly performs all authorized work available via its tools; WORK is exceptional independent audit only.
+
+**Lane A — PRODUCT DEV (P0):** resume APP-BATCH-B source/task readiness immediately; complete React localhost application, build/typecheck, backend API integration and offline acceptance after a fresh route-appropriate PreExec and CHAT R0–R7 PASS_TO_ASSIGN. Use verified CLI-first CODEX/Copilot route if independent from Bridge runtime; Bridge INTERNAL_READY is not a prerequisite. Require correct Owner scope, immutable task/source, worktree, one-writer, allowed files, Agent/model and exact Git result/readback. Do not reuse or reinterpret immutable Dispatch001.
+
+**Lane B — BRIDGE ENGINEERING (P1):** consolidate MANUAL_LOCAL admission, paused/stop_requested controls, singleton and crash/recovery into the already authorized infrastructure WP. Existing Bridge PreExec remains BLOCKED; it blocks Bridge bootstrap, not a separately authorized offline DEV route. Any new code execution must have its own genuinely supported route, PreExec and assignment. No micro-WP for administrative statuses.
+
+**Lane C — INTEGRATION / RELEASE:** CHAT code/test/diff intake, independent audit only when materially necessary, then installed runtime adoption/Canary/release safety. Original Dispatch001 and Canary009 remain HOLD. No main, PR, merge, production provider, broker or LIVE.
+
+**CHAT-FIRST:** CHAT owns source/Registry/Policy/BRD/TechSpec review, architecture, Git/Library readback where available, task and roadmap preparation, normal result acceptance. CODEX/Copilot own actual code/test/host operations after admission. WORK is only for genuinely independent safety/release audit, not routine source checks or documents.
+
+**Execution sequence:** CHAT validate APP-BATCH-B authority/current source and choose independent offline DEV route -> route-specific PreExec -> CHAT assignment -> CODEX implement/test APP-BATCH-B -> CHAT acceptance -> Bridge repair and adoption as separate gated work. Keep Whole-WP and append-only receipts. Do not claim implementation started based on this planning update.
+
+**Owner decision source:** `7ac3cc986aa7a8b3e8e2365655edc1a9f25d818a:docs/governance/releases/FOX2_CODE_FIRST_CHAT_FIRST_OWNER_DIRECTIVE_AND_ROUTING_20261019.md`.
+
+`OWNER_PRIORITY=CODE_FIRST / APP_BATCH_B=RESUME_READINESS / OFFLINE_DEV_BRIDGE_DEPENDENCY=REMOVED / CHAT_FIRST=YES / WORK_DEFAULT=NOT_NEEDED / BRIDGE_PREEXEC=BLOCKED / DISPATCH001=HOLD / CANARY009=HOLD / MERGE_LIVE=NO`
+
+### Native offline DEV session route — implementation acceptance and operational handoff
+
+**Decision class:** Controlled DEV route design within the existing APP-BATCH-B Whole-WP; not a new Registry enum, not a new micro-WP, not a released runtime launcher. Applicable only to offline frontend/backend integration and unit/localhost tests; no protected Bridge worker, Canary, broker, provider or LIVE operations.
+
+**Preferred actor/route:** CODEX native CLI `gpt-6.1-sol / medium / FULL_ACCESS`, with `execution_path=MANUAL_LOCAL` **only if a task-specific, durable no-replay manual session admission can be proved**. This is different from the existing immutable Dispatch001's MANUAL_LOCAL path, which stays PUBLISHED/HOLD. Copilot is a fallback requiring CHAT selection; do not silently substitute. Neither a CODEX marker probe on the Bridge infrastructure WP nor the historical APP preflight proves fresh APP admission.
+
+**Minimal owner-approved business scope:** existing APP-BATCH-B Whole-WP `work/FOX2-M1-A-APP-BATCH-B` observed `fc8aba202e15bddfcc5156b2c1bb36ed222329eb`; `frontend/**`, `tests/app_batch_b/**`, `reports/FOX2-M1-A-APP-BATCH-B/**`. No backend/API/schema mutation, even if integration discovers a defect; report its exact test case and request a bounded scope change only if required. CHAT verifies whether the 2026-10-14 UI-slicing authorization extends to integration/build/tests (it was limited to frontend presentation and must NOT be silently expanded).
+
+**Controlled one-shot session contract — no Bridge dependency:**
+- A0: CHAT reads pinned task/Owner approval, immutable app source, policy/dictionary/routing, current Git branch and allowed paths. Publish a *non-executable* route/task amendment to supersede only the obsolete `WAIT_BRIDGE_READY` scheduling sentence; preserve old receipt and source history.
+- A1: HOST performs **one current route-specific shared PreExec v1** on APP task/worktree. Material: present Codex auth/capacity, Node/npm, exact task/source, clean WIP, unique writer, app-native permission and safe runtime session path. Non-material: Bridge daemon PAUSED/worker singleton, but **only after independent route separation is actually demonstrated**. Publish APP `PASS` or honest `BLOCKED` on a new immutable receipt path; CHAT does remote readback and R0–R7. Do not use a previously BLOCKED APP receipt as PASS.
+- A2: After `PASS_TO_ASSIGN`, bind an immutable native-mode execution handoff with complete task/prompt SHA-256, `max_runs=1`, role/model/effort/FULL_ACCESS, worktree, exact code/test/report paths, Git delivery owner, STOP conditions. Any v3 Dispatch path formally required by current Policy must be satisfied; do not duplicate/relabel Dispatch001. No pseudo-Dispatch marker for appearances.
+- A3: Before launch, the host must demonstrate **OS-backed exclusive worktree writer lease spanning Agent runtime**, plus a **durable single-use APP-attempt claim** that is atomic across supported host writers (e.g., an exact immutable Git claim artifact with create-once/compare-and-swap semantics and remote readback, bound to the same task/handoff, committed before launch). The claim must distinguish `CLAIMED`, `SPAWN_ATTEMPTED`, `RUNNING`, `EXITED`, `UNKNOWN/NEEDS_RECONCILIATION`; its implementation and race/crash behavior require actual proof. **This gate is NOT YET VERIFIED.** An attempt record is not a Bridge consumption marker and may not bypass an effective Dispatch protocol. Pre-existing/uncertain claim => STOP/no blind retry.
+- A4: Selected CODEX runs exactly once under the verified native tool path, no unrecorded fallback, no unrelated worktree writer. Publish code/test result to non-main APP task branch with exact-head protection and remote byte readback. CHAT directly audits changed-path diff/K1, tests, no-secret/out-of-scope changes and reconciles `ACCEPT/REWORK/HOLD`. Code push alone never proves product acceptance.
+- A5: Build/typecheck and offline acceptance from actual host: React routes `/overview`, `/watchlist`, `/stocks/:symbol`, `/settings/data-sources`; backend API wiring; watchlist CAS 409/422; unavailable/unknown provenance; responsive 1440/1024/390; localhost restart; no browser provider requests or synthetic investor prices. Unrun cases remain NOT_RUN. Product runnable checkpoint is measured here, not by number of documents.
+- Exception: if A3 cannot be proven, **do not launch any Agent**. CHAT resolves the minimum source-bound manual-control/claim defect in the same Whole-WP scope; do not make Bridge installed readiness a dependency by default, do not manufacture receipt PASS and do not add Owner-facing micro-WPs. Source/Policy amendments require their own authority process only when a material semantic change is demonstrably necessary.
+
+**Stateful guardrail:** old Owner Bridge-first schedule is superseded now for **coordination**; APP task's own frozen `WAIT_BRIDGE_READY` wording and its historical preflight are not magically rewritten by this plan. Rebind the APP task before execution, but do not do extra administrative loops just to refresh unchanged evidence. CHAT can prepare and publish the route addendum directly; CODEX/host is only for material Windows proof and coding; WORK not needed until risk-specific independent audit.
+
+`APP_DEV_ROUTE_DESIGNED=YES / APP_NATIVE_SESSION_ADMISSION=NOT_VERIFIED / APP_PREEXEC_NEW=NOT_RUN / APP_PASS_TO_ASSIGN=NO / PRODUCT_BUILD_AND_TEST=NOT_RUN / BRIDGE_READY_REQUIRED_FOR_OFFLINE_APP=NO / DISPATCH001_HOLD=YES / CANARY009_HOLD=YES`
