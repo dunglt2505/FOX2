@@ -1,11 +1,11 @@
 # FOX2-M1-A-APP-BATCH-B — Whole-WP Task
 
-**Status:** PAUSED_AFTER_UI_SLICE / WAIT_BRIDGE_READY  
+**Status:** CODE_FIRST_RESUME_APPROVED / SOURCE_READY_FOR_FRESH_APP_PREEXEC / CODING_NOT_YET_ADMITTED  
 **Project phase:** M1-A second execution phase  
 **Governance:** Project Dictionary v1.2 -> Policy V1.8.9 -> Routing Index V1.3.0  
 **Protocol:** PreExec Evidence v1.1 + Receipt Schema v1 + CHAT Preflight Intake v1.1 + Dispatch Schema v3 + Git-first Protocol v12  
 **Final Agent assignment for integration/test remainder:** PENDING shared PreExec Intake; CHAT visual slicing is Owner-authorized directly  
-**Execution path:** MANUAL_LOCAL candidate  
+**Execution path:** MANUAL_LOCAL candidate (must prove an actual independent DEV admission route before Agent execution)  
 **Delivery owner:** AGENT candidate
 
 ## Source binding
@@ -181,3 +181,44 @@ Expected after execution:
 
 Final milestone target:
 `FOX2_M1_A_RUNNABLE_LOCALHOST_OFFLINE_ACCEPTED`
+
+
+---
+
+## Owner-authorized resumption — 2026-10-19: CODE-FIRST offline APP-BATCH-B
+
+**Decision status:** Owner-approved APP-BATCH-B priority reversal and scoped coding/integration authorization on this existing Whole-WP. **This section supersedes only the earlier `Owner priority pause — Bridge first` and corresponding status/scheduling text above.** Preserve earlier text as historical; it must not be used as a current block for APP offline readiness or product coding once DEV admission is valid.
+
+**Binding:**
+- Owner CODE-FIRST/CHAT-FIRST directive: `7ac3cc986aa7a8b3e8e2365655edc1a9f25d818a:docs/governance/releases/FOX2_CODE_FIRST_CHAT_FIRST_OWNER_DIRECTIVE_AND_ROUTING_20261019.md`.
+- Updated Master Plan candidate: `5cdcd21503dd70da1e57d863660757b8c69b3466:docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md`, Owner-approved 2026-10-19 priority amendment; its release-synchronization/effectivity status is separate.
+- Current APP branch/source before this update: `fc8aba202e15bddfcc5156b2c1bb36ed222329eb`. The immutable task SOURCE_HEAD for subsequent PreExec becomes the exact new publication commit containing **this** task.md, not this pre-update SHA and not the accepted APP-BATCH-A code base.
+- Current Policy remains Dictionary v1.2 -> Policy v1.8.9 -> Routing v1.3 -> shared PreExec v1.1 and schema v1. No Policy or Dictionary machine enum changed here.
+
+**Owner-approved bounded APP development actions:** resume and finish remaining offline `frontend/**`, `tests/app_batch_b/**`, `reports/FOX2-M1-A-APP-BATCH-B/**` code/build/typecheck/tests/integration/delivery in this existing WP. Do not alter `backend/**`, contracts, provider/network operations, `agent_bridge/**`, main/PR/merge/deploy/LIVE, or other protected paths without a new material impact/authority decision. Do not repeat completed UI slicing, redraw the Dark/White presentation, or falsely claim previously accepted backend tests have just rerun.
+
+**APP-BATCH-B route and minimal material preflight:**
+1. CHAT binds exactly one APP task branch/worktree/source HEAD, approved code/test/report allowlist and one named writer. A remote Git-only task update is *document-only*; live Windows WIP and competing process ownership remain HOST_NOT_RECHECKED until observed.
+2. Prefer an actual available **CLI-first CODEX/Copilot development execution route independent of installed Bridge**. Resolve `execution_path` only from the current Dictionary; do NOT invent a machine enum or claim `MANUAL_LOCAL` is implemented solely because the Dictionary declares it. A direct unsupported `codex exec` is not a governed replacement for an immutable Dispatch/attempt record. If manual admission is absent, report `DEV_ROUTE_NOT_IMPLEMENTED` once and resolve it at the existing engineering/dependency scope; never bypass claim/no-replay.
+3. Shared task-specific PreExec v1 requires *app-relevant material checks*: correct Owner/code scope/source and worktree, one writer, supported Agent/model/permission and available Node/npm/pnpm only if actually required by this frontend, Python/backend/test dependencies if material, report delivery/readback, and proof of any manual DEV attempt control. **Bridge worker PAUSED is NOT a material check for an independently proven non-Bridge development route**; it remains material if Bridge is the route chosen. An old BLOCKED receipt (`reports/FOX2-M1-A-APP-BATCH-B/preexec/local_preflight.json` with `NO_AGENT_CURRENT_EXECUTION_PROOF`) is immutable historical evidence, NOT a present PASS or a reason to rerun stale profile checks as the answer.
+4. Publish fresh shared v1 receipt at an unused append-only `reports/FOX2-M1-A-APP-BATCH-B/preexec/*.json` path, source-bound to exact branch HEAD before receipt publication; verify schema, remote SHA, byte readback, task/receipt identity, worktree and no-replay. No worker-control mutation is needed for CLI-first app-only checks if technically independent.
+5. Only after actual `PASS` and CHAT R0–R7 `PASS_TO_ASSIGN` may the final Agent route/immutable handoff/attempt be issued. Allowed candidate: `CODEX / PINNED gpt-6.1-sol / medium / FULL_ACCESS` based on the earlier host marker proof for another WP, **not yet a live APP execution admission**. Keep `max_runs=1` and distinct APP attempt identity; no replay if started or uncertain.
+6. CODEX/Copilot completes app build/typecheck, API wiring, watchlist CAS, data-source/unavailable truthfulness, responsive 1440/1024/390, offline localhost tests and security negative tests, then scoped non-main Git push/readback. CHAT reviews real diff/test logs; `ACCEPT/REWORK/HOLD` is separate from Agent self-report.
+
+**Delivery sequencing:** APP-BATCH-B is the next product coding milestone; Bridge Manual Admission is its own existing infrastructure WP and can follow or run separately with distinct writers/paths once admitted. No new Owner-facing micro-WP, no routine WORK audit and no need to obtain the Owner's priority decision again. WORK is only for a concrete independent safety/release question.
+
+**Protection:** Original PreExec compatibility Dispatch001 remains `PUBLISHED/HOLD`, Canary009 `HOLD`. The Bridge infrastructure receipt remains `BLOCKED`; it does not block APP preparation. No old Dispatch is relabeled or consumed. The current task document update does not launch an Agent.
+
+```text
+APP_BATCH_B_PRIORITY=ACTIVE
+APP_BATCH_B_OWNER_BOUNDED_CODE_SCOPE=APPROVED
+APP_BATCH_B_SOURCE_TASK=UPDATED
+APP_BATCH_B_FRESH_PREEXEC=NOT_RUN
+APP_BATCH_B_CHAT_ASSIGNMENT=HOLD_FRESH_PREEXEC
+APP_BATCH_B_CODE_STARTED_BY_THIS_UPDATE=NO
+BRIDGE_INDEPENDENCE=REQUIRED_FOR_CLI_FIRST_DEV_ROUTE
+MASTER_PLAN_RELEASE_SYNC=PENDING
+WORK=NOT_NEEDED
+DISPATCH001=HOLD
+CANARY009=HOLD
+```
