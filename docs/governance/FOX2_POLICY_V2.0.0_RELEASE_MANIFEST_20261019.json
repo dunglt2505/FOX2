@@ -5,7 +5,7 @@
   "project": "FOX2",
   "release_date": "2026-10-19",
   "recorded_by": "CHAT",
-  "classification": "OWNER_APPROVED_GIT_LIBRARY_MIRROR_AND_CI_501_PASS_GLOBAL_RUNTIME_ADOPTION_PENDING",
+  "classification": "OWNER_APPROVED_DOCUMENT_PUBLICATION_AND_HUMAN_OPERATING_CURRENT__MACHINE_EFFECTIVE_PENDING",
   "explicit_owner_decision": {
     "direction": "Owner là quyền cao nhất, quyết định bypass và duyệt bypass mọi vấn đề trong dự án. Tổng hợp các thông tin đã trao đổi rồi phát hành chính sách mới đi",
     "incorporated": "Owner highest internal FOX2 authority, explicit scoped gate bypass, CODE-FIRST offline DEV, CHAT-FIRST direct execution, WORK independent only, one Whole-WP continuity, risk-proportionate release safety.",
@@ -23,15 +23,17 @@
     "publication_git_readback": "PASS_EXACT_BYTES"
   },
   "release_scope": {
-    "owner_human_operational_direction": "APPROVED_FROM_OWNER_20261019",
+    "owner_human_operational_direction": "APPLY_POLICY_V2_OWNER_APPROVED_NEW_WORK",
     "project_git_policy_source": "PUBLISHED_VERIFIED",
     "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0.md",
     "library_publication": "PASS_EXACT_BYTES_2026-10-19",
     "dictionary_v1_2_current_policy": "1.8.9",
     "dictionary_v2_policy_pointer_update": "GIT_SOURCE_MIGRATION_CANDIDATE_PUBLISHED_NOT_EFFECTIVE",
-    "generated_runtime_binding_recertification": "PASS_GITHUB_ACTIONS_99_LINUX_PLUS_402_WINDOWS",
-    "globally_machine_effective": "NOT_CLAIMED_PENDING_TRUSTED_GLOBAL_REGISTRY_AND_OWNER_INSTALLED_RUNTIME_ADOPTION",
-    "pre_existing_wp_autorebinding": false
+    "generated_runtime_binding_recertification": "PASS_GITHUB_ACTIONS_111_LINUX_PLUS_414_WINDOWS",
+    "globally_machine_effective": "NOT_ATTESTED_GLOBAL_REGISTRY_AND_INSTALLED_RUNTIME",
+    "pre_existing_wp_autorebinding": false,
+    "projectwide_human_operating_resolution": "OWNER_APPROVED_SOURCE_MAP_GIT_PUBLISHED",
+    "projectwide_human_source_map": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json"
   },
   "supersession": {
     "predecessor": "docs/governance/FOX2_POLICY_V1.8.9.md",
@@ -46,7 +48,7 @@
     "no_dispatched_execution": true,
     "no_main_merge_live": true
   },
-  "next_publication_requirement": "Source migration CI is PASS: 99 Linux focused plus 402 Windows full Bridge tests, both generators checked. For global EFFECTIVE, separately publish/verify authoritative Registry pointer, reconcile old WPs, and prove Owner workstation installed-runtime adoption. No bypass of missing deployed evidence; APP offline DEV may proceed on independent route without Bridge readiness.",
+  "next_publication_requirement": "Owner's Policy v2 operating decision applies now to new CHAT tasks. Latest Git-hosted CI 111 Linux + 414 Windows PASS. Remaining machine-only gates: true projectwide trust Registry activation and Owner installed runtime readback; do not require these for Bridge-independent offline APP planning/coding. Master Plan Library 2026-10-16 and Git 2026-10-19 differ: preserve both and publish explicit CODE-FIRST supersession reference rather than overwriting unmerged WIP.",
   "mirror_readbacks": [
     {
       "role": "POLICY",
@@ -87,10 +89,10 @@
       "offline_generator_equivalent_pprint_expected_git_blob": "PASS_EXACT_BLOB",
       "python_ast_compile_generated": "PASS",
       "binding_fields_policy_v2_routing_v14": "PASS",
-      "git_pinned_generator_pytest": "PASS_GITHUB_ACTIONS_LINUX_AND_WINDOWS",
-      "full_bridge_regression": "PASS_402_OF_402_GITHUB_HOSTED_WINDOWS_CI",
+      "git_pinned_generator_pytest": "PASS_111_LINUX_PLUS_414_WINDOWS",
+      "full_bridge_regression": "PASS_414_OF_414_GITHUB_HOSTED_WINDOWS_CI",
       "installed_runtime_adoption": "NOT_RUN_ON_OWNER_WORKSTATION",
-      "dispatch_schema_v3_compatibility": "PASS_SOURCE_AND_HOSTED_CI",
+      "dispatch_schema_v3_compatibility": "PASS_STRUCTURAL_FUTURE_VERSION_TESTS_HOSTED_CI",
       "bridge_worker_singleton_on_owner_host": "NOT_RUN"
     },
     "legacy_protection": {
@@ -101,6 +103,34 @@
       "existing_frozen_wps": "NO_AUTO_REBIND"
     },
     "github_actions": {
+      "run_id": 39214187564,
+      "url": "https://github.com/dunglt2505/FOX2/actions/runs/39214187564",
+      "tested_commit": "2c42554edcd7e5c3649ec42c0d470c83e6b097a5",
+      "conclusion": "success",
+      "linux_migration_tests": {
+        "passed": 111,
+        "failed": 0
+      },
+      "windows_full_bridge_regression": {
+        "passed": 414,
+        "failed": 0
+      },
+      "dictionary_generator_check": "PASS",
+      "dispatch_schema_generator_check": "PASS",
+      "evidence_commit": "3cd8942c753ffc878c654744dd14dc1421e684dc",
+      "evidence_path": "reports/FOX2-POLICY-V2-MIGRATION-20261019/dictionary_first_remediation_ci_39214187564.json"
+    },
+    "dispatch_schema_compatibility": {
+      "source_commit": "759d0e324838c7d34a1d74f7b5aa1fb2d5696470",
+      "source_sha256": "a374a98236db9888ba3ed5aa9af174df58732a2c79de53433d6219c8bb62a7c0",
+      "schema_version": "3.0",
+      "backwards_compatible_paths": [
+        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json"
+      ],
+      "runtime_normalizer_still_exact_pinned": true
+    },
+    "github_actions_previous": {
       "run_id": 39211110407,
       "url": "https://github.com/dunglt2505/FOX2/actions/runs/39211110407",
       "tested_commit": "2b53fcd534f54b02c9be194fc055e99cc018a52c",
@@ -117,16 +147,18 @@
       "dispatch_schema_generator_check": "PASS",
       "evidence_commit": "09749cfb3b68d49bec285edaae400ca2321016fe",
       "evidence_path": "reports/FOX2-POLICY-V2-MIGRATION-20261019/ci_acceptance_39211110407.json"
-    },
-    "dispatch_schema_compatibility": {
-      "source_commit": "759d0e324838c7d34a1d74f7b5aa1fb2d5696470",
-      "source_sha256": "a374a98236db9888ba3ed5aa9af174df58732a2c79de53433d6219c8bb62a7c0",
-      "schema_version": "3.0",
-      "backwards_compatible_paths": [
-        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
-        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json"
-      ],
-      "runtime_normalizer_still_exact_pinned": true
     }
+  },
+  "owner_operating_source_resolution": {
+    "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+    "publication_commit": "23157e6a9d47d7c29c85ef2b67bea0176ff303c9",
+    "status": "OWNER_APPROVED_FOR_NEW_CHAT_WORK",
+    "dictionary_v13_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+    "routing_v14_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+    "document_effectivity": "OWNER_APPROVED_OPERATIONAL",
+    "machine_registry_effectivity": "NOT_ATTESTED",
+    "owner_host_installed_bridge": "NOT_ATTESTED",
+    "rc1_wp_trust_registry": "UNCHANGED_WP_ONLY",
+    "prior_work_source_locks": "UNCHANGED"
   }
 }
