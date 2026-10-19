@@ -5,7 +5,7 @@
   "project": "FOX2",
   "release_date": "2026-10-19",
   "recorded_by": "CHAT",
-  "classification": "OWNER_APPROVED_DOCUMENT_PUBLICATION_AND_HUMAN_OPERATING_CURRENT__MACHINE_EFFECTIVE_PENDING",
+  "classification": "OWNER_APPROVED_GOVERNANCE_EFFECTIVE_SCOPED__MACHINE_ADOPTION_NOT_ATTESTED",
   "explicit_owner_decision": {
     "direction": "Owner là quyền cao nhất, quyết định bypass và duyệt bypass mọi vấn đề trong dự án. Tổng hợp các thông tin đã trao đổi rồi phát hành chính sách mới đi",
     "incorporated": "Owner highest internal FOX2 authority, explicit scoped gate bypass, CODE-FIRST offline DEV, CHAT-FIRST direct execution, WORK independent only, one Whole-WP continuity, risk-proportionate release safety.",
@@ -30,10 +30,15 @@
     "dictionary_v1_2_current_policy": "1.8.9",
     "dictionary_v2_policy_pointer_update": "GIT_SOURCE_MIGRATION_CANDIDATE_PUBLISHED_NOT_EFFECTIVE",
     "generated_runtime_binding_recertification": "PASS_GITHUB_ACTIONS_111_LINUX_PLUS_414_WINDOWS",
-    "globally_machine_effective": "NOT_ATTESTED_GLOBAL_REGISTRY_AND_INSTALLED_RUNTIME",
+    "globally_machine_effective": "NOT_CLAIMED_INSTALLED_ADOPTION_NOT_ATTESTED",
     "pre_existing_wp_autorebinding": false,
     "projectwide_human_operating_resolution": "OWNER_APPROVED_SOURCE_MAP_GIT_LIBRARY_PUBLISHED",
-    "projectwide_human_source_map": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json"
+    "projectwide_human_source_map": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+    "governance_document_effectivity": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_FOR_NEW_CHAT_WORK",
+    "governance_registry_path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "governance_registry_git_publication_commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+    "governance_registry_git_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+    "product_acceptance": "NOT_CLAIMED_NO_PRODUCT_TEST_REQUIRED_FOR_DOCUMENT_RELEASE"
   },
   "supersession": {
     "predecessor": "docs/governance/FOX2_POLICY_V1.8.9.md",
@@ -48,7 +53,7 @@
     "no_dispatched_execution": true,
     "no_main_merge_live": true
   },
-  "next_publication_requirement": "Owner Policy v2.0.0 governs newly scoped CHAT tasks. Current Owner operating source map and CODE-FIRST Master Plan addendum have exact Git–Library parity; historical diverged Master Plan copies are intentionally preserved without overwrite. 111 Linux + 414 Windows CI tests PASS. Only global trusted machine Registry promotion and installed Owner Windows runtime adoption remain NOT_ATTESTED. These machine-only checkpoints do not block independent CODE-FIRST offline app tasks with proper task-level DEV admission.",
+  "next_publication_requirement": "Governance effective for Owner-approved new/re-scoped CHAT work with projectwide Governance Registry; keep actual machine/host adoption NOT_ATTESTED, route-specific product and execution checks separate. Legacy source locks and Bridge WP-only trust stay frozen. Do not require repeat Policy approval or Bridge installed tests for future routine Governance publication.",
   "mirror_readbacks": [
     {
       "role": "POLICY",
@@ -152,15 +157,37 @@
   "owner_operating_source_resolution": {
     "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
     "publication_commit": "94c08fae700a81110ed0f4728818bcd39cff5ac2",
-    "status": "OWNER_APPROVED_FOR_NEW_CHAT_WORK",
+    "status": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_IN_SCOPE",
     "dictionary_v13_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
     "routing_v14_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
     "document_effectivity": "OWNER_APPROVED_OPERATIONAL",
-    "machine_registry_effectivity": "NOT_ATTESTED",
+    "machine_registry_effectivity": "NOT_ATTESTED_SEPARATE_ADOPTION",
     "owner_host_installed_bridge": "NOT_ATTESTED",
     "rc1_wp_trust_registry": "UNCHANGED_WP_ONLY",
     "prior_work_source_locks": "UNCHANGED",
     "source_map_library": "PASS_EXACT_BYTES",
     "operating_addendum_git_library": "PASS_EXACT_BYTES"
+  },
+  "governance_decoupling_release": {
+    "decision_path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+    "decision_commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
+    "decision_git_blob_sha1": "cc9ea16d18507f5bc52583cc2c29529a6b54e42b",
+    "registry_path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "registry_commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+    "registry_git_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+    "owner_scope": "FOX2_INTERNAL_GOVERNANCE_NEW_AND_RESCOPED_CHAT_TASKS",
+    "documents": {
+      "policy": "2.0.0",
+      "dictionary": "1.3",
+      "routing": "1.4.0"
+    },
+    "embedded_candidate_status_preserved": true,
+    "legacy_source_locks_preserved": true,
+    "owner_approval_method": "OWNER_IN_CHAT_2026_10_19",
+    "cryptographic_signer_claim": "NONE",
+    "machine_contract_supported": "ONLY_AFFECTED_CONSUMERS_PER_TEST_EVIDENCE",
+    "installed_runtime_adopted": "NOT_ATTESTED",
+    "product_accepted": "NOT_CLAIMED",
+    "test_policy": "No mandatory APP/Bridge/Canary tests for Governance document release. Keep route-specific technical compatibility and installed-runtime checks at their actual checkpoints."
   }
 }
