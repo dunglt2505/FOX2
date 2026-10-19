@@ -72,7 +72,7 @@
         },
         "git_path": {
           "type": "string",
-          "pattern": "^docs/governance/FOX2_PROJECT_DICTIONARY_v[0-9A-Za-z][0-9A-Za-z._-]*\\\\.json$"
+          "pattern": "^docs/governance/FOX2_PROJECT_DICTIONARY_v[0-9A-Za-z][0-9A-Za-z._-]*\\.json$"
         },
         "git_commit_sha": {
           "type": "string",
