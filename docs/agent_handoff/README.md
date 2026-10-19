@@ -5,6 +5,8 @@
 
 Do **not** infer a current Policy, Protocol, BRD, Technical Spec, schema, or model from this README, a versioned filename, `main`, or a previous prompt. The older README's references to Policy v1.5, Protocol v4 and an empty frontend/backend were historical, not current project status.
 
+**Owner-approved current operating sources (2026-10-19):** resolve `docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json` for new CHAT planning, and apply `docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md` over older conflicting BRIDGE_FIRST scheduling. These documents do not assert global trusted machine Registry EFFECTIVE or installed Bridge adoption; retain immutable task-specific source locks.
+
 ## Before any CHAT assignment: apply relevant Skills in order
 
 1. **CHAT-FIRST:** read the relevant installed FOX2 Skills *in the present session* using the available skills tool. For any executable Agent handoff, always use `fox2-source-resolver`, `fox2-agent-route-runtime`, `fox2-governance-preflight`, `fox2-agent-prompt-builder`, and `fox2-document-publication`. Add `fox2-dictionary-impact`, `fox2-brd-change-control`, `fox2-techspec-validator`, `fox2-execution-recovery`, `fox2-thread-handoff`, `fox2-strategic-agent-triage` or others when their defined conditions apply. Use `fox2-result-review` for every material Agent result, `fox2-feature-certification` when certifying a feature, and `fox2-source-sync` for Git/Library copies. The actual Skill URI/read status must be recorded; naming a Skill is not evidence it was read.
