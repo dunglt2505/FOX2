@@ -32,7 +32,7 @@
     "generated_runtime_binding_recertification": "PASS_GITHUB_ACTIONS_111_LINUX_PLUS_414_WINDOWS",
     "globally_machine_effective": "NOT_ATTESTED_GLOBAL_REGISTRY_AND_INSTALLED_RUNTIME",
     "pre_existing_wp_autorebinding": false,
-    "projectwide_human_operating_resolution": "OWNER_APPROVED_SOURCE_MAP_GIT_PUBLISHED",
+    "projectwide_human_operating_resolution": "OWNER_APPROVED_SOURCE_MAP_GIT_LIBRARY_PUBLISHED",
     "projectwide_human_source_map": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json"
   },
   "supersession": {
@@ -48,7 +48,7 @@
     "no_dispatched_execution": true,
     "no_main_merge_live": true
   },
-  "next_publication_requirement": "Owner's Policy v2 operating decision applies now to new CHAT tasks. Latest Git-hosted CI 111 Linux + 414 Windows PASS. Remaining machine-only gates: true projectwide trust Registry activation and Owner installed runtime readback; do not require these for Bridge-independent offline APP planning/coding. Master Plan Library 2026-10-16 and Git 2026-10-19 differ: preserve both and publish explicit CODE-FIRST supersession reference rather than overwriting unmerged WIP.",
+  "next_publication_requirement": "Owner Policy v2.0.0 governs newly scoped CHAT tasks. Current Owner operating source map and CODE-FIRST Master Plan addendum have exact Git–Library parity; historical diverged Master Plan copies are intentionally preserved without overwrite. 111 Linux + 414 Windows CI tests PASS. Only global trusted machine Registry promotion and installed Owner Windows runtime adoption remain NOT_ATTESTED. These machine-only checkpoints do not block independent CODE-FIRST offline app tasks with proper task-level DEV admission.",
   "mirror_readbacks": [
     {
       "role": "POLICY",
@@ -151,7 +151,7 @@
   },
   "owner_operating_source_resolution": {
     "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
-    "publication_commit": "23157e6a9d47d7c29c85ef2b67bea0176ff303c9",
+    "publication_commit": "94c08fae700a81110ed0f4728818bcd39cff5ac2",
     "status": "OWNER_APPROVED_FOR_NEW_CHAT_WORK",
     "dictionary_v13_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
     "routing_v14_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
@@ -159,6 +159,8 @@
     "machine_registry_effectivity": "NOT_ATTESTED",
     "owner_host_installed_bridge": "NOT_ATTESTED",
     "rc1_wp_trust_registry": "UNCHANGED_WP_ONLY",
-    "prior_work_source_locks": "UNCHANGED"
+    "prior_work_source_locks": "UNCHANGED",
+    "source_map_library": "PASS_EXACT_BYTES",
+    "operating_addendum_git_library": "PASS_EXACT_BYTES"
   }
 }
