@@ -1,0 +1,121 @@
+{
+  "agent_execution_started": false,
+  "blockers": [
+    {
+      "class": "CAPABILITY",
+      "code": "CHECK_BRIDGE_BOOTSTRAP_CONTROLS",
+      "material": true,
+      "sanitized_detail": "Required capability did not prove readiness."
+    }
+  ],
+  "candidate_route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "capabilities": {
+    "bridge_bootstrap_controls": {
+      "evidence": "Stored worker control is PAUSED or stop-requested; proposed BRIDGE bootstrap admission is not proven. Existing worker processes remain untouched. No resume/stop, singleton override or activation attempted.",
+      "exit_code": null,
+      "failure_class": "BRIDGE_BOOTSTRAP_CONTROL_HOLD",
+      "material": true,
+      "status": "FAIL"
+    },
+    "codex": {
+      "evidence": "CODEX marker-only probe requested PINNED gpt-6.1-sol / medium / FULL_ACCESS (danger-full-access, approval never). Assistant marker and exit zero observed. Numeric quota/independent actual-model telemetry not exposed by shared probe. No Dispatch or implementation prompt.",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.EXE",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS",
+      "version": "codex-cli 0.162.1"
+    },
+    "current_task_no_replay": {
+      "evidence": "No new-WP identity in current/legacy read-only ledgers, manual markers or live Dictionary-supported remote control branches. No executable infrastructure Dispatch observed; no claim/start/consumption performed.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "eligible_agent_route": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "git": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "pwsh": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python_dependencies": {
+      "evidence": "Required Python modules import successfully; no implementation test or protected runtime operation executed.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS",
+      "version": "Python 3.13.15; jsonschema 4.26.0; pytest 8.3.5"
+    },
+    "source_authority_binding": {
+      "evidence": "Task, scoped Owner grant, engineering contract and ten Registry manifest hashes verified against immutable Git and task tree; user-bound WP-only trust anchors. Historical candidate status does not override later explicit grant.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "worktree_permissions": {
+      "evidence": "Temporary write in task worktree succeeded and was removed; no implementation file modified.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    }
+  },
+  "checked_at": "2026-10-19T05:04:27.515505+00:00",
+  "dispatch_state": {
+    "dispatch_consumed": false,
+    "executable_dispatch_published": false
+  },
+  "notes": [
+    "Routing evidence only. CHAT selects the final implementation Agent."
+  ],
+  "project": "FOX2",
+  "receipt_path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/preflight_receipt.json",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "schema_version": "1.0",
+  "source_head": "482d26d71c5c95f028f9b4110349e4d318bcb342",
+  "status": "BLOCKED",
+  "task_branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+  "task_source": {
+    "git_commit_sha": "482d26d71c5c95f028f9b4110349e4d318bcb342",
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/task.md",
+    "sha256": "ffd9b35b8e98d1dc7ae824945cba963d96c8cd0e1cf67e42220ab2cacafab188"
+  },
+  "worktree": {
+    "competing_writer": "NONE_OBSERVED",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+    "stale_receipt_cleanup": "NOT_NEEDED",
+    "status": "PASS"
+  },
+  "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019"
+}
