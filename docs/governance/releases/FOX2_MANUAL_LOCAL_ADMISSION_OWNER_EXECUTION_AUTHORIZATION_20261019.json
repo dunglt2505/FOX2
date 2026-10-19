@@ -1,0 +1,123 @@
+{
+  "schema": "FOX2_OWNER_MANUAL_LOCAL_ADMISSION_INFRASTRUCTURE_AUTHORIZATION_1",
+  "project": "FOX2",
+  "recorded_date": "2026-10-19",
+  "recorded_by": "CHAT",
+  "authority_type": "OWNER_EXPLICIT_CHAT_DIRECTIVE_RECORDED_BY_CHAT_NOT_CRYPTOGRAPHIC_SIGNATURE",
+  "owner_message_exact": "Owner cấp toàn quyền thực hiện",
+  "owner_message_intent": "Explicit full Owner permission to carry the FOX2 Manual Local Admission infrastructure task through governed engineering, tests, Git delivery and controlled runtime adoption, subject to previously established FOX2 safety/source/PreExec/assignment/acceptance gates. Does not authorize out-of-scope Canary execution, main/merge, production provider/broker writes, or LIVE.",
+  "repository": "dunglt2505/FOX2",
+  "work_package": {
+    "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+    "task_branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+    "task_source_commit": "482d26d71c5c95f028f9b4110349e4d318bcb342",
+    "task_path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/task.md",
+    "task_blob_sha1": "7a2d6405d39ee54fae8c44f979bf44bb700bcf3b",
+    "task_sha256": "ffd9b35b8e98d1dc7ae824945cba963d96c8cd0e1cf67e42220ab2cacafab188",
+    "inspected_code_base": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "proposed_worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019"
+  },
+  "engineering_contract": {
+    "status": "CANDIDATE_NOT_EFFECTIVE",
+    "commit": "1177388dd8e75697778f25cd166cced672653b5d",
+    "path": "docs/governance/releases/FOX2_MANUAL_LOCAL_ADMISSION_SOURCE_IMPACT_BOOTSTRAP_CANDIDATE_20261019.md",
+    "blob_sha1": "f7496977ddc5993c847bb84a0b41106cf4566dda",
+    "sha256": "5a9a9913389051af65ab70b707c3f25bd10fd0d60be982aed3230c191e46eebc"
+  },
+  "frozen_governance": {
+    "wp_registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+    "source_set": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "policy_version": "1.8.9",
+    "routing_version": "1.3.0",
+    "dictionary_version": "1.2",
+    "dispatch_schema_version": "3.0",
+    "preexec_protocol_version": "1.1"
+  },
+  "authorization": {
+    "decision": "OWNER_APPROVED_SCOPED_END_TO_END_MANUAL_LOCAL_ADMISSION_INFRASTRUCTURE",
+    "permitted_actions": [
+      "Prepare and publish task-specific source-bound engineering/preexec requirements and handoff documents",
+      "Use existing shared v1 PreExec and publish truthful task-specific receipt after host verification",
+      "After PreExec PASS and CHAT PASS_TO_ASSIGN, publish one separate immutable infrastructure Dispatch and perform one authorized BRIDGE explicit bootstrap",
+      "Implement/test/refactor within bounded Manual Local Admission infrastructure dependency, including materially necessary shared-layer changes with K1 evidence and CHAT-confirmed impact",
+      "Push exact non-main code/test/result/report paths after scope checks and remote readback",
+      "Perform CHAT independent intake/acceptance; conditionally perform governed installed-runtime adoption with quiescence/rollback evidence",
+      "After adoption, recheck and conditionally activate existing immutable Dispatch001 at most once with a verified MANUAL_LOCAL entrypoint"
+    ],
+    "primary_code_paths": [
+      "agent_bridge/src/fox2_agent_bridge/dispatch_normalizer.py",
+      "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "agent_bridge/src/fox2_agent_bridge/app.py",
+      "agent_bridge/src/fox2_agent_bridge/__main__.py",
+      "agent_bridge/tests/test_project_dictionary.py",
+      "agent_bridge/tests/test_e2e_runner.py"
+    ],
+    "conditional_dependencies_subject_to_specific_impact_and_CHAT_scope_binding": [
+      "agent_bridge/src/fox2_agent_bridge/ledger.py",
+      "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "agent_bridge/src/fox2_agent_bridge/process_lock.py",
+      "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
+      "agent_bridge/src/fox2_agent_bridge/agent_policy.py",
+      "agent_bridge/src/fox2_agent_bridge/config.py",
+      "agent_bridge/src/fox2_agent_bridge/ops_runner.py",
+      "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
+      "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+      "agent_bridge/scripts/generate_project_dictionary.py",
+      "corresponding exact bounded tests only when material impact is proved"
+    ],
+    "file_scope_rule": "CHAT must bind the exact changed-path allowlist in a new executable infrastructure Dispatch after PreExec and approval of needed dependency paths; Owner authorization is NOT a wildcard agent_bridge/** permission.",
+    "k1_diff_trace": [
+      "REQUESTED",
+      "NECESSARY_DEPENDENCY",
+      "JUSTIFIED_GENERATED"
+    ],
+    "independent_owner_reapproval_for_same_bound_wp": false,
+    "new_owner_decision_if_material_out_of_scope_or_protected_authority_change": true
+  },
+  "gated_execution": {
+    "code_authorized_by_owner": true,
+    "host_preexec_required": true,
+    "chat_intake_required": true,
+    "r0_r7_and_assignment_required": true,
+    "executable_dispatch_published": false,
+    "agent_execution_started": "UNKNOWN_NOT_OBSERVED",
+    "max_runs_per_dispatch": 1,
+    "proposed_infrastructure_bootstrap_path": "BRIDGE_E2E_ONCE_ONLY_AFTER_ACTUAL_HOST_ADMISSION",
+    "worker_control_state": "UNKNOWN_NOT_RECHECKED",
+    "manual_local_original_dispatch_activation": "HOLD_UNTIL_IMPLEMENTED_TESTED_ACCEPTED_AND_ADOPTED",
+    "preexec_tool_gap": "The baseline agent_bridge/scripts/preexec.py supports only --profile app|bridge|rollout, not this new WP. Do not run an unrelated profile, invent PASS or alter governed code before valid WP PreExec; bind via existing shared engine safely or return PREEXEC_PROFILE_BINDING_HOLD."
+  },
+  "protected": {
+    "dispatch001": {
+      "id": "FOX2-DISPATCH-PREEXEC-COMPAT-CODEX-001",
+      "publication_commit": "3f885b2d24cb131b5e96dfdb67a44677599197e2",
+      "status": "PUBLISHED_HOST_ADMISSION_HOLD",
+      "immutable": true
+    },
+    "canary009": {
+      "branch": "work/FOX2-BRIDGE-FINAL-CANARY-009",
+      "commit": "501822a33ef08c7365154913bbc677544856eee5",
+      "status": "HOLD_NO_CLAIM_NO_REPLAY"
+    },
+    "main_merge_pr": false,
+    "production_provider_write": false,
+    "broker_write": false,
+    "live": false,
+    "ignore_preexec_or_no_replay": false,
+    "rewrite_historical_receipts": false,
+    "consume_dispatch_by_manual_marker": false,
+    "silently_resume_or_stop_workers": false,
+    "automatic_effective_release": false
+  },
+  "present_decision": {
+    "OWNER_CODE_SCOPE": "APPROVED_SCOPED_INFRASTRUCTURE",
+    "INFRA_TASK_DOCUMENT": "SOURCE_READY_CANDIDATE_PUBLISHED",
+    "INFRA_PREEXEC": "NOT_RUN",
+    "CHAT_ASSIGNMENT": "HOLD_PREEXEC",
+    "INFRA_DISPATCH": "NOT_PUBLISHED",
+    "INFRA_AGENT_STARTED": "NOT_VERIFIED",
+    "ORIGINAL_DISPATCH001": "HOLD",
+    "CANARY009": "HOLD",
+    "next_owner": "HOST_OPERATOR_FOR_FRESH_PREEXEC_THEN_CHAT"
+  }
+}
