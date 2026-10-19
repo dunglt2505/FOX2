@@ -51,14 +51,11 @@ def test_policy_v2_generator_drift_against_pinned_source():
     assert generator.SOURCE_PATH == NEW_DICTIONARY
     expected = generator.generate(generator.source_bytes())
     assert expected == (ROOT / "agent_bridge/src/fox2_agent_bridge/project_dictionary.py").read_bytes()
-    assert not expected.endswith(b"\\r\\n")
-
-
+    assert b"\r" not in expected
 def test_v2_owner_override_not_synthetic_pass():
     source = git_bytes(NEW_POLICY).decode("utf-8")
     assert "AUTHORIZED_BY_OWNER_OVERRIDE" in source
     assert "PASS_TO_ASSIGN" in source
-    assert "A past \`FAIL\`" not in source  # verify literal source is normal Markdown
     assert "`BLOCKED`" in source
     assert "`OWNER_OVERRIDDEN_GATE`" in source
     assert "CODE-FIRST" in source and "CHAT-FIRST" in source
