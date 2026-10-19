@@ -1,0 +1,162 @@
+{
+  "schema": "FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY_V1",
+  "project": "FOX2",
+  "registry_scope": "PROJECTWIDE_GOVERNANCE_DOCUMENT_AUTHORITY_ONLY",
+  "status": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_IN_SCOPE",
+  "record_date": "2026-10-19",
+  "release_branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+  "authority": {
+    "source": "OWNER_DIRECT_IN_CHAT_APPROVAL_AND_INSTRUCTION_2026-10-19",
+    "purpose": "Governance documentation release and source selection for new/re-scoped FOX2 CHAT work",
+    "release_decision": {
+      "path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+      "commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
+      "git_blob_sha1": "cc9ea16d18507f5bc52583cc2c29529a6b54e42b"
+    },
+    "precedent": "FOX2_POLICY_V2.0.0_20261019_RELEASE_MANIFEST",
+    "owner_approval_observed": "YES_CURRENT_CONVERSATION",
+    "external_cryptographic_signer_proof": "NOT_ATTESTED",
+    "scope_limit": "DOES_NOT_AUTHORIZE_AGENTS_MERGE_LIVE_OR_INSTALLED_RUNTIME",
+    "no_repeat_owner_approval_for_exact_scope": true
+  },
+  "current_governance": {
+    "policy": {
+      "version": "2.0.0",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "source_embedded_status": "OWNER_APPROVED_POLICY_SOURCE",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+      "machine_installed_effectivity": "NOT_ATTESTED"
+    },
+    "dictionary": {
+      "version": "1.3",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "source_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+      "machine_installed_effectivity": "NOT_ATTESTED"
+    },
+    "routing_index": {
+      "version": "1.4.0",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "source_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+      "machine_installed_effectivity": "NOT_ATTESTED"
+    },
+    "git_first_protocol": {
+      "version": "12",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "status": "RELEASED_UNCHANGED"
+    },
+    "brds": [
+      {
+        "id": "BRD-00",
+        "version": "0.5",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2-BRD-00_v0.5.md"
+      },
+      {
+        "id": "BRD-06",
+        "version": "0.5",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2-BRD-06_v0.5.md"
+      },
+      {
+        "id": "BRD-08",
+        "version": "0.5",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2-BRD-08_v0.5.md"
+      }
+    ],
+    "m1_technical_spec": {
+      "version": "0.1",
+      "status": "RELEASED_EFFECTIVE",
+      "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+      "registry_binding_path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_REGISTRY_BINDING_v1.md"
+    },
+    "market_data_contract": {
+      "version": "0.4",
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "schema_path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json"
+    },
+    "acceptance": {
+      "version": "0.4",
+      "path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv"
+    }
+  },
+  "excluded_candidates": [
+    "BRD-09",
+    "Bridge Technical Spec v0.7 REV10",
+    "Git-first Protocol v13",
+    "2026-10-18 Governance prepromotion candidate"
+  ],
+  "evidence": {
+    "source_readback": "VERIFIED_EXISTING_PINNED_GIT_BLOBS_AND_LIBRARY_MIRRORS",
+    "source_binding_map": {
+      "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+      "blob_sha1": "ef936ec91b6f612b59c5f022b13734ca0ab67b96"
+    },
+    "policy_manifest_path": "docs/governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
+    "hosted_compatibility_ci": {
+      "id": 39214187564,
+      "linux_pass": 111,
+      "windows_pass": 414,
+      "role": "HISTORICAL_SOURCE_AND_CONSUMER_COMPATIBILITY_NOT_A_GOVERNANCE_GATE"
+    }
+  },
+  "consumer_states": {
+    "governance_chat": "GOVERNANCE_EFFECTIVE",
+    "generated_binding_hosted_tests": "PASS_REFERENCE_ONLY",
+    "bridge_owner_installed": "NOT_ATTESTED",
+    "old_bridge_rc1_trust_registry": "WP_ONLY_UNCHANGED",
+    "app_offline_dev": "INDEPENDENT_ROUTE_ELIGIBLE_SUBJECT_TO_TASK_PREEXEC",
+    "product_acceptance": "NOT_CLAIMED",
+    "global_machine_auto_adoption": "NOT_CLAIMED"
+  },
+  "supersession": {
+    "applies": "NEW_AND_RESCOPED_OWNER_GOVERNANCE_AND_CHAT_TASKS",
+    "prior_policy": "v1.8.9 historical machine/WP only; conflicts in CHAT governance superseded",
+    "prior_dictionary": "v1.2 retained for immutable prior tasks and installed consumers until route-specific compatibility",
+    "prior_routing": "v1.3 historical; new CHAT routing uses v1.4 under owner governance authority",
+    "non_retroactive": true,
+    "no_auto_dispatch_replay": true,
+    "master_plan_priority": "CODE_FIRST"
+  },
+  "resolver_rule": "Open this Registry on its explicitly selected non-main release branch; verify pinned policy/dictionary/routing source commits, Git blobs, SHA-256 and Owner scope, then construct immutable per-task source-set. Do not auto-choose newest filename, treat machine installation as governance prerequisite, or silently change historical locked Dispatches.",
+  "gates": {
+    "governance_document": [
+      "owner_scope",
+      "git_source_integrity",
+      "logical_consistency",
+      "release_registry_and_manifest",
+      "git_library_mirror_as_applicable"
+    ],
+    "machine_contract": [
+      "named_consumer_compatibility_when_material"
+    ],
+    "installed_runtime": [
+      "named_host_proof_when_material"
+    ],
+    "product": [
+      "feature_or_milestone_acceptance_when_material"
+    ]
+  },
+  "permissions": {
+    "DEV": "NOT_GRANTED_BY_THIS_REGISTRY",
+    "main": false,
+    "merge": false,
+    "deploy": false,
+    "provider": false,
+    "broker": false,
+    "LIVE": false
+  }
+}
