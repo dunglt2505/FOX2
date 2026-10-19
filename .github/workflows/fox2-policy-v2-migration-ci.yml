@@ -63,5 +63,14 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python agent_bridge/scripts/generate_dispatch_schema_v3_contract.py --check
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Prepare clean isolated owner-workspace fixture
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force 'C:\Projects' | Out-Null
+          if (Test-Path 'C:\Projects\FOX2') { throw 'Owner-workspace fixture path unexpectedly exists' }
+          git worktree add --detach 'C:\Projects\FOX2' HEAD
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $dirty = git -C 'C:\Projects\FOX2' status --porcelain
+          if ($LASTEXITCODE -ne 0 -or $dirty) { throw 'Owner-workspace fixture must start clean' }
       - name: Full Bridge regression in Windows CI fixture environment
         run: python -m pytest -q agent_bridge/tests
