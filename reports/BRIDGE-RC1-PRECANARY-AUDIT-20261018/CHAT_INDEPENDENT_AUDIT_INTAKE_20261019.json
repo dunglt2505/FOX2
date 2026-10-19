@@ -1,0 +1,57 @@
+{
+  "format": "FOX2_CHAT_INDEPENDENT_AUDIT_INTAKE_1",
+  "project": "FOX2",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "decision": "CHAT_ACCEPT_SCOPED_INDEPENDENT_AUDIT",
+  "PRECANARY_INDEPENDENT_AUDIT": "PASS",
+  "source_commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+  "source_registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+  "source_freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+  "owner_scope": "Current user authorized actual transfer to different reviewer; frozen task and422972f9… substantive-review requirement retained; admission bureaucracy stopped by Owner",
+  "reviewer": "/root/independent_precanary_audit",
+  "parent": "/root",
+  "separation": "Different actual collaboration-agent execution with fork_turns=none; no independent institution/human identity or cryptographic host signature claimed",
+  "report_path": "reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/independent_substantive_report.md",
+  "report_sha256": "7a15426a45d332a7d5d7b2af49d103b8ba87b9e5b1589f3a6cf550bf37cf90b8",
+  "reviewer_receipt_path": "reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/independent_substantive_receipt.json",
+  "new_assessment": "Independent task/negative-evidence/carry-forward/Windows-materiality review; 40 exact original gate identities mapped",
+  "matrix": {
+    "pass_including_new_independent_audit": 39,
+    "non_gating": 1
+  },
+  "inherited_checks": {
+    "consistency": 34,
+    "new_digests": 26,
+    "historical_digests": 67,
+    "package_hashes": 252,
+    "python_junit_pass": 399,
+    "desktop_pass": 30,
+    "source_families": 10
+  },
+  "tests_rerun": 0,
+  "resolver_rerun": false,
+  "current_windows_attestation": "NOT_OBSERVED_NOT_REQUIRED_FOR_THIS_HISTORICAL_AUDIT; required as applicable before future Canary execution",
+  "B2_SHARED_RESOLVER": "CLOSED_PASS_INHERITED",
+  "later_supporting_task": "fd3141f8e825931f9ee17d68c740e3b36230aa96:docs/agent_handoff/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/task.md",
+  "later_supporting_task_intake": "Existing-published-dispatch compatibility/runtime adoption and host preflight remain future launch gates, not certified here",
+  "APP_B": {
+    "observed_head": "51a97bfa7420efa0a0e0ea9a1f35f77d2e823613",
+    "delta": "One task.md Owner priority update; no product/agent_bridge changes",
+    "status": "ACTIVE_SOURCE_READY_FRESH_PREEXEC_NOT_RUN_CODING_NOT_ADMITTED",
+    "audit_action": "NONE"
+  },
+  "Canary009": {
+    "observed_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "current_consumption": "NOT_REOBSERVED",
+    "execution": "HOLD_NO_CLAIM_NO_RUN"
+  },
+  "release_markers_issued": [],
+  "product_changes": [],
+  "dispatch_created_or_replayed": false,
+  "main_merge_live": false,
+  "next_safe_action": "CHAT use independent audit receipt as completed evidence in current Bridge plan; resolve existing compatibility/runtime/host preflight dependencies before any future Canary admission. No repeated independent audit or historical tests absent material change.",
+  "publication_owner": "CHAT",
+  "publication_branch": "work/FOX2-BRIDGE-RC1-PRECANARY-AUDIT-20261018-readonly",
+  "parent_commit": "541bf35e3bdb95b701bd1cdc22b0bdbe87333110",
+  "result_commit": "Containing report-only Git commit; exact SHA and remote readback emitted after publication"
+}

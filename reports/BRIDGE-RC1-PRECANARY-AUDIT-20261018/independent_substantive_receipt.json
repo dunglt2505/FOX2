@@ -1,0 +1,381 @@
+{
+  "format": "FOX2_RC1_INDEPENDENT_SUBSTANTIVE_AUDIT_1",
+  "recorded_utc": "2026-10-19T14:44:38.749617+00:00",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "PRECANARY_INDEPENDENT_AUDIT": "PASS",
+  "READY_FOR_CHAT_INTAKE": "YES",
+  "audit_scope": "FROZEN_IMPLEMENTATION_AND_INSTALLED_EVIDENCE_ACCEPTANCE_NOT_CURRENT_HOST_PREFLIGHT",
+  "reviewer": {
+    "tool_observed_agent_name": "/root/independent_precanary_audit",
+    "identity_observation": "collaboration.list_agents returned root and independent_precanary_audit as distinct running agents",
+    "role": "OWNER_APPOINTED_WORK_INDEPENDENT_SUBSTANTIVE_REVIEWER",
+    "assignment_history_mode": "fork_turns=none per assignment",
+    "requested_model": "gpt-6-astra",
+    "requested_reasoning": "medium",
+    "actual_model_host_attestation": "NOT_INDEPENDENTLY_EXPOSED",
+    "signature": null,
+    "authored_dispatch004_or_prior_reviews": false,
+    "independence_limits": [
+      "shared filesystem/tools/organization",
+      "accepted integrity coverage reused"
+    ],
+    "numeric_quota": "NOT_EXPOSED"
+  },
+  "source_refs": {
+    "bridge": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "initial_audit": "d48aea2e22449ee4435cd81cb89101b653e7dbc8",
+    "resolver_recovery": "980335cae53904f4cc0b06ae5b3a6ba59516ae90",
+    "prior_admission": "541bf35e3bdb95b701bd1cdc22b0bdbe87333110",
+    "owner_status": "422972f91373ade84d9bff84cd680fa7e9cf2f68",
+    "registry": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+    "owner_approval": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+    "freeze": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359"
+  },
+  "ordered_precheck": [
+    "POLICY_CHECK",
+    "TASK_STATE_CHECK",
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "ASSIGNMENT_CHECK"
+  ],
+  "precheck_disposition": "PASS_FOR_READ_ONLY_AUDIT_SCOPE_NOT_EXECUTION_PREEXEC",
+  "inherited_coverage": {
+    "consistency_pass": 34,
+    "new_digests": 26,
+    "historical_digests": 67,
+    "source_families": 10,
+    "archive_payload_hashes": 252,
+    "junit_pass": 399,
+    "junit_failure_error_skip": 0,
+    "desktop_pass": 30,
+    "resolver_authenticated_reads": 24,
+    "resolver_exit_code": 0
+  },
+  "independently_assessed": [
+    "frozen task/Owner scope",
+    "gate carry-forward applicability",
+    "native UI picker/process/timestamp/screenshot",
+    "raw atomic rename/index evidence and implementation",
+    "canonical LOCAL_SAVED semantics",
+    "lifecycle/negative contracts",
+    "Dispatch004 historical single-use evidence and script limitations",
+    "Windows observation stage materiality",
+    "later compatibility task scope",
+    "live refs and APP document-only delta"
+  ],
+  "negative_evidence": {
+    "H3_artifact_freshness": "NOT_CARRIED_FORWARD; C4 fresh actual UI closes four artifact gates",
+    "H3_raw_harness_PASS": "REJECTED_AS_AGGREGATE_OVERRIDE",
+    "current_windows": "NOT_OBSERVED; REQUIRED_BEFORE_FUTURE_CANARY_EXECUTION",
+    "material_unresolved_audit_defects": []
+  },
+  "acceptance_matrix": [
+    {
+      "gate": "ARTIFACT_ATOMIC_INDEX",
+      "verdict": "PASS",
+      "evidence": "C4/artifact_ui_certification.json",
+      "assessment": "Actual native installed UI closure; timestamp/hash/index/rename evidence, not H3 stale receipt.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "ARTIFACT_LOCAL_SAVE",
+      "verdict": "PASS",
+      "evidence": "C4/artifact_ui_certification.json",
+      "assessment": "Actual native installed UI closure; timestamp/hash/index/rename evidence, not H3 stale receipt.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "ARTIFACT_SHA256_VERIFY",
+      "verdict": "PASS",
+      "evidence": "C4/artifact_ui_certification.json",
+      "assessment": "Actual native installed UI closure; timestamp/hash/index/rename evidence, not H3 stale receipt.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "CHANGED_PATH_ALLOWLIST",
+      "verdict": "PASS",
+      "evidence": "C4/quality_checks.json",
+      "assessment": "Report-only C4 paths, no product mutation; inherited hygiene checks accepted.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "CHECK_NOW",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Paused Check-now disabled; bounded control evidence, no Agent intake. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "CONTROL_STORE_PATH",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Installed isolated Python; corrected per-user data/control.git. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "DESKTOP_APP_BUILD",
+      "verdict": "PASS",
+      "evidence": "H3/quality_checks.json",
+      "assessment": "WPF Release / SDK8.0.426 historical build. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "DESKTOP_APP_CONTRACT_TESTS",
+      "verdict": "PASS",
+      "evidence": "H3/quality_checks.json",
+      "assessment": "30 historical PASS; negative contracts independently examined. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "DESKTOP_APP_SINGLE_INSTANCE",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Two launches, one UI; independent Worker singleton. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "DISPATCH_V3_RUNTIME_COMPATIBILITY",
+      "verdict": "PASS",
+      "evidence": "H3/full_bridge_tests.xml",
+      "assessment": "Historical executed RC1 regression; not future existing-dispatch PreExec certification. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "DISPATCH_V3_SCHEMA_BINDING",
+      "verdict": "PASS",
+      "evidence": "H3/preflight.json",
+      "assessment": "WP-bound schema3 identity. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "DISPATCH_V3_STRUCTURAL_CONFORMANCE",
+      "verdict": "PASS",
+      "evidence": "C4/final_runtime_readback.json",
+      "assessment": "Bounded schema validation and accepted structural check.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "DOTNET_WPF_BUILD_CAPABILITY",
+      "verdict": "PASS",
+      "evidence": "H3/preflight.json",
+      "assessment": "Material WPF build, not CLI-version-only proof. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "FIRST_RUN_SETUP",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Installed SETUP_COMPLETE; paused, startup opt-in, required stages. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "FRESH_PREEXEC",
+      "verdict": "PASS",
+      "evidence": "C4/preflight.json",
+      "assessment": "Dispatch004 exact implementation PreExec; does not authorize future Canary.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "FULL_BRIDGE_TESTS",
+      "verdict": "PASS",
+      "evidence": "H3/full_bridge_tests.xml",
+      "assessment": "399 JUnit cases; zero failure/error/skip; inherited executed coverage. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "GIT_DIFF_CHECK",
+      "verdict": "PASS",
+      "evidence": "C4/quality_checks.json",
+      "assessment": "Report-only C4 paths, no product mutation; inherited hygiene checks accepted.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "INSTALLER_PACKAGE",
+      "verdict": "PASS",
+      "evidence": "H3/quality_checks.json",
+      "assessment": "Deterministic archive; same 252 payload identities. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "LOCAL_SAVED_NOT_GIT_SYNCED",
+      "verdict": "PASS",
+      "evidence": "C4/artifact_ui_certification.json",
+      "assessment": "Actual native installed UI closure; timestamp/hash/index/rename evidence, not H3 stale receipt.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "OPEN_LOGS",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Installed log-directory control. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "PAUSE_RESUME",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Stopped Worker bounded controls; no Agent intake. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "PER_USER_INSTALL",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Per-user installed/reinstalled package identity. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "PRECANARY_INDEPENDENT_AUDIT",
+      "verdict": "PASS",
+      "evidence": "This report",
+      "assessment": "New separate reviewer judgment; frozen JSON remains PENDING.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "PROJECT_DICTIONARY_BINDING",
+      "verdict": "PASS",
+      "evidence": "H3/preflight.json",
+      "assessment": "Dictionary1.2 SHA and generated binding, B2 reused. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "REAL_INSTALLED_POLL",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "NO_CHANGE safe poll; no new claim or execution. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "SECRET_SCAN",
+      "verdict": "PASS",
+      "evidence": "C4/quality_checks.json",
+      "assessment": "Report-only C4 paths, no product mutation; inherited hygiene checks accepted.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "SOURCE_BINDING",
+      "verdict": "PASS",
+      "evidence": "C4/preflight.json",
+      "assessment": "Registry/Owner scope plus B2 authentic resolver and exact immutable bytes.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "SOURCE_FREEZE",
+      "verdict": "PASS",
+      "evidence": "H3/planning_source_readback.json",
+      "assessment": "Original planning/source bytes; WP-only chain. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "SOURCE_REGISTRY_AUTHORITY_CHAIN",
+      "verdict": "PASS",
+      "evidence": "C4/preflight.json",
+      "assessment": "Registry/Owner scope plus B2 authentic resolver and exact immutable bytes.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "STARTUP_SINGLE_INSTANCE",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Two launches, one UI and Worker duplicate rejected. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "START_WITH_WINDOWS",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Current-user Limited Interactive / IgnoreNew. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "SUPPORT_BUNDLE",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Installed export, bounded support.json archive. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "UNINSTALL_PATH",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Live UI deletion guard; durable config/data/logs/reports/vault preserved. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "UPDATE_PATH",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "Real integrity-failed update preserves usable runtime; staged failures in tests. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "V06_COMPATIBILITY",
+      "verdict": "PASS",
+      "evidence": "H3/full_bridge_tests.xml",
+      "assessment": "Historical regression compatibility; no legacy executable replay. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "V2_COMPATIBILITY",
+      "verdict": "PASS",
+      "evidence": "H3/full_bridge_tests.xml",
+      "assessment": "Historical regression compatibility; no legacy executable replay. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "WORKER_UI_PROCESS_SEPARATION",
+      "verdict": "PASS",
+      "evidence": "H3/installed_certification.json",
+      "assessment": "UI crash/close/restart preserves Worker; no second Worker. Unchanged-subject carry-forward.",
+      "basis": "INHERITED_EXECUTION_INDEPENDENTLY_ACCEPTED"
+    },
+    {
+      "gate": "INSTALLED_UI_ARTIFACT_FRESHNESS",
+      "verdict": "PASS",
+      "evidence": "C4/artifact_ui_certification.json",
+      "assessment": "Actual native installed UI closure; timestamp/hash/index/rename evidence, not H3 stale receipt.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "INSTALLED_RUNTIME_TECHNICAL_CERTIFICATION",
+      "verdict": "PASS",
+      "evidence": "C4/artifact_ui_certification.json; C4/final_runtime_readback.json",
+      "assessment": "Composition of accepted unchanged lifecycle and C4 fresh UI closure; historical installed state.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    },
+    {
+      "gate": "ICON_DISPOSITION",
+      "verdict": "NON_GATING",
+      "evidence": "C4/quality_checks.json",
+      "assessment": "No authorized asset; not an acceptance blocker.",
+      "basis": "INDEPENDENT_EVIDENCE_ASSESSMENT"
+    }
+  ],
+  "live_refs": {
+    "Bridge": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+    "audit_parent": "541bf35e3bdb95b701bd1cdc22b0bdbe87333110",
+    "Canary009": "501822a33ef08c7365154913bbc677544856eee5",
+    "APP_B": "51a97bfa7420efa0a0e0ea9a1f35f77d2e823613"
+  },
+  "app_b_delta": "ONE_TASK_MD_ONLY_OWNER_PRIORITY_AMENDMENT; ACTIVE_SOURCE_READY_FRESH_PREEXEC_NOT_RUN_CODING_NOT_ADMITTED; NO_AGENT_BRIDGE_CHANGE",
+  "future_canary": "HOLD_PENDING_SEPARATE_CHAT_MARKER_AND_MATERIAL_COMPATIBILITY_HOST_PREEXEC_NO_REPLAY_GATES",
+  "precanary_ready": "NOT_GRANTED",
+  "internal_ready": "NOT_GRANTED",
+  "tests_rerun": 0,
+  "resolver_rerun": false,
+  "windows_actions": false,
+  "git_mutations": false,
+  "dispatch_created_or_replayed": false,
+  "canary_claimed_or_run": false,
+  "app_actions": false,
+  "source_lock_changed": false,
+  "report_sha256": "7a15426a45d332a7d5d7b2af49d103b8ba87b9e5b1589f3a6cf550bf37cf90b8",
+  "publication_owner": "PARENT_CHAT",
+  "chat_intake": "PENDING_PARENT_REMOTE_PUBLICATION_AND_REVIEW"
+}

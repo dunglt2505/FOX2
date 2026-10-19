@@ -1,0 +1,16 @@
+{
+  "agent_task": "/root/independent_precanary_audit",
+  "parent_task": "/root",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning": "medium",
+  "fork_turns": "none",
+  "scope": "Owner-authorized independent substantive read-only pre-Canary audit",
+  "mechanism": "collaboration.spawn_agent completed successfully",
+  "organizational_independence": "NOT_CLAIMED",
+  "prior_reports_authored_by_parent": [
+    "d48aea2e22449ee4435cd81cb89101b653e7dbc8",
+    "980335cae53904f4cc0b06ae5b3a6ba59516ae90",
+    "541bf35e3bdb95b701bd1cdc22b0bdbe87333110"
+  ],
+  "authority": "Current user authorized transfer to a different reviewer; frozen task requires independent WORK substantive review; no release grant"
+}
