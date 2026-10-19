@@ -5,7 +5,7 @@
   "project": "FOX2",
   "release_date": "2026-10-19",
   "recorded_by": "CHAT",
-  "classification": "OWNER_APPROVED_GIT_AND_LIBRARY_EXACT_MIRROR_PASS_MACHINE_CANDIDATE_RUNTIME_TESTS_PENDING",
+  "classification": "OWNER_APPROVED_GIT_LIBRARY_MIRROR_AND_CI_501_PASS_GLOBAL_RUNTIME_ADOPTION_PENDING",
   "explicit_owner_decision": {
     "direction": "Owner là quyền cao nhất, quyết định bypass và duyệt bypass mọi vấn đề trong dự án. Tổng hợp các thông tin đã trao đổi rồi phát hành chính sách mới đi",
     "incorporated": "Owner highest internal FOX2 authority, explicit scoped gate bypass, CODE-FIRST offline DEV, CHAT-FIRST direct execution, WORK independent only, one Whole-WP continuity, risk-proportionate release safety.",
@@ -29,8 +29,8 @@
     "library_publication": "PASS_EXACT_BYTES_2026-10-19",
     "dictionary_v1_2_current_policy": "1.8.9",
     "dictionary_v2_policy_pointer_update": "GIT_SOURCE_MIGRATION_CANDIDATE_PUBLISHED_NOT_EFFECTIVE",
-    "generated_runtime_binding_recertification": "STATIC_DETERMINISTIC_REGEN_PASS_HOST_REGRESSION_NOT_RUN",
-    "globally_machine_effective": "NOT_CLAIMED_PENDING_RUNTIME_TESTS_AND_GOVERNED_ACTIVATION",
+    "generated_runtime_binding_recertification": "PASS_GITHUB_ACTIONS_99_LINUX_PLUS_402_WINDOWS",
+    "globally_machine_effective": "NOT_CLAIMED_PENDING_TRUSTED_GLOBAL_REGISTRY_AND_OWNER_INSTALLED_RUNTIME_ADOPTION",
     "pre_existing_wp_autorebinding": false
   },
   "supersession": {
@@ -46,7 +46,7 @@
     "no_dispatched_execution": true,
     "no_main_merge_live": true
   },
-  "next_publication_requirement": "Host must run pinned generator --check and focused/full Bridge regression on this exact migration branch, verify schema/consumer compatibility and remote report. Only then publish an independently grounded globally scoped Registry/Dictionary activation and verify its Library/machine adoption. No historical false PASS or silent release.",
+  "next_publication_requirement": "Source migration CI is PASS: 99 Linux focused plus 402 Windows full Bridge tests, both generators checked. For global EFFECTIVE, separately publish/verify authoritative Registry pointer, reconcile old WPs, and prove Owner workstation installed-runtime adoption. No bypass of missing deployed evidence; APP offline DEV may proceed on independent route without Bridge readiness.",
   "mirror_readbacks": [
     {
       "role": "POLICY",
@@ -87,9 +87,11 @@
       "offline_generator_equivalent_pprint_expected_git_blob": "PASS_EXACT_BLOB",
       "python_ast_compile_generated": "PASS",
       "binding_fields_policy_v2_routing_v14": "PASS",
-      "git_pinned_generator_pytest": "NOT_RUN",
-      "full_bridge_regression": "NOT_RUN",
-      "installed_runtime_adoption": "NOT_RUN"
+      "git_pinned_generator_pytest": "PASS_GITHUB_ACTIONS_LINUX_AND_WINDOWS",
+      "full_bridge_regression": "PASS_402_OF_402_GITHUB_HOSTED_WINDOWS_CI",
+      "installed_runtime_adoption": "NOT_RUN_ON_OWNER_WORKSTATION",
+      "dispatch_schema_v3_compatibility": "PASS_SOURCE_AND_HOSTED_CI",
+      "bridge_worker_singleton_on_owner_host": "NOT_RUN"
     },
     "legacy_protection": {
       "effective_dictionary_current": "1.2",
@@ -97,6 +99,34 @@
       "global_registry_pointer_promotion": "NOT_RUN",
       "old_bridge_dispatch_canary": "HOLD_UNMODIFIED",
       "existing_frozen_wps": "NO_AUTO_REBIND"
+    },
+    "github_actions": {
+      "run_id": 39211110407,
+      "url": "https://github.com/dunglt2505/FOX2/actions/runs/39211110407",
+      "tested_commit": "2b53fcd534f54b02c9be194fc055e99cc018a52c",
+      "conclusion": "success",
+      "linux_migration_tests": {
+        "passed": 99,
+        "failed": 0
+      },
+      "windows_full_bridge_regression": {
+        "passed": 402,
+        "failed": 0
+      },
+      "dictionary_generator_check": "PASS",
+      "dispatch_schema_generator_check": "PASS",
+      "evidence_commit": "09749cfb3b68d49bec285edaae400ca2321016fe",
+      "evidence_path": "reports/FOX2-POLICY-V2-MIGRATION-20261019/ci_acceptance_39211110407.json"
+    },
+    "dispatch_schema_compatibility": {
+      "source_commit": "759d0e324838c7d34a1d74f7b5aa1fb2d5696470",
+      "source_sha256": "a374a98236db9888ba3ed5aa9af174df58732a2c79de53433d6219c8bb62a7c0",
+      "schema_version": "3.0",
+      "backwards_compatible_paths": [
+        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+        "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json"
+      ],
+      "runtime_normalizer_still_exact_pinned": true
     }
   }
 }
