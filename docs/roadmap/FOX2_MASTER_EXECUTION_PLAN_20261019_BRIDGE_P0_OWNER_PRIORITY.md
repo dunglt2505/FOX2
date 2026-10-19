@@ -1,6 +1,6 @@
 # FOX2 — Owner Priority Directive: Bridge P0 (19 October 2026)
 
-**Status:** OWNER-DIRECTED PRIORITY FOR NEW PLANNING / PUBLICATION IN PROGRESS
+**Status:** OWNER-DIRECTED PRIORITY FOR NEW PLANNING / GIT-LIBRARY READBACK PASS / MAIN INTEGRATION PENDING
 **Project:** FOX2 only
 **Authority:** Owner explicitly directed CHAT in the FOX2 project thread on 2026-10-19 to move “Đóng các thiếu sót thực chất của Bridge” to project priority 1 because Bridge is the central infrastructure for future Agent task assignment.
 **Nature:** Project scheduling / strategic priority supersession; **NOT** an executable Agent Dispatch, task source rebind, PreExec PASS, product acceptance, installed-runtime certification, merge or LIVE approval.
