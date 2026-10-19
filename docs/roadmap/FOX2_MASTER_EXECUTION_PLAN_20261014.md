@@ -376,3 +376,26 @@ Current scheduling:
 
 `CURRENT_OWNER_PRIORITY=BRIDGE_FIRST / CURRENT_WHOLE_WP=FOX2-BRIDGE-RC1-TO-INTERNAL-READY / APP_BATCH_B=PAUSED / CANARY_009=PRESERVE_UNCONSUMED / MICRO_WP_DEFAULT=NO / NEXT=FRESH_PREEXEC_ON_EXACT_SOURCE_FREEZE_HEAD / MERGE=NO / LIVE=NO`
 
+
+
+---
+
+## Owner-approved priority amendment — 2026-10-19: CODE-FIRST / CHAT-FIRST
+
+**Status:** Owner-approved operational priority and architecture decision; release synchronization pending. This amendment supersedes prior `BRIDGE_FIRST` and `APP_BATCH_B=PAUSED / WAIT_BRIDGE_READY` scheduling dependencies only, not historical receipts, immutable Dispatches or EFFECTIVE governance.
+
+**Decision:** Coding is the default when task scope, Owner authorization, source and DEV environment are safe. Governance controls material risk; production-grade release gates protect operational use, not unrelated offline development. CHAT directly performs all authorized work available via its tools; WORK is exceptional independent audit only.
+
+**Lane A — PRODUCT DEV (P0):** resume APP-BATCH-B source/task readiness immediately; complete React localhost application, build/typecheck, backend API integration and offline acceptance after a fresh route-appropriate PreExec and CHAT R0–R7 PASS_TO_ASSIGN. Use verified CLI-first CODEX/Copilot route if independent from Bridge runtime; Bridge INTERNAL_READY is not a prerequisite. Require correct Owner scope, immutable task/source, worktree, one-writer, allowed files, Agent/model and exact Git result/readback. Do not reuse or reinterpret immutable Dispatch001.
+
+**Lane B — BRIDGE ENGINEERING (P1):** consolidate MANUAL_LOCAL admission, paused/stop_requested controls, singleton and crash/recovery into the already authorized infrastructure WP. Existing Bridge PreExec remains BLOCKED; it blocks Bridge bootstrap, not a separately authorized offline DEV route. Any new code execution must have its own genuinely supported route, PreExec and assignment. No micro-WP for administrative statuses.
+
+**Lane C — INTEGRATION / RELEASE:** CHAT code/test/diff intake, independent audit only when materially necessary, then installed runtime adoption/Canary/release safety. Original Dispatch001 and Canary009 remain HOLD. No main, PR, merge, production provider, broker or LIVE.
+
+**CHAT-FIRST:** CHAT owns source/Registry/Policy/BRD/TechSpec review, architecture, Git/Library readback where available, task and roadmap preparation, normal result acceptance. CODEX/Copilot own actual code/test/host operations after admission. WORK is only for genuinely independent safety/release audit, not routine source checks or documents.
+
+**Execution sequence:** CHAT validate APP-BATCH-B authority/current source and choose independent offline DEV route -> route-specific PreExec -> CHAT assignment -> CODEX implement/test APP-BATCH-B -> CHAT acceptance -> Bridge repair and adoption as separate gated work. Keep Whole-WP and append-only receipts. Do not claim implementation started based on this planning update.
+
+**Owner decision source:** `7ac3cc986aa7a8b3e8e2365655edc1a9f25d818a:docs/governance/releases/FOX2_CODE_FIRST_CHAT_FIRST_OWNER_DIRECTIVE_AND_ROUTING_20261019.md`.
+
+`OWNER_PRIORITY=CODE_FIRST / APP_BATCH_B=RESUME_READINESS / OFFLINE_DEV_BRIDGE_DEPENDENCY=REMOVED / CHAT_FIRST=YES / WORK_DEFAULT=NOT_NEEDED / BRIDGE_PREEXEC=BLOCKED / DISPATCH001=HOLD / CANARY009=HOLD / MERGE_LIVE=NO`
