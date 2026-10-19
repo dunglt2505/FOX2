@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0",
+  "dictionary_id": "FOX2_PROJECT_DICTIONARY",
+  "dictionary_version": "1.3",
+  "status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+  "project": {
+    "id": "FOX2",
+    "repository": "dunglt2505/FOX2",
+    "workspace_id": "FOX2_LOCAL",
+    "scope": "FOX2_ONLY"
+  },
+  "authority_model": {
+    "purpose": "Machine-readable identity, version, path and compatibility registry. Semantic authority remains in Policy, BRDs, Contracts and Technical Specifications.",
+    "current_source_resolution": "All new/re-scoped FOX2 work resolves machine identifiers from this dictionary before binding executable handoffs.",
+    "released_documents_immutable": true,
+    "owner_internal_authority": "OWNER_HIGHEST_INTERNAL_AUTHORITY",
+    "override_rule": "Internal gate may be waived only with specific Owner directive and traceable outcome; technical FAIL/BLOCKED/NOT_RUN never becomes PASS; external rights not implied."
+  },
+  "current": {
+    "policy": {
+      "version": "2.0.0",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md"
+    },
+    "routing_index": {
+      "version": "1.4.0",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md"
+    },
+    "dispatch_schema": {
+      "version": "3.0",
+      "path": "docs/agent_handoff/FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json"
+    },
+    "git_first_protocol": {
+      "version": "12",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md"
+    },
+    "result_schema": {
+      "version": "2",
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json"
+    },
+    "result_template": {
+      "version": "4",
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md"
+    },
+    "chat_intake": {
+      "version": "9",
+      "path": "docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v9.md"
+    },
+    "data_contract": {
+      "version": "0.4",
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "schema_path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json"
+    },
+    "acceptance": {
+      "version": "0.4",
+      "path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv"
+    },
+    "roadmap": {
+      "version": "0.4",
+      "path": "docs/roadmap/FOX2_M1_ROADMAP_v0.4.md",
+      "master_plan_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261014.md"
+    },
+    "brds": {
+      "BRD-00": {
+        "version": "0.5",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2-BRD-00_v0.5.md"
+      },
+      "BRD-06": {
+        "version": "0.5",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2-BRD-06_v0.5.md"
+      },
+      "BRD-08": {
+        "version": "0.5",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2-BRD-08_v0.5.md"
+      },
+      "BRD-09": {
+        "version": "0.1",
+        "revision": "REV3",
+        "status": "CANDIDATE",
+        "path": "docs/brd_mirror/FOX2-BRD-09_v0.1_CANDIDATE.md"
+      },
+      "registry_binding": {
+        "version": "1.0",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/brd_mirror/FOX2_BRD_PROJECT_DICTIONARY_BINDING_v1.md"
+      }
+    },
+    "technical_specs": {
+      "m1": {
+        "version": "0.1",
+        "status": "RELEASED_EFFECTIVE",
+        "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+        "registry_binding_path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_REGISTRY_BINDING_v1.md"
+      },
+      "bridge": {
+        "version": "0.7",
+        "revision": "REV10",
+        "status": "CANDIDATE",
+        "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md"
+      },
+      "usage_routing": {
+        "version": "0.1",
+        "revision": "REV5",
+        "status": "CANDIDATE",
+        "path": "docs/architecture/FOX2_AGENT_USAGE_TELEMETRY_ROUTING_CONTRACT_v0.1_CANDIDATE.md"
+      }
+    },
+    "preexec_evidence_protocol": {
+      "version": "1.1",
+      "status": "RELEASED_EFFECTIVE",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md"
+    },
+    "preflight_receipt_schema": {
+      "version": "1",
+      "status": "RELEASED_EFFECTIVE",
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json"
+    },
+    "chat_preflight_intake": {
+      "version": "1.1",
+      "status": "RELEASED_EFFECTIVE",
+      "path": "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md"
+    },
+    "project_wide_preexec_implementation": {
+      "version": "1.1",
+      "status": "OWNER_AUTHORIZED",
+      "path": "docs/governance/FOX2_PROJECT_WIDE_PREEXEC_IMPLEMENTATION_MANDATE_v1.1.md"
+    }
+  },
+  "transport": {
+    "dispatch_control_branch": {
+      "current": "work/FOX2-DISPATCH-chat",
+      "legacy": [
+        "work/FOX2-LOCAL-DISPATCH-chat"
+      ]
+    },
+    "dispatch_paths": {
+      "current_pattern": "docs/agent_handoff/DISPATCH/<dispatch_id>.json",
+      "legacy_patterns": [
+        "docs/agent_handoff/DISPATCH_V2/<dispatch_id>.json",
+        "docs/agent_handoff/<wp_segment>/dispatch/<dispatch_id>.json"
+      ],
+      "filename_rule": "<dispatch_id>.json"
+    }
+  },
+  "compatibility": {
+    "dispatch_schema": {
+      "current": "3.0",
+      "supported": [
+        "3.0",
+        "2.0",
+        "0.6"
+      ],
+      "execution_rule": "Normalize supported external schemas into one validated internal execution payload; do not duplicate execution engines."
+    },
+    "control_branch": {
+      "current": "work/FOX2-DISPATCH-chat",
+      "supported": [
+        "work/FOX2-DISPATCH-chat",
+        "work/FOX2-LOCAL-DISPATCH-chat"
+      ],
+      "rule": "One explicitly selected control branch per Bridge profile; no arbitrary branch and no multi-branch polling in one profile."
+    }
+  },
+  "identifiers": {
+    "agent_products": [
+      "CODEX",
+      "COPILOT"
+    ],
+    "model_policies": [
+      "PINNED",
+      "NATIVE_AUTO",
+      "CURRENT_CONFIG",
+      "PINNED_PREFERRED"
+    ],
+    "copilot_auto_tiers": [
+      "efficiency",
+      "balance",
+      "intelligence"
+    ],
+    "codex_reasoning_efforts": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "permission_profiles": [
+      "FULL_ACCESS",
+      "BOUNDED_EXPLICIT"
+    ],
+    "normal_coding_permission_profile": "FULL_ACCESS",
+    "execution_paths": [
+      "BRIDGE",
+      "MANUAL_LOCAL",
+      "VSCODE_ONE_CLICK"
+    ],
+    "delivery_owners": [
+      "AGENT",
+      "BRIDGE"
+    ],
+    "max_parallel_material_writers": 2,
+    "preflight_statuses": [
+      "PASS",
+      "BLOCKED",
+      "INFRA_FAILED"
+    ],
+    "preflight_capability_statuses": [
+      "PASS",
+      "FAIL",
+      "MISSING",
+      "UNKNOWN",
+      "NOT_RUN",
+      "DEGRADED"
+    ],
+    "preflight_blocker_classes": [
+      "CAPABILITY",
+      "AUTH",
+      "CAPACITY",
+      "PERMISSION",
+      "WORKTREE",
+      "SOURCE",
+      "GIT",
+      "SERIALIZATION",
+      "TOOLING",
+      "OTHER"
+    ],
+    "agent_route_materiality": {
+      "default_mode": "ALTERNATIVE_AGGREGATE",
+      "aggregate_capability": "eligible_agent_route",
+      "candidate_default_material": false,
+      "pinned_agent_material": true,
+      "rule": "Alternative candidate probes are routing evidence; the aggregate route is material unless the immutable task pins a specific Agent."
+    }
+  },
+  "protected_authority_defaults": {
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "runtime_binding": {
+    "rule": "Runtime code that needs project machine identifiers must load this dictionary or consume a generated binding derived only from this dictionary. Hand-coded duplicate current-version/control-path constants are forbidden.",
+    "bridge_generated_binding": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
+    "generated_binding_requirements": [
+      "record source dictionary version",
+      "record source dictionary path",
+      "fail tests on drift",
+      "do not embed BRD/Policy semantics into generated constants"
+    ],
+    "application_rule": "Business runtime must not depend on governance metadata unless a task materially requires a machine identifier. BRD/Data Contract semantics remain independent.",
+    "preexec_rule": "All new/re-scoped executable FOX2 work must produce a Dictionary-resolved durable Preflight Receipt before final assignment and executable Dispatch publication. Alternative Agent candidate probes are normally non-material routing evidence; eligible_agent_route is the material aggregate unless the task pins a specific Agent.",
+    "preexec_shared_contracts": [
+      "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_INTAKE_CHECKLIST_v1.1.md"
+    ],
+    "owner_override_rollout": "Owner override field is a semantic candidate until versioned Dispatch/schema/consumer compatibility and tests establish it; never inject into old schema fields.",
+    "policy_semantic_source": "FOX2 Policy v2.0.0"
+  },
+  "release_rules": {
+    "change_classification": [
+      "IDENTITY_ONLY",
+      "COMPATIBILITY_EXPANSION",
+      "SEMANTIC_SOURCE_CHANGE"
+    ],
+    "identity_only_rule": "May update dictionary plus generated bindings without changing BRD business semantics.",
+    "compatibility_rule": "Must update affected Technical Spec/tests before becoming current.",
+    "semantic_rule": "Must update owning Policy/BRD/Contract/Technical source through its normal change process.",
+    "preexec_rule": "Pre-execution lifecycle is a project-wide governance/technical invariant. Changes to PASS/BLOCKED/INFRA_FAILED semantics require coordinated Policy/Routing/Protocol/Schema review.",
+    "agent_route_materiality_rule": "Changing whether candidate vs aggregate Agent readiness is material is a project-wide semantic source change and requires coordinated Policy/Routing/PreExec/Intake review.",
+    "owner_override": "Owner may approve an explicit internal exception; keep original evidence. No automatic LIVE/provider/broker authorization."
+  }
+}
