@@ -46,14 +46,16 @@ def git_reader(root: Path) -> tuple[Callable[[str, str], bytes],
     """Always read commit:path, never branch tip, current workspace or latest filename."""
     def read(commit: str, path: str) -> bytes:
         cmd = ["git", "-C", str(root), "show", f"{_commit(commit)}:{_path(path)}"]
-        proc = subprocess.run(cmd, capture_output=True, check=False)
+        proc = subprocess.run(cmd, capture_output=True, check=False,
+                              creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         if proc.returncode:
             raise SourceSetError("immutable source cannot be read")
         return proc.stdout
 
     def blob_sha(commit: str, path: str) -> str:
         cmd = ["git", "-C", str(root), "rev-parse", f"{_commit(commit)}:{_path(path)}"]
-        proc = subprocess.run(cmd, capture_output=True, check=False)
+        proc = subprocess.run(cmd, capture_output=True, check=False,
+                              creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         if proc.returncode:
             raise SourceSetError("immutable Git blob identity unavailable")
         digest = proc.stdout.decode("ascii", errors="strict").strip()
