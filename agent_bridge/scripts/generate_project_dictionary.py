@@ -6,8 +6,8 @@ from pathlib import Path
 import pprint
 import subprocess
 
-SOURCE_COMMIT = '8f23c3791d599e4e1f391d1dddbc9e34bd81da07'
-SOURCE_PATH = 'docs/governance/FOX2_PROJECT_DICTIONARY_v1.json'
+SOURCE_COMMIT = 'b25f7f728de67cf8595bf24f22fcbd79ef50babc'
+SOURCE_PATH = 'docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json'
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / 'agent_bridge/src/fox2_agent_bridge/project_dictionary.py'
 
