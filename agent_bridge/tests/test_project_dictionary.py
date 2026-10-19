@@ -65,11 +65,14 @@ def test_project_dictionary_binding_deterministic_drift():
     print('PROJECT_DICTIONARY_BINDING=PASS')
 
 
-def test_dictionary_control_branch_registry():
-    assert BridgeConfig().control_branch == registry.CONTROL_BRANCH == 'work/FOX2-DISPATCH-chat'
-    assert BridgeConfig(control_branch='work/FOX2-LOCAL-DISPATCH-chat').control_branch in registry.SUPPORTED_CONTROL_BRANCHES
+def test_dictionary_control_branch_registry(bridge_config):
+    # Preserve the same initialized tool paths across Linux CI and Windows hosts.
+    # This test validates allowed control branches, not the host default PATH.
+    from dataclasses import replace
+    assert bridge_config.control_branch == registry.CONTROL_BRANCH == 'work/FOX2-DISPATCH-chat'
+    assert replace(bridge_config, control_branch='work/FOX2-LOCAL-DISPATCH-chat').control_branch in registry.SUPPORTED_CONTROL_BRANCHES
     with pytest.raises(ConfigInvalid):
-        BridgeConfig(control_branch='work/arbitrary')
+        replace(bridge_config, control_branch='work/arbitrary')
 
 
 @pytest.mark.parametrize('path,accepted', [
