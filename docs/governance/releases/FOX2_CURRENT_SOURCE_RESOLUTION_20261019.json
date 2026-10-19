@@ -3,14 +3,14 @@
   "project": "FOX2",
   "recorded_date": "2026-10-19",
   "recorded_by": "CHAT",
-  "purpose": "Current Owner-approved human project operating source resolution for prospective FOX2 task preparation; not a substitute for an independently trusted global machine Registry.",
-  "status": "OWNER_APPROVED_HUMAN_OPERATING_CURRENT__MACHINE_ADOPTION_NOT_ATTESTED",
+  "purpose": "Governance current selection for new/re-scoped FOX2 CHAT work per Owner-approved projectwide Governance Registry; independent machine deployment remains tracked separately.",
+  "status": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED__MACHINE_INSTALLED_ADOPTION_NOT_ATTESTED",
   "owner_authority": {
     "basis": "Direct Owner instruction in FOX2 conversation on 2026-10-19 to apply approved newest Policy and complete Governance source publication",
-    "scope": "FOX2 human-operational Policy and prospective CHAT planning/coordination",
+    "scope": "FOX2 projectwide Governance documents and new/re-scoped CHAT coordination, not installed runtime or executable Agent grant",
     "approval": "EXPLICIT_OWNER_IN_CHAT",
     "cryptographic_signature": "NOT_PROVIDED",
-    "independent_release_chain_attestation": "NOT_VERIFIED",
+    "independent_release_chain_attestation": "NOT_PROVIDED; OWNER_CHAT_SCOPE_ACCEPTED_FOR_INTERNAL_GOVERNANCE_ONLY",
     "reapproval_required_for_same_scope": false
   },
   "current_for_new_work": {
@@ -20,7 +20,8 @@
       "source_commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
       "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
       "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
-      "operational_use": "OWNER_APPROVED"
+      "operational_use": "OWNER_APPROVED",
+      "governance_release": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED"
     },
     "dictionary": {
       "version": "1.3",
@@ -29,7 +30,8 @@
       "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
       "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
       "source_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
-      "operational_use": "OWNER_SCOPE_BOUND_SOURCE_SELECTION; DO_NOT_MISLABEL_FILE_EFFECTIVE"
+      "operational_use": "GOVERNANCE_EFFECTIVE_BY_SCOPED_RELEASE_RECORD; ORIGINAL_CANDIDATE_BYTES_PRESERVED; NO_MACHINE_INSTALL_CLAIM",
+      "governance_release": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED"
     },
     "routing": {
       "version": "1.4.0",
@@ -38,7 +40,8 @@
       "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
       "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
       "source_embedded_status": "MIGRATION_CANDIDATE",
-      "operational_use": "OWNER_SCOPE_BOUND_SOURCE_SELECTION"
+      "operational_use": "GOVERNANCE_EFFECTIVE_BY_SCOPED_RELEASE_RECORD; NOT_INSTALLED_EFFECTIVE_HEADER_PRESERVED",
+      "governance_release": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED"
     },
     "protocol": {
       "version": "12",
@@ -70,15 +73,16 @@
   "lifecycle": {
     "policy_document_git_and_library": "PUBLISHED_AND_MIRRORED_PRIOR_VERIFIED",
     "candidate_dictionary_git_library": "PUBLISHED_AND_MIRRORED_PRIOR_VERIFIED",
-    "owner_human_operating_rule": "APPLY_FOR_NEW_CHAT_WORK",
-    "global_machine_registry_effective": "NOT_ATTESTED",
-    "owner_windows_installed_runtime": "NOT_ATTESTED",
+    "owner_human_operating_rule": "GOVERNANCE_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+    "global_machine_registry_effective": "NOT_CLAIMED; PROJECTWIDE_GOVERNANCE_REGISTRY_ONLY",
+    "owner_windows_installed_runtime": "NOT_ATTESTED_NO_LONGER_GOVERNANCE_RELEASE_GATE",
     "app_offline_dev_route": "INDEPENDENT_CODE_FIRST_NOT_BLOCKED_BY_BRIDGE_ONLY",
     "master_plan_library_divergence": "PRESERVED_HISTORICAL_COPY; CURRENT_OPERATING_ADDENDUM_MIRRORED",
     "master_plan_operating_addendum": "GIT_AND_LIBRARY_EXACT_BYTES_READBACK_PASS",
     "master_plan_operating_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md"
   },
   "instructions_for_CHAT": [
+    "At the start of a new task, verify the projectwide GOVERNANCE Registry and this source-map on the owner-approved release branch, apply Governance EFFECTIVE source and independently check actual machine route support; NEVER treat product tests as a Governance document release requirement.",
     "At task start resolve Owner-approved source applicable to that scope; never use highest filename or stale document header as operative current",
     "Use this recorded Owner-operating resolution as a scoped human directive, not a cryptographically verified global machine Registry",
     "Freeze immutable source-set for each eligible new executable task only after task precheck, Git-first prompt publication, source/authority and route-specific gates",
@@ -97,6 +101,11 @@
       "sha256": "516bd7c1004f5a58a2c91353ac93e982fd7cac768bcc372bc4c18bb58d6189bb",
       "library_path": "/Trading/FOX2/06_Roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
       "library_readback": "PASS_EXACT_BYTES"
+    },
+    "governance_release_rule": {
+      "path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
+      "commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
+      "scope": "OWNER_APPROVED_SCOPED"
     }
   },
   "protected_permissions": {
@@ -106,5 +115,13 @@
     "provider": false,
     "broker": false,
     "LIVE": false
+  },
+  "governance_registry": {
+    "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "published_commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+    "published_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+    "scope": "GOVERNANCE_DOCUMENT_CURRENT_FOR_NEW_CHAT_WORK",
+    "source_readback": "GIT_VERIFIED",
+    "library_mirror": "PENDING_UNTIL_READBACK"
   }
 }
