@@ -1,0 +1,116 @@
+{
+  "agent_execution_started": false,
+  "blockers": [],
+  "candidate_route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "capabilities": {
+    "codex": {
+      "evidence": "Requested CODEX gpt-6.1-sol medium FULL_ACCESS danger-full-access approval never. Shared marker-only probe; no implementation prompt. Assistant proof marker observed; CLI exit zero. Numeric quota not exposed by shared probe.",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.EXE",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": false,
+      "status": "PASS",
+      "version": "codex-cli 0.162.1"
+    },
+    "copilot": {
+      "evidence": "Requested COPILOT NATIVE_AUTO auto balance FULL_ACCESS allow-all tools/paths/URLs. Shared marker-only probe; no implementation prompt. Readiness not proven; sanitized failure_class applies. Numeric quota not exposed by shared probe.",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe\\copilot.EXE",
+      "exit_code": 1,
+      "failure_class": "AUTH_REQUIRED",
+      "material": false,
+      "status": "FAIL",
+      "version": "GitHub Copilot CLI 1.0.98"
+    },
+    "current_task_state": {
+      "evidence": "Current and legacy remote control tips contain no task reference; read-only SQLite dispatch/execution/discovery/worker queries and manual consumption file contain no task identity. New task only; no Canary state assertion.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "eligible_agent_route": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "git": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "pwsh": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python_dependencies": {
+      "evidence": "Required Python dependencies import successfully; no implementation tests executed during host preflight.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS",
+      "version": "Python 3.13.15; jsonschema 4.26.0; pytest 8.3.5"
+    },
+    "source_authority_binding": {
+      "evidence": "Ten Registry manifests and three package digests match immutable Git and task source. Owner trust anchors explicitly bound by current user request; Git approval records are not cryptographic signatures. WP-only scope.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "worktree_permissions": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    }
+  },
+  "checked_at": "2026-10-19T03:25:33.448500+00:00",
+  "dispatch_state": {
+    "dispatch_consumed": false,
+    "executable_dispatch_published": false
+  },
+  "notes": [
+    "Routing evidence only. CHAT selects the final implementation Agent."
+  ],
+  "project": "FOX2",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/preexec/preflight_receipt.json",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "schema_version": "1.0",
+  "source_head": "502f2aefbda35e4fec134dfb9d5f15f3222660d5",
+  "status": "PASS",
+  "task_branch": "work/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+  "task_source": {
+    "git_commit_sha": "502f2aefbda35e4fec134dfb9d5f15f3222660d5",
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/task.md",
+    "sha256": "82326622a477e2822caefd1d96abddfb4e30522cff19524e13c9cdebe7db9813"
+  },
+  "worktree": {
+    "competing_writer": "NONE_OBSERVED",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "stale_receipt_cleanup": "NOT_NEEDED",
+    "status": "PASS"
+  },
+  "wp_id": "FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018"
+}
