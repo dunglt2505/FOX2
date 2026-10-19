@@ -71,7 +71,10 @@
           "minLength": 1
         },
         "git_path": {
-          "const": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json"
+          "enum": [
+            "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+            "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json"
+          ]
         },
         "git_commit_sha": {
           "type": "string",
