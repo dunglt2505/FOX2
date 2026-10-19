@@ -124,11 +124,12 @@ def resolve_source_set(
     for key in sorted(selected):
         record = records[key]
         document_status = record.get("status")
-        if document_status in _CANDIDATE and not owner_candidate_override_ref:
-            if include_keys:
+        if document_status in _CANDIDATE:
+            if include_keys and not owner_candidate_override_ref:
                 raise SourceSetError(f"{key}: candidate requires bounded Owner reference")
-            excluded.append(key)
-            continue
+            if not include_keys:
+                excluded.append(key)
+                continue
         path = _path(record["path"])
         content = read_blob(source_commit, path)
         if not isinstance(content, bytes):
