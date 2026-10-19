@@ -106,6 +106,14 @@
       "path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
       "commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
       "scope": "OWNER_APPROVED_SCOPED"
+    },
+    "governance_library_readback": {
+      "decision_document": "PASS_EXACT_BYTES",
+      "projectwide_registry": "PASS_EXACT_BYTES",
+      "release_manifest": "PASS_EXACT_BYTES_BEFORE_THIS_SOURCE_MAP_UPDATE",
+      "source_map": "PASS_EXACT_BYTES_BEFORE_THIS_UPDATE",
+      "method": "Git blob hash and SHA-256 compared with materialized Library snapshot",
+      "date": "2026-10-19"
     }
   },
   "protected_permissions": {
@@ -122,6 +130,6 @@
     "published_blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
     "scope": "GOVERNANCE_DOCUMENT_CURRENT_FOR_NEW_CHAT_WORK",
     "source_readback": "GIT_VERIFIED",
-    "library_mirror": "PENDING_UNTIL_READBACK"
+    "library_mirror": "PASS_EXACT_BYTES_PREVIOUS_PUBLISHED_REGISTRY"
   }
 }
