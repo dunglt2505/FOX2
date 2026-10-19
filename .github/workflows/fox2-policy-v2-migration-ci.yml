@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: fox2-policy-v2-migration-ci
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   migration-check:
@@ -36,8 +36,8 @@ jobs:
         run: python -m pip install -e './agent_bridge[dev]'
       - name: Pinned dictionary generator --check
         run: python agent_bridge/scripts/generate_project_dictionary.py --check
-      - name: Focused source migration and dictionary tests
-        run: python -m pytest -q agent_bridge/tests/test_policy_v2_source_migration.py agent_bridge/tests/test_project_dictionary.py
+      - name: Focused source migration, Dictionary and future-version resolver tests
+        run: python -m pytest -q agent_bridge/tests/test_policy_v2_source_migration.py agent_bridge/tests/test_project_dictionary.py agent_bridge/tests/test_dictionary_first_source_set.py
       - name: Pinned Dispatch v3 compatibility generator --check
         run: python agent_bridge/scripts/generate_dispatch_schema_v3_contract.py --check
 
