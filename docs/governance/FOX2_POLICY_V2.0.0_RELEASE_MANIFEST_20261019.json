@@ -1,0 +1,50 @@
+{
+  "release_id": "FOX2-POLICY-V2.0.0-OWNER-20261019",
+  "document_id": "FOX2-POLICY-V1",
+  "version": "2.0.0",
+  "project": "FOX2",
+  "release_date": "2026-10-19",
+  "recorded_by": "CHAT",
+  "classification": "OWNER_APPROVED_GIT_PUBLISHED_LIBRARY_AND_MACHINE_ADOPTION_PENDING",
+  "explicit_owner_decision": {
+    "direction": "Owner là quyền cao nhất, quyết định bypass và duyệt bypass mọi vấn đề trong dự án. Tổng hợp các thông tin đã trao đổi rồi phát hành chính sách mới đi",
+    "incorporated": "Owner highest internal FOX2 authority, explicit scoped gate bypass, CODE-FIRST offline DEV, CHAT-FIRST direct execution, WORK independent only, one Whole-WP continuity, risk-proportionate release safety.",
+    "source": "Current 2026-10-19 project conversation",
+    "evidence_limit": "Recorded by CHAT from active Owner instruction; not a cryptographic signature."
+  },
+  "policy_source": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+    "immutable_commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+    "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "utf8_bytes": 19761,
+    "publication_git_readback": "PASS_EXACT_BYTES"
+  },
+  "release_scope": {
+    "owner_human_operational_direction": "APPROVED_FROM_OWNER_20261019",
+    "project_git_policy_source": "PUBLISHED_VERIFIED",
+    "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0.md",
+    "library_publication": "PENDING_NOT_ATTESTED",
+    "dictionary_v1_2_current_policy": "1.8.9",
+    "dictionary_v2_policy_pointer_update": "PENDING",
+    "generated_runtime_binding_recertification": "PENDING",
+    "globally_machine_effective": "NOT_CLAIMED",
+    "pre_existing_wp_autorebinding": false
+  },
+  "supersession": {
+    "predecessor": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "owner_priority_and_internal_decision_precedence": "V2_OWNER_DIRECTIVE_SUPERSEDES_CONFLICTING_PRIOR_INTERNAL_ORDERING",
+    "immutable_old_git_library_registry": "PRESERVED_UNCHANGED"
+  },
+  "historical_protections": {
+    "blocked_bridge_preexec_commit": "1ce109b9a4c538b255c6d8ffc6be8b4dccecf65d",
+    "dispatch001_commit": "3f885b2d24cb131b5e96dfdb67a44677599197e2",
+    "canary009_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "no_fake_pass": true,
+    "no_dispatched_execution": true,
+    "no_main_merge_live": true
+  },
+  "next_publication_requirement": "Library exact UTF8 bytes+SHA256 readback, then update Policy pointer via governed Dictionary and affected generated bindings/consumer tests. Do not report EFFECTIVE without actual source/authority synchronization; Owner may expressly approve a recorded internal exception for interim operational direction."
+}
