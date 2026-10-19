@@ -1,0 +1,113 @@
+{
+  "schema": "FOX2_CHAT_APPEND_ONLY_CORRECTION_AND_PREFLIGHT_INTAKE_1",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+  "observed_at": "2026-10-19T03:32:25Z",
+  "stage": "CHAT_INTAKE_ONLY_NO_DISPATCH_NO_IMPLEMENTATION",
+  "authority": {
+    "basis": "Current user request binds frozen task/Registry and approved scope. Retrieved CHAT-recorded Owner approvals; no cryptographic signature claim.",
+    "registry": {
+      "commit": "b27f1085ee13d8dce56fd2735e100ea1616e6e23",
+      "path": "docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json"
+    },
+    "owner_release_commit": "d8e2331674ef1921844f369bfa9e48b82a73c6a1",
+    "bounded_scope_approval_commit": "bdaa6fd2be14b03e607fa52f91aa237596481780",
+    "frozen_governance_commit": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "verdict": "VERIFIED_WITHIN_USER_BOUND_WP_TRUST_ANCHORS_ONLY",
+    "global_semantic_effective": false
+  },
+  "receipt": {
+    "commit": "fd3141f8e825931f9ee17d68c740e3b36230aa96",
+    "path": "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/preexec/preflight_receipt.json",
+    "blob": "d130beb04b254f26373e29e73a8601efe1df9403",
+    "sha256": "f3ab51d0932dd2d08b88bbf217cca10bcc98334d373c86854cbaaa26ee2a30f9",
+    "source_head": "502f2aefbda35e4fec134dfb9d5f15f3222660d5",
+    "checked_at": "2026-10-19T03:25:33.448500+00:00",
+    "engine_status": "PASS",
+    "schema_validation": "Draft202012Validator_with_FormatChecker_PASS",
+    "remote_git_exact_diff": "one_added_receipt_116_lines_no_other_paths",
+    "parent_is_source_head": true,
+    "local_git_and_remote_receipt_bytes_equal": true,
+    "original_receipt_rewritten": false
+  },
+  "correction": {
+    "field": "capabilities.copilot.version",
+    "original_value": "GitHub Copilot CLI 1.0.98",
+    "corrected_operator_reported_value": "GitHub Copilot CLI 1.0.95",
+    "present_in_receipt": true,
+    "not_only_in_handoff": true,
+    "material": false,
+    "copilot_status": "FAIL",
+    "failure_class": "AUTH_REQUIRED",
+    "exit_code": 1,
+    "readiness_promoted": false,
+    "mechanism": "Inspected launcher sets COPILOT_AUTO_UPDATE=false but hardcodes metadata 1.0.98. Operator reports same-environment version observation 1.0.95.",
+    "evidence_limit": "The original probe/version raw telemetry was not persisted. 1.0.95 is operator-attested, corroborated by local handoff and verification record, not independently replayed by CHAT.",
+    "local_access_confirmed": true,
+    "local_evidence_handling": "Operator handoff, launcher and verification record were actually readable and inspected on this host. Their private paths and local metadata are intentionally omitted from Git publication."
+  },
+  "verification": {
+    "frozen_manifests_sha256": "PASS_10_OF_10_BASE64_DECODED_EXACT_BYTES",
+    "same_frozen_blobs_at_task_source": "PASS_10_OF_10",
+    "task_sha256": "82326622a477e2822caefd1d96abddfb4e30522cff19524e13c9cdebe7db9813",
+    "package_commit": "1e01fa9936a7f4b7c1ad097e55801c27c5319bf0",
+    "package_artifacts_sha256": "PASS_3_OF_3",
+    "hygiene": "receipt_UTF8_LF_no_BOM_final_newline",
+    "connector_note": "UTF-8 convenience fetch normalizes some source text; digest conclusions use base64-decoded original bytes."
+  },
+  "routing_precheck": {
+    "order": [
+      "POLICY_CHECK",
+      "TASK_STATE_CHECK",
+      "ROUTING_R0_R7",
+      "ASSIGNMENT_CHECK"
+    ],
+    "POLICY_CHECK": "PASS_FROZEN_WP_BINDING; no newer global release assumed or automatic rebind",
+    "TASK_STATE_CHECK": "PASS_TIME_SCOPED_READ_ONLY_CHECKS",
+    "R0": "Reuse published PreExec; current task/dev HEAD fd3141...; no repeated probe, no implementation changes. Both current/legacy control refs unchanged and task identity absent under docs/agent_handoff. Read-only SQLite mode=ro/query_only found zero task matches in dispatches, executions, candidate_discoveries, worker_state; manual_consumption absent.",
+    "R1": "PRE_DEV_CHAT_INTAKE; implementation NOT_RUN.",
+    "R2": "Bounded owner authorization remains conditional on own PreExec+CHAT intake. Approved exact scope only. No release/runtime/Canary/main/merge/provider/broker/LIVE rights.",
+    "R3": "CODEX gpt-6.1-sol medium FULL_ACCESS live marker PASS exit 0; COPILOT NATIVE_AUTO balance FAIL/AUTH_REQUIRED nonmaterial. Aggregate eligible_agent_route material PASS. Numeric quota NOT_EXPOSED; not inferred exhausted or unlimited. Frozen Protocol v1.1 section 7 makes numeric quota optional after live readiness proof. Actual-model telemetry not independently exposed.",
+    "R4": "CHAT completes intake/correction directly. COPILOT compared but presently ineligible due auth; no credit/cost price claim. CODEX has demonstrated route; medium is probed tuple. WORK not required for this intake; other agents have no task-specific host evidence and are not assigned.",
+    "R5": "Current local task worktree clean at receipt commit; filesystem owner matches task host user; sole registered branch worktree; no index lock or matching task processes observed. Existing shared PreExec PASS proves permission/writer check at receipt time. No code writer launched. Docs publication uses expected-head lease on separate evidence branch.",
+    "R6": "Receipt immutable remote readback and local Git hash match; source/task binding and one-file diff PASS. Append-only correction only on authorized existing evidence branch, preserve original receipt and task source. Publication requires lease, one-file diff and immutable exact readback before claiming completion.",
+    "R7": "PASS_TO_ASSIGN for evidenced CODEX tuple and bounded scope. STOP before executable Dispatch or Agent start under current user instruction. Before later execution, recheck drift/state/writer; any material change returns HOLD without blind replay.",
+    "ASSIGNMENT_CHECK": "PASS_TO_ASSIGN; EXECUTION_NOT_STARTED; DISPATCH_NOT_PUBLISHED"
+  },
+  "decision": {
+    "verdict": "PASS_TO_ASSIGN",
+    "basis": [
+      "Frozen CHAT intake v1.1 sections 4-5: nonmaterial version mismatch alone does not block; candidate probes alternative with material aggregate.",
+      "Frozen Policy v1.8.9 sections 10 and 12 and Routing v1.3 sections 2/8; PreExec v1.1 section 7.",
+      "Durable v1 PASS with all material capabilities PASS, exact receipt readback, source identity, source authority and host state/writer evidence."
+    ],
+    "selected_route": {
+      "product": "CODEX",
+      "model_policy": "PINNED",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "permission_profile": "FULL_ACCESS"
+    },
+    "scope": "Exact source task section 4 / bounded Owner approval implementation_binding. No expansion.",
+    "capability_probe_replayed": false,
+    "receipt_republication_required": false,
+    "code_started": false,
+    "dispatch_published_by_this_intake": false,
+    "canary_run": false,
+    "next_minimal_action": "Prepare a separate immutable executable coding handoff/Dispatch after current state/writer/drift recheck under exact approved scope; do not start automatically."
+  },
+  "controls": {
+    "current": "dc79f8143eec471508bf37565bff38442ce0548a",
+    "legacy": "987c3fc7fcbb67f042823d38cdeaaaad3aa0f9b9",
+    "canary_head": "501822a33ef08c7365154913bbc677544856eee5",
+    "canary_consumption": "NOT_ASSERTED"
+  },
+  "publication": {
+    "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-EVIDENCE-20261018",
+    "expected_parent": "bdaa6fd2be14b03e607fa52f91aa237596481780",
+    "path": "docs/governance/releases/FOX2_PREEXEC_COMPAT_CHAT_CORRECTION_INTAKE_20261019.json",
+    "append_only": true,
+    "semantic_release": false,
+    "note": "Final publication commit/readback are reported externally after creation; this record does not self-certify a future push."
+  }
+}
