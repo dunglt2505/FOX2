@@ -38,5 +38,30 @@ jobs:
         run: python agent_bridge/scripts/generate_project_dictionary.py --check
       - name: Focused source migration and dictionary tests
         run: python -m pytest -q agent_bridge/tests/test_policy_v2_source_migration.py agent_bridge/tests/test_project_dictionary.py
-      - name: Full Bridge regression (Linux fixture mode)
+      - name: Pinned Dispatch v3 compatibility generator --check
+        run: python agent_bridge/scripts/generate_dispatch_schema_v3_contract.py --check
+
+  full-bridge-windows:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Read only checkout including immutable source history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install unit test dependencies only
+        run: python -m pip install -e './agent_bridge[dev]'
+      - name: Pinned Dictionary/Dispatch generator validation
+        shell: pwsh
+        run: |
+          python agent_bridge/scripts/generate_project_dictionary.py --check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python agent_bridge/scripts/generate_dispatch_schema_v3_contract.py --check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Full Bridge regression in Windows CI fixture environment
         run: python -m pytest -q agent_bridge/tests
