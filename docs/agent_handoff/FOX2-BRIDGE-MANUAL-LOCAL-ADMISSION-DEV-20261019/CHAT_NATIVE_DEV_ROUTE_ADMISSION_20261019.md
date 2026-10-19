@@ -52,6 +52,17 @@ The existing `agent_bridge/scripts/preexec.py --profile bridge` hard-binds **ano
 
 An actual shared PreExec publication may mutate **only its new append-only receipt path** after the host operator's authorized, guarded process; it must produce a **real PASS** or an honest BLOCKED/INFRA_FAILED, Git commit/push/remote byte readback and CHAT intake. Do **not** replace or delete the old `preflight_receipt.json`. The earlier `CHECK_BRIDGE_BOOTSTRAP_CONTROLS` remains BLOCKED for that **Bridge route**.
 
+## 4A. Source-level feasibility: what the native route must NOT borrow
+
+Fresh read-only Git inspection at the inspected Bridge baseline `f3d6468fedb553ba6c6192ba5811cb1b26a11ab9` establishes:
+
+- `agent_bridge/src/fox2_agent_bridge/launcher.py` is **not** a native development entrypoint. Its `launch()` insists on the current installed Bridge interpreter and **starts the Bridge worker** (and optionally Desktop). It cannot be used to bypass a PAUSED/locked worker as an implementation bootstrap.
+- `agent_bridge/src/fox2_agent_bridge/process_lock.py` owns the **Bridge supervisor's** OS-backed `bridge.lock`. Reusing that runtime lock would entangle native DEV with the same already-blocked installed route.
+- `agent_bridge/src/fox2_agent_bridge/preexec/engine.py`: `PreExec.run()` acquires `writer_lock` only while checking and publishing the receipt. That lock is released before any later CODEX/COPILOT coding session. Therefore `PreExec=PASS` does **not** establish a continuous native Agent writer lease or an atomic durable native execution claim.
+- `agent_bridge/src/fox2_agent_bridge/codex_adapter.py` supports a bounded Codex CLI process in a specified worktree **as part of its adapter design**, but merely having the adapter is not a native task admission, independent durable claim, result push, or approved launcher.
+
+**Consequence:** a safe native DEV host mechanism (external governed host coordinator or other separately approved existing route) must prove: explicit fresh identity, OS one-writer lease held across the actual Agent process, durable pre-spawn single-use attempt record, no previous/unknown attempt and Git result reconciliation. **This mechanism is not proved available by source inspection and requires actual host evidence.** Without it `HOLD_NATIVE_ATTEMPT_GUARD_UNAVAILABLE`; no custom ad hoc subprocess spawn, fake PreExec, unlocking Bridge or changed Dispatch identity.
+
 ## 5. Scope, subsequent handoff and STOP
 
 **Six Owner-approved primary code/test paths only:**
