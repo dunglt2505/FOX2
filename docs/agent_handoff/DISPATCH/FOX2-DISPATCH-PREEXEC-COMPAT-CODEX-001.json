@@ -1,0 +1,133 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-PREEXEC-COMPAT-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.2",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.json",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359",
+    "sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+  },
+  "policy": {
+    "version": "1.8.9",
+    "sha256": "cc0cd2afb482f6af90c9c5e78536c65cecba3d909223a7a27b3d5b3dc374a782",
+    "git_path": "docs/governance/FOX2_POLICY_V1.8.9.md",
+    "git_commit_sha": "c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/task.md",
+    "commit_sha": "502f2aefbda35e4fec134dfb9d5f15f3222660d5",
+    "sha256": "82326622a477e2822caefd1d96abddfb4e30522cff19524e13c9cdebe7db9813"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/coding_prompt.md",
+    "git_commit": "3da9797c4275601f0231024b592eaf15234d019c",
+    "git_blob_sha1": "6068f77a5fbff216e6bd4ef4f2c5381192ba3d85",
+    "sha256": "87f806382b70d6e0e83786ef2e4d442a92acb7f9057f10ecfdcbb1e79398aa26"
+  },
+  "source": {
+    "commit_sha": "502f2aefbda35e4fec134dfb9d5f15f3222660d5",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS_NON_MATERIAL_DEVIATION",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner bounded scope bdaa6fd2be14b03e607fa52f91aa237596481780; PreExec v1 PASS fd3141f8e825931f9ee17d68c740e3b36230aa96; CHAT PASS_TO_ASSIGN b2879ed71d55fd9e4488c8dcef0a2fff012f7d9c; exact manual-local single-writer CODEX implementation only; no Canary009 execution or main/merge/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018",
+    "base_sha": "fd3141f8e825931f9ee17d68c740e3b36230aa96",
+    "allowed_code_paths": [
+      "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
+      "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
+      "agent_bridge/scripts/preexec.py",
+      "agent_bridge/tests/test_preexec.py",
+      "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_EXISTING_DISPATCH_EXTENSION_CANDIDATE_20261018.json",
+      "docs/agent_handoff/FOX2_CHAT_PREFLIGHT_EXISTING_DISPATCH_INTAKE_CANDIDATE_20261018.md",
+      "docs/agent_handoff/FOX2_PREEXEC_EXISTING_DISPATCH_CONTRACT_ADDENDUM_CANDIDATE_20261018.md"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/report.md",
+      "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/result.json",
+      "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/test_summary.json",
+      "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/tests.junit.xml",
+      "reports/FOX2-BRIDGE-RC1-PREEXEC-COMPAT-DEV-20261018/diff_trace.json"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh",
+      "jsonschema",
+      "pytest",
+      "codex_cli_pinned_gpt_6_1_sol_medium",
+      "full_access_danger_full_access_approval_never",
+      "eligible_agent_route",
+      "wp_only_source_authority",
+      "single_writer",
+      "clean_worktree",
+      "no_task_dispatch_consumed_or_started",
+      "immutable_prompt_and_task_binding"
+    ],
+    "stop_conditions": [
+      "Task_or_control_source_authority_unverified_or_conflicted",
+      "Remote_task_head_or_prompt_sha_drift_without_CHAT_rebind",
+      "Task_already_dispatched_consumed_started_or_state_UNKNOWN_before_manual_activation",
+      "Wrong_worktree_owner_or_competing_writer_or_unrelated_WIP",
+      "Codex_model_effort_or_FULL_ACCESS_mismatch_or_capacity_or_auth_failure",
+      "Material_new_consumer_UNKNOWN_or_contract_schema_incompatible",
+      "Unapproved_code_or_report_paths_or_justified_generated_delta",
+      "Git_secret_diff_hook_push_or_exact_remote_byte_readback_failure",
+      "No_automatic_Bridge_run_manual_LOCAL_only_max_runs_1_no_replay",
+      "Canary009_immutable_head_dispatch_prompt_or_ledger_changed",
+      "No_main_merge_PR_deploy_install_runtime_provider_broker_or_LIVE"
+    ]
+  },
+  "required_tests": [
+    "LEGACY_PREFLIGHT_V1_SCHEMA_PASS_BLOCKED_INFRA_FAILED_REGRESSION",
+    "PUBLISHED_TRUE_EXISTING_DISPATCH_COMPATIBLE_PROFILE_TESTS",
+    "DISPATCH_PROMPT_SOURCE_SET_OWNER_EXCEPTION_NEGATIVE_BINDING",
+    "CONSUMED_STARTED_UNKNOWN_STALE_LEDGER_FAIL_CLOSED",
+    "DUAL_TASK_SOURCE_AND_PUBLICATION_HEAD_ISOLATION",
+    "WRITER_WORKTREE_RACE_AND_WIP_NEGATIVE_TESTS",
+    "REMOTEDRIFT_READBACK_SECRET_SCAN_AND_FALSE_PUSHED_NEGATIVE_TESTS",
+    "EXISTING_AND_NEW_CONSUMER_SELECTOR_COMPATIBILITY",
+    "CHANGED_PATH_ALLOWLIST_AND_DIFF_TRACE_K1",
+    "TEST_SUMMARY_JUNIT_AND_SCHEMA_V2_RESULT_GIT_READBACK",
+    "NO_REAL_CANARY_DISPATCH_CLAIM_EXECUTION_OR_REPLAY"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-19T04:11:38.191Z",
+  "max_runs": 1
+}
