@@ -5,7 +5,7 @@
   "project": "FOX2",
   "release_date": "2026-10-19",
   "recorded_by": "CHAT",
-  "classification": "OWNER_APPROVED_GIT_PUBLISHED_LIBRARY_AND_MACHINE_ADOPTION_PENDING",
+  "classification": "OWNER_APPROVED_GIT_AND_LIBRARY_EXACT_MIRROR_PASS_MACHINE_CANDIDATE_RUNTIME_TESTS_PENDING",
   "explicit_owner_decision": {
     "direction": "Owner là quyền cao nhất, quyết định bypass và duyệt bypass mọi vấn đề trong dự án. Tổng hợp các thông tin đã trao đổi rồi phát hành chính sách mới đi",
     "incorporated": "Owner highest internal FOX2 authority, explicit scoped gate bypass, CODE-FIRST offline DEV, CHAT-FIRST direct execution, WORK independent only, one Whole-WP continuity, risk-proportionate release safety.",
@@ -26,11 +26,11 @@
     "owner_human_operational_direction": "APPROVED_FROM_OWNER_20261019",
     "project_git_policy_source": "PUBLISHED_VERIFIED",
     "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0.md",
-    "library_publication": "PENDING_NOT_ATTESTED",
+    "library_publication": "PASS_EXACT_BYTES_2026-10-19",
     "dictionary_v1_2_current_policy": "1.8.9",
-    "dictionary_v2_policy_pointer_update": "PENDING",
-    "generated_runtime_binding_recertification": "PENDING",
-    "globally_machine_effective": "NOT_CLAIMED",
+    "dictionary_v2_policy_pointer_update": "GIT_SOURCE_MIGRATION_CANDIDATE_PUBLISHED_NOT_EFFECTIVE",
+    "generated_runtime_binding_recertification": "STATIC_DETERMINISTIC_REGEN_PASS_HOST_REGRESSION_NOT_RUN",
+    "globally_machine_effective": "NOT_CLAIMED_PENDING_RUNTIME_TESTS_AND_GOVERNED_ACTIVATION",
     "pre_existing_wp_autorebinding": false
   },
   "supersession": {
@@ -46,5 +46,57 @@
     "no_dispatched_execution": true,
     "no_main_merge_live": true
   },
-  "next_publication_requirement": "Library exact UTF8 bytes+SHA256 readback, then update Policy pointer via governed Dictionary and affected generated bindings/consumer tests. Do not report EFFECTIVE without actual source/authority synchronization; Owner may expressly approve a recorded internal exception for interim operational direction."
+  "next_publication_requirement": "Host must run pinned generator --check and focused/full Bridge regression on this exact migration branch, verify schema/consumer compatibility and remote report. Only then publish an independently grounded globally scoped Registry/Dictionary activation and verify its Library/machine adoption. No historical false PASS or silent release.",
+  "mirror_readbacks": [
+    {
+      "role": "POLICY",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_POLICY_V2.0.0.md",
+      "bytes": 19761,
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "result": "PASS_EXACT_BYTES"
+    },
+    {
+      "role": "DICTIONARY_CANDIDATE",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "bytes": 10059,
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "result": "PASS_EXACT_BYTES"
+    },
+    {
+      "role": "ROUTING_CANDIDATE",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "library_path": "/Trading/FOX2/00_Governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "bytes": 7165,
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "result": "PASS_EXACT_BYTES"
+    }
+  ],
+  "migration": {
+    "source_registry_frozen_snapshot": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "dictionary_source_sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+    "generated_python_binding_blob_sha1": "ae2a771ed133cc1a4b4856cd86bc59c8fd0c3ff3",
+    "generator_source_commit": "83b928200fa2a728854565417b3085cba2da2019",
+    "binding_commit": "6f9fcaa672e416394f6aae356cfa2c0e71cd5ce8",
+    "migration_test_source_commit": "6eee259bf04525c1890b956e31dd534e873cd436",
+    "validation": {
+      "git_exact_readback": "PASS",
+      "library_sha256_readback": "PASS_3_OF_3",
+      "dictionary_json_validation": "PASS",
+      "offline_generator_equivalent_pprint_expected_git_blob": "PASS_EXACT_BLOB",
+      "python_ast_compile_generated": "PASS",
+      "binding_fields_policy_v2_routing_v14": "PASS",
+      "git_pinned_generator_pytest": "NOT_RUN",
+      "full_bridge_regression": "NOT_RUN",
+      "installed_runtime_adoption": "NOT_RUN"
+    },
+    "legacy_protection": {
+      "effective_dictionary_current": "1.2",
+      "effective_policy_current": "1.8.9",
+      "global_registry_pointer_promotion": "NOT_RUN",
+      "old_bridge_dispatch_canary": "HOLD_UNMODIFIED",
+      "existing_frozen_wps": "NO_AUTO_REBIND"
+    }
+  }
 }
