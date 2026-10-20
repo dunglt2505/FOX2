@@ -51,8 +51,12 @@ def initialize_runtime(config: BridgeConfig) -> SQLiteLedger:
                                     "VALUES ('claim_authority', 'DENY_CROSS_ROOT_UNKNOWN')"
                                 )
                     temporary.replace(config.database_path)
-    # Absence of a legacy DB/marker is not proof of old-writer retirement.
-    ledger.initialize(cross_root_authority_unknown=cross_root)
+    # Every configured runtime root shares the FOX2 dispatch namespace. Moving
+    # it via --config is not evidence of old-writer retirement. F0 has no
+    # positive runtime admission; unrelated direct single-DB fixtures remain
+    # supported by SQLiteLedger.initialize(). Keep legacy snapshot discovery
+    # restricted to the canonical root above.
+    ledger.initialize(cross_root_authority_unknown=True)
     manual = config.bridge_root / 'data' / 'manual_consumption.json'
     if manual.exists():
         receipt = json.loads(manual.read_text(encoding='utf-8'))

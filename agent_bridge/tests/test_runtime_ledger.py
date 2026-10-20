@@ -486,3 +486,145 @@ def test_denied_e2e_dispatch_never_reaches_agent_or_result_preparation(
     with ledger.connect() as connection:
         assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 0
         assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+
+
+def test_configured_alternate_runtime_root_cannot_grant_claim_authority(
+    bridge_config, tmp_path: Path, monkeypatch,
+) -> None:
+    """A --config root outside the default install is still a runtime, not proof."""
+    from fox2_agent_bridge.desktop import initialize_runtime
+
+    monkeypatch.setattr("fox2_agent_bridge.desktop.LEGACY_ROOT", tmp_path / "absent-legacy")
+    # Seed preexisting SINGLE_ROOT metadata, as well as testing a fresh root.
+    for preexisting in (False, True):
+        if preexisting:
+            with SQLiteLedger(bridge_config.database_path).connect() as connection:
+                connection.execute("UPDATE bridge_meta SET value='SINGLE_ROOT' WHERE key='claim_authority'")
+        ledger = initialize_runtime(bridge_config)
+        assert not ledger.claim_dispatch(
+            dispatch_id=f"alternate-{preexisting}", payload_hash="a" * 64,
+            execution_id="forbidden", observed_at_utc=utc_now(), honor_controls=False,
+        )
+        reopened = SQLiteLedger(bridge_config.database_path)
+        reopened.initialize()
+        assert not reopened.claim_dispatch(
+            dispatch_id="after-reopen", payload_hash="a" * 64,
+            execution_id="forbidden-reopen", observed_at_utc=utc_now(),
+        )
+        with ledger.connect() as connection:
+            assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 0
+            assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+
+
+@pytest.mark.parametrize("boundary,expected_stage,expected_state", [
+    ("after-claim", "UNKNOWN", "NEEDS_RECONCILIATION"),
+    ("before-adapter", "CLAIMED", "SAFE_NOT_STARTED"),
+    ("inside-fake-adapter", "RUNNING", "NEEDS_RECONCILIATION"),
+    ("after-synthetic-child", "RUNNING", "NEEDS_RECONCILIATION"),
+])
+def test_abrupt_runner_exit_preserves_consumption_without_replay(
+    tmp_path: Path, boundary, expected_stage, expected_state,
+) -> None:
+    """Kill a synthetic runner at real checkpoints; no paid CLI is involved."""
+    from fox2_agent_bridge.desktop import reconcile
+
+    database = tmp_path / "abrupt-runner.db"
+    marker = tmp_path / "fake-adapter-entered"
+    script = r'''
+import os, sys, subprocess
+from pathlib import Path
+from types import SimpleNamespace
+from fox2_agent_bridge.config import BridgeConfig
+from fox2_agent_bridge.ledger import SQLiteLedger
+from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
+import fox2_agent_bridge.e2e_runner as module
+database, marker, boundary = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]
+ledger = SQLiteLedger(database)
+ledger.initialize()
+config = BridgeConfig(bridge_root=database.parent, database_path=database)
+transport = SimpleNamespace(query_control_sha=lambda _: 'a'*40,
+    fetch_control=lambda *_: None, read_dispatch_blob=lambda *_: (b'{}', 'b'*40))
+module.DispatchPoller = lambda *a, **k: SimpleNamespace(poll_once=lambda: SimpleNamespace(status='NO_CHANGE'))
+runner = BridgeE2ERunner(config, ledger, transport=transport)
+payload = {'dispatch_id':'synthetic-crash', '_payload_sha256':'c'*64,
+    '_agent_product':'CODEX', 'agent':{'product':'CODEX'}, 'branch':'work/synthetic-crash'}
+runner._validate_dispatch = lambda *a, **k: payload
+runner._resolve_worktree = lambda _: (database.parent / 'unused-worktree', 'd'*40)
+runner._resolve_prompt = lambda _: 'synthetic only'
+def forbidden(*a, **k):
+    raise AssertionError('unexpected result verification or publication')
+runner._verify_result = forbidden
+runner._commit_and_push_codex_result = forbidden
+original_claim = ledger.claim_dispatch
+def claim(**kwargs):
+    result = original_claim(**kwargs)
+    assert result
+    if boundary == 'after-claim':
+        os._exit(72)
+    return result
+ledger.claim_dispatch = claim
+def prepare(**kwargs):
+    if boundary == 'before-adapter':
+        os._exit(72)
+runner._prepare_required_parents = prepare
+class FakeAdapter:
+    def __init__(self, config): pass
+    def run_prompt(self, **kwargs):
+        marker.write_text('synthetic adapter entered; no CLI spawned')
+        if boundary == 'after-synthetic-child':
+            # A harmless Python child substitutes for the Agent process. Its
+            # marker proves the child executed before the supervisor exited.
+            subprocess.run([sys.executable, '-c',
+                'import pathlib,sys; pathlib.Path(sys.argv[1]).write_text("synthetic child exited")',
+                str(marker) + '.child'], check=True, timeout=10)
+        os._exit(72)
+module._ADAPTERS = {'CODEX': FakeAdapter}
+runner.run_once(dispatch_path='synthetic-only')
+raise AssertionError('crash injection not reached')
+'''
+    outcome = subprocess.run(
+        [sys.executable, "-c", script, str(database), str(marker), boundary],
+        capture_output=True, text=True, timeout=30, check=False,
+    )
+    assert outcome.returncode == 72, outcome.stderr
+    assert marker.exists() == (boundary in {"inside-fake-adapter", "after-synthetic-child"})
+    assert Path(str(marker) + ".child").exists() == (boundary == "after-synthetic-child")
+    ledger = SQLiteLedger(database)
+    ledger.initialize()
+    assert ledger.dispatch_status("synthetic-crash")["stage"] == expected_stage
+    # Reconciliation cannot call a verifier for these uncertain/pre-start stages.
+    def forbidden(**kwargs):
+        pytest.fail("uncertain crash must not verify/publish/relaunch")
+    assert reconcile(ledger, SimpleNamespace(_verify_result=forbidden))[0]["outcome"] == expected_state
+    assert reconcile(ledger, None) == []
+    assert not ledger.claim_dispatch(
+        dispatch_id="synthetic-crash", payload_hash="c" * 64,
+        execution_id="replay", observed_at_utc=utc_now(),
+    )
+    with ledger.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 1
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 1
+
+
+@pytest.mark.parametrize("stage", ["AGENT_EXITED", "PUBLISHING"])
+@pytest.mark.parametrize("metadata", [
+    {"post_start_failure": "capacity_unavailable"},
+    {"requested": {"model_policy": "PINNED", "model": "gpt-6.1-sol"}, "observed_model": "different"},
+    {"requested": {"reasoning_effort": "medium"}, "observed_reasoning_effort": "low"},
+    {"requested": {"permission_profile": "FULL_ACCESS"}, "observed_permission_profile": "different"},
+])
+def test_restart_configuration_failure_cannot_promote_or_verify_result(tmp_path, stage, metadata):
+    """Exit zero cannot bypass a durable post-start/configuration failure."""
+    from fox2_agent_bridge.desktop import reconcile
+
+    ledger = SQLiteLedger(tmp_path / "failed-configuration.db")
+    ledger.initialize()
+    assert ledger.claim_dispatch(dispatch_id="failed-config", payload_hash="a" * 64,
+        execution_id="e", observed_at_utc=utc_now())
+    ledger.checkpoint("e", stage, {"agent_exit_code": 0, "agent_metadata": metadata})
+    def forbidden(**kwargs):
+        pytest.fail("configuration failure must block result verification")
+    assert reconcile(ledger, SimpleNamespace(_verify_result=forbidden))[0]["outcome"] == "NEEDS_RECONCILIATION"
+    assert not ledger.claim_dispatch(dispatch_id="failed-config", payload_hash="a" * 64,
+        execution_id="replay", observed_at_utc=utc_now())
+    assert reconcile(ledger, None) == []
