@@ -25,7 +25,7 @@ def run(args, **kwargs):
     return result.stdout
 
 
-def build(output: Path, pydef inspect_build_environment(python: Path) -> dict:
+def inspect_build_environment(python: Path) -> dict:
     """Resolve ALL package versions in the exact isolated build interpreter.
 
     Never obtain runtime wheel pins from the CHAT/host interpreter: that can
@@ -84,7 +84,7 @@ def source_git_commit() -> str:
 
 def build(output: Path, python: Path) -> dict:
     check = inspect_build_environment(python)
-yDirectory(prefix='fox2-package-') as td:
+    with tempfile.TemporaryDirectory(prefix='fox2-package-') as td:
         stage = Path(td)
         source = stage / 'source'
         shutil.copytree(ROOT, source, ignore=shutil.ignore_patterns(
