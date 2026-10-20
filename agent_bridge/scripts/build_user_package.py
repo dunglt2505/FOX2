@@ -35,6 +35,7 @@ def inspect_build_environment(python: Path) -> dict:
         'import sys,importlib.metadata as m,json; '
         'names=("jsonschema","attrs","referencing","rpds-py","jsonschema-specifications"); '
         'print(json.dumps(dict(isolated=sys.prefix!=sys.base_prefix, '
+        'python=f"{sys.version_info.major}.{sys.version_info.minor}",platform=sys.platform, '
         'setuptools=m.version("setuptools"),wheel=m.version("wheel"),'
         'dependencies={name:m.version(name) for name in names})))'
     )
@@ -42,7 +43,12 @@ def inspect_build_environment(python: Path) -> dict:
     expected = {'jsonschema', 'attrs', 'referencing', 'rpds-py',
                 'jsonschema-specifications'}
     versions = check.get('dependencies')
-    if (not check.get('isolated') or
+    interpreter = check.get('python')
+    platform = check.get('platform')
+    if (not isinstance(interpreter, str) or
+            not isinstance(platform, str) or not platform or
+            not __import__('re').fullmatch(r'3\\.\\d+', interpreter) or
+            not check.get('isolated') or
             not 80 <= int(check['setuptools'].split('.')[0]) < 90 or
             not isinstance(versions, dict) or set(versions) != expected or
             any(not isinstance(value, str) or not value for value in versions.values())):
@@ -157,8 +163,8 @@ def build(output: Path, python: Path) -> dict:
                              p.suffix in ('.cs', '.xaml', '.csproj') and not {'bin','obj','publish'} & set(p.parts)})
         sys.path.insert(0,str(ROOT/'src'))
         from fox2_agent_bridge import project_dictionary as registry
-        manifest = {'format':'FOX2_USER_PACKAGE_1', 'python':f'{sys.version_info.major}.{sys.version_info.minor}',
-                    'platform':sys.platform, 'dictionary_sha256':registry.SOURCE_SHA256,
+        manifest = {'format':'FOX2_USER_PACKAGE_1', 'python':check['python'],
+                    'platform':check['platform'], 'dictionary_sha256':registry.SOURCE_SHA256,
                     'dictionary_version':registry.DICTIONARY_VERSION,
                     'desktop':'NET8_WPF_SELF_CONTAINED_WIN_X64',
                     'source_sha256':sha(json.dumps(source_files,sort_keys=True).encode()),
