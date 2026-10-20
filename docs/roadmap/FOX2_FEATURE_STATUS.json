@@ -33,6 +33,39 @@
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED"
+    },
+    {
+      "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
+      "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+      "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+      "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
+      "stage": "BUILD",
+      "status": "BLOCKED",
+      "evidence": "CHAT_ACCEPTED_BLOCKED_EVIDENCE_ONLY",
+      "evidence_scope": "NATIVE_OFFLINE_ATTEMPT02_SIX_RED_CROSS_ROOT_NEGATIVE_TESTS_NO_PRODUCTION_CODE_CHANGE",
+      "source_sha": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+      "evidence_refs": [
+        {
+          "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md"
+        },
+        {
+          "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json"
+        },
+        {
+          "commit": "3b4ebbed504911836f327b53e9f8da20a5dd0be6",
+          "path": "docs/roadmap/FOX2_BRIDGE_MANUAL_LOCAL_ATTEMPT02_CHAT_RESULT_REVIEW_20261020.md"
+        }
+      ],
+      "exit_gate": "DESIGN_SAFETY_CROSS_ROOT_IDENTITY_AND_LEASE_CONTRACT_PLUS_FRESH_NEW_ATTEMPT_PREEXEC_AND_CODE_TEST_ACCEPTANCE",
+      "blocker": "CROSS_ROOT_LEGACY_CURRENT_CONSUMED_IDENTITY_NO_REPLAY_GAPS_6_FAIL; EXACT_CLAIM_GUARD_DESIGN_UNRESOLVED",
+      "as_of": "2026-10-20T10:45:00+07:00",
+      "next_safe_action": "CHAT_BOUND_DESKTOP_PY_TEST_DESKTOP_PY_K1_SCOPE; DESIGN_FAIL_CLOSED_DURABLE_IDENTITY_GUARD; NEW_NO_REPLAY_HOST_CODEX_ATTEMPT_ONLY_AFTER_NEW_PREEXEC_AND_GIT_ADMISSION",
+      "build": "NOT_ACCEPTED",
+      "test": "6_FAIL_162_PASS_OFFLINE_SELECTED;_MANUAL_MATRIX_NOT_RUN",
+      "canary009": "HOLD",
+      "internal_ready": "NOT_ATTESTED"
     }
   ]
 }
