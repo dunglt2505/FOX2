@@ -11,7 +11,7 @@ from fox2_agent_bridge.agent_policy import policy_arguments, validate_selection,
 from fox2_agent_bridge.desktop import DesktopWorker, reconcile, control, STATES, BACKOFF
 from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
 from fox2_agent_bridge.errors import DispatchInvalid, ToolExecFailed, LockHeld, WorkspaceBlocked
-from fox2_agent_bridge.ledger import SQLiteLedger, MIGRATIONS, utc_now
+from fox2_agent_bridge.ledger import SQLiteLedger, MIGRATIONS, SCHEMA_VERSION, utc_now
 from fox2_agent_bridge.ops_runner import BridgeOps, OpsRunResult
 from fox2_agent_bridge.process_lock import ProcessLock
 from fox2_agent_bridge.startup import startup_command, set_start_with_windows
@@ -124,19 +124,54 @@ def test_restart_stages_never_replay(bridge_config, stage, remote, outcome):
 
 
 def test_v3_migration_preserves_dispatch_result_and_cursor(tmp_path):
-    ledger = SQLiteLedger(tmp_path/'old.db')
+    """Seed a real v3 database, not a pre-migration claim via the v5 API.
+
+    v3 has no claim_authority: new claim_dispatch must fail closed against it.
+    Migrating must preserve the historical result, cursor and consumed identity.
+    """
+    ledger = SQLiteLedger(tmp_path / 'old.db')
+    now = utc_now()
+    result_json = json.dumps({'after_head': 'b' * 40}, sort_keys=True)
+    repository, branch, cursor_sha = 'dunglt2505/FOX2', 'work/control', 'c' * 40
     with ledger.connect() as connection:
         connection.execute('CREATE TABLE bridge_meta (key TEXT PRIMARY KEY,value TEXT NOT NULL)')
-        for version in (1,2,3):
+        for version in (1, 2, 3):
             for sql in MIGRATIONS[version]:
                 connection.execute(sql)
-    ledger.claim_dispatch(dispatch_id='preserved', payload_hash='a'*64, execution_id='e', observed_at_utc=utc_now())
-    ledger.finish_execution(dispatch_id='preserved', execution_id='e', dispatch_state='PUSHED_UNREVIEWED',
-                            execution_state='PUSHED_UNREVIEWED', finished_at_utc=utc_now(), result={'after_head':'b'*40})
-    assert ledger.initialize() == 4
-    assert ledger.dispatch_status('preserved')['result']['after_head'] == 'b'*40
-    assert not ledger.claim_dispatch(dispatch_id='preserved', payload_hash='a'*64, execution_id='new', observed_at_utc=utc_now())
-    assert ledger.initialize() == 4
+        connection.execute(
+            'INSERT INTO dispatches (dispatch_id, state, payload_hash, created_at_utc, updated_at_utc) '
+            'VALUES (?, ?, ?, ?, ?)',
+            ('preserved', 'PUSHED_UNREVIEWED', 'a' * 64, now, now),
+        )
+        connection.execute(
+            'INSERT INTO executions (execution_id, dispatch_id, state, started_at_utc, '
+            'finished_at_utc, result_json, error_code, error_message) '
+            'VALUES (?, ?, ?, ?, ?, ?, NULL, NULL)',
+            ('e', 'preserved', 'PUSHED_UNREVIEWED', now, now, result_json),
+        )
+        connection.execute(
+            'INSERT INTO control_cursors (repository, control_branch, control_commit_sha, updated_at_utc) '
+            'VALUES (?, ?, ?, ?)',
+            (repository, branch, cursor_sha, now),
+        )
+
+    # v5 code cannot mint a claim against a v3 authority-less database.
+    assert not ledger.claim_dispatch(
+        dispatch_id='unadmitted', payload_hash='a' * 64,
+        execution_id='denied', observed_at_utc=now,
+    )
+    assert ledger.dispatch_status('unadmitted') is None
+
+    assert ledger.initialize() == SCHEMA_VERSION
+    assert ledger.dispatch_status('preserved')['result']['after_head'] == 'b' * 40
+    assert ledger.get_control_cursor(repository, branch) == cursor_sha
+    assert not ledger.claim_dispatch(
+        dispatch_id='preserved', payload_hash='a' * 64,
+        execution_id='new', observed_at_utc=now,
+    )
+    assert ledger.initialize() == SCHEMA_VERSION
+    assert ledger.dispatch_status('preserved')['result']['after_head'] == 'b' * 40
+    assert ledger.get_control_cursor(repository, branch) == cursor_sha
 
 
 @pytest.mark.parametrize('product', ['CODEX','COPILOT'])
