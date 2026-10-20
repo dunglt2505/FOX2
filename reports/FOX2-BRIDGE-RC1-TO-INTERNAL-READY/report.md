@@ -39,3 +39,11 @@ This progress is an independently traceable engineering update within the same W
 - Actual Windows log: `23 passed in 0.30s` (affected package tests); `444 passed in 179.62s` (complete `agent_bridge/tests`); no skips/failures/errors reported in these final two test summaries. The full suite includes the existing F0 protection test file but this report does not claim Windows installed/E2E proof.
 - The preceding failure against `ecaff9c` is preserved. A GitHub Actions fix changed checkout from shallow to full source history, and created an **isolated CI-only** `C:\\Projects\\FOX2` worktree for historical source-bound tests, matching the known successful runner pattern. Neither file was changed in a real Owner Windows host.
 - `RESULT_CLASS = CHAT_DIRECT_BUILD_SUBGATE_SOURCE_TEST_ACCEPTANCE`, **NOT** F1 authority implementation/production package/adoption/release. Package archive `NOT_RUN`, host retirement proof `NOT_ATTESTED`, Canary HOLD.
+
+## Ephemeral Windows package construction — new source-bound CI gate
+
+- Commit `6afd86841d7f3d2677a2a657201e0829cc671ba3` extends the same branch's isolated Windows workflow after the existing package tests and full regression.
+- The added gate provisions a Python 3.13 virtual environment, resolves five runtime dependencies in that interpreter, uses .NET 8 to publish a Windows self-contained WPF Desktop, builds the wheel, verifies exact staged source-module bytes against wheel entries, and constructs **one** deterministic ZIP candidate.
+- It checks the receipt SHA-256 against the actual archive, `manifest.source_git_commit` against the workflow checkout, source module inventory and Desktop contents. Archive remains inside temporary CI runner storage and is **not uploaded, installed, activated, released or attested as F1**.
+- The produced archive is explicitly named `FOX2_RC1_F0_DENY_CI_QUARANTINE.zip`. It is **not** a complete F1 positive-authority package. Its creation must not clear the host old-writer retirement blocker or any installed/Canary gate.
+- CI run `39517792799` at source `6afd868`: **PENDING** at the time of this report; package hash and build PASS are `NOT_VERIFIED` until exact run/job logs are read. Previous `39512223944` remains an independent 23+444 source/test PASS only.
