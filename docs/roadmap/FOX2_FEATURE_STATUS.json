@@ -236,12 +236,16 @@
         {
           "commit": "d75dc4d9e3e384192920faefc3df8dbc4ef48d52",
           "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md"
+        },
+        {
+          "commit": "3b0df327275ced48d45f028bdef1e1c792dc0298",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json"
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
       "blocker": "F1_DURABLE_LEGACY_RETIREMENT_NOT_VERIFIED;_INSTALLED_MANUAL_LOCAL_POSITIVE_ADMISSION_NOT_RUN;_SEVEN_FINAL_CANARY_GATES_NOT_RUN;_ATTEMPT06_AGENT_RESULT_V2_NOT_DELIVERED_HISTORICAL_CONSUMED_NO_REPLAY",
-      "as_of": "2026-10-20T16:35:23.4240514Z",
-      "next_safe_action": "READ_GITHUB_ACTIONS_WINDOWS_CI_FOR_SOURCE_COMMIT_15F56336_AND_REPAIR_ANY_FAILED_TESTS;_CONTINUE_OFFLINE_F1_FAIL_CLOSED_IMPLEMENTATION_ONLY_WITH_VERIFIABLE_OS_RETIREMENT_CONTRACT;_THEN_ONE_PROVENANCE_PACKAGE;_KEEP_INSTALLED_CANARY_HOLD",
+      "as_of": "2026-10-21",
+      "next_safe_action": "VERIFY_GITHUB_ACTIONS_WINDOWS_CI_RUN_39512223944_FINAL_RESULT;_IF_PASS_ACCEPT_SCOPED_F1_PACKAGE_PROVENANCE_CODE_ONLY;_F1_HOST_RETIREMENT_TRUST_AND_SINGLE_PACKAGE_BUILD_STILL_REQUIRED;_NO_INSTALLED_OR_CANARY",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -442,21 +446,34 @@
         "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
         "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
         "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
-        "source_code_test_commit": "15f56336e3ec6ea207f8383d406eaae7810dd257",
-        "reported_head": "d75dc4d9e3e384192920faefc3df8dbc4ef48d52",
+        "source_code_test_commit": "ecaff9c62736560d0dc8e4606052c302ae4a4c5a",
+        "reported_head": "f035eaa147be3cae4abac66ad1a65a97978a1889",
         "changes": [
           "agent_bridge/scripts/build_user_package.py",
           "agent_bridge/tests/test_rc1_package.py",
           ".github/workflows/fox2-bridge-f1-offline-ci.yml"
         ],
-        "added_test_cases": 11,
-        "CI_workflow_run_id": 39465107989,
-        "CI_run_status": "QUEUED_NOT_VERIFIED",
-        "implementation_scope": "ISOLATED_BUILD_DEPENDENCY_SOURCE_PROVENANCE_ONLY",
-        "F1_positive_authority": "NOT_IMPLEMENTED",
+        "added_test_cases": 16,
+        "CI_workflow_run_id": 39512223944,
+        "CI_run_status": "IN_PROGRESS_PACKAGE_SYNTAX_TESTS_PASS_FULL_REGRESSION_RUNNING",
+        "implementation_scope": "F1_SINGLE_PACKAGE_PROVENANCE_ISOLATED_BUILD_INTERPRETER_GIT_INVENTORY_WHEEL_SOURCE_BYTE_VERIFICATION",
+        "F1_positive_authority": "NOT_IMPLEMENTED_HOST_RETIREMENT_EVIDENCE_MISSING",
         "installed_adoption": "NOT_RUN",
         "git_readback": "PASS",
-        "chat_final_acceptance": "PENDING_EXECUTED_TESTS"
+        "chat_final_acceptance": "PENDING_FULL_SOURCE_REGRESSION_AND_PACKAGE_BUILD",
+        "latest_report_and_manifest": "3b0df327275ced48d45f028bdef1e1c792dc0298",
+        "CI_prior_failures": [
+          {
+            "run_id": 39465107989,
+            "status": "FAIL_CHAT_TEXT_SPLICE_SYNTAX",
+            "test_counts": "11_FAILED_7_PASS"
+          },
+          {
+            "run_id": 39511855970,
+            "status": "FAIL_CI_FIXTURE_SHALLOW_GIT_AND_MISSING_C_DRIVE_LAYOUT",
+            "test_counts": "397_PASS_4_FAIL_43_ERROR"
+          }
+        ]
       }
     }
   ]
