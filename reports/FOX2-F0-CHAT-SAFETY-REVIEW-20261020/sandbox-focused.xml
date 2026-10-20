@@ -1,0 +1,1836 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="43" failures="3" skipped="0" tests="258" time="148.669" timestamp="2026-10-20T20:26:14.034816+07:00" hostname="FoxLe-PC"><testcase classname="tests.test_e2e_runner" name="test_dispatch_validation_accepts_minimal_canary" time="0.056" /><testcase classname="tests.test_e2e_runner" name="test_path_scope_allows_only_declared_tree" time="0.002" /><testcase classname="tests.test_e2e_runner" name="test_dispatch_claim_is_single_use" time="0.076" /><testcase classname="tests.test_e2e_runner" name="test_dispatch_validation_maps_pytest_capability_to_safe_tools" time="0.048" /><testcase classname="tests.test_e2e_runner" name="test_dispatch_validation_rejects_unknown_dev_shell_capability" time="0.065" /><testcase classname="tests.test_e2e_runner" name="test_dispatch_validation_accepts_codex_cli_route" time="0.040" /><testcase classname="tests.test_e2e_runner" name="test_dispatch_validation_rejects_copilot_shell_capability_for_codex" time="0.048" /><testcase classname="tests.test_e2e_runner" name="test_nonzero_after_agent_start_needs_reconciliation[1-execution failed-CODEX]" time="0.470" /><testcase classname="tests.test_e2e_runner" name="test_nonzero_after_agent_start_needs_reconciliation[1-execution failed-COPILOT]" time="0.576" /><testcase classname="tests.test_e2e_runner" name="test_nonzero_after_agent_start_needs_reconciliation[75-quota exhausted-CODEX]" time="0.569" /><testcase classname="tests.test_e2e_runner" name="test_nonzero_after_agent_start_needs_reconciliation[75-quota exhausted-COPILOT]" time="0.551" /><testcase classname="tests.test_e2e_runner" name="test_proven_prespawn_failure_remains_terminal[missing_tool-CODEX]" time="0.252" /><testcase classname="tests.test_e2e_runner" name="test_proven_prespawn_failure_remains_terminal[missing_tool-COPILOT]" time="0.182" /><testcase classname="tests.test_e2e_runner" name="test_proven_prespawn_failure_remains_terminal[unsupported_capability-CODEX]" time="0.190" /><testcase classname="tests.test_e2e_runner" name="test_proven_prespawn_failure_remains_terminal[unsupported_capability-COPILOT]" time="0.214" /><testcase classname="tests.test_e2e_runner" name="test_proven_prespawn_failure_remains_terminal[spawn_oserror-CODEX]" time="0.264" /><testcase classname="tests.test_e2e_runner" name="test_proven_prespawn_failure_remains_terminal[spawn_oserror-COPILOT]" time="0.325" /><testcase classname="tests.test_e2e_runner" name="test_restart_after_nonzero_exit_checkpoint_never_publishes[1-AGENT_EXITED]" time="0.126" /><testcase classname="tests.test_e2e_runner" name="test_restart_after_nonzero_exit_checkpoint_never_publishes[1-PUBLISHING]" time="0.135" /><testcase classname="tests.test_e2e_runner" name="test_restart_after_nonzero_exit_checkpoint_never_publishes[75-AGENT_EXITED]" time="0.138" /><testcase classname="tests.test_e2e_runner" name="test_restart_after_nonzero_exit_checkpoint_never_publishes[75-PUBLISHING]" time="0.104" /><testcase classname="tests.test_e2e_runner" name="test_attempt02_existing_current_db_denies_legacy_consumption[FAILED]" time="0.159" /><testcase classname="tests.test_e2e_runner" name="test_attempt02_existing_current_db_denies_legacy_consumption[PUSHED_UNREVIEWED]" time="0.156" /><testcase classname="tests.test_e2e_runner" name="test_attempt02_existing_current_db_denies_legacy_consumption[NEEDS_RECONCILIATION]" time="0.153" /><testcase classname="tests.test_e2e_runner" name="test_attempt02_legacy_marker_denies_claim[True]" time="0.078" /><testcase classname="tests.test_e2e_runner" name="test_attempt02_legacy_marker_denies_claim[False]" time="0.060" /><testcase classname="tests.test_e2e_runner" name="test_attempt02_snapshot_does_not_allow_late_legacy_claim" time="0.139" /><testcase classname="tests.test_project_dictionary" name="test_project_dictionary_binding_deterministic_drift" time="2.501" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_control_branch_registry" time="0.037" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_stable_dispatch_discovery[docs/agent_handoff/DISPATCH/FOX2-DISPATCH-001.json-True]" time="0.002" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_stable_dispatch_discovery[docs/agent_handoff/DISPATCH_V2/FOX2-DISPATCH-001.json-True]" time="0.002" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_stable_dispatch_discovery[docs/agent_handoff/FOX2-WP/dispatch/FOX2-DISPATCH-001.json-True]" time="0.002" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_stable_dispatch_discovery[docs/agent_handoff/DISPATCH/nested/id.json-False]" time="0.002" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_stable_dispatch_discovery[docs/agent_handoff/unrelated.json-False]" time="0.001" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_stable_dispatch_discovery[docs/agent_handoff/DISPATCH_V3/id.json-False]" time="0.002" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[AGENT-CODEX-3.0]" time="0.075" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[AGENT-CODEX-2.0]" time="0.070" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[AGENT-CODEX-0.6]" time="0.061" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[AGENT-COPILOT-3.0]" time="0.050" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[AGENT-COPILOT-2.0]" time="0.050" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[AGENT-COPILOT-0.6]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[BRIDGE-CODEX-3.0]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[BRIDGE-CODEX-2.0]" time="0.050" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[BRIDGE-CODEX-0.6]" time="0.050" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[BRIDGE-COPILOT-3.0]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[BRIDGE-COPILOT-2.0]" time="0.047" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_schema_exact_normalized_tuple[BRIDGE-COPILOT-0.6]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[dictionary-version-2.0]" time="0.047" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[dictionary-git_path-docs/wrong.json]" time="0.039" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[dictionary-sha256-0000000000000000000000000000000000000000000000000000000000000000]" time="0.053" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[dictionary-git_commit_sha-0000000000000000000000000000000000000000]" time="0.057" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[policy-version-1.8.6]" time="0.053" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[policy-git_path-docs/wrong.md]" time="0.042" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[policy-sha256-bad]" time="0.037" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[task-path-docs/agent_handoff/../task.md]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[source-git_source_ready-NO]" time="0.134" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[decision_receipt-policy_check-FAIL]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[decision_receipt-execution_authorized-NO]" time="0.052" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[decision_receipt-code_allowed-NO]" time="0.051" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[runtime_contract-repo-other/repo]" time="0.044" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[runtime_contract-required_capabilities-value13]" time="0.058" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[runtime_contract-stop_conditions-None]" time="0.048" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[runtime_contract-worktree-C:/outside]" time="0.072" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[routing-permission_profile-BOUNDED_EXPLICIT]" time="0.052" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[routing-model_policy-UNKNOWN]" time="0.055" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[routing-reasoning_effort-high]" time="0.053" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[permissions-pr_create-True]" time="0.051" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[permissions-merge_allowed-True]" time="0.047" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[permissions-production_provider-True]" time="0.056" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[permissions-broker_write-True]" time="0.059" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[permissions-live-True]" time="0.054" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-delivery_owner-None]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-workspace_id-OTHER]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-project-OTHER]" time="0.037" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-target_agent-value27]" time="0.037" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-max_runs-True]" time="0.034" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-required_tests-value29]" time="0.036" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_fails_closed[None-schema_version-4.0]" time="0.044" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_non_bridge_never_spawned[MANUAL_LOCAL-3.0]" time="0.376" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_non_bridge_never_spawned[MANUAL_LOCAL-2.0]" time="0.061" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_non_bridge_never_spawned[VSCODE_ONE_CLICK-3.0]" time="0.068" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_non_bridge_never_spawned[VSCODE_ONE_CLICK-2.0]" time="0.065" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_filename_and_legacy_bound_policy" time="0.054" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_codex_nullable_routing_preserved[2.0]" time="0.052" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_codex_nullable_routing_preserved[3.0]" time="0.058" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_explicit_legacy_profile_v06" time="0.072" /><testcase classname="tests.test_project_dictionary" name="test_dispatch_schema_v3_binding_deterministic_drift" time="0.136" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[created_at]" time="0.056" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[created_by]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[decision_receipt]" time="0.048" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[delivery_owner]" time="0.044" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[dictionary]" time="0.034" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[dispatch_action]" time="0.046" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[dispatch_id]" time="0.049" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[execution_path]" time="0.054" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[max_runs]" time="0.051" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[permissions]" time="0.048" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[policy]" time="0.048" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[project]" time="0.047" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[prompt]" time="0.163" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[required_tests]" time="0.052" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[routing]" time="0.047" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[runtime_contract]" time="0.054" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[schema_version]" time="0.055" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[source]" time="0.059" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[target_agent]" time="0.056" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[task]" time="0.051" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[workspace_id]" time="0.047" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_required_fields_fail_closed[wp_id]" time="0.051" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[None]" time="0.048" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[dictionary]" time="0.040" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[policy]" time="0.038" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[task]" time="0.035" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[prompt]" time="0.041" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[source]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[routing]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[permissions]" time="0.060" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[decision_receipt]" time="0.032" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_additional_properties_fail_closed[runtime_contract]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_metadata_constraints_fail_closed[None-created_by-CODEX]" time="0.036" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_metadata_constraints_fail_closed[None-created_at-2026-10-14 08:45:00]" time="0.043" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_metadata_constraints_fail_closed[None-created_at-2026-10-14T08:45:00]" time="0.036" /><testcase classname="tests.test_project_dictionary" name="test_dictionary_v3_metadata_constraints_fail_closed[decision_receipt-dev_grant_ref-]" time="0.145" /><testcase classname="tests.test_desktop" name="test_idle_pause_resume_check_now_durable" time="0.362" /><testcase classname="tests.test_desktop" name="test_backoff_bounded_and_resets" time="0.536" /><testcase classname="tests.test_desktop" name="test_controls_work_while_singleton_owned" time="0.264" /><testcase classname="tests.test_desktop" name="test_control_cli_does_not_take_worker_lock" time="0.201" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[CLAIMED-False-SAFE_NOT_STARTED]" time="0.116" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[UNKNOWN-False-NEEDS_RECONCILIATION]" time="0.084" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[RUNNING-False-NEEDS_RECONCILIATION]" time="0.124" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[AGENT_EXITED-False-NEEDS_RECONCILIATION]" time="0.113" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[PUBLISHING-False-NEEDS_RECONCILIATION]" time="0.107" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[AGENT_EXITED-True-PUSHED_UNREVIEWED]" time="0.143" /><testcase classname="tests.test_desktop" name="test_restart_stages_never_replay[PUBLISHING-True-PUSHED_UNREVIEWED]" time="0.122" /><testcase classname="tests.test_desktop" name="test_v3_migration_preserves_dispatch_result_and_cursor" time="0.118" /><testcase classname="tests.test_desktop" name="test_exact_ops_selection[CODEX]" time="0.001" /><testcase classname="tests.test_desktop" name="test_exact_ops_selection[COPILOT]" time="0.001" /><testcase classname="tests.test_desktop" name="test_model_commands_and_no_fabricated_observation" time="0.001" /><testcase classname="tests.test_desktop" name="test_unsupported_cli_is_actionable_without_substitution[selection0-]" time="0.001" /><testcase classname="tests.test_desktop" name="test_unsupported_cli_is_actionable_without_substitution[selection1---model --no-ask-user]" time="0.001" /><testcase classname="tests.test_desktop" name="test_unsupported_cli_is_actionable_without_substitution[selection2-]" time="0.001" /><testcase classname="tests.test_desktop" name="test_unsupported_cli_is_actionable_without_substitution[selection3---model]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection0]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection1]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection2]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection3]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection4]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection5]" time="0.001" /><testcase classname="tests.test_desktop" name="test_invalid_selection_rejected[selection6]" time="0.001" /><testcase classname="tests.test_desktop" name="test_startup_command_idempotent_and_mocked_apply" time="0.167" /><testcase classname="tests.test_desktop" name="test_tray_fixed_actions_hidden_launch_and_state_mapping" time="0.043" /><testcase classname="tests.test_desktop" name="test_open_logs_only_configured_path" time="0.059" /><testcase classname="tests.test_desktop" name="test_durable_state_and_checkpoint_redact_secrets" time="0.159" /><testcase classname="tests.test_desktop" name="test_graceful_exit_does_not_interrupt_active_task" time="0.390" /><testcase classname="tests.test_desktop" name="test_worker_lifecycle_preserves_pause_and_releases_singleton" time="0.306" /><testcase classname="tests.test_desktop" name="test_full_runner_exact_routing_and_failure_no_fallback[CODEX-False]" time="0.284" /><testcase classname="tests.test_desktop" name="test_full_runner_exact_routing_and_failure_no_fallback[COPILOT-False]" time="0.182" /><testcase classname="tests.test_desktop" name="test_full_runner_exact_routing_and_failure_no_fallback[CODEX-True]" time="0.200" /><testcase classname="tests.test_desktop" name="test_full_runner_exact_routing_and_failure_no_fallback[COPILOT-True]" time="0.206" /><testcase classname="tests.test_desktop" name="test_atomic_pause_blocks_claim" time="0.113" /><testcase classname="tests.test_desktop" name="test_legacy_ledger_snapshot_before_per_user_poll" time="0.180" /><testcase classname="tests.test_desktop" name="test_codex_adapter_passes_model_and_keeps_safety" time="0.124" /><testcase classname="tests.test_desktop" name="test_powershell_scripts_parse_and_startup_mock_is_idempotent" time="1.369" /><testcase classname="tests.test_desktop" name="test_idle_ops_invokes_zero_agents_and_resume_skips_consumed" time="0.119" /><testcase classname="tests.test_desktop" name="test_recovery_rejects_wrong_expected_remote_sha" time="0.099" /><testcase classname="tests.test_desktop" name="test_exact_result_verification_branch_ancestry_scope_acceptance" time="0.059" /><testcase classname="tests.test_runtime_ledger" name="test_absolute_executable_path_is_resolved" time="0.099" /><testcase classname="tests.test_runtime_ledger" name="test_path_fallback_is_used_when_configured_executable_is_missing" time="0.009" /><testcase classname="tests.test_runtime_ledger" name="test_missing_executable_is_reported_without_throwing" time="0.005" /><testcase classname="tests.test_runtime_ledger" name="test_version_invocation_captures_version_output" time="0.084" /><testcase classname="tests.test_runtime_ledger" name="test_unimplemented_tool_authentication_remains_unverified" time="0.139" /><testcase classname="tests.test_runtime_ledger" name="test_git_blob_and_working_tree_hash_inputs_are_distinct" time="0.002" /><testcase classname="tests.test_runtime_ledger" name="test_sqlite_initializes_and_records_schema_version" time="0.086" /><testcase classname="tests.test_runtime_ledger" name="test_dispatch_id_uniqueness_is_enforced" time="0.065" /><testcase classname="tests.test_runtime_ledger" name="test_review_key_uniqueness_is_enforced" time="0.060" /><testcase classname="tests.test_runtime_ledger" name="test_finish_execution_persists_result_and_status" time="0.092" /><testcase classname="tests.test_runtime_ledger" name="test_recover_interrupted_executions_retains_uncertainty" time="0.101" /><testcase classname="tests.test_runtime_ledger" name="test_cross_root_unknown_claim_denied_after_reopen_and_resume" time="0.124" /><testcase classname="tests.test_runtime_ledger" name="test_missing_invalid_and_unknown_authority_never_creates_a_claim" time="0.192" /><testcase classname="tests.test_runtime_ledger" name="test_schema_v4_upgrade_preserves_existing_unknown_authority" time="0.127" /><testcase classname="tests.test_runtime_ledger" name="test_cross_root_unknown_claims_deny_concurrent_callers" time="0.172" /><testcase classname="tests.test_runtime_ledger" name="test_single_root_atomic_claim_survives_reopen" time="0.355" /><testcase classname="tests.test_runtime_ledger" name="test_direct_current_root_initialization_cannot_grant_single_root_authority" time="0.076" /><testcase classname="tests.test_runtime_ledger" name="test_existing_single_root_metadata_cannot_admit_direct_installed_claim" time="0.072" /><testcase classname="tests.test_runtime_ledger" name="test_installed_root_alternate_db_and_normalized_alias_fail_closed" time="0.177" /><testcase classname="tests.test_runtime_ledger" name="test_denied_ledger_rolls_back_abrupt_precommit_process_exit" time="0.249" /><testcase classname="tests.test_runtime_ledger" name="test_denied_e2e_dispatch_never_reaches_agent_or_result_preparation" time="0.115" /><testcase classname="tests.test_runtime_ledger" name="test_configured_alternate_runtime_root_cannot_grant_claim_authority" time="0.162" /><testcase classname="tests.test_runtime_ledger" name="test_abrupt_runner_exit_preserves_consumption_without_replay[after-claim-UNKNOWN-NEEDS_RECONCILIATION]" time="0.822" /><testcase classname="tests.test_runtime_ledger" name="test_abrupt_runner_exit_preserves_consumption_without_replay[before-adapter-CLAIMED-SAFE_NOT_STARTED]" time="0.665" /><testcase classname="tests.test_runtime_ledger" name="test_abrupt_runner_exit_preserves_consumption_without_replay[inside-fake-adapter-RUNNING-NEEDS_RECONCILIATION]" time="0.754" /><testcase classname="tests.test_ops_runner" name="test_auto_execute_identity_requires_explicit_opt_in" time="0.001" /><testcase classname="tests.test_ops_runner" name="test_runtime_report_is_atomically_written" time="0.013" /><testcase classname="tests.test_preexec" name="test_preflight_durable_statuses[PASS-0]" time="2.609"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/d46295931fcb4b68bdc880126cd67c57')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/d46295931fcb4b68bdc880126cd67c57/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_preflight_durable_statuses[BLOCKED-20]" time="2.881"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/2a398022dd144ef88d770e4812785027')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/2a398022dd144ef88d770e4812785027/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_preflight_durable_statuses[INFRA_FAILED-30]" time="2.488"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/30815856d23545f0ad0e8f24de83bbce')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/30815856d23545f0ad0e8f24de83bbce/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_alternative_agent_route_materiality" time="2.633"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7a9c3227bbc6451398ef16c2b29597ed')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7a9c3227bbc6451398ef16c2b29597ed/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_pinned_agent_materiality" time="2.504"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/2b55c645b35a4886a3d4e1cb39e787d6')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/2b55c645b35a4886a3d4e1cb39e787d6/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_schema_rejects_nested_unknown_status_and_fields" time="2.550"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/9317876c8dc04aa59dc6cfaa9175363d')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/9317876c8dc04aa59dc6cfaa9175363d/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_unsafe_worktree_never_probes_or_publishes[branch]" time="2.620"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/e23aaedaa80047d29629f3d5279c4466')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/e23aaedaa80047d29629f3d5279c4466/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_unsafe_worktree_never_probes_or_publishes[head]" time="2.741"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7a31ae5b60d04e4dbbb6fca1d7026fab')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7a31ae5b60d04e4dbbb6fca1d7026fab/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_unsafe_worktree_never_probes_or_publishes[writer]" time="2.590"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/6ecd57e4a3fe4770b90079549c8d9ed8')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/6ecd57e4a3fe4770b90079549c8d9ed8/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_unsafe_worktree_never_probes_or_publishes[wip]" time="2.720"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/0d550fbaa87d44bfa53d21bdc6d4e527')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/0d550fbaa87d44bfa53d21bdc6d4e527/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_unsafe_worktree_never_probes_or_publishes[dictionary]" time="2.438"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7ce7ea65709e4e54affed56f752b2391')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7ce7ea65709e4e54affed56f752b2391/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_stale_receipt_only_cleanup" time="2.564"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/93ef28039ec247c595f97e526bc01af2')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/93ef28039ec247c595f97e526bc01af2/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cleanup_requires_objective_proof[foreign]" time="2.822"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/3e719be72d104f5ebda8b781503acd15')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/3e719be72d104f5ebda8b781503acd15/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cleanup_requires_objective_proof[raw]" time="2.640"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/fdef805afdd84be4899a9fb8daa2afd4')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/fdef805afdd84be4899a9fb8daa2afd4/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cleanup_requires_objective_proof[unrelated]" time="2.789"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/9f38727eac06477cbdcdff6476c60481')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/9f38727eac06477cbdcdff6476c60481/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_concurrent_writer_lock" time="2.602"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/e0ab09cf361d4e56bacf68c2dca67ed8')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/e0ab09cf361d4e56bacf68c2dca67ed8/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cross_process_lock_exclusivity_and_release[normal]" time="2.910"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/b194db56fdfb456a948ab4e34be9e13b')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/b194db56fdfb456a948ab4e34be9e13b/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cross_process_lock_exclusivity_and_release[exception]" time="2.647"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/08e68d96e0dd454dab27fdc009648092')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/08e68d96e0dd454dab27fdc009648092/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cross_process_lock_exclusivity_and_release[killed]" time="2.774"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/12fe846c4be9462d8775b6a4e2439fc3')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/12fe846c4be9462d8775b6a4e2439fc3/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_lock_release_after_body_failure" time="2.637"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/be3821527e564cfea8462c6ae7803d53')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/be3821527e564cfea8462c6ae7803d53/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_lock_os_failure_is_safe_and_handle_closes[acquire]" time="2.638"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/4898a96c3ebc4259a949a7931247fb0d')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/4898a96c3ebc4259a949a7931247fb0d/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_lock_os_failure_is_safe_and_handle_closes[release]" time="2.572"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/637ef153c1d84cc8ad9345cbdcb76d67')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/637ef153c1d84cc8ad9345cbdcb76d67/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_canonical_contract_source_drift_cannot_weaken_validation[policy]" time="2.872"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/3db7672d79404984bb33d9d3ea3cdb7b')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/3db7672d79404984bb33d9d3ea3cdb7b/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_canonical_contract_source_drift_cannot_weaken_validation[preflight_receipt_schema]" time="2.865"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/8e62b4e3ca4349f7811057744b1aceec')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/8e62b4e3ca4349f7811057744b1aceec/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_canonical_contract_source_drift_cannot_weaken_validation[preexec_evidence_protocol]" time="3.256"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/5877c8bcd9764130a9d92f530a19a1dc')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/5877c8bcd9764130a9d92f530a19a1dc/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_missing_source_contract_emits_safe_schema_receipt_without_probe" time="2.923"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7cc116d9c62a474bbdec6cba0f6c698d')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/7cc116d9c62a474bbdec6cba0f6c698d/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cli_failure_snapshot_has_no_pushed_marker" time="2.610"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/e3a770b47de641d89c1aa636c5f42c0a')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/e3a770b47de641d89c1aa636c5f42c0a/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cli_snapshot_cannot_return_durable_publication_exit_code[PASS]" time="2.598"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/35ac7ab545d74321b72910c8511d83cd')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/35ac7ab545d74321b72910c8511d83cd/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_cli_snapshot_cannot_return_durable_publication_exit_code[BLOCKED]" time="3.131"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/82b927bf762f4b1c99e63b34dc9a1ef8')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/82b927bf762f4b1c99e63b34dc9a1ef8/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_success_marker_cannot_override_structured_probe_failure[event0-AGENT_CONFIGURATION_MISMATCH]" time="0.004" /><testcase classname="tests.test_preexec" name="test_success_marker_cannot_override_structured_probe_failure[event1-AGENT_CONFIGURATION_MISMATCH]" time="0.004" /><testcase classname="tests.test_preexec" name="test_success_marker_cannot_override_structured_probe_failure[event2-AGENT_CONFIGURATION_MISMATCH]" time="0.004" /><testcase classname="tests.test_preexec" name="test_success_marker_cannot_override_structured_probe_failure[event3-CAPACITY_OR_QUOTA]" time="0.005" /><testcase classname="tests.test_preexec" name="test_success_marker_cannot_override_structured_probe_failure[event4-AUTH_REQUIRED]" time="0.003" /><testcase classname="tests.test_preexec" name="test_success_marker_cannot_override_structured_probe_failure[event5-CLI_NONZERO]" time="0.004" /><testcase classname="tests.test_preexec" name="test_non_object_probe_events_do_not_prove_readiness[null]" time="0.002" /><testcase classname="tests.test_preexec" name="test_non_object_probe_events_do_not_prove_readiness[[]]" time="0.001" /><testcase classname="tests.test_preexec" name="test_non_object_probe_events_do_not_prove_readiness[42]" time="0.001" /><testcase classname="tests.test_preexec" name="test_non_object_probe_events_do_not_prove_readiness[&quot;FOX2_PREFLIGHT_OK&quot;]" time="0.002" /><testcase classname="tests.test_preexec" name="test_receipt_path_cannot_escape_worktree[../escape.json]" time="2.605"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/abe79167db5643e1b90dc6c4b2bc61be')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/abe79167db5643e1b90dc6c4b2bc61be/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_receipt_path_cannot_escape_worktree[reports/../escape.json]" time="2.850"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/b20424837edb405ea2446a24f95e88c6')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/b20424837edb405ea2446a24f95e88c6/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_receipt_path_cannot_escape_worktree[C:/escape.json]" time="2.718"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/c44723bcda7d4584998c5d27aa7a16a8')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/c44723bcda7d4584998c5d27aa7a16a8/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_receipt_path_cannot_escape_worktree[reports\\escape.json]" time="3.155"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/72e9cbf97de3400f92c151e5aab3be75')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/72e9cbf97de3400f92c151e5aab3be75/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_staged_unrelated_file_is_preserved_and_never_published" time="2.988"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/939e49f41af8413babb0c3bdb2dd3196')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/939e49f41af8413babb0c3bdb2dd3196/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_commit_hook_mutation_never_reaches_push[receipt]" time="2.483"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/378fded70afc432791d94352e0220578')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/378fded70afc432791d94352e0220578/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_commit_hook_mutation_never_reaches_push[unrelated]" time="2.771"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/95290ab37eaa4612b16a6e79f9480141')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/95290ab37eaa4612b16a6e79f9480141/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_no_false_pushed_marker_on_publication_failure[commit]" time="2.908"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/08b85b7284e849538bf3214aba6c9936')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/08b85b7284e849538bf3214aba6c9936/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_no_false_pushed_marker_on_publication_failure[push]" time="2.790"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/bfa585fef6414778b9473cb7c4db0434')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/bfa585fef6414778b9473cb7c4db0434/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_no_false_pushed_marker_on_publication_failure[ls-remote]" time="2.887"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/bcf3c4df512e4b328a69ef9d330dabaf')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/bcf3c4df512e4b328a69ef9d330dabaf/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_no_false_pushed_marker_on_publication_failure[fetch]" time="2.995"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/742976b547a14a269a8c47d36e93dcd2')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/742976b547a14a269a8c47d36e93dcd2/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_remote_readback_mismatch" time="2.807"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/1a8c4d29fca64a58be0e86bff65b0876')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/1a8c4d29fca64a58be0e86bff65b0876/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_probe_product_mutation_prevents_publication" time="2.843"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/2fc4a9f2a17d47c7a2a1524e7853af3c')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/2fc4a9f2a17d47c7a2a1524e7853af3c/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_unknown_material_remains_hold_and_preserves_first_blocker" time="3.210"><error message="failed on setup with &quot;fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED&quot;">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/4e1ae99a42154075a1aa3cd4cb267338')
+
+    @pytest.fixture
+    def task(tmp_path):
+        remote = tmp_path / 'remote.git'
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        repo = tmp_path / 'task'; repo.mkdir()
+        git(repo, 'init', '-b', 'work/FOX2-TEST')
+        git(repo, 'config', 'user.email', 'test@example.invalid')
+        git(repo, 'config', 'user.name', 'PreExec Test')
+        git(repo, 'config', 'core.autocrlf', 'false')
+        paths = [registry.SOURCE_PATH, *(registry.CURRENT[k]['path'] for k in
+                 registry.CURRENT_CONTRACT_SHA256)]
+        for relative in paths:
+            target = repo / relative; target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(git(ROOT, 'show', registry.SOURCE_COMMIT + ':' + relative))
+        task_path = 'docs/agent_handoff/FOX2-TEST/task.md'
+        (repo / task_path).parent.mkdir(parents=True)
+        (repo / task_path).write_bytes(b'# test immutable task\n')
+        git(repo, 'add', '.')
+        git(repo, 'commit', '-m', 'source')
+        git(repo, 'remote', 'add', 'origin', str(remote))
+&gt;       git(repo, 'push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+
+tests\test_preexec.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/4e1ae99a42154075a1aa3cd4cb267338/task')
+args = ('push', 'origin', 'HEAD:refs/heads/work/FOX2-TEST')
+result = CompletedProcess(args=['git', '-C', 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64...not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n')
+
+    def git(root, *args):
+        try:
+            result = subprocess.run(['git', '-C', str(root), *args], capture_output=True, timeout=60,
+                                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise InfrastructureFailure('GIT_UNAVAILABLE') from exc
+        if result.returncode:
+&gt;           raise InfrastructureFailure('GIT_OPERATION_FAILED')
+E           fox2_agent_bridge.preexec.engine.InfrastructureFailure: GIT_OPERATION_FAILED
+
+src\fox2_agent_bridge\preexec\engine.py:33: InfrastructureFailure</error></testcase><testcase classname="tests.test_preexec" name="test_echoed_prompt_does_not_prove_agent_readiness[CODEX]" time="0.002" /><testcase classname="tests.test_preexec" name="test_echoed_prompt_does_not_prove_agent_readiness[COPILOT]" time="0.001" /><testcase classname="tests.test_preexec" name="test_no_agent_substitution_exact_probe_arguments" time="0.002" /><testcase classname="tests.test_preexec" name="test_sanitized_failure_classification" time="0.002" /><testcase classname="tests.test_preexec" name="test_thin_adapters[FOX2-M1-A-APP-BATCH-B-app]" time="0.003" /><testcase classname="tests.test_preexec" name="test_thin_adapters[FOX2-BRIDGE-DESKTOP-BATCH-B-bridge]" time="0.002" /><testcase classname="tests.test_preexec" name="test_thin_adapters[FOX2-PREEXEC-ROLLOUT-V1-rollout]" time="0.002" /><testcase classname="tests.test_preexec" name="test_bridge_profile_requires_dotnet_for_rc1" time="0.001" /><testcase classname="tests.test_preexec" name="test_bridge_profile_requires_wpf_build_for_rc1" time="0.001" /><testcase classname="tests.test_preexec" name="test_dotnet_wpf_build_probe_compiles_minimal_project" time="0.010"><failure message="AssertionError: assert 'FAIL' == 'PASS'&#10;  &#10;  - PASS&#10;  + FAIL">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/0629796ecfb64792beb3e307716f7a78')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000240F30DEBA0&gt;
+
+    def test_dotnet_wpf_build_probe_compiles_minimal_project(tmp_path, monkeypatch):
+        import fox2_agent_bridge.preexec.probes as probes
+        from types import SimpleNamespace
+        seen = {}
+    
+        monkeypatch.setattr(probes, 'resolve_tool',
+                            lambda name: 'dotnet' if name == 'dotnet' else None)
+    
+        def fake_run(arguments, *, cwd, timeout=30, input=None):
+            seen['arguments'] = arguments
+            project = Path(arguments[2])
+            assert project.name == 'Probe.csproj'
+            assert '&lt;UseWPF&gt;true&lt;/UseWPF&gt;' in project.read_text(encoding='utf-8')
+            assert (project.parent / 'App.xaml').is_file()
+            assert (project.parent / 'MainWindow.xaml').is_file()
+            return SimpleNamespace(returncode=0, stdout='', stderr='')
+    
+        monkeypatch.setattr(probes, 'run_tool', fake_run)
+        result = dotnet_wpf_build(tmp_path)
+&gt;       assert result['status'] == 'PASS'
+E       AssertionError: assert 'FAIL' == 'PASS'
+E         
+E         - PASS
+E         + FAIL
+
+tests\test_preexec.py:461: AssertionError</failure></testcase><testcase classname="tests.test_preexec" name="test_dotnet_wpf_build_probe_failure_is_material" time="0.006"><failure message="AssertionError: assert 'WPF_BUILD_PROBE_FAILED' == 'WPF_BUILD_UNAVAILABLE'&#10;  &#10;  - WPF_BUILD_UNAVAILABLE&#10;  + WPF_BUILD_PROBE_FAILED">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/5a43639e4459471eb054863d5142afe5')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000240F2FE6C80&gt;
+
+    def test_dotnet_wpf_build_probe_failure_is_material(tmp_path, monkeypatch):
+        import fox2_agent_bridge.preexec.probes as probes
+        from types import SimpleNamespace
+    
+        monkeypatch.setattr(probes, 'resolve_tool',
+                            lambda name: 'dotnet' if name == 'dotnet' else None)
+        monkeypatch.setattr(
+            probes, 'run_tool',
+            lambda *_a, **_k: SimpleNamespace(returncode=1, stdout='', stderr='fixed failure'))
+        result = dotnet_wpf_build(tmp_path)
+        assert result['status'] == 'FAIL'
+&gt;       assert result['failure_class'] == 'WPF_BUILD_UNAVAILABLE'
+E       AssertionError: assert 'WPF_BUILD_PROBE_FAILED' == 'WPF_BUILD_UNAVAILABLE'
+E         
+E         - WPF_BUILD_UNAVAILABLE
+E         + WPF_BUILD_PROBE_FAILED
+
+tests\test_preexec.py:476: AssertionError</failure></testcase><testcase classname="tests.test_preexec" name="test_dotnet_wpf_probe_writes_real_newlines" time="0.006"><failure message="AssertionError: assert 'FAIL' == 'PASS'&#10;  &#10;  - PASS&#10;  + FAIL">tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/b0e71e85c92044bf8ff5375ab9badcfe')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000240F2FE6F20&gt;
+
+    def test_dotnet_wpf_probe_writes_real_newlines(tmp_path, monkeypatch):
+        import fox2_agent_bridge.preexec.probes as probes
+        from types import SimpleNamespace
+    
+        monkeypatch.setattr(probes, 'resolve_tool',
+                            lambda name: 'dotnet' if name == 'dotnet' else None)
+    
+        def fake_run(arguments, *, cwd, timeout=30, input=None):
+            raw = (Path(cwd) / 'Probe.csproj').read_bytes()
+            assert b'\\n' not in raw
+            assert b'\n' in raw
+            assert b'&lt;UseWPF&gt;true&lt;/UseWPF&gt;' in raw
+            return SimpleNamespace(returncode=0, stdout='', stderr='')
+    
+        monkeypatch.setattr(probes, 'run_tool', fake_run)
+&gt;       assert dotnet_wpf_build(tmp_path)['status'] == 'PASS'
+E       AssertionError: assert 'FAIL' == 'PASS'
+E         
+E         - PASS
+E         + FAIL
+
+tests\test_preexec.py:494: AssertionError</failure></testcase></testsuite></testsuites>

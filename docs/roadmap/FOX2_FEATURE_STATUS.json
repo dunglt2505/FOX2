@@ -1,0 +1,177 @@
+{
+  "schema": "FOX2_FEATURE_STATUS_OPERATIONAL_V1",
+  "project": "FOX2",
+  "authority": "OPERATIONAL_RECORD_ONLY_NOT_GOVERNANCE_AUTHORITY",
+  "features": [
+    {
+      "feature_id": "FOX2-BRIDGE-RC1",
+      "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+      "target": "INTERNAL_FOX2_BRIDGE_READY",
+      "stage": "TEST",
+      "status": "BLOCKED",
+      "evidence": "CHAT_ACCEPTED",
+      "evidence_scope": "FROZEN_TECHNICAL_AND_C3_ONLY_NOT_CURRENT_CANARY_OR_RELEASE",
+      "source_sha": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "evidence_refs": [
+        {
+          "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+          "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json"
+        },
+        {
+          "commit": "435154487e8e9bf6eab54a12f1f329e63787aa84",
+          "path": "reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/CHAT_INDEPENDENT_AUDIT_INTAKE_20261019.json"
+        },
+        {
+          "commit": "1ce109b9a4c538b255c6d8ffc6be8b4dccecf65d",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/preflight_receipt.json"
+        }
+      ],
+      "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
+      "blocker": "BRIDGE_BOOTSTRAP_CONTROLS_BLOCKED; ADMISSION_COMPATIBILITY_ADOPTION_UNATTESTED; FINAL_CANARY_GATES_NOT_RUN",
+      "as_of": "2026-10-19T23:23:08.562605+07:00",
+      "next_safe_action": "READ_ONLY_Q0_Q1_AND_SUPPORTED_BOOTSTRAP_CONTROL_EVIDENCE_REVIEW; NO_EXECUTION_UNDER_CURRENT_OWNER_SCOPE",
+      "c3": "PASS_ACCEPTED_SCOPED",
+      "canary009": "HOLD",
+      "internal_ready": "NOT_ATTESTED"
+    },
+    {
+      "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
+      "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+      "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+      "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
+      "stage": "BUILD",
+      "status": "BLOCKED",
+      "evidence": "CHAT_SCOPED_SAFETY_REVIEW_ACCEPTED;_267_FOCUSED_AND_88_RUNTIME_CONSUMERS_PASS;_OWNER_254_RAW_HASHES_AND_CASES_VERIFIED",
+      "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
+      "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
+      "evidence_refs": [
+        {
+          "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md"
+        },
+        {
+          "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json"
+        },
+        {
+          "commit": "3b4ebbed504911836f327b53e9f8da20a5dd0be6",
+          "path": "docs/roadmap/FOX2_BRIDGE_MANUAL_LOCAL_ATTEMPT02_CHAT_RESULT_REVIEW_20261020.md"
+        },
+        {
+          "commit": "bd5cd44e31ceb7384b558c8fb08ccefd98dfb9e6",
+          "path": "docs/roadmap/FOX2_BRIDGE_CROSS_ROOT_NO_REPLAY_DESIGN_CONTRACT_CANDIDATE_20261020.md"
+        },
+        {
+          "commit": "04c9141f9a9bc47504473aa577b24201734d8c0b",
+          "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/task.md"
+        },
+        {
+          "commit": "a3ad10d490993fb4ed4ccfd7d1a73f74cc465581",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json"
+        },
+        {
+          "commit": "c659100b785ee75fdbe12b851ee30ec1d3aaf352",
+          "path": "docs/roadmap/FOX2_BRIDGE_MANUAL_LOCAL_ATTEMPT03_CHAT_RESULT_REVIEW_20261020.md"
+        },
+        {
+          "commit": "8f072f99c22a8201a3c6f04ba5dafa62ea55d2fc",
+          "path": "docs/roadmap/FOX2_BRIDGE_LEGACY_HOST_LIFECYCLE_INVENTORY_CONTRACT_20261020.md"
+        },
+        {
+          "commit": "c6e9966eed688bb8b3286e1a2feda5acd129b5cd",
+          "path": "docs/roadmap/FOX2_BRIDGE_HOST_AUDIT_MARKER_RECONCILIATION_20261020.md"
+        },
+        {
+          "commit": "1c210139cad1f09b59ec4f1c728f00e929de57dc",
+          "path": "docs/roadmap/FOX2_BRIDGE_HOST_LIFECYCLE_PARTIAL_OBSERVATION_REVIEW_20261020.md"
+        },
+        {
+          "commit": "eb760d67bc6c98b444d56090646f34fbdb47c3fb",
+          "path": "docs/roadmap/FOX2_BRIDGE_HOST_LIFECYCLE_ATTRIBUTION_REVIEW_20261020.md"
+        },
+        {
+          "commit": "44390e142f3dc5a7eace0a97c5b28c545d376b0b",
+          "path": "docs/roadmap/FOX2_BRIDGE_DURABLE_FENCING_OFFLINE_BUILD_DECISION_20261020.md"
+        },
+        {
+          "commit": "6c9f4d8a2167904ceb72b11dad8f8670cd3a4ca2",
+          "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/F0_OFFLINE_ATTEMPT06/task.md"
+        },
+        {
+          "commit": "2a5be23098542bb45a676546a4f60820f65960b6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/F0_OFFLINE_ATTEMPT06/preflight_receipt.json"
+        },
+        {
+          "commit": "6ebe9e158effbc21ca9b23589487b830a5f36220",
+          "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/F0_OFFLINE_ATTEMPT06/chat_admission.json"
+        },
+        {
+          "commit": "d2c595be123fa041720fd0467f9d94b2d4318bca",
+          "path": "agent_bridge/src/fox2_agent_bridge/ledger.py"
+        },
+        {
+          "commit": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
+          "path": "agent_bridge/src/fox2_agent_bridge/ledger.py"
+        },
+        {
+          "commit": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
+          "path": "agent_bridge/tests/test_desktop.py"
+        },
+        {
+          "commit": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
+          "path": "agent_bridge/tests/test_runtime_ledger.py"
+        },
+        {
+          "commit": "a917d81ab8b8b0b822fdde0a7a9d82c991f15a7e",
+          "path": "docs/roadmap/FOX2_F0_CHAT_DIRECT_REWORK_EVIDENCE_20261020.md"
+        },
+        {
+          "commit": "f1431fddf9034db0eb45d76af1b71c53d9f27d62",
+          "path": "docs/roadmap/FOX2_F0_FOCUSED_TEST_RESULT_OWNER_HOST_20261020.md"
+        },
+        {
+          "commit": "185bc9493d4a9e27f7a463d87313fc03ce32634d",
+          "path": "agent_bridge/src/fox2_agent_bridge/ledger.py"
+        },
+        {
+          "commit": "185bc9493d4a9e27f7a463d87313fc03ce32634d",
+          "path": "agent_bridge/tests/test_runtime_ledger.py"
+        },
+        {
+          "commit": "eb685218632155cfefd7d44a4f29ee4777b33f74",
+          "path": "docs/roadmap/FOX2_F0_CLAIMTIME_CRASH_NOSPAWN_DIRECT_REVIEW_20261020.md"
+        },
+        {
+          "commit": "63b2070baa089022e4ffaf323a2ad17a423dae76",
+          "path": "docs/roadmap/FOX2_F0_254_FOCUSED_SAFETY_CHAT_INTAKE_20261020.md"
+        }
+      ],
+      "exit_gate": "F0_IMPLEMENT_SAFETY_ONLY_DENY_BY_DEFAULT_CLAIM_GUARD_AND_PASS_PRESERVED_NEGATIVE_TESTS_WITH_CHAT_ACCEPTANCE;_F1_INSTALLED_DURABLE_LEGACY_RETIREMENT_SEPARATE_GATE",
+      "blocker": "ATTEMPT06_AGENT_AUTHORED_RESULT_V2_NOT_DELIVERED_NO_REPLAY;_FORMAL_F0_DELIVERY_GATE_NOT_SATISFIED_OR_WAIVED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_UNVERIFIED;_SEVEN_FINAL_CANARY_GATES_NOT_RUN",
+      "as_of": "2026-10-20T13:36:22.139559+00:00",
+      "next_safe_action": "REVIEW_CHAT_AUTHORED_IMMUTABLE_DELIVERY_AGAINST_FORMAL_F0_RESULT_REQUIREMENT;_REQUIRE_EXPLICIT_SCOPED_DISPOSITION_IF_SUBSTITUTING_AGENT_RESULT;_NO_ATTEMPT06_REPLAY;_F1_AND_INSTALLED_ACTIONS_HOLD",
+      "build": "FULL_F0_NOT_ACCEPTED;_CHAT_DIRECT_SAFETY_CORRECTION_AND_OFFLINE_TEST_SUBGATES_ACCEPTED",
+      "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
+      "canary009": "HOLD",
+      "internal_ready": "NOT_ATTESTED",
+      "f0": "SCOPED_SOURCE_AND_OFFLINE_SAFETY_ACCEPTED;_FULL_BUILD_HOLD_RESULT_DELIVERY_GATE",
+      "f1": "HOLD_DURABLE_LEGACY_FENCING_UNVERIFIED",
+      "coding_hold": {
+        "decision": "OWNER_EXPLICIT_KEEP_GPT_6_1_SOL_HOLD_CODING",
+        "exact_reply": "Gi\u1eef gpt-6.1-sol; HOLD coding",
+        "code_x_status": "NO_NEW_CODEX_ASSIGNED_OR_MODEL_CHANGED",
+        "chat_direct_continuation": "OWNER_LATEST_CHAT_LAM_TIEP_DI_APPLIED_TO_OFFLINE_FIXTURE_AND_SAFETY_CANDIDATE_ONLY"
+      },
+      "chat_review_path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/F0_OFFLINE_ATTEMPT06/CHAT_REVIEW/CHAT_F0_PARTIAL_REVIEW_20261020.md",
+      "chat_direct_review": {
+        "report": "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/report.md",
+        "test_summary": "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/test_summary.json",
+        "owner_raw_intake": "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/owner-185-intake.json",
+        "source_verification": "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/source_verification.json",
+        "agent_result_v2": "NOT_DELIVERED; THIS_CHAT_REPORT_IS_NOT_AN_AGENT_RESULT",
+        "code_source": "611ec26c28484de740e963d86de6b00946f1492d",
+        "protected_test_blob": "7b2a2c48e6bf4225d849dc7a7a32126652b0c3be"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+F...                                                                     [100%]
+================================== FAILURES ===================================
+_____ test_configured_alternate_runtime_root_cannot_grant_claim_authority _____
+
+bridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/811e3834cfa2471baea81cca293e8ee5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000024ACDEE29E0>
+
+    def test_configured_alternate_runtime_root_cannot_grant_claim_authority(
+        bridge_config, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """A --config root outside the default install is still a runtime, not proof."""
+        from fox2_agent_bridge.desktop import initialize_runtime
+    
+        monkeypatch.setattr("fox2_agent_bridge.desktop.LEGACY_ROOT", tmp_path / "absent-legacy")
+        # Seed preexisting SINGLE_ROOT metadata, as well as testing a fresh root.
+        for preexisting in (False, True):
+            if preexisting:
+                with SQLiteLedger(bridge_config.database_path).connect() as connection:
+                    connection.execute("UPDATE bridge_meta SET value='SINGLE_ROOT' WHERE key='claim_authority'")
+            ledger = initialize_runtime(bridge_config)
+>           assert not ledger.claim_dispatch(
+                dispatch_id=f"alternate-{preexisting}", payload_hash="a" * 64,
+                execution_id="forbidden", observed_at_utc=utc_now(), honor_controls=False,
+            )
+E           AssertionError: assert not True
+E            +  where True = claim_dispatch(dispatch_id='alternate-False', payload_hash=('a' * 64), execution_id='forbidden', observed_at_utc='2026-10-20T13:25:55.019969+00:00', honor_controls=False)
+E            +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000024ACDF80D70>.claim_dispatch
+E            +    and   '2026-10-20T13:25:55.019969+00:00' = utc_now()
+
+agent_bridge\tests\test_runtime_ledger.py:504: AssertionError
+- generated xml file: C:\Users\Fox Le\.codex\.chatgpt-projects\g-p-6abcbc976b948191a760dbb0c316a64d\work\f0_safety_review_20261020\reports\FOX2-F0-CHAT-SAFETY-REVIEW-20261020\red.xml -
+=========================== short test summary info ===========================
+FAILED agent_bridge\tests\test_runtime_ledger.py::test_configured_alternate_runtime_root_cannot_grant_claim_authority
+1 failed, 3 passed, 21 deselected in 3.35s

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="4" time="3.199" timestamp="2026-10-20T20:25:54.567157+07:00" hostname="FoxLe-PC"><testcase classname="tests.test_runtime_ledger" name="test_configured_alternate_runtime_root_cannot_grant_claim_authority" time="0.233"><failure message="AssertionError: assert not True&#10; +  where True = claim_dispatch(dispatch_id='alternate-False', payload_hash=('a' * 64), execution_id='forbidden', observed_at_utc='2026-10-20T13:25:55.019969+00:00', honor_controls=False)&#10; +    where claim_dispatch = &lt;fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000024ACDF80D70&gt;.claim_dispatch&#10; +    and   '2026-10-20T13:25:55.019969+00:00' = utc_now()">bridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/811e3834cfa2471baea81cca293e8ee5')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000024ACDEE29E0&gt;
+
+    def test_configured_alternate_runtime_root_cannot_grant_claim_authority(
+        bridge_config, tmp_path: Path, monkeypatch,
+    ) -&gt; None:
+        """A --config root outside the default install is still a runtime, not proof."""
+        from fox2_agent_bridge.desktop import initialize_runtime
+    
+        monkeypatch.setattr("fox2_agent_bridge.desktop.LEGACY_ROOT", tmp_path / "absent-legacy")
+        # Seed preexisting SINGLE_ROOT metadata, as well as testing a fresh root.
+        for preexisting in (False, True):
+            if preexisting:
+                with SQLiteLedger(bridge_config.database_path).connect() as connection:
+                    connection.execute("UPDATE bridge_meta SET value='SINGLE_ROOT' WHERE key='claim_authority'")
+            ledger = initialize_runtime(bridge_config)
+&gt;           assert not ledger.claim_dispatch(
+                dispatch_id=f"alternate-{preexisting}", payload_hash="a" * 64,
+                execution_id="forbidden", observed_at_utc=utc_now(), honor_controls=False,
+            )
+E           AssertionError: assert not True
+E            +  where True = claim_dispatch(dispatch_id='alternate-False', payload_hash=('a' * 64), execution_id='forbidden', observed_at_utc='2026-10-20T13:25:55.019969+00:00', honor_controls=False)
+E            +    where claim_dispatch = &lt;fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000024ACDF80D70&gt;.claim_dispatch
+E            +    and   '2026-10-20T13:25:55.019969+00:00' = utc_now()
+
+agent_bridge\tests\test_runtime_ledger.py:504: AssertionError</failure></testcase><testcase classname="tests.test_runtime_ledger" name="test_abrupt_runner_exit_preserves_consumption_without_replay[after-claim-UNKNOWN-NEEDS_RECONCILIATION]" time="0.700" /><testcase classname="tests.test_runtime_ledger" name="test_abrupt_runner_exit_preserves_consumption_without_replay[before-adapter-CLAIMED-SAFE_NOT_STARTED]" time="0.772" /><testcase classname="tests.test_runtime_ledger" name="test_abrupt_runner_exit_preserves_consumption_without_replay[inside-fake-adapter-RUNNING-NEEDS_RECONCILIATION]" time="0.806" /></testsuite></testsuites>

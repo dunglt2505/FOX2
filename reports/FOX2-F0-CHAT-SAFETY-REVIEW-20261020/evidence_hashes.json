@@ -1,0 +1,23 @@
+{
+  "schema": "FOX2_CHAT_EVIDENCE_HASHES_V1",
+  "code_source": "611ec26c28484de740e963d86de6b00946f1492d",
+  "producer": "CHAT; NOT_AGENT_RESULT_V2",
+  "files": {
+    "focused.log": "d8dfaf85478086874bdea43af2791d88e2b69ece6b763c67aae6b921e8224f54",
+    "focused.xml": "4eecaf456995c95b40b078443b45a65195baeec83c69e9e5ccd608edb9ea5b14",
+    "owner-185-focused.log": "653f7944d59a5da245c4f8055f0fbbda04f0c57e32b8e10b52e36765675e0292",
+    "owner-185-focused.xml": "acdfa9e021e1efdb34a6ebfc3457074d68f11b2caaad37cdaf04680b43b6bcb9",
+    "owner-185-intake.json": "39d1d16c8b78d55056bd75d8bf3fc15baf2eacde442db60df154c79acefdbf78",
+    "red.log": "ac6c08f9cbb6ad8b4e38397ef9a109ddb96119eabc00e4fc61c7b6c46c6db6da",
+    "red.xml": "23a283844867dfaa25ccd3ef303c266a2fc9606259ba69675eb7b85d67c1cde8",
+    "runtime-consumers.log": "f189b1b2b02b3a3f8a85cf3c98a2dc2ad7d9eab6d2d1168c7b31d6a439b56d9d",
+    "runtime-consumers.xml": "11b18be1d6a7a9d39a4587b4d44b4fe36ef3cc0aab2e6aa4adea4688c3c271a9",
+    "sandbox-focused.log": "1c74bc5c050611ea1543d1026027e5259bafdfb326fe13dadbfc7f9e6d73ab70",
+    "sandbox-focused.xml": "c30a7a79496cade82bab1b1f7b4ae7cfdfa2ea2d828e2fdf1447172c4314899a",
+    "short-runtime-consumers.log": "51645f7f74381c1d17ec308be2eebca75995786c9f0bbac37ae1bd1bdfa29e27",
+    "short-runtime-consumers.xml": "ec1018ecf23ba1e427883e2a619a63e17c74359a7571f715d4d9dfb3bfb450bb",
+    "short-worktree.json": "cd902452c6d0c326930c0d839acbf25c809dd3c795ce4ca5b0f3113b8c99c266",
+    "source_verification.json": "ec2eab720a7251b28a4b57c133d42ec25560eeef3c50a0b153e6c8d5c0238008",
+    "test_summary.json": "a0d6741d02e3119ea68bce56dc7bce012ab01903786cad9e41d36dba2144d237"
+  }
+}

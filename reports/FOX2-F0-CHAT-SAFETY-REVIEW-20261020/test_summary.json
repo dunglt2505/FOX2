@@ -1,0 +1,160 @@
+{
+  "red": {
+    "counts": {
+      "tests": 4,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pytest_exit": 1,
+    "suite_timestamp": "2026-10-20T20:25:54.567157+07:00",
+    "failed_cases": [
+      "test_configured_alternate_runtime_root_cannot_grant_claim_authority"
+    ]
+  },
+  "sandbox-focused": {
+    "counts": {
+      "tests": 258,
+      "failures": 3,
+      "errors": 43,
+      "skipped": 0
+    },
+    "pytest_exit": 1,
+    "suite_timestamp": "2026-10-20T20:26:14.034816+07:00",
+    "failed_cases": [
+      "test_preflight_durable_statuses[PASS-0]",
+      "test_preflight_durable_statuses[BLOCKED-20]",
+      "test_preflight_durable_statuses[INFRA_FAILED-30]",
+      "test_alternative_agent_route_materiality",
+      "test_pinned_agent_materiality",
+      "test_schema_rejects_nested_unknown_status_and_fields",
+      "test_unsafe_worktree_never_probes_or_publishes[branch]",
+      "test_unsafe_worktree_never_probes_or_publishes[head]",
+      "test_unsafe_worktree_never_probes_or_publishes[writer]",
+      "test_unsafe_worktree_never_probes_or_publishes[wip]",
+      "test_unsafe_worktree_never_probes_or_publishes[dictionary]",
+      "test_stale_receipt_only_cleanup",
+      "test_cleanup_requires_objective_proof[foreign]",
+      "test_cleanup_requires_objective_proof[raw]",
+      "test_cleanup_requires_objective_proof[unrelated]",
+      "test_concurrent_writer_lock",
+      "test_cross_process_lock_exclusivity_and_release[normal]",
+      "test_cross_process_lock_exclusivity_and_release[exception]",
+      "test_cross_process_lock_exclusivity_and_release[killed]",
+      "test_lock_release_after_body_failure",
+      "test_lock_os_failure_is_safe_and_handle_closes[acquire]",
+      "test_lock_os_failure_is_safe_and_handle_closes[release]",
+      "test_canonical_contract_source_drift_cannot_weaken_validation[policy]",
+      "test_canonical_contract_source_drift_cannot_weaken_validation[preflight_receipt_schema]",
+      "test_canonical_contract_source_drift_cannot_weaken_validation[preexec_evidence_protocol]",
+      "test_missing_source_contract_emits_safe_schema_receipt_without_probe",
+      "test_cli_failure_snapshot_has_no_pushed_marker",
+      "test_cli_snapshot_cannot_return_durable_publication_exit_code[PASS]",
+      "test_cli_snapshot_cannot_return_durable_publication_exit_code[BLOCKED]",
+      "test_receipt_path_cannot_escape_worktree[../escape.json]",
+      "test_receipt_path_cannot_escape_worktree[reports/../escape.json]",
+      "test_receipt_path_cannot_escape_worktree[C:/escape.json]",
+      "test_receipt_path_cannot_escape_worktree[reports\\\\escape.json]",
+      "test_staged_unrelated_file_is_preserved_and_never_published",
+      "test_commit_hook_mutation_never_reaches_push[receipt]",
+      "test_commit_hook_mutation_never_reaches_push[unrelated]",
+      "test_no_false_pushed_marker_on_publication_failure[commit]",
+      "test_no_false_pushed_marker_on_publication_failure[push]",
+      "test_no_false_pushed_marker_on_publication_failure[ls-remote]",
+      "test_no_false_pushed_marker_on_publication_failure[fetch]",
+      "test_remote_readback_mismatch",
+      "test_probe_product_mutation_prevents_publication",
+      "test_unknown_material_remains_hold_and_preserves_first_blocker",
+      "test_dotnet_wpf_build_probe_compiles_minimal_project",
+      "test_dotnet_wpf_build_probe_failure_is_material",
+      "test_dotnet_wpf_probe_writes_real_newlines"
+    ]
+  },
+  "runtime-consumers": {
+    "counts": {
+      "tests": 88,
+      "failures": 16,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pytest_exit": 1,
+    "suite_timestamp": "2026-10-20T20:30:05.084531+07:00",
+    "failed_cases": [
+      "test_failed_upgrade_retains_pointer_and_durable_files",
+      "test_uninstall_refuses_unowned_directory_before_deletion",
+      "test_uninstall_preserves_claims_and_project_tree",
+      "test_installed_interpreter_refuses_self_delete_without_spawning_or_waiting",
+      "test_uninstall_never_reports_success_until_deletion_complete[sharing]",
+      "test_uninstall_never_reports_success_until_deletion_complete[incomplete]",
+      "test_uninstall_preserves_all_durable_directories_and_consumed_identities",
+      "test_stable_bootstrap_external_process_bounded_arguments_and_environment[False]",
+      "test_stable_bootstrap_external_process_bounded_arguments_and_environment[True]",
+      "test_install_sequence_is_hermetic_and_failure_is_sanitized[None]",
+      "test_install_sequence_is_hermetic_and_failure_is_sanitized[0]",
+      "test_install_sequence_is_hermetic_and_failure_is_sanitized[1]",
+      "test_install_sequence_is_hermetic_and_failure_is_sanitized[2]",
+      "test_fresh_setup_paused_and_repeat_preserves_config_and_user_resume",
+      "test_missing_first_run_tool_does_not_write_config_or_claim_setup",
+      "test_health_command_runs_without_agent_execution"
+    ]
+  },
+  "focused": {
+    "counts": {
+      "tests": 267,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pytest_exit": 0,
+    "suite_timestamp": "2026-10-20T20:29:31.667192+07:00",
+    "failed_cases": [],
+    "protected_six": [
+      "test_attempt02_existing_current_db_denies_legacy_consumption[FAILED]",
+      "test_attempt02_existing_current_db_denies_legacy_consumption[PUSHED_UNREVIEWED]",
+      "test_attempt02_existing_current_db_denies_legacy_consumption[NEEDS_RECONCILIATION]",
+      "test_attempt02_legacy_marker_denies_claim[True]",
+      "test_attempt02_legacy_marker_denies_claim[False]",
+      "test_attempt02_snapshot_does_not_allow_late_legacy_claim"
+    ],
+    "code_source": "ba1cbdf2c8bc2b74bd7cac7f6a43065a54c5d4f0",
+    "equivalent_final_source": "611ec26c28484de740e963d86de6b00946f1492d"
+  },
+  "short-runtime-consumers": {
+    "counts": {
+      "tests": 88,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pytest_exit": 0,
+    "suite_timestamp": "2026-10-20T20:32:54.803402+07:00",
+    "failed_cases": [],
+    "code_source": "611ec26c28484de740e963d86de6b00946f1492d",
+    "checkout": "C:/Users/Fox Le/AppData/Local/Temp/f0safe_611ec26"
+  },
+  "owner_baseline": {
+    "source": "185bc9493d4a9e27f7a463d87313fc03ce32634d",
+    "raw_independently_verified": true,
+    "counts": {
+      "tests": 254,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "execution": {
+    "actor": "CHAT_DIRECT_OFFLINE",
+    "agent_invoked": false,
+    "synthetic_python_child_only": true,
+    "installed_bridge_tested": false,
+    "attempt06_replayed": false,
+    "code_source": "611ec26c28484de740e963d86de6b00946f1492d",
+    "code_model_hold": "CODEX/gpt-6.1-sol/medium HOLD"
+  },
+  "commands": {
+    "focused": "python -m pytest tests/test_e2e_runner.py tests/test_project_dictionary.py tests/test_desktop.py tests/test_runtime_ledger.py tests/test_ops_runner.py tests/test_preexec.py -q -p no:cacheprovider --junitxml=<evidence>/focused.xml",
+    "runtime_consumers": "python -m pytest tests/test_installation.py tests/test_rc1_first_run.py tests/test_lock_logging_health.py tests/test_dispatch_poller.py tests/test_config_paths.py -q -p no:cacheprovider --junitxml=<evidence>/short-runtime-consumers.xml",
+    "environment": "PYTHONPATH=src; PYTHONDONTWRITEBYTECODE=1; process-local Git core.longpaths=true; no global config modification",
+    "exit_observation": "Actual exec sessions 61507 and 88211 returned process exit 0; JUnit independently parsed"
+  }
+}

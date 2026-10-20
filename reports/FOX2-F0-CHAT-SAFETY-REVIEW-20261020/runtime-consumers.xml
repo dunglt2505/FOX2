@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="16" skipped="0" tests="88" time="80.365" timestamp="2026-10-20T20:30:05.084531+07:00" hostname="FoxLe-PC"><testcase classname="tests.test_installation" name="test_bad_integrity_never_creates_installation" time="0.028" /><testcase classname="tests.test_installation" name="test_archive_path_attacks_rejected[../escape.whl]" time="0.024" /><testcase classname="tests.test_installation" name="test_archive_path_attacks_rejected[/absolute.whl]" time="0.022" /><testcase classname="tests.test_installation" name="test_archive_path_attacks_rejected[wheels/../escape.whl]" time="0.020" /><testcase classname="tests.test_installation" name="test_archive_path_attacks_rejected[wheels\\escape.whl]" time="0.026" /><testcase classname="tests.test_installation" name="test_archive_path_attacks_rejected[wheels/C:escape.whl]" time="0.023" /><testcase classname="tests.test_installation" name="test_archive_path_attacks_rejected[unexpected.exe]" time="0.023" /><testcase classname="tests.test_installation" name="test_manifest_dictionary_platform_and_member_drift_rejected" time="0.101" /><testcase classname="tests.test_installation" name="test_failed_upgrade_retains_pointer_and_durable_files" time="0.056"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\471ddb6224ac4d2bb9a665e71cbf1db8\\owned\\versions\\b11d19557e29b6788734cb6be668f37a085fbae5e171b6803d8e63211e332195'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/471ddb6224ac4d2bb9a665e71cbf1db8/owned/versions/b11d19557e29b6788734cb6be668f37a085fbae5e171b6803d8e63211e332195')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\471ddb6224ac4d2bb9a665e71cbf1db8\\owned\\versions\\b11d19557e29b6788734cb6be668f37a085fbae5e171b6803d8e63211e332195'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/471ddb6224ac4d2bb9a665e71cbf1db8')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79460E3F0&gt;
+
+    def test_failed_upgrade_retains_pointer_and_durable_files(tmp_path,monkeypatch):
+        root=tmp_path/'owned'; monkeypatch.setattr(module,'BRIDGE_ROOT',root)
+        root.mkdir(); (root/'data').mkdir(); (root/'config').mkdir()
+        (root/'data/bridge.db').write_bytes(b'durable-ledger')
+        (root/'config/bridge.toml').write_bytes(b'durable-config')
+        original={'package_sha256':'b'*64,'source_sha256':'c'*64}
+        (root/'current.json').write_text(json.dumps(original))
+        def fail(*a,**k): raise ValueError('injected installation failure')
+        monkeypatch.setattr(module,'_run',fail)
+        path,sha=package(tmp_path)
+&gt;       with pytest.raises(ValueError,match='injected'): module.install(path,sha,root=root)
+
+tests\test_installation.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\fox2_agent_bridge\installation.py:131: in install
+    target.mkdir(parents=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/471ddb6224ac4d2bb9a665e71cbf1db8/owned/versions/b11d19557e29b6788734cb6be668f37a085fbae5e171b6803d8e63211e332195')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\471ddb6224ac4d2bb9a665e71cbf1db8\\owned\\versions\\b11d19557e29b6788734cb6be668f37a085fbae5e171b6803d8e63211e332195'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_running_worker_prevents_install_mutation" time="0.036" /><testcase classname="tests.test_installation" name="test_manual_consumption_blocks_prior_zero_ledger_rows_after_restart" time="0.137" /><testcase classname="tests.test_installation" name="test_diagnostics_never_exports_raw_secrets_or_conversation" time="0.425" /><testcase classname="tests.test_installation" name="test_uninstall_refuses_unowned_directory_before_deletion" time="0.004"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\18be3a2d32204a7788c066fbc57a0f89\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/18be3a2d32204a7788c066fbc57a0f89/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\18be3a2d32204a7788c066fbc57a0f89\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/18be3a2d32204a7788c066fbc57a0f89')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B7943B5E50&gt;
+
+    def test_uninstall_refuses_unowned_directory_before_deletion(tmp_path,monkeypatch):
+        root=tmp_path/'owned'; monkeypatch.setattr(module,'BRIDGE_ROOT',root)
+&gt;       target=root/'versions'/('a'*64); target.mkdir(parents=True)
+
+tests\test_installation.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/18be3a2d32204a7788c066fbc57a0f89/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\18be3a2d32204a7788c066fbc57a0f89\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_uninstall_preserves_claims_and_project_tree" time="0.064"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\cb5e8f6160d94e1fa2398c2ef44edfe6\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/cb5e8f6160d94e1fa2398c2ef44edfe6/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\cb5e8f6160d94e1fa2398c2ef44edfe6\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/cb5e8f6160d94e1fa2398c2ef44edfe6')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B7947941D0&gt;
+
+    def test_uninstall_preserves_claims_and_project_tree(tmp_path,monkeypatch):
+        root=tmp_path/'owned'; monkeypatch.setattr(module,'BRIDGE_ROOT',root)
+        project=tmp_path/'repository'; project.mkdir(); (project/'keep').write_bytes(b'untouched')
+        ledger=SQLiteLedger(root/'data/bridge.db'); ledger.initialize()
+        ledger.claim_dispatch(dispatch_id='FOX2-CONSUMED',payload_hash='a'*64,execution_id='one',observed_at_utc=utc_now())
+&gt;       target=root/'versions'/('a'*64); target.mkdir(parents=True)
+
+tests\test_installation.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/cb5e8f6160d94e1fa2398c2ef44edfe6/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\cb5e8f6160d94e1fa2398c2ef44edfe6\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_installed_interpreter_refuses_self_delete_without_spawning_or_waiting" time="0.004"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5faed81004394e7a8ddf5e136b012d0c\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/5faed81004394e7a8ddf5e136b012d0c/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5faed81004394e7a8ddf5e136b012d0c\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/5faed81004394e7a8ddf5e136b012d0c')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B7947F6830&gt;
+
+    def test_installed_interpreter_refuses_self_delete_without_spawning_or_waiting(tmp_path, monkeypatch):
+        root = tmp_path/'owned'
+        target = root/'versions'/('a'*64)
+&gt;       target.mkdir(parents=True)
+
+tests\test_installation.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/5faed81004394e7a8ddf5e136b012d0c/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5faed81004394e7a8ddf5e136b012d0c\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_uninstall_never_reports_success_until_deletion_complete[sharing]" time="0.005"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\366060543fde42359f4b6bce228af1e3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/366060543fde42359f4b6bce228af1e3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\366060543fde42359f4b6bce228af1e3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/366060543fde42359f4b6bce228af1e3')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B7947F6DB0&gt;
+failure = 'sharing'
+
+    @pytest.mark.parametrize('failure', ['sharing', 'incomplete'])
+    def test_uninstall_never_reports_success_until_deletion_complete(tmp_path, monkeypatch, failure):
+        root = tmp_path/'owned'
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        target = root/'versions'/('a'*64)
+&gt;       target.mkdir(parents=True)
+
+tests\test_installation.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/366060543fde42359f4b6bce228af1e3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\366060543fde42359f4b6bce228af1e3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_uninstall_never_reports_success_until_deletion_complete[incomplete]" time="0.004"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\50b06017937c4996bc36db8163c2201c\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/50b06017937c4996bc36db8163c2201c/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\50b06017937c4996bc36db8163c2201c\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/50b06017937c4996bc36db8163c2201c')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B7947E00F0&gt;
+failure = 'incomplete'
+
+    @pytest.mark.parametrize('failure', ['sharing', 'incomplete'])
+    def test_uninstall_never_reports_success_until_deletion_complete(tmp_path, monkeypatch, failure):
+        root = tmp_path/'owned'
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        target = root/'versions'/('a'*64)
+&gt;       target.mkdir(parents=True)
+
+tests\test_installation.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/50b06017937c4996bc36db8163c2201c/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\50b06017937c4996bc36db8163c2201c\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_uninstall_preserves_all_durable_directories_and_consumed_identities" time="0.114"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\48ea6c1aa546412daf83bb03ad03625a\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...cts/48ea6c1aa546412daf83bb03ad03625a/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\48ea6c1aa546412daf83bb03ad03625a\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+bridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79481ACB0&gt;
+
+    def test_uninstall_preserves_all_durable_directories_and_consumed_identities(bridge_config, monkeypatch):
+        root = bridge_config.bridge_root
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        ids = ['FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-'+f'{i:03}' for i in range(1, 9)]
+        (root/'data').mkdir(parents=True)
+        (root/'data/manual_consumption.json').write_text(json.dumps({
+            'format': 'FOX2_MANUAL_CONSUMPTION_1', 'dispatch_ids': ids}))
+        durable = {}
+        for directory in ('config', 'data', 'logs', 'reports'):
+            path = root/directory/'durable.txt'
+            path.parent.mkdir(exist_ok=True)
+            path.write_bytes(b'preserved durable data')
+            durable[path] = path.read_bytes()
+        ledger = initialize_runtime(bridge_config)
+        manual = (root/'data/manual_consumption.json').read_bytes()
+        target = root/'versions'/('a'*64)
+&gt;       target.mkdir(parents=True)
+
+tests\test_installation.py:184: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...cts/48ea6c1aa546412daf83bb03ad03625a/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\48ea6c1aa546412daf83bb03ad03625a\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_stable_bootstrap_external_process_bounded_arguments_and_environment[False]" time="0.005"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Lib/site-packages/fox2_agent_bridge')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Lib\\site-packages\\fox2_agent_bridge'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...2f5214631d3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Lib/site-packages')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Lib\\site-packages'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...b9a174b4c905d12f5214631d3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Lib')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Lib'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...d10fb9a174b4c905d12f5214631d3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/d92d10fb9a174b4c905d12f5214631d3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/d92d10fb9a174b4c905d12f5214631d3')
+extra_argument = False
+
+    @pytest.mark.parametrize('extra_argument', [False, True])
+    def test_stable_bootstrap_external_process_bounded_arguments_and_environment(tmp_path, extra_argument):
+        root = tmp_path/'owned'
+        version = root/'versions'/('a'*64)
+        site = version/'runtime/Lib/site-packages'
+        package = site/'fox2_agent_bridge'
+&gt;       package.mkdir(parents=True)
+
+tests\test_installation.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/d92d10fb9a174b4c905d12f5214631d3/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\d92d10fb9a174b4c905d12f5214631d3\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_stable_bootstrap_external_process_bounded_arguments_and_environment[True]" time="0.004"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Lib/site-packages/fox2_agent_bridge')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Lib\\site-packages\\fox2_agent_bridge'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...8fc2c29c511/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Lib/site-packages')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Lib\\site-packages'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...281d644f2bcd778fc2c29c511/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Lib')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Lib'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...c90d281d644f2bcd778fc2c29c511/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/5ecc90d281d644f2bcd778fc2c29c511/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/5ecc90d281d644f2bcd778fc2c29c511')
+extra_argument = True
+
+    @pytest.mark.parametrize('extra_argument', [False, True])
+    def test_stable_bootstrap_external_process_bounded_arguments_and_environment(tmp_path, extra_argument):
+        root = tmp_path/'owned'
+        version = root/'versions'/('a'*64)
+        site = version/'runtime/Lib/site-packages'
+        package = site/'fox2_agent_bridge'
+&gt;       package.mkdir(parents=True)
+
+tests\test_installation.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/5ecc90d281d644f2bcd778fc2c29c511/owned/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\5ecc90d281d644f2bcd778fc2c29c511\\owned\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_installation_subprocess_strips_python_paths_preserves_os_environment[PYTHONPATH]" time="0.183" /><testcase classname="tests.test_installation" name="test_installation_subprocess_strips_python_paths_preserves_os_environment[PYTHONHOME]" time="0.178" /><testcase classname="tests.test_installation" name="test_installation_subprocess_strips_python_paths_preserves_os_environment[PythonPath]" time="0.162" /><testcase classname="tests.test_installation" name="test_installation_subprocess_strips_python_paths_preserves_os_environment[PythonHome]" time="0.171" /><testcase classname="tests.test_installation" name="test_install_sequence_is_hermetic_and_failure_is_sanitized[None]" time="0.037"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\172cc293d4384b18bfbb1b7440c6c273\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/172cc293d4384b18bfbb1b7440c6c273/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\172cc293d4384b18bfbb1b7440c6c273\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/172cc293d4384b18bfbb1b7440c6c273')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79459A510&gt;
+failure_stage = None
+
+    @pytest.mark.parametrize('failure_stage', [None, 0, 1, 2])
+    def test_install_sequence_is_hermetic_and_failure_is_sanitized(tmp_path, monkeypatch, failure_stage):
+        root = tmp_path / 'owned'
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        monkeypatch.setenv('PYTHONPATH', 'contaminated-source')
+        monkeypatch.setenv('PYTHONHOME', 'contaminated-home')
+        monkeypatch.setenv('FOX2_INSTALL_SENTINEL', 'preserved')
+        package_path, sha = package(tmp_path)
+        calls = []
+    
+        def child(arguments, **kwargs):
+            assert not (root / 'current.json').exists()
+            assert not (root / 'versions' / sha / 'receipt.json').exists()
+            assert not {'PYTHONPATH', 'PYTHONHOME'} &amp; {key.upper() for key in kwargs['env']}
+            assert kwargs['env']['FOX2_INSTALL_SENTINEL'] == 'preserved'
+            assert kwargs['capture_output'] and kwargs['text'] and kwargs['timeout'] == 180
+            stage = len(calls)
+            calls.append(arguments)
+            return subprocess.CompletedProcess(arguments, 17 if stage == failure_stage else 0,
+                'private subprocess output' if stage == failure_stage else module.registry.SOURCE_SHA256 + '\n',
+                'private subprocess error')
+    
+        monkeypatch.setattr(module.subprocess, 'run', child)
+        if failure_stage is None:
+&gt;           assert module.install(package_path, sha, root=root)['status'] == 'INSTALLED'
+
+tests\test_installation.py:274: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\fox2_agent_bridge\installation.py:131: in install
+    target.mkdir(parents=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/172cc293d4384b18bfbb1b7440c6c273/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\172cc293d4384b18bfbb1b7440c6c273\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_install_sequence_is_hermetic_and_failure_is_sanitized[0]" time="0.021"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\6f880cc4c3b54b79be0146bb42625163\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/6f880cc4c3b54b79be0146bb42625163/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\6f880cc4c3b54b79be0146bb42625163\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/6f880cc4c3b54b79be0146bb42625163')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79459A9E0&gt;
+failure_stage = 0
+
+    @pytest.mark.parametrize('failure_stage', [None, 0, 1, 2])
+    def test_install_sequence_is_hermetic_and_failure_is_sanitized(tmp_path, monkeypatch, failure_stage):
+        root = tmp_path / 'owned'
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        monkeypatch.setenv('PYTHONPATH', 'contaminated-source')
+        monkeypatch.setenv('PYTHONHOME', 'contaminated-home')
+        monkeypatch.setenv('FOX2_INSTALL_SENTINEL', 'preserved')
+        package_path, sha = package(tmp_path)
+        calls = []
+    
+        def child(arguments, **kwargs):
+            assert not (root / 'current.json').exists()
+            assert not (root / 'versions' / sha / 'receipt.json').exists()
+            assert not {'PYTHONPATH', 'PYTHONHOME'} &amp; {key.upper() for key in kwargs['env']}
+            assert kwargs['env']['FOX2_INSTALL_SENTINEL'] == 'preserved'
+            assert kwargs['capture_output'] and kwargs['text'] and kwargs['timeout'] == 180
+            stage = len(calls)
+            calls.append(arguments)
+            return subprocess.CompletedProcess(arguments, 17 if stage == failure_stage else 0,
+                'private subprocess output' if stage == failure_stage else module.registry.SOURCE_SHA256 + '\n',
+                'private subprocess error')
+    
+        monkeypatch.setattr(module.subprocess, 'run', child)
+        if failure_stage is None:
+            assert module.install(package_path, sha, root=root)['status'] == 'INSTALLED'
+            assert (root / 'versions' / sha / 'receipt.json').is_file()
+        else:
+            with pytest.raises(ValueError) as error:
+&gt;               module.install(package_path, sha, root=root)
+
+tests\test_installation.py:278: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\fox2_agent_bridge\installation.py:131: in install
+    target.mkdir(parents=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/6f880cc4c3b54b79be0146bb42625163/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\6f880cc4c3b54b79be0146bb42625163\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_install_sequence_is_hermetic_and_failure_is_sanitized[1]" time="0.022"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\72b680e03dbf41f3b919f51a035dfe0f\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/72b680e03dbf41f3b919f51a035dfe0f/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\72b680e03dbf41f3b919f51a035dfe0f\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/72b680e03dbf41f3b919f51a035dfe0f')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79477F000&gt;
+failure_stage = 1
+
+    @pytest.mark.parametrize('failure_stage', [None, 0, 1, 2])
+    def test_install_sequence_is_hermetic_and_failure_is_sanitized(tmp_path, monkeypatch, failure_stage):
+        root = tmp_path / 'owned'
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        monkeypatch.setenv('PYTHONPATH', 'contaminated-source')
+        monkeypatch.setenv('PYTHONHOME', 'contaminated-home')
+        monkeypatch.setenv('FOX2_INSTALL_SENTINEL', 'preserved')
+        package_path, sha = package(tmp_path)
+        calls = []
+    
+        def child(arguments, **kwargs):
+            assert not (root / 'current.json').exists()
+            assert not (root / 'versions' / sha / 'receipt.json').exists()
+            assert not {'PYTHONPATH', 'PYTHONHOME'} &amp; {key.upper() for key in kwargs['env']}
+            assert kwargs['env']['FOX2_INSTALL_SENTINEL'] == 'preserved'
+            assert kwargs['capture_output'] and kwargs['text'] and kwargs['timeout'] == 180
+            stage = len(calls)
+            calls.append(arguments)
+            return subprocess.CompletedProcess(arguments, 17 if stage == failure_stage else 0,
+                'private subprocess output' if stage == failure_stage else module.registry.SOURCE_SHA256 + '\n',
+                'private subprocess error')
+    
+        monkeypatch.setattr(module.subprocess, 'run', child)
+        if failure_stage is None:
+            assert module.install(package_path, sha, root=root)['status'] == 'INSTALLED'
+            assert (root / 'versions' / sha / 'receipt.json').is_file()
+        else:
+            with pytest.raises(ValueError) as error:
+&gt;               module.install(package_path, sha, root=root)
+
+tests\test_installation.py:278: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\fox2_agent_bridge\installation.py:131: in install
+    target.mkdir(parents=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/72b680e03dbf41f3b919f51a035dfe0f/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\72b680e03dbf41f3b919f51a035dfe0f\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_installation" name="test_install_sequence_is_hermetic_and_failure_is_sanitized[2]" time="0.020"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\1a5eab5fd9364f5c9cd8d5f6d6774d8e\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/1a5eab5fd9364f5c9cd8d5f6d6774d8e/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\1a5eab5fd9364f5c9cd8d5f6d6774d8e\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261020/agent_bridge/test_artifacts/1a5eab5fd9364f5c9cd8d5f6d6774d8e')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79477E820&gt;
+failure_stage = 2
+
+    @pytest.mark.parametrize('failure_stage', [None, 0, 1, 2])
+    def test_install_sequence_is_hermetic_and_failure_is_sanitized(tmp_path, monkeypatch, failure_stage):
+        root = tmp_path / 'owned'
+        monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
+        monkeypatch.setenv('PYTHONPATH', 'contaminated-source')
+        monkeypatch.setenv('PYTHONHOME', 'contaminated-home')
+        monkeypatch.setenv('FOX2_INSTALL_SENTINEL', 'preserved')
+        package_path, sha = package(tmp_path)
+        calls = []
+    
+        def child(arguments, **kwargs):
+            assert not (root / 'current.json').exists()
+            assert not (root / 'versions' / sha / 'receipt.json').exists()
+            assert not {'PYTHONPATH', 'PYTHONHOME'} &amp; {key.upper() for key in kwargs['env']}
+            assert kwargs['env']['FOX2_INSTALL_SENTINEL'] == 'preserved'
+            assert kwargs['capture_output'] and kwargs['text'] and kwargs['timeout'] == 180
+            stage = len(calls)
+            calls.append(arguments)
+            return subprocess.CompletedProcess(arguments, 17 if stage == failure_stage else 0,
+                'private subprocess output' if stage == failure_stage else module.registry.SOURCE_SHA256 + '\n',
+                'private subprocess error')
+    
+        monkeypatch.setattr(module.subprocess, 'run', child)
+        if failure_stage is None:
+            assert module.install(package_path, sha, root=root)['status'] == 'INSTALLED'
+            assert (root / 'versions' / sha / 'receipt.json').is_file()
+        else:
+            with pytest.raises(ValueError) as error:
+&gt;               module.install(package_path, sha, root=root)
+
+tests\test_installation.py:278: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\fox2_agent_bridge\installation.py:131: in install
+    target.mkdir(parents=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...acts/1a5eab5fd9364f5c9cd8d5f6d6774d8e/owned/versions/cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5')
+mode = 511, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\1a5eab5fd9364f5c9cd8d5f6d6774d8e\\owned\\versions\\cac21f2770561570de674f629f1d50aa217199278b0f1c96b599e33f7f0275d5'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_rc1_first_run" name="test_fresh_setup_paused_and_repeat_preserves_config_and_user_resume" time="0.015"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\7233de48fed043dfb623660bba0f1dc0\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...43dfb623660bba0f1dc0/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Scripts')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\7233de48fed043dfb623660bba0f1dc0\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Scripts'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...de48fed043dfb623660bba0f1dc0/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\7233de48fed043dfb623660bba0f1dc0\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...cts/7233de48fed043dfb623660bba0f1dc0/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\7233de48fed043dfb623660bba0f1dc0\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+bridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79477F8C0&gt;
+
+    def test_fresh_setup_paused_and_repeat_preserves_config_and_user_resume(bridge_config, monkeypatch):
+&gt;       root = prepare(bridge_config, monkeypatch)
+
+tests\test_rc1_first_run.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_rc1_first_run.py:15: in prepare
+    python.parent.mkdir(parents=True); python.write_bytes(b'owned-runtime-fixture')
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...cts/7233de48fed043dfb623660bba0f1dc0/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\7233de48fed043dfb623660bba0f1dc0\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_rc1_first_run" name="test_missing_first_run_tool_does_not_write_config_or_claim_setup" time="0.014"><failure message="FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\c854520f24b242f0bbb1f271f2d12e13\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'">self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...42f0bbb1f271f2d12e13/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime/Scripts')
+mode = 511, parents = True, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\c854520f24b242f0bbb1f271f2d12e13\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime\\Scripts'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...520f24b242f0bbb1f271f2d12e13/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/runtime')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\c854520f24b242f0bbb1f271f2d12e13\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\runtime'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...cts/c854520f24b242f0bbb1f271f2d12e13/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = True, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\c854520f24b242f0bbb1f271f2d12e13\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+bridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B79459AF90&gt;
+
+    def test_missing_first_run_tool_does_not_write_config_or_claim_setup(bridge_config, monkeypatch):
+&gt;       root = prepare(bridge_config, monkeypatch)
+
+tests\test_rc1_first_run.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_rc1_first_run.py:15: in prepare
+    python.parent.mkdir(parents=True); python.write_bytes(b'owned-runtime-fixture')
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:726: in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:727: in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_safety_review_20261...cts/c854520f24b242f0bbb1f271f2d12e13/bridge/versions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\Users\\Fox Le\\.codex\\.chatgpt-projects\\g-p-6abcbc976b948191a760dbb0c316a64d\\work\\f0_safety_review_20261020\\agent_bridge\\test_artifacts\\c854520f24b242f0bbb1f271f2d12e13\\bridge\\versions\\aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+C:\Users\Fox Le\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:722: FileNotFoundError</failure></testcase><testcase classname="tests.test_lock_logging_health" name="test_second_process_lock_is_rejected" time="0.021" /><testcase classname="tests.test_lock_logging_health" name="test_lock_is_rejected_from_a_second_process" time="0.267" /><testcase classname="tests.test_lock_logging_health" name="test_stale_lock_metadata_is_recovered" time="0.030" /><testcase classname="tests.test_lock_logging_health" name="test_normal_shutdown_releases_lock_and_clears_metadata" time="0.012" /><testcase classname="tests.test_lock_logging_health" name="test_structured_logging_redacts_secret_keys_but_not_sha" time="0.022" /><testcase classname="tests.test_lock_logging_health" name="test_health_command_runs_without_agent_execution" time="0.944"><failure message="assert 5 == 4">bridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B794599B00&gt;
+capsys = &lt;_pytest.capture.CaptureFixture object at 0x000001B79465D7F0&gt;
+
+    def test_health_command_runs_without_agent_execution(
+        bridge_config, monkeypatch, capsys
+    ) -&gt; None:
+        calls: list[list[str]] = []
+        original_run = subprocess.run
+    
+        def record_run(args, *positional, **kwargs):
+            calls.append([str(part) for part in args])
+            return original_run(args, *positional, **kwargs)
+    
+        monkeypatch.setattr("fox2_agent_bridge.runtime_tools.subprocess.run", record_run)
+        app = BridgeApp(bridge_config)
+        with app:
+            report = app.health_report()
+        output = json.dumps(report)
+        capsys.readouterr()
+    
+        assert report["project_id"] == "FOX2"
+        assert report["repository"] == "dunglt2505/FOX2"
+&gt;       assert report["database"]["schema_version"] == 4
+E       assert 5 == 4
+
+tests\test_lock_logging_health.py:145: AssertionError</failure></testcase><testcase classname="tests.test_lock_logging_health" name="test_health_cli_entrypoint_emits_json" time="0.822" /><testcase classname="tests.test_lock_logging_health" name="test_health_does_not_mutate_fox2_source" time="1.178" /><testcase classname="tests.test_lock_logging_health" name="test_graceful_app_shutdown_releases_lock" time="0.824" /><testcase classname="tests.test_dispatch_poller" name="test_control_branch_missing_is_reported_without_cursor" time="2.056" /><testcase classname="tests.test_dispatch_poller" name="test_first_poll_scans_tip_as_unvalidated_candidates" time="3.702" /><testcase classname="tests.test_dispatch_poller" name="test_no_change_poll_does_not_advance_cursor_again" time="3.094" /><testcase classname="tests.test_dispatch_poller" name="test_new_fast_forward_commit_advances_cursor" time="5.053" /><testcase classname="tests.test_dispatch_poller" name="test_non_dispatch_json_is_ignored" time="3.640" /><testcase classname="tests.test_dispatch_poller" name="test_duplicate_poll_is_idempotent" time="3.968" /><testcase classname="tests.test_dispatch_poller" name="test_multiple_candidate_files_on_first_poll" time="4.452" /><testcase classname="tests.test_dispatch_poller" name="test_multiple_commits_between_polls_are_all_observed" time="6.014" /><testcase classname="tests.test_dispatch_poller" name="test_modified_dispatch_path_is_anomaly" time="6.164" /><testcase classname="tests.test_dispatch_poller" name="test_deleted_dispatch_path_is_anomaly" time="5.828" /><testcase classname="tests.test_dispatch_poller" name="test_non_fast_forward_history_is_not_accepted" time="4.915" /><testcase classname="tests.test_dispatch_poller" name="test_failed_fetch_does_not_advance_cursor" time="2.049" /><testcase classname="tests.test_dispatch_poller" name="test_cursor_survives_poller_restart" time="3.225" /><testcase classname="tests.test_dispatch_poller" name="test_failed_discovery_transaction_rolls_back_cursor" time="1.334" /><testcase classname="tests.test_dispatch_poller" name="test_git_command_failure_is_poll_failed" time="1.940" /><testcase classname="tests.test_dispatch_poller" name="test_equivalent_expected_repository_urls_are_accepted[https://github.com/dunglt2505/FOX2.git]" time="0.002" /><testcase classname="tests.test_dispatch_poller" name="test_equivalent_expected_repository_urls_are_accepted[https://github.com/dunglt2505/FOX2]" time="0.002" /><testcase classname="tests.test_dispatch_poller" name="test_equivalent_expected_repository_urls_are_accepted[git@github.com:dunglt2505/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_equivalent_expected_repository_urls_are_accepted[ssh://git@github.com/dunglt2505/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_or_credential_bearing_remote_is_rejected[https://attacker/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_or_credential_bearing_remote_is_rejected[https://someoneelse/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_or_credential_bearing_remote_is_rejected[https://github.com/other/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_or_credential_bearing_remote_is_rejected[https://fixture-user:synthetic-value@github.com/dunglt2505/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_or_credential_bearing_remote_is_rejected[https://user:secret@github.com/dunglt2505/FOX2.git]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_or_credential_bearing_remote_is_rejected[https://github.com/dunglt2505/FOX2.git?token=synthetic-fixture]" time="0.001" /><testcase classname="tests.test_dispatch_poller" name="test_production_per_user_store_is_accepted" time="0.005" /><testcase classname="tests.test_dispatch_poller" name="test_production_store_outside_bridge_data_is_blocked[store_path0]" time="0.006" /><testcase classname="tests.test_dispatch_poller" name="test_production_store_outside_bridge_data_is_blocked[store_path1]" time="0.006" /><testcase classname="tests.test_dispatch_poller" name="test_production_store_outside_bridge_data_is_blocked[store_path2]" time="0.058" /><testcase classname="tests.test_dispatch_poller" name="test_production_store_outside_bridge_data_is_blocked[store_path3]" time="0.004" /><testcase classname="tests.test_dispatch_poller" name="test_production_store_preserves_remote_validation[https://github.com/else/FOX2.git]" time="0.002" /><testcase classname="tests.test_dispatch_poller" name="test_production_store_preserves_remote_validation[https://fixture-user:synthetic-value@github.com/dunglt2505/FOX2.git]" time="0.002" /><testcase classname="tests.test_dispatch_poller" name="test_wrong_repository_is_blocked_before_git_commands" time="1.316" /><testcase classname="tests.test_dispatch_poller" name="test_blob_identity_and_full_commit_sha_are_captured" time="3.565" /><testcase classname="tests.test_dispatch_poller" name="test_owner_fox2_workspace_is_not_mutated" time="3.188" /><testcase classname="tests.test_dispatch_poller" name="test_poller_never_invokes_agent_or_remote_push" time="2.725" /><testcase classname="tests.test_dispatch_poller" name="test_git_error_tokens_are_redacted_from_result_and_logs" time="2.005" /><testcase classname="tests.test_dispatch_poller" name="test_poll_once_cli_returns_machine_readable_json" time="0.848" /><testcase classname="tests.test_config_paths" name="test_default_configuration_loads_fixed_fox2_identity" time="0.012" /><testcase classname="tests.test_config_paths" name="test_non_fox2_project_is_rejected[FOX]" time="0.005" /><testcase classname="tests.test_config_paths" name="test_non_fox2_project_is_rejected[MANTIS]" time="0.006" /><testcase classname="tests.test_config_paths" name="test_non_fox2_project_is_rejected[fox2]" time="0.005" /><testcase classname="tests.test_config_paths" name="test_invalid_repository_is_rejected[someone/FOX2]" time="0.005" /><testcase classname="tests.test_config_paths" name="test_invalid_repository_is_rejected[dunglt2505/other]" time="0.005" /><testcase classname="tests.test_config_paths" name="test_database_path_traversal_is_rejected" time="0.009" /><testcase classname="tests.test_config_paths" name="test_log_path_traversal_is_rejected" time="0.008" /><testcase classname="tests.test_config_paths" name="test_config_file_rejects_unknown_keys" time="0.018" /><testcase classname="tests.test_config_paths" name="test_config_file_rejects_alternate_bridge_root" time="0.045" /><testcase classname="tests.test_config_paths" name="test_config_file_loads_fixed_fox2_values" time="0.037" /></testsuite></testsuites>
