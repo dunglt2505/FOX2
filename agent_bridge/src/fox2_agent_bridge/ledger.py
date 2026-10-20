@@ -11,8 +11,13 @@ from typing import Iterable
 
 from .errors import DatabaseError
 
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 MIGRATIONS: dict[int, tuple[str, ...]] = {
+    5: (
+        "INSERT OR IGNORE INTO bridge_meta (key, value) "
+        "VALUES ('claim_authority', 'SINGLE_ROOT')",
+        "UPDATE bridge_meta SET value = '5' WHERE key = 'schema_version'",
+    ),
     4: (
         "ALTER TABLE executions ADD COLUMN stage TEXT NOT NULL DEFAULT 'UNKNOWN'",
         "ALTER TABLE executions ADD COLUMN checkpoint_json TEXT",
@@ -188,7 +193,7 @@ class SQLiteLedger:
             rows = connection.execute("SELECT * FROM executions WHERE state='RUNNING'").fetchall()
         return tuple(dict(row) for row in rows)
 
-    def initialize(self) -> int:
+    def initialize(self, *, cross_root_authority_unknown: bool = False) -> int:
         try:
             self.database_path.parent.mkdir(parents=True, exist_ok=True)
             with self.connect() as connection:
@@ -210,6 +215,13 @@ class SQLiteLedger:
                 for version in range(current + 1, SCHEMA_VERSION + 1):
                     for statement in MIGRATIONS[version]:
                         connection.execute(statement)
+                if cross_root_authority_unknown:
+                    # Sticky: reopening or an unbound initializer cannot clear this.
+                    # F0 deliberately provides no positive retirement-proof API.
+                    connection.execute(
+                        "INSERT OR REPLACE INTO bridge_meta (key, value) "
+                        "VALUES ('claim_authority', 'DENY_CROSS_ROOT_UNKNOWN')"
+                    )
                 return SCHEMA_VERSION
         except DatabaseError:
             raise
@@ -398,6 +410,13 @@ class SQLiteLedger:
         try:
             with self.connect() as connection:
                 connection.execute("BEGIN IMMEDIATE")
+                authority = connection.execute(
+                    "SELECT value FROM bridge_meta WHERE key = 'claim_authority'"
+                ).fetchone()
+                # Missing/corrupt state is never positive authority. Read under
+                # the same write transaction as the claim, including direct calls.
+                if authority is None or authority['value'] != 'SINGLE_ROOT':
+                    return False
                 if honor_controls:
                     control = json.loads(connection.execute(
                         'SELECT payload FROM worker_state WHERE id=1').fetchone()[0])

@@ -31,7 +31,8 @@ def initialize_runtime(config: BridgeConfig) -> SQLiteLedger:
     ledger = SQLiteLedger(config.database_path)
     legacy_root = LEGACY_ROOT
     legacy_db = legacy_root / 'data' / 'bridge.db'
-    if config.bridge_root == BRIDGE_ROOT.resolve() and not config.database_path.exists() and legacy_db.exists():
+    cross_root = config.bridge_root == BRIDGE_ROOT.resolve()
+    if cross_root and not config.database_path.exists() and legacy_db.exists():
         # Carry forward all consumed identities before the first per-user poll.
         # Never snapshot while an old supervisor can still claim/execute.
         with ProcessLock(config.bridge_root / 'data' / 'bootstrap.lock'):
@@ -42,8 +43,16 @@ def initialize_runtime(config: BridgeConfig) -> SQLiteLedger:
                     with closing(sqlite3.connect(legacy_db.as_uri() + '?mode=ro', uri=True)) as source:
                         with closing(sqlite3.connect(temporary)) as destination:
                             source.backup(destination)
+                            # Publish only a denied snapshot, even if the source
+                            # was written by a newer single-root fixture ledger.
+                            with destination:
+                                destination.execute(
+                                    "INSERT OR REPLACE INTO bridge_meta (key, value) "
+                                    "VALUES ('claim_authority', 'DENY_CROSS_ROOT_UNKNOWN')"
+                                )
                     temporary.replace(config.database_path)
-    ledger.initialize()
+    # Absence of a legacy DB/marker is not proof of old-writer retirement.
+    ledger.initialize(cross_root_authority_unknown=cross_root)
     manual = config.bridge_root / 'data' / 'manual_consumption.json'
     if manual.exists():
         receipt = json.loads(manual.read_text(encoding='utf-8'))
