@@ -41,9 +41,9 @@
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
       "status": "BLOCKED",
-      "evidence": "TEST_EVIDENCED",
-      "evidence_scope": "PARTIAL_CODE_ONLY;_6_PROTECTED_NEGATIVES_PASS;_243_PASS_1_FAIL;_NOT_CHAT_ACCEPTED",
-      "source_sha": "d2c595be123fa041720fd0467f9d94b2d4318bca",
+      "evidence": "CHAT_DIRECT_CODE_CANDIDATE_GIT_VERIFIED;_TEST_NOT_RUN_AT_NEW_SHA",
+      "evidence_scope": "F0_CHAT_DIRECT_MIGRATION_V3_FIXTURE_AND_6_NEW_LEDGER_TESTS;_DIRECT_INSTALLED_ROOT_DENY_GUARD;_PRESERVED_SIX_NEGATIVES_BLOB_UNCHANGED;_HISTORIC_243_PASS_1_FAIL_BEFORE_NEW_PATCH",
+      "source_sha": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
       "evidence_refs": [
         {
           "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
@@ -108,21 +108,39 @@
         {
           "commit": "d2c595be123fa041720fd0467f9d94b2d4318bca",
           "path": "agent_bridge/src/fox2_agent_bridge/ledger.py"
+        },
+        {
+          "commit": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
+          "path": "agent_bridge/src/fox2_agent_bridge/ledger.py"
+        },
+        {
+          "commit": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
+          "path": "agent_bridge/tests/test_desktop.py"
+        },
+        {
+          "commit": "1442cd6352cbfdd3684284cd83e572b71fabebf5",
+          "path": "agent_bridge/tests/test_runtime_ledger.py"
+        },
+        {
+          "commit": "a917d81ab8b8b0b822fdde0a7a9d82c991f15a7e",
+          "path": "docs/roadmap/FOX2_F0_CHAT_DIRECT_REWORK_EVIDENCE_20261020.md"
         }
       ],
       "exit_gate": "F0_IMPLEMENT_SAFETY_ONLY_DENY_BY_DEFAULT_CLAIM_GUARD_AND_PASS_PRESERVED_NEGATIVE_TESTS_WITH_CHAT_ACCEPTANCE;_F1_INSTALLED_DURABLE_LEGACY_RETIREMENT_SEPARATE_GATE",
-      "blocker": "REQUIRED_MIGRATION_REGRESSION_FAIL;_NEW_DURABILITY_COVERAGE_AND_AGENT_RESULT_CONTRACT_INCOMPLETE;_PINNED_MODEL_CAPACITY_ERROR;_OWNER_CODING_HOLD",
-      "as_of": "2026-10-20T08:10:59.672Z",
-      "next_safe_action": "KEEP_GPT_6_1_SOL_MEDIUM_AND_OWNER_CODING_HOLD;_PRESERVE_PARTIAL_SNAPSHOT;_ONLY_NEW_SOURCE_BOUND_ATTEMPT_AFTER_OWNER_CONTINUATION_AND_FRESH_GATES",
-      "build": "NOT_ACCEPTED_PARTIAL_MODEL_CAPACITY_FAILURE",
-      "test": "243_PASS_1_FAIL;_SIX_PROTECTED_NEGATIVES_PASS_UNCHANGED",
+      "blocker": "FOCUSED_PYTEST_ON_NEW_SHA_NOT_RUN;_F0_BROADER_ACCEPTANCE_PENDING;_F1_LEGACY_RETIREMENT_NOT_VERIFIED",
+      "as_of": "2026-10-20",
+      "next_safe_action": "RUN_OFFLINE_FOCUSED_PYTEST_ON_1442cd6352cbfdd3684284cd83e572b71fabebf5_IN_SEPARATE_TEST_WORKTREE;_CHAT_REVIEW_EXIT_AND_JUNIT;_NO_CODEX_ATTEMPT_REPLAY",
+      "build": "NOT_ACCEPTED;_CHAT_DIRECT_REWORK_CANDIDATE",
+      "test": "NEW_SHA_NOT_RUN;_HISTORIC_ATTEMPT06_243_PASS_1_FAIL;_SIX_ORIGINAL_NEGATIVE_TESTS_SOURCE_UNCHANGED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
-      "f0": "REWORK_NOT_ACCEPTED",
+      "f0": "CANDIDATE_FRESH_TESTS_REQUIRED",
       "f1": "HOLD_DURABLE_LEGACY_AUTHORITY_NOT_VERIFIED",
       "coding_hold": {
         "decision": "OWNER_EXPLICIT_KEEP_GPT_6_1_SOL_HOLD_CODING",
-        "exact_reply": "Giữ gpt-6.1-sol; HOLD coding"
+        "exact_reply": "Giữ gpt-6.1-sol; HOLD coding",
+        "code_x_status": "NO_NEW_CODEX_ASSIGNED_OR_MODEL_CHANGED",
+        "chat_direct_continuation": "OWNER_LATEST_CHAT_LAM_TIEP_DI_APPLIED_TO_OFFLINE_FIXTURE_AND_SAFETY_CANDIDATE_ONLY"
       },
       "chat_review_path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/F0_OFFLINE_ATTEMPT06/CHAT_REVIEW/CHAT_F0_PARTIAL_REVIEW_20261020.md"
     }
