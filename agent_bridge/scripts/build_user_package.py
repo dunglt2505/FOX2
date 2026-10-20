@@ -82,6 +82,37 @@ def source_git_commit() -> str:
     return identity.stdout.strip()
 
 
+
+def verify_wheel_source_modules(wheel: Path, source: Path) -> dict[str, str]:
+    """Ensure the actual wheel carries exactly the staged Python module bytes.
+
+    This is a build-time integrity consistency check, NOT proof that an old
+    Windows executor is retired or permission to enable dispatch claims.
+    """
+    package_root = source / 'src' / 'fox2_agent_bridge'
+    modules = {
+        p.relative_to(package_root).as_posix(): p
+        for p in sorted(package_root.rglob('*.py'))
+        if p.is_file()
+    }
+    if not {'ledger.py', 'desktop.py', '__init__.py'} <= modules.keys():
+        raise ValueError('mandatory Bridge modules are absent from build source')
+
+    result = {}
+    with zipfile.ZipFile(wheel) as archive:
+        names = archive.namelist()
+        for relative, path in modules.items():
+            member = 'fox2_agent_bridge/' + relative
+            if names.count(member) != 1:
+                raise ValueError('missing or duplicated Bridge wheel module')
+            raw = path.read_bytes()
+            if archive.read(member) != raw:
+                raise ValueError('Bridge wheel module differs from build source')
+            result[member] = hashlib.sha256(raw).hexdigest()
+    return result
+
+
+
 def build(output: Path, python: Path) -> dict:
     check = inspect_build_environment(python)
     with tempfile.TemporaryDirectory(prefix='fox2-package-') as td:
@@ -101,6 +132,10 @@ def build(output: Path, python: Path) -> dict:
         run([python, '-m', 'pip', '--isolated', 'download', '--disable-pip-version-check',
              '--only-binary=:all:', '--no-deps', '--dest', wheels,
              *[f'{n}=={v}' for n,v in check['dependencies'].items()]])
+        package_wheels = sorted(wheels.glob('fox2_agent_bridge-*.whl'))
+        if len(package_wheels) != 1:
+            raise ValueError('exactly one Bridge wheel is required')
+        wheel_source_modules = verify_wheel_source_modules(package_wheels[0], source)
         files = {f'wheels/{p.name}': p.read_bytes() for p in sorted(wheels.glob('*.whl'))}
         files.update({f'scripts/{name}': raw.replace(b'\r\n', b'\n') for name,raw in scripts.items()})
         desktop = ROOT / 'desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj'
@@ -129,6 +164,7 @@ def build(output: Path, python: Path) -> dict:
                     'source_sha256':sha(json.dumps(source_files,sort_keys=True).encode()),
                     'source_git_commit':source_git_commit(),
                     'source_files':source_files,
+                    'wheel_source_modules':wheel_source_modules,
                     'dependencies':check['dependencies'],
                     'files':{n:sha(b) for n,b in files.items()}}
         files['manifest.json'] = (json.dumps(manifest,sort_keys=True,indent=2)+'\n').encode()
