@@ -1,51 +1,54 @@
 {
   "schema_version": 1,
-  "producer": "CHAT_DIRECT_CANDIDATE_NOT_AGENT_RESULT_V2",
+  "producer": "CHAT_DIRECT_OFFLINE_CANDIDATE_NOT_AGENT_RESULT_V2",
   "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
   "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
   "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
-  "code_test_commit": "15f56336e3ec6ea207f8383d406eaae7810dd257",
-  "report_commit": "76351c6c2eb25007541aff961c222fa8a0551557",
+  "source_code_commit": "ecaff9c62736560d0dc8e4606052c302ae4a4c5a",
+  "report_commit": "a47ba94aa9ae3edb9191ae0f0bf1573ec1d0961b",
   "files": [
     {
       "path": "agent_bridge/scripts/build_user_package.py",
-      "git_blob_sha": "bd45caec9c10734fcebdd736c7495ad28a52d3b7",
-      "sha256": "572e61a9a4cdc440bad1cc046a9b10ed4967cf359ee84b67259c529a7dd218fe",
-      "size_bytes": 8178,
-      "status": "PUBLISHED_CI_PENDING"
+      "sha256": "b3dd9a3ba0fa48f6198efb974514b9a82e47e88f74611947cd4ce5b1f68ad965",
+      "git_blob_sha": "4b0f783b3c085871c67b9becc96042f5c8f5a00e",
+      "size_bytes": 10052,
+      "status": "PUBLISHED_TEST_RUNNING"
     },
     {
       "path": "agent_bridge/tests/test_rc1_package.py",
-      "git_blob_sha": "362b5f67943996d421c5f75d19e8fc472dd621bf",
-      "sha256": "a4592b47077d3beb74d26b7277b1c953f02a54fd7ef7b04b1ee367a95bc9612f",
-      "size_bytes": 6270,
-      "status": "PUBLISHED_CI_PENDING"
+      "sha256": "bcdf71e118e464b6a219a48de4bafec2c0624af38e93df0a385c7bc4235e13d1",
+      "git_blob_sha": "7ef8ead14be62a6b4fb9bc59b2d343315aeeb0a0",
+      "size_bytes": 8247,
+      "status": "PUBLISHED_TEST_RUNNING"
     },
     {
       "path": ".github/workflows/fox2-bridge-f1-offline-ci.yml",
-      "git_blob_sha": "1b8b11f008b5b3dfe50a0f9e25c3c3a5910dcfa8",
       "sha256": "9ba66295d0d72b187555bc2b16e60829f86b68e6b5e6b9ead56e6e7d2b9ad0fe",
+      "git_blob_sha": "1b8b11f008b5b3dfe50a0f9e25c3c3a5910dcfa8",
       "size_bytes": 1686,
-      "status": "PUBLISHED_CI_PENDING"
+      "status": "PUBLISHED_TEST_RUNNING"
     },
     {
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "git_blob_sha": "78095f5d4c42bc0a37190c2248cd5cabe7d4f74d",
-      "sha256": "a4bee88371111a3fb6fb457f9e1e9d3f93e9ad6eae14406a142064ae90d1f617",
-      "size_bytes": 3590,
-      "status": "PUBLISHED_CI_PENDING"
+      "sha256": "bb57de81533b31298353092c579b52987d41dc214ec5d50e8c6a56a8e64c0274",
+      "git_blob_sha": "1fb273d416f7a0a2df823c01e6646b79544900c7",
+      "size_bytes": 4614,
+      "status": "PUBLISHED_TEST_RUNNING"
     }
   ],
   "tests": {
-    "new_cases": 11,
-    "status": "CI_QUEUED",
-    "workflow_run_id": 39465107989
+    "added_case_count": 16,
+    "prior_failed_run_id": 39465107989,
+    "prior_status": "FAIL_SYNTAX_PRESERVED",
+    "current_run_id": 39511855970,
+    "current_status": "PACKAGE_TEST_STEP_PASS_FULL_BRIDGE_RUNNING"
   },
   "package": {
     "status": "NOT_RUN",
-    "archive_sha256": null
+    "sha256": null
   },
+  "F1_positive_authority": "NOT_IMPLEMENTED",
   "installed_adoption": "NOT_RUN",
   "canary": "HOLD",
-  "self_digest": "EXCLUDED_INTENTIONALLY"
+  "self_digest": "EXCLUDED"
 }
