@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -47,7 +48,7 @@ def inspect_build_environment(python: Path) -> dict:
     platform = check.get('platform')
     if (not isinstance(interpreter, str) or
             not isinstance(platform, str) or not platform or
-            not __import__('re').fullmatch(r'3\\.\\d+', interpreter) or
+            not re.fullmatch(r'3\.\d+', interpreter) or
             not check.get('isolated') or
             not 80 <= int(check['setuptools'].split('.')[0]) < 90 or
             not isinstance(versions, dict) or set(versions) != expected or
