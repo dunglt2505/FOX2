@@ -160,7 +160,10 @@ def test_v3_migration_preserves_dispatch_result_and_cursor(tmp_path):
         dispatch_id='unadmitted', payload_hash='a' * 64,
         execution_id='denied', observed_at_utc=now,
     )
-    assert ledger.dispatch_status('unadmitted') is None
+    with ledger.connect() as connection:
+        assert connection.execute(
+            "SELECT COUNT(*) FROM dispatches WHERE dispatch_id='unadmitted'"
+        ).fetchone()[0] == 0
 
     assert ledger.initialize() == SCHEMA_VERSION
     assert ledger.dispatch_status('preserved')['result']['after_head'] == 'b' * 40
