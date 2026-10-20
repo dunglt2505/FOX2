@@ -1,0 +1,37 @@
+{
+  "schema": "FOX2_CHAT_PARTIAL_OUTPUT_OBSERVATION_V1",
+  "attempt_id": "FOX2-BRIDGE-F0-OFFLINE-ATTEMPT06-20261020",
+  "code_producer": "CODEX/gpt-6.1-sol/medium",
+  "publisher_and_test_observer": "CHAT",
+  "agent_exit_code": 1,
+  "failure_class": "MODEL_CAPACITY_AFTER_PRODUCT_EDITS",
+  "code_paths": [
+    "agent_bridge/src/fox2_agent_bridge/desktop.py",
+    "agent_bridge/src/fox2_agent_bridge/ledger.py"
+  ],
+  "code_file_sha256": {
+    "agent_bridge/src/fox2_agent_bridge/desktop.py": "91caba00046ab6f679871cc0fe9b83dde425f25c66110153cf7170b45080b98e",
+    "agent_bridge/src/fox2_agent_bridge/ledger.py": "e77d7cdfb1fb7c0589dba24bee1d28809fcf5e921efdd0ae4c584fd8b8690635"
+  },
+  "tests_total": 244,
+  "tests_passed": 243,
+  "tests_failed": [
+    "test_v3_migration_preserves_dispatch_result_and_cursor"
+  ],
+  "protected_six_cases": "PASS_ALL_6",
+  "protected_test_file": "BYTE_FOR_BYTE_UNCHANGED",
+  "test_exit_code": 1,
+  "regression_status": "FAIL",
+  "f0_acceptance": "REWORK_NOT_ACCEPTED",
+  "agent_result_contract_v2": "NOT_DELIVERED_DO_NOT_SYNTHESIZE_AGENT_MANIFEST",
+  "no_replay": true,
+  "F1": "HOLD",
+  "positive_installed_admission": "HOLD",
+  "local_evidence_sha256": {
+    "chat_focused06.xml": "48c2f7202385d67c07e82a4e006d97259faaba6faef6ff540c0841eb68bc6c98",
+    "chat_focused06.log": "3d39162695e680764dfdc8cb29807bb58835db8f30316016b68787869088a63d",
+    "chat_focused06_summary.json": "2456384e44b61e2f004cb83bbe9971cb63f66a02fcf46bbf8ad727e39d5a0c4d",
+    "launch_outcome06.json": "02d625ee3dde99d8100771faef71b5219d09eca5f9e29c1edcaed6a4365cc516",
+    "agent_events06.jsonl": "e1ee05906c32de3277c8b6d524889c80b32203b1412ff38fbdd469ae351d7105"
+  }
+}

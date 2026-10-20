@@ -1,0 +1,10 @@
+{
+  "canonicalization": "UTF8_NO_BOM_LF_FINAL_NEWLINE_AS_SOURCE; local raw hashes separately in partial_observation06.json",
+  "sha256": {
+    "CHAT_F0_PARTIAL_REVIEW_20261020.md": "f9f0cc5732cc74c2dc962f8658f068e9075a85417428c16125c5dcc79dec63a6",
+    "partial_observation06.json": "7bef0fe179711cd28a5dec0ed7ffc7c8c99d99407eb87ce5533044a8419f6d9e",
+    "chat_focused06_summary.json": "0ad49deded3b4e90c086b3689ef07059a258f7960ce0317be03513e77f1fbfb1",
+    "chat_focused06.xml": "5d01be89a45bed2d3a01811f49117be057b00ffd8d4f340f4407c4931e5d5168",
+    "chat_focused06.log": "3aae4c3dc1961b143131ec42362ffb97730b7ee97efb0ffd27bb1323895077ca"
+  }
+}

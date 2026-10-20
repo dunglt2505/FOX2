@@ -1,0 +1,80 @@
+........................................................................ [ 29%]
+..............................................................F......... [ 59%]
+........................................................................ [ 88%]
+............................                                             [100%]
+================================== FAILURES ===================================
+___________ test_v3_migration_preserves_dispatch_result_and_cursor ____________
+
+tmp_path = WindowsPath('C:/Users/Fox Le/.codex/.chatgpt-projects/g-p-6abcbc976b948191a760dbb0c316a64d/work/f0_offline_20261020/repo/agent_bridge/test_artifacts/bd43dfac503b46a1bde2853c396241d4')
+
+    def test_v3_migration_preserves_dispatch_result_and_cursor(tmp_path):
+        ledger = SQLiteLedger(tmp_path/'old.db')
+        with ledger.connect() as connection:
+            connection.execute('CREATE TABLE bridge_meta (key TEXT PRIMARY KEY,value TEXT NOT NULL)')
+            for version in (1,2,3):
+                for sql in MIGRATIONS[version]:
+                    connection.execute(sql)
+        ledger.claim_dispatch(dispatch_id='preserved', payload_hash='a'*64, execution_id='e', observed_at_utc=utc_now())
+>       ledger.finish_execution(dispatch_id='preserved', execution_id='e', dispatch_state='PUSHED_UNREVIEWED',
+                                execution_state='PUSHED_UNREVIEWED', finished_at_utc=utc_now(), result={'after_head':'b'*40})
+
+tests\test_desktop.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x000001EFE2946AD0>
+
+    def finish_execution(
+        self,
+        *,
+        dispatch_id: str,
+        execution_id: str,
+        dispatch_state: str,
+        execution_state: str,
+        finished_at_utc: str,
+        result: dict[str, object] | None = None,
+        error_code: str | None = None,
+        error_message: str | None = None,
+    ) -> None:
+        from .logging_config import redact_context
+        result_json = (
+            json.dumps(redact_context(result), ensure_ascii=True, sort_keys=True)
+            if result is not None
+            else None
+        )
+        try:
+            with self.connect() as connection:
+                connection.execute("BEGIN IMMEDIATE")
+                updated_dispatch = connection.execute(
+                    """
+                    UPDATE dispatches
+                    SET state = ?, updated_at_utc = ?
+                    WHERE dispatch_id = ?
+                    """,
+                    (dispatch_state, finished_at_utc, dispatch_id),
+                )
+                updated_execution = connection.execute(
+                    """
+                    UPDATE executions
+                    SET state = ?, finished_at_utc = ?, result_json = ?,
+                        error_code = ?, error_message = ?
+                    WHERE execution_id = ? AND dispatch_id = ?
+                    """,
+                    (
+                        execution_state,
+                        finished_at_utc,
+                        result_json,
+                        error_code,
+                        redact_context(error_message),
+                        execution_id,
+                        dispatch_id,
+                    ),
+                )
+                if updated_dispatch.rowcount != 1 or updated_execution.rowcount != 1:
+>                   raise DatabaseError("dispatch or execution row disappeared before completion")
+E                   fox2_agent_bridge.errors.DatabaseError: dispatch or execution row disappeared before completion
+
+src\fox2_agent_bridge\ledger.py:498: DatabaseError
+- generated xml file: C:\Users\Fox Le\.codex\.chatgpt-projects\g-p-6abcbc976b948191a760dbb0c316a64d\work\f0_offline_20261020\chat_focused06.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_desktop.py::test_v3_migration_preserves_dispatch_result_and_cursor
+1 failed, 243 passed in 129.51s (0:02:09)
