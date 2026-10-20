@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "attempt": "FOX2-BRIDGE-RC1-INTEGRATED-RECOVERY-20261020-ATTEMPT-001",
+  "status": "PREEXEC_BLOCKED",
+  "files": [
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "sha256": "66316ac94afe5187bd7051f2bbfed61b29bff41ff8abaa353835eddc09229cb8",
+      "size_bytes": 6491,
+      "status": "BLOCKED"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/preflight_blocked.json",
+      "sha256": "4af94df641a6debc991c22403b5818c50b7e04adeab605809833161b7a428b97",
+      "size_bytes": 1672,
+      "status": "OBSERVED_TOOL_START_FAILURE"
+    }
+  ],
+  "tests": {
+    "status": "NOT_RUN",
+    "executed": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": null
+  },
+  "package": {
+    "status": "NOT_RUN",
+    "archive_sha256": null
+  },
+  "git": {
+    "commit": "NOT_RUN",
+    "push": "NOT_RUN",
+    "remote_readback": "NOT_RUN"
+  },
+  "self_digest": "Excluded intentionally; manifest hash is reported outside the file"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "attempt": "FOX2-BRIDGE-RC1-INTEGRATED-RECOVERY-20261020-ATTEMPT-001",
+  "status": "PREEXEC_BLOCKED",
+  "observed_date": "2026-10-20",
+  "observations": [
+    {
+      "action": "Read mandatory skills using exec_command",
+      "result": "TOOL_START_FAILED",
+      "error": "Failed to create unified exec process: helper_unknown_error: setup refresh had errors",
+      "process_started": false
+    },
+    {
+      "action": "Read task and prompt with filesystem API",
+      "result": "READ_COMPLETE",
+      "immutable_git_binding": "NOT_VERIFIED",
+      "task_local_sha256": "b411c68dbb545c3cd91b709452f56021ede842498c9501ff7005a687365189f9",
+      "prompt_local_sha256": "91e799d7dbe9e482768bf7edb74dc7205f2a9e77bca8bd90cbeee8bdd323a473"
+    },
+    {
+      "action": "Inspect task handoff directory",
+      "result": "Only prompt.md and task.md observed; no launcher receipt in this directory"
+    },
+    {
+      "action": "Inspect result directory before report creation",
+      "result": "Directory absent"
+    }
+  ],
+  "limits": [
+    "No host launcher verification established",
+    "No process-execution fallback attempted",
+    "Filesystem API used only for read-only inspection and authorized report creation",
+    "Attempt consumption and other writers UNKNOWN; do not infer safe replay",
+    "Failure establishes tool startup failure, not absence of OS retirement policy or model unavailability"
+  ],
+  "execution": {
+    "code_mutation": "NOT_RUN",
+    "tests": "NOT_RUN",
+    "package_build": "NOT_RUN",
+    "git_commit": "NOT_RUN",
+    "git_push": "NOT_RUN",
+    "remote_readback": "NOT_RUN",
+    "installed_actions": "NOT_RUN"
+  }
+}
