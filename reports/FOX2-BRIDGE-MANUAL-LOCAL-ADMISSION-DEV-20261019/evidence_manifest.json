@@ -1,0 +1,66 @@
+{
+  "attempt_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-OFFLINE-ATTEMPT-01",
+  "created_utc": "2026-10-20T03:07:37.556853+00:00",
+  "status": "BLOCKED_BEFORE_IMPLEMENTATION",
+  "delivery_status": "DELIVERY_BLOCKED",
+  "code_start_sha": "23afe56675b9b3698d47c192d4e22b62c82be435",
+  "code_branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+  "route": "NATIVE_LOCAL_CODEX_CLI_OFFLINE_DEV",
+  "runtime": {
+    "requested_model": "gpt-6.1-sol",
+    "observed_model": null,
+    "requested_effort": "medium",
+    "observed_effort": null,
+    "environment_sandbox": "danger-full-access",
+    "environment_approval_policy": "never"
+  },
+  "blockers": [
+    {
+      "id": "CHAT_ADMISSION_UNKNOWN",
+      "detail": "No CHAT final assignment admission/readback binding the accepted immutable prompt commit, blob and SHA-256 was supplied. Independent Git byte verification does not establish this admission."
+    },
+    {
+      "id": "RUNTIME_MODEL_EFFORT_UNKNOWN",
+      "detail": "The current session has no observed evidence establishing exact gpt-6.1-sol with medium thinking. Requested settings and historical PreExec are not current runtime evidence."
+    },
+    {
+      "id": "ONE_WRITER_UNKNOWN",
+      "detail": "Absence of a competing writer or overlapping native attempt has not been independently established. Clean Git status and absent result files do not prove it."
+    }
+  ],
+  "checks": {
+    "initial_worktree_clean": "PASS",
+    "local_branch_head": "PASS",
+    "origin_code_head": "PASS",
+    "immutable_task_bytes": "PASS",
+    "immutable_prompt_bytes": "OBSERVED_NOT_CHAT_ACCEPTED",
+    "chat_admission": "UNKNOWN",
+    "one_writer": "UNKNOWN",
+    "current_exact_model_effort": "UNKNOWN",
+    "remaining_source_authority_checks": "NOT_RUN",
+    "implementation": "NOT_RUN",
+    "tests": "NOT_RUN"
+  },
+  "counts": {
+    "blocking_gates": 3,
+    "test_pass": 0,
+    "test_fail": 0,
+    "test_suites_not_run": 4
+  },
+  "files": [
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "sha256": "6b2d3a6c3fec90fef774f0b3476274269f696c63dc6a48a18a4d7c8e4897285e"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "sha256": "39d1f7f01df64975e955852ddad4cc989398a8c0a6e4a328fb12ae65700e19cd"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+      "sha256": "b3d94eef5c36a5a25612dbf8340e2ff3ac254118fcf9deb0d96b7c1f0c10b735"
+    }
+  ],
+  "manifest_hash_note": "No self-hash or result commit hash is included.",
+  "no_replay": "No retry or reissue; CHAT must reconcile this inspection session and attempt allowance."
+}

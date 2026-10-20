@@ -1,0 +1,38 @@
+{
+  "attempt_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-OFFLINE-ATTEMPT-01",
+  "scope": "Blocking report artifacts only; no code/test hunks",
+  "hunks": [
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "hunk": "entire new file",
+      "classification": "REQUESTED",
+      "reason": "Pinned early-STOP and blocked-result evidence contract",
+      "consumer": "CHAT independent reconciliation and result intake",
+      "verification": "JSON parse for JSON files; exact four-path allowlist and diff check"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json",
+      "hunk": "entire new file",
+      "classification": "REQUESTED",
+      "reason": "Pinned early-STOP and blocked-result evidence contract",
+      "consumer": "CHAT independent reconciliation and result intake",
+      "verification": "JSON parse for JSON files; exact four-path allowlist and diff check"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "hunk": "entire new file",
+      "classification": "REQUESTED",
+      "reason": "Pinned early-STOP and blocked-result evidence contract",
+      "consumer": "CHAT independent reconciliation and result intake",
+      "verification": "JSON parse for JSON files; exact four-path allowlist and diff check"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+      "hunk": "entire new file",
+      "classification": "REQUESTED",
+      "reason": "Pinned early-STOP and blocked-result evidence contract",
+      "consumer": "CHAT independent reconciliation and result intake",
+      "verification": "JSON parse for JSON files; exact four-path allowlist and diff check"
+    }
+  ]
+}

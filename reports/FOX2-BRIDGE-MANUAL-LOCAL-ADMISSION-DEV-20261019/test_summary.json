@@ -1,0 +1,15 @@
+{
+  "attempt_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-OFFLINE-ATTEMPT-01",
+  "status": "NOT_RUN",
+  "passed": 0,
+  "failed": 0,
+  "skipped": 0,
+  "not_run_suites": [
+    "agent_bridge/tests/test_e2e_runner.py",
+    "agent_bridge/tests/test_project_dictionary.py",
+    "agent_bridge/tests/test_desktop.py",
+    "agent_bridge/tests/test_ops_runner.py"
+  ],
+  "reason": "Mandatory admission/runtime/writer gates unresolved; no pytest invoked.",
+  "acceptance_status": "NOT_RUN"
+}
