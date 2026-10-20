@@ -224,12 +224,16 @@
         {
           "commit": "f0fc3e9aa1a70ca396f4c1c381dd05af1c79c59a",
           "path": "docs/roadmap/FOX2_CODEX_WINDOWS_SANDBOX_DIAGNOSTIC_V2_CHAT_INTAKE_20261020.md"
+        },
+        {
+          "commit": "4925cfc968a9ed56c48b94d44b81b74f59f5c5c4",
+          "path": "docs/roadmap/FOX2_CODEX_FUNCTIONAL_RECOVERY_V2_CHAT_INTAKE_20261020.md"
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
       "blocker": "F1_DURABLE_LEGACY_RETIREMENT_NOT_VERIFIED;_INSTALLED_MANUAL_LOCAL_POSITIVE_ADMISSION_NOT_RUN;_SEVEN_FINAL_CANARY_GATES_NOT_RUN;_ATTEMPT06_AGENT_RESULT_V2_NOT_DELIVERED_HISTORICAL_CONSUMED_NO_REPLAY",
-      "as_of": "2026-10-20T16:22:48.8745258Z",
-      "next_safe_action": "ONE_CONTROLLED_NEUTRAL_DIAGNOSTIC_COMPARE_UNELEVATED_SANDBOX_NO_MODEL_THEN_ONLY_IF_PASS_RUN_PINNED_CODEX_EXEC_READONLY_SHELL;_NO_PERSISTENT_CONFIG_NO_VERSION_GATE;_THEN_FRESH_BUILD_PREEXEC_IF_SECURE_CAPABILITY_CONFIRMED",
+      "as_of": "2026-10-20T16:28:42.6971614Z",
+      "next_safe_action": "ONE_NEUTRAL_WORKSPACE_WRITE_BOUNDARY_TEST_WITH_ALLOWED_AND_FORBIDDEN_DEDICATED_FIXTURES;_PASS_REQUIRED_FOR_NEW_CODEX_CODING_ROUTE;_THEN_FRESH_SOURCE_PREEXEC_AND_PROMPT_BUILDER_NEW_WHOLE_WP_ATTEMPT;_ATTEMPT001_NO_REPLAY",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -384,6 +388,29 @@
         "next_test": "SESSION_ONLY_UNELEVATED_WINDOWS_SANDBOX_FUNCTIONAL_AB_TEST_WITH_NO_BRIDGE_CODE_ACTION_AND_EXPLICIT_WEAKER_ISOLATION_NOTICE",
         "security_limit": "UNELEVATED_SMOKE_PASS_NOT_CODEX_CODING_AUTHORIZATION",
         "attempt001": "CONSUMED_NO_REPLAY"
+      },
+      "codex_host_functional_recovery_v2": {
+        "schema": "FOX2_CODEX_FUNCTIONAL_RECOVERY_V2",
+        "observed_utc": "2026-10-20T16:28:42.6971614Z",
+        "source": "OWNER_REPORTED_NEUTRAL_SMOKE",
+        "mode": "TEMPORARY_UNELEVATED_DIAGNOSTIC",
+        "cli_version": "0.162.1",
+        "version_gate": "NOT_REQUIRED",
+        "pinned_model_requested": "gpt-6.1-sol",
+        "pinned_thinking_requested": "medium",
+        "direct_sandbox_exit": 0,
+        "direct_pass": true,
+        "agent_cli_exit": 0,
+        "command_events": 1,
+        "successful_events": 1,
+        "marker_observed": true,
+        "turn_completed": true,
+        "setup_failure": false,
+        "scratch_files_created": 0,
+        "verdict": "PASS_NEUTRAL_SHELL_ONLY",
+        "workspace_write_boundary": "NOT_VERIFIED",
+        "coding_permission": "NOT_GRANTED",
+        "receipt_commit": "4925cfc968a9ed56c48b94d44b81b74f59f5c5c4"
       }
     }
   ]
