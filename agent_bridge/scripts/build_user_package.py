@@ -50,6 +50,38 @@ def build(output: Path, pydef inspect_build_environment(python: Path) -> dict:
     return check
 
 
+def source_git_commit() -> str:
+    """Bind package provenance to a clean, checked-out Git source."""
+    import re
+    repository = ROOT.parent
+
+    def git(*args: str):
+        return subprocess.run(
+            ['git', '-C', str(repository), *args],
+            capture_output=True, text=True, check=False,
+        )
+
+    identity = git('rev-parse', '--verify', 'HEAD')
+    if identity.returncode or not re.fullmatch(r'[0-9a-f]{40}', identity.stdout.strip()):
+        raise ValueError('an immutable Git source commit is required to package Bridge')
+
+    status = git('status', '--porcelain', '--untracked-files=all', '--',
+                 'agent_bridge/src', 'agent_bridge/scripts', 'agent_bridge/desktop_app')
+    if status.returncode:
+        raise ValueError('cannot verify package source worktree')
+    # These are excluded from packaged Python sources / WPF source inventory.
+    excluded = ('/__pycache__/', '/.pytest_cache/', '/bin/', '/obj/',
+                '/publish/', '/build/', '/dist/', '/.venv/', '/.build-venv/')
+    for line in status.stdout.splitlines():
+        path = line[3:].replace('\\', '/')
+        if any(item in path for item in excluded) or path.endswith(('.pyc', '.pyo')):
+            continue
+        if '.egg-info/' in path:
+            continue
+        raise ValueError('package source worktree has uncommitted code')
+    return identity.stdout.strip()
+
+
 def build(output: Path, python: Path) -> dict:
     check = inspect_build_environment(python)
 yDirectory(prefix='fox2-package-') as td:
@@ -95,6 +127,8 @@ yDirectory(prefix='fox2-package-') as td:
                     'dictionary_version':registry.DICTIONARY_VERSION,
                     'desktop':'NET8_WPF_SELF_CONTAINED_WIN_X64',
                     'source_sha256':sha(json.dumps(source_files,sort_keys=True).encode()),
+                    'source_git_commit':source_git_commit(),
+                    'source_files':source_files,
                     'dependencies':check['dependencies'],
                     'files':{n:sha(b) for n,b in files.items()}}
         files['manifest.json'] = (json.dumps(manifest,sort_keys=True,indent=2)+'\n').encode()
