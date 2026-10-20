@@ -120,9 +120,9 @@ def test_package_builder_denies_unverified_or_incomplete_build_environment(
     "status_lines, expected",
     [
         ("", "PASS"),
-        ("?? agent_bridge/src/fox2_agent_bridge/new_untracked.py\\n", "DENY"),
-        (" M agent_bridge/scripts/build_user_package.py\\n", "DENY"),
-        ("?? agent_bridge/src/fox2_agent_bridge/__pycache__/thing.pyc\\n", "PASS"),
+        ("?? agent_bridge/src/fox2_agent_bridge/new_untracked.py\n", "DENY"),
+        (" M agent_bridge/scripts/build_user_package.py\n", "DENY"),
+        ("?? agent_bridge/src/fox2_agent_bridge/__pycache__/thing.pyc\n", "PASS"),
     ],
 )
 def test_package_source_commit_provenance_rejects_dirty_packaged_code(
@@ -139,7 +139,7 @@ def test_package_source_commit_provenance_rejects_dirty_packaged_code(
         observed.append(tuple(argv))
         assert kwargs["capture_output"] is True
         if "rev-parse" in argv:
-            return SimpleNamespace(returncode=0, stdout=fixed + "\\n")
+            return SimpleNamespace(returncode=0, stdout=fixed + "\n")
         if "status" in argv:
             return SimpleNamespace(returncode=0, stdout=status_lines)
         raise AssertionError("unexpected git operation")
