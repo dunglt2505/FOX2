@@ -77,3 +77,37 @@
 **STOP**: no installed retirement/edit, task toggle, process control, live SQLite reads/writes, manual F0 flag changes, package install, Agent start, replay, Canary, COMPAT001, main/merge/provider/broker/LIVE. No retrospective Agent Result v2 acceptance.
 
 **Skill coverage:** source-resolver, governance-preflight, feature-certification, status-roadmap, agent-route-runtime, execution-recovery, result-review = REQUIRED/APPLIED; agent-prompt-builder N/A because no new executable Agent handoff.
+
+## 6. Direct source-to-install identity and consumer K1 analysis — same candidate
+
+### 6.1 Package/source mapping chain (not yet HOST_ATTESTED)
+
+The actual source files were read at `611ec26c28484de740e963d86de6b00946f1492d`:
+
+1. `scripts/build_user_package.py`, blob `bae3b6c1ee89c9005f46f3afe3ac19a377123ffa`: builds a wheel + dependency wheels + Desktop payload and desktop scripts. Manifest `source_sha256` hashes `json.dumps(source_files,sort_keys=True)`, where source_files maps shipped source/C#/XAML/CSProj paths to byte SHA-256; this **is not** a Git object hash nor intrinsically a Git commit binding. Manifest `files` maps package members to hashes; built archive itself has another SHA-256.
+2. `installation.py`, blob `9e7c1d07cce08536e5ca43a598632cff621c966c`: `verified_package()` checks an **independently supplied** whole-archive digest and file hashes; `install()` writes `versions/<package_sha256>/receipt.json`, `current.json {package_sha256,source_sha256}`, `launch.ps1` and isolated Python wheel runtime under current root. The install-time OS lock protects only the **current-root** `data/bridge.lock`, not retired legacy root.
+3. `launcher.py`, blob `0c2d8c7c737239521c4e32a6511f447c5634796f`, checks that the Python interpreter is within the version directory, then spawns **worker first** and Desktop UI later. Seeing `FOX2.Bridge.Desktop.exe` running is not evidence that the worker is paused/safe, and a failure to launch UI does not undo the earlier worker spawn. `desktop_launcher.ps1`, blob `1db524e98324893076322fc1b87a59972998a4c8`, may call mutating setup/control before launcher.
+4. Host-only bounded proof still needed: collect privately canonical installed-root pointer **identities** (not raw config); check `current.package_sha256 == versions directory name == receipt.package_sha256`, `current.source_sha256 == receipt.manifest.source_sha256`; validate per-payload script/wheel/desktop hashes against `receipt.manifest.files`; match an **independently trusted package-archive SHA** and build manifest mapped to approved Git snapshot and compare relevant *installed site-packages Python module bytes* with exact approved wheel contents, accounting for packaging metadata/normalization. A self-consistent pointer/receipt is NOT independent trust proof.
+5. No published Git/archive/release receipt currently ties the Owner-observed two executable digests to source `611ec26...` or any approved F1 successor. `F1-I1=NOT_ATTESTED` until host and independent source mapping complete. Do not send raw `current.json`, private credentials or local paths to public Git.
+
+### 6.2 Exact consumer impact and minimum candidate scope
+
+| Consumer | Static source finding | F1 candidate K1 classification |
+|---|---|---|
+| `ledger.py::initialize` | Installed-root detection forces cross-root UNKNOWN even on a direct initializer call; schema v5 stores `claim_authority` | **NECESSARY_DEPENDENCY**; must add trusted versioned transition while preserving UNKNOWN/rollback |
+| `ledger.py::claim_dispatch` | Installed-root path unconditionally returns FALSE before BEGIN IMMEDIATE; DB `SINGLE_ROOT` alone cannot bypass | **REQUESTED**; only enable under verified retirement authority and atomic pre-claim guard, never config-only |
+| `desktop.py::initialize_runtime` | Calls initialize with UNKNOWN for all configured roots and may copy old DB once before startup | **NECESSARY_DEPENDENCY**; cannot unconditionally undo evidence-based positive transition nor skip failed legacy state |
+| `app.py::BridgeApp.start` | Takes current root lock, calls desktop initialization then `ledger.initialize()` again, runs reconciliation | **CONSUMER_REVIEW_REQUIRED**; prove repeated init cannot undo or spuriously grant authority; source edit conditional |
+| `e2e_runner.py::run_once` | Calls shared claim with `honor_controls=True` after resolving source/task/prompt but before Agent spawn | **CONSUMER_TEST_REQUIRED**; ensure denial before spawn, source edit only if material path requires |
+| `ops_runner.py::run_next` | `can_claim()` before invoking shared E2E runner | **CONSUMER_TEST_REQUIRED**; must not let other paths bypass trusted ledger gate |
+| `launcher.py` + `desktop_launcher.ps1` | Spawns worker before GUI; status/setup may mutate; current pointer chooses version | **HOST_INSTALL_AND_CONSUMER_REVIEW**; do not use launcher as read-only probe, edit conditional |
+| `installation.py` / `build_user_package.py` | Archive digest and manifest are source/package identity components, separate from authorized Git commit | **PROVENANCE_VERIFY** first; source/installer edits only with proven validator gap and new exact K1 |
+| `test_runtime_ledger.py`, `test_desktop.py` | Existing offline denial coverage | **REQUESTED** F1 authority transition/no-replay/rollback negative and simulated positive tests |
+| `test_e2e_runner.py`, `test_installation.py`, RC1 tests | Protected cross-root negatives, installer/runtime consumers | **PRESERVE/REGRESSION**; exact edit allowlist only after new task/impact approval |
+
+**No new F1 coding allowlist is issued by this document.** The previous Attempt06 ten-path allowlist is immutable and consumed; F1 must get a new eligible task, source-set, prompt-builder identity and permission/PreExec/one-writer assessment before executable source changes. Tests and source review can be prepared without an Agent.
+
+### 6.3 Code-only readiness decision (without installed admission)
+
+`F1_D2_OFFLINE_IMPLEMENTATION_CONTRACT = READY_FOR_BOUNDED_FUTURE_ASSIGNMENT_ONLY` subject to route gating; `F1_D2_CODE = NOT_IMPLEMENTED`, `F1_POSITIVE_RUNTIME = HOLD`. Required precode acceptance is precisely specified, but it grants no Agent/model un-HOLD. The Owner-held `gpt-6.1-sol/medium` remains on HOLD. Safe CHAT analysis has reached the host-boundary: any proving of durable legacy restart denial, installed active package integrity, and real worker lease requires actual authorized host evidence.
+
