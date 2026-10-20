@@ -198,8 +198,8 @@ class SQLiteLedger:
         try:
             # Never mint SINGLE_ROOT just because a caller bypassed desktop.
             # Resolving both sides also covers path aliases to the installed DB.
-            installed_db = (BRIDGE_ROOT / "data" / "bridge.db").resolve()
-            installed_current_root = self.database_path.resolve() == installed_db
+            installed_root = BRIDGE_ROOT.resolve()
+            installed_current_root = self.database_path.resolve().is_relative_to(installed_root)
             cross_root_authority_unknown |= installed_current_root
             self.database_path.parent.mkdir(parents=True, exist_ok=True)
             with self.connect() as connection:
@@ -413,6 +413,11 @@ class SQLiteLedger:
         honor_controls: bool = False,
     ) -> bool:
         """Atomically claim a dispatch exactly once and create its execution row."""
+        # The installed root is UNKNOWN until separately fenced. A caller may
+        # bypass initialize(), including against an older SINGLE_ROOT ledger.
+        # Verify at claim time; no metadata in that root can authorize a spawn.
+        if self.database_path.resolve().is_relative_to(BRIDGE_ROOT.resolve()):
+            return False
         try:
             with self.connect() as connection:
                 connection.execute("BEGIN IMMEDIATE")
