@@ -2,8 +2,12 @@ from __future__ import annotations
 
 import sqlite3
 import sys
+import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from types import SimpleNamespace
+
+import pytest
 
 from fox2_agent_bridge.ledger import MIGRATIONS, SCHEMA_VERSION, SQLiteLedger, utc_now
 from fox2_agent_bridge.models import AuthStatus
@@ -339,3 +343,146 @@ def test_direct_current_root_initialization_cannot_grant_single_root_authority(
         dispatch_id="direct-current", payload_hash="a" * 64,
         execution_id="blocked-after-reopen", observed_at_utc=utc_now(),
     )
+
+
+def test_existing_single_root_metadata_cannot_admit_direct_installed_claim(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    """Existing v5 SINGLE_ROOT state cannot authorize a direct installed claim."""
+    root = tmp_path / "installed-current-root"
+    ledger = SQLiteLedger(root / "data" / "bridge.db")
+    assert ledger.initialize() == SCHEMA_VERSION  # Seed an older local-only authority.
+    with ledger.connect() as connection:
+        assert connection.execute(
+            "SELECT value FROM bridge_meta WHERE key='claim_authority'"
+        ).fetchone()["value"] == "SINGLE_ROOT"
+
+    monkeypatch.setattr("fox2_agent_bridge.ledger.BRIDGE_ROOT", root)
+    assert not SQLiteLedger(ledger.database_path).claim_dispatch(
+        dispatch_id="existing-single-root", payload_hash="a" * 64,
+        execution_id="must-not-spawn", observed_at_utc=utc_now(),
+    )
+    with ledger.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 0
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+
+
+def test_installed_root_alternate_db_and_normalized_alias_fail_closed(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    """Customized DB within the installed root cannot mint or use authority."""
+    root = tmp_path / "installed-current-root"
+    alternate = root / "data" / "alternate-bridge.db"
+    ledger = SQLiteLedger(alternate)
+    ledger.initialize()  # Ordinary single-root fixture before installed-root binding.
+    monkeypatch.setattr("fox2_agent_bridge.ledger.BRIDGE_ROOT", root)
+
+    # Both canonical path and noncanonical relative path must be refused.
+    alias = root / "data" / ".." / "data" / "alternate-bridge.db"
+    for candidate in (alternate, alias):
+        probe = SQLiteLedger(candidate)
+        assert not probe.claim_dispatch(
+            dispatch_id="alias-identity", payload_hash="a" * 64,
+            execution_id="blocked-alias", observed_at_utc=utc_now(),
+        )
+        assert probe.initialize() == SCHEMA_VERSION
+        assert not probe.claim_dispatch(
+            dispatch_id="alias-identity", payload_hash="a" * 64,
+            execution_id="blocked-after-init", observed_at_utc=utc_now(),
+        )
+
+    with ledger.connect() as connection:
+        assert connection.execute(
+            "SELECT value FROM bridge_meta WHERE key='claim_authority'"
+        ).fetchone()["value"] == "DENY_CROSS_ROOT_UNKNOWN"
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+
+
+def test_denied_ledger_rolls_back_abrupt_precommit_process_exit(
+    tmp_path: Path,
+) -> None:
+    """Synthetic child dies mid-SQLite transaction; no uncommitted claim survives."""
+    database = tmp_path / "crash-before-commit.db"
+    ledger = SQLiteLedger(database)
+    ledger.initialize(cross_root_authority_unknown=True)
+    script = (
+        "import os,sqlite3,sys;"
+        "db=sqlite3.connect(sys.argv[1]);"
+        "db.execute('BEGIN IMMEDIATE');"
+        "db.execute(\"INSERT INTO dispatches (dispatch_id,state,created_at_utc,updated_at_utc) "
+        "VALUES ('crash-probe','CLAIMED','now','now')\");"
+        "os._exit(71)"
+    )
+    outcome = subprocess.run(
+        [sys.executable, "-c", script, str(database)],
+        capture_output=True, text=True, timeout=20, check=False,
+    )
+    assert outcome.returncode == 71, outcome.stderr
+    reopened = SQLiteLedger(database)
+    assert reopened.initialize() == SCHEMA_VERSION
+    assert not reopened.claim_dispatch(
+        dispatch_id="crash-probe", payload_hash="a" * 64,
+        execution_id="no-replay", observed_at_utc=utc_now(),
+    )
+    with reopened.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 0
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+        assert connection.execute(
+            "SELECT value FROM bridge_meta WHERE key='claim_authority'"
+        ).fetchone()["value"] == "DENY_CROSS_ROOT_UNKNOWN"
+
+
+def test_denied_e2e_dispatch_never_reaches_agent_or_result_preparation(
+    bridge_config, tmp_path: Path, monkeypatch,
+) -> None:
+    """F0 current-root denial must stop before *any* adapter/spawn checkpoint."""
+    from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
+    from fox2_agent_bridge.errors import ReplayBlocked
+
+    ledger = SQLiteLedger(bridge_config.database_path)
+    ledger.initialize(cross_root_authority_unknown=True)
+    identity = "FOX2-F0-NO-SPAWN"
+    calls = []
+
+    class PassiveTransport:
+        def query_control_sha(self, branch):
+            return "a" * 40
+
+        def fetch_control(self, branch, commit_sha):
+            return None
+
+        def read_dispatch_blob(self, commit_sha, dispatch_path):
+            return b"{}", "b" * 40
+
+    runner = BridgeE2ERunner(
+        bridge_config, ledger, transport=PassiveTransport(),
+        can_claim=lambda: True,
+    )
+    monkeypatch.setattr(
+        "fox2_agent_bridge.e2e_runner.DispatchPoller",
+        lambda *args, **kwargs: SimpleNamespace(
+            poll_once=lambda: SimpleNamespace(status="NO_CHANGE")
+        ),
+    )
+    monkeypatch.setattr(runner, "_validate_dispatch",
+        lambda *args, **kwargs: {
+            "dispatch_id": identity,
+            "_payload_sha256": "c" * 64,
+            "_agent_product": "CODEX",
+        })
+    monkeypatch.setattr(runner, "_resolve_worktree",
+        lambda payload: (tmp_path / "never-create-worktree", "d" * 40))
+    monkeypatch.setattr(runner, "_resolve_prompt", lambda payload: "fixture")
+
+    def forbidden(*args, **kwargs):
+        calls.append("POST_CLAIM")
+        pytest.fail("denied claim must never prepare or spawn an Agent")
+
+    monkeypatch.setattr(runner, "_prepare_required_parents", forbidden)
+    with pytest.raises(ReplayBlocked):
+        runner.run_once(dispatch_path="fixture/blocked-dispatch.json")
+
+    assert calls == []
+    with ledger.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 0
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
