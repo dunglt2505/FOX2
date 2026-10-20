@@ -163,3 +163,57 @@ def test_package_source_commit_fails_closed_on_unverified_git(monkeypatch):
     )
     with pytest.raises(ValueError, match="immutable Git source commit"):
         module.source_git_commit()
+
+
+def _wheel_source_fixture(tmp_path, *, omit=None, corrupt=None):
+    """Only throwaway wheel/module bytes; no user installation is involved."""
+    staged = tmp_path / "stage"
+    source = staged / "src" / "fox2_agent_bridge"
+    source.mkdir(parents=True)
+    expected = {
+        "__init__.py": b"",
+        "ledger.py": b"# durable ledger\n",
+        "desktop.py": b"# runtime defaults deny\n",
+    }
+    for name, data in expected.items():
+        (source / name).write_bytes(data)
+    wheel = tmp_path / "fox2_agent_bridge-0.0.0-py3-none-any.whl"
+    with zipfile.ZipFile(wheel, "w") as archive:
+        for name, data in expected.items():
+            if name != omit:
+                archive.writestr(
+                    "fox2_agent_bridge/" + name,
+                    b"altered bytes" if name == corrupt else data,
+                )
+    return staged, wheel
+
+
+def test_package_wheel_modules_match_staged_source_hashes(tmp_path):
+    import hashlib
+
+    module = _load_offline_package_builder()
+    source, wheel = _wheel_source_fixture(tmp_path)
+    hashes = module.verify_wheel_source_modules(wheel, source)
+
+    assert hashes["fox2_agent_bridge/ledger.py"] == hashlib.sha256(
+        (source / "src/fox2_agent_bridge/ledger.py").read_bytes()
+    ).hexdigest()
+    assert set(hashes) == {
+        "fox2_agent_bridge/__init__.py",
+        "fox2_agent_bridge/ledger.py",
+        "fox2_agent_bridge/desktop.py",
+    }
+
+
+@pytest.mark.parametrize(
+    "variant, name",
+    [
+        ("omit", "ledger.py"),
+        ("corrupt", "desktop.py"),
+    ],
+)
+def test_package_wheel_disagrees_with_source_fails_closed(tmp_path, variant, name):
+    module = _load_offline_package_builder()
+    source, wheel = _wheel_source_fixture(tmp_path, **{variant: name})
+    with pytest.raises(ValueError, match="wheel module"):
+        module.verify_wheel_source_modules(wheel, source)
