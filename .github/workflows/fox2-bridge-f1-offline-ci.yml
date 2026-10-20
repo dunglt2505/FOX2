@@ -64,3 +64,39 @@ jobs:
           python -m pytest -q agent_bridge/tests/test_rc1_package.py
       - name: Full current-source Bridge regression
         run: python -m pytest -q agent_bridge/tests
+      - name: Install pinned .NET 8 SDK for ephemeral Windows package build
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build one quarantined source-bound Windows package (not release)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $venv = Join-Path $env:RUNNER_TEMP 'fox2-build-venv'
+          py -3.13 -m venv $venv
+          if ($LASTEXITCODE -ne 0) { throw 'STOP: isolated build venv unavailable' }
+          $buildPython = Join-Path $venv 'Scripts/python.exe'
+          & $buildPython -m pip install --disable-pip-version-check 'setuptools>=80,<90' 'wheel>=0.45,<1' 'build>=1,<2' 'jsonschema>=4,<5' 'attrs>=23,<27' 'referencing>=0.35,<1' 'rpds-py>=0.25,<1' 'jsonschema-specifications>=2024,<2030'
+          if ($LASTEXITCODE -ne 0) { throw 'STOP: isolated build dependencies unavailable' }
+          $archive = Join-Path $env:RUNNER_TEMP 'FOX2_RC1_F0_DENY_CI_QUARANTINE.zip'
+          & $buildPython agent_bridge/scripts/build_user_package.py --output $archive --build-python $buildPython
+          if ($LASTEXITCODE -ne 0) { throw 'STOP: package build failed' }
+          $receipt = "$archive" -replace '\\.zip, '.json'
+          if (!(Test-Path -LiteralPath $archive) -or !(Test-Path -LiteralPath $receipt)) {
+            throw 'STOP: package or receipt missing'
+          }
+          $json = Get-Content -LiteralPath $receipt -Raw | ConvertFrom-Json
+          $actual = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -cne $json.sha256) { throw 'STOP: archive SHA mismatch' }
+          $head = (git rev-parse HEAD).Trim()
+          if ($json.manifest.source_git_commit -cne $head) { throw 'STOP: package source commit mismatch' }
+          if ($json.manifest.files.Count -lt 6) { throw 'STOP: incomplete package file inventory' }
+          if (!$json.manifest.wheel_source_modules.'fox2_agent_bridge/ledger.py') {
+            throw 'STOP: ledger wheel provenance missing'
+          }
+          if (!$json.manifest.wheel_source_modules.'fox2_agent_bridge/desktop.py') {
+            throw 'STOP: desktop wheel provenance missing'
+          }
+          Write-Host "CI_QUARANTINED_F0_DENY_PACKAGE_SHA256=$actual"
+          Write-Host "CI_QUARANTINED_SOURCE_COMMIT=$head"
+          Write-Host 'NO_INSTALL_NO_RELEASE_NO_CANARY_NO_POSITIVE_AUTHORITY'
