@@ -58,6 +58,7 @@ def _load_offline_package_builder():
 def _isolated_environment_fixture(**overrides):
     info = {
         "isolated": True, "setuptools": "80.9.0", "wheel": "0.46.0",
+        "python": "3.13", "platform": "win32",
         "dependencies": {
             "jsonschema": "4.25.0", "attrs": "25.3.0",
             "referencing": "0.36.2", "rpds-py": "0.26.0",
@@ -95,6 +96,8 @@ def test_package_deps_come_from_selected_isolated_build_python(monkeypatch):
     "override",
     [
         {"isolated": False},
+        {"python": "unknown"},
+        {"platform": ""},
         {"setuptools": "79.9.9"},
         {"setuptools": "90.0.0"},
         {"dependencies": {"jsonschema": "4.25.0"}},
