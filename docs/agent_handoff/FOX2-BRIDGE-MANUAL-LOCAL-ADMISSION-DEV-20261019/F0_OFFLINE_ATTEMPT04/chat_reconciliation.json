@@ -1,0 +1,23 @@
+{
+  "schema": "FOX2_F0_ATTEMPT_RECONCILIATION_V1",
+  "as_of": "2026-10-20T07:46:39.266Z",
+  "attempt_id": "FOX2-BRIDGE-F0-OFFLINE-ATTEMPT04-20261020",
+  "status": "CONSUMED_STOPPED_BEFORE_PRODUCT_MUTATION",
+  "launch_exit_code": 0,
+  "exit_meaning": "CLI finished normally with STOP; not engineering PASS",
+  "admission_commit": "62e366d4038f6e5bb3631d9f154dab5271e52586",
+  "before_head": "f74c3502d2eb029849e17015184da9d69e725a9b",
+  "after_head": "f74c3502d2eb029849e17015184da9d69e725a9b",
+  "clean_worktree": true,
+  "tests": "NOT_RUN",
+  "code_result": "NOT_DELIVERED",
+  "chat_result_review": "HOLD_NO_AGENT_GIT_RESULT",
+  "agent_final": "STOPPED at immutable source Git show; no files/tests/commit/push",
+  "root_cause": "Local checkout lacked source commit objects 44390e142f3dc5a7eace0a97c5b28c545d376b0b and 7d8a2f92ba43308c8b5a221080e3dd94560347c9. GitHub file/blob was valid; missing local objects misreported as missing path. Task/prompt receipt-only readback did not cover complete source-object delivery.",
+  "remediation": "Fetched exact missing source commits, verified all 34 source path/blob SHA1/SHA256 with git show. No source bytes changed.",
+  "source_proof": "all_source_objects_verified.json (host observation); all 34 immutable source references match locked digests",
+  "no_replay": true,
+  "old_receipt": "PRESERVED_PASS_FOR_OBSERVED_CHECKS; INSUFFICIENT_LOCAL_SOURCE_DELIVERY_COVERAGE_NOT_RELABELED",
+  "next_safe_action": "NEW Attempt05 binding with all-source-object capability mandatory; fresh task/PreExec/admission, no old identity reuse",
+  "F1": "HOLD"
+}
