@@ -1,0 +1,16 @@
+{
+  "schema": "FOX2_F0_ATTEMPT_RECONCILIATION_V1",
+  "attempt_id": "FOX2-BRIDGE-F0-OFFLINE-ATTEMPT05-20261020",
+  "status": "CONSUMED_STOPPED_BEFORE_PRODUCT_MUTATION",
+  "before_head": "6008eb02cdbad1ad264c77427d3aeeed56c64571",
+  "after_head": "6008eb02cdbad1ad264c77427d3aeeed56c64571",
+  "tests": "NOT_RUN",
+  "code_result": "NOT_DELIVERED",
+  "chat_verdict": "HOLD_NO_AGENT_GIT_RESULT",
+  "root_cause": "Child attempted shared writer_lock already intentionally held by supervising launcher PID26268 throughout Agent run. OS denial confirms held lock; no external writer observed. Task was ambiguous about inherited supervisor lease.",
+  "remediation": "New attempt only. Bind SUPERVISOR_HELD writer lease, require actual owner PID ancestor and matching reservation/admission. Child must not reacquire or release supervisor lock. An unrelated owner still STOP.",
+  "one_writer_gate": "Actual supervisor lock held; child self-reacquisition failed; original STOP preserved, not relabeled success.",
+  "no_replay": true,
+  "next": "NEW_ATTEMPT06_ONLY_AFTER_FRESH_PREEXEC_ADMISSION",
+  "F1": "HOLD"
+}
