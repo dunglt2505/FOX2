@@ -1,0 +1,8 @@
+{
+  "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+  "marker": "FOX2_BRIDGE_FINAL_CANARY_009_AGENT_OK",
+  "source_head": "501822a33ef08c7365154913bbc677544856eee5",
+  "agent_product": "CODEX",
+  "delivery_owner": "BRIDGE",
+  "status": "PASS"
+}
