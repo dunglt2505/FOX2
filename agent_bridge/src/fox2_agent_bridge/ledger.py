@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Iterable
 
 from .errors import DatabaseError
+from .paths import BRIDGE_ROOT
 
 SCHEMA_VERSION = 5
 MIGRATIONS: dict[int, tuple[str, ...]] = {
@@ -195,6 +196,11 @@ class SQLiteLedger:
 
     def initialize(self, *, cross_root_authority_unknown: bool = False) -> int:
         try:
+            # Never mint SINGLE_ROOT just because a caller bypassed desktop.
+            # Resolving both sides also covers path aliases to the installed DB.
+            installed_db = (BRIDGE_ROOT / "data" / "bridge.db").resolve()
+            installed_current_root = self.database_path.resolve() == installed_db
+            cross_root_authority_unknown |= installed_current_root
             self.database_path.parent.mkdir(parents=True, exist_ok=True)
             with self.connect() as connection:
                 connection.execute("PRAGMA journal_mode = WAL")
