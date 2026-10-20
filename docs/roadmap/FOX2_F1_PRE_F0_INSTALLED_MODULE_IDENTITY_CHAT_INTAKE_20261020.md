@@ -57,3 +57,17 @@ Human operating authority: Registry `docs/governance/FOX2_PROJECTWIDE_GOVERNANCE
 **STOP:** no in-place Python replacement, installed mutation, worker status/start/resume/exit/task toggling, local SQLite access, Agent/Dispatch, new CODEX run, merge/main, COMPAT001/Canary, broker/provider/LIVE.
 
 Skill application: source-resolver, result-review (scoped Owner output, not Agent Result v2), feature-certification, status-roadmap, governance-preflight, execution-recovery, agent-route-runtime APPLIED; agent-prompt-builder NOT_APPLICABLE, no new assignment.
+
+## 5. Newly resolved historical package lineage (Git archive report, not release attestation)
+
+CHAT directly read the historic RC1 archive and result **metadata** at reviewed Git source snapshot `611ec26c28484de740e963d86de6b00946f1492d` (archive bytes were NOT downloaded or independently SHA256-hashed):
+
+- Immutable archived binary Git entry `reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_recovery_003/FOX2-Bridge-RC1.zip` exists, Git blob SHA-1 `15450a648b70db79a94bf4a24fa69c879d0c4a49`, `64,479,644` bytes.
+- Associated `FOX2-Bridge-RC1.json` Git blob `13ba36d017ce22a4292b4958741c0b83e5b2ddec` **declares** exact archive SHA-256 `a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac` and `manifest.source_sha256=9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8`. Both declared digests match the Owner-observed installed pointer and receipt.
+- Historical `installed_certification.json`, blob `75cf4718ad3b2f0be2adb3f6cf4051e9f741bd05`, references the **same pair** as installed `final_package` and `per_user_update`; its overall `status=PARTIAL_NOT_CERTIFIED`, not RELEASE_PASS, notwithstanding partial lifecycle checks. `final_runtime_readback.json` blob `dabad4a006232a048bc24d241d849867b07ed805` likewise identifies the same pair and says `certification=PARTIAL_NOT_CERTIFIED`. This is historical and does not certify 2026-10-20 runtime.
+- Historical `quality_checks.json` blob `62c4a2b3c191ea06e104fe25dc479d9224c1a128` reports repeat deterministic archive SHA-256 `a0516aed...` and lists a `source_commit=c916de489e0aee51d6fe30c5b8b4cd9f4cd9a359`; **however**, CHAT directly fetched that older commit and it has `ledger.py` and `desktop.py` with the pre-F0 blobs, but `installation.py` blob `f88c84cdcc795ef35ebd8060994fcff83579210b` (unlike installed `9e7c1d07...`) and `launcher.py` is absent there. Therefore `c916de...` is not proven to represent every source byte in the archived package; a claimed freeze/quality report must not be used as immutable whole-package source proof without manifest-to-commit reconciliation.
+
+**Updated scoped conclusion:** `HISTORICAL_ARCHIVED_PACKAGE_DIGEST_CLAIM_MATCHES_HOST_IDENTITIES` and `GIT_ARCHIVE_ENTRY_EXISTS`; `ARCHIVE_SHA256_INDEPENDENT_REHASH=NOT_RUN`, `WHOLE_BUILD_SOURCE_MAPPING=NOT_VERIFIED`, `P3=PARTIAL_HISTORICAL_LINEAGE_ONLY`, `F1_INSTALLED_RUNTIME=HOLD`.
+
+**Efficient next step:** reuse this exact historical archive/receipt rather than request fresh blind artifact discovery. Before any adoption, independently rehash the archive bytes, validate its manifest and source inventory against an immutable code source set, and verify host one-writer/legacy retirement with route-specific preexec. If archive source remains pre-F0, it is **not** an acceptable F0 safety-baseline upgrade; identify or build a separately trusted newer archive with proper governance and source lock. Do not run or install this archived old package as remediation.
+
