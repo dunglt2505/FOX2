@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: fox2-bridge-f1-offline-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   offline-windows-tests:
