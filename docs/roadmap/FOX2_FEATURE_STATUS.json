@@ -240,12 +240,16 @@
         {
           "commit": "3b0df327275ced48d45f028bdef1e1c792dc0298",
           "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json"
+        },
+        {
+          "commit": "b3e4c7055b7af862073487f9c832dff97ca3d81e",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json"
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
       "blocker": "F1_DURABLE_LEGACY_RETIREMENT_NOT_VERIFIED;_INSTALLED_MANUAL_LOCAL_POSITIVE_ADMISSION_NOT_RUN;_SEVEN_FINAL_CANARY_GATES_NOT_RUN;_ATTEMPT06_AGENT_RESULT_V2_NOT_DELIVERED_HISTORICAL_CONSUMED_NO_REPLAY",
       "as_of": "2026-10-21",
-      "next_safe_action": "VERIFY_GITHUB_ACTIONS_WINDOWS_CI_RUN_39512223944_FINAL_RESULT;_IF_PASS_ACCEPT_SCOPED_F1_PACKAGE_PROVENANCE_CODE_ONLY;_F1_HOST_RETIREMENT_TRUST_AND_SINGLE_PACKAGE_BUILD_STILL_REQUIRED;_NO_INSTALLED_OR_CANARY",
+      "next_safe_action": "F1_TRUSTED_OS_DURABLE_LEGACY_RETIREMENT_ATTESTATION_AND_CLAIM_TIME_LEASE_ENFORCEMENT_DESIGN_REMAINS_P0;_SECURE_HOST_CODE_F1_POSITIVE_ONLY_AFTER_PROVEN_TRUST;_BUILD_ONE_F1_DEFAULT_DENY_PACKAGE_AND_ACCEPT_SEPARATELY;_INSTALLED_CANARY_HOLD",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -455,13 +459,13 @@
         ],
         "added_test_cases": 16,
         "CI_workflow_run_id": 39512223944,
-        "CI_run_status": "IN_PROGRESS_PACKAGE_SYNTAX_TESTS_PASS_FULL_REGRESSION_RUNNING",
+        "CI_run_status": "COMPLETED_SUCCESS_SOURCE_f035eaa",
         "implementation_scope": "F1_SINGLE_PACKAGE_PROVENANCE_ISOLATED_BUILD_INTERPRETER_GIT_INVENTORY_WHEEL_SOURCE_BYTE_VERIFICATION",
-        "F1_positive_authority": "NOT_IMPLEMENTED_HOST_RETIREMENT_EVIDENCE_MISSING",
+        "F1_positive_authority": "NOT_IMPLEMENTED",
         "installed_adoption": "NOT_RUN",
         "git_readback": "PASS",
-        "chat_final_acceptance": "PENDING_FULL_SOURCE_REGRESSION_AND_PACKAGE_BUILD",
-        "latest_report_and_manifest": "3b0df327275ced48d45f028bdef1e1c792dc0298",
+        "chat_final_acceptance": "ACCEPT_SCOPED_OFFLINE_F1_PACKAGE_PROVENANCE_CODE_AND_TESTS_ONLY",
+        "latest_report_and_manifest": "b3e4c7055b7af862073487f9c832dff97ca3d81e",
         "CI_prior_failures": [
           {
             "run_id": 39465107989,
@@ -473,7 +477,15 @@
             "status": "FAIL_CI_FIXTURE_SHALLOW_GIT_AND_MISSING_C_DRIVE_LAYOUT",
             "test_counts": "397_PASS_4_FAIL_43_ERROR"
           }
-        ]
+        ],
+        "ci_source_commit": "f035eaa147be3cae4abac66ad1a65a97978a1889",
+        "CI_job_id": 118935781394,
+        "affected_test_passed": 23,
+        "full_regression_passed": 444,
+        "tests_failed": 0,
+        "tests_skipped": 0,
+        "package_build": "NOT_RUN_F1_NOT_COMPLETE",
+        "canary": "HOLD"
       }
     }
   ]
