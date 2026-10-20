@@ -1,0 +1,131 @@
+{
+  "schema": "FOX2_NATIVE_CODEX_CHAT_FINAL_ADMISSION_V1",
+  "project": "FOX2",
+  "issued_by": "CHAT",
+  "issued_date": "2026-10-20",
+  "status": "PASS_TO_ASSIGN_CONDITIONAL_ON_FRESH_HOST_GATES",
+  "execution_status": "NOT_STARTED_AT_PUBLICATION",
+  "release_permission": "NONE",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+  "attempt_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-OFFLINE-ATTEMPT-03",
+  "route": "NATIVE_LOCAL_CODEX_CLI_OFFLINE_DEV",
+  "actor": {
+    "role": "CODEX",
+    "engine": "OPENAI_CODEX_CLI",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "thinking": "medium",
+    "permissions": "FULL_ACCESS",
+    "sandbox": "danger-full-access",
+    "approval": "never",
+    "max_invocations": 1,
+    "delivery": "AGENT_NON_MAIN_GIT_RESULT"
+  },
+  "task": {
+    "branch": "work/FOX2-BRIDGE-NATIVE-OFFLINE-ATTEMPT03-HANDOFF-20261020",
+    "commit": "04c9141f9a9bc47504473aa577b24201734d8c0b",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/task.md",
+    "blob_sha1": "f339288fb1ec12ca526bc4aabea74fb9ac51b410",
+    "sha256": "0387dbaa3375ab763998b7ac24deb722a0c0fe71c585ac7711783b2b337df012"
+  },
+  "prompt": {
+    "branch": "work/FOX2-BRIDGE-NATIVE-OFFLINE-ATTEMPT03-HANDOFF-20261020",
+    "commit": "ee76cec618276b8b5301e95d31339fe9da147230",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/prompt.md",
+    "blob_sha1": "7a59230759d1ad2e1fcca6752a746b636fa56bfb",
+    "sha256": "86a51dabaad8069cd342a840689d040c0e7d23b7ac27feac7fb080c43ff7ff29"
+  },
+  "preexec": {
+    "code_branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-03",
+    "receipt_commit": "3167d8502588dd106f9a4cea8ef931e9148040ff",
+    "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/native_offline_attempt03_preflight.json",
+    "blob_sha1": "3a00c1f5905cb6ef340673f5791b0d1cbc1527a6",
+    "receipt_status": "PASS",
+    "material_pass_count": 8,
+    "blockers": 0,
+    "source_head": "5a82d08694f217415890f24802261aed625aa111",
+    "coding_agent_started": false
+  },
+  "code": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-03",
+    "start_head": "3167d8502588dd106f9a4cea8ef931e9148040ff",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-03",
+    "expected_prior_test_blob": "7b2a2c48e6bf4225d849dc7a7a32126652b0c3be"
+  },
+  "design": {
+    "commit": "bd5cd44e31ceb7384b558c8fb08ccefd98dfb9e6",
+    "path": "docs/roadmap/FOX2_BRIDGE_CROSS_ROOT_NO_REPLAY_DESIGN_CONTRACT_CANDIDATE_20261020.md",
+    "blob_sha1": "6e6d56df130b7153539a2bf1dba9f86d2fe591e4",
+    "status": "CANDIDATE_NOT_RELEASED"
+  },
+  "owner_grant": {
+    "commit": "c23d28bd56d9d06d64561dcf255b2d94227f6acc",
+    "path": "docs/governance/releases/FOX2_MANUAL_LOCAL_ADMISSION_OWNER_EXECUTION_AUTHORIZATION_20261019.json",
+    "rights": "SIX_PRIMARY_PLUS_FOUR_EXACT_CHAT_BOUND_K1_DEPENDENCIES"
+  },
+  "governance": {
+    "registry": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+    "principle": "POLICY_V2_CODE_FIRST_SCOPED",
+    "published_effective": "NOT_ATTESTED_FOR_INSTALLED_RUNTIME",
+    "runtime_enforced": "NOT_ATTESTED"
+  },
+  "route_checks": {
+    "POLICY_CHECK": "PASS_SCOPED_HUMAN",
+    "TASK_STATE_CHECK": "PASS_ATTEMPT03_NEW_AND_ATTEMPT01_02_CONSUMED",
+    "SOURCE_RESOLUTION": "PASS_IMMUTABLE_TASK_PROMPT_DESIGN_AND_RECEIPT",
+    "R0": "PASS_EXISTING_WP_NEW_ATTEMPT",
+    "R1": "PASS_OFFLINE_DEV_ONLY",
+    "R2": "PASS_SCOPED_OWNER_GRANT",
+    "R3": "PASS_FRESH_ATTEMPT03_NATIVE_PREEXEC_AT_RECEIPT_TIME",
+    "R4": "PASS_CODEX_PINNED",
+    "R5": "CONDITIONAL_FRESH_HOST_ONE_WRITER",
+    "R6": "PASS_GIT_FILE_COMMIT_BLOB_SHA256_READBACK",
+    "R7": "PASS_EXACT_CHANGED_PATHS_AND_GIT_RESULT",
+    "ASSIGNMENT_CHECK": "CONDITIONAL_FRESH_HOST_GATES"
+  },
+  "host_gates": [
+    "Git origin must match dunglt2505/FOX2, expected clean exact branch and local/remote HEAD 3167d850...; no result files and no unexpected modified/untracked paths.",
+    "Immutable task, prompt, this admission and preexec receipt fetched and byte+blob+SHA verified against exact commits.",
+    "Attempt01 and Attempt02 markers present; Attempt03 marker and result message absent, no consumed/unknown duplicate attempt.",
+    "CODEX CLI executable and login available, pinned exact model+medium+danger-full-access+approval never; no fallback/quota claim.",
+    "Fresh process observation detects competing or unattributable writer; named Windows mutex held during entire CLI invocation (cooperating launchers only).",
+    "Atomic durable CreateNew Attempt03 reservation immediately before invocation, no deletion/replay on uncertainty.",
+    "Only one CODEX coding invocation; Agent uses exact allowed ten code/test and four report paths; no protected Worker/Canary/COMPAT001 or main/merge/install/LIVE."
+  ],
+  "known_limits": [
+    "Historical PreExec marker/one-writer observation is bounded to 2026-10-20 receipt; cannot attest host current state.",
+    "Requested model/medium CLI arguments are host-verifiable but observed_model/observed_effort may be NOT_EXPOSED.",
+    "Host mutex only coordinates cooperating launchers, not global untrusted writers.",
+    "No legacy retirement proof from offline fixtures. Production MANUAL_LOCAL/Canary must fail closed pending installed-runtime acceptance.",
+    "CODEX quota remains NOT_EXPOSED; if exhausted STOP, no automatic retry."
+  ],
+  "protected": {
+    "attempt01": "CONSUMED_NO_REPLAY",
+    "attempt02": "CONSUMED_NO_REPLAY",
+    "attempt03": "NOT_STARTED_NO_MARKER_AS_OF_CHAT_PUBLICATION",
+    "original_bridge_preexec": "BLOCKED_PRESERVED",
+    "compat001": "PUBLISHED_HOLD",
+    "canary009": "HOLD",
+    "worker": "PAUSED_NOT_MODIFIED",
+    "main": false,
+    "merge": false,
+    "install": false,
+    "provider": false,
+    "broker": false,
+    "LIVE": false
+  },
+  "result_contract": {
+    "schema_path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+    "report_path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+    "manifest_path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json",
+    "required_additional": [
+      "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json"
+    ],
+    "result_sha_outside_committed_files": true,
+    "review_owner": "CHAT"
+  },
+  "verdict_note": "Approval for one prospective offline DEV coding attempt ONLY after all material host gates actually pass. Git admission is not a host lock/process/capacity certificate or CODEX implementation. No Agent started by CHAT."
+}
