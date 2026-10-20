@@ -1,0 +1,20 @@
+{
+  "schema": "FOX2_CHAT_REMOTE_SAFETY_INTAKE_V1",
+  "remote_result_sha": "008c6e7d1a1c2d7456a3530ce6e3f38e88510600",
+  "remote_tree_sha": "4291bdc2b818a6823e15513a66c1b9b5ac9b423a",
+  "method": "GITHUB_CONNECTOR_REMOTE_READBACK_PLUS_GIT_OBJECT_SHA256_RECHECK",
+  "file_blobs_read": {
+    "agent_bridge/src/fox2_agent_bridge/desktop.py": "b835842eb72dfeba84c8a7c20eb7ec85076c4ae2",
+    "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/report.md": "4d0ef42627ab0e8242abce897067f6ce7126274b",
+    "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/test_summary.json": "dffd1bb1c12a9444c695ac35a35eda29556c8043",
+    "reports/FOX2-F0-CHAT-SAFETY-REVIEW-20261020/evidence_hashes.json": "68c296924dde1588eaefd39664e6a97599ac3358",
+    "docs/roadmap/FOX2_FEATURE_STATUS.json": "37b6b5f7ab82e792621ccacfa2c64bfa6981cf4b"
+  },
+  "inventoried_raw_files_verified": 16,
+  "one_feature_only": true,
+  "verdict": "ACCEPT_SCOPED_OFFLINE_SAFETY_SUBGATES; FULL_F0_BUILD_BLOCKED",
+  "attempt06": "CONSUMED; RESULT_V2_NOT_DELIVERED; NO_REPLAY",
+  "codex": "gpt-6.1-sol/medium HOLD",
+  "installed": "NOT_RUN; F1_HOLD",
+  "recorded_at_utc": "2026-10-20T13:37:56.813355+00:00"
+}
