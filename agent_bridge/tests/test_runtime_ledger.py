@@ -316,3 +316,26 @@ def test_single_root_atomic_claim_survives_reopen(tmp_path: Path) -> None:
     )
     with reopened.connect() as connection:
         assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 1
+
+
+def test_direct_current_root_initialization_cannot_grant_single_root_authority(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    """A direct SQLiteLedger caller must not bypass installed-root fencing."""
+    current = tmp_path / "AppData" / "Local" / "FOX2" / "AgentBridge"
+    monkeypatch.setattr("fox2_agent_bridge.ledger.BRIDGE_ROOT", current)
+    ledger = SQLiteLedger(current / "data" / "bridge.db")
+    assert ledger.initialize() == SCHEMA_VERSION
+    with ledger.connect() as connection:
+        assert connection.execute(
+            "SELECT value FROM bridge_meta WHERE key='claim_authority'"
+        ).fetchone()["value"] == "DENY_CROSS_ROOT_UNKNOWN"
+
+    assert not ledger.claim_dispatch(
+        dispatch_id="direct-current", payload_hash="a" * 64,
+        execution_id="blocked-direct", observed_at_utc=utc_now(),
+    )
+    assert not SQLiteLedger(current / "data" / "bridge.db").claim_dispatch(
+        dispatch_id="direct-current", payload_hash="a" * 64,
+        execution_id="blocked-after-reopen", observed_at_utc=utc_now(),
+    )
