@@ -396,3 +396,93 @@ def test_restart_after_nonzero_exit_checkpoint_never_publishes(tmp_path, stage, 
     assert status['checkpoint'] == checkpoint
     assert not ledger.claim_dispatch(dispatch_id='nonzero', payload_hash='a' * 64,
                                      execution_id='replay', observed_at_utc=utc_now())
+
+
+@pytest.mark.parametrize('consumed_state', [
+    'FAILED', 'PUSHED_UNREVIEWED', 'NEEDS_RECONCILIATION',
+])
+def test_attempt02_existing_current_db_denies_legacy_consumption(
+    bridge_config, monkeypatch, tmp_path, consumed_state,
+):
+    """Required shared admission invariant; a split ledger must never re-admit.
+
+    Dependency reproduction only: both roots are disposable, with no Agent,
+    transport, installed runtime or protected dispatch involved.
+    """
+    from fox2_agent_bridge.desktop import initialize_runtime
+    from fox2_agent_bridge.ledger import utc_now
+
+    identity = 'FOX2-ATTEMPT02-FIXTURE-SPLIT'
+    legacy_root = tmp_path / 'legacy'
+    monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)
+    monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)
+    current = initialize_runtime(bridge_config)
+    legacy = SQLiteLedger(legacy_root / 'data' / 'bridge.db')
+    legacy.initialize()
+    assert legacy.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,
+        execution_id='legacy', observed_at_utc=utc_now(), honor_controls=True)
+    legacy.finish_execution(dispatch_id=identity, execution_id='legacy',
+        dispatch_state=consumed_state, execution_state=consumed_state,
+        finished_at_utc=utc_now())
+
+    current = initialize_runtime(bridge_config)
+    assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,
+        execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (
+        'NO_REPLAY_GAP: existing current DB ignored consumed legacy identity'
+    )
+
+
+@pytest.mark.parametrize('valid_marker', [True, False])
+def test_attempt02_legacy_marker_denies_claim(
+    bridge_config, monkeypatch, tmp_path, valid_marker,
+):
+    """Consumed or unreadable legacy marker must fail closed, including no DB."""
+    from fox2_agent_bridge.desktop import initialize_runtime
+    from fox2_agent_bridge.ledger import utc_now
+
+    identity = 'FOX2-ATTEMPT02-FIXTURE-MARKER'
+    legacy_root = tmp_path / 'legacy'
+    marker = legacy_root / 'data' / 'manual_consumption.json'
+    marker.parent.mkdir(parents=True)
+    marker.write_text(json.dumps({'format': 'FOX2_MANUAL_CONSUMPTION_1',
+        'dispatch_ids': [identity]}) if valid_marker else '{unreadable', encoding='utf-8')
+    monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)
+    monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)
+
+    try:
+        current = initialize_runtime(bridge_config)
+    except (ValueError, OSError):
+        # Conservative refusal is also an acceptable response to unknown state.
+        return
+    assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,
+        execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (
+        'NO_REPLAY_GAP: legacy manual marker did not prevent current claim'
+    )
+
+
+def test_attempt02_snapshot_does_not_allow_late_legacy_claim(
+    bridge_config, monkeypatch, tmp_path,
+):
+    """Deterministic race schedule under the actual cooperating root locks."""
+    from fox2_agent_bridge.desktop import initialize_runtime
+    from fox2_agent_bridge.ledger import utc_now
+    from fox2_agent_bridge.process_lock import ProcessLock
+
+    identity = 'FOX2-ATTEMPT02-FIXTURE-LATE'
+    legacy_root = tmp_path / 'legacy'
+    legacy = SQLiteLedger(legacy_root / 'data' / 'bridge.db')
+    legacy.initialize()
+    monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)
+    monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)
+    # Current App/Worker owns only its own root's singleton. Migration takes
+    # the legacy lock temporarily, then releases it before admission.
+    with ProcessLock(bridge_config.bridge_root / 'data' / 'bridge.lock'):
+        current = initialize_runtime(bridge_config)
+        assert current.dispatch_state(identity) is None
+        with ProcessLock(legacy_root / 'data' / 'bridge.lock'):
+            assert legacy.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,
+                execution_id='legacy', observed_at_utc=utc_now(), honor_controls=True)
+        assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,
+            execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (
+            'NO_REPLAY_GAP: both cooperating roots claimed after migration snapshot'
+        )
