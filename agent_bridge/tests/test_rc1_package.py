@@ -114,3 +114,52 @@ def test_package_builder_denies_unverified_or_incomplete_build_environment(
     )
     with pytest.raises(ValueError, match="isolated setuptools"):
         module.inspect_build_environment(Path("synthetic") / "Scripts" / "python.exe")
+
+
+@pytest.mark.parametrize(
+    "status_lines, expected",
+    [
+        ("", "PASS"),
+        ("?? agent_bridge/src/fox2_agent_bridge/new_untracked.py\\n", "DENY"),
+        (" M agent_bridge/scripts/build_user_package.py\\n", "DENY"),
+        ("?? agent_bridge/src/fox2_agent_bridge/__pycache__/thing.pyc\\n", "PASS"),
+    ],
+)
+def test_package_source_commit_provenance_rejects_dirty_packaged_code(
+    monkeypatch, status_lines, expected
+):
+    """Provenance cannot claim a Git source if packaged code is uncommitted."""
+    from types import SimpleNamespace
+
+    module = _load_offline_package_builder()
+    observed = []
+    fixed = "a" * 40
+
+    def fake_git(argv, **kwargs):
+        observed.append(tuple(argv))
+        assert kwargs["capture_output"] is True
+        if "rev-parse" in argv:
+            return SimpleNamespace(returncode=0, stdout=fixed + "\\n")
+        if "status" in argv:
+            return SimpleNamespace(returncode=0, stdout=status_lines)
+        raise AssertionError("unexpected git operation")
+
+    monkeypatch.setattr(module.subprocess, "run", fake_git)
+    if expected == "DENY":
+        with pytest.raises(ValueError, match="uncommitted code"):
+            module.source_git_commit()
+    else:
+        assert module.source_git_commit() == fixed
+    assert len(observed) == 2
+
+
+def test_package_source_commit_fails_closed_on_unverified_git(monkeypatch):
+    from types import SimpleNamespace
+
+    module = _load_offline_package_builder()
+    monkeypatch.setattr(
+        module.subprocess, "run",
+        lambda argv, **kwargs: SimpleNamespace(returncode=1, stdout=""),
+    )
+    with pytest.raises(ValueError, match="immutable Git source commit"):
+        module.source_git_commit()
