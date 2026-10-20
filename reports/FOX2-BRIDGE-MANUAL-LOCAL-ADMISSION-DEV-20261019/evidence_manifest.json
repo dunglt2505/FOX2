@@ -1,0 +1,285 @@
+{
+  "contract_version": "2.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+  "task_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-OFFLINE-ATTEMPT-03",
+  "change_id": "ATTEMPT03-BLOCKED-DURABLE-LEGACY-AUTHORITY",
+  "submission_state": "BLOCKED",
+  "submitted_at_utc": "2026-10-20T05:10:59.142735+00:00",
+  "agent": {
+    "product": "CODEX",
+    "model": "gpt-6.1-sol",
+    "mode": "PINNED medium; native offline; danger-full-access; approval never; requested arguments per supplied host attestation, observed telemetry NOT_EXPOSED",
+    "host": "FOXLE-PC",
+    "started_at_utc": "2026-10-20T05:06:55.047096+00:00",
+    "finished_at_utc": "2026-10-20T05:10:59.142735+00:00",
+    "quota_observation": "NOT_EXPOSED; no quota/model/effort telemetry manufactured"
+  },
+  "routing": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PASS",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "assignment_check": "PASS",
+    "routing_evidence": "Published CHAT admission 26c112885a22752b47878b6b05bb61d65cae8631 plus supplied HOST_ATTESTATION for fresh gates/held cooperating mutex. Scoped human assignment only; no installed-runtime authority. Hashes in diff_trace.json."
+  },
+  "source": {
+    "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "policy_version": "2.0.0 scoped human CODE-FIRST; installed enforcement not attested",
+    "task_commit_sha": "04c9141f9a9bc47504473aa577b24201734d8c0b",
+    "source_manifest_sha256": "d845f64b3e0678a6bf0c0b62aa19d076eacd765425ffae7bd62f4872f22432a1",
+    "approved_base_commit_sha": "3167d8502588dd106f9a4cea8ef931e9148040ff",
+    "source_readback_status": "PASS",
+    "brd_revisions": [
+      "bd5cd44e31ceb7384b558c8fb08ccefd98dfb9e6:cross-root-no-replay-candidate"
+    ],
+    "previous_evidence_reused": [
+      "Immutable task/prompt/admission/design/Owner grant and PreExec receipt as source/authorization evidence only; no historical test counts reused."
+    ]
+  },
+  "permissions": {
+    "git_source_read": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "git_code_push": true,
+    "code_allowed": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false,
+    "grant_evidence": "c23d28bd56d9d06d64561dcf255b2d94227f6acc Owner grant + exact K1 candidate design + separate CHAT admission; only ten engineering and four delivery paths."
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-03",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-03",
+    "writer_lease": "Supplied HOST_ATTESTATION: named exclusive cooperating Windows mutex held across this invocation; not independently reopened by Agent.",
+    "report_path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+    "delivery_status": "PUSHED_UNREVIEWED",
+    "pr_url": null,
+    "local_head_before_submission": "3167d8502588dd106f9a4cea8ef931e9148040ff"
+  },
+  "scope": {
+    "requested": [
+      "Sound shared cross-root durable no-replay before explicit MANUAL_LOCAL admission",
+      "Fresh fixture tests, K1 trace and actual Git delivery"
+    ],
+    "completed": [
+      "Immutable binding verification",
+      "Fresh focused regressions and path-length root-cause validation",
+      "Sequential current-exit/legacy-restart double-claim reproduction",
+      "Four Result artifacts"
+    ],
+    "partial": [],
+    "not_done": [
+      "No production or test implementation: STOP on unclear legacy lifecycle/durable authority",
+      "Six no-replay cases remain FAIL",
+      "New positive manual route and exhaustive acceptance fixtures NOT_RUN"
+    ],
+    "explicit_exclusions": [
+      "No installed runtime/ledger/Worker/Canary/COMPAT001/provider/broker/LIVE",
+      "No historical attempt marker or receipt edits",
+      "No main/merge/install/delegation/additional coding invocation"
+    ],
+    "changed_paths": [
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+        "operation": "ADD",
+        "intent": "JUSTIFIED_GENERATED: CHAT review evidence only",
+        "within_allowed_paths": true,
+        "new_sha256": "151d8755a58bfe17c9a0c50bb609b62778f4ffbf73eb69ca15dfbc6c1a45a5ca"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json",
+        "operation": "ADD",
+        "intent": "JUSTIFIED_GENERATED: CHAT review evidence only",
+        "within_allowed_paths": true,
+        "new_sha256": null
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+        "operation": "ADD",
+        "intent": "JUSTIFIED_GENERATED: CHAT review evidence only",
+        "within_allowed_paths": true,
+        "new_sha256": "90339c30503b4b28e7cc0265b36df66eb368b71aa6479414254fca93206e6164"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+        "operation": "ADD",
+        "intent": "JUSTIFIED_GENERATED: CHAT review evidence only",
+        "within_allowed_paths": true,
+        "new_sha256": "d845f64b3e0678a6bf0c0b62aa19d076eacd765425ffae7bd62f4872f22432a1"
+      }
+    ],
+    "forbidden_paths_touched": false
+  },
+  "tests": [
+    {
+      "id": "focused-suite",
+      "kind": "NEGATIVE",
+      "status": "FAIL",
+      "command_or_method": "PYTHONPATH=agent_bridge/src python -m pytest -q -p no:cacheprovider tests/test_e2e_runner.py tests/test_project_dictionary.py tests/test_desktop.py tests/test_ops_runner.py tests/test_runtime_ledger.py tests/test_preexec.py",
+      "environment": "Windows native offline; disposable fixtures; fake paid adapter probes",
+      "run_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "evidence_ids": [
+        "test-log"
+      ],
+      "notes": "Exit 1: 210 passed, 34 failed; six safety failures, 28 PreExec path-length failures. Original exit-4 import setup failure also preserved."
+    },
+    {
+      "id": "preexec-longpaths",
+      "kind": "OTHER",
+      "status": "PASS",
+      "command_or_method": "Process-local GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=core.longpaths GIT_CONFIG_VALUE_0=true; python -m pytest -q -p no:cacheprovider tests/test_preexec.py",
+      "environment": "Windows native offline; disposable fixtures; fake paid adapter probes",
+      "run_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "evidence_ids": [
+        "test-log"
+      ],
+      "notes": "Exit 0: 65 passed. No Git config file modified."
+    },
+    {
+      "id": "legacy-resurrection",
+      "kind": "NEGATIVE",
+      "status": "FAIL",
+      "command_or_method": "Inline two-process fixture harness recorded verbatim in test_summary.json",
+      "environment": "Windows native offline; disposable fixtures; fake paid adapter probes",
+      "run_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "evidence_ids": [
+        "test-log"
+      ],
+      "notes": "Both processes exited 0 and claimed same synthetic identity sequentially, after current process exited. This violates safety; no old executable or installed root accessed."
+    },
+    {
+      "id": "source-check",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "Exact Git object blob/SHA256 plus fresh ls-remote and handoff fetch/readback",
+      "environment": "Windows native offline; disposable fixtures; fake paid adapter probes",
+      "run_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "evidence_ids": [
+        "trace"
+      ],
+      "notes": "Host attestation supplies initial writer/launch checks; all source bindings recorded."
+    },
+    {
+      "id": "scope-check",
+      "kind": "STATIC",
+      "status": "PASS",
+      "command_or_method": "git status; git diff --check; exact four result-file scope; source/test blob unchanged",
+      "environment": "Windows native offline; disposable fixtures; fake paid adapter probes",
+      "run_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "evidence_ids": [
+        "trace"
+      ],
+      "notes": "No engineering hunks or forbidden edits. Final staged/path/hash/schema/secret verification is performed before commit."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "durable-authority",
+      "status": "BLOCKED",
+      "evidence_ids": [
+        "report",
+        "trace",
+        "test-log"
+      ],
+      "reason": "Frozen legacy process does not honor a current-root fence; no independently verifiable durable retirement or jointly understood single authority. STOP before engineering changes."
+    },
+    {
+      "id": "historical-six",
+      "status": "FAIL",
+      "evidence_ids": [
+        "test-log"
+      ],
+      "reason": "All six original safety assertions failed unchanged."
+    },
+    {
+      "id": "manual-positive",
+      "status": "NOT_RUN",
+      "evidence_ids": [],
+      "reason": "No provably fenced positive authority; no MANUAL_LOCAL implementation."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "report",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "sha256": "151d8755a58bfe17c9a0c50bb609b62778f4ffbf73eb69ca15dfbc6c1a45a5ca",
+      "kind": "REPORT",
+      "observed_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "description": "Engineering STOP, dependency and review findings",
+      "supports_ids": [
+        "durable-authority",
+        "scope-check"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "test-log",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "sha256": "90339c30503b4b28e7cc0265b36df66eb368b71aa6479414254fca93206e6164",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "description": "Fresh complete focused output, initial setup failure, long-path diagnostic/rerun and sequential process resurrection source/results",
+      "supports_ids": [
+        "focused-suite",
+        "preexec-longpaths",
+        "legacy-resurrection"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "trace",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+      "sha256": "d845f64b3e0678a6bf0c0b62aa19d076eacd765425ffae7bd62f4872f22432a1",
+      "kind": "SOURCE_READBACK",
+      "observed_at_utc": "2026-10-20T05:10:59.142735+00:00",
+      "description": "K1 classification and exact immutable source bindings; serves as source binding manifest",
+      "supports_ids": [
+        "source-check",
+        "scope-check",
+        "durable-authority"
+      ],
+      "sanitized": true
+    }
+  ],
+  "risks": [
+    {
+      "id": "legacy-replay",
+      "severity": "CRITICAL",
+      "state": "BLOCKED",
+      "impact": "Two roots can claim the same identity, including after current process exit. Current/legacy marker uncertainty is not safely excluded.",
+      "next_action": "CHAT/host bind exact legacy lifecycle and verifiable durable retirement, or a protocol shared by both executables; any unapproved file edits need exact K1 scope before a separately admitted new attempt. Do not replay Attempt03.",
+      "owner_role": "CHAT and host operator"
+    }
+  ],
+  "security": {
+    "secret_scan": "PASS",
+    "private_account_data_in_git": false,
+    "licensed_raw_feed_in_git": false,
+    "evidence_redacted": true,
+    "check_notes": "Known fake credential assignment in pytest traceback redacted with raw-output hash retained. Final four-artifact regex secret scan and review before commit; no live account data collected."
+  },
+  "usage": {
+    "attempts": 1,
+    "retries": 0,
+    "usage_status": "NOT_MEASURED",
+    "tokens_used": null,
+    "credits_used": null,
+    "escalation_reason": "Engineering STOP for unproven durable legacy authority; fixture reruns are not coding invocation retries."
+  },
+  "next_step": {
+    "requested_chat_decision": "REVIEW",
+    "action": "Independently review BLOCKED result and preserve consumed Attempt03. Resolve exact legacy retirement/joint authority contract before any new attempt; no acceptance or installed adoption asserted.",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Durable no-replay lifecycle evidence, exact dependency scope, and new task-specific host/admission gates."
+  }
+}

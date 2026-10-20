@@ -1,0 +1,132 @@
+{
+  "status": "BLOCKED",
+  "engineering_hunks": [],
+  "reason": "Stopped before engineering edits under prompt section 6: unclear legacy lifecycle and inability to prove durable no-replay. No claim-safe positive authority established.",
+  "source_bindings": [
+    {
+      "name": "task",
+      "commit": "04c9141f9a9bc47504473aa577b24201734d8c0b",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/task.md",
+      "blob": "f339288fb1ec12ca526bc4aabea74fb9ac51b410",
+      "sha256": "0387dbaa3375ab763998b7ac24deb722a0c0fe71c585ac7711783b2b337df012"
+    },
+    {
+      "name": "prompt",
+      "commit": "ee76cec618276b8b5301e95d31339fe9da147230",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/prompt.md",
+      "blob": "7a59230759d1ad2e1fcca6752a746b636fa56bfb",
+      "sha256": "86a51dabaad8069cd342a840689d040c0e7d23b7ac27feac7fb080c43ff7ff29"
+    },
+    {
+      "name": "admission",
+      "commit": "26c112885a22752b47878b6b05bb61d65cae8631",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/chat_final_admission.json",
+      "blob": "f6bd6a127094fa15ee6b5ebf16f710cce3dd530b",
+      "sha256": "52ce9b6e5cf2fe271f55938af6fd0119bd741a1d469f75e73a73425f830f45a2"
+    },
+    {
+      "name": "design",
+      "commit": "bd5cd44e31ceb7384b558c8fb08ccefd98dfb9e6",
+      "path": "docs/roadmap/FOX2_BRIDGE_CROSS_ROOT_NO_REPLAY_DESIGN_CONTRACT_CANDIDATE_20261020.md",
+      "blob": "6e6d56df130b7153539a2bf1dba9f86d2fe591e4",
+      "sha256": "41fde0a5d41fca37c91560d77475135a3f42c5a0269f58f460e79357294e3cca"
+    },
+    {
+      "name": "preexec",
+      "commit": "3167d8502588dd106f9a4cea8ef931e9148040ff",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/native_offline_attempt03_preflight.json",
+      "blob": "3a00c1f5905cb6ef340673f5791b0d1cbc1527a6",
+      "sha256": "e78c9b769faf0e530499f50b5dbe8c6a593b43b8110554552c69a4c8de3cda23"
+    },
+    {
+      "name": "owner_grant",
+      "commit": "c23d28bd56d9d06d64561dcf255b2d94227f6acc",
+      "path": "docs/governance/releases/FOX2_MANUAL_LOCAL_ADMISSION_OWNER_EXECUTION_AUTHORIZATION_20261019.json",
+      "blob": "dbc397375bb50ff4d87e093b114d5dda44d159b7",
+      "sha256": "3551ec9286b037f124a6f3a9ab16bb4cec74492c05cdd0f1f378d8e431cad84b"
+    },
+    {
+      "name": "policy",
+      "commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "blob": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e"
+    }
+  ],
+  "remote_source_readback": {
+    "handoff_head": "26c112885a22752b47878b6b05bb61d65cae8631",
+    "code_start_head": "3167d8502588dd106f9a4cea8ef931e9148040ff",
+    "method": "git ls-remote origin for exact branch refs; git fetch --no-tags --no-write-fetch-head origin handoff ref; exact immutable object hashes; host attestation for initial bytes and writer gates."
+  },
+  "delivery_hunks": [
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "classification": "JUSTIFIED_GENERATED",
+      "consumer": "CHAT independent Result v2 intake",
+      "intent": "Truthful engineering STOP and findings",
+      "risk": "Evidence only; does not enforce runtime fencing.",
+      "test": "JSON/schema/hash/path/diff/secret validation"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "consumer": "CHAT independent Result v2 intake",
+      "intent": "Result Schema v2 manifest",
+      "risk": "Evidence only; does not enforce runtime fencing.",
+      "test": "JSON/schema/hash/path/diff/secret validation"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "consumer": "CHAT independent Result v2 intake",
+      "intent": "Actual fresh test output and fixture restart reproduction",
+      "risk": "Evidence only; does not enforce runtime fencing.",
+      "test": "JSON/schema/hash/path/diff/secret validation"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "consumer": "CHAT independent Result v2 intake",
+      "intent": "K1 and immutable source binding evidence",
+      "risk": "Evidence only; does not enforce runtime fencing.",
+      "test": "JSON/schema/hash/path/diff/secret validation"
+    }
+  ],
+  "blocked_dependencies": [
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
+      "consumer": "SQLiteLedger.claim_dispatch, including direct callers and BridgeE2ERunner.run_once",
+      "contract_break": "Single DB BEGIN IMMEDIATE cannot exclude a writer using another DB; frozen legacy code does not understand a current-root fence.",
+      "tests": [
+        "test_attempt02_existing_current_db_denies_legacy_consumption",
+        "post-stop-legacy-resurrection"
+      ],
+      "requested_action": "CHAT must specify independently verifiable durable retirement evidence or a jointly honored identity authority before a new implementation attempt. No new invocation authorized."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "consumer": "initialize_runtime from App, DesktopWorker, CLI, startup and installation",
+      "contract_break": "One-time backup and temporary legacy lock do not fence later claims or executable restarts. Only current marker is read.",
+      "tests": [
+        "test_attempt02_legacy_marker_denies_claim",
+        "test_attempt02_snapshot_does_not_allow_late_legacy_claim"
+      ],
+      "requested_action": "Bind evidence for both roots, aliases, executable identities and legacy supervisor retirement; unknown state must deny admission."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "agent_bridge/src/fox2_agent_bridge/startup.py",
+      "consumer": "set_start_with_windows and the legacy external supervisor lifecycle",
+      "contract_break": "Offline source has no proof that all legacy launchers are durably retired. A change to a new source file cannot change a frozen legacy executable. This is an operational evidence dependency, not a claim that editing this path alone solves fencing.",
+      "tests": [
+        "post-stop-legacy-resurrection"
+      ],
+      "requested_action": "Outside current edit scope. CHAT/host must identify exact legacy scheduled-task/startup/executable lifecycle and approve any necessary exact script/config changes separately. File remains untouched."
+    }
+  ],
+  "forbidden_paths_touched": false,
+  "historical_tests_unchanged_blob": "7b2a2c48e6bf4225d849dc7a7a32126652b0c3be",
+  "host_gate_limits": "Supplied HOST_ATTESTATION accepted as bounded launcher evidence; Agent did not create/delete/replay durable attempt markers or claim independent mutex/model/effort/quota telemetry."
+}
