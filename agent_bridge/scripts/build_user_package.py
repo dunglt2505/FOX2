@@ -7,7 +7,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import importlib.metadata
 import os
 from pathlib import Path
 import shutil
@@ -26,16 +25,34 @@ def run(args, **kwargs):
     return result.stdout
 
 
-def build(output: Path, python: Path) -> dict:
-    check = json.loads(run([python, '-I', '-c',
+def build(output: Path, pydef inspect_build_environment(python: Path) -> dict:
+    """Resolve ALL package versions in the exact isolated build interpreter.
+
+    Never obtain runtime wheel pins from the CHAT/host interpreter: that can
+    silently mix two environments and break offline package provenance.
+    """
+    script = (
         'import sys,importlib.metadata as m,json; '
+        'names=("jsonschema","attrs","referencing","rpds-py","jsonschema-specifications"); '
         'print(json.dumps(dict(isolated=sys.prefix!=sys.base_prefix, '
-        'setuptools=m.version("setuptools"),wheel=m.version("wheel"))))']))
-    check['dependencies'] = {n:importlib.metadata.version(n) for n in
-        ['jsonschema','attrs','referencing','rpds-py','jsonschema-specifications']}
-    if not check['isolated'] or not 80 <= int(check['setuptools'].split('.')[0]) < 90:
-        raise ValueError('an isolated setuptools >=80,<90 environment is required')
-    with tempfile.TemporaryDirectory(prefix='fox2-package-') as td:
+        'setuptools=m.version("setuptools"),wheel=m.version("wheel"),'
+        'dependencies={name:m.version(name) for name in names})))'
+    )
+    check = json.loads(run([python, '-I', '-c', script]))
+    expected = {'jsonschema', 'attrs', 'referencing', 'rpds-py',
+                'jsonschema-specifications'}
+    versions = check.get('dependencies')
+    if (not check.get('isolated') or
+            not 80 <= int(check['setuptools'].split('.')[0]) < 90 or
+            not isinstance(versions, dict) or set(versions) != expected or
+            any(not isinstance(value, str) or not value for value in versions.values())):
+        raise ValueError('a complete isolated setuptools >=80,<90 build environment is required')
+    return check
+
+
+def build(output: Path, python: Path) -> dict:
+    check = inspect_build_environment(python)
+yDirectory(prefix='fox2-package-') as td:
         stage = Path(td)
         source = stage / 'source'
         shutil.copytree(ROOT, source, ignore=shutil.ignore_patterns(
