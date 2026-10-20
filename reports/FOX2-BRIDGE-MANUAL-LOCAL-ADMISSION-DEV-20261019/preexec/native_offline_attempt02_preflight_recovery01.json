@@ -1,0 +1,104 @@
+{
+  "agent_execution_started": false,
+  "blockers": [],
+  "candidate_route": {
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX",
+    "reasoning_effort": "medium"
+  },
+  "capabilities": {
+    "codex": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "eligible_agent_route": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "git": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "historical_receipt_integrity": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "pwsh": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "python_dependencies": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "recovery_receipt_slot": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    },
+    "task_route_binding": {
+      "evidence": "Bounded readiness observation; raw output omitted.",
+      "exit_code": 0,
+      "failure_class": null,
+      "material": true,
+      "status": "PASS"
+    }
+  },
+  "checked_at": "2026-10-20T03:45:11.687805+00:00",
+  "dispatch_state": {
+    "dispatch_consumed": false,
+    "executable_dispatch_published": false
+  },
+  "notes": [
+    "Routing evidence only. CHAT selects the final implementation Agent."
+  ],
+  "project": "FOX2",
+  "receipt_path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/native_offline_attempt02_preflight_recovery01.json",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "schema_version": "1.0",
+  "source_head": "fb4b7818f7e55651c5dcdef1d19ae4164c9f3f84",
+  "status": "PASS",
+  "task_branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02",
+  "task_source": {
+    "git_commit_sha": "fb4b7818f7e55651c5dcdef1d19ae4164c9f3f84",
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/task.md",
+    "sha256": "ffd9b35b8e98d1dc7ae824945cba963d96c8cd0e1cf67e42220ab2cacafab188"
+  },
+  "worktree": {
+    "competing_writer": "NONE_OBSERVED",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02",
+    "stale_receipt_cleanup": "NOT_NEEDED",
+    "status": "PASS"
+  },
+  "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019"
+}
