@@ -1,0 +1,254 @@
+{
+  "contract_version": "2.0",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+  "task_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-OFFLINE-ATTEMPT-02",
+  "change_id": "ATTEMPT02-LEGACY-NO-REPLAY-DEPENDENCY",
+  "submission_state": "BLOCKED",
+  "submitted_at_utc": "2026-10-20T03:58:17.696631+00:00",
+  "agent": {
+    "product": "CODEX / OPENAI_CODEX_CLI",
+    "model": "REQUESTED gpt-6.1-sol; OBSERVED NOT_EXPOSED",
+    "mode": "REQUESTED medium / FULL_ACCESS / danger-full-access / approval never; observed effort NOT_EXPOSED",
+    "host": "Native Windows CLI; injected HOST VERIFIED admission accepted; timestamps bound captured evidence window",
+    "started_at_utc": "2026-10-20T03:56:34.392195+00:00",
+    "finished_at_utc": "2026-10-20T03:58:17.696631+00:00",
+    "quota_observation": "NOT_EXPOSED; no quota error observed"
+  },
+  "routing": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PASS",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "assignment_check": "PASS",
+    "routing_evidence": "Git admission d3d999de17f1c3833f03acaf327a2a549e798f85 and host injected fresh gates; source_locks in test_summary.json. r5 is bounded host cooperating mutex evidence, not global OS telemetry. No release permission."
+  },
+  "source": {
+    "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "policy_version": "2.0.0",
+    "task_commit_sha": "fb809f77589d517a1133d40fdd0cf3fd90b5b322",
+    "source_manifest_sha256": "58e3bd9890c2edc8e964dc110d1d7bd54901a6204769e7bb039e427247194526",
+    "approved_base_commit_sha": "65c50f7831722300a5418d0e9bc21f9f95988147",
+    "source_readback_status": "PASS",
+    "brd_revisions": [],
+    "previous_evidence_reused": [
+      "Pinned Owner grant and Recovery01 PreExec for route authority only; no historical test PASS reused"
+    ]
+  },
+  "permissions": {
+    "git_source_read": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "git_code_push": true,
+    "code_allowed": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "dnse_production": false,
+    "broker_write": false,
+    "live": false,
+    "grant_evidence": "c23d28bd56d9d06d64561dcf255b2d94227f6acc scoped Owner grant plus pinned task/prompt and separate CHAT admission; six primary code/test files plus four result paths only"
+  },
+  "git": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02",
+    "writer_lease": "HOST VERIFIED retained named exclusive mutex; no observable source conflict",
+    "report_path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+    "delivery_status": "LOCAL_ONLY",
+    "pr_url": null,
+    "local_head_before_submission": "65c50f7831722300a5418d0e9bc21f9f95988147"
+  },
+  "scope": {
+    "requested": [
+      "Explicit MANUAL_LOCAL admission reusing safe shared validation/claim/adapter pipeline with exact six-file implementation scope"
+    ],
+    "completed": [
+      "Verified pinned intake/source bytes",
+      "Six fixture regressions reproduce shared legacy no-replay gaps",
+      "Focused and Desktop/Ops tests captured",
+      "Four stopped-result artifacts"
+    ],
+    "partial": [],
+    "not_done": [
+      "Production MANUAL_LOCAL implementation",
+      "New full manual acceptance matrix",
+      "Dedicated old PreExec v1 contract regression",
+      "CHAT independent acceptance"
+    ],
+    "explicit_exclusions": [
+      "All production source unchanged",
+      "No excluded paths, protected dispatch, installed runtime, host attempt markers, main/merge/install/provider/broker/LIVE"
+    ],
+    "changed_paths": [
+      {
+        "path": "agent_bridge/tests/test_e2e_runner.py",
+        "operation": "MODIFY",
+        "intent": "Required failing dependency reproduction",
+        "within_allowed_paths": true,
+        "new_sha256": "f3bb4e93177e07c2fd948c48f37c99d0e529cc126d6db6f6ed2cda9c95e22af5"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+        "operation": "ADD",
+        "intent": "Required truthful stopped-result artifact",
+        "within_allowed_paths": true,
+        "new_sha256": "ad69dd3ab7b50ceca68194668d2ba58cb971921187b110ee4c337412a2c42e56"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json",
+        "operation": "ADD",
+        "intent": "Result v2 manifest; self hash intentionally null; remote SHA supplied externally",
+        "within_allowed_paths": true,
+        "new_sha256": null
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+        "operation": "ADD",
+        "intent": "Required truthful stopped-result artifact",
+        "within_allowed_paths": true,
+        "new_sha256": "fee44c64435285778cab308e48ce56fc83b1015abccc11d56c8fdb0de42af8b7"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+        "operation": "ADD",
+        "intent": "Required truthful stopped-result artifact",
+        "within_allowed_paths": true,
+        "new_sha256": "883fad27db46cef520488b48479979ef17733ac48c5adea90f394b90ec66bcb3"
+      }
+    ],
+    "forbidden_paths_touched": false
+  },
+  "tests": [
+    {
+      "id": "focused",
+      "kind": "INTEGRATION",
+      "status": "FAIL",
+      "command_or_method": "python -m pytest -q -p no:cacheprovider tests/test_e2e_runner.py tests/test_project_dictionary.py",
+      "environment": "Windows; offline disposable fixtures; worktree source via PYTHONPATH; fake adapters/transport",
+      "run_at_utc": "2026-10-20T03:56:34.392195+00:00",
+      "evidence_ids": [
+        "test-log"
+      ],
+      "notes": "6 failed, 117 passed; required no-replay behavior is absent"
+    },
+    {
+      "id": "regression",
+      "kind": "INTEGRATION",
+      "status": "PASS",
+      "command_or_method": "python -m pytest -q -p no:cacheprovider tests/test_desktop.py tests/test_ops_runner.py",
+      "environment": "Windows; offline disposable fixtures; worktree source via PYTHONPATH; fake adapters/transport",
+      "run_at_utc": "2026-10-20T03:56:41.822046+00:00",
+      "evidence_ids": [
+        "test-log"
+      ],
+      "notes": "45 passed; existing Desktop/Ops regressions"
+    },
+    {
+      "id": "manual-feature-matrix",
+      "kind": "INTEGRATION",
+      "status": "NOT_RUN",
+      "command_or_method": "New manual route positive/negative authority/source/prompt and crash/delivery acceptance matrix",
+      "environment": "Not executed: excluded shared dependency boundary",
+      "run_at_utc": null,
+      "evidence_ids": [],
+      "notes": "Existing tests are not a substitute for new manual acceptance or dedicated old PreExec v1 contract regression."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "cross-root-no-replay",
+      "status": "FAIL",
+      "evidence_ids": [
+        "test-log",
+        "dependency-report",
+        "k1-trace"
+      ],
+      "reason": "Six required legacy consumed/unknown/race assertions fail; excluded desktop.py shared initializer is the proven dependency."
+    },
+    {
+      "id": "manual-feature",
+      "status": "BLOCKED",
+      "evidence_ids": [
+        "dependency-report"
+      ],
+      "reason": "STOP at excluded shared dependency; no implementation delivered."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "test-log",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "sha256": "fee44c64435285778cab308e48ce56fc83b1015abccc11d56c8fdb0de42af8b7",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-20T03:58:17.696631+00:00",
+      "description": "test_summary.json; real stopped-result evidence, no implementation PASS",
+      "supports_ids": [
+        "focused",
+        "regression",
+        "cross-root-no-replay"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "dependency-report",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "sha256": "ad69dd3ab7b50ceca68194668d2ba58cb971921187b110ee4c337412a2c42e56",
+      "kind": "REPORT",
+      "observed_at_utc": "2026-10-20T03:58:17.696631+00:00",
+      "description": "report.md; real stopped-result evidence, no implementation PASS",
+      "supports_ids": [
+        "cross-root-no-replay"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "k1-trace",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+      "sha256": "883fad27db46cef520488b48479979ef17733ac48c5adea90f394b90ec66bcb3",
+      "kind": "DIFF",
+      "observed_at_utc": "2026-10-20T03:58:17.696631+00:00",
+      "description": "diff_trace.json; real stopped-result evidence, no implementation PASS",
+      "supports_ids": [
+        "cross-root-no-replay"
+      ],
+      "sanitized": true
+    }
+  ],
+  "risks": [
+    {
+      "id": "legacy-replay",
+      "severity": "CRITICAL",
+      "state": "BLOCKED",
+      "impact": "Current root can claim an identity consumed in legacy ledger/marker; migration snapshot permits a late legacy claim.",
+      "next_action": "CHAT review exact shared startup/no-replay design and bind desktop.py plus corresponding tests; ledger API change only if justified. Do not retry consumed Attempt02.",
+      "owner_role": "CHAT"
+    }
+  ],
+  "security": {
+    "secret_scan": "PASS",
+    "private_account_data_in_git": false,
+    "licensed_raw_feed_in_git": false,
+    "evidence_redacted": true,
+    "check_notes": "Changed files scanned for credential patterns and reviewed; captured logs contain fixture identities and local paths only. No raw login/process snapshot or private account data."
+  },
+  "usage": {
+    "attempts": 1,
+    "retries": 0,
+    "usage_status": "NOT_MEASURED",
+    "tokens_used": null,
+    "credits_used": null,
+    "escalation_reason": "Required no-replay contract depends on excluded shared startup behavior; exact CHAT scope binding required."
+  },
+  "next_step": {
+    "requested_chat_decision": "REVIEW",
+    "action": "Review BLOCKED result and six failures; bind exact shared dependency scope under existing Owner grant before any fresh authorized execution. Preserve no-replay marker; no automatic retry.",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Independent immutable Git Result Review and separately approved exact dependency binding; this invocation stops implementation."
+  }
+}

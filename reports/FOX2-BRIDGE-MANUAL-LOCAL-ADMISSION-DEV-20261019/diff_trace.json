@@ -1,0 +1,64 @@
+{
+  "status": "BLOCKED",
+  "classification_vocabulary": [
+    "REQUESTED",
+    "NECESSARY_DEPENDENCY",
+    "JUSTIFIED_GENERATED"
+  ],
+  "production_changes": [],
+  "hunks": [
+    {
+      "path": "agent_bridge/tests/test_e2e_runner.py",
+      "hunk": "@@ -398,0 +399,90 @@ def test_restart_after_nonzero_exit_checkpoint_never_publishes(tmp_path, stage,",
+      "classification": "REQUESTED",
+      "reason": "Fixture-only required no-replay dependency tests; no production implementation or refactor.",
+      "consumer": "desktop.initialize_runtime -> SQLiteLedger.claim_dispatch; shared App/Desktop/E2E admission",
+      "tests": [
+        "test_attempt02_existing_current_db_denies_legacy_consumption (3 cases)",
+        "test_attempt02_legacy_marker_denies_claim (2 cases)",
+        "test_attempt02_snapshot_does_not_allow_late_legacy_claim (1 case)"
+      ],
+      "result": "FAIL: all six desired safety assertions fail on existing shared code"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "classification": "REQUESTED",
+      "consumer": "CHAT Git Result v2 intake",
+      "reason": "Required truthful stopped-result evidence; not generated production code"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json",
+      "classification": "REQUESTED",
+      "consumer": "CHAT Git Result v2 intake",
+      "reason": "Required truthful stopped-result evidence; not generated production code"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json",
+      "classification": "REQUESTED",
+      "consumer": "CHAT Git Result v2 intake",
+      "reason": "Required truthful stopped-result evidence; not generated production code"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/diff_trace.json",
+      "classification": "REQUESTED",
+      "consumer": "CHAT Git Result v2 intake",
+      "reason": "Required truthful stopped-result evidence; not generated production code"
+    }
+  ],
+  "excluded_dependency": {
+    "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
+    "symbol": "initialize_runtime",
+    "classification": "NECESSARY_DEPENDENCY",
+    "edited": false,
+    "consumer": "BridgeApp.start and DesktopWorker.run before E2E/Ops claim",
+    "reason": "Legacy snapshot-only migration and current-root-only marker intake do not establish shared cross-root no-replay authority",
+    "tests": "Six failing fixture cases in test_e2e_runner.py",
+    "requested_next_binding": [
+      "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "agent_bridge/tests/test_desktop.py"
+    ],
+    "conditional_api_review": "ledger.py::claim_dispatch; exact change remains design-dependent and not authorized"
+  }
+}

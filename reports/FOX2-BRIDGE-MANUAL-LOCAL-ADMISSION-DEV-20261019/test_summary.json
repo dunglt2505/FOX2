@@ -1,0 +1,154 @@
+{
+  "status": "BLOCKED_DEPENDENCY",
+  "runs": [
+    {
+      "id": "focused",
+      "command": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_e2e_runner.py",
+        "tests/test_project_dictionary.py"
+      ],
+      "cwd": "agent_bridge",
+      "started_at_utc": "2026-10-20T03:56:34.392195+00:00",
+      "finished_at_utc": "2026-10-20T03:56:41.821174+00:00",
+      "exit_code": 1,
+      "stdout": ".....................FFFFFF............................................. [ 58%]\n...................................................                      [100%]\n================================== FAILURES ===================================\n____ test_attempt02_existing_current_db_denies_legacy_consumption[FAILED] _____\n\nbridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016711A8BE70>\ntmp_path = WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02/agent_bridge/test_artifacts/8d809a5f8f8e408eb97e089b9c7a09b7')\nconsumed_state = 'FAILED'\n\n    @pytest.mark.parametrize('consumed_state', [\n        'FAILED', 'PUSHED_UNREVIEWED', 'NEEDS_RECONCILIATION',\n    ])\n    def test_attempt02_existing_current_db_denies_legacy_consumption(\n        bridge_config, monkeypatch, tmp_path, consumed_state,\n    ):\n        \"\"\"Required shared admission invariant; a split ledger must never re-admit.\n    \n        Dependency reproduction only: both roots are disposable, with no Agent,\n        transport, installed runtime or protected dispatch involved.\n        \"\"\"\n        from fox2_agent_bridge.desktop import initialize_runtime\n        from fox2_agent_bridge.ledger import utc_now\n    \n        identity = 'FOX2-ATTEMPT02-FIXTURE-SPLIT'\n        legacy_root = tmp_path / 'legacy'\n        monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)\n        monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)\n        current = initialize_runtime(bridge_config)\n        legacy = SQLiteLedger(legacy_root / 'data' / 'bridge.db')\n        legacy.initialize()\n        assert legacy.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='legacy', observed_at_utc=utc_now(), honor_controls=True)\n        legacy.finish_execution(dispatch_id=identity, execution_id='legacy',\n            dispatch_state=consumed_state, execution_state=consumed_state,\n            finished_at_utc=utc_now())\n    \n        current = initialize_runtime(bridge_config)\n>       assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (\n            'NO_REPLAY_GAP: existing current DB ignored consumed legacy identity'\n        )\nE       AssertionError: NO_REPLAY_GAP: existing current DB ignored consumed legacy identity\nE       assert not True\nE        +  where True = claim_dispatch(dispatch_id='FOX2-ATTEMPT02-FIXTURE-SPLIT', payload_hash=('a' * 64), execution_id='current', observed_at_utc='2026-10-20T03:56:37.703642+00:00', honor_controls=True)\nE        +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000016711B2FD50>.claim_dispatch\nE        +    and   '2026-10-20T03:56:37.703642+00:00' = <function utc_now at 0x0000016711B2AFC0>()\n\ntests\\test_e2e_runner.py:430: AssertionError\n_ test_attempt02_existing_current_db_denies_legacy_consumption[PUSHED_UNREVIEWED] _\n\nbridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016711C5F9A0>\ntmp_path = WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02/agent_bridge/test_artifacts/8825352545154d57a8bad396e60ad8a4')\nconsumed_state = 'PUSHED_UNREVIEWED'\n\n    @pytest.mark.parametrize('consumed_state', [\n        'FAILED', 'PUSHED_UNREVIEWED', 'NEEDS_RECONCILIATION',\n    ])\n    def test_attempt02_existing_current_db_denies_legacy_consumption(\n        bridge_config, monkeypatch, tmp_path, consumed_state,\n    ):\n        \"\"\"Required shared admission invariant; a split ledger must never re-admit.\n    \n        Dependency reproduction only: both roots are disposable, with no Agent,\n        transport, installed runtime or protected dispatch involved.\n        \"\"\"\n        from fox2_agent_bridge.desktop import initialize_runtime\n        from fox2_agent_bridge.ledger import utc_now\n    \n        identity = 'FOX2-ATTEMPT02-FIXTURE-SPLIT'\n        legacy_root = tmp_path / 'legacy'\n        monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)\n        monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)\n        current = initialize_runtime(bridge_config)\n        legacy = SQLiteLedger(legacy_root / 'data' / 'bridge.db')\n        legacy.initialize()\n        assert legacy.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='legacy', observed_at_utc=utc_now(), honor_controls=True)\n        legacy.finish_execution(dispatch_id=identity, execution_id='legacy',\n            dispatch_state=consumed_state, execution_state=consumed_state,\n            finished_at_utc=utc_now())\n    \n        current = initialize_runtime(bridge_config)\n>       assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (\n            'NO_REPLAY_GAP: existing current DB ignored consumed legacy identity'\n        )\nE       AssertionError: NO_REPLAY_GAP: existing current DB ignored consumed legacy identity\nE       assert not True\nE        +  where True = claim_dispatch(dispatch_id='FOX2-ATTEMPT02-FIXTURE-SPLIT', payload_hash=('a' * 64), execution_id='current', observed_at_utc='2026-10-20T03:56:37.925911+00:00', honor_controls=True)\nE        +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000016711AB5A90>.claim_dispatch\nE        +    and   '2026-10-20T03:56:37.925911+00:00' = <function utc_now at 0x0000016711B2AFC0>()\n\ntests\\test_e2e_runner.py:430: AssertionError\n_ test_attempt02_existing_current_db_denies_legacy_consumption[NEEDS_RECONCILIATION] _\n\nbridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016711C5FA80>\ntmp_path = WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02/agent_bridge/test_artifacts/bdfa60a2005544368ffa293249b3b18e')\nconsumed_state = 'NEEDS_RECONCILIATION'\n\n    @pytest.mark.parametrize('consumed_state', [\n        'FAILED', 'PUSHED_UNREVIEWED', 'NEEDS_RECONCILIATION',\n    ])\n    def test_attempt02_existing_current_db_denies_legacy_consumption(\n        bridge_config, monkeypatch, tmp_path, consumed_state,\n    ):\n        \"\"\"Required shared admission invariant; a split ledger must never re-admit.\n    \n        Dependency reproduction only: both roots are disposable, with no Agent,\n        transport, installed runtime or protected dispatch involved.\n        \"\"\"\n        from fox2_agent_bridge.desktop import initialize_runtime\n        from fox2_agent_bridge.ledger import utc_now\n    \n        identity = 'FOX2-ATTEMPT02-FIXTURE-SPLIT'\n        legacy_root = tmp_path / 'legacy'\n        monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)\n        monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)\n        current = initialize_runtime(bridge_config)\n        legacy = SQLiteLedger(legacy_root / 'data' / 'bridge.db')\n        legacy.initialize()\n        assert legacy.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='legacy', observed_at_utc=utc_now(), honor_controls=True)\n        legacy.finish_execution(dispatch_id=identity, execution_id='legacy',\n            dispatch_state=consumed_state, execution_state=consumed_state,\n            finished_at_utc=utc_now())\n    \n        current = initialize_runtime(bridge_config)\n>       assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (\n            'NO_REPLAY_GAP: existing current DB ignored consumed legacy identity'\n        )\nE       AssertionError: NO_REPLAY_GAP: existing current DB ignored consumed legacy identity\nE       assert not True\nE        +  where True = claim_dispatch(dispatch_id='FOX2-ATTEMPT02-FIXTURE-SPLIT', payload_hash=('a' * 64), execution_id='current', observed_at_utc='2026-10-20T03:56:38.034068+00:00', honor_controls=True)\nE        +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000016711C4E170>.claim_dispatch\nE        +    and   '2026-10-20T03:56:38.034068+00:00' = <function utc_now at 0x0000016711B2AFC0>()\n\ntests\\test_e2e_runner.py:430: AssertionError\n_______________ test_attempt02_legacy_marker_denies_claim[True] _______________\n\nbridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016711B78600>\ntmp_path = WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02/agent_bridge/test_artifacts/8fd3029dee144b69ba0485ccb3a60878')\nvalid_marker = True\n\n    @pytest.mark.parametrize('valid_marker', [True, False])\n    def test_attempt02_legacy_marker_denies_claim(\n        bridge_config, monkeypatch, tmp_path, valid_marker,\n    ):\n        \"\"\"Consumed or unreadable legacy marker must fail closed, including no DB.\"\"\"\n        from fox2_agent_bridge.desktop import initialize_runtime\n        from fox2_agent_bridge.ledger import utc_now\n    \n        identity = 'FOX2-ATTEMPT02-FIXTURE-MARKER'\n        legacy_root = tmp_path / 'legacy'\n        marker = legacy_root / 'data' / 'manual_consumption.json'\n        marker.parent.mkdir(parents=True)\n        marker.write_text(json.dumps({'format': 'FOX2_MANUAL_CONSUMPTION_1',\n            'dispatch_ids': [identity]}) if valid_marker else '{unreadable', encoding='utf-8')\n        monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)\n        monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)\n    \n        try:\n            current = initialize_runtime(bridge_config)\n        except (ValueError, OSError):\n            # Conservative refusal is also an acceptable response to unknown state.\n            return\n>       assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (\n            'NO_REPLAY_GAP: legacy manual marker did not prevent current claim'\n        )\nE       AssertionError: NO_REPLAY_GAP: legacy manual marker did not prevent current claim\nE       assert not True\nE        +  where True = claim_dispatch(dispatch_id='FOX2-ATTEMPT02-FIXTURE-MARKER', payload_hash=('a' * 64), execution_id='current', observed_at_utc='2026-10-20T03:56:38.079042+00:00', honor_controls=True)\nE        +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000016711C4C910>.claim_dispatch\nE        +    and   '2026-10-20T03:56:38.079042+00:00' = <function utc_now at 0x0000016711B2AFC0>()\n\ntests\\test_e2e_runner.py:458: AssertionError\n______________ test_attempt02_legacy_marker_denies_claim[False] _______________\n\nbridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016711B78910>\ntmp_path = WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02/agent_bridge/test_artifacts/fc16e329056d449493673f8256b618ac')\nvalid_marker = False\n\n    @pytest.mark.parametrize('valid_marker', [True, False])\n    def test_attempt02_legacy_marker_denies_claim(\n        bridge_config, monkeypatch, tmp_path, valid_marker,\n    ):\n        \"\"\"Consumed or unreadable legacy marker must fail closed, including no DB.\"\"\"\n        from fox2_agent_bridge.desktop import initialize_runtime\n        from fox2_agent_bridge.ledger import utc_now\n    \n        identity = 'FOX2-ATTEMPT02-FIXTURE-MARKER'\n        legacy_root = tmp_path / 'legacy'\n        marker = legacy_root / 'data' / 'manual_consumption.json'\n        marker.parent.mkdir(parents=True)\n        marker.write_text(json.dumps({'format': 'FOX2_MANUAL_CONSUMPTION_1',\n            'dispatch_ids': [identity]}) if valid_marker else '{unreadable', encoding='utf-8')\n        monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)\n        monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)\n    \n        try:\n            current = initialize_runtime(bridge_config)\n        except (ValueError, OSError):\n            # Conservative refusal is also an acceptable response to unknown state.\n            return\n>       assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n            execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (\n            'NO_REPLAY_GAP: legacy manual marker did not prevent current claim'\n        )\nE       AssertionError: NO_REPLAY_GAP: legacy manual marker did not prevent current claim\nE       assert not True\nE        +  where True = claim_dispatch(dispatch_id='FOX2-ATTEMPT02-FIXTURE-MARKER', payload_hash=('a' * 64), execution_id='current', observed_at_utc='2026-10-20T03:56:38.126946+00:00', honor_controls=True)\nE        +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000016711C4E670>.claim_dispatch\nE        +    and   '2026-10-20T03:56:38.126946+00:00' = <function utc_now at 0x0000016711B2AFC0>()\n\ntests\\test_e2e_runner.py:458: AssertionError\n__________ test_attempt02_snapshot_does_not_allow_late_legacy_claim ___________\n\nbridge_config = BridgeConfig(project_id='FOX2', repository='dunglt2505/FOX2', local_repo=WindowsPath('C:/Projects/FOX2'), bridge_root=...n/Python313/python.exe'), 'python': WindowsPath('C:/Users/Fox Le/AppData/Local/Programs/Python/Python313/python.exe')})\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016711B789F0>\ntmp_path = WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019-NATIVE-ATTEMPT-02/agent_bridge/test_artifacts/950ed440290c4cc09f7969e292664a69')\n\n    def test_attempt02_snapshot_does_not_allow_late_legacy_claim(\n        bridge_config, monkeypatch, tmp_path,\n    ):\n        \"\"\"Deterministic race schedule under the actual cooperating root locks.\"\"\"\n        from fox2_agent_bridge.desktop import initialize_runtime\n        from fox2_agent_bridge.ledger import utc_now\n        from fox2_agent_bridge.process_lock import ProcessLock\n    \n        identity = 'FOX2-ATTEMPT02-FIXTURE-LATE'\n        legacy_root = tmp_path / 'legacy'\n        legacy = SQLiteLedger(legacy_root / 'data' / 'bridge.db')\n        legacy.initialize()\n        monkeypatch.setattr('fox2_agent_bridge.desktop.LEGACY_ROOT', legacy_root)\n        monkeypatch.setattr('fox2_agent_bridge.desktop.BRIDGE_ROOT', bridge_config.bridge_root)\n        # Current App/Worker owns only its own root's singleton. Migration takes\n        # the legacy lock temporarily, then releases it before admission.\n        with ProcessLock(bridge_config.bridge_root / 'data' / 'bridge.lock'):\n            current = initialize_runtime(bridge_config)\n            assert current.dispatch_state(identity) is None\n            with ProcessLock(legacy_root / 'data' / 'bridge.lock'):\n                assert legacy.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n                    execution_id='legacy', observed_at_utc=utc_now(), honor_controls=True)\n>           assert not current.claim_dispatch(dispatch_id=identity, payload_hash='a' * 64,\n                execution_id='current', observed_at_utc=utc_now(), honor_controls=True), (\n                'NO_REPLAY_GAP: both cooperating roots claimed after migration snapshot'\n            )\nE           AssertionError: NO_REPLAY_GAP: both cooperating roots claimed after migration snapshot\nE           assert not True\nE            +  where True = claim_dispatch(dispatch_id='FOX2-ATTEMPT02-FIXTURE-LATE', payload_hash=('a' * 64), execution_id='current', observed_at_utc='2026-10-20T03:56:38.269222+00:00', honor_controls=True)\nE            +    where claim_dispatch = <fox2_agent_bridge.ledger.SQLiteLedger object at 0x0000016711C4E710>.claim_dispatch\nE            +    and   '2026-10-20T03:56:38.269222+00:00' = <function utc_now at 0x0000016711B2AFC0>()\n\ntests\\test_e2e_runner.py:486: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_e2e_runner.py::test_attempt02_existing_current_db_denies_legacy_consumption[FAILED]\nFAILED tests/test_e2e_runner.py::test_attempt02_existing_current_db_denies_legacy_consumption[PUSHED_UNREVIEWED]\nFAILED tests/test_e2e_runner.py::test_attempt02_existing_current_db_denies_legacy_consumption[NEEDS_RECONCILIATION]\nFAILED tests/test_e2e_runner.py::test_attempt02_legacy_marker_denies_claim[True]\nFAILED tests/test_e2e_runner.py::test_attempt02_legacy_marker_denies_claim[False]\nFAILED tests/test_e2e_runner.py::test_attempt02_snapshot_does_not_allow_late_legacy_claim\n6 failed, 117 passed in 6.58s\n",
+      "stderr": ""
+    },
+    {
+      "id": "regression",
+      "command": [
+        "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_desktop.py",
+        "tests/test_ops_runner.py"
+      ],
+      "cwd": "agent_bridge",
+      "started_at_utc": "2026-10-20T03:56:41.822046+00:00",
+      "finished_at_utc": "2026-10-20T03:56:46.126806+00:00",
+      "exit_code": 0,
+      "stdout": ".............................................                            [100%]\n45 passed in 3.85s\n",
+      "stderr": ""
+    }
+  ],
+  "source_locks": [
+    {
+      "id": "task",
+      "commit": "fb809f77589d517a1133d40fdd0cf3fd90b5b322",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_02/task.md",
+      "blob_sha1": "a07d4c7dced8f38090dec0fb38217a0fd8b8daab",
+      "sha256": "7111c5f2d4f49f740cc8e118081bf67f289603d508560485e18d71cb684e621e",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "prompt",
+      "commit": "2d561eccbd566c174af7ba94282ae533d0994c72",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_02/prompt.md",
+      "blob_sha1": "1042a17be707e3d60e38fb5c7e68d1d395f330ab",
+      "sha256": "ddcb6fa94b4c8ba17807b959c56c0866a5f8139be3186d6f82fb9375092910c8",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "chat_final_admission",
+      "commit": "d3d999de17f1c3833f03acaf327a2a549e798f85",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_02/chat_final_admission.json",
+      "blob_sha1": "12579bb05809793f36a4942ad6e33f3cf16e3ba9",
+      "sha256": "61e4fda77df6d9e4ca3e1084d8fe3eec5287415da322d9340f5e155388d13ee7",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "preexec",
+      "commit": "65c50f7831722300a5418d0e9bc21f9f95988147",
+      "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/native_offline_attempt02_preflight_recovery01.json",
+      "blob_sha1": "df39ab6e42c03e9a10683141099720fd19b03b32",
+      "sha256": "462e7d85763e4ff8bf90cb53a0eaddfaf8da763c9f6627a75cd860ac87bebdff",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "owner_grant",
+      "commit": "c23d28bd56d9d06d64561dcf255b2d94227f6acc",
+      "path": "docs/governance/releases/FOX2_MANUAL_LOCAL_ADMISSION_OWNER_EXECUTION_AUTHORIZATION_20261019.json",
+      "blob_sha1": "dbc397375bb50ff4d87e093b114d5dda44d159b7",
+      "sha256": "3551ec9286b037f124a6f3a9ab16bb4cec74492c05cdd0f1f378d8e431cad84b",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "registry",
+      "commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+      "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+      "sha256": "bb590e0117436af6f8bd1b863a20097aa43904f996cddbb84e4e54cf0361393a",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "policy",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "dictionary",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "routing_index",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "git_first_protocol",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "id": "result_schema",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "blob_sha1": "b7617cc5c75c288c7997c64536a22fb836b8200b",
+      "sha256": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b",
+      "status": "SOURCE_BYTES_VERIFIED"
+    }
+  ],
+  "source_manifest_sha256": "58e3bd9890c2edc8e964dc110d1d7bd54901a6204769e7bb039e427247194526",
+  "totals": {
+    "passed": 162,
+    "failed": 6,
+    "skipped": 0
+  },
+  "interpretation": "Six required no-replay assertions fail on the unmodified shared implementation. This is not a passing BUILD. All 162 pre-existing selected tests passed. No production implementation was changed.",
+  "not_run": [
+    "New explicit MANUAL_LOCAL positive route and its authority/source/prompt drift matrix",
+    "New manual claim-before-spawn/crash/delivery-ambiguity matrix",
+    "Task-specific old PreExec v1 contract regression (outside selected modules)",
+    "Live Agent, protected Dispatch, installed runtime and Canary execution"
+  ],
+  "telemetry": {
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning_effort": "medium",
+    "observed_model": "NOT_EXPOSED",
+    "observed_reasoning_effort": "NOT_EXPOSED",
+    "quota": "NOT_EXPOSED",
+    "host_evidence": "Injected HOST VERIFIED statement; trusted for immutable checks, fresh process observation, retained named mutex and bounded literal CLI route; not a global OS writer certificate."
+  }
+}
