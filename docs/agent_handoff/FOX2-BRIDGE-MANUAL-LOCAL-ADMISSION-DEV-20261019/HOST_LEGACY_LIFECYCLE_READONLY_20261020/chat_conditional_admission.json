@@ -1,0 +1,85 @@
+{
+  "schema": "FOX2_HOST_READONLY_CHAT_CONDITIONAL_ADMISSION_V1",
+  "project": "FOX2",
+  "issue_date": "2026-10-20",
+  "status": "HOST_PREFLIGHT_REQUIRED_BEFORE_AGENT",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+  "task_id": "FOX2-BRIDGE-LEGACY-LIFECYCLE-HOST-READONLY-20261020",
+  "scope": "HOST_WINDOWS_LEGACY_CURRENT_METADATA_READ_ONLY",
+  "release_permission": "NONE",
+  "assignment": {
+    "actor": "CODEX",
+    "engine": "OpenAI CODEX CLI",
+    "model": "gpt-6.1-sol",
+    "thinking": "medium",
+    "requested_sandbox": "danger-full-access",
+    "approval_policy": "never",
+    "max_invocations": 1,
+    "permission_limit": "NO_HOST_MUTATIONS_REPORT_ONLY_WRITES",
+    "quota": "UNKNOWN_UNTIL_HOST_PROBE",
+    "capability": "UNKNOWN_UNTIL_HOST_PROBE",
+    "writer": "UNKNOWN_UNTIL_HOST_PROBE"
+  },
+  "task": {
+    "commit": "45a50c6cdca27faaf3e24f71abd7b032214178ec",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/HOST_LEGACY_LIFECYCLE_READONLY_20261020/task.md",
+    "blob_sha1": "b093b7b01c6e97cd221781fb5d4e91c61baac78f",
+    "sha256": "8af4e53145b64765b1a1225ab7606b9785284f7ffafaec1b4e07850bc85283fd"
+  },
+  "prompt": {
+    "commit": "a0122041ba594ee59b6069cfcb26f035f9eb62a9",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/HOST_LEGACY_LIFECYCLE_READONLY_20261020/prompt.md",
+    "blob_sha1": "50f8b1894e5a337cb413acb77d6d2206526d842a",
+    "sha256": "0232d5804ec0da12157b98c2e25cdda79643159d0dff27213c1470b9ce2191d3"
+  },
+  "inventory_contract": {
+    "commit": "8f072f99c22a8201a3c6f04ba5dafa62ea55d2fc",
+    "path": "docs/roadmap/FOX2_BRIDGE_LEGACY_HOST_LIFECYCLE_INVENTORY_CONTRACT_20261020.md",
+    "blob_sha1": "204da7e0b29acc44ff2d3e31baeb9daddcd4b5a0"
+  },
+  "result": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-LEGACY-LIFECYCLE-READONLY-RESULT-20261020",
+    "start_head": "3167d8502588dd106f9a4cea8ef931e9148040ff",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-LEGACY-LIFECYCLE-READONLY-20261020",
+    "allowed_paths": [
+      "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md",
+      "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/evidence_manifest.json"
+    ],
+    "raw_host_inventory_allowed_in_public_repo": false
+  },
+  "history": {
+    "attempt01": "CONSUMED_NO_REPLAY",
+    "attempt02": "CONSUMED_NO_REPLAY",
+    "attempt03": "CONSUMED_NO_REPLAY",
+    "feature": "BUILD_BLOCKED",
+    "canary009": "HOLD",
+    "worker": "PAUSED_HISTORICAL_NOT_REATTESTED"
+  },
+  "route_checks": {
+    "POLICY_CHECK": "OWNER_SCOPED_HUMAN_GOVERNANCE_SOURCE_RESOLVED",
+    "TASK_STATE_CHECK": "EXISTING_WP_NEW_READONLY_TASK",
+    "SOURCE_RESOLUTION": "GIT_TASK_PROMPT_BYTES_READBACK",
+    "R0": "PASS_EXISTING_WP",
+    "R1": "PASS_READ_ONLY_DIAGNOSTIC",
+    "R2": "SCOPED_OWNER_GOAL_READONLY_NO_RELEASE",
+    "R3": "PENDING_HOST_CAPABILITY_AUTH_AND_QUOTA",
+    "R4": "CODEX_HOST_ONLY_PROPOSED_NOT_WORK",
+    "R5": "PENDING_FRESH_HOST_ONE_WRITER",
+    "R6": "GIT_TASK_PROMPT_RESULT_BRANCH_VERIFIED",
+    "R7": "EXACT_MODEL_THINKING_SCOPE_STOP_RESULT_PINNED",
+    "ASSIGNMENT_CHECK": "HOST_PREFLIGHT_REQUIRED_BEFORE_AGENT"
+  },
+  "host_gates": [
+    "Exact task/prompt/admission Git commit/blob/SHA256 match before start.",
+    "Host PowerShell 7, codex CLI login and supported model/sandbox/approval flags; pin model+effort; stop on mismatch or explicit unsupported route.",
+    "Git exact origin, result branch expected remote head, isolated clean/new result worktree.",
+    "Fresh relevant process snapshot and exclusive cooperating Windows mutex held for Agent duration.",
+    "Historical Attempt01-03 markers untouched; fresh one-shot host task marker absent; reserve atomically before first invocation.",
+    "No raw sensitive inventory, personal config, SQLite contents or host identifiers published. Public report-only Git result privacy reviewed before commit/push.",
+    "Only two result report paths changed, no CODEX agent nested, no Worker/Canary/task/service/Registry/system mutation.",
+    "If any gate false/unknown, STOP without invoking CODEX; marker existing => no retry."
+  ],
+  "note": "This is a conditional prospective source-bound assignment admission only, NOT actual verified Windows host, Writer, CLI quota, code release or runtime capability. A host launcher must fail-closed on unmet gates and report source/writer status; published Git alone never starts CODEX."
+}
