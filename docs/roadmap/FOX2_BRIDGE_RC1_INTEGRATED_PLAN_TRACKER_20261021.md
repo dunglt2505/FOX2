@@ -94,3 +94,12 @@ Candidate: docs/architecture/FOX2_BRIDGE_F1_G2_INTEGRATED_BUILD_SCOPE_CANDIDATE_
 G2 remains one integrated BUILD gate. CHAT inspected the actual agent_bridge code tree and locked the future build envelope: trusted Windows service + authenticated IPC + AppLocker policy artifact support + service-owned atomic claim/spawn + consumer convergence + offline/Windows-CI tests. This is not a coding task or Dispatch.
 
 G2 STATUS=BLOCKED. Existing Owner coding HOLD is preserved; no executable source lock, route PreExec, one-writer receipt, task.md or prompt.md has been created. Historical consumed attempts are not replayed.
+
+## G2 source/route/PreExec entry — source ready, execution HOLD
+Entry review: docs/architecture/FOX2_BRIDGE_F1_G2_SOURCE_ROUTE_PREEXEC_ENTRY_20261021.md at 0feff4223746a48e449bb961eecabb1d86388e41.
+
+Resolved governance source for prospective G2: Projectwide Registry 1f04d62; Source Resolution b04ded4; Policy 2.0.0 @ 96175ac; Dictionary 1.3 @ b25f7f7; Routing 1.4.0 @ bcd0089; Protocol 12 @ f2a8bc8. BRD-09/Bridge TechSpec remain candidates; task-specific G1 Design Acceptance 9c27e7c is the accepted F1 design delta.
+
+Route candidate: CODEX / Owner-pinned GPT-6.1 Sol / HIGH / MANUAL_LOCAL dedicated non-main worktree. Installed Bridge is not used to modify itself. Actual CLI/model/auth/capacity/worktree readiness remains ROUTE_NOT_VERIFIED until a task-specific PreExec is lawfully run.
+
+G2 remains BLOCKED solely at executable entry by preserved Owner coding HOLD. No task.md, prompt.md, Dispatch or Agent start. The source/route preparation above does not consume an attempt and does not alter F1 DENY / Canary HOLD.
