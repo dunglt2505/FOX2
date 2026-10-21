@@ -874,6 +874,14 @@ class BridgeE2ERunner:
             delivery_instruction = ('Commit and push only the exact authorized task branch; verify remote SHA.'
                                     if owner == 'AGENT' else
                                     'Leave commit and push to Bridge. Do not change Git history or publish.')
+            # F1 hard host retirement/lease remains NOT_IMPLEMENTED. This
+            # additional local gate prevents a PAUSE/STOP received after the
+            # durable claim from reaching the paid Agent spawn checkpoint.
+            # Preserve consumed identity even if launch is now denied.
+            if not self.can_claim() or not self.ledger.spawn_permitted():
+                raise AgentNotStarted(
+                    'local PAUSE/STOP or invalid worker controls before Agent spawn'
+                )
             self._progress(f'launch {agent_product} CLI')
             agent_result = _ADAPTERS[agent_product](self.config).run_prompt(
                 worktree=worktree, prompt=prompt_text + '\n\nDispatch delivery owner: ' + owner +
