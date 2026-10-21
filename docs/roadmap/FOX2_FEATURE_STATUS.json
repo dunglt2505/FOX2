@@ -235,9 +235,9 @@
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "G2_EXECUTABLE_ENTRY_BLOCKED_BY_OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING; F1_RUNTIME_NOT_ENFORCED; INSTALLED_MANUAL_LOCAL_POSITIVE_ADMISSION_NOT_RUN; SEVEN_FINAL_CANARY_GATES_NOT_RUN",
-      "as_of": "2026-10-21T10:15:00+07:00",
-      "next_safe_action": "CHAT_READ_ONLY_G2_ENTRY_REVIEW_ONLY; RE_RESOLVE_SOURCE_TASK_ROUTING_AND_CODING_AUTHORITY; NO_NEW_CODE_OR_DISPATCH_WHILE_OWNER_CODING_HOLD_REMAINS",
+      "blocker": "G2_EXECUTABLE_ENTRY_BLOCKED_BY_OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING; ROUTE_PREEXEC_NOT_RUN; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
+      "as_of": "2026-10-21T10:30:00+07:00",
+      "next_safe_action": "WAIT_FOR_EXPLICIT_LIFT_OR_SPECIFIC_OVERRIDE_OF_CODING_HOLD; THEN_RUN_G2_TASK_SPECIFIC_PREEXEC_AND_PROMPT_BUILDER; NO_DISPATCH_REPLAY",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -395,6 +395,40 @@
         "task_published": false,
         "prompt_published": false,
         "dispatch_created": false
+      },
+      "g2_source_route_entry": {
+        "stage": "BUILD",
+        "status": "BLOCKED",
+        "evidence": "GOVERNANCE_SOURCE_BYTES_VERIFIED; G1_ACCEPTED; G2_ROUTE_CANDIDATE_SELECTED; EXECUTION_NOT_AUTHORIZED",
+        "source_sha": "0feff4223746a48e449bb961eecabb1d86388e41",
+        "source_set": {
+          "governance_registry": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+          "source_resolution": "b04ded4b9d7fb241dc69ad25097eb474807cf68c",
+          "policy": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+          "dictionary": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+          "routing": "bcd008983b61349646a5198ff243069f81484fae",
+          "protocol": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+          "brd09_candidate": "e13820c05ec0c7e97853daa61f6f5fb6b73391cc",
+          "bridge_techspec_candidate": "e13820c05ec0c7e97853daa61f6f5fb6b73391cc",
+          "g1_design_acceptance": "9c27e7c7104facdb7f083350f38d2451939b6c2a",
+          "g2_scope_candidate": "9410edb0d88631c33ffda8494b238ec9f4446dc1"
+        },
+        "route_candidate": {
+          "actor": "CODEX",
+          "model": "GPT-6.1 Sol",
+          "thinking": "HIGH",
+          "execution_path": "MANUAL_LOCAL",
+          "worktree": "DEDICATED_NON_MAIN_G2_WORKTREE_REQUIRED",
+          "route_status": "ROUTE_NOT_VERIFIED"
+        },
+        "preexec": "NOT_RUN",
+        "one_writer": "NOT_VERIFIED_FOR_FUTURE_G2_WORKTREE",
+        "task_published": false,
+        "prompt_published": false,
+        "dispatch_created": false,
+        "agent_started": false,
+        "blocker": "OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING",
+        "next_safe_action": "EXPLICIT_LIFT_OR_SPECIFIC_OVERRIDE_THEN_TASK_SPECIFIC_PREEXEC"
       }
     }
   ]
