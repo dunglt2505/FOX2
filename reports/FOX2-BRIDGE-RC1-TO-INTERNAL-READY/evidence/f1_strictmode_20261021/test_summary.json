@@ -1,0 +1,70 @@
+{
+  "schema": "FOX2_SCOPED_REGRESSION_EVIDENCE_V1",
+  "source_code_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+  "source_readback": "EXACT_SCRIPT_AND_TEST_BYTES_MATCH_LOCAL_TESTED_FILES",
+  "environment": {
+    "os": "Windows",
+    "powershell": "7.6.7",
+    "python": "3.13",
+    "pytest": "8.3.5",
+    "host_calls": "ALL_DISCOVERY_IO_MOCKED"
+  },
+  "baseline": {
+    "source_commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+    "failed": 6,
+    "passed": 5,
+    "exit_code": 1,
+    "meaning": "RED_CONTROL_EXPECTED_FAILURES; SAME_FINAL_TEST_BYTES_AGAINST_UNPATCHED_SCRIPT"
+  },
+  "candidate": {
+    "passed": 11,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "seconds": 6.58
+  },
+  "development_attempts": [
+    {
+      "status": "FAILED",
+      "outcome": "10 fixture setup errors from sandbox default temp directory; 1 AST invocation failure; fixed fixture path/invocation, no production behavior changed"
+    },
+    {
+      "status": "FAILED",
+      "outcome": "10 failed / 1 passed caused by harness script-scope fixture lookup and incorrect static invocation count; fixed harness global fixture scoped to disposable subprocess and count"
+    }
+  ],
+  "scope": "No real host task enumeration, mutation, installed adoption, dispatch consumption or Agent launch",
+  "f1": "DENY",
+  "canary": "HOLD",
+  "windows_ci": {
+    "schema": "FOX2_SOURCE_BOUND_WINDOWS_CI_RECEIPT_V1",
+    "run_id": 39531008148,
+    "job_id": 118996627829,
+    "url": "https://github.com/dunglt2505/FOX2/actions/runs/39531008148",
+    "source_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+    "status": "COMPLETED_SUCCESS",
+    "package_tests": {
+      "passed": 23,
+      "seconds": 0.6
+    },
+    "full_bridge_regression": {
+      "passed": 493,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 179.84,
+      "includes_new_strictmode_tests": 11
+    },
+    "read_only_discovery": "PASS_CI_RUNNER_ONLY",
+    "quarantined_package": {
+      "sha256": "dad84caf22d11468dc98390d00dce25445f80f22837ecfb383f5a5615c6de930",
+      "source_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+      "status": "CI_ONLY_EPHEMERAL_F0_DENY_NOT_INSTALLED_OR_RELEASED"
+    },
+    "log_provenance": "GitHub connector fetch_workflow_job_logs for exact job; selected verbatim timestamped lines in ci_excerpt.log",
+    "limits": "Source/tests/CI only; not Owner host proof, OS enforcement, privileged broker, installed adoption or Internal Ready",
+    "f1": "DENY",
+    "canary": "HOLD"
+  }
+}

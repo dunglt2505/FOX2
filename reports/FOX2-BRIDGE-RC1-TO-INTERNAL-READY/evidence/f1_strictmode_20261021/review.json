@@ -1,0 +1,44 @@
+{
+  "schema": "FOX2_CHAT_DIRECT_DIFF_REVIEW_V1",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "source_base": "434276765b2d09dbf8bf3a74716f40c20c878083",
+  "precheck_commit": "a018bd9a539c43a377e00c71e886f3c08b46eb59",
+  "result_code_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+  "reviewer": "CHAT_SELF_REVIEW_NOT_INDEPENDENT_AGENT_AUDIT",
+  "diff_scope": {
+    "paths": [
+      "agent_bridge/scripts/f1_host_discovery_readonly.ps1",
+      "agent_bridge/tests/test_f1_host_discovery.py"
+    ],
+    "k1": [
+      {
+        "path": "agent_bridge/scripts/f1_host_discovery_readonly.ps1",
+        "classification": "REQUESTED",
+        "scope": "Single ScheduledTask filter hunk: optional property lookup and null-action skip; original matching patterns unchanged"
+      },
+      {
+        "path": "agent_bridge/tests/test_f1_host_discovery.py",
+        "classification": "REQUESTED",
+        "scope": "Nine malformed/valid task cases, access-denied negative, static read-only guard; all host IO mocked"
+      }
+    ],
+    "unexplained": [],
+    "remote_readback": "TWO_OF_TWO_BYTE_EXACT",
+    "production_scope": "No new host writes, cmdlets, output fields, permission or authority grants"
+  },
+  "tests": {
+    "red_control": "6_FAIL_5_PASS",
+    "fixed": "11_PASS_0_FAIL_0_ERROR_0_SKIP",
+    "windows_ci": "PASS_493_FULL_BRIDGE_PLUS_23_PACKAGE_AT_442721769dcca2643e111b6fefc16f2a2924cc94"
+  },
+  "verdict": "SCOPED_DIRECT_SOURCE_LOCAL_AND_WINDOWS_CI_VERIFIED; WHOLE_FEATURE_HOLD",
+  "uncovered": [
+    "Opaque non-exec actions remain unclassified; no assertion of complete entrypoint enumeration",
+    "Real Owner host script execution NOT_RUN",
+    "OS retirement, privileged broker, installed adoption NOT_ATTESTED",
+    "No independent Agent result acceptance claimed"
+  ],
+  "next_safe_action": "Publish and remote-read back final report/evidence; no runtime activation",
+  "f1": "DENY",
+  "canary": "HOLD"
+}

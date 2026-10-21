@@ -1,0 +1,80 @@
+{
+  "schema": "FOX2_SCOPED_SOURCE_LOCK_V1",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "baseline": "434276765b2d09dbf8bf3a74716f40c20c878083",
+  "precheck_commit": "a018bd9a539c43a377e00c71e886f3c08b46eb59",
+  "code_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+  "registry": {
+    "live_release_commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+    "readback_commit": "d5ef7a5d000681c9aa3d8940b7cc95173f47b447",
+    "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+    "blob": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35"
+  },
+  "sources": [
+    {
+      "key": "contract",
+      "sha256": "b8d2f83e95491167540f28959ff7467cad9eea72a2e8874c2902b5844e7e974d",
+      "bytes": 3871,
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md",
+      "commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "git_blob_sha": "7ca9750d7b19d100547f4cd3a880bbc2ba35274d"
+    },
+    {
+      "key": "dictionary",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "bytes": 10059,
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "git_blob_sha": "6c8f30e2e6b07f2e65e45c14faab99672d036083"
+    },
+    {
+      "key": "git_first_protocol",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "bytes": 6053,
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "git_blob_sha": "d34a022f2bda39a167a404c8530e57b30f337cb9"
+    },
+    {
+      "key": "policy",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "bytes": 19761,
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "git_blob_sha": "2d373f374f906bf7959062050bbeae5350b0c482"
+    },
+    {
+      "key": "preexec",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b",
+      "bytes": 7041,
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "git_blob_sha": "a452a2c9cdd71e613d6fe378927831ed840c9398"
+    },
+    {
+      "key": "routing_index",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "bytes": 7165,
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "git_blob_sha": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e"
+    },
+    {
+      "key": "spec",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "bytes": 48809,
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "git_blob_sha": "5a82bd74b30f71f7b46652f67a70cd7768f68143"
+    }
+  ],
+  "authority": {
+    "owner_current_instruction": "Explicit 2026-10-21 fix/tests/non-main result; no broader grant",
+    "owner_approved_principle": "SCOPED_POLICY_2.0.0_VERIFIED_VIA_RELEASE_CHAIN_AND_CURRENT_OWNER_PROJECT_INSTRUCTIONS",
+    "published_effective": "GOVERNANCE_DOCUMENT_SCOPE_ONLY",
+    "runtime_enforced": "NOT_ATTESTED",
+    "cryptographic_owner_signer": "NOT_ATTESTED"
+  },
+  "semantic_scope": "NO_BRD_OR_BUSINESS_CONTRACT_CHANGE; candidate Bridge spec and offline host contract are contextual requirements, not promoted EFFECTIVE",
+  "original_dispatches": "UNMODIFIED_NOT_REPLAYED"
+}

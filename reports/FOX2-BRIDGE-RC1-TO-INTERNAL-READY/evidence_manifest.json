@@ -4,8 +4,8 @@
   "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
   "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
   "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
-  "source_code_commit": "008922b1e0567adafdccfd5dc6a003283335e906",
-  "report_commit": "86ad445012ed1e1fd31516dd6151eb81421d016a",
+  "source_code_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+  "report_commit": "OBSERVED_REMOTE_RESULT_SHA_DELIVERED_OUTSIDE_THIS_COMMITTED_ARTIFACT",
   "files": [
     {
       "path": "agent_bridge/scripts/build_user_package.py",
@@ -30,10 +30,9 @@
     },
     {
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "git_blob_sha": "1e510bd70f0e53bbe43fbc1347b611bb7e677f35",
-      "sha256": "94ffd0c640bb28481aebd9f4d4fe37fd33a5083943be582bb2abc298630b8169",
-      "size_bytes": 16854,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+      "sha256": "588f96070a2551ba1c823797d010482db283d3f155ca1ea045f6c2dcbf8c1d40",
+      "size_bytes": 21679,
+      "status": "SCOPED_CURRENT_EVIDENCE"
     },
     {
       "path": "agent_bridge/tests/test_runtime_ledger.py",
@@ -93,13 +92,106 @@
     },
     {
       "path": "agent_bridge/scripts/f1_host_discovery_readonly.ps1",
-      "git_blob_sha": "f1d06f842afb9f2d4ff26cb45de6156dcbffb90f",
-      "sha256": "0f362fcc83da64bda0d4db76db11692d2b15ef25b6e35afe7b4be9e76741430a",
-      "size_bytes": 4930,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+      "git_blob_sha": "704ebb98e8d16eb5d777daf1d16665f7b87485b4",
+      "sha256": "76d007068b31ac2a5157f77bcc0859d13cef0353ab1948eda64423d1d3556327",
+      "size_bytes": null,
+      "status": "PUBLISHED_WINDOWS_CI_PASS_4427217"
+    },
+    {
+      "path": "agent_bridge/tests/test_f1_host_discovery.py",
+      "git_blob_sha": "0003769e5ce25de0efab0a97b57a15c3b774bc1d",
+      "sha256": "3bda8f73d0d2833ba3f1333f01406bc38e5a0ab1907b9015837b72fe2703efea",
+      "size_bytes": null,
+      "status": "PUBLISHED_WINDOWS_CI_PASS_4427217"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/source_lock.json",
+      "sha256": "6f0a51328babd4ea5bc9c343f79c3e8b7ef9cd17d8f704d7870b31319a0b9375",
+      "size_bytes": 3651,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/test_summary.json",
+      "sha256": "6239bf8a0ffe400a383e51a2f1f38a7b8a4fcc30b4eb7aeba1cac5f08c30d5cb",
+      "size_bytes": 2527,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/baseline_regression.log",
+      "sha256": "5ffb5e85c81dbfd30971d3bec0b2923eb7c70482bcbbd19f44313177e58ca46c",
+      "size_bytes": 3391,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/candidate_regression.log",
+      "sha256": "295fddc01ce00914a0d089207ba349cca4f4d4f8bd87c5c8515457c985859f16",
+      "size_bytes": 99,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/review.json",
+      "sha256": "79f07e42c6cca321f9655dd40a6b88666b6856d7870c6253c0679ff3afd781e7",
+      "size_bytes": 1928,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/ci_receipt.json",
+      "sha256": "c5ee5e116c8b6ac69032fd3286fc3177439a9596ec67abc90cee3722617db8a2",
+      "size_bytes": 1104,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/ci_excerpt.log",
+      "sha256": "2b839bfc3c5b3dd5fbf1949d3afc0e973ca96b42236ae12468398b1de0a7dfa5",
+      "size_bytes": 590,
+      "status": "SCOPED_CURRENT_EVIDENCE"
+    },
+    {
+      "path": "docs/roadmap/FOX2_FEATURE_STATUS.json",
+      "sha256": "ec9ea47e03d5fa052811ed742bed8451c813e6c2106422d10acc0611deabca8e",
+      "size_bytes": 17541,
+      "status": "SCOPED_CURRENT_EVIDENCE"
     }
   ],
   "tests": {
+    "source_sha": "442721769dcca2643e111b6fefc16f2a2924cc94",
+    "status": "PASS_SCOPED_OFFLINE_WINDOWS",
+    "final_run_id": 39531008148,
+    "final_job_id": 118996627829,
+    "affected_local_strictmode_pass": 11,
+    "full_regression_pass": 493,
+    "package_tests_pass": 23,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "red_control": {
+      "source_sha": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "failed": 6,
+      "passed": 5,
+      "status": "EXPECTED_FAILURE_CONTROL"
+    },
+    "quarantined_package_build": "PASS_CI_EPHEMERAL_NOT_INSTALL_OR_RELEASE",
+    "read_only_host_discovery": "PASS_CI_RUNNER_ONLY"
+  },
+  "package": {
+    "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
+    "sha256": "dad84caf22d11468dc98390d00dce25445f80f22837ecfb383f5a5615c6de930",
+    "source_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
+    "downloadable": false,
+    "installed": false,
+    "release_approved": false
+  },
+  "F1_positive_authority": "NOT_IMPLEMENTED",
+  "installed_adoption": "NOT_RUN",
+  "canary": "HOLD",
+  "self_digest": "EXCLUDED",
+  "workflow_source_commit": "021453988cbcc65d628a35b09d917fb1628ebec5",
+  "F1_broker_store": "OFFLINE_CORE_TIME_FLOOR_HARDENED_NOT_PRIVILEGED_SERVICE",
+  "F1_reconciliation": "IMPLEMENTED_OFFLINE_READ_ONLY_NOT_HOST_ATTESTED",
+  "F1_host_discovery": "READ_ONLY_SCRIPT_CI_ONLY_OWNER_HOST_NOT_RUN",
+  "historical_source_code_commit": "008922b1e0567adafdccfd5dc6a003283335e906",
+  "prior_report_commit": "86ad445012ed1e1fd31516dd6151eb81421d016a",
+  "historical_tests_before_strictmode": {
     "added_case_count": 54,
     "final_run_id": 39527183226,
     "final_job_id": 118984488068,
@@ -119,7 +211,7 @@
       "disposition": "FIXED_TEST_CHRONOLOGY_AND_RERUN_NO_PASS_RECAST"
     }
   },
-  "package": {
+  "historical_package_before_strictmode": {
     "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
     "sha256": "368a434f5da79eb0c3ba3dab919f3913913512ff42302fcdc9d3f4f84d2d086d",
     "source_commit": "008922b1e0567adafdccfd5dc6a003283335e906",
@@ -127,12 +219,15 @@
     "installed": false,
     "release_approved": false
   },
-  "F1_positive_authority": "NOT_IMPLEMENTED",
-  "installed_adoption": "NOT_RUN",
-  "canary": "HOLD",
-  "self_digest": "EXCLUDED",
-  "workflow_source_commit": "021453988cbcc65d628a35b09d917fb1628ebec5",
-  "F1_broker_store": "OFFLINE_CORE_TIME_FLOOR_HARDENED_NOT_PRIVILEGED_SERVICE",
-  "F1_reconciliation": "IMPLEMENTED_OFFLINE_READ_ONLY_NOT_HOST_ATTESTED",
-  "F1_host_discovery": "READ_ONLY_SCRIPT_CI_ONLY_OWNER_HOST_NOT_RUN"
+  "strictmode": {
+    "precheck_commit": "a018bd9a539c43a377e00c71e886f3c08b46eb59",
+    "baseline": "434276765b2d09dbf8bf3a74716f40c20c878083",
+    "scope": "TWO_REQUESTED_CODE_TEST_PATHS_PLUS_REPORTS_EVIDENCE_AND_OPEN_FEATURE_STATUS",
+    "review": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/review.json",
+    "verdict": "SCOPED_DIRECT_SOURCE_LOCAL_AND_WINDOWS_CI_VERIFIED; WHOLE_FEATURE_HOLD",
+    "owner_current_scope": "2026-10-21_EXPLICIT_FIX_TEST_GIT_RESULT",
+    "agent_assignment": "NONE_CHAT_DIRECT_NO_DISPATCH_OR_REPLAY",
+    "source_lock": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/source_lock.json",
+    "host_io": "MOCKED_LOCALLY; CI_RUNNER_DIAGNOSTIC_ONLY; OWNER_HOST_NOT_RUN"
+  }
 }
