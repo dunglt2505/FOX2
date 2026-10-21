@@ -8,7 +8,7 @@
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
       "stage": "BUILD",
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED_278DAA5A; PHASE2_UNINSTALL_HARNESS_ROOT_CAUSE_PROVEN_ADAA169B; PACKAGE_LIFECYCLE_A01_TASK_31CAEB95_PROMPT_56F3A805_PREEXEC_TOOL_14F46F7D; PREEXEC_NOT_RUN",
       "evidence_scope": "PHASE1_BUILD_ACCEPTED; PHASE2_CODE_DEFECT_PROVEN; NEW_CORRECTION_TASK_PREPARED_NOT_ASSIGNED",
       "source_sha": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "PACKAGE_LIFECYCLE_A01_PREEXEC_RECEIPT_DELIVERY_BLOCKED_AFTER_MATERIAL_PASS",
-      "as_of": "2026-10-21T20:40:00+07:00",
-      "next_safe_action": "RECOVER_EXISTING_LOCAL_STAGED_PREEXEC_PASS_RECEIPT; VALIDATE_SEMANTICS; NORMALIZE_CRLF_TO_LF_IF_NEEDED; COMMIT_PUSH_READBACK; DO_NOT_RERUN_CODEX_LIVE_PROBE",
+      "blocker": null,
+      "as_of": "2026-10-21T20:50:00+07:00",
+      "next_safe_action": "OWNER_LAUNCH_PACKAGE_LIFECYCLE_A01_DISPATCH_F6CF96BE_EXACTLY_ONCE_WITH_DURABLE_NO_REPLAY_CLAIM; THEN_CHAT_REMOTE_RESULT_INTAKE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A01_PREEXEC_MATERIAL_GATES_AND_LIVE_ROUTE_PROBE_REACHED; DELIVERY_STOPPED_AT_GIT_DIFF_CHECK; REMOTE_RECEIPT_ABSENT; LOCAL_STAGED_RECEIPT_PENDING_RECONCILIATION",
+      "package_lifecycle": "ROOT_CAUSE_PROVEN_HARNESS_ENTRYPOINT_DEFECT; A01_PREEXEC_PASS_REMOTE_B224F029; CHAT_PASS_TO_ASSIGN_415249CC; EXECUTABLE_DISPATCH_F6CF96BE_PUBLISHED_UNCONSUMED; OWNER_LAUNCH_READY",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -74,9 +74,9 @@
         "prompt_sha256": "a26cf973ef4f7e7066f0b48057b7018eafc4d8d8848baf6a33d0c730342c1616",
         "preexec_tool_commit": "d55c0c79349f3f7e1e42cd6f60a942b5934de9e1",
         "preexec_tool_blob": "e528ee4724a4676be9d841ee6050c2d34fa227eb",
-        "preexec_status": "MATERIAL_PASS_DELIVERY_BLOCKED",
+        "preexec_status": "PASS_REMOTE_ACCEPTED",
         "agent_started": false,
-        "dispatch_published": false,
+        "dispatch_published": true,
         "preexec_prior_failures": [
           {
             "commit": "14f46f7d5f38cff617d78db14b33275738adf15e",
@@ -94,7 +94,19 @@
             "receipt_created": false
           }
         ],
-        "preexec_remote_receipt": "ABSENT"
+        "preexec_remote_receipt": "ABSENT",
+        "preexec_commit": "b224f029bc911c0a131342b8ac142fdd4952a96f",
+        "preexec_receipt_blob": "450dc8cd35f6236beabda51617d06f7896e17770",
+        "pass_to_assign_review": "415249ccfea13d0e4022bb0c12e397029e2abdf9",
+        "dispatch": {
+          "id": "FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01-CODEX-001",
+          "control_branch": "work/FOX2-DISPATCH-chat",
+          "commit": "f6cf96be87e50431209464d08cf5375575c0c85c",
+          "blob": "05ac5766c5e62c8a3c12ab9a2cd485f69b1ea972",
+          "max_runs": 1,
+          "status": "PUBLISHED_UNCONSUMED",
+          "owner_launch_ready": true
+        }
       }
     },
     {
