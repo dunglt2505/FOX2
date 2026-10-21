@@ -62,6 +62,20 @@ jobs:
         run: |
           python -m py_compile agent_bridge/scripts/build_user_package.py agent_bridge/tests/test_rc1_package.py
           python -m pytest -q agent_bridge/tests/test_rc1_package.py
+      - name: Read-only F1 Windows discovery diagnostic (CI host only)
+        shell: pwsh
+        run: |
+          $raw = & pwsh -NoProfile -File agent_bridge/scripts/f1_host_discovery_readonly.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'STOP: read-only host diagnostic failed' }
+          $j = $raw | ConvertFrom-Json
+          if ($j.schema -cne 'FOX2_F1_HOST_DISCOVERY_READ_ONLY_V1' -or
+              $j.positive_claim_authority -cne 'DENY' -or
+              $j.canary -cne 'HOLD' -or
+              $j.durable_legacy_retirement_verified -ne $false -or
+              $j.privileged_broker_verified -ne $false) {
+            throw 'STOP: host discovery must never self-certify F1 authority'
+          }
+          Write-Host 'F1_HOST_DISCOVERY_CI_ONLY_READ_ONLY_NO_ADMISSION'
       - name: Full current-source Bridge regression
         run: python -m pytest -q agent_bridge/tests
       - name: Install pinned .NET 8 SDK for ephemeral Windows package build
