@@ -71,3 +71,19 @@ Current gate state:
 - CHAT_VERDICT=HOLD_FOR_NARROW_HOST_EVIDENCE_NOT_DESIGN_REJECTION
 
 Probe execution does not authorize service/policy changes, code execution through Bridge, installation, G2 coding, Canary or LIVE. Output remains evidence only; actual denial/bypass/reboot enforcement is deferred to G3.
+
+## G1 EXIT — DESIGN ACCEPTED (2026-10-21)
+CHAT acceptance: docs/architecture/FOX2_BRIDGE_F1_G1_DESIGN_ACCEPTANCE_20261021.md at 9c27e7c7104facdb7f083350f38d2451939b6c2a.
+Owner-host evidence intake: docs/roadmap/FOX2_BRIDGE_F1_G1_OWNER_HOST_CAPABILITY_INTAKE_20261021.md at 21f9b36159c020f60efd4468abc7c6b284c9e3e6.
+
+| Gate | STAGE | STATUS | EVIDENCE | EXIT_GATE | BLOCKER | NEXT_SAFE_ACTION | CHAT_VERDICT |
+|---|---|---|---|---|---|---|---|
+| G1 | DESIGN | ACCEPTED | BRD/TechSpec reconciliation + host-capability intake + locked AppLocker/service/protocol/consumer contract | MET_FOR_DESIGN_ONLY | NONE_FOR_G1 | Run G2 entry governance/source/route review; do not code while explicit coding HOLD remains | ACCEPT_DESIGN_ONLY |
+| G2 | BUILD | BLOCKED | Historical F0/CI only; no new integrated F1 build assignment | Accepted G1 + separate coding authority + source lock + route PreExec + one writer | OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING remains preserved unless separately lifted | Prepare/read-only G2 entry review only; no Dispatch | HOLD_EXECUTABLE |
+| G3 | TEST | NOT_RUN | No isolated AppLocker enforcement certificate | Accepted integrated build + isolated Windows authorization | G2 unavailable | Wait | NOT_RUN |
+| G4 | DEPLOY | NOT_RUN | No installed policy/service adoption | G3 acceptance + install authority | G3 unavailable | Wait | NOT_RUN |
+| G5 | TEST/DEPLOY | HOLD | Historical scoped C3 only | G3/G4 + final Canary/C4/independent gates | G3/G4 missing | Wait | HOLD |
+
+G1 boundary clarification: effective AppLocker policy and running AppIDSvc are NOT prerequisites for DESIGN acceptance; requiring them in G1 would improperly execute G3/G4. They remain mandatory before any positive runtime authority. Current Owner host observation has empty effective AppLocker collections and AppIDSvc stopped, therefore installed enforcement remains NOT_ATTESTED.
+
+Selected G2 baseline: AppLocker Enforce-rules OS fence administered outside ordinary Bridge requester + privileged F1 Windows service owning authenticated IPC, global atomic consumed-ID state, lease/revocation and actual child spawn. Signed App Control is optional hardening, not G2 prerequisite. F1 positive runtime remains DENY.
