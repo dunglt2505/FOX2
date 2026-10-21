@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "checked_at": "2026-10-21T10:31:01.1376625Z",
+  "task_branch": "work/FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021",
+  "source_head": "8f57064e15a18decd12726947e0ea49186f51cdc",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/samehost_build_a01.json",
+  "task_source": {
+    "git_commit_sha": "600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/task.md",
+    "sha256": "71c4e1c0401c429878fabb95859f64c568c43dbe02f2ffab7b8c0de41b0837fa"
+  },
+  "status": "PASS",
+  "capabilities": {
+    "python_jsonschema": {
+      "material": true,
+      "evidence": "Python and jsonschema import succeeded.",
+      "version": "3.13.15",
+      "status": "PASS"
+    },
+    "task_prompt_raw_identity": {
+      "material": true,
+      "evidence": "Task/prompt Git SHA-1 and raw blob SHA-256 match immutable source lock.",
+      "status": "PASS"
+    },
+    "exact_branch_head": {
+      "material": true,
+      "evidence": "Publication head=8f57064e15a18decd12726947e0ea49186f51cdc; source lock=600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+      "status": "PASS"
+    },
+    "clean_worktree": {
+      "material": true,
+      "evidence": "Worktree and index checked before receipt.",
+      "status": "PASS"
+    },
+    "one_writer": {
+      "material": true,
+      "evidence": "One worktree owns branch; no task-scoped CODEX command line observed; exclusive PreExec lock held.",
+      "status": "PASS"
+    },
+    "pwsh": {
+      "material": true,
+      "evidence": "PowerShell 7.6.7",
+      "status": "PASS"
+    },
+    "codex_version": {
+      "material": true,
+      "evidence": "CODEX version command completed and version marker checked.",
+      "version": "0.162.1",
+      "status": "PASS"
+    },
+    "codex_login": {
+      "material": true,
+      "evidence": "CODEX login status exit and authenticated marker checked; raw output discarded.",
+      "status": "PASS"
+    },
+    "codex_help_flags": {
+      "material": true,
+      "evidence": "Help checked model/config/sandbox/cd/full-access flags; no agent execution.",
+      "status": "PASS"
+    },
+    "agent_live_probe": {
+      "material": false,
+      "evidence": "Owner scope permits metadata only; model availability, quota and execution readiness unverified.",
+      "status": "NOT_RUN"
+    }
+  },
+  "blockers": [],
+  "worktree": {
+    "stale_receipt_cleanup": "NOT_NEEDED",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021",
+    "competing_writer": "NONE_OBSERVED",
+    "status": "PASS"
+  },
+  "candidate_route": {
+    "model": "gpt-6.1-sol",
+    "model_policy": "PINNED",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS",
+    "product": "CODEX"
+  },
+  "dispatch_state": {
+    "executable_dispatch_published": false,
+    "dispatch_consumed": false
+  },
+  "agent_execution_started": false,
+  "notes": [
+    "Task=FOX2-BRIDGE-RC1-SAMEHOST-BUILD-A01; metadata-only PreExec; PASS means scoped checks only, not PASS_TO_ASSIGN.",
+    "Original source lock=600f8ceb6943d1f1ecf341ff06072bf31c1babe0; publication lineage adds/patches only this PreExec script.",
+    "No Agent implementation, AppLocker/service/ACL mutation, install, deploy or replay performed.",
+    "Historical BLOCKED/FAIL/NOT_RUN retained. CHAT remote intake required; no model/quota/live execution proof."
+  ]
+}
