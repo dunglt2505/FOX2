@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "LIFECYCLE_WPF_CONTRACT_REWORK_A01_PREEXEC_V2_NOT_RUN",
-      "as_of": "2026-10-22T00:42:00+07:00",
-      "next_safe_action": "OWNER_CREATE_OR_FAST_FORWARD_DEDICATED_REWORK_WORKTREE_TO_7207A3C4_AND_RUN_PREEXEC_V2_ONCE; CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_FRESH_CODEX_BUILD_DISPATCH",
+      "blocker": "OWNER_MANUAL_LAUNCH_PENDING_FOR_FRESH_LIFECYCLE_WPF_REWORK_DISPATCH",
+      "as_of": "2026-10-22",
+      "next_safe_action": "RUN_FRESH_DISPATCH_B7894655_EXACTLY_ONCE_WITH_DURABLE_CLAIM_AND_NO_REPLAY; THEN_CHAT_REMOTE_RESULT_INTAKE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "HOST_LIFECYCLE_A01_CHAT_REWORK; SOURCE_REWORK_TASK_PROMPT_PUBLISHED; PREEXEC_V1_REJECTED_PRELAUNCH_PREFIX_MISMATCH; PREEXEC_V2_VALIDATED_READY_NOT_RUN; NO_PRODUCT_DRIFT; NO_REAL_HOST_MUTATION",
+      "package_lifecycle": "HOST_LIFECYCLE_A01_CHAT_REWORK; WPF_CONTRACT_SOURCE_REWORK_PREEXEC_V2_PASS; CHAT_PASS_TO_ASSIGN; FRESH_CODEX_DISPATCH_PUBLISHED_UNCONSUMED; REAL_HOST_LIFECYCLE_RETRY_NOT_AUTHORIZED_UNTIL_BUILD_REWORK_ACCEPTED",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -297,16 +297,37 @@
             },
             "preexec_v2": {
               "commit": "7207a3c455b40bd24b71e0cd94c5f42d7e348bd0",
-              "blob": "68db0d3f0d867bd18aaa8dee6174791f31b36f9b",
-              "status": "READY_NOT_RUN",
-              "receipt_present": false,
+              "receipt_commit": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+              "receipt_blob": "66fc3c02a35ad05b40faed578ecd0355472111ee",
+              "status": "PASS",
               "product_drift": "NONE",
-              "remote_validated": true
+              "implementation_agent_started": false,
+              "real_host_lifecycle_mutation": false,
+              "g3_mutation": false
             },
             "dispatch_published": false,
             "agent_started": false,
             "real_host_lifecycle_mutation": false,
-            "g3_unlocked": false
+            "g3_unlocked": false,
+            "pass_to_assign": {
+              "commit": "af221e3a7e84f3a6489a59fbd70dbc7e86163040",
+              "verdict": "PASS_TO_ASSIGN_BUILD_ONLY"
+            },
+            "dispatch": {
+              "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
+              "control_branch": "work/FOX2-DISPATCH-chat",
+              "commit": "b7894655bb53ac302279439d024de7822139abe5",
+              "blob": "cd91624ff7d85cb23f04bf60d2ee641601f7afc1",
+              "runtime_base": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+              "model": "gpt-6.1-sol",
+              "reasoning": "high",
+              "permission": "FULL_ACCESS",
+              "max_runs": 1,
+              "state": "PUBLISHED_UNCONSUMED",
+              "claim_created": false,
+              "agent_started": false,
+              "no_replay_after_consume": true
+            }
           }
         }
       },
