@@ -5,7 +5,7 @@
   "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
   "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
   "source_code_commit": "ecaff9c62736560d0dc8e4606052c302ae4a4c5a",
-  "report_commit": "e71e45b7bd3f4262557d450f7db6a8cc082df537",
+  "report_commit": "ccac8ba3ee85d227fd699b9789ef3b64d1dcea27",
   "files": [
     {
       "path": "agent_bridge/scripts/build_user_package.py",
@@ -23,16 +23,16 @@
     },
     {
       "path": ".github/workflows/fox2-bridge-f1-offline-ci.yml",
-      "git_blob_sha": "5b53326a164c151ed0ea8bf1bae372355344c35b",
-      "sha256": "2118ccb407e2dd1b679ffcc0c57502fdade3efbf56412512d9ae44fd7241016d",
-      "size_bytes": 5295,
+      "git_blob_sha": "23a33a5af02acbb227c84bef7bd728588d676e74",
+      "sha256": "7bf39d6fc154f7f01b9bd800a16dd2c86681efa7e5441b33e52b61fdbf229de5",
+      "size_bytes": 5488,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     },
     {
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "git_blob_sha": "5dbaf25c36ee654f6d21c6c31802f4e28ec5feb4",
-      "sha256": "2120b3499acb39848dee84d26f03f4290b1182f00ed9f70c732404c75c3d24b5",
-      "size_bytes": 13043,
+      "git_blob_sha": "710145fa52b602050c12dd6ba574f0c353cc2c80",
+      "sha256": "9082ee45fe44c0edbe9afd9d709e91e6da01de957e030667deecf5f05427cb4c",
+      "size_bytes": 14548,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     },
     {
@@ -76,16 +76,30 @@
       "sha256": "aeffd5ff2bca8d7045833832e0b230aa6628a00c1817b3c557fa92165c4a1b59",
       "size_bytes": 5770,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_reconcile.py",
+      "git_blob_sha": "659602ce95d7431fca13b73dd4d4bbd2a6c4c02e",
+      "sha256": "b535375be52045ad6c11c93a8147b9e6fcf3f72ba5acb3e3ead2cc32659ab3b6",
+      "size_bytes": 7242,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/tests/test_f1_reconcile.py",
+      "git_blob_sha": "38b86324fd6609e7949c14891f57fb0a052c493d",
+      "sha256": "7d42609a279cd5d06c005b94464731a50d4e3f8b92d781957528ac6b3bfdc360",
+      "size_bytes": 5282,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     }
   ],
   "tests": {
-    "added_case_count": 31,
-    "final_run_id": 39520823626,
-    "final_job_id": 118964023254,
-    "source_sha": "324f93ca709c4f29a05b5043e34397664301eeb8",
+    "added_case_count": 48,
+    "final_run_id": 39521960900,
+    "final_job_id": 118967655678,
+    "source_sha": "a1d7db98b4166ede995ab65466f63e7360ad8728",
     "status": "PASS_SCOPED_OFFLINE_WINDOWS",
     "affected_tests_pass": 23,
-    "full_regression_pass": 459,
+    "full_regression_pass": 476,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -93,8 +107,8 @@
   },
   "package": {
     "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
-    "sha256": "b02127d251ceede406c5c427ca3536706994fccf068234997ebfbfe43051e4aa",
-    "source_commit": "324f93ca709c4f29a05b5043e34397664301eeb8",
+    "sha256": "15e76da8099f1034233727b67d7e8198fef2ce0c7d3cc572e713126e020ab9a2",
+    "source_commit": "a1d7db98b4166ede995ab65466f63e7360ad8728",
     "downloadable": false,
     "installed": false,
     "release_approved": false
@@ -104,5 +118,6 @@
   "canary": "HOLD",
   "self_digest": "EXCLUDED",
   "workflow_source_commit": "6afd86841d7f3d2677a2a657201e0829cc671ba3",
-  "F1_broker_store": "IMPLEMENTED_OFFLINE_CORE_NOT_PRIVILEGED_SERVICE"
+  "F1_broker_store": "IMPLEMENTED_OFFLINE_CORE_NOT_PRIVILEGED_SERVICE",
+  "F1_reconciliation": "IMPLEMENTED_OFFLINE_READ_ONLY_NOT_HOST_ATTESTED"
 }
