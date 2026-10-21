@@ -114,3 +114,16 @@ Planned future G2 identity is now reserved at design level: `work/FOX2-BRIDGE-F1
 Code provenance check: compare accepted StrictMode result `804b2e21cd2f8793168ca24bc402e5cdcdb70b3e` to preparation base `4d492e96...` is 19 commits ahead with only G1/G2 docs, Feature Status and read-only host probe changes; no agent_bridge source/test/runtime code drift observed in that interval.
 
 PreExec contract state = PREPARED; PreExec execution = NOT_RUN; route verification = NOT_RUN; task/prompt = NOT_PUBLISHED; Agent = NOT_STARTED.
+
+## G2 executable entry opened by Owner — 2026-10-21
+Owner directive `Tiếp tục làm đi, ko cần dừng lại` supersedes the prior `Giữ gpt-6.1-sol; HOLD coding` for this G2 DEV attempt only. Historical HOLD remains factual; no synthetic PASS.
+
+Owner lift record: `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/owner_directives/G2_CODING_HOLD_LIFT_20261021.md` @ fe926ad24d89231e5cf80f0f48ea44eb36887834.
+
+G2 executable branch created: `work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021` from fe926ad24d89231e5cf80f0f48ea44eb36887834.
+- task.md published @ 653e49fc0d0f15981bf230995925c89d6994723d; blob 7f0b82e56f7bfa001e40bb176bb26b0ef918c609.
+- prompt.md published @ eec25e64a66fed7afc3f45b4d490e6a944e8fe6c; blob d72b78d7300e51a1797c50cf01feacf02a3c9bf3.
+- Dictionary 1.2 machine-binding compatibility with Governance Dictionary 1.3 recorded @ ca684b09b3eaea7fa2ce7fc7983f890384202296; scoped verdict PASS_SCOPED for PreExec-only machine identities.
+
+Current G2 branch source head for PreExec: `ca684b09b3eaea7fa2ce7fc7983f890384202296`.
+PreExec receipt = NOT_RUN; Agent = NOT_STARTED; Dispatch = NOT_CREATED. Next action is Owner-manual PowerShell 7 task-specific PreExec only; CHAT must remote-intake the receipt before CODEX implementation launch.
