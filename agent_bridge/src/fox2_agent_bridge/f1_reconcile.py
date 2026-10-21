@@ -34,7 +34,7 @@ def _inspect_root(path: Path) -> dict[str, str]:
     if not path.is_file():
         raise ReconciliationHold("missing historical ledger")
     # Resolve file identity, not user-supplied relative aliases.
-    uri = "file:" + quote(str(path.resolve()), safe="/:") + "?mode=ro"
+    uri = "file:" + quote(path.resolve().as_posix(), safe="/:") + "?mode=ro"
     try:
         with closing(sqlite3.connect(uri, uri=True, timeout=5)) as con:
             con.row_factory = sqlite3.Row
