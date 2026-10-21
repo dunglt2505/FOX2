@@ -106,7 +106,8 @@ class F1BrokerStore:
                 prior = con.execute("SELECT epoch FROM authority WHERE id=1").fetchone()
                 if prior is not None and epoch.epoch <= prior["epoch"]:
                     raise ValueError("epoch rollback/reuse")
-                con.execute("INSERT INTO authority VALUES (1,?,?,?,?,?,0) "
+                con.execute("INSERT INTO authority (id,epoch,policy_id,source_commit,"
+                            "package_sha256,expires_at,revoked) VALUES (1,?,?,?,?,?,0) "
                             "ON CONFLICT(id) DO UPDATE SET epoch=excluded.epoch,"
                             "policy_id=excluded.policy_id,"
                             "source_commit=excluded.source_commit,"
