@@ -39,9 +39,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "HOST_LIFECYCLE_PREEXEC_BUILD_PYTHON_NOT_FOUND_IN_V4_SEARCH_SCOPE",
-      "as_of": "2026-10-21T23:50:00+07:00",
-      "next_safe_action": "OWNER_RUN_BOUNDED_READ_ONLY_FOX2_PYTHON_ENV_DISCOVERY; CHAT_CLASSIFY_EXISTING_COMPATIBLE_CANDIDATE_OR_CAPABILITY_ABSENT; NO_TOOL_INSTALL; NO_PREEXEC_RERUN_YET",
+      "blocker": "BUILD_ENV_DISCOVERY_HELPER_DEFECT_FIXED_NOT_YET_RERUN",
+      "as_of": "2026-10-21T23:58:00+07:00",
+      "next_safe_action": "OWNER_RUN_CORRECTED_BOUNDED_READ_ONLY_BUILD_ENV_DISCOVERY; CHAT_CLASSIFY_EXISTING_COMPATIBLE_ENV_OR_CAPABILITY_ABSENT; NO_TOOL_INSTALL; NO_PREEXEC_RERUN_YET",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -214,15 +214,15 @@
           "host_mutation": false,
           "g3_unlocked": false,
           "recovery": {
-            "status": "RECOVERED_TO_KNOWN_BUILD_ENV_DISCOVERY_BLOCKER",
-            "host_state": "STOPPED_PAUSED_ZERO_ACTIVE_RUNTIME",
-            "blocker_classification": "CAPABILITY_NOT_FOUND_IN_V4_SEARCH_SCOPE",
-            "capability_absent": false,
-            "discovery_required": true,
-            "tool_install_allowed": false,
-            "blind_rerun": false,
-            "g3_unlocked": false,
-            "reconciliation_commit": "1c982700cbe46240c99bd1d4c2375298de07706c"
+            "status": "RECOVERED_DISCOVERY_HELPER_DEFECT_NO_SIDE_EFFECT",
+            "review_commit": "fcc051798877f8edb593933d56e99a1d90bb9c7c",
+            "helper_defect": "MANDATORY_EMPTY_HASHSET_BINDING",
+            "candidate_inspection_started": false,
+            "host_mutation": false,
+            "tool_install": false,
+            "preexec_receipt_present": false,
+            "dispatch_published": false,
+            "next": "CORRECTED_READ_ONLY_DISCOVERY"
           }
         }
       },
