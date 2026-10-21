@@ -5,7 +5,7 @@
   "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
   "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
   "source_code_commit": "ecaff9c62736560d0dc8e4606052c302ae4a4c5a",
-  "report_commit": "5893310f00f7b7947381769bdaebc6f9b4109262",
+  "report_commit": "84bb6c8d38496c468fa26d62d2f2c15e541ab5f0",
   "files": [
     {
       "path": "agent_bridge/scripts/build_user_package.py",
@@ -30,16 +30,16 @@
     },
     {
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "git_blob_sha": "1b380cfe756cbf99e19d8f3c43ae3d78f8ec932b",
-      "sha256": "91097d26b477b4326c2279afbd3a72852a662382f755c8796c78b5fb8bf069de",
-      "size_bytes": 9880,
+      "git_blob_sha": "9cf1f0b0fa2192b4a9a28f91ef7d787f453a04c2",
+      "sha256": "ec223a1f9a004a38250c823b72b9d114f569de0fa083adf2ae14cd46ca08e844",
+      "size_bytes": 11152,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     },
     {
       "path": "agent_bridge/tests/test_runtime_ledger.py",
-      "git_blob_sha": "b1e6dcfc5216844ed95d7f464d5a1d7ebbd61356",
-      "sha256": "e079b9e8d0bb50a300351fd73b15f07bfecb04923803137d8b881f06e18ba55a",
-      "size_bytes": 29781,
+      "git_blob_sha": "21b56f7e800e6d3be7ef22a082fa4f03104fc46a",
+      "sha256": "3a5015778bc2ebdc479726dfbd224e6f850f454dd7fa8f07e4a8d8ae95a74577",
+      "size_bytes": 33499,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     },
     {
@@ -48,20 +48,30 @@
       "sha256": "b8d2f83e95491167540f28959ff7467cad9eea72a2e8874c2902b5844e7e974d",
       "size_bytes": 3871,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
+      "git_blob_sha": "6fb5127984efa3dbc510914b47e50ef00c1f8645",
+      "sha256": "72b8992c5f9c306ca0178d0f9f4254f7c175ce1393a658f248397e69c6358887",
+      "size_bytes": 26859,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "git_blob_sha": "66667d3d20af64151173a7ba514c072f2010a696",
+      "sha256": "f6950985f7de8abd56323e9e6f83d805985ff1d93b88bd7ec997edc752c1fb13",
+      "size_bytes": 43038,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     }
   ],
   "tests": {
-    "added_case_count": 18,
-    "prior_failed_runs": [
-      39465107989,
-      39511855970
-    ],
-    "final_run_id": 39518762540,
-    "final_job_id": 118957198091,
-    "source_sha": "018d947619b26d9f61114d48fdfc380c5211a4a8",
+    "added_case_count": 25,
+    "final_run_id": 39519781500,
+    "final_job_id": 118960730105,
+    "source_sha": "9bcefa500f242ccbbc8ff11f5ce2647e166f29da",
     "status": "PASS_SCOPED_OFFLINE_WINDOWS",
     "affected_tests_pass": 23,
-    "full_regression_pass": 446,
+    "full_regression_pass": 453,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -69,8 +79,8 @@
   },
   "package": {
     "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
-    "sha256": "26ad584902bd62fe271a93fedcbc09be8286311d6ed3e00acf91ced5811ff195",
-    "source_commit": "018d947619b26d9f61114d48fdfc380c5211a4a8",
+    "sha256": "e8fbffb04f9c4da7726e3bb3ef85cee358761e2e8547398d743765c81addde51",
+    "source_commit": "9bcefa500f242ccbbc8ff11f5ce2647e166f29da",
     "downloadable": false,
     "installed": false,
     "release_approved": false
