@@ -87,6 +87,15 @@ def _inspect_root(path: Path) -> dict[str, str]:
                         not isinstance(state, str) or not state):
                     raise ReconciliationHold("orphan or malformed execution")
                 # Unknown, running and failed executions remain CONSUMED.
+            if "review_events" in names:
+                review_columns = {
+                    row[1] for row in con.execute("PRAGMA table_info(review_events)")
+                }
+                if "dispatch_id" not in review_columns:
+                    raise ReconciliationHold("unsupported review event identity")
+                for row in con.execute("SELECT dispatch_id FROM review_events"):
+                    if not isinstance(row[0], str) or row[0] not in seen:
+                        raise ReconciliationHold("orphan historical review event")
             if any(sidecar.exists() for sidecar in sidecars):
                 raise ReconciliationHold("SQLite sidecar appeared during snapshot")
             return seen
