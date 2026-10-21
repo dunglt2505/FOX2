@@ -9,6 +9,7 @@ No positive installed claims or Agent execution are wired to this module.
 from __future__ import annotations
 
 import hashlib
+from contextlib import closing
 import json
 import sqlite3
 from dataclasses import dataclass
@@ -35,7 +36,7 @@ def _inspect_root(path: Path) -> dict[str, str]:
     # Resolve file identity, not user-supplied relative aliases.
     uri = "file:" + quote(str(path.resolve()), safe="/:") + "?mode=ro"
     try:
-        with sqlite3.connect(uri, uri=True, timeout=5) as con:
+        with closing(sqlite3.connect(uri, uri=True, timeout=5)) as con:
             con.row_factory = sqlite3.Row
             con.execute("PRAGMA query_only=ON")
             con.execute("BEGIN")
