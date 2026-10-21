@@ -40,8 +40,8 @@
       "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
-      "status": "BLOCKED",
-      "evidence": "G2_BUILD_ACCEPTED_FOR_ISOLATED_DESIGN; PHYSICAL_HOST_ONLY_DIRECTIVE_RECORDED; SAME_HOST_DESIGN_CHAT_ACCEPTED; NEW_BUILD_TASK_AND_PROMPT_PUBLISHED",
+      "status": "IN_PROGRESS",
+      "evidence": "SAMEHOST_DESIGN_CHAT_ACCEPTED; BUILD_TASK_PROMPT_PUBLISHED; VERSIONED_PREEXEC_TOOLING_CHAT_ACCEPTED; REAL_PREEXEC_NOT_RUN",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "SAME_HOST_BUILD_RESULT_CHAT_ACCEPTED_THEN_NEW_PHYSICAL_HOST_PREEXEC",
-      "blocker": "SAMEHOST_BUILD_PREEXEC_INFRA_FAILED_CHAT_POWERSHELL_PARSER_DEFECT; NO_RECEIPT_PUBLISHED; AGENT_NOT_STARTED",
-      "as_of": "2026-10-21T18:35:00+07:00",
-      "next_safe_action": "RUN_CORRECTED_FILE_BASED_SAMEHOST_PREEXEC; CHAT_REMOTE_INTAKE_BEFORE_CODEX",
+      "exit_gate": "REAL_SAMEHOST_BUILD_PREEXEC_RECEIPT_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_CODEX_START",
+      "blocker": "REAL_SAMEHOST_BUILD_PREEXEC_NOT_RUN",
+      "as_of": "2026-10-21T18:50:00+07:00",
+      "next_safe_action": "OWNER_RUN_VERSIONED_PREEXEC_F3A0E865; CHAT_REMOTE_INTAKE; THEN CODEX_EXECUTION_IF_PASS",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -609,7 +609,7 @@
         "prompt_blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
         "prompt_sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9",
         "route": "CODEX_GPT_6_1_SOL_HIGH_MANUAL_LOCAL",
-        "preexec": "INFRA_FAILED_RECOVERABLE",
+        "preexec": "READY_NOT_RUN",
         "agent_execution_started": false,
         "host_mutation_authorized": false,
         "historical_g3_receipt": "14a02ab5f42a7659efd2b1e60324c49ff70695b5",
@@ -624,6 +624,17 @@
           "receipt_pushed": false,
           "host_policy_mutation": false,
           "next": "FILE_BASED_PREEXEC_WITH_TASK_SCOPED_CODEX_WRITER_PROBE"
+        },
+        "preexec_tooling": {
+          "publication_commit": "f3a0e86515c5285715730ff86781eb71c62c7ab0",
+          "script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/samehost_build_a01_preexec.ps1",
+          "blob_sha1": "eb7d42028ead630ad58fb2ea392c5570ff1d6b65",
+          "chat_review_commit": "2e011a742027b88862defa6c2d13612bac2818b0",
+          "verdict": "CHAT_ACCEPT_PREEXEC_TOOLING_ONLY",
+          "simulated_11_of_11": "NOT_VERIFIED_BY_CHAT",
+          "real_preexec": "NOT_RUN",
+          "agent_execution_started": false,
+          "host_policy_mutation": false
         }
       }
     }
