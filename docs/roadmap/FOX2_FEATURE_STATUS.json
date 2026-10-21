@@ -39,9 +39,9 @@
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
-      "stage": "TEST",
-      "status": "BLOCKED",
-      "evidence": "G2_BUILD_CHAT_ACCEPTED; G3_PREEXEC_RECEIPT_14A02AB_REMOTE_READBACK_BLOCKED",
+      "stage": "BUILD",
+      "status": "IN_PROGRESS",
+      "evidence": "G2_BUILD_ACCEPTED_FOR_ISOLATED_DESIGN; PHYSICAL_HOST_ONLY_DIRECTIVE_RECORDED; SAME_HOST_DESIGN_CHAT_ACCEPTED; NEW_BUILD_TASK_AND_PROMPT_PUBLISHED",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "G3_HOST_PREEXEC_PASS_ON_ELEVATED_ISOLATED_WINDOWS_TARGET_REQUIRED",
-      "blocker": "G3_ISOLATED_TARGET_NOT_AVAILABLE; CURRENT_HOST_PHYSICAL; HYPERV_AND_SANDBOX_OPTIONAL_FEATURES_DISABLED; CURRENT_SHELL_NOT_ELEVATED",
-      "as_of": "2026-10-21T18:05:00+07:00",
-      "next_safe_action": "READ_ONLY_HYPERV_MANAGEMENT_NAMESPACE_AND_FEATURE_DISCOVERY; DO_NOT_ENABLE_HOST_FEATURES WITHOUT SEPARATE DAILY_HOST_PROVISIONING AUTHORITY",
+      "exit_gate": "SAME_HOST_BUILD_RESULT_CHAT_ACCEPTED_THEN_NEW_PHYSICAL_HOST_PREEXEC",
+      "blocker": "FRESH_CODEX_PREEXEC_NOT_RUN_FOR_SAME_HOST_BUILD_A01",
+      "as_of": "2026-10-21T18:20:00+07:00",
+      "next_safe_action": "OWNER_RUN_FRESH_SAMEHOST_BUILD_CODEX_PREEXEC_ONLY; CHAT_INTAKE_BEFORE_AGENT_EXECUTION",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -596,6 +596,24 @@
           "windows_sandbox_enabled": false,
           "daily_host_feature_mutation_authority": "NOT_GRANTED"
         }
+      },
+      "samehost_build": {
+        "task_id": "FOX2-BRIDGE-RC1-SAMEHOST-BUILD-A01",
+        "branch": "work/FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021",
+        "design_candidate_commit": "c8307980362a1ab64b93ba7d7e020d979017c849",
+        "design_acceptance_commit": "0837361aa97f5d7f2116868cb2273eeac3acd0dc",
+        "task_commit": "2a46a456bae3ea83ca236d210e3a0c9901a4b31d",
+        "task_blob_sha1": "8b69f093b8e625fd4404d07d3922658a9bc84a0d",
+        "task_sha256": "71c4e1c0401c429878fabb95859f64c568c43dbe02f2ffab7b8c0de41b0837fa",
+        "prompt_commit": "600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+        "prompt_blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
+        "prompt_sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9",
+        "route": "CODEX_GPT_6_1_SOL_HIGH_MANUAL_LOCAL",
+        "preexec": "NOT_RUN",
+        "agent_execution_started": false,
+        "host_mutation_authorized": false,
+        "historical_g3_receipt": "14a02ab5f42a7659efd2b1e60324c49ff70695b5",
+        "historical_g3_receipt_status": "BLOCKED_PRESERVED"
       }
     }
   ]
