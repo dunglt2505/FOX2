@@ -142,6 +142,26 @@ class SQLiteLedger:
                 "SELECT payload FROM worker_state WHERE id=1"
             ).fetchone()[0])
 
+    def spawn_permitted(self) -> bool:
+        """Additional local pre-spawn PAUSE/STOP guard, not F1 host authority.
+
+        Treat malformed/missing state or SQLite errors as DENY. This is only a
+        best-effort local control: it cannot retire or fence a legacy writer.
+        """
+        try:
+            with self.connect() as connection:
+                row = connection.execute(
+                    "SELECT payload FROM worker_state WHERE id=1"
+                ).fetchone()
+                if row is None:
+                    return False
+                state = json.loads(row["payload"])
+                if not isinstance(state, dict):
+                    return False
+                return state.get("paused") is not True and state.get("stop_requested") is not True
+        except (sqlite3.Error, ValueError, TypeError, OSError):
+            return False
+
     def update_worker(self, **values: object) -> dict[str, object]:
         from .logging_config import redact_context
         with self.connect() as connection:
