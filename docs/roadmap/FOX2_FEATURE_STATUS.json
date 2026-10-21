@@ -40,8 +40,8 @@
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
       "blocker": null,
-      "as_of": "2026-10-21T18:10:00+07:00",
-      "next_safe_action": "PRESERVE_CURRENT_SAMEHOST_A01_DISPATCH_UNCONSUMED; WHEN EXECUTION_RESUMES RECHECK EXACT BASE/DISPATCH/ONE_WRITER AND RUN ONCE; THEN CHAT_RESULT_REVIEW; DO_NOT_REPLAY_CANARY009",
+      "as_of": "2026-10-21T18:15:00+07:00",
+      "next_safe_action": "OWNER_RUN_EXISTING_SAMEHOST_A01_EXACTLY_ONCE_AFTER_INLINE_POWERSHELL7_LOCAL_ONE_WRITER_AND_DURABLE_CLAIM_CHECK; THEN_CHAT_REMOTE_RESULT_INTAKE; NEVER_REPLAY_IF_CLAIM_CREATED",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -51,7 +51,19 @@
       "package_lifecycle": "HISTORICAL_INSTALL_UPDATE_TRAY_STARTUP_PASS; UNINSTALL_FAIL; CURRENT_ROLLBACK_NOT_CERTIFIED",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
-      "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4"
+      "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
+      "remote_launch_recheck": {
+        "task_branch_head": "0962ec74617613ff01a629926e64b7ae8b122979",
+        "dispatch_branch_head": "7efb5d98d8b51a26c8e3de1a0b808a0f48b3885c",
+        "dispatch_blob": "b7461f9273d5a1e0a6cdbc38e787070bdd650e8e",
+        "task_blob": "8b69f093b8e625fd4404d07d3922658a9bc84a0d",
+        "prompt_blob": "f9a60988fd5e13158cd898492910e92dfbbed253",
+        "live_admission_blob": "2c24f03f7a970692178d220f7a15455288b838b0",
+        "remote_result_observed": false,
+        "local_claim_state": "TO_BE_CHECKED_AT_LAUNCH",
+        "one_writer_state": "TO_BE_CHECKED_AT_LAUNCH",
+        "verdict": "REMOTE_BINDING_GO_LOCAL_RUNTIME_CHECK_REQUIRED"
+      }
     },
     {
       "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
