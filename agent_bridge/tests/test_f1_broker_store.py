@@ -123,3 +123,78 @@ def test_historical_import_is_transactional_and_rejects_ambiguous_inventory(
     with pytest.raises(ValueError, match="invalid"):
         store.import_consumed([])
     assert store.consumed_ids() == ()
+
+
+def test_trusted_time_floor_survives_restart_and_denies_rollback(tmp_path: Path) -> None:
+    store = new_store(tmp_path)
+    store.provision_from_privileged_service(epoch())
+    assert store.claim(dispatch_id="D", lease_id="L", epoch=1,
+                       package_sha256=PACKAGE, now=100, expires_at=300)
+    assert store.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                 package_sha256=PACKAGE, now=150)
+    assert not store.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                     package_sha256=PACKAGE, now=149)
+    restarted = F1BrokerStore(store.path)
+    assert not restarted.claim(dispatch_id="D2", lease_id="L2", epoch=1,
+                               package_sha256=PACKAGE, now=149, expires_at=250)
+    assert not restarted.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                         package_sha256=PACKAGE, now=149)
+    assert restarted.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                     package_sha256=PACKAGE, now=151)
+    assert store.consumed_ids() == ("D",)
+
+
+def test_denied_expiry_advances_floor_and_epoch_does_not_reset_it(tmp_path: Path) -> None:
+    store = new_store(tmp_path)
+    store.provision_from_privileged_service(epoch())
+    assert not store.claim(dispatch_id="expired", lease_id="L", epoch=1,
+                           package_sha256=PACKAGE, now=500, expires_at=501)
+    assert not store.claim(dispatch_id="backdated", lease_id="L2", epoch=1,
+                           package_sha256=PACKAGE, now=101, expires_at=200)
+    store.provision_from_privileged_service(epoch(2, expires_at=900))
+    assert not store.claim(dispatch_id="backdated", lease_id="L3", epoch=2,
+                           package_sha256=PACKAGE, now=499, expires_at=600)
+    assert store.claim(dispatch_id="fresh", lease_id="L4", epoch=2,
+                       package_sha256=PACKAGE, now=501, expires_at=600)
+    assert store.consumed_ids() == ("fresh",)
+
+
+def test_invalid_clock_and_identity_types_fail_closed(tmp_path: Path) -> None:
+    store = new_store(tmp_path)
+    store.provision_from_privileged_service(epoch())
+    for value in (True, False, 100.5, "100", -1):
+        assert not store.claim(dispatch_id="D", lease_id="L", epoch=1,
+                               package_sha256=PACKAGE, now=value, expires_at=200)
+        assert not store.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                         package_sha256=PACKAGE, now=value)
+    assert not store.claim(dispatch_id=123, lease_id="L", epoch=1,
+                           package_sha256=PACKAGE, now=100, expires_at=200)
+    assert not store.claim(dispatch_id="D", lease_id="L", epoch=True,
+                           package_sha256=PACKAGE, now=100, expires_at=200)
+    assert not store.claim(dispatch_id="D", lease_id="L", epoch=1,
+                           package_sha256=PACKAGE, now=100, expires_at=True)
+    assert store.consumed_ids() == ()
+
+
+def test_initialize_migrates_prior_offline_authority_schema(tmp_path: Path) -> None:
+    import sqlite3
+
+    path = tmp_path / "old-core.db"
+    with sqlite3.connect(path) as con:
+        con.execute("CREATE TABLE authority (id INTEGER PRIMARY KEY, epoch INTEGER,"
+                    "policy_id TEXT, source_commit TEXT, package_sha256 TEXT,"
+                    "expires_at INTEGER, revoked INTEGER)")
+        con.execute("INSERT INTO authority VALUES (1,1,'old',?,?,500,0)",
+                    (SOURCE, PACKAGE))
+    store = F1BrokerStore(path)
+    store.initialize()
+    with sqlite3.connect(path) as con:
+        cols = {row[1] for row in con.execute("PRAGMA table_info(authority)")}
+        assert "time_floor" in cols
+        assert con.execute("SELECT epoch,time_floor FROM authority").fetchone() == (1, 0)
+    store.provision_from_privileged_service(epoch(2, expires_at=900))
+    assert store.claim(dispatch_id="new", lease_id="L", epoch=2,
+                       package_sha256=PACKAGE, now=100, expires_at=200)
+    store.initialize()  # idempotent; must not reset the durable time floor
+    with sqlite3.connect(path) as con:
+        assert con.execute("SELECT time_floor FROM authority").fetchone()[0] == 100
