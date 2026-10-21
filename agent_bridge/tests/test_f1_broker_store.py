@@ -198,3 +198,15 @@ def test_initialize_migrates_prior_offline_authority_schema(tmp_path: Path) -> N
     store.initialize()  # idempotent; must not reset the durable time floor
     with sqlite3.connect(path) as con:
         assert con.execute("SELECT time_floor FROM authority").fetchone()[0] == 100
+
+
+def test_already_expired_lease_request_still_fences_clock_rewind(tmp_path: Path) -> None:
+    store = new_store(tmp_path)
+    store.provision_from_privileged_service(epoch(1, expires_at=900))
+    assert not store.claim(dispatch_id="expired-request", lease_id="L1", epoch=1,
+                           package_sha256=PACKAGE, now=700, expires_at=700)
+    assert not F1BrokerStore(store.path).claim(
+        dispatch_id="rewind", lease_id="L2", epoch=1,
+        package_sha256=PACKAGE, now=699, expires_at=800)
+    assert store.claim(dispatch_id="later", lease_id="L3", epoch=1,
+                       package_sha256=PACKAGE, now=701, expires_at=800)
