@@ -34,3 +34,18 @@ Human operating governance: Registry at d34da1e3b4918a902646621b487ca8ad3e05b0e0
 
 ## NEXT_SAFE_ACTION
 Complete G1 design decision matrix, identify enforceable Windows retirement option with host constraints, finalize protocol/consumer acceptance; then review and decide G1 ACCEPT or HOLD. No executable handoff until Policy/Task/Source/R0-R7/PreExec/one-writer gates are satisfied.
+
+## G1 evidence-based gate snapshot — 2026-10-21 (CHAT)
+Source snapshot: 62be753a775b2bb59538213d3738f3e239af38cf; documentary review: docs/architecture/FOX2_BRIDGE_F1_G1_BRDSPEC_COMPATIBILITY_AND_HOST_GATE_20261021.md (same commit). This is an operational candidate snapshot, not an approval or host attestation.
+
+| Gate | STAGE | STATUS | EVIDENCE | SOURCE_SHA | EXIT_GATE | BLOCKER | NEXT_SAFE_ACTION | ACTOR |
+|---|---|---|---|---|---|---|---|---|
+| G1 | DESIGN | IN_PROGRESS | G1 architecture at d05252a; BRD/TechSpec reconciliation at 62be753 | 62be753a775b2bb59538213d3738f3e239af38cf | Host-supported, independently issued legacy OS execution deny + bounded service claim/spawn protocol + consumer and acceptance trace + CHAT design acceptance | Host edition, policy issuer and provider capability unverified; OS fence and spec addenda not accepted | Collect narrow read-only Windows capability evidence; select enforceable OS policy and lock service/protocol/design acceptance | CHAT; authorized Windows evidence provider |
+| G2 | BUILD | BLOCKED | F0 scoped offline work and historical Windows CI only | 442721769dcca2643e111b6fefc16f2a2924cc94 | Integrated broker/service, consumer wiring, tests and reviewed result | G1 not accepted; explicit GPT-6.1 Sol coding HOLD and new route PreExec outstanding | Resolve G1, then recheck coding authority and executable route without replay | CHAT / permitted coder |
+| G3 | TEST | NOT_RUN | No isolated positive host certificate | 62be753a775b2bb59538213d3738f3e239af38cf | Negative and positive Windows isolation/reboot/copy/rollback/replay gates | G2 unavailable | Run only on separately authorized isolated Windows host after accepted build | Windows host actor / CHAT |
+| G4 | DEPLOY | NOT_RUN | No F1 installed adoption receipt | 62be753a775b2bb59538213d3738f3e239af38cf | Authorized one-shot source-bound install, OS legacy retirement and no-replay | G3 not accepted; installed identity/one-writer not attested | Hold installation until separate admission | Host actor / CHAT |
+| G5 | TEST/DEPLOY | HOLD | Historical scoped C3, not C4 or Canary009 | 62be753a775b2bb59538213d3738f3e239af38cf | All RC1/Canary/C4 and independent review gates plus explicit release authority | G3/G4 missing, Canary HOLD | Preserve NOT_ATTESTED until all gates verified | CHAT / independent reviewer |
+
+G1 design disposition: **HOLD_FOR_HOST_CAPABILITY_AND_CONTRACT_ADDENDUM**, not FAIL of already-reviewed candidate design. Technical position: OS-enforced independent legacy retirement is mandatory before positive claim; WDAC/App Control or AppLocker is not selected until actual host capability, policy issuer and administrator separation are verified. Trusted service performs atomic claim and actual child spawn, while desktop/tray remains interactive and does not gain project authority. Untrusted workers must never spawn based on bearer tokens alone. Enforce fail-closed rollback, tombstone preservation, and full direct-consumer closure.
+
+Do not treat 493/23 Windows CI, 11/11 StrictMode tests or prior F0 results as installed host enforcement. F1 DENY; Canary009 HOLD; INTERNAL_FOX2_BRIDGE_READY NOT_ATTESTED. No new Dispatch, code, service install, merge, Canary or LIVE authorized by this tracker update.
