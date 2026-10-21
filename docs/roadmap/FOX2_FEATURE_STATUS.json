@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "REAL_SAMEHOST_BUILD_PREEXEC_RECEIPT_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_CODEX_START",
-      "blocker": "REAL_SAMEHOST_BUILD_PREEXEC_NOT_RUN; OWNER_LAUNCHER_EXECUTED_UNDER_WINDOWS_POWERSHELL_5_1; PWSH7_CHILD_NOT_REACHED",
-      "as_of": "2026-10-21T19:00:00+07:00",
-      "next_safe_action": "RUN_POWERSHELL5_COMPATIBLE_WRAPPER_THAT_INVOKES_PWSH7_VERSIONED_PREEXEC; CHAT_REMOTE_INTAKE",
+      "blocker": "SAMEHOST_BUILD_PREEXEC_BLOCKED_CODEX_PROCESS_ATTRIBUTION_UNKNOWN; NO_RECEIPT_PUBLISHED; AGENT_NOT_STARTED",
+      "as_of": "2026-10-21T19:10:00+07:00",
+      "next_safe_action": "READ_ONLY_CODEX_PROCESS_ATTRIBUTION_PROBE; RECONCILE_COMPETING_WRITER_STATE; THEN RERUN_VERSIONED_PREEXEC_IF_SAFE",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -609,7 +609,7 @@
         "prompt_blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
         "prompt_sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9",
         "route": "CODEX_GPT_6_1_SOL_HIGH_MANUAL_LOCAL",
-        "preexec": "READY_NOT_RUN",
+        "preexec": "BLOCKED_NEEDS_RECONCILIATION",
         "agent_execution_started": false,
         "host_mutation_authorized": false,
         "historical_g3_receipt": "14a02ab5f42a7659efd2b1e60324c49ff70695b5",
@@ -637,12 +637,13 @@
           "host_policy_mutation": false
         },
         "last_attempt": {
-          "classification": "LAUNCHER_INFRA_STOP_BEFORE_PREEXEC",
-          "reason": "OUTER_SHELL_WINDOWS_POWERSHELL_LT_7",
+          "classification": "PREEXEC_BLOCKED",
+          "blocker": "CODEX_PROCESS_ATTRIBUTION_UNKNOWN",
           "remote_head": "f3a0e86515c5285715730ff86781eb71c62c7ab0",
           "receipt_remote": "ABSENT",
           "agent_execution_started": false,
-          "host_policy_mutation": false
+          "host_policy_mutation": false,
+          "no_replay": true
         }
       }
     }
