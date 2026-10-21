@@ -160,7 +160,7 @@ class F1BrokerStore:
                 not dispatch_id or not lease_id or len(dispatch_id) > 256 or
                 len(lease_id) > 256 or type(epoch) is not int or
                 type(expires_at) is not int or type(now) is not int or
-                expires_at <= now or now < 0):
+                now < 0):
             return False
         with closing(self._db()) as con:
             con.execute("BEGIN IMMEDIATE")
@@ -172,7 +172,8 @@ class F1BrokerStore:
                 allowed = bool(
                     row and not row["revoked"] and row["epoch"] == epoch and
                     row["package_sha256"] == package_sha256 and
-                    now < row["expires_at"] and expires_at <= row["expires_at"]
+                    expires_at > now and now < row["expires_at"] and
+                    expires_at <= row["expires_at"]
                 )
                 if not allowed or con.execute(
                     "SELECT 1 FROM consumed WHERE dispatch_id=?", (dispatch_id,)
