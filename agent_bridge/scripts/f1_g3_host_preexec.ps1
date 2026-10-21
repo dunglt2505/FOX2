@@ -20,10 +20,10 @@ function Obs([string]$Status,[bool]$Material,[string]$Evidence,[int]$ExitCode=0,
 function Add-Blocker($List,[string]$Code,[string]$Class,[string]$Detail) {
     $List.Add([ordered]@{code=$Code;class=$Class;material=$true;sanitized_detail=$Detail})
 }
-function Invoke-Git([string[]]$Args,[bool]$AllowFail=$false) {
-    $out=@(& git -C $Worktree @Args 2>&1)
+function Invoke-Git([string[]]$GitArgs,[bool]$AllowFail=$false) {
+    $out=@(& git -C $Worktree @GitArgs 2>&1)
     $code=$LASTEXITCODE
-    if(-not $AllowFail -and $code -ne 0){throw "git failed ($code): $($Args -join ' ')"}
+    if(-not $AllowFail -and $code -ne 0){throw "git failed ($code): $($GitArgs -join ' ')"}
     [pscustomobject]@{Code=$code;Text=(($out|ForEach-Object{"$_"}) -join [Environment]::NewLine).Trim()}
 }
 
