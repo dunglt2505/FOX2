@@ -66,3 +66,11 @@ This progress is an independently traceable engineering update within the same W
 - 7 new parameterized offline tests cover post-claim PAUSE/STOP/malformed state and invalid control payload variants.
 - Windows CI `39519781500` / job `118960730105`: **COMPLETED/SUCCESS**. Logs show 23 package tests PASS, **453 full Bridge regression tests PASS**, and quarantined F0 DENY package build PASS. Package SHA-256 `e8fbffb04f9c4da7726e3bb3ef85cee358761e2e8547398d743765c81addde51`, source commit `9bcefa500f242ccbbc8ff11f5ce2647e166f29da`.
 - This is an **additional local guard only**, with a remaining time-of-check/time-of-use race and no independently OS-enforced legacy retirement or host lease. **F1 positive claim authority remains NOT_IMPLEMENTED**. Package not persisted/installed; Canary HOLD.
+
+## F1 global broker storage core — offline implementation, host boundary still blocked
+
+- Source `73df64a14b1ab496ffe3524b923e6abb2b4ad253`: `agent_bridge/src/fox2_agent_bridge/f1_broker_store.py` adds an **unwired**, deny-by-default broker SQLite core with atomic global consumed IDs, historical ID import before authority provisioning, epoch/package binding, bounded leases, revocation, rollback rejection, and service-side spawn lease checks.
+- Source `901153cb6ec450c2c357de2c4c8ba02035b54523`: `agent_bridge/tests/test_f1_broker_store.py` adds six offline tests, including a 20-contender concurrent claim against the same SQLite file, restart/no-replay, historical import, revocation, expiry and epoch rollover.
+- Source `324f93ca709c4f29a05b5043e34397664301eeb8` strengthens quarantined Windows package CI to require exact `f1_broker_store.py` module provenance in the built wheel.
+- **Not a privileged Windows service:** provisioning and claim methods are intentionally **not connected** to desktop, installed ledger or Agent launch. An ordinary process can instantiate this class; therefore this code is not a trust anchor. Production F1 requires a separately installed privileged broker with authenticated IPC, OS ACLs, durable legacy-executor retirement, trusted time and service-owned spawn. These host-specific gates are `NOT_ATTESTED`.
+- Windows CI `39520823626`: `PENDING` at report creation; no new tests or package PASS claimed until exact run logs are reviewed. Previous 453 PASS remains historical only.
