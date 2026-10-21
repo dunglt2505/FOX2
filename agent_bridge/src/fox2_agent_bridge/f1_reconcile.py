@@ -33,8 +33,15 @@ def _inspect_root(path: Path) -> dict[str, str]:
     """Inspect one existing SQLite ledger without creating/migrating it."""
     if not path.is_file():
         raise ReconciliationHold("missing historical ledger")
-    # Resolve file identity, not user-supplied relative aliases.
-    uri = "file:" + quote(path.resolve().as_posix(), safe="/:") + "?mode=ro"
+    # A WAL may contain committed claims absent from the main DB. Do not
+    # ignore it with immutable=1 or open it in a way that creates -shm files.
+    # A separately fenced host must checkpoint and prove stable sidecars.
+    sidecars = (Path(str(path) + "-wal"), Path(str(path) + "-shm"))
+    if any(sidecar.exists() for sidecar in sidecars):
+        raise ReconciliationHold("uncheckpointed or ambiguous SQLite sidecar")
+    # Immutable read cannot write, lock, or silently create a sidecar. It is
+    # safe ONLY after independently verified quiescence and full root closure.
+    uri = "file:" + quote(path.resolve().as_posix(), safe="/:") + "?mode=ro&immutable=1"
     try:
         with closing(sqlite3.connect(uri, uri=True, timeout=5)) as con:
             con.row_factory = sqlite3.Row
@@ -80,6 +87,8 @@ def _inspect_root(path: Path) -> dict[str, str]:
                         not isinstance(state, str) or not state):
                     raise ReconciliationHold("orphan or malformed execution")
                 # Unknown, running and failed executions remain CONSUMED.
+            if any(sidecar.exists() for sidecar in sidecars):
+                raise ReconciliationHold("SQLite sidecar appeared during snapshot")
             return seen
     except ReconciliationHold:
         raise
