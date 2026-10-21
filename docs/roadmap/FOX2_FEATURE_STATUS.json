@@ -244,8 +244,8 @@
       ],
       "exit_gate": "G3_HOST_ENFORCEMENT_AND_G4_ADOPTION_VERIFICATION_REQUIRED_BEFORE_DEPLOY_READY",
       "blocker": "G3_OWNER_AUTHORITY_GRANTED; G3_HOST_PREEXEC_NOT_RUN; ISOLATED_TARGET_NOT_YET_ADMITTED",
-      "as_of": "2026-10-21T16:55:00+07:00",
-      "next_safe_action": "RUN_G3_HOST_PREEXEC_ONLY; CHAT_REMOTE_INTAKE_BEFORE_G3_EXECUTION",
+      "as_of": "2026-10-21T17:05:00+07:00",
+      "next_safe_action": "RUN_G3_HOST_PREEXEC_ONLY_ON_ISOLATED_WINDOWS_VM; RETURN OUTPUT/RECEIPT TO CHAT",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -562,16 +562,17 @@
         "authority": "GRANTED_SCOPED_G3_ISOLATED_HOST_ONLY",
         "owner_directive_commit": "3dfefb9f18b5634252c9f6da6a795069ea262ce6",
         "branch": "work/FOX2-BRIDGE-F1-G3-HOST-ENFORCEMENT-20261021",
-        "source_head": "9b024cd68f8b88d116186846edeed2219a68af6c",
+        "source_head": "86e32650aa2a1247fce7551b78164bb00794bdb3",
         "task_id": "FOX2-BRIDGE-RC1-G3-HOST-A01",
         "task_sha256": "1676ca5990d9c1808bae70dcaf885a13db04143ca563b61caa6bb43d744872b3",
-        "preexec_runner_sha256": "ec4bc4430405c13e7ceb48378a4de76032b89027ce3f80dafc188b63700a28d9",
+        "preexec_runner_sha256": "0cbf4e61746acf155844e0f62526c28fc62df52281037e4500a1ae11b326c336",
         "preexec": "NOT_RUN",
         "pass_to_execute": false,
         "host_mutation_started": false,
         "no_replay_g2": true,
         "next_safe_action": "RUN_PREEXEC_ONLY_AND_RETURN_RECEIPT_TO_CHAT",
-        "preexec_binding_v2": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/preexec_binding_v2.md"
+        "preexec_binding_v2": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/preexec_binding_v2.md",
+        "preexec_binding_v3": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/preexec_binding_v3.md"
       }
     }
   ]
