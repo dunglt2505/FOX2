@@ -554,6 +554,110 @@ def test_denied_e2e_dispatch_never_reaches_agent_or_result_preparation(
         assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
 
 
+
+@pytest.mark.parametrize("control", ["pause", "request-exit", "malformed"])
+def test_pause_stop_or_corruption_after_claim_blocks_agent_spawn(
+    bridge_config, tmp_path: Path, monkeypatch, control,
+) -> None:
+    """A local control change after durable claim must not invoke a paid CLI.
+
+    This is an offline local guard only, not host-enforced F1 authority.
+    """
+    from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
+    from fox2_agent_bridge.errors import AgentNotStarted
+
+    ledger = SQLiteLedger(bridge_config.database_path)
+    ledger.initialize()
+    identity = f"FOX2-PRE-SPAWN-{control}"
+    invoked = []
+
+    class PassiveTransport:
+        def query_control_sha(self, branch):
+            return "a" * 40
+
+        def fetch_control(self, branch, commit_sha):
+            return None
+
+        def read_dispatch_blob(self, commit_sha, dispatch_path):
+            return b"{}", "b" * 40
+
+    runner = BridgeE2ERunner(
+        bridge_config, ledger, transport=PassiveTransport(),
+        can_claim=lambda: True,
+    )
+    monkeypatch.setattr(
+        "fox2_agent_bridge.e2e_runner.DispatchPoller",
+        lambda *args, **kwargs: SimpleNamespace(
+            poll_once=lambda: SimpleNamespace(status="NO_CHANGE")
+        ),
+    )
+    monkeypatch.setattr(runner, "_validate_dispatch", lambda *args, **kwargs: {
+        "dispatch_id": identity,
+        "_payload_sha256": "c" * 64,
+        "_agent_product": "CODEX",
+        "branch": "work/offline-fixture",
+        "prompt": {"sha256": "e" * 64},
+        "agent": {"product": "CODEX"},
+        "delivery_owner": "BRIDGE",
+    })
+    monkeypatch.setattr(runner, "_resolve_worktree",
+                        lambda payload: (tmp_path / "worktree", "d" * 40))
+    monkeypatch.setattr(runner, "_resolve_prompt", lambda payload: "fixture")
+
+    def change_control(*, payload, worktree):
+        if control == "malformed":
+            with ledger.connect() as connection:
+                connection.execute(
+                    "UPDATE worker_state SET payload=? WHERE id=1",
+                    ('{"paused":"false"}',),
+                )
+        else:
+            ledger.control(control)
+
+    monkeypatch.setattr(runner, "_prepare_required_parents", change_control)
+
+    def forbidden_adapter(*args, **kwargs):
+        invoked.append("AGENT_INVOKED")
+        pytest.fail("paid Agent adapter must not be created after PAUSE/STOP")
+
+    monkeypatch.setitem(
+        __import__("fox2_agent_bridge.e2e_runner", fromlist=["_ADAPTERS"])._ADAPTERS,
+        "CODEX", forbidden_adapter,
+    )
+    with pytest.raises(AgentNotStarted):
+        runner.run_once(dispatch_path="fixture/after-claim.json")
+    assert invoked == []
+    with ledger.connect() as connection:
+        assert connection.execute(
+            "SELECT COUNT(*) FROM dispatches WHERE dispatch_id=?",
+            (identity,),
+        ).fetchone()[0] == 1
+        assert connection.execute(
+            "SELECT COUNT(*) FROM executions WHERE dispatch_id=?",
+            (identity,),
+        ).fetchone()[0] == 1
+    assert not ledger.claim_dispatch(
+        dispatch_id=identity, payload_hash="c" * 64,
+        execution_id="replay-must-fail", observed_at_utc=utc_now(),
+    )
+
+
+@pytest.mark.parametrize("payload", [
+    '{"paused":"true"}', '{"stop_requested":1}', '[]', '{',
+])
+def test_spawn_permitted_fails_closed_on_invalid_local_control_payload(
+    tmp_path: Path, payload,
+) -> None:
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    assert ledger.spawn_permitted()
+    with ledger.connect() as connection:
+        connection.execute(
+            "UPDATE worker_state SET payload=? WHERE id=1", (payload,)
+        )
+    assert not ledger.spawn_permitted()
+
+
 def test_configured_alternate_runtime_root_cannot_grant_claim_authority(
     bridge_config, tmp_path: Path, monkeypatch,
 ) -> None:
