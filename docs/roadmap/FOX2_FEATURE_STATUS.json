@@ -40,8 +40,8 @@
       "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
-      "status": "IN_PROGRESS",
-      "evidence": "METADATA_PREEXEC_CHAT_ACCEPTED_AT_F60AB169; LIVE_ADMISSION_TOOLING_PUBLISHED_AT_CB1FB345; LIVE_ADMISSION_NOT_RUN",
+      "status": "BLOCKED",
+      "evidence": "METADATA_PREEXEC_PASS_AT_F60AB169; LIVE_ADMISSION_CB1FB345_BLOCKED_ON_CLI_FLAG_MISMATCH_BEFORE_PROBE; CORRECTED_TOOLING_96625117_PUBLISHED; LIVE_ADMISSION_EVIDENCE_NOT_CREATED",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "LIVE_CODEX_ROUTE_ADMISSION_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_IMPLEMENTATION",
-      "blocker": "MODEL_QUOTA_RUNTIME_READINESS_NOT_VERIFIED",
-      "as_of": "2026-10-21T19:20:00+07:00",
-      "next_safe_action": "OWNER_RUN_VERSIONED_LIVE_ADMISSION_CB1FB345; CHAT_REMOTE_INTAKE; IF_PASS_ISSUE_IMPLEMENTATION_LAUNCH",
+      "exit_gate": "CORRECTED_LIVE_CODEX_ROUTE_ADMISSION_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_IMPLEMENTATION",
+      "blocker": "MODEL_QUOTA_RUNTIME_READINESS_STILL_NOT_VERIFIED; PREVIOUS_ADMISSION_TOOLING_CLI_FLAG_MISMATCH",
+      "as_of": "2026-10-21T19:35:00+07:00",
+      "next_safe_action": "OWNER_FAST_FORWARD_TO_96625117_AND_RUN_CORRECTED_VERSIONED_LIVE_ADMISSION_ONCE; CHAT_REMOTE_INTAKE",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -663,12 +663,14 @@
           "pass_to_assign": false
         },
         "live_admission": {
-          "tooling_commit": "cb1fb3450ad24d9ba32f6f06e142c94333de4716",
-          "tooling_blob": "2d9ac9377fb184731143a83598df0a508e72a826",
+          "prior_tooling_commit": "cb1fb3450ad24d9ba32f6f06e142c94333de4716",
+          "prior_attempt": "BLOCKED_BEFORE_LIVE_PROBE",
+          "prior_blocker": "CODEX_FLAG_MISSING:--ask-for-approval",
+          "corrected_tooling_commit": "966251179b01563bc98154cede28017c6fa1dd6e",
+          "corrected_tooling_blob": "60e836589171c9b9930366068cf9443022c78753",
+          "corrected_change": "USE_CONFIG_APPROVAL_POLICY_NEVER_FOR_CODEX_0_162_1",
           "status": "READY_NOT_RUN",
-          "model": "gpt-6.1-sol",
-          "reasoning_effort": "high",
-          "sandbox": "read-only",
+          "evidence_remote": "ABSENT",
           "implementation_started": false,
           "dispatch_consumed": false,
           "host_policy_mutation": false
