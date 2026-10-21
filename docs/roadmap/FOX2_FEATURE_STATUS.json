@@ -40,8 +40,8 @@
       "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
-      "status": "BLOCKED",
-      "evidence": "METADATA_PREEXEC_PASS_AT_F60AB169; LIVE_CODEX_ADMISSION_EXECUTION_PASS_LOCAL_STAGED_BLOB_36D52527_AT_TOOL_EDBB16A9; REMOTE_ADMISSION_EVIDENCE_ABSENT; DELIVERY_BLOCKED_BY_CRLF_DIFF_CHECK_AND_REMOTE_HEAD_6308FCF7",
+      "status": "IN_PROGRESS",
+      "evidence": "METADATA_PREEXEC_PASS_F60AB169; LIVE_ROUTE_ADMISSION_PASS_0962EC7; CHAT_PASS_TO_ASSIGN_2C7C233D; EXECUTABLE_DISPATCH_PUBLISHED_7EFB5D98_BLOB_B7461F92; IMPLEMENTATION_NOT_STARTED",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "PUBLISH_EXISTING_PASS_ADMISSION_EVIDENCE_WITHOUT_RERUN; CHAT_REMOTE_INTAKE; THEN PASS_TO_ASSIGN_CHECK",
-      "blocker": "LIVE_ADMISSION_EVIDENCE_DELIVERY_BLOCKED",
-      "as_of": "2026-10-21T20:30:00+07:00",
-      "next_safe_action": "PRESERVE_LOCAL_STAGED_PASS_EVIDENCE; NORMALIZE_CRLF_TO_LF_SEMANTICS_UNCHANGED; FAST_FORWARD_TO_REMOTE_6308FCF7; COMMIT_PUSH_READBACK_EVIDENCE_ONLY; NO_PROBE_RERUN",
+      "exit_gate": "OWNER_RUN_DISPATCH_BOUND_CODEX_A01_ONCE; AGENT_PUSH_RESULT; CHAT_RESULT_REVIEW",
+      "blocker": null,
+      "as_of": "2026-10-21T18:02:00+07:00",
+      "next_safe_action": "OWNER_LAUNCH_EXACT_DISPATCH_7EFB5D98_VIA_POWERSHELL7_ONCE; NO_REPLAY; THEN_CHAT_REMOTE_RESULT_INTAKE",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -609,7 +609,7 @@
         "prompt_blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
         "prompt_sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9",
         "route": "CODEX_GPT_6_1_SOL_HIGH_MANUAL_LOCAL",
-        "preexec": "METADATA_PASS",
+        "preexec": "PASS_TO_ASSIGN",
         "agent_execution_started": false,
         "host_mutation_authorized": false,
         "historical_g3_receipt": "14a02ab5f42a7659efd2b1e60324c49ff70695b5",
@@ -663,27 +663,23 @@
           "pass_to_assign": false
         },
         "live_admission": {
-          "execution_status": "PASS_LOCAL",
-          "checked_at": "2026-10-21T10:48:22.1203448Z",
+          "status": "PASS_REMOTE_ACCEPTED",
+          "evidence_commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+          "evidence_blob": "2c24f03f7a970692178d220f7a15455288b838b0",
           "model": "gpt-6.1-sol",
           "reasoning_effort": "high",
-          "sandbox": "read-only",
-          "approval_policy": "never_via_config_override",
-          "probe_exit_code": 0,
-          "marker_match": true,
-          "duration_seconds": 8.324,
-          "probe_agent_execution_started": true,
           "task_agent_execution_started": false,
           "dispatch_consumed": false,
-          "host_policy_mutation": false,
-          "project_files_accessed_by_probe": false,
-          "admission_tool_commit": "edbb16a907ca1c85ad238f81b3cc2ed0fc709885",
-          "local_evidence_blob": "36d5252755ba4f1f3814f06bbaa58350863973a8",
-          "remote_tooling_head": "6308fcf79d2a9adbb3c81f59b2ce9354a6d06bd0",
-          "remote_evidence": "ABSENT",
-          "delivery_status": "BLOCKED_RECOVERABLE",
-          "delivery_blocker": "CRLF_DIFF_CHECK_AND_LOCAL_HEAD_BEHIND_REMOTE",
-          "rerun_allowed": false
+          "host_policy_mutation": false
+        },
+        "dispatch": {
+          "id": "FOX2-DISPATCH-BRIDGE-RC1-SAMEHOST-BUILD-A01-CODEX-001",
+          "control_branch": "work/FOX2-DISPATCH-chat",
+          "commit": "7efb5d98d8b51a26c8e3de1a0b808a0f48b3885c",
+          "blob": "b7461f9273d5a1e0a6cdbc38e787070bdd650e8e",
+          "max_runs": 1,
+          "status": "PUBLISHED_UNCONSUMED",
+          "owner_launch_ready": true
         }
       }
     }
