@@ -97,6 +97,9 @@ jobs:
           if (!$json.manifest.wheel_source_modules.'fox2_agent_bridge/desktop.py') {
             throw 'STOP: desktop wheel provenance missing'
           }
+          if (!$json.manifest.wheel_source_modules.'fox2_agent_bridge/f1_broker_store.py') {
+            throw 'STOP: F1 broker storage core missing from wheel inventory'
+          }
           Write-Host "CI_QUARANTINED_F0_DENY_PACKAGE_SHA256=$actual"
           Write-Host "CI_QUARANTINED_SOURCE_COMMIT=$head"
           Write-Host 'NO_INSTALL_NO_RELEASE_NO_CANARY_NO_POSITIVE_AUTHORITY'
