@@ -147,10 +147,11 @@ try {
     Require ($initialHead -in @($MetadataReceiptCommit,$PublicationHead)) 'HEAD_MISMATCH'
     Require ([string]::IsNullOrWhiteSpace((Git @('status','--porcelain=v1','--untracked-files=all')))) 'DIRTY_WORKTREE'
     Require ((Remote-Head) -eq $PublicationHead) 'REMOTE_HEAD_MISMATCH'
-    Require ((Git @('rev-list','--parents','-n','1',$PublicationHead)) -ceq ($PublicationHead + ' ' + $MetadataReceiptCommit)) 'PUBLICATION_PARENT_MISMATCH'
+    $ancestorCheck = Run-Tool -File $GitExe -ToolArgs @('-C',$Worktree,'merge-base','--is-ancestor',$MetadataReceiptCommit,$PublicationHead) -TimeoutSeconds 30 -WorkingDirectory $Worktree
+    Require ($ancestorCheck.Code -eq 0) 'PUBLICATION_NOT_DESCENDANT_OF_METADATA_RECEIPT'
 
-    $changedLine = Git @('diff-tree','--no-commit-id','--name-status','-r',$MetadataReceiptCommit,$PublicationHead)
-    Require ($changedLine -ceq ('A' + [char]9 + $ScriptPath)) 'PUBLICATION_NOT_SCRIPT_ONLY'
+    $changedPaths = @(Git @('diff','--name-only',$MetadataReceiptCommit,$PublicationHead) -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+    Require ($changedPaths.Count -eq 1 -and $changedPaths[0] -ceq $ScriptPath) 'PUBLICATION_LINEAGE_NOT_SCRIPT_ONLY'
 
     $scriptBlob = Git @('rev-parse',($PublicationHead + ':' + $ScriptPath))
     Require ((Git @('hash-object','--no-filters',$PSCommandPath)) -eq $scriptBlob) 'RUNNING_SCRIPT_MISMATCH'
