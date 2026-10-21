@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
+  "checked_at": "2026-10-21T16:35:36.0843659Z",
+  "status": "PASS",
+  "blockers": [],
+  "task_branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021",
+  "source_code_base": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+  "publication_head": "27e79ef9266760807187ce90f451ffa26bc97e2f",
+  "task": {
+    "commit": "d95f08ceed2f5a25ad288b9630ffc87b698f329c",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert/task.md",
+    "blob_sha1": "86e0afaec6f6e47c9d15b51564a38bf5167a892b",
+    "sha256": "95d64b3cb3999c55700ded2a6451cd9ffa23872fb87fd00c97df7edbb8c06221"
+  },
+  "prompt": {
+    "commit": "250c8ab15bdfd8339e6332dc105a559dbd5b3151",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert/prompt.md",
+    "blob_sha1": "2fd33dbef3fc327ca71844b1e05670b312eefc7d",
+    "sha256": "4a3cab3096b9eca8a65938e5b36d658ceaca5e684def26524ce44cedebe1a689"
+  },
+  "route": {
+    "agent": "CODEX",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS",
+    "execution_path": "MANUAL_LOCAL"
+  },
+  "capabilities": {
+    "pwsh7": "PASS",
+    "python": "PASS",
+    "git": "PASS",
+    "codex_login": "PASS",
+    "codex_cli_contract": "PASS",
+    "one_writer": "PASS",
+    "exact_task_prompt": "PASS",
+    "clean_worktree": "PASS",
+    "live_route_admission": "PASS",
+    "dotnet": "PASS",
+    "isolated_build_python": "PASS",
+    "host_read_only_state": "PASS"
+  },
+  "host_readiness": {
+    "bridge_root_alias": "LOCALAPPDATA/FOX2/AgentBridge",
+    "installed": true,
+    "current_package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+    "current_source_sha256": "9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8",
+    "control_state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "owned_versions": [
+      "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac"
+    ],
+    "active_runtime_processes": 0,
+    "stable_uninstall_sha256": "ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff",
+    "config_sha256": "b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7",
+    "database_sha256": "70d387ed9ee57e950a4509b392af19966496cec770f7872e52925528e5b8d884",
+    "manual_consumption_sha256": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c",
+    "build_python_alias": "WORKTREES/FOX2-BRIDGE-DESKTOP-BATCH-B/agent_bridge/.build-venv/Scripts/python.exe",
+    "build_python_version": "3.13",
+    "build_pip": "26.2.1",
+    "build_setuptools": "84.0.0",
+    "build_wheel": "0.48.0",
+    "build_module": "1.6.1",
+    "build_jsonschema": "4.26.0",
+    "build_attrs": "26.1.0",
+    "build_referencing": "0.37.0",
+    "build_rpds": "2026.9.1",
+    "build_jsonschema_specifications": "2025.9.1",
+    "dotnet_version": "8.0.426",
+    "host_mutation_performed": false
+  },
+  "live_probe": {
+    "status": "PASS",
+    "exit_code": 0,
+    "marker": "FOX2_HOST_LIFECYCLE_CERT_A01_ADMISSION_OK",
+    "working_directory_kind": "EMPTY_TEMP_DIRECTORY",
+    "sandbox": "read-only",
+    "approval_policy": "never_via_config_override",
+    "project_files_accessed": false
+  },
+  "implementation_agent_execution_started": false,
+  "dispatch_published": false,
+  "dispatch_consumed": false,
+  "host_lifecycle_mutation": false,
+  "notes": [
+    "PreExec v1, v2 and v3 were rejected before execution and are not executable.",
+    "PreExec v4 was executed and BLOCKED before receipt/Dispatch; it is historical and is not reused.",
+    "PreExec v5 binds the existing build environment accepted by CHAT discovery V3 and is read-only with respect to the Bridge package lifecycle.",
+    "No package build/install/update/uninstall/reinstall occurred during PreExec.",
+    "Final host mutation requires CHAT remote intake and a fresh executable Dispatch."
+  ]
+}
