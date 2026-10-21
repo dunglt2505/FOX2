@@ -146,3 +146,18 @@ Immutable task SHA-256: `708ab8addd6e6cbcde581bc03efc66dfb518eb8ac575d568c2be825
 Immutable prompt SHA-256: `a9bda49bede3955996226801d231fefe690088490de5ed9ddfe13ab055625bed`.
 
 Verdict: `PASS_TO_ASSIGN` for one CODEX A01 implementation attempt only. No merge/Canary/LIVE rights. Next: Owner-manual PowerShell 7 exact CODEX launch; then Git result remote readback + fox2-result-review.
+
+
+## G2 A01 acceptance and G3 test-entry preparation — 2026-10-21
+
+- G2 code remote: `66e8f0a8b3a93140b5f908628b55ac965e15b96e`.
+- G2 result/evidence remote: `ac1d1184255945b2c4304641360a1e661ff2d7bd`.
+- CHAT review receipt: `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/G2_A01_CHAT_RESULT_REVIEW_20261021.md` @ `dcf42dd76c8f22e155d469d356e1f1219f3d7b14`.
+- Verdict: `CHAT_ACCEPT — G2 BUILD ONLY`.
+- Final test evidence: focused 61 PASS; affected regression 200 PASS; full Bridge 557 PASS; Windows native 3 PASS; Desktop Release build PASS; static/package-contract PASS.
+- Historical FAIL receipts remain preserved; G3/G4 and full offline package remain NOT_RUN as recorded.
+- Feature transition: BUILD exit accepted; current stage TEST.
+- G3 non-executable entry/gates prepared at `docs/architecture/FOX2_BRIDGE_F1_G3_HOST_ENFORCEMENT_TEST_ENTRY_CANDIDATE_20261021.md` @ `f0fcc1bfefa682701f3d9a9f8e0a24d2ab33b071`.
+- G3 status: `ENTRY_PREPARED / EXECUTION_BLOCKED`.
+- Real blocker: no explicit Owner grant for isolated privileged G3 host mutations; no G3 host PreExec. No service install/start/AppLocker apply has occurred.
+- Runtime remains F1 DENY / Canary HOLD / INTERNAL_FOX2_BRIDGE_READY NOT_ATTESTED.
