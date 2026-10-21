@@ -398,6 +398,72 @@ def test_installed_root_alternate_db_and_normalized_alias_fail_closed(
         assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
 
 
+
+def test_forged_installed_authority_cannot_bypass_claim_time_root_fence(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    """A writable SQLite metadata edit is never host retirement evidence."""
+    root = tmp_path / "installed-root"
+    monkeypatch.setattr("fox2_agent_bridge.ledger.BRIDGE_ROOT", root)
+    ledger = SQLiteLedger(root / "data" / "bridge.db")
+    assert ledger.initialize() == SCHEMA_VERSION
+    with ledger.connect() as connection:
+        connection.execute(
+            "UPDATE bridge_meta SET value='SINGLE_ROOT' "
+            "WHERE key='claim_authority'"
+        )
+        connection.execute(
+            "INSERT OR REPLACE INTO bridge_meta (key,value) VALUES (?,?)",
+            ("f1_retirement_attested", "true"),
+        )
+        connection.execute(
+            "INSERT OR REPLACE INTO bridge_meta (key,value) VALUES (?,?)",
+            ("f1_epoch", "999999999"),
+        )
+    for probe in (ledger, SQLiteLedger(root / "data" / "bridge.db")):
+        assert not probe.claim_dispatch(
+            dispatch_id="forged-proof", payload_hash="a" * 64,
+            execution_id="never-spawn", observed_at_utc=utc_now(),
+            honor_controls=False,
+        )
+    with ledger.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM dispatches").fetchone()[0] == 0
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+
+
+def test_independent_legacy_root_can_reclaim_same_identity_without_os_fence(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    """Document the real F1 blocker: separate SQLite files are not one writer.
+
+    This is a synthetic counterexample, not permission to start legacy Bridge.
+    The legacy fixture deliberately uses a separate unfenced v5-style ledger.
+    """
+    current_root = tmp_path / "current"
+    old_root = tmp_path / "legacy"
+    current = SQLiteLedger(current_root / "data" / "bridge.db")
+    legacy = SQLiteLedger(old_root / "data" / "bridge.db")
+    assert current.initialize() == SCHEMA_VERSION
+    assert legacy.initialize() == SCHEMA_VERSION
+    monkeypatch.setattr("fox2_agent_bridge.ledger.BRIDGE_ROOT", current_root)
+    identity = "same-git-dispatch-across-two-sqlite-files"
+    assert not current.claim_dispatch(
+        dispatch_id=identity, payload_hash="a" * 64,
+        execution_id="current-blocked", observed_at_utc=utc_now(),
+    )
+    assert legacy.claim_dispatch(
+        dispatch_id=identity, payload_hash="a" * 64,
+        execution_id="old-writer-simulated", observed_at_utc=utc_now(),
+    )
+    assert not legacy.claim_dispatch(
+        dispatch_id=identity, payload_hash="a" * 64,
+        execution_id="old-writer-replay", observed_at_utc=utc_now(),
+    )
+    with current.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 0
+    with legacy.connect() as connection:
+        assert connection.execute("SELECT COUNT(*) FROM executions").fetchone()[0] == 1
+
 def test_denied_ledger_rolls_back_abrupt_precommit_process_exit(
     tmp_path: Path,
 ) -> None:
