@@ -82,3 +82,27 @@ def test_invalid_manual_marker_and_missing_tables_fail_closed(tmp_path: Path) ->
     for manual in (("D", "D"), ("",), ("X" * 257,)):
         with pytest.raises(ReconciliationHold):
             reconcile_consumed((a, b), manual_consumed=manual, inventory_complete=True)
+
+@pytest.mark.parametrize("sidecar", ["-wal", "-shm"])
+def test_sidecars_hold_to_prevent_missing_uncheckpointed_claims(
+    tmp_path: Path, sidecar: str,
+) -> None:
+    a = root(tmp_path / "old.db", (("D", "CLAIMED", "h"),))
+    b = root(tmp_path / "new.db")
+    marker = Path(str(a) + sidecar)
+    marker.write_bytes(b"unverified-sidecar")
+    with pytest.raises(ReconciliationHold, match="sidecar"):
+        reconcile_consumed((a, b), manual_consumed=(), inventory_complete=True)
+    assert marker.read_bytes() == b"unverified-sidecar"
+
+
+def test_read_only_reconciliation_does_not_create_sqlite_sidecars(
+    tmp_path: Path,
+) -> None:
+    a = root(tmp_path / "old.db", (("D", "FAILED", "h"),))
+    b = root(tmp_path / "new.db")
+    assert reconcile_consumed((a, b), manual_consumed=(),
+                              inventory_complete=True).consumed_ids == ("D",)
+    for path in (a, b):
+        assert not Path(str(path) + "-wal").exists()
+        assert not Path(str(path) + "-shm").exists()
