@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "PACKAGE_LIFECYCLE_A01_CORRECTED_PREEXEC_NOT_RUN",
-      "as_of": "2026-10-21T20:10:00+07:00",
-      "next_safe_action": "OWNER_FAST_FORWARD_CLEAN_TASK_WORKTREE_TO_B8DBF2A7_AND_RUN_CORRECTED_PREEXEC_ONCE; CHAT_REMOTE_INTAKE",
+      "blocker": "PACKAGE_LIFECYCLE_A01_STAGE_TAGGED_PREEXEC_NOT_RUN",
+      "as_of": "2026-10-21T20:20:00+07:00",
+      "next_safe_action": "OWNER_FAST_FORWARD_CLEAN_TASK_WORKTREE_TO_42EF8835_AND_RUN_STAGE_TAGGED_PREEXEC_ONCE; CHAT_REMOTE_INTAKE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "ROOT_CAUSE_PROVEN_HARNESS_ENTRYPOINT_DEFECT; A01_TASK_PROMPT_PUBLISHED; PREEXEC_V1_TOOLING_FAILURE_RECOVERED; CORRECTED_PREEXEC_B8DBF2A7_READY_NOT_RUN",
+      "package_lifecycle": "ROOT_CAUSE_PROVEN_HARNESS_ENTRYPOINT_DEFECT; A01_TASK_PROMPT_PUBLISHED; TWO_PREEXEC_TOOLING_FAILURES_RECOVERED; STAGE_TAGGED_ASYNC_DRAIN_PREEXEC_42EF8835_READY_NOT_RUN",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -72,11 +72,23 @@
         "prompt_commit": "56f3a8058d5e2083e6190b180ff0181b97e259bb",
         "prompt_blob": "b208ece6eb9bb9fa667b6afd906320b8e1a9882d",
         "prompt_sha256": "a26cf973ef4f7e7066f0b48057b7018eafc4d8d8848baf6a33d0c730342c1616",
-        "preexec_tool_commit": "b8dbf2a709f58efdab654cc0e12ba738ceaabb21",
-        "preexec_tool_blob": "c353fedab620b7dd5dbd4763be796c35a616b4e3",
-        "preexec_status": "READY_NOT_RUN_AFTER_TOOLING_RECOVERY",
+        "preexec_tool_commit": "42ef88352e24d675a2ed3f9cd352c1785b3b4a22",
+        "preexec_tool_blob": "5f86f2b85cf0c580f4474f2d32ec8ade2e390b6b",
+        "preexec_status": "READY_NOT_RUN_AFTER_TIMEOUT_RECOVERY",
         "agent_started": false,
-        "dispatch_published": false
+        "dispatch_published": false,
+        "preexec_prior_failures": [
+          {
+            "commit": "14f46f7d5f38cff617d78db14b33275738adf15e",
+            "classification": "TOOLING_ARGS_COLLISION",
+            "receipt_created": false
+          },
+          {
+            "commit": "b8dbf2a709f58efdab654cc0e12ba738ceaabb21",
+            "classification": "AMBIGUOUS_CODEX_TIMEOUT_TOOLING",
+            "receipt_created": false
+          }
+        ]
       }
     },
     {
