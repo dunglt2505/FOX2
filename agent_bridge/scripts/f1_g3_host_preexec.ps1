@@ -14,7 +14,8 @@ $ErrorActionPreference = 'Stop'
 function Sha256TextFile([string]$Path) {
     (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()
 }
-function Obs([string]$Status,[bool]$Material,[string]$Evidence,[int]$ExitCode=0,[string]$FailureClass=$null) {
+function Obs([string]$Status,[bool]$Material,[string]$Evidence,[int]$ExitCode=0,$FailureClass=$null) {
+    if([string]::IsNullOrWhiteSpace([string]$FailureClass)){$FailureClass=$null}
     [ordered]@{status=$Status;material=$Material;exit_code=$ExitCode;failure_class=$FailureClass;evidence=$Evidence}
 }
 function Add-Blocker($List,[string]$Code,[string]$Class,[string]$Detail) {
