@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "G3_HOST_ENFORCEMENT_AND_G4_ADOPTION_VERIFICATION_REQUIRED_BEFORE_DEPLOY_READY",
-      "blocker": "G3_PREEXEC_NOT_RUN; PRIOR_CHAT_SHA256_BINDING_CALCULATION_CORRECTED; ISOLATED_TARGET_NOT_YET_ADMITTED",
-      "as_of": "2026-10-21T17:15:00+07:00",
-      "next_safe_action": "CONTINUE_EXISTING_G3_PREEXEC_BOOTSTRAP_WITH_CORRECTED_LOCAL_SHA256; NO_SOURCE_REBIND; CHAT_REMOTE_INTAKE_BEFORE_MUTATION",
+      "blocker": "G3_PREEXEC_INFRA_FAILED_TOOLING_BUG; PATCHED_RUNNER_NOT_YET_REEXECUTED; ISOLATED_TARGET_NOT_YET_ADMITTED",
+      "as_of": "2026-10-21T17:25:00+07:00",
+      "next_safe_action": "FAST_FORWARD_EXISTING_G3_WORKTREE_TO_E4576E70_AND_RERUN_PREEXEC_ONLY; CHAT_INTAKE_REQUIRED_BEFORE_HOST_MUTATION",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -562,11 +562,11 @@
         "authority": "GRANTED_SCOPED_G3_ISOLATED_HOST_ONLY",
         "owner_directive_commit": "3dfefb9f18b5634252c9f6da6a795069ea262ce6",
         "branch": "work/FOX2-BRIDGE-F1-G3-HOST-ENFORCEMENT-20261021",
-        "source_head": "86e32650aa2a1247fce7551b78164bb00794bdb3",
+        "source_head": "e4576e70c07d2bd757e9af4822cd3ff683c86e03",
         "task_id": "FOX2-BRIDGE-RC1-G3-HOST-A01",
         "task_sha256": "f924512cb7b19495360025e52f5c76ff6cbc4eaefc7b768d07a5871252a409da",
         "preexec_runner_sha256": "92c1b04959f915abc9dd88d2295f3b11cff0a463e3e104f026270663bd6f2453",
-        "preexec": "NOT_RUN",
+        "preexec": "INFRA_FAILED_RECOVERABLE",
         "pass_to_execute": false,
         "host_mutation_started": false,
         "no_replay_g2": true,
@@ -580,6 +580,17 @@
           "source_drift": false,
           "host_failure": false,
           "rerun_from_clone_required": false
+        },
+        "preexec_recovery": {
+          "failed_source_head": "86e32650aa2a1247fce7551b78164bb00794bdb3",
+          "failure": "POWERSHELL_AUTOMATIC_VARIABLE_ARGS_COLLISION_IN_INVOKE_GIT",
+          "receipt_produced": false,
+          "receipt_commit": null,
+          "host_mutation_started": false,
+          "patch_commit": "e4576e70c07d2bd757e9af4822cd3ff683c86e03",
+          "patch_scope": "ONLY_AGENT_BRIDGE_SCRIPTS_F1_G3_HOST_PREEXEC_PS1",
+          "changed_lines": 6,
+          "no_replay_violation": false
         }
       }
     }
