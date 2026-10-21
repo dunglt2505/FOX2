@@ -1,0 +1,153 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert/task.md",
+    "commit_sha": "d95f08ceed2f5a25ad288b9630ffc87b698f329c",
+    "sha256": "95d64b3cb3999c55700ded2a6451cd9ffa23872fb87fd00c97df7edbb8c06221"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert/prompt.md",
+    "git_commit": "250c8ab15bdfd8339e6332dc105a559dbd5b3151",
+    "git_blob_sha1": "2fd33dbef3fc327ca71844b1e05670b312eefc7d",
+    "sha256": "4a3cab3096b9eca8a65938e5b36d658ceaca5e684def26524ce44cedebe1a689"
+  },
+  "source": {
+    "commit_sha": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": false,
+    "git_code_push": false,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner-authorized FOX2 Bridge Whole-WP Phase 2 TEST host lifecycle certification. No product/source/test code edits are allowed despite schema-v3 decision_receipt.code_allowed legacy field requiring YES; permissions.code_allowed=false is controlling. Exact accepted source 2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb. PreExec v5 PASS receipt 208de84f39dcf783bd4ee9053c0288cda9aa0024 / blob 08056cb73333934a148cef2b4f1f3da11f6b9b3e. CHAT PASS_TO_ASSIGN 185f4cdcdfb6a7487f8bbc0f256c304fb1d9f263. Authorized host mutation is limited to exact per-user package build/install-update/corrected stable external uninstall once/same-package reinstall/durable-state verification and bounded same-package recovery. G3/AppLocker/service/ACL/reboot/Canary/main/PR/merge/provider/broker/LIVE forbidden."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021",
+    "base_sha": "208de84f39dcf783bd4ee9053c0288cda9aa0024",
+    "allowed_code_paths": [],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh7",
+      "codex_cli",
+      "pinned_gpt_6_1_sol_high",
+      "full_access_permission_profile",
+      "dedicated_clean_worktree",
+      "single_writer",
+      "immutable_host_lifecycle_task_prompt_binding",
+      "task_specific_preexec_v5_pass_208de84f",
+      "dispatch_remote_readback_before_start",
+      "host_stopped_paused_setup_complete_zero_active_runtime",
+      "bound_existing_build_python_WORKTREES_FOX2_BRIDGE_DESKTOP_BATCH_B_agent_bridge_build_venv",
+      "python_3_13_pip_26_2_1_setuptools_84_0_0_wheel_0_48_0_build_1_6_1",
+      "dotnet_8_0_426",
+      "stable_external_uninstall_present",
+      "package_output_outside_bridge_root"
+    ],
+    "stop_conditions": [
+      "fresh_task_prompt_preexec_or_dispatch_binding_mismatch",
+      "task_branch_remote_head_not_exact_runtime_base_before_start",
+      "accepted_source_2faa33f9_not_ancestor_of_runtime_base",
+      "any_prestart_agent_bridge_product_code_drift",
+      "wrong_worktree_branch_or_unrelated_WIP",
+      "competing_task_scoped_writer",
+      "codex_model_reasoning_or_permission_profile_mismatch",
+      "auth_quota_capacity_or_runtime_failure_after_start_means_consumed_no_replay",
+      "bound_build_python_missing_or_version_drift",
+      "dotnet_missing_or_version_drift",
+      "host_not_stopped_or_not_paused_or_setup_incomplete",
+      "active_worker_tray_or_active_durable_dispatch_present",
+      "package_build_provenance_or_manifest_source_mismatch",
+      "package_binary_or_build_output_inside_bridge_root",
+      "package_hash_or_manifest_verification_failure",
+      "product_source_or_test_edit_required",
+      "more_than_one_stable_external_uninstall_attempt",
+      "installed_python_used_for_uninstall",
+      "first_lifecycle_failure_not_preserved",
+      "bounded_same_package_recovery_would_exceed_task_scope",
+      "AppLocker_AppIDSvc_service_ProgramData_ACL_or_reboot_required",
+      "G3_G4_Canary_or_final_C4_action",
+      "historical_BatchB_FAIL_rewrite",
+      "result_contract_report_or_evidence_delivery_failure",
+      "secret_diff_check_allowlist_or_K1_failure",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "EXACT_ACCEPTED_SOURCE_PACKAGE_BUILD_PROVENANCE",
+    "PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION",
+    "PRE_STATE_DURABLE_HASH_SNAPSHOT",
+    "REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS",
+    "CURRENT_POINTER_AND_INSTALLED_RECEIPT_BIND_EXACT_PACKAGE_SOURCE",
+    "SAFE_PAUSED_STATE_BEFORE_CERTIFICATION",
+    "CORRECTED_LIFECYCLE_CERTIFICATION_RUN_ON_OWNER_HOST",
+    "STABLE_EXTERNAL_UNINSTALL_EXERCISED_EXACTLY_ONCE",
+    "UNINSTALL_EXIT_ZERO",
+    "POST_UNINSTALL_CURRENT_POINTER_AND_OWNED_VERSIONS_ABSENT",
+    "DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED",
+    "SAME_EXACT_PACKAGE_REINSTALL_PASS",
+    "FINAL_CURRENT_POINTER_EXACT",
+    "FINAL_SETUP_AND_HEALTH_PASS",
+    "CONSUMED_IDENTITIES_PRESERVED",
+    "NO_OLD_DISPATCH_REPLAY",
+    "NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION",
+    "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK",
+    "K1_UNEXPLAINED_ZERO",
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-21T16:42:00Z",
+  "max_runs": 1
+}
