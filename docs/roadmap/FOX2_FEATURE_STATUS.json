@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "CODEX_HEADROOM_LOW_OWNER_HOLD_LAUNCH; DISPATCH_F6CF96BE_REMAINS_PUBLISHED_UNCONSUMED",
-      "as_of": "2026-10-21T21:00:00+07:00",
-      "next_safe_action": "PRESERVE_A01_DISPATCH_UNCONSUMED; WHEN_CODEX_HEADROOM_RECOVERS_RECHECK_EXACT_BASE_DISPATCH_ONE_WRITER_NO_CLAIM_THEN_LAUNCH_ONCE; USE_PREPARED_PHASE2_REVIEW_AND_DOWNSTREAM_G3_G4_FINAL_CERT_READINESS_PACK",
+      "blocker": "PACKAGE_LIFECYCLE_A02_PREEXEC_READY_NOT_RUN_AND_CODEX_HEADROOM_LOW",
+      "as_of": "2026-10-21T21:55:00+07:00",
+      "next_safe_action": "WAIT_FOR_CODEX_HEADROOM; THEN_FAST_FORWARD_TASK_WORKTREE_TO_A9A7A327; RUN_A02_PREEXEC_ONCE; CHAT_REMOTE_INTAKE; PUBLISH_FRESH_A02_DISPATCH; NEVER_REPLAY_A01",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A01_PREEXEC_PASS_REMOTE; PASS_TO_ASSIGN; DISPATCH_PUBLISHED_UNCONSUMED; OWNER_HOLD_FOR_LOW_CODEX_HEADROOM",
+      "package_lifecycle": "A01_DISPATCH_F6CF96BE_CONSUMED_SAFE_STOP_NO_PRODUCT_CHANGE_DUE_CHAT_BINDING_DEFECT; A02_TASK_PROMPT_PREEXEC_PUBLISHED; A02_PREEXEC_NOT_RUN",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -63,49 +63,37 @@
         "verdict": "RECOVERED_RESUME_SAME_ATTEMPT_ELIGIBLE"
       },
       "phase2_task": {
-        "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01",
-        "branch": "work/FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
-        "source_code_base": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
-        "task_commit": "31caeb95ceb6d50644722527252f714a4406ab97",
-        "task_blob": "4fa3356f3d6a362a8af8cbc7340288a13a451835",
-        "task_sha256": "c2270f33db37b39f6296abeac86dd3e572309258918bab5d878454895a034811",
-        "prompt_commit": "56f3a8058d5e2083e6190b180ff0181b97e259bb",
-        "prompt_blob": "b208ece6eb9bb9fa667b6afd906320b8e1a9882d",
-        "prompt_sha256": "a26cf973ef4f7e7066f0b48057b7018eafc4d8d8848baf6a33d0c730342c1616",
-        "preexec_tool_commit": "d55c0c79349f3f7e1e42cd6f60a942b5934de9e1",
-        "preexec_tool_blob": "e528ee4724a4676be9d841ee6050c2d34fa227eb",
-        "preexec_status": "PASS_REMOTE_ACCEPTED",
-        "agent_started": false,
-        "dispatch_published": true,
-        "preexec_prior_failures": [
-          {
-            "commit": "14f46f7d5f38cff617d78db14b33275738adf15e",
-            "classification": "TOOLING_ARGS_COLLISION",
-            "receipt_created": false
-          },
-          {
-            "commit": "b8dbf2a709f58efdab654cc0e12ba738ceaabb21",
-            "classification": "AMBIGUOUS_CODEX_TIMEOUT_TOOLING",
-            "receipt_created": false
-          },
-          {
-            "commit": "42ef88352e24d675a2ed3f9cd352c1785b3b4a22",
-            "classification": "POWERSHELL_SUCCESS_STREAM_CONTAMINATION",
-            "receipt_created": false
-          }
-        ],
-        "preexec_remote_receipt": "ABSENT",
-        "preexec_commit": "b224f029bc911c0a131342b8ac142fdd4952a96f",
-        "preexec_receipt_blob": "450dc8cd35f6236beabda51617d06f7896e17770",
-        "pass_to_assign_review": "415249ccfea13d0e4022bb0c12e397029e2abdf9",
-        "dispatch": {
-          "id": "FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01-CODEX-001",
-          "control_branch": "work/FOX2-DISPATCH-chat",
-          "commit": "f6cf96be87e50431209464d08cf5375575c0c85c",
-          "blob": "05ac5766c5e62c8a3c12ab9a2cd485f69b1ea972",
-          "max_runs": 1,
-          "status": "PUBLISHED_UNCONSUMED",
-          "owner_launch_ready": true
+        "attempt01": {
+          "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01",
+          "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01-CODEX-001",
+          "dispatch_commit": "f6cf96be87e50431209464d08cf5375575c0c85c",
+          "state": "EXITED_CONSUMED_NO_RESULT",
+          "no_replay": true,
+          "local_head_after": "b224f029bc911c0a131342b8ac142fdd4952a96f",
+          "remote_head_after": "b224f029bc911c0a131342b8ac142fdd4952a96f",
+          "worktree_dirty_after": false,
+          "product_change": false,
+          "tests": "NOT_RUN",
+          "review": "fff17cd828d9369af9cf36dc3892ce7412be7c65",
+          "root_cause": "CHAT_ASSIGNMENT_BINDING_DEFECT_PRODUCT_BASE_VS_EXECUTION_START_HEAD"
+        },
+        "attempt02": {
+          "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A02",
+          "product_source_base": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
+          "assignment_parent": "b224f029bc911c0a131342b8ac142fdd4952a96f",
+          "task_commit": "fc03d7b130f0d987c94ecd6bb636ca482d9f637e",
+          "task_blob": "4fc6c4eb80cf362ea2b9e4fc2082cc8f2e5e68dc",
+          "task_sha256": "3e9aca6b43485f9dcecf3ee72749e8c8c1b8ae4c4e31ef41eff5df5306acf4fd",
+          "prompt_commit": "3321d69a998e3279782476c9d52f7224095fb2d8",
+          "prompt_blob": "23c821c9c27d2e46855539a1b2314b48a1abd1d2",
+          "prompt_sha256": "3271f23f8eecc308899fb5f2200d3bb274562eefaf5d13d9d49248767b089852",
+          "preexec_tool_commit": "a9a7a327cd293c0450a073f92c98e3c7d09d3bff",
+          "preexec_tool_blob": "87ab1abc7699142fa0a122df64765ad75fd0b849",
+          "preexec_status": "READY_NOT_RUN",
+          "dispatch_published": false,
+          "agent_started": false,
+          "execution_start_rule": "FRESH_DISPATCH_RUNTIME_CONTRACT_BASE_SHA_NOT_PRODUCT_SOURCE_BASE",
+          "blocker": "CODEX_HEADROOM_LOW"
         }
       },
       "downstream_readiness": {
