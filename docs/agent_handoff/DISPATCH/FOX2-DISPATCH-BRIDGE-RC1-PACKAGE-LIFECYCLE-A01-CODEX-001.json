@@ -1,0 +1,133 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix/task.md",
+    "commit_sha": "31caeb95ceb6d50644722527252f714a4406ab97",
+    "sha256": "c2270f33db37b39f6296abeac86dd3e572309258918bab5d878454895a034811"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix/prompt.md",
+    "git_commit": "56f3a8058d5e2083e6190b180ff0181b97e259bb",
+    "git_blob_sha1": "b208ece6eb9bb9fa667b6afd906320b8e1a9882d",
+    "sha256": "a26cf973ef4f7e7066f0b48057b7018eafc4d8d8848baf6a33d0c730342c1616"
+  },
+  "source": {
+    "commit_sha": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner-directed continuation of FOX2 Bridge Whole-WP Phase 2 package lifecycle correction; CHAT root-cause review adaa169b7e35861d35bbd5d2ecdab1ae2ec43dde; task/prompt immutable chain 31caeb95ceb6d50644722527252f714a4406ab97 / 56f3a8058d5e2083e6190b180ff0181b97e259bb; PreExec PASS receipt b224f029bc911c0a131342b8ac142fdd4952a96f; CHAT PASS_TO_ASSIGN 415249ccfea13d0e4022bb0c12e397029e2abdf9. Scope is offline harness code/tests/result only; no real install/uninstall, AppLocker/service/ACL/G3/G4/Canary/main/merge/provider/broker/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
+    "base_sha": "b224f029bc911c0a131342b8ac142fdd4952a96f",
+    "allowed_code_paths": [
+      "agent_bridge/scripts/certify_user_lifecycle.py",
+      "agent_bridge/tests/test_installation.py",
+      "agent_bridge/tests/test_rc1_package.py",
+      "agent_bridge/tests/test_*lifecycle*.py"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh7",
+      "codex_cli",
+      "pinned_gpt_6_1_sol_high",
+      "full_access_permission_profile",
+      "dedicated_clean_worktree",
+      "single_writer",
+      "immutable_task_prompt_binding",
+      "task_specific_preexec_pass_b224f029",
+      "dispatch_remote_readback_before_start"
+    ],
+    "stop_conditions": [
+      "source_task_prompt_preexec_or_dispatch_binding_mismatch",
+      "task_branch_remote_head_not_exact_base_sha_before_start",
+      "wrong_worktree_branch_or_unrelated_WIP",
+      "competing_task_scoped_writer",
+      "codex_model_reasoning_or_permission_profile_mismatch",
+      "auth_quota_capacity_or_runtime_failure_after_start_means_consumed_no_replay",
+      "unauthorized_path_change_or_drive_by_refactor",
+      "accepted_product_uninstall_contract_proven_defective_requires_scope_expansion",
+      "real_install_update_uninstall_or_reinstall_required",
+      "AppLocker_AppIDSvc_service_or_ProgramData_ACL_mutation_required",
+      "historical_BatchB_FAIL_or_consumed_attempt_rewrite",
+      "result_contract_report_or_evidence_delivery_failure",
+      "secret_diff_check_test_or_remote_readback_failure",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "LIFECYCLE_HARNESS_STABLE_EXTERNAL_UNINSTALL_ENTRYPOINT",
+    "NO_INSTALLED_PYTHON_SELF_DELETE_PATH_IN_CERTIFICATION",
+    "UNINSTALL_SUCCESS_STRUCTURED_EVIDENCE",
+    "UNINSTALL_NONZERO_PRESERVES_SANITIZED_EXIT_STDOUT_STDERR_AND_STOPS",
+    "PRODUCT_SELF_DELETE_FAIL_CLOSED_REGRESSION",
+    "DURABLE_CONFIG_DATA_CONSUMED_IDENTITY_PRESERVATION",
+    "FOCUSED_LIFECYCLE_AND_INSTALLATION_TESTS",
+    "FULL_AGENT_BRIDGE_TESTS",
+    "STATIC_SYNTAX_AND_POWERSHELL_PARSE_AS_APPLICABLE",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK",
+    "K1_UNEXPLAINED_ZERO",
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+    "REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-21T13:30:00Z",
+  "max_runs": 1
+}
