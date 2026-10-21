@@ -7,32 +7,51 @@
       "feature_id": "FOX2-BRIDGE-RC1",
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
-      "stage": "TEST",
-      "status": "BLOCKED",
-      "evidence": "CHAT_ACCEPTED",
-      "evidence_scope": "FROZEN_TECHNICAL_AND_C3_ONLY_NOT_CURRENT_CANARY_OR_RELEASE",
-      "source_sha": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "stage": "BUILD",
+      "status": "IN_PROGRESS",
+      "evidence": "G1_DESIGN_ACCEPTED; G2_ISOLATED_BUILD_CHAT_ACCEPTED; SAMEHOST_DESIGN_ACCEPTED; SAMEHOST_A01_PREEXEC_AND_LIVE_ROUTE_PASS; DISPATCH_7EFB5D98_PUBLISHED_UNCONSUMED; SAMEHOST_PRODUCT_CODE_NOT_IMPLEMENTED; PACKAGE_UNINSTALL_HISTORICAL_FAIL; PHYSICAL_G3_G4_NOT_RUN; CURRENT_FINAL_CERT_NOT_ATTESTED",
+      "evidence_scope": "SCOPED_OFFLINE_AND_DESIGN_ACCEPTANCE_ONLY; NO_CURRENT_INSTALLED_RUNTIME_OR_FINAL_CANARY_ACCEPTANCE",
+      "source_sha": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
       "evidence_refs": [
         {
-          "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
-          "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json"
+          "commit": "dcf42dd76c8f22e155d469d356e1f1219f3d7b14",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/G2_A01_CHAT_RESULT_REVIEW_20261021.md"
         },
         {
-          "commit": "435154487e8e9bf6eab54a12f1f329e63787aa84",
-          "path": "reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/CHAT_INDEPENDENT_AUDIT_INTAKE_20261019.json"
+          "commit": "0837361aa97f5d7f2116868cb2273eeac3acd0dc",
+          "path": "docs/architecture/FOX2_BRIDGE_F1_G3_SAME_HOST_DESIGN_ACCEPTANCE_20261021.md"
         },
         {
-          "commit": "1ce109b9a4c538b255c6d8ffc6be8b4dccecf65d",
-          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/preflight_receipt.json"
+          "commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/samehost_build_a01_live_admission.json"
+        },
+        {
+          "commit": "7efb5d98d8b51a26c8e3de1a0b808a0f48b3885c",
+          "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-SAMEHOST-BUILD-A01-CODEX-001.json"
+        },
+        {
+          "commit": "117812c1ef9117e8d156f908018ad845127a53ee",
+          "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/final009/canary/agent_result.json"
+        },
+        {
+          "commit": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
+          "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
-      "blocker": "BRIDGE_BOOTSTRAP_CONTROLS_BLOCKED; ADMISSION_COMPATIBILITY_ADOPTION_UNATTESTED; FINAL_CANARY_GATES_NOT_RUN",
-      "as_of": "2026-10-19T23:23:08.562605+07:00",
-      "next_safe_action": "READ_ONLY_Q0_Q1_AND_SUPPORTED_BOOTSTRAP_CONTROL_EVIDENCE_REVIEW; NO_EXECUTION_UNDER_CURRENT_OWNER_SCOPE",
+      "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
+      "blocker": null,
+      "as_of": "2026-10-21T18:10:00+07:00",
+      "next_safe_action": "PRESERVE_CURRENT_SAMEHOST_A01_DISPATCH_UNCONSUMED; WHEN EXECUTION_RESUMES RECHECK EXACT BASE/DISPATCH/ONE_WRITER AND RUN ONCE; THEN CHAT_RESULT_REVIEW; DO_NOT_REPLAY_CANARY009",
       "c3": "PASS_ACCEPTED_SCOPED",
-      "canary009": "HOLD",
-      "internal_ready": "NOT_ATTESTED"
+      "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
+      "internal_ready": "NOT_ATTESTED",
+      "g1": "ACCEPTED_DESIGN_ONLY",
+      "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
+      "samehost_build": "READY_TO_EXECUTE_EXISTING_A01_UNCONSUMED_NOT_STARTED",
+      "package_lifecycle": "HISTORICAL_INSTALL_UPDATE_TRAY_STARTUP_PASS; UNINSTALL_FAIL; CURRENT_ROLLBACK_NOT_CERTIFIED",
+      "g3_physical": "NOT_RUN",
+      "g4_installed_adoption": "NOT_RUN",
+      "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4"
     },
     {
       "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
