@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "G2_EXECUTABLE_ENTRY_BLOCKED_BY_OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING; TASK_SPECIFIC_PREEXEC_NOT_RUN; ROUTE_NOT_VERIFIED; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
-      "as_of": "2026-10-21T10:45:00+07:00",
-      "next_safe_action": "NO_MORE_EXECUTABLE_G2_ACTION_WHILE_CODING_HOLD_ACTIVE; ON_EXPLICIT_LIFT_CREATE_EXACT_G2_WORKTREE_FROM_4D492E96_THEN_TASK_SPECIFIC_PREEXEC",
+      "blocker": "G2_TASK_SPECIFIC_PREEXEC_NOT_RUN; ROUTE_NOT_YET_PASS_TO_ASSIGN; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
+      "as_of": "2026-10-21T11:05:00+07:00",
+      "next_safe_action": "OWNER_MANUAL_POWERSHELL7_RUN_G2_TASK_SPECIFIC_PREEXEC_ONLY; CHAT_REMOTE_INTAKE_RECEIPT_BEFORE_CODEX_IMPLEMENTATION",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -253,10 +253,13 @@
       "f0": "OFFLINE_BUILD_ACCEPTED_BY_CHAT_SCOPED_ALTERNATIVE_DELIVERY;_AGENT_ATTEMPT06_RESULT_V2_NOT_DELIVERED_NO_REPLAY",
       "f1": "G1_DESIGN_ACCEPTED_CHAT; APPLOCKER_ENFORCED_POLICY_BASELINE_LOCKED_FOR_G2; SIGNED_APP_CONTROL_OPTIONAL_HARDENING; RUNTIME_POLICY_NOT_DEPLOYED; POSITIVE_AUTHORITY_DENY",
       "coding_hold": {
-        "decision": "OWNER_EXPLICIT_KEEP_GPT_6_1_SOL_HOLD_CODING",
-        "exact_reply": "Giữ gpt-6.1-sol; HOLD coding",
-        "code_x_status": "NO_NEW_CODEX_ASSIGNED_OR_MODEL_CHANGED",
-        "chat_direct_continuation": "OWNER_LATEST_CHAT_LAM_TIEP_DI_APPLIED_TO_OFFLINE_FIXTURE_AND_SAFETY_CANDIDATE_ONLY"
+        "decision": "SUPERSEDED_FOR_G2_A01_BY_OWNER_2026_10_21_CONTINUE_NO_STOP",
+        "prior_decision": "OWNER_EXPLICIT_KEEP_GPT_6_1_SOL_HOLD_CODING",
+        "prior_exact_reply": "Giữ gpt-6.1-sol; HOLD coding",
+        "owner_lift_exact_reply": "Tiếp tục làm đi, ko cần dừng lại",
+        "scope": "G2_INTEGRATED_DEV_A01_ONLY",
+        "historical_hold_preserved": true,
+        "release_rights": "NOT_GRANTED"
       },
       "chat_review_path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/F0_OFFLINE_ATTEMPT06/CHAT_REVIEW/CHAT_F0_PARTIAL_REVIEW_20261020.md",
       "chat_direct_review": {
@@ -462,6 +465,42 @@
         "agent_started": false,
         "blocker": "OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING",
         "next_safe_action": "EXPLICIT_LIFT_OR_SPECIFIC_OVERRIDE_THEN_CREATE_EXACT_WORKTREE_AND_RUN_TASK_SPECIFIC_PREEXEC"
+      },
+      "g2_execution_entry": {
+        "stage": "BUILD",
+        "status": "IN_PROGRESS",
+        "evidence": "OWNER_CODING_HOLD_LIFT_RECORDED; G2_BRANCH_CREATED; TASK_AND_PROMPT_PUBLISHED; MACHINE_DICTIONARY_COMPATIBILITY_PASS_SCOPED",
+        "owner_lift_commit": "fe926ad24d89231e5cf80f0f48ea44eb36887834",
+        "branch": "work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+        "preexec_source_head": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
+        "task": {
+          "commit": "653e49fc0d0f15981bf230995925c89d6994723d",
+          "blob_sha1": "7f0b82e56f7bfa001e40bb176bb26b0ef918c609",
+          "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md"
+        },
+        "prompt": {
+          "commit": "eec25e64a66fed7afc3f45b4d490e6a944e8fe6c",
+          "blob_sha1": "d72b78d7300e51a1797c50cf01feacf02a3c9bf3",
+          "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/prompt.md"
+        },
+        "dictionary_machine_compatibility": {
+          "commit": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
+          "verdict": "PASS_SCOPED_PREEXEC_ONLY",
+          "machine_binding": "1.2",
+          "governance_binding": "1.3"
+        },
+        "route": {
+          "actor": "CODEX",
+          "model": "GPT-6.1 Sol",
+          "thinking": "HIGH",
+          "execution_path": "MANUAL_LOCAL"
+        },
+        "preexec": "NOT_RUN",
+        "pass_to_assign": false,
+        "agent_started": false,
+        "dispatch_created": false,
+        "blocker": "TASK_SPECIFIC_PREEXEC_NOT_RUN",
+        "next_safe_action": "OWNER_MANUAL_PREEXEC_THEN_CHAT_INTAKE"
       }
     }
   ]
