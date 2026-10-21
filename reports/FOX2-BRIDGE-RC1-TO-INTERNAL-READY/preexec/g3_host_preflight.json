@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "checked_at": "2026-10-21T09:39:11.2118485Z",
+  "task_branch": "work/FOX2-BRIDGE-F1-G3-HOST-ENFORCEMENT-20261021",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/g3_host_preflight.json",
+  "source_head": "1305890d67bc8fb2579c7f4ed4ee291e6910b53e",
+  "task_source": {
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/task.md",
+    "git_commit_sha": "1305890d67bc8fb2579c7f4ed4ee291e6910b53e",
+    "sha256": "f924512cb7b19495360025e52f5c76ff6cbc4eaefc7b768d07a5871252a409da"
+  },
+  "status": "BLOCKED",
+  "capabilities": {
+    "git_branch": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Exact G3 task branch observed."
+    },
+    "source_head": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Exact G3 source head observed."
+    },
+    "clean_worktree": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "No local WIP observed before PreExec."
+    },
+    "task_identity": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Task SHA-256 matches bound task."
+    },
+    "remote_source": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Remote G3 branch equals bound source head."
+    },
+    "one_writer": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Exactly one Git worktree owns the G3 branch."
+    },
+    "elevated_admin": {
+      "status": "FAIL",
+      "material": true,
+      "exit_code": 1,
+      "failure_class": "G3_ADMIN_REQUIRED",
+      "evidence": "Current token is not elevated Administrator."
+    },
+    "pwsh": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "PowerShell 7.6.7"
+    },
+    "git_tool": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "git version 2.56.0.windows.1"
+    },
+    "windows_applocker_edition": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Supported Windows edition/build observed: Microsoft Windows 11 Pro / 26300"
+    },
+    "isolated_virtual_target": {
+      "status": "FAIL",
+      "material": true,
+      "exit_code": 1,
+      "failure_class": "G3_ISOLATED_TARGET_UNPROVEN",
+      "evidence": "Isolated virtual target not proven."
+    },
+    "applocker_module": {
+      "status": "MISSING",
+      "material": true,
+      "exit_code": 1,
+      "failure_class": "G3_APPLOCKER_MODULE_MISSING",
+      "evidence": "AppLocker module unavailable."
+    },
+    "applocker_policy_query": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Effective and local AppLocker policy are readable."
+    },
+    "appidsvc_present": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "AppIDSvc observed; current state=Stopped"
+    },
+    "f1_service_collision": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "No existing FOX2F1Authority service observed."
+    },
+    "authority_root_collision": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "No pre-existing F1 authority root observed."
+    },
+    "rollback_policy_snapshot": {
+      "status": "PASS",
+      "material": true,
+      "exit_code": 0,
+      "failure_class": null,
+      "evidence": "Pre-change AppLocker query hashes captured: effective=635222d6f1ee0a7561e6c04e8894e688a5d19a3ce7549294f4c821a11f807e15; local=635222d6f1ee0a7561e6c04e8894e688a5d19a3ce7549294f4c821a11f807e15"
+    }
+  },
+  "blockers": [
+    {
+      "code": "G3_ADMIN_REQUIRED",
+      "class": "PERMISSION",
+      "material": true,
+      "sanitized_detail": "Elevated Administrator token required on isolated G3 target."
+    },
+    {
+      "code": "G3_ISOLATED_TARGET_UNPROVEN",
+      "class": "PERMISSION",
+      "material": true,
+      "sanitized_detail": "G3 requires a virtual isolated non-domain test target."
+    },
+    {
+      "code": "G3_APPLOCKER_MODULE_MISSING",
+      "class": "CAPABILITY",
+      "material": true,
+      "sanitized_detail": "AppLocker module unavailable."
+    }
+  ],
+  "worktree": {
+    "status": "PASS",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G3-HOST-ENFORCEMENT-20261021",
+    "competing_writer": "NONE_OBSERVED",
+    "stale_receipt_cleanup": "NOT_NEEDED"
+  },
+  "dispatch_state": {
+    "executable_dispatch_published": false,
+    "dispatch_consumed": false
+  },
+  "agent_execution_started": false,
+  "notes": [
+    "OWNER_MANUAL_HOST G3 preflight; no Agent route selected.",
+    "No AppLocker/service/AppIDSvc/ACL mutation performed by this PreExec.",
+    "PASS authorizes CHAT intake only; host mutation waits for PASS_TO_EXECUTE."
+  ]
+}
