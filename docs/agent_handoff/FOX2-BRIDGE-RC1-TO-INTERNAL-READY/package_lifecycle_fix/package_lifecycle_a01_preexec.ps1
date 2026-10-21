@@ -52,7 +52,7 @@ function Run-Tool {
     $p = [Diagnostics.Process]::new()
     $p.StartInfo = $psi
     try {
-        Write-Output ('FOX2_PREEXEC_STAGE=' + $Stage)
+        Write-Host ('FOX2_PREEXEC_STAGE=' + $Stage)
         Require ($p.Start()) ('TOOL_START_FAILED:' + $Stage + ':' + $File)
 
         $outTask = $p.StandardOutput.ReadToEndAsync()
