@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "G2_TASK_SPECIFIC_PREEXEC_NOT_RUN; ROUTE_NOT_YET_PASS_TO_ASSIGN; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
-      "as_of": "2026-10-21T11:05:00+07:00",
-      "next_safe_action": "OWNER_MANUAL_POWERSHELL7_RUN_G2_TASK_SPECIFIC_PREEXEC_ONLY; CHAT_REMOTE_INTAKE_RECEIPT_BEFORE_CODEX_IMPLEMENTATION",
+      "blocker": "NONE_FOR_G2_ASSIGNMENT_ENTRY; IMPLEMENTATION_RESULT_NOT_YET_RETURNED; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
+      "as_of": "2026-10-21T11:30:00+07:00",
+      "next_safe_action": "OWNER_MANUAL_POWERSHELL7_LAUNCH_EXACT_CODEX_G2_A01_ONCE; THEN_CHAT_REMOTE_RESULT_REVIEW",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -476,12 +476,14 @@
         "task": {
           "commit": "653e49fc0d0f15981bf230995925c89d6994723d",
           "blob_sha1": "7f0b82e56f7bfa001e40bb176bb26b0ef918c609",
-          "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md"
+          "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md",
+          "sha256": "708ab8addd6e6cbcde581bc03efc66dfb518eb8ac575d568c2be825827e649b9"
         },
         "prompt": {
           "commit": "eec25e64a66fed7afc3f45b4d490e6a944e8fe6c",
           "blob_sha1": "d72b78d7300e51a1797c50cf01feacf02a3c9bf3",
-          "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/prompt.md"
+          "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/prompt.md",
+          "sha256": "a9bda49bede3955996226801d231fefe690088490de5ed9ddfe13ab055625bed"
         },
         "dictionary_machine_compatibility": {
           "commit": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
@@ -495,12 +497,29 @@
           "thinking": "HIGH",
           "execution_path": "MANUAL_LOCAL"
         },
-        "preexec": "NOT_RUN",
-        "pass_to_assign": false,
+        "preexec": "PASS",
+        "pass_to_assign": true,
         "agent_started": false,
         "dispatch_created": false,
-        "blocker": "TASK_SPECIFIC_PREEXEC_NOT_RUN",
-        "next_safe_action": "OWNER_MANUAL_PREEXEC_THEN_CHAT_INTAKE"
+        "blocker": "NONE_FOR_ASSIGNMENT",
+        "next_safe_action": "OWNER_MANUAL_CODEX_A01_ONE_ATTEMPT_THEN_CHAT_RESULT_INTAKE",
+        "preexec_receipt": {
+          "commit": "94c936b1d93bbfcee5818db24dd75bd9bb32733f",
+          "parent": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
+          "blob_sha1": "9b92f6419b98ce257d37723080dbc67357800f9a",
+          "status": "PASS",
+          "blockers": [],
+          "candidate_route": {
+            "product": "CODEX",
+            "model": "gpt-6.1-sol",
+            "reasoning_effort": "high",
+            "permission_profile": "FULL_ACCESS"
+          },
+          "one_writer": "NONE_OBSERVED",
+          "agent_execution_started": false,
+          "dispatch_published": false,
+          "dispatch_consumed": false
+        }
       }
     }
   ]
