@@ -1,13 +1,14 @@
 """Windows host certification of an already installed, paused Bridge.
 
-Uses the installed interpreter and real Tray/Task Scheduler. Keeps durable data,
-uninstalls owned versions, then reinstalls the supplied exact package.
+Uses the installed interpreter for control and the stable external PowerShell 7
+supervisor for uninstall. Keeps durable data, then reinstalls the exact package.
 """
 import argparse
 import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import time
@@ -15,6 +16,76 @@ import time
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from fox2_agent_bridge.artifacts import write_json
 from fox2_agent_bridge.installation import install, installed_version, BRIDGE_ROOT
+from fox2_agent_bridge.logging_config import redact_context
+
+
+UNINSTALL_OUTPUT_LIMIT = 4096
+
+
+def _uninstall_output(value):
+    """Redact before truncation so a boundary cannot expose a partial secret."""
+    if isinstance(value, bytes):
+        value = value.decode('utf-8', errors='replace')
+    value = redact_context(value or '')
+    value = re.sub(r'(?i)https?://[^\s/]+:[^\s/]+@', '<REDACTED_URL>@', value)
+    value = re.sub(
+        r'''(?i)["']?(?:authorization|(?:access[_-]?|api[_-]?)?token|api[_-]?key|password|secret)["']?\s*[:=]\s*(?:"[^"\r\n]*"|'[^'\r\n]*'|[^\s,;}]+)''',
+        '<REDACTED_FIELD>', value)
+    value = ''.join(c for c in value if c in '\n\t' or ord(c) >= 32)
+    return value[:UNINSTALL_OUTPUT_LIMIT]
+
+
+def certify_uninstall(root, pwsh, config_before, results, evidence):
+    """One synchronous attempt; checkpoint sanitized evidence before any reinstall."""
+    supervisor = root / 'uninstall.ps1'
+    versions = (root / 'versions').resolve()
+    if (supervisor.resolve() != root.resolve() / 'uninstall.ps1' or
+            Path(pwsh).resolve().is_relative_to(versions) or
+            Path(sys.executable).resolve().is_relative_to(versions)):
+        raise ValueError('lifecycle uninstall requires stable external supervisors')
+    consumption = root / 'data/manual_consumption.json'
+    consumption_before = consumption.read_bytes() if consumption.exists() else None
+    result = {
+        'supervisor': {'kind': 'STABLE_EXTERNAL_POWERSHELL7',
+                       'path': 'BridgeRoot/uninstall.ps1', 'cwd': 'BridgeRoot',
+                       'sha256': hashlib.sha256(supervisor.read_bytes()).hexdigest()},
+        'exit_code': None, 'stdout': '', 'stderr': '', 'status': 'SUPERVISOR_FAILED',
+    }
+    try:
+        process = subprocess.run(
+            [str(pwsh), '-NoProfile', '-NonInteractive', '-File', str(supervisor)],
+            cwd=root, capture_output=True, text=True, errors='replace', timeout=90,
+            env={k: v for k, v in os.environ.items()
+                 if k.upper() not in {'PYTHONPATH', 'PYTHONHOME'}},
+            creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        result.update(exit_code=process.returncode,
+                      stdout=_uninstall_output(process.stdout),
+                      stderr=_uninstall_output(process.stderr))
+    except subprocess.TimeoutExpired as error:
+        result.update(status='SUPERVISOR_TIMEOUT', stdout=_uninstall_output(error.stdout),
+                      stderr=_uninstall_output(error.stderr))
+    except OSError:
+        result['status'] = 'SUPERVISOR_START_FAILED'
+    try:
+        result['post_uninstall'] = {
+            'current_pointer_absent': not (root / 'current.json').exists(),
+            'versions_absent': not (root / 'versions').exists() or not any((root / 'versions').iterdir()),
+            'configuration_preserved': (root / 'config/bridge.toml').read_bytes() == config_before,
+            'database_preserved': (root / 'data/bridge.db').is_file(),
+            'consumption_file_preserved': consumption_before is None or (
+                consumption.is_file() and consumption.read_bytes() == consumption_before),
+        }
+    except OSError:
+        result['post_uninstall'] = {'checks_unavailable': True}
+    if result['exit_code'] == 0:
+        checks = result['post_uninstall']
+        result['status'] = ('UNINSTALLED' if 'checks_unavailable' not in checks and all(checks.values())
+                            else 'POSTCONDITION_FAILED')
+    results['uninstall'] = result
+    write_json(evidence, results)
+    if result['status'] != 'UNINSTALLED':
+        raise RuntimeError('stable external uninstall failed; evidence persisted; no retry')
+    return result
 
 
 def main(package,sha,evidence):
@@ -83,11 +154,7 @@ def main(package,sha,evidence):
     results['startup_disabled']=cli('control','set-start-with-windows','--enabled','false')
     ids=['FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-'+i for i in ('001','002','003','004')]
     before={i:cli('status','--dispatch-id',i)['dispatch']['dispatch_state'] for i in ids}
-    results['uninstall']=cli('uninstall')
-    assert not (root/'current.json').exists()
-    assert (root/'config/bridge.toml').read_bytes()==config_before
-    assert (root/'data/bridge.db').is_file()
-    assert not any((root/'versions').iterdir())
+    certify_uninstall(root,pwsh,config_before,results,evidence)
     results['reinstall']=install(package,sha)
     results['reinstalled_setup']=cli('setup')
     after={i:cli('status','--dispatch-id',i)['dispatch']['dispatch_state'] for i in ids}
