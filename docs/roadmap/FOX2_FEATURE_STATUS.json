@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": null,
-      "as_of": "2026-10-21T22:35:00+07:00",
-      "next_safe_action": "OWNER_LAUNCH_SCHEMA_VALID_A02_DISPATCH002_E05FDC99_EXACTLY_ONCE_WITH_DURABLE_CLAIM; THEN_CHAT_REMOTE_RESULT_INTAKE",
+      "blocker": "PACKAGE_LIFECYCLE_A03_PREEXEC_NOT_RUN",
+      "as_of": "2026-10-21T22:50:00+07:00",
+      "next_safe_action": "OWNER_FAST_FORWARD_TASK_WORKTREE_TO_52686A5F_AND_RUN_A03_PREEXEC_ONCE; CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_FRESH_SCHEMA_VALID_DISPATCH_WITHOUT_HARDCODED_PROMPT_ID",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A01_CONSUMED_SAFE_STOP_NO_PRODUCT_CHANGE; A02_PREEXEC_PASS_REMOTE_036DE99A; A02_DISPATCH001_SCHEMA_REJECTED_NOT_EXECUTABLE; A02_DISPATCH002_SCHEMA_VALID_PUBLISHED_UNCONSUMED; OWNER_LAUNCH_READY",
+      "package_lifecycle": "A01_CONSUMED_SAFE_STOP_NO_PRODUCT_CHANGE; A02_DISPATCH001_SCHEMA_INVALID_NOT_EXECUTABLE; A02_DISPATCH002_SCHEMA_VALID_BUT_PROMPT_BINDING_MISMATCH_NOT_EXECUTABLE; A03_TASK_PROMPT_PREEXEC_PUBLISHED; A03_RECEIPT_ABSENT",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -118,6 +118,25 @@
             "status": "PUBLISHED_UNCONSUMED",
             "owner_launch_ready": true
           }
+        },
+        "attempt03": {
+          "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A03",
+          "assignment_parent": "036de99a6d649bfcf9a427aa914809a9d53592c3",
+          "product_source_base": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
+          "task_commit": "ac12501e1b3c94a0e75b72adc7dc78743d18e660",
+          "task_blob": "264c1bb54e985d8cd3a73df21072b04271b79d6c",
+          "task_sha256": "b6bbe42d781939a1b05b1dd2aa3fd985677d970b783ab8c2a30b11e9ada85c7e",
+          "prompt_commit": "39d6a8f36dd573a4fb9e61a5d4102a15e9b3a80f",
+          "prompt_blob": "23e562253b1d61f413ed6378a218ba903f87d92e",
+          "prompt_sha256": "25ff86531e9841a9cc8cde6259f0fc9512fe8949c98a57457d689c61bcabce77",
+          "preexec_tool_commit": "52686a5f573dd177341adb72d4feef4cc929a4be",
+          "preexec_tool_blob": "ad1b053d77d00ad68ed59a1d083b4e9a9e321a6d",
+          "preexec_status": "READY_NOT_RUN",
+          "preexec_receipt_present": false,
+          "dispatch_published": false,
+          "agent_started": false,
+          "prompt_dispatch_binding_rule": "PROMPT_DOES_NOT_HARDCODE_FUTURE_DISPATCH_SEQUENCE",
+          "receipt_line_endings": "NORMALIZE_CRLF_TO_LF_BEFORE_STAGE"
         }
       },
       "downstream_readiness": {
