@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "NONE_FOR_G2_ASSIGNMENT_ENTRY; IMPLEMENTATION_RESULT_NOT_YET_RETURNED; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
-      "as_of": "2026-10-21T11:30:00+07:00",
-      "next_safe_action": "OWNER_MANUAL_POWERSHELL7_LAUNCH_EXACT_CODEX_G2_A01_ONCE; THEN_CHAT_REMOTE_RESULT_REVIEW",
+      "blocker": "G2_A01_EXECUTION_STARTED_BUT_RESULT_DELIVERY_NOT_ON_REMOTE; LOCAL_STATE_NOT_YET_RECONCILED; NO_REPLAY; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
+      "as_of": "2026-10-21T15:51:00+07:00",
+      "next_safe_action": "RECOVER_EXISTING_G2_A01_LOCAL_DELIVERY_ONLY; DO_NOT_RERUN_CODEX; IF_LOCAL_COMMITTED_DESCENDANT_IS_SCOPE_VALID_PUSH_WITH_EXACT_REMOTE_LEASE_THEN_CHAT_RESULT_REVIEW",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -499,10 +499,10 @@
         },
         "preexec": "PASS",
         "pass_to_assign": true,
-        "agent_started": false,
+        "agent_started": true,
         "dispatch_created": false,
         "blocker": "NONE_FOR_ASSIGNMENT",
-        "next_safe_action": "OWNER_MANUAL_CODEX_A01_ONE_ATTEMPT_THEN_CHAT_RESULT_INTAKE",
+        "next_safe_action": "OWNER_MANUAL_RECOVERY_INSPECT_LOCAL_ONLY_THEN_BOUNDED_PUSH_OF_EXISTING_COMMITTED_RESULT_IF_VALID",
         "preexec_receipt": {
           "commit": "94c936b1d93bbfcee5818db24dd75bd9bb32733f",
           "parent": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
@@ -519,7 +519,16 @@
           "agent_execution_started": false,
           "dispatch_published": false,
           "dispatch_consumed": false
-        }
+        },
+        "attempt_state": "NEEDS_RECONCILIATION",
+        "remote_result_state": {
+          "observed_at": "2026-10-21T15:51:00+07:00",
+          "remote_head": "94c936b1d93bbfcee5818db24dd75bd9bb32733f",
+          "compare_to_receipt": "IDENTICAL",
+          "new_result_commits": 0,
+          "verdict": "DELIVERY_NOT_OBSERVED_REMOTE"
+        },
+        "no_replay": true
       }
     }
   ]
