@@ -1,0 +1,145 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-SAMEHOST-BUILD-A01-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/task.md",
+    "commit_sha": "600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+    "sha256": "71c4e1c0401c429878fabb95859f64c568c43dbe02f2ffab7b8c0de41b0837fa"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/prompt.md",
+    "git_commit": "600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+    "git_blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
+    "sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9"
+  },
+  "source": {
+    "commit_sha": "600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner-directed continuation of existing Whole-WP same-host BUILD A01 under immutable task/prompt source lock 600f8ceb6943d1f1ecf341ff06072bf31c1babe0 and physical-host target directive 438169d5728a4b5b5da19b737e79db3fc6515ce0; CHAT PASS_TO_ASSIGN review 2c7c233d4afeda5462241f4126a16f075840157e; metadata PreExec PASS f60ab169baaf8c3e0f644adbf850021cea9ebf7d; pinned CODEX live-admission PASS evidence 0962ec74617613ff01a629926e64b7ae8b122979. Scope remains BUILD/code/test only; no AppLocker/service/ACL mutation, main/merge/deploy/provider/broker/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021",
+    "base_sha": "0962ec74617613ff01a629926e64b7ae8b122979",
+    "allowed_code_paths": [
+      "agent_bridge/src/fox2_agent_bridge/f1_policy.py",
+      "agent_bridge/src/fox2_agent_bridge/f1_service.py",
+      "agent_bridge/src/fox2_agent_bridge/f1_protocol.py",
+      "agent_bridge/src/fox2_agent_bridge/f1_authority.py",
+      "agent_bridge/scripts/f1_policy_artifact.py",
+      "agent_bridge/scripts/f1_inventory.ps1",
+      "agent_bridge/scripts/f1_*.py",
+      "agent_bridge/scripts/f1_*.ps1",
+      "agent_bridge/tests/test_f1_policy.py",
+      "agent_bridge/tests/test_f1_authority.py",
+      "agent_bridge/tests/test_f1_host_fence.py",
+      "agent_bridge/tests/test_f1_windows.py",
+      "agent_bridge/tests/test_f1_consumers.py",
+      "agent_bridge/tests/test_f1_*.py",
+      "agent_bridge/tests/**"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh7",
+      "codex_cli",
+      "pinned_gpt_6_1_sol_high",
+      "full_access_permission_profile",
+      "dedicated_clean_worktree",
+      "single_writer",
+      "immutable_task_prompt_binding",
+      "metadata_preexec_pass_f60ab169",
+      "live_route_admission_pass_0962ec7",
+      "dispatch_remote_readback_before_start"
+    ],
+    "stop_conditions": [
+      "source_task_prompt_or_dispatch_binding_mismatch",
+      "task_branch_remote_head_not_exact_base_sha_before_start",
+      "wrong_worktree_branch_or_unrelated_WIP",
+      "competing_task_scoped_writer",
+      "codex_model_reasoning_or_permission_profile_mismatch",
+      "auth_quota_capacity_or_runtime_failure_after_start_means_consumed_no_replay",
+      "unauthorized_path_change_or_drive_by_refactor",
+      "implementation_requires_real_AppLocker_AppIDSvc_service_or_ProgramData_ACL_mutation",
+      "broad_user_writable_trust_required_or_security_design_contradiction",
+      "historical_G2_G3_Canary_or_preexec_evidence_rewrite",
+      "result_contract_report_or_evidence_delivery_failure",
+      "secret_diff_check_test_or_remote_readback_failure",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "COMPOSITE_POLICY_BASELINE_RULE_SUPPORT",
+    "BROAD_USER_WRITABLE_PATH_REJECTION",
+    "F1_CONTROL_DIGEST_DETERMINISM_AND_DRIFT",
+    "EFFECTIVE_POLICY_DIGEST_DETERMINISM_AND_BASELINE_DRIFT",
+    "HOSTFENCE_DUAL_DIGEST_FAIL_CLOSED",
+    "MANDATORY_EXE_SCRIPT_FINAL_ENFORCEMENT",
+    "CONDITIONAL_MSI_DLL_COLLECTIONS",
+    "NO_HOST_POLICY_SERVICE_ACL_MUTATION",
+    "PROTECTED_ROOT_RUNTIME_SOURCE_PACKAGE_NO_REPLAY_REGRESSION",
+    "FOCUSED_SAMEHOST_POLICY_SERVICE_TESTS",
+    "FULL_AGENT_BRIDGE_TESTS",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK",
+    "K1_UNEXPLAINED_ZERO",
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-21T11:00:00Z",
+  "max_runs": 1
+}
