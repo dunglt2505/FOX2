@@ -23,7 +23,7 @@ from contextlib import closing
 
 from .f1_authority import ApprovedTask, Authority
 from .f1_broker_store import BrokerEpoch, F1BrokerStore
-from .f1_policy import policy_digest
+from .f1_policy import effective_policy_digest, f1_control_digest
 from .f1_protocol import AuthorityDeny, Request, SERVICE_NAME, deny
 from .f1_reconcile import reconcile_consumed
 from .f1_windows import Win32, WindowsSpawner, HANDLE, DWORD, PTR, BOOL
@@ -86,8 +86,18 @@ class HostFence:
             'Get-AppLockerPolicy -Effective -Xml'], capture_output=True, text=True, timeout=10,
             env={'SystemRoot': str(Path(system.value).parent), 'WINDIR': str(Path(system.value).parent)},
             creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
-        if result.returncode or policy_digest(result.stdout.strip()) != plan['policy_digest']:
-            raise AuthorityDeny('POLICY_BINDING')
+        try:
+            if (result.returncode or effective_policy_digest(result.stdout.strip()) !=
+                    plan['effective_policy_digest']):
+                raise AuthorityDeny('EFFECTIVE_POLICY_BINDING')
+            if f1_control_digest(result.stdout.strip(), plan['f1_rule_ids']) != plan['f1_control_digest']:
+                raise AuthorityDeny('F1_CONTROL_BINDING')
+        except AuthorityDeny:
+            raise
+        except (ValueError, KeyError, TypeError) as exc:
+            # A legacy single-digest plan, malformed selector/XML or missing
+            # control is a denial, never a compatibility fallback.
+            raise AuthorityDeny('POLICY_CONTRACT') from exc
         if task is None:
             return
         if not task.argv or not Path(task.argv[0]).is_absolute() or Path(task.argv[0]).suffix.lower() != '.exe':
@@ -142,7 +152,7 @@ def load_authority(api: Win32) -> tuple[Authority, dict]:
             raise AuthorityDeny('STORE_CORRUPT')
     fence = HostFence(api, root, plan, hashlib.sha256(raw).hexdigest())
     authority = Authority(store, fence=fence, spawner=WindowsSpawner(api))
-    authority.start(BrokerEpoch(1, plan['policy_digest'], plan['source_commit'],
+    authority.start(BrokerEpoch(1, plan['effective_policy_digest'], plan['source_commit'],
                                 plan['package_digest'], plan['expires_at']),
                     adoption_digest=hashlib.sha256(raw).hexdigest())
     try:
