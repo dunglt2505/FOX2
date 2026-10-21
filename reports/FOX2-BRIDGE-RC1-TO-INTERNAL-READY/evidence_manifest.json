@@ -5,7 +5,7 @@
   "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
   "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
   "source_code_commit": "ecaff9c62736560d0dc8e4606052c302ae4a4c5a",
-  "report_commit": "b07285c8a8906f5153f0293754c57326af1b8c2a",
+  "report_commit": "5893310f00f7b7947381769bdaebc6f9b4109262",
   "files": [
     {
       "path": "agent_bridge/scripts/build_user_package.py",
@@ -30,24 +30,38 @@
     },
     {
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "git_blob_sha": "f763210a7db8a8ccdbe627d41d6170dc11b7cbaa",
-      "sha256": "6883c90784c6f1def1fbea066c998963bff99279e2072133ca8c8b120cd42aba",
-      "size_bytes": 8321,
-      "status": "PUBLISHED_WINDOWS_CI_PACKAGE_BUILD_PASS"
+      "git_blob_sha": "1b380cfe756cbf99e19d8f3c43ae3d78f8ec932b",
+      "sha256": "91097d26b477b4326c2279afbd3a72852a662382f755c8796c78b5fb8bf069de",
+      "size_bytes": 9880,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/tests/test_runtime_ledger.py",
+      "git_blob_sha": "b1e6dcfc5216844ed95d7f464d5a1d7ebbd61356",
+      "sha256": "e079b9e8d0bb50a300351fd73b15f07bfecb04923803137d8b881f06e18ba55a",
+      "size_bytes": 29781,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md",
+      "git_blob_sha": "7ca9750d7b19d100547f4cd3a880bbc2ba35274d",
+      "sha256": "b8d2f83e95491167540f28959ff7467cad9eea72a2e8874c2902b5844e7e974d",
+      "size_bytes": 3871,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     }
   ],
   "tests": {
-    "added_case_count": 16,
+    "added_case_count": 18,
     "prior_failed_runs": [
       39465107989,
       39511855970
     ],
-    "final_run_id": 39517792799,
-    "final_job_id": 118954416543,
-    "source_sha": "6afd86841d7f3d2677a2a657201e0829cc671ba3",
+    "final_run_id": 39518762540,
+    "final_job_id": 118957198091,
+    "source_sha": "018d947619b26d9f61114d48fdfc380c5211a4a8",
     "status": "PASS_SCOPED_OFFLINE_WINDOWS",
     "affected_tests_pass": 23,
-    "full_regression_pass": 444,
+    "full_regression_pass": 446,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -55,8 +69,8 @@
   },
   "package": {
     "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
-    "sha256": "5691a0d39873e9465ff6595a76ec0817013e55920440ec944e2dd9319dfa1112",
-    "source_commit": "6afd86841d7f3d2677a2a657201e0829cc671ba3",
+    "sha256": "26ad584902bd62fe271a93fedcbc09be8286311d6ed3e00acf91ced5811ff195",
+    "source_commit": "018d947619b26d9f61114d48fdfc380c5211a4a8",
     "downloadable": false,
     "installed": false,
     "release_approved": false
