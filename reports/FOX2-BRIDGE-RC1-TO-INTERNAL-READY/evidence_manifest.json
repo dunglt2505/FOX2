@@ -5,7 +5,7 @@
   "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
   "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
   "source_code_commit": "ecaff9c62736560d0dc8e4606052c302ae4a4c5a",
-  "report_commit": "84bb6c8d38496c468fa26d62d2f2c15e541ab5f0",
+  "report_commit": "e71e45b7bd3f4262557d450f7db6a8cc082df537",
   "files": [
     {
       "path": "agent_bridge/scripts/build_user_package.py",
@@ -23,16 +23,16 @@
     },
     {
       "path": ".github/workflows/fox2-bridge-f1-offline-ci.yml",
-      "git_blob_sha": "ad654ec9cce777c7eb2038e015d58b8b47c7f97a",
-      "sha256": "513ebbc962d3cf07b84c8b1af0909f912818fb15b58a5d0fcc4387410f0b24d9",
-      "size_bytes": 5112,
-      "status": "PUBLISHED_WINDOWS_CI_PACKAGE_BUILD_PASS"
+      "git_blob_sha": "5b53326a164c151ed0ea8bf1bae372355344c35b",
+      "sha256": "2118ccb407e2dd1b679ffcc0c57502fdade3efbf56412512d9ae44fd7241016d",
+      "size_bytes": 5295,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     },
     {
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "git_blob_sha": "9cf1f0b0fa2192b4a9a28f91ef7d787f453a04c2",
-      "sha256": "ec223a1f9a004a38250c823b72b9d114f569de0fa083adf2ae14cd46ca08e844",
-      "size_bytes": 11152,
+      "git_blob_sha": "5dbaf25c36ee654f6d21c6c31802f4e28ec5feb4",
+      "sha256": "2120b3499acb39848dee84d26f03f4290b1182f00ed9f70c732404c75c3d24b5",
+      "size_bytes": 13043,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     },
     {
@@ -62,16 +62,30 @@
       "sha256": "f6950985f7de8abd56323e9e6f83d805985ff1d93b88bd7ec997edc752c1fb13",
       "size_bytes": 43038,
       "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_broker_store.py",
+      "git_blob_sha": "dad3f39500c54b64e547c6536db54f2f292a0544",
+      "sha256": "43bc1c47f7dc717ec5ee21ba3fac15c5ec44ada49be7bd066be07cb0ff553bdc",
+      "size_bytes": 9077,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
+    },
+    {
+      "path": "agent_bridge/tests/test_f1_broker_store.py",
+      "git_blob_sha": "302c5dd45d41cfd431c3a4dca1ca1b41e21fc229",
+      "sha256": "aeffd5ff2bca8d7045833832e0b230aa6628a00c1817b3c557fa92165c4a1b59",
+      "size_bytes": 5770,
+      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
     }
   ],
   "tests": {
-    "added_case_count": 25,
-    "final_run_id": 39519781500,
-    "final_job_id": 118960730105,
-    "source_sha": "9bcefa500f242ccbbc8ff11f5ce2647e166f29da",
+    "added_case_count": 31,
+    "final_run_id": 39520823626,
+    "final_job_id": 118964023254,
+    "source_sha": "324f93ca709c4f29a05b5043e34397664301eeb8",
     "status": "PASS_SCOPED_OFFLINE_WINDOWS",
     "affected_tests_pass": 23,
-    "full_regression_pass": 453,
+    "full_regression_pass": 459,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -79,8 +93,8 @@
   },
   "package": {
     "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
-    "sha256": "e8fbffb04f9c4da7726e3bb3ef85cee358761e2e8547398d743765c81addde51",
-    "source_commit": "9bcefa500f242ccbbc8ff11f5ce2647e166f29da",
+    "sha256": "b02127d251ceede406c5c427ca3536706994fccf068234997ebfbfe43051e4aa",
+    "source_commit": "324f93ca709c4f29a05b5043e34397664301eeb8",
     "downloadable": false,
     "installed": false,
     "release_approved": false
@@ -89,5 +103,6 @@
   "installed_adoption": "NOT_RUN",
   "canary": "HOLD",
   "self_digest": "EXCLUDED",
-  "workflow_source_commit": "6afd86841d7f3d2677a2a657201e0829cc671ba3"
+  "workflow_source_commit": "6afd86841d7f3d2677a2a657201e0829cc671ba3",
+  "F1_broker_store": "IMPLEMENTED_OFFLINE_CORE_NOT_PRIVILEGED_SERVICE"
 }
