@@ -8,7 +8,7 @@
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
       "stage": "TEST",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED_278DAA5A; PHASE2_UNINSTALL_HARNESS_ROOT_CAUSE_PROVEN_ADAA169B; PACKAGE_LIFECYCLE_A01_TASK_31CAEB95_PROMPT_56F3A805_PREEXEC_TOOL_14F46F7D; PREEXEC_NOT_RUN",
       "evidence_scope": "PHASE1_BUILD_ACCEPTED; PHASE2_CODE_DEFECT_PROVEN; NEW_CORRECTION_TASK_PREPARED_NOT_ASSIGNED",
       "source_sha": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "HOST_LIFECYCLE_CERT_A01_PREEXEC_NOT_RUN",
-      "as_of": "2026-10-21T23:20:00+07:00",
-      "next_safe_action": "OWNER_CREATE_OR_FAST_FORWARD_DEDICATED_HOST_LIFECYCLE_WORKTREE_TO_768B3516_AND_RUN_PREEXEC_V4_ONCE; CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_FRESH_HOST_MUTATING_DISPATCH; G3_REMAINS_HOLD",
+      "blocker": "HOST_NOT_PAUSED",
+      "as_of": "2026-10-21T23:35:00+07:00",
+      "next_safe_action": "OWNER_RUN_RECONCILED_SAFE_PAUSE_AND_OPTIONAL_REQUEST_EXIT_THEN_RERUN_SAME_PREEXEC_V4; DO_NOT_PUBLISH_DISPATCH_UNTIL_DURABLE_PREEXEC_PASS_REMOTE_READBACK",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A03_BUILD_CORRECTION_CHAT_ACCEPT_2FAA33F9; REAL_HOST_LIFECYCLE_NOT_RUN; HOST_CERT_TASK_PROMPT_PUBLISHED; PREEXEC_V1_V2_V3_REJECTED_PRELAUNCH; PREEXEC_V4_VALIDATED_READY_NOT_RUN",
+      "package_lifecycle": "A03_BUILD_CORRECTION_ACCEPTED; HOST_CERT_PREEXEC_V4_FIRST_RUN_BLOCKED_HOST_NOT_PAUSED; NO_RECEIPT; NO_DISPATCH; NO_AGENT; NO_PACKAGE_LIFECYCLE_MUTATION",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -201,15 +201,24 @@
           "preexec_v4": {
             "commit": "768b35164fd740bb6a455ee50fc4dcaae331fed8",
             "blob": "a2ac93b5d99e2817f1a777a02094a05811c46930",
-            "status": "READY_NOT_RUN",
+            "status": "BLOCKED_HOST_NOT_PAUSED",
+            "owner_run_observed": true,
             "receipt_present": false,
-            "validated_remote": true,
-            "source_product_drift": "NONE"
+            "dispatch_consumed": false,
+            "agent_started": false,
+            "host_lifecycle_mutation": false,
+            "reconciliation_commit": "b5a512a29e2ada3c20893872f38994f895281d62"
           },
           "dispatch_published": false,
           "agent_started": false,
           "host_mutation": false,
-          "g3_unlocked": false
+          "g3_unlocked": false,
+          "recovery": {
+            "status": "RECOVERED_TO_KNOWN_PREEXEC_BLOCKER",
+            "safe_next_action": "OFFICIAL_INSTALLED_CONTROL_PAUSE; REQUEST_EXIT_ONLY_IF_RUNTIME_REMAINS_ACTIVE; VERIFY_ZERO_ACTIVE_RUNTIME; RERUN_SAME_V4",
+            "blind_rerun": false,
+            "g3_unlocked": false
+          }
         }
       },
       "downstream_readiness": {
