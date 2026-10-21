@@ -179,7 +179,7 @@ try {
     Require ($help.Code -eq 0) 'CODEX_EXEC_HELP_FAILED'
     $helpText = $help.Text + [Environment]::NewLine + $help.ErrorText
 
-    foreach ($requiredFlag in @('--model','--sandbox','--ask-for-approval','--config','--skip-git-repo-check','--cd','--output-last-message')) {
+    foreach ($requiredFlag in @('--model','--sandbox','--config','--skip-git-repo-check','--cd','--output-last-message')) {
         Require ($helpText.Contains($requiredFlag)) ('CODEX_FLAG_MISSING:' + $requiredFlag)
     }
 
@@ -194,7 +194,7 @@ try {
         'exec',
         '--model',$Model,
         '--sandbox','read-only',
-        '--ask-for-approval','never',
+        '--config','approval_policy="never"',
         '--config',('model_reasoning_effort=' + $ReasoningEffort),
         '--skip-git-repo-check',
         '--cd',$TempProbeDir,
@@ -244,7 +244,7 @@ try {
         model = $Model
         reasoning_effort = $ReasoningEffort
         sandbox = 'read-only'
-        approval_policy = 'never'
+        approval_policy = 'never_via_config_override'
         status = $statusValue
         probe_agent_execution_started = $true
         task_agent_execution_started = $false
@@ -261,6 +261,7 @@ try {
             'This evidence proves only pinned CODEX model/quota/runtime route reachability at observation time.',
             'The implementation task was not started or consumed.',
             'The probe used an empty temporary directory and read-only sandbox.',
+            'CODEX CLI 0.162.1 admission uses --config approval_policy="never" because codex exec --help does not expose --ask-for-approval.',
             'Raw CODEX stdout/stderr are not persisted in Git.'
         )
     }
