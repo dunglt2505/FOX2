@@ -7,7 +7,7 @@
       "feature_id": "FOX2-BRIDGE-RC1",
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
-      "stage": "TEST",
+      "stage": "BUILD",
       "status": "IN_PROGRESS",
       "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED_278DAA5A; PHASE2_UNINSTALL_HARNESS_ROOT_CAUSE_PROVEN_ADAA169B; PACKAGE_LIFECYCLE_A01_TASK_31CAEB95_PROMPT_56F3A805_PREEXEC_TOOL_14F46F7D; PREEXEC_NOT_RUN",
       "evidence_scope": "PHASE1_BUILD_ACCEPTED; PHASE2_CODE_DEFECT_PROVEN; NEW_CORRECTION_TASK_PREPARED_NOT_ASSIGNED",
@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": null,
-      "as_of": "2026-10-22T00:20:00+07:00",
-      "next_safe_action": "OWNER_LAUNCH_HOST_LIFECYCLE_DISPATCH_8CAC3D27_EXACTLY_ONCE_WITH_DURABLE_NO_REPLAY_CLAIM; THEN_CHAT_REMOTE_RESULT_INTAKE; G3_REMAINS_HOLD",
+      "blocker": "HOST_LIFECYCLE_A01_REWORK_LAUNCHER_HARNESS_CONTRACT_MISMATCH",
+      "as_of": "2026-10-22T00:30:00+07:00",
+      "next_safe_action": "PUBLISH_FRESH_SOURCE_REWORK_TASK_PROMPT_FROM_9DD91BEC; PRESERVE_WPF_PRESENTATION_ONLY_AND_F1_WORKER_OWNERSHIP; FIX_CERTIFY_USER_LIFECYCLE_TO_CURRENT_WPF_CONTRACT; THEN_FRESH_CODEX_PREEXEC",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A03_BUILD_ACCEPTED; HOST_LIFECYCLE_PREEXEC_V5_PASS_REMOTE_208DE84F; HOST_LIFECYCLE_DISPATCH_8CAC3D27_SCHEMA_VALID_PUBLISHED_UNCONSUMED; OWNER_LAUNCH_READY",
+      "package_lifecycle": "HOST_LIFECYCLE_A01_TRUTHFUL_FAIL_CHAT_REWORK; INSTALL_PASS; REAL_LIFECYCLE_FAIL_BEFORE_UNINSTALL; UNINSTALL_REINSTALL_NOT_RUN; ROOT_CAUSE_CURRENT_HARNESS_REQUIRES_LEGACY_DESKTOP_TRAY_AND_WORKER_HEARTBEAT_CONTRADICTING_ACCEPTED_WPF_F1_ARCHITECTURE",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -265,6 +265,24 @@
             "code_allowed": false,
             "host_lifecycle_mutation_scope": "PACKAGE_BUILD_INSTALL_UPDATE_UNINSTALL_ONCE_REINSTALL_DURABLE_STATE_ONLY",
             "owner_launch_ready": true
+          },
+          "result": {
+            "result_commit": "9dd91becf47d934183baf147d0a4f03f4bf5933d",
+            "review_commit": "1f3a07ea76485cb1b175d90a4303d9997b66e047",
+            "verdict": "CHAT_REWORK",
+            "evidence_hashes": "17_OF_17_MATCH",
+            "lifecycle": "FAIL",
+            "install": "PASS",
+            "uninstall": "NOT_RUN",
+            "reinstall": "NOT_RUN",
+            "no_replay": true
+          },
+          "rework": {
+            "source_decision": "PRESERVE_WPF_PRESENTATION_ONLY_LAUNCHER_AND_F1_WORKER_OWNERSHIP",
+            "techspec_rev10": "CANDIDATE_NO_PROMOTION_NON_AUTHORITY",
+            "existing_reusable_ui_certification": "agent_bridge/scripts/certify_rc1_ui.ps1",
+            "product_fix_target": "certify_user_lifecycle.py_and_tests",
+            "g3_unlocked": false
           }
         }
       },
