@@ -37,7 +37,8 @@ function Run-Tool {
         [string[]]$ToolArgs = @(),
         [int]$TimeoutSeconds = 60,
         [string]$WorkingDirectory = $Worktree,
-        [string]$StandardInput = $null
+        [string]$StandardInput = $null,
+        [string]$Stage = 'TOOL'
     )
     $psi = [Diagnostics.ProcessStartInfo]::new()
     $psi.FileName = $File
@@ -51,19 +52,34 @@ function Run-Tool {
     $p = [Diagnostics.Process]::new()
     $p.StartInfo = $psi
     try {
-        Require ($p.Start()) ('TOOL_START_FAILED:' + $File)
+        Write-Output ('FOX2_PREEXEC_STAGE=' + $Stage)
+        Require ($p.Start()) ('TOOL_START_FAILED:' + $Stage + ':' + $File)
+
+        $outTask = $p.StandardOutput.ReadToEndAsync()
+        $errTask = $p.StandardError.ReadToEndAsync()
+
         if ($null -ne $StandardInput) {
             $p.StandardInput.Write($StandardInput)
             $p.StandardInput.Close()
         }
+
         if (-not $p.WaitForExit($TimeoutSeconds * 1000)) {
-            try { $p.Kill($true) } catch {}
-            throw ('TOOL_TIMEOUT:' + [IO.Path]::GetFileName($File))
+            try {
+                $p.Kill($true)
+                $p.WaitForExit()
+            } catch {}
+            $outText = try { $outTask.GetAwaiter().GetResult() } catch { '' }
+            $errText = try { $errTask.GetAwaiter().GetResult() } catch { '' }
+            throw ('TOOL_TIMEOUT:' + $Stage + ':' + [IO.Path]::GetFileName($File) + ':' + (Safe-Text ($errText + ' ' + $outText)))
         }
+
+        $outText = $outTask.GetAwaiter().GetResult()
+        $errText = $errTask.GetAwaiter().GetResult()
+
         [pscustomobject]@{
             Code = [int]$p.ExitCode
-            Out = $p.StandardOutput.ReadToEnd()
-            Err = $p.StandardError.ReadToEnd()
+            Out = $outText
+            Err = $errText
         }
     }
     finally {
@@ -181,10 +197,22 @@ Require ($receiptInGit.Code -ne 0) 'PREEXEC_RECEIPT_ALREADY_COMMITTED'
 
 Assert-NoTaskWriter
 
-$login = Run-Tool -File $CodexExe -ToolArgs @('login','status') -TimeoutSeconds 30
+$lingeringProbe = @(
+    Get-CimInstance Win32_Process -ErrorAction Stop |
+    Where-Object {
+        -not [string]::IsNullOrWhiteSpace([string]$_.CommandLine) -and
+        ([string]$_.CommandLine).IndexOf(
+            'FOX2-package-lifecycle-preexec-',
+            [StringComparison]::OrdinalIgnoreCase
+        ) -ge 0
+    }
+)
+Require ($lingeringProbe.Count -eq 0) 'LINGERING_PREEXEC_CODEX_PROBE_PROCESS'
+
+$login = Run-Tool -File $CodexExe -ToolArgs @('login','status') -TimeoutSeconds 60 -Stage 'CODEX_LOGIN_STATUS'
 Require ($login.Code -eq 0) 'CODEX_LOGIN_NOT_READY'
 
-$help = Run-Tool -File $CodexExe -ToolArgs @('exec','--help') -TimeoutSeconds 30
+$help = Run-Tool -File $CodexExe -ToolArgs @('exec','--help') -TimeoutSeconds 60 -Stage 'CODEX_EXEC_HELP'
 Require ($help.Code -eq 0) 'CODEX_EXEC_HELP_FAILED'
 $helpText = [string]$help.Out + [string]$help.Err
 foreach ($flag in @('--model','--sandbox','--config','--skip-git-repo-check','--cd','--output-last-message')) {
@@ -207,7 +235,7 @@ try {
         '--output-last-message',$lastMessage,
         '-'
     )
-    $probe = Run-Tool -File $CodexExe -ToolArgs $probeArgs -TimeoutSeconds 180 -WorkingDirectory $temp -StandardInput ($probePrompt + [Environment]::NewLine)
+    $probe = Run-Tool -File $CodexExe -ToolArgs $probeArgs -TimeoutSeconds 240 -WorkingDirectory $temp -StandardInput ($probePrompt + [Environment]::NewLine) -Stage 'CODEX_LIVE_PROBE'
     $markerValue = if (Test-Path -LiteralPath $lastMessage) { [IO.File]::ReadAllText($lastMessage).Trim() } else { '' }
     Require ($probe.Code -eq 0) ('CODEX_LIVE_PROBE_FAILED:' + (Safe-Text ($probe.Err + ' ' + $probe.Out)))
     Require ($markerValue -ceq $Marker) ('CODEX_LIVE_MARKER_MISMATCH:' + (Safe-Text $markerValue))
