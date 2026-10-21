@@ -1,0 +1,648 @@
+........................................................................ [ 11%]
+........................................................................ [ 23%]
+........................................................................ [ 35%]
+........................................................................ [ 46%]
+........................................................................ [ 58%]
+.......FFFFFF.....F...FFFF.FF.....FF..............FFFFFFFFFF............ [ 70%]
+........................................................................ [ 81%]
+........................................................................ [ 93%]
+.........................................                                [100%]
+================================== FAILURES ===================================
+___________________ test_preflight_durable_statuses[PASS-0] ___________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/2dbe9b8fde8648148ae2699d57ed77a1/remote.git'))
+state = 'PASS', exit_code = 0
+
+    @pytest.mark.parametrize('state,exit_code', [('PASS', 0), ('BLOCKED', 20), ('INFRA_FAILED', 30)])
+    def test_preflight_durable_statuses(task, state, exit_code):
+        config, remote = task
+        def check(_):
+            if state == 'INFRA_FAILED':
+                raise RuntimeError('SYNTHETIC_REDACTED_FIELD')
+            return observation('PASS' if state == 'PASS' else 'MISSING', failure=None if state == 'PASS' else 'TOOL_MISSING')
+        result = engine(config, checks={'material_tool': check}).run()
+>       assert result.exit_code == exit_code and result.receipt['status'] == state
+E       AssertionError: assert (31 == 0)
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+
+agent_bridge\tests\test_preexec.py:63: AssertionError
+_________________ test_preflight_durable_statuses[BLOCKED-20] _________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/9be1097234e9432e91bfa19f73ac5c61/remote.git'))
+state = 'BLOCKED', exit_code = 20
+
+    @pytest.mark.parametrize('state,exit_code', [('PASS', 0), ('BLOCKED', 20), ('INFRA_FAILED', 30)])
+    def test_preflight_durable_statuses(task, state, exit_code):
+        config, remote = task
+        def check(_):
+            if state == 'INFRA_FAILED':
+                raise RuntimeError('SYNTHETIC_REDACTED_FIELD')
+            return observation('PASS' if state == 'PASS' else 'MISSING', failure=None if state == 'PASS' else 'TOOL_MISSING')
+        result = engine(config, checks={'material_tool': check}).run()
+>       assert result.exit_code == exit_code and result.receipt['status'] == state
+E       AssertionError: assert (31 == 20)
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+
+agent_bridge\tests\test_preexec.py:63: AssertionError
+______________ test_preflight_durable_statuses[INFRA_FAILED-30] _______________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/f2101a89abe24a6ab06fc2b13413888c/remote.git'))
+state = 'INFRA_FAILED', exit_code = 30
+
+    @pytest.mark.parametrize('state,exit_code', [('PASS', 0), ('BLOCKED', 20), ('INFRA_FAILED', 30)])
+    def test_preflight_durable_statuses(task, state, exit_code):
+        config, remote = task
+        def check(_):
+            if state == 'INFRA_FAILED':
+                raise RuntimeError('SYNTHETIC_REDACTED_FIELD')
+            return observation('PASS' if state == 'PASS' else 'MISSING', failure=None if state == 'PASS' else 'TOOL_MISSING')
+        result = engine(config, checks={'material_tool': check}).run()
+>       assert result.exit_code == exit_code and result.receipt['status'] == state
+E       AssertionError: assert (31 == 30)
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+
+agent_bridge\tests\test_preexec.py:63: AssertionError
+__________________ test_alternative_agent_route_materiality ___________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/4fff3854dc0c42c79047d65268fb42e6/remote.git'))
+
+    def test_alternative_agent_route_materiality(task):
+        config, _ = task
+        result = engine(config).run(publish=False)
+>       assert result.exit_code == 0
+E       AssertionError: assert 31 == 0
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+
+agent_bridge\tests\test_preexec.py:78: AssertionError
+________________________ test_pinned_agent_materiality ________________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/6012aaf6128a43399bc829114ca00b94/remote.git'))
+
+    def test_pinned_agent_materiality(task):
+        config, _ = task
+        result = engine(replace(config, pinned_agent='COPILOT')).run(publish=False)
+>       assert result.exit_code == 20
+E       AssertionError: assert 31 == 20
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+
+agent_bridge\tests\test_preexec.py:90: AssertionError
+____________ test_schema_rejects_nested_unknown_status_and_fields _____________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/df55682abaec493ead715ede1f0a26b4/remote.git'))
+
+    def test_schema_rejects_nested_unknown_status_and_fields(task):
+        config, _ = task
+        runner = engine(config); result = runner.run(publish=False)
+        receipt = result.receipt
+>       receipt['capabilities']['codex']['status'] = 'INVENTED'
+E       KeyError: 'codex'
+
+agent_bridge\tests\test_preexec.py:100: KeyError
+_______________________ test_stale_receipt_only_cleanup _______________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/de9758fd25ce4dd78d2c717abf35a74e/remote.git'))
+
+    def test_stale_receipt_only_cleanup(task):
+        config, _ = task
+        receipt = engine(config).run(publish=False).receipt
+        path = config.worktree / config.receipt_path
+        path.parent.mkdir(parents=True); path.write_bytes(canonical(receipt))
+        git(config.worktree, 'add', '--', config.receipt_path)
+>       assert engine(config).run().failure == 'RECEIPT_WIP'
+E       AssertionError: assert 'GIT_OPERATION_FAILED' == 'RECEIPT_WIP'
+E
+E         - RECEIPT_WIP
+E         + GIT_OPERATION_FAILED
+
+agent_bridge\tests\test_preexec.py:130: AssertionError
+_________________________ test_concurrent_writer_lock _________________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/f6700d9baa9a4153ac6e8011866cc851/remote.git'))
+
+    def test_concurrent_writer_lock(task):
+        config, _ = task
+        with writer_lock(config.worktree):
+            assert engine(config).run().failure == 'COMPETING_WRITER'
+>       assert engine(config).run(publish=False).exit_code == 0
+E       AssertionError: assert 31 == 0
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+E        +    where Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED') = run(publish=False)
+E        +      where run = <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D0200704B0>.run
+E        +        where <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D0200704B0> = engine(Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-...pt-6.1-sol', 'auto_tier': None, 'reasoning_effort': 'medium', 'permission_profile': 'FULL_ACCESS'}), pinned_agent=None))
+
+agent_bridge\tests\test_preexec.py:153: AssertionError
+___________ test_cross_process_lock_exclusivity_and_release[normal] ___________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/c3b4d39ae6ef4bd59c475372524306ac/remote.git'))
+termination = 'normal'
+
+    @pytest.mark.parametrize('termination', ['normal', 'exception', 'killed'])
+    def test_cross_process_lock_exclusivity_and_release(task, termination):
+        config, _ = task
+        code = '''
+    import sys
+    from pathlib import Path
+    from fox2_agent_bridge.preexec.engine import writer_lock
+    try:
+        with writer_lock(Path(sys.argv[1])):
+            print('LOCKED', flush=True)
+            sys.stdin.readline()
+            if sys.argv[2] == 'exception': raise RuntimeError('test failure')
+    except RuntimeError:
+        pass
+    '''
+        child = subprocess.Popen([sys.executable, '-u', '-c', code, str(config.worktree), termination],
+                                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                 text=True, env={**os.environ, 'PYTHONPATH': str(ROOT / 'agent_bridge/src')})
+        try:
+            assert child.stdout.readline().strip() == 'LOCKED'
+            before = git(config.worktree, 'rev-parse', 'HEAD')
+            calls = []
+            runner = engine(config)
+            runner.probe = lambda *_: calls.append('UNSAFE_PROBE')
+            assert runner.run().failure == 'COMPETING_WRITER'
+            assert not calls and git(config.worktree, 'rev-parse', 'HEAD') == before
+            assert not (config.worktree / config.receipt_path).exists()
+            if termination == 'killed': child.kill()
+            else: child.stdin.write('\n'); child.stdin.flush()
+            child.wait(timeout=10)
+>           assert engine(config).run(publish=False).exit_code == 0
+E           AssertionError: assert 31 == 0
+E            +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+E            +    where Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED') = run(publish=False)
+E            +      where run = <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D02004B7D0>.run
+E            +        where <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D02004B7D0> = engine(Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-...pt-6.1-sol', 'auto_tier': None, 'reasoning_effort': 'medium', 'permission_profile': 'FULL_ACCESS'}), pinned_agent=None))
+
+agent_bridge\tests\test_preexec.py:186: AssertionError
+_________ test_cross_process_lock_exclusivity_and_release[exception] __________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/1eab80f191be4759ae2f358ef2c307ff/remote.git'))
+termination = 'exception'
+
+    @pytest.mark.parametrize('termination', ['normal', 'exception', 'killed'])
+    def test_cross_process_lock_exclusivity_and_release(task, termination):
+        config, _ = task
+        code = '''
+    import sys
+    from pathlib import Path
+    from fox2_agent_bridge.preexec.engine import writer_lock
+    try:
+        with writer_lock(Path(sys.argv[1])):
+            print('LOCKED', flush=True)
+            sys.stdin.readline()
+            if sys.argv[2] == 'exception': raise RuntimeError('test failure')
+    except RuntimeError:
+        pass
+    '''
+        child = subprocess.Popen([sys.executable, '-u', '-c', code, str(config.worktree), termination],
+                                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                 text=True, env={**os.environ, 'PYTHONPATH': str(ROOT / 'agent_bridge/src')})
+        try:
+            assert child.stdout.readline().strip() == 'LOCKED'
+            before = git(config.worktree, 'rev-parse', 'HEAD')
+            calls = []
+            runner = engine(config)
+            runner.probe = lambda *_: calls.append('UNSAFE_PROBE')
+            assert runner.run().failure == 'COMPETING_WRITER'
+            assert not calls and git(config.worktree, 'rev-parse', 'HEAD') == before
+            assert not (config.worktree / config.receipt_path).exists()
+            if termination == 'killed': child.kill()
+            else: child.stdin.write('\n'); child.stdin.flush()
+            child.wait(timeout=10)
+>           assert engine(config).run(publish=False).exit_code == 0
+E           AssertionError: assert 31 == 0
+E            +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+E            +    where Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED') = run(publish=False)
+E            +      where run = <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D01FDE27D0>.run
+E            +        where <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D01FDE27D0> = engine(Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-...pt-6.1-sol', 'auto_tier': None, 'reasoning_effort': 'medium', 'permission_profile': 'FULL_ACCESS'}), pinned_agent=None))
+
+agent_bridge\tests\test_preexec.py:186: AssertionError
+___________ test_cross_process_lock_exclusivity_and_release[killed] ___________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/2965e4cfed764cf2b2552ef527ce81a2/remote.git'))
+termination = 'killed'
+
+    @pytest.mark.parametrize('termination', ['normal', 'exception', 'killed'])
+    def test_cross_process_lock_exclusivity_and_release(task, termination):
+        config, _ = task
+        code = '''
+    import sys
+    from pathlib import Path
+    from fox2_agent_bridge.preexec.engine import writer_lock
+    try:
+        with writer_lock(Path(sys.argv[1])):
+            print('LOCKED', flush=True)
+            sys.stdin.readline()
+            if sys.argv[2] == 'exception': raise RuntimeError('test failure')
+    except RuntimeError:
+        pass
+    '''
+        child = subprocess.Popen([sys.executable, '-u', '-c', code, str(config.worktree), termination],
+                                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                 text=True, env={**os.environ, 'PYTHONPATH': str(ROOT / 'agent_bridge/src')})
+        try:
+            assert child.stdout.readline().strip() == 'LOCKED'
+            before = git(config.worktree, 'rev-parse', 'HEAD')
+            calls = []
+            runner = engine(config)
+            runner.probe = lambda *_: calls.append('UNSAFE_PROBE')
+            assert runner.run().failure == 'COMPETING_WRITER'
+            assert not calls and git(config.worktree, 'rev-parse', 'HEAD') == before
+            assert not (config.worktree / config.receipt_path).exists()
+            if termination == 'killed': child.kill()
+            else: child.stdin.write('\n'); child.stdin.flush()
+            child.wait(timeout=10)
+>           assert engine(config).run(publish=False).exit_code == 0
+E           AssertionError: assert 31 == 0
+E            +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+E            +    where Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED') = run(publish=False)
+E            +      where run = <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D02004BED0>.run
+E            +        where <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D02004BED0> = engine(Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-...pt-6.1-sol', 'auto_tier': None, 'reasoning_effort': 'medium', 'permission_profile': 'FULL_ACCESS'}), pinned_agent=None))
+
+agent_bridge\tests\test_preexec.py:186: AssertionError
+___________ test_lock_os_failure_is_safe_and_handle_closes[acquire] ___________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/0274f955e1664c7c86fa8fa7bcd39d09/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D0202D8BB0>
+operation = 'acquire'
+
+    @pytest.mark.skipif(os.name != 'nt', reason='Windows byte-range lock failures')
+    @pytest.mark.parametrize('operation', ['acquire', 'release'])
+    def test_lock_os_failure_is_safe_and_handle_closes(task, monkeypatch, operation):
+        import errno
+        import msvcrt
+        config, _ = task
+        original = msvcrt.locking
+        def failing(fd, mode, size):
+            if mode == (msvcrt.LK_NBLCK if operation == 'acquire' else msvcrt.LK_UNLCK):
+                raise OSError(errno.EIO, 'fixed test failure')
+            return original(fd, mode, size)
+        monkeypatch.setattr(msvcrt, 'locking', failing)
+        result = engine(config).run(publish=False)
+        assert result.exit_code >= 30 and result.remote_sha is None
+        assert result.failure == ('WRITER_LOCK_FAILED' if operation == 'acquire' else 'WRITER_RELEASE_FAILED')
+        monkeypatch.setattr(msvcrt, 'locking', original)
+>       assert engine(config).run(publish=False).exit_code == 0
+E       AssertionError: assert 31 == 0
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+E        +    where Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED') = run(publish=False)
+E        +      where run = <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D0205E48D0>.run
+E        +        where <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D0205E48D0> = engine(Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-...pt-6.1-sol', 'auto_tier': None, 'reasoning_effort': 'medium', 'permission_profile': 'FULL_ACCESS'}), pinned_agent=None))
+
+agent_bridge\tests\test_preexec.py:215: AssertionError
+___________ test_lock_os_failure_is_safe_and_handle_closes[release] ___________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/8c4fd3c50dd84433b0318f9ca3823950/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D0202D9320>
+operation = 'release'
+
+    @pytest.mark.skipif(os.name != 'nt', reason='Windows byte-range lock failures')
+    @pytest.mark.parametrize('operation', ['acquire', 'release'])
+    def test_lock_os_failure_is_safe_and_handle_closes(task, monkeypatch, operation):
+        import errno
+        import msvcrt
+        config, _ = task
+        original = msvcrt.locking
+        def failing(fd, mode, size):
+            if mode == (msvcrt.LK_NBLCK if operation == 'acquire' else msvcrt.LK_UNLCK):
+                raise OSError(errno.EIO, 'fixed test failure')
+            return original(fd, mode, size)
+        monkeypatch.setattr(msvcrt, 'locking', failing)
+        result = engine(config).run(publish=False)
+        assert result.exit_code >= 30 and result.remote_sha is None
+        assert result.failure == ('WRITER_LOCK_FAILED' if operation == 'acquire' else 'WRITER_RELEASE_FAILED')
+        monkeypatch.setattr(msvcrt, 'locking', original)
+>       assert engine(config).run(publish=False).exit_code == 0
+E       AssertionError: assert 31 == 0
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+E        +    where Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED') = run(publish=False)
+E        +      where run = <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D01FE3BED0>.run
+E        +        where <fox2_agent_bridge.preexec.engine.PreExec object at 0x000001D01FE3BED0> = engine(Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE-...pt-6.1-sol', 'auto_tier': None, 'reasoning_effort': 'medium', 'permission_profile': 'FULL_ACCESS'}), pinned_agent=None))
+
+agent_bridge\tests\test_preexec.py:215: AssertionError
+_____ test_cli_snapshot_cannot_return_durable_publication_exit_code[PASS] _____
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/19ca15b34c674995a22a55d5f467e086/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D0202D9B00>
+capsys = <_pytest.capture.CaptureFixture object at 0x000001D020477820>
+status = 'PASS'
+
+    @pytest.mark.parametrize('status', ['PASS', 'BLOCKED'])
+    def test_cli_snapshot_cannot_return_durable_publication_exit_code(task, monkeypatch, capsys, status):
+        import importlib.util
+        config, _ = task
+        spec = importlib.util.spec_from_file_location('preexec_cli', ROOT / 'agent_bridge/scripts/preexec.py')
+        cli = importlib.util.module_from_spec(spec); spec.loader.exec_module(cli)
+        monkeypatch.setattr(cli, 'identity', lambda _: (config.wp_id, config.branch, config.task_path, config.receipt_path))
+        monkeypatch.setattr(cli, 'PreExec', lambda requirements, **_: engine(requirements,
+            checks={'material_tool': lambda _: observation('PASS' if status == 'PASS' else 'MISSING')}))
+        output = config.worktree.parent / 'diagnostic'
+        before = git(config.worktree, 'rev-parse', 'HEAD')
+>       assert cli.main(['--profile', 'rollout', '--worktree', str(config.worktree),
+            '--source-head', config.source_head, '--snapshot-root', str(output),
+            '--snapshot-path', config.receipt_path]) == 33
+E       AssertionError: assert 31 == 33
+E        +  where 31 = <function main at 0x000001D020072200>(['--profile', 'rollout', '--worktree', 'C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021\\...t_artifacts\\19ca15b34c674995a22a55d5f467e086\\task', '--source-head', 'f87a5812aca0fec29cf4df721bab2d525336eb02', ...])
+E        +    where <function main at 0x000001D020072200> = <module 'preexec_cli' from 'C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021\\agent_bridge\\scripts\\preexec.py'>.main
+
+agent_bridge\tests\test_preexec.py:268: AssertionError
+---------------------------- Captured stdout call -----------------------------
+PREFLIGHT_SNAPSHOT_STATUS=INFRA_FAILED
+PREFLIGHT_PUBLICATION=NOT_ATTEMPTED
+PREFLIGHT_INFRA_FAILURE=GIT_OPERATION_FAILED
+___ test_cli_snapshot_cannot_return_durable_publication_exit_code[BLOCKED] ____
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/8e356bb48dfa479e9a9a884113beec00/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D01FD9FD20>
+capsys = <_pytest.capture.CaptureFixture object at 0x000001D0206296D0>
+status = 'BLOCKED'
+
+    @pytest.mark.parametrize('status', ['PASS', 'BLOCKED'])
+    def test_cli_snapshot_cannot_return_durable_publication_exit_code(task, monkeypatch, capsys, status):
+        import importlib.util
+        config, _ = task
+        spec = importlib.util.spec_from_file_location('preexec_cli', ROOT / 'agent_bridge/scripts/preexec.py')
+        cli = importlib.util.module_from_spec(spec); spec.loader.exec_module(cli)
+        monkeypatch.setattr(cli, 'identity', lambda _: (config.wp_id, config.branch, config.task_path, config.receipt_path))
+        monkeypatch.setattr(cli, 'PreExec', lambda requirements, **_: engine(requirements,
+            checks={'material_tool': lambda _: observation('PASS' if status == 'PASS' else 'MISSING')}))
+        output = config.worktree.parent / 'diagnostic'
+        before = git(config.worktree, 'rev-parse', 'HEAD')
+>       assert cli.main(['--profile', 'rollout', '--worktree', str(config.worktree),
+            '--source-head', config.source_head, '--snapshot-root', str(output),
+            '--snapshot-path', config.receipt_path]) == 33
+E       AssertionError: assert 31 == 33
+E        +  where 31 = <function main at 0x000001D020070040>(['--profile', 'rollout', '--worktree', 'C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021\\...t_artifacts\\8e356bb48dfa479e9a9a884113beec00\\task', '--source-head', 'b9ee0c71155f7d1d9f536082a73f4f350997cade', ...])
+E        +    where <function main at 0x000001D020070040> = <module 'preexec_cli' from 'C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021\\agent_bridge\\scripts\\preexec.py'>.main
+
+agent_bridge\tests\test_preexec.py:268: AssertionError
+---------------------------- Captured stdout call -----------------------------
+PREFLIGHT_SNAPSHOT_STATUS=INFRA_FAILED
+PREFLIGHT_PUBLICATION=NOT_ATTEMPTED
+PREFLIGHT_INFRA_FAILURE=GIT_OPERATION_FAILED
+_________ test_staged_unrelated_file_is_preserved_and_never_published _________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/088eb7026cbc4e5cb0ac8d073fd8ba50/remote.git'))
+
+    def test_staged_unrelated_file_is_preserved_and_never_published(task):
+        config, _ = task
+        path = config.worktree / 'unrelated.txt'; path.write_bytes(b'preserve staged WIP\n')
+        git(config.worktree, 'add', '--', 'unrelated.txt')
+>       assert engine(config).run().failure == 'UNRELATED_WIP'
+E       AssertionError: assert 'GIT_OPERATION_FAILED' == 'UNRELATED_WIP'
+E
+E         - UNRELATED_WIP
+E         + GIT_OPERATION_FAILED
+
+agent_bridge\tests\test_preexec.py:313: AssertionError
+____________ test_commit_hook_mutation_never_reaches_push[receipt] ____________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/4815564e8cea438ca72209b1f8b9b70a/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D020041FD0>
+mutation = 'receipt'
+
+    @pytest.mark.parametrize('mutation', ['receipt', 'unrelated'])
+    def test_commit_hook_mutation_never_reaches_push(task, monkeypatch, mutation):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git
+        def altered(root, *args):
+            if args[0] == 'push': pytest.fail('out-of-scope or altered receipt must never push')
+            if args[0] == 'commit':
+                path = config.receipt_path if mutation == 'receipt' else 'unrelated.txt'
+                (root / path).write_bytes(b'changed by hook\n')
+                original(root, 'add', '--', path)
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', altered)
+        result = engine(config).run()
+        assert result.remote_sha is None and result.exit_code >= 30
+>       assert result.failure == ('COMMITTED_RECEIPT_MISMATCH' if mutation == 'receipt' else 'COMMITTED_ALLOWLIST_FAILED')
+E       AssertionError: assert 'GIT_OPERATION_FAILED' == 'COMMITTED_RECEIPT_MISMATCH'
+E
+E         - COMMITTED_RECEIPT_MISMATCH
+E         + GIT_OPERATION_FAILED
+
+agent_bridge\tests\test_preexec.py:333: AssertionError
+___________ test_commit_hook_mutation_never_reaches_push[unrelated] ___________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/d1762bbd641b469caa513acb2e5b1e60/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D020042580>
+mutation = 'unrelated'
+
+    @pytest.mark.parametrize('mutation', ['receipt', 'unrelated'])
+    def test_commit_hook_mutation_never_reaches_push(task, monkeypatch, mutation):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git
+        def altered(root, *args):
+            if args[0] == 'push': pytest.fail('out-of-scope or altered receipt must never push')
+            if args[0] == 'commit':
+                path = config.receipt_path if mutation == 'receipt' else 'unrelated.txt'
+                (root / path).write_bytes(b'changed by hook\n')
+                original(root, 'add', '--', path)
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', altered)
+        result = engine(config).run()
+        assert result.remote_sha is None and result.exit_code >= 30
+>       assert result.failure == ('COMMITTED_RECEIPT_MISMATCH' if mutation == 'receipt' else 'COMMITTED_ALLOWLIST_FAILED')
+E       AssertionError: assert 'GIT_OPERATION_FAILED' == 'COMMITTED_ALLOWLIST_FAILED'
+E
+E         - COMMITTED_ALLOWLIST_FAILED
+E         + GIT_OPERATION_FAILED
+
+agent_bridge\tests\test_preexec.py:333: AssertionError
+_________ test_no_false_pushed_marker_on_publication_failure[commit] __________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/40c43abd3ff24fa2b5a92b820a8114b5/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D020042CF0>
+operation = 'commit'
+
+    @pytest.mark.parametrize('operation', ['commit', 'push', 'ls-remote', 'fetch'])
+    def test_no_false_pushed_marker_on_publication_failure(task, monkeypatch, operation):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git; count = 0
+        def failing(root, *args):
+            nonlocal count
+            if args[0] == operation:
+                count += 1
+                if operation != 'ls-remote' or count == 2:
+                    raise InfrastructureFailure('GIT_OPERATION_FAILED')
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', failing)
+        result = engine(config).run()
+        assert result.exit_code >= 30 and result.remote_sha is None
+>       assert result.receipt['status'] == 'PASS'
+E       AssertionError: assert 'INFRA_FAILED' == 'PASS'
+E
+E         - PASS
+E         + INFRA_FAILED
+
+agent_bridge\tests\test_preexec.py:351: AssertionError
+__________ test_no_false_pushed_marker_on_publication_failure[push] ___________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/a5fbcdc405d54bff96f9a048109b0e72/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D020043150>
+operation = 'push'
+
+    @pytest.mark.parametrize('operation', ['commit', 'push', 'ls-remote', 'fetch'])
+    def test_no_false_pushed_marker_on_publication_failure(task, monkeypatch, operation):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git; count = 0
+        def failing(root, *args):
+            nonlocal count
+            if args[0] == operation:
+                count += 1
+                if operation != 'ls-remote' or count == 2:
+                    raise InfrastructureFailure('GIT_OPERATION_FAILED')
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', failing)
+        result = engine(config).run()
+        assert result.exit_code >= 30 and result.remote_sha is None
+>       assert result.receipt['status'] == 'PASS'
+E       AssertionError: assert 'INFRA_FAILED' == 'PASS'
+E
+E         - PASS
+E         + INFRA_FAILED
+
+agent_bridge\tests\test_preexec.py:351: AssertionError
+________ test_no_false_pushed_marker_on_publication_failure[ls-remote] ________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/46475e03a9234d70a10add5a8f336b72/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D0200429E0>
+operation = 'ls-remote'
+
+    @pytest.mark.parametrize('operation', ['commit', 'push', 'ls-remote', 'fetch'])
+    def test_no_false_pushed_marker_on_publication_failure(task, monkeypatch, operation):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git; count = 0
+        def failing(root, *args):
+            nonlocal count
+            if args[0] == operation:
+                count += 1
+                if operation != 'ls-remote' or count == 2:
+                    raise InfrastructureFailure('GIT_OPERATION_FAILED')
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', failing)
+        result = engine(config).run()
+        assert result.exit_code >= 30 and result.remote_sha is None
+>       assert result.receipt['status'] == 'PASS'
+E       AssertionError: assert 'INFRA_FAILED' == 'PASS'
+E
+E         - PASS
+E         + INFRA_FAILED
+
+agent_bridge\tests\test_preexec.py:351: AssertionError
+__________ test_no_false_pushed_marker_on_publication_failure[fetch] __________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/c305ca415d444a2892ce2f7ba538d60e/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D020043310>
+operation = 'fetch'
+
+    @pytest.mark.parametrize('operation', ['commit', 'push', 'ls-remote', 'fetch'])
+    def test_no_false_pushed_marker_on_publication_failure(task, monkeypatch, operation):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git; count = 0
+        def failing(root, *args):
+            nonlocal count
+            if args[0] == operation:
+                count += 1
+                if operation != 'ls-remote' or count == 2:
+                    raise InfrastructureFailure('GIT_OPERATION_FAILED')
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', failing)
+        result = engine(config).run()
+        assert result.exit_code >= 30 and result.remote_sha is None
+>       assert result.receipt['status'] == 'PASS'
+E       AssertionError: assert 'INFRA_FAILED' == 'PASS'
+E
+E         - PASS
+E         + INFRA_FAILED
+
+agent_bridge\tests\test_preexec.py:351: AssertionError
+________________________ test_remote_readback_mismatch ________________________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/26aef1c603ae4224874b8a11e0aa8338/remote.git'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D020043BD0>
+
+    def test_remote_readback_mismatch(task, monkeypatch):
+        config, _ = task
+        import fox2_agent_bridge.preexec.engine as module
+        original = module.git; count = 0
+        def mismatch(root, *args):
+            nonlocal count
+            if args[0] == 'ls-remote':
+                count += 1
+                if count == 2: return b'0'*40 + b'\trefs/heads/work/FOX2-TEST\n'
+            return original(root, *args)
+        monkeypatch.setattr(module, 'git', mismatch)
+>       assert engine(config).run().failure == 'REMOTE_READBACK_FAILED'
+E       AssertionError: assert 'GIT_OPERATION_FAILED' == 'REMOTE_READBACK_FAILED'
+E
+E         - REMOTE_READBACK_FAILED
+E         + GIT_OPERATION_FAILED
+
+agent_bridge\tests\test_preexec.py:365: AssertionError
+______________ test_probe_product_mutation_prevents_publication _______________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/d19206a611ec4c19a9fb99e86361664e/remote.git'))
+
+    def test_probe_product_mutation_prevents_publication(task):
+        config, _ = task
+        runner = engine(config)
+        def mutation(route, root):
+            (root / 'bad-edit.txt').write_bytes(b'bad')
+            return observation()
+        runner.probe = mutation
+>       assert runner.run().failure == 'UNRELATED_WIP'
+E       AssertionError: assert 'GIT_OPERATION_FAILED' == 'UNRELATED_WIP'
+E
+E         - UNRELATED_WIP
+E         + GIT_OPERATION_FAILED
+
+agent_bridge\tests\test_preexec.py:375: AssertionError
+_______ test_unknown_material_remains_hold_and_preserves_first_blocker ________
+
+task = (Requirements(wp_id='FOX2-TEST', branch='work/FOX2-TEST', worktree=WindowsPath('C:/Projects/FOX2-worktrees/FOX2-BRIDGE...X2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021/agent_bridge/test_artifacts/0020f686d0004d6ea5ad210ae80a86a2/remote.git'))
+
+    def test_unknown_material_remains_hold_and_preserves_first_blocker(task):
+        config, _ = task
+        runner = engine(config, checks={'first': lambda _: observation('MISSING', failure='TOOL_MISSING'),
+                                      'unknown': lambda _: observation('UNKNOWN', failure='UNPROVEN')})
+        result = runner.run(publish=False)
+>       assert result.exit_code == 20 and result.receipt['blockers'][0]['code'] == 'CHECK_FIRST'
+E       AssertionError: assert (31 == 20)
+E        +  where 31 = Outcome(receipt={'schema_version': '1.0', 'receipt_type': 'FOX2_PREEXEC_RECEIPT', 'project': 'FOX2', 'wp_id': 'FOX2-TE...idence only. No durable task-branch readiness claim.']}, exit_code=31, remote_sha=None, failure='GIT_OPERATION_FAILED').exit_code
+
+agent_bridge\tests\test_preexec.py:383: AssertionError
+- generated xml file: <WORKTREE>\reports\FOX2-BRIDGE-RC1-TO-INTERNAL-READY\evidence\package_lifecycle_fix\full.xml -
+=========================== short test summary info ===========================
+FAILED agent_bridge\tests\test_preexec.py::test_preflight_durable_statuses[PASS-0]
+FAILED agent_bridge\tests\test_preexec.py::test_preflight_durable_statuses[BLOCKED-20]
+FAILED agent_bridge\tests\test_preexec.py::test_preflight_durable_statuses[INFRA_FAILED-30]
+FAILED agent_bridge\tests\test_preexec.py::test_alternative_agent_route_materiality
+FAILED agent_bridge\tests\test_preexec.py::test_pinned_agent_materiality - As...
+FAILED agent_bridge\tests\test_preexec.py::test_schema_rejects_nested_unknown_status_and_fields
+FAILED agent_bridge\tests\test_preexec.py::test_stale_receipt_only_cleanup - ...
+FAILED agent_bridge\tests\test_preexec.py::test_concurrent_writer_lock - Asse...
+FAILED agent_bridge\tests\test_preexec.py::test_cross_process_lock_exclusivity_and_release[normal]
+FAILED agent_bridge\tests\test_preexec.py::test_cross_process_lock_exclusivity_and_release[exception]
+FAILED agent_bridge\tests\test_preexec.py::test_cross_process_lock_exclusivity_and_release[killed]
+FAILED agent_bridge\tests\test_preexec.py::test_lock_os_failure_is_safe_and_handle_closes[acquire]
+FAILED agent_bridge\tests\test_preexec.py::test_lock_os_failure_is_safe_and_handle_closes[release]
+FAILED agent_bridge\tests\test_preexec.py::test_cli_snapshot_cannot_return_durable_publication_exit_code[PASS]
+FAILED agent_bridge\tests\test_preexec.py::test_cli_snapshot_cannot_return_durable_publication_exit_code[BLOCKED]
+FAILED agent_bridge\tests\test_preexec.py::test_staged_unrelated_file_is_preserved_and_never_published
+FAILED agent_bridge\tests\test_preexec.py::test_commit_hook_mutation_never_reaches_push[receipt]
+FAILED agent_bridge\tests\test_preexec.py::test_commit_hook_mutation_never_reaches_push[unrelated]
+FAILED agent_bridge\tests\test_preexec.py::test_no_false_pushed_marker_on_publication_failure[commit]
+FAILED agent_bridge\tests\test_preexec.py::test_no_false_pushed_marker_on_publication_failure[push]
+FAILED agent_bridge\tests\test_preexec.py::test_no_false_pushed_marker_on_publication_failure[ls-remote]
+FAILED agent_bridge\tests\test_preexec.py::test_no_false_pushed_marker_on_publication_failure[fetch]
+FAILED agent_bridge\tests\test_preexec.py::test_remote_readback_mismatch - As...
+FAILED agent_bridge\tests\test_preexec.py::test_probe_product_mutation_prevents_publication
+FAILED agent_bridge\tests\test_preexec.py::test_unknown_material_remains_hold_and_preserves_first_blocker
+25 failed, 592 passed in 175.16s (0:02:55)

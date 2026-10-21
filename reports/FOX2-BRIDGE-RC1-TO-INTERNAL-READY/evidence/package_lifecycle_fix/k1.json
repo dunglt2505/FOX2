@@ -1,0 +1,138 @@
+{
+  "UNEXPLAINED": 0,
+  "hunks": [
+    {
+      "classification": "REQUESTED",
+      "hunk": "@@ -3,2 +3,2 @@",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "reason": "Stable external uninstall and bounded evidence, or its focused regression coverage."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunk": "@@ -10,0 +11 @@ from pathlib import Path",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "reason": "Stable external uninstall and bounded evidence, or its focused regression coverage."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunk": "@@ -17,0 +19,70 @@ from fox2_agent_bridge.installation import install, installed_version, BRIDGE_RO",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "reason": "Stable external uninstall and bounded evidence, or its focused regression coverage."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunk": "@@ -86,5 +157 @@ def main(package,sha,evidence):",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "reason": "Stable external uninstall and bounded evidence, or its focused regression coverage."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunk": "@@ -222,0 +223,217 @@ def test_package_wheel_disagrees_with_source_fails_closed(tmp_path, variant, nam",
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "reason": "Stable external uninstall and bounded evidence, or its focused regression coverage."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunk": "entire new evidence verifier",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/verify.py",
+      "reason": "Repeatable allowed-path, syntax, sanitization, K1 and Result Contract/hash verification."
+    }
+  ],
+  "result_artifacts": [
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/evidence_normalization.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/focused.log",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/focused.xml",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full.log",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full.xml",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full_initial.log",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full_initial.xml",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/implementation.diff",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/installation_package.log",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/installation_package.xml",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/k1.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/result_validation.txt",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/source_binding.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/static_checks.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/test_summary.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/validation_history.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/verify.py",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "REQUESTED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    },
+    {
+      "classification": "REQUESTED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reason": "Required bounded result/evidence for this exact A03 attempt."
+    }
+  ]
+}

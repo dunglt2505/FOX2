@@ -1,0 +1,63 @@
+{
+  "focused": {
+    "errors": 0,
+    "failures": 0,
+    "seconds": 0.544,
+    "skipped": 0,
+    "tests": 8,
+    "timestamp": "2026-10-21T22:36:20.563439+07:00"
+  },
+  "full": {
+    "environment_override": "Child process GIT_CONFIG_COUNT appended core.longpaths=true; no persistent Git config writes",
+    "errors": 0,
+    "failures": 0,
+    "lifecycle_cases": [
+      "test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstall[0]",
+      "test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstall[17]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[timeout]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[start]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[incomplete]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[config]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[consumption]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[unreadable_checks]",
+      "test_lifecycle_rejects_installed_supervisor_or_parent_before_launch[False]",
+      "test_lifecycle_rejects_installed_supervisor_or_parent_before_launch[True]",
+      "test_lifecycle_uninstall_output_redacts_before_limit"
+    ],
+    "seconds": 234.981,
+    "skipped": 0,
+    "tests": 617,
+    "timestamp": "2026-10-21T22:40:27.996390+07:00"
+  },
+  "full_initial": {
+    "errors": 0,
+    "failures": 25,
+    "seconds": 175.112,
+    "skipped": 0,
+    "tests": 617,
+    "timestamp": "2026-10-21T22:36:48.683009+07:00"
+  },
+  "historical_BatchB_UNINSTALL_PATH": "FAIL",
+  "installation_package": {
+    "errors": 0,
+    "failures": 0,
+    "lifecycle_cases": [
+      "test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstall[0]",
+      "test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstall[17]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[timeout]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[start]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[incomplete]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[config]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[consumption]",
+      "test_lifecycle_uninstall_failure_always_persists_and_stops[unreadable_checks]",
+      "test_lifecycle_rejects_installed_supervisor_or_parent_before_launch[False]",
+      "test_lifecycle_rejects_installed_supervisor_or_parent_before_launch[True]",
+      "test_lifecycle_uninstall_output_redacts_before_limit"
+    ],
+    "seconds": 2.071,
+    "skipped": 0,
+    "tests": 62,
+    "timestamp": "2026-10-21T22:36:42.244984+07:00"
+  },
+  "real_host_lifecycle": "NOT_RUN"
+}

@@ -1,0 +1,31 @@
+{
+  "agent_attempts": 1,
+  "agent_retries": 0,
+  "evidence_assembly_corrections": [
+    "Count only test_lifecycle_ names to distinguish the 11 new tests from an existing worker lifecycle test.",
+    "Redact artificial credential parameters in JUnit testcase names; preserve original raw hashes. No actual credential finding.",
+    "Use exact git diff --unified=0 for implementation.diff: context-only blank lines in the initial unified artifact triggered trailing-whitespace checks when committed as text; product/code diff itself remained clean."
+  ],
+  "full_suite_initial": {
+    "agent_relaunch": false,
+    "duration_seconds": 175.16,
+    "failed": 25,
+    "module": "agent_bridge/tests/test_preexec.py",
+    "passed": 592,
+    "readonly_diagnostic": {
+      "core_longpaths_true_exit_code": 0,
+      "original_exit_code": 128,
+      "same_object_bytes_read": 4920
+    },
+    "resolution": "Child test process only: append core.longpaths=true via GIT_CONFIG_COUNT/KEY/VALUE. No repository/global Git config file changed. No test or product scope expansion.",
+    "root_cause": "Git for Windows MAX_PATH: git show <sha>:<long routing path> failed to stat with Filename too long in the nested test fixture.",
+    "status": "FAIL"
+  },
+  "implementation_test_failures": [],
+  "initial_secret_scan": {
+    "detail": "The sanitizer test URL at example.invalid matched the credential-URL scanner; inspected and confirmed exact artificial fixture. No actual secret found.",
+    "path": "agent_bridge/tests/test_rc1_package.py",
+    "resolution": "Exclude exactly two known synthetic redaction test literals; continue scanning every changed file.",
+    "status": "SYNTHETIC_FIXTURE_MATCH"
+  }
+}

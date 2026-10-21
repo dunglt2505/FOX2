@@ -1,0 +1,53 @@
+{
+  "files": [
+    {
+      "original_sha256": "2151aa408604f3cb26c9aac385737c3f4461fc953d071afb24a5727d0c7ea895",
+      "path": "focused.log",
+      "sanitized_sha256": "5b18f658da4bf27b04f4977ea3f1409e9bf92230d8ec20df5dec5b325d87f416",
+      "synthetic_test_parameter_redactions": 0
+    },
+    {
+      "original_sha256": "c426af11eaf253dbe52445889437d0da2652b7d60f986416a869f2ac9bff7cab",
+      "path": "focused.xml",
+      "sanitized_sha256": "9c4f79866c789f9b4928b41be1f24bf46f5118b68f8c71f4cad3b4bb9dd6eaad",
+      "synthetic_test_parameter_redactions": 0
+    },
+    {
+      "original_sha256": "0796ab2377c36b0074578476c38ae19c006bf486c6b704bfc83964b1e2e26637",
+      "path": "full_initial.log",
+      "sanitized_sha256": "87a80b1abed591bfe87b9f8d344a38d551bffbe737497bd59f022a4b26b56140",
+      "synthetic_test_parameter_redactions": 0
+    },
+    {
+      "original_sha256": "c6032625130af6be604d3d48449197ed0c03034f74a4450cdf4b25799f006581",
+      "path": "full_initial.xml",
+      "sanitized_sha256": "a1d8d8da49f32165004814f6f281b4b46f6e8c4d50be51dcf826b8f4e1fa2750",
+      "synthetic_test_parameter_redactions": 3
+    },
+    {
+      "original_sha256": "79cc79df0b5dec4b95c81c82a9af109f19183b538ef8a1320d25d4cb8009c341",
+      "path": "installation_package.log",
+      "sanitized_sha256": "3848483e2224e9a2cdf24753177089fe3e6720cb60ee031a6b6db5384de5f61a",
+      "synthetic_test_parameter_redactions": 0
+    },
+    {
+      "original_sha256": "ff5fdc20125d003bd7dbbc9ce8f24e4f799028666162f21fc96bb7ec7efb1c8e",
+      "path": "installation_package.xml",
+      "sanitized_sha256": "99ad222e8cdeab169224dd7a294c88c6f733e2378296d2840c6001f83067f8b3",
+      "synthetic_test_parameter_redactions": 0
+    },
+    {
+      "original_sha256": "abf93393acf5b4bc0baa30e334812a9e9920ab16c70e61786ef7f88696f78a28",
+      "path": "full.log",
+      "sanitized_sha256": "a18417451e902452a1045534b10feca96e443356e53f48a73c991dcbeef807ed",
+      "synthetic_test_parameter_redactions": 0
+    },
+    {
+      "original_sha256": "572f1898117ca61a516690c8ad344302f2bfeda2261907e9e6bffd39f48fed06",
+      "path": "full.xml",
+      "sanitized_sha256": "2ee269812049314a2d76d7cfd46ae41eefa6ad657eb9865aac6f2c3fdf563f21",
+      "synthetic_test_parameter_redactions": 3
+    }
+  ],
+  "method": "UTF-8 LF; trailing whitespace removed; workspace and hostname aliases; artificial authorization fixture redacted in failed-test traces. No original real account secrets observed. Synthetic secret/URL parameter values in existing test case names also replaced with REDACTED_TEST_VECTOR."
+}

@@ -1,0 +1,311 @@
+diff --git a/agent_bridge/scripts/certify_user_lifecycle.py b/agent_bridge/scripts/certify_user_lifecycle.py
+index 6714434..10e07b8 100644
+--- a/agent_bridge/scripts/certify_user_lifecycle.py
++++ b/agent_bridge/scripts/certify_user_lifecycle.py
+@@ -3,2 +3,2 @@
+-Uses the installed interpreter and real Tray/Task Scheduler. Keeps durable data,
+-uninstalls owned versions, then reinstalls the supplied exact package.
++Uses the installed interpreter for control and the stable external PowerShell 7
++supervisor for uninstall. Keeps durable data, then reinstalls the exact package.
+@@ -10,0 +11 @@ from pathlib import Path
++import re
+@@ -17,0 +19,70 @@ from fox2_agent_bridge.installation import install, installed_version, BRIDGE_RO
++from fox2_agent_bridge.logging_config import redact_context
++
++
++UNINSTALL_OUTPUT_LIMIT = 4096
++
++
++def _uninstall_output(value):
++    """Redact before truncation so a boundary cannot expose a partial secret."""
++    if isinstance(value, bytes):
++        value = value.decode('utf-8', errors='replace')
++    value = redact_context(value or '')
++    value = re.sub(r'(?i)https?://[^\s/]+:[^\s/]+@', '<REDACTED_URL>@', value)
++    value = re.sub(
++        r'''(?i)["']?(?:authorization|(?:access[_-]?|api[_-]?)?token|api[_-]?key|password|secret)["']?\s*[:=]\s*(?:"[^"\r\n]*"|'[^'\r\n]*'|[^\s,;}]+)''',
++        '<REDACTED_FIELD>', value)
++    value = ''.join(c for c in value if c in '\n\t' or ord(c) >= 32)
++    return value[:UNINSTALL_OUTPUT_LIMIT]
++
++
++def certify_uninstall(root, pwsh, config_before, results, evidence):
++    """One synchronous attempt; checkpoint sanitized evidence before any reinstall."""
++    supervisor = root / 'uninstall.ps1'
++    versions = (root / 'versions').resolve()
++    if (supervisor.resolve() != root.resolve() / 'uninstall.ps1' or
++            Path(pwsh).resolve().is_relative_to(versions) or
++            Path(sys.executable).resolve().is_relative_to(versions)):
++        raise ValueError('lifecycle uninstall requires stable external supervisors')
++    consumption = root / 'data/manual_consumption.json'
++    consumption_before = consumption.read_bytes() if consumption.exists() else None
++    result = {
++        'supervisor': {'kind': 'STABLE_EXTERNAL_POWERSHELL7',
++                       'path': 'BridgeRoot/uninstall.ps1', 'cwd': 'BridgeRoot',
++                       'sha256': hashlib.sha256(supervisor.read_bytes()).hexdigest()},
++        'exit_code': None, 'stdout': '', 'stderr': '', 'status': 'SUPERVISOR_FAILED',
++    }
++    try:
++        process = subprocess.run(
++            [str(pwsh), '-NoProfile', '-NonInteractive', '-File', str(supervisor)],
++            cwd=root, capture_output=True, text=True, errors='replace', timeout=90,
++            env={k: v for k, v in os.environ.items()
++                 if k.upper() not in {'PYTHONPATH', 'PYTHONHOME'}},
++            creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
++        result.update(exit_code=process.returncode,
++                      stdout=_uninstall_output(process.stdout),
++                      stderr=_uninstall_output(process.stderr))
++    except subprocess.TimeoutExpired as error:
++        result.update(status='SUPERVISOR_TIMEOUT', stdout=_uninstall_output(error.stdout),
++                      stderr=_uninstall_output(error.stderr))
++    except OSError:
++        result['status'] = 'SUPERVISOR_START_FAILED'
++    try:
++        result['post_uninstall'] = {
++            'current_pointer_absent': not (root / 'current.json').exists(),
++            'versions_absent': not (root / 'versions').exists() or not any((root / 'versions').iterdir()),
++            'configuration_preserved': (root / 'config/bridge.toml').read_bytes() == config_before,
++            'database_preserved': (root / 'data/bridge.db').is_file(),
++            'consumption_file_preserved': consumption_before is None or (
++                consumption.is_file() and consumption.read_bytes() == consumption_before),
++        }
++    except OSError:
++        result['post_uninstall'] = {'checks_unavailable': True}
++    if result['exit_code'] == 0:
++        checks = result['post_uninstall']
++        result['status'] = ('UNINSTALLED' if 'checks_unavailable' not in checks and all(checks.values())
++                            else 'POSTCONDITION_FAILED')
++    results['uninstall'] = result
++    write_json(evidence, results)
++    if result['status'] != 'UNINSTALLED':
++        raise RuntimeError('stable external uninstall failed; evidence persisted; no retry')
++    return result
+@@ -86,5 +157 @@ def main(package,sha,evidence):
+-    results['uninstall']=cli('uninstall')
+-    assert not (root/'current.json').exists()
+-    assert (root/'config/bridge.toml').read_bytes()==config_before
+-    assert (root/'data/bridge.db').is_file()
+-    assert not any((root/'versions').iterdir())
++    certify_uninstall(root,pwsh,config_before,results,evidence)
+diff --git a/agent_bridge/tests/test_rc1_package.py b/agent_bridge/tests/test_rc1_package.py
+index 7ef8ead..af5d0f0 100644
+--- a/agent_bridge/tests/test_rc1_package.py
++++ b/agent_bridge/tests/test_rc1_package.py
+@@ -222,0 +223,217 @@ def test_package_wheel_disagrees_with_source_fails_closed(tmp_path, variant, nam
++
++
++def _load_lifecycle_harness():
++    """Import only: no real host lifecycle or installed command is executed."""
++    import importlib.util
++    from pathlib import Path
++
++    path = Path(__file__).resolve().parents[1] / 'scripts/certify_user_lifecycle.py'
++    spec = importlib.util.spec_from_file_location('_fox2_lifecycle_test', path)
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++@pytest.fixture
++def lifecycle_fixture(tmp_path):
++    root = tmp_path / 'Bridge'
++    sha = 'a' * 64
++    version = root / 'versions' / sha
++    version.mkdir(parents=True)
++    (root / 'current.json').write_text(json.dumps({'package_sha256': sha}))
++    (root / 'uninstall.ps1').write_text('# fixture supervisor, never executed')
++    for directory in ('config', 'data', 'logs', 'reports'):
++        (root / directory).mkdir()
++        (root / directory / 'keep').write_bytes(b'durable fixture')
++    (root / 'config/bridge.toml').write_bytes(b'# durable config')
++    (root / 'data/bridge.db').write_bytes(b'durable database fixture')
++    (root / 'data/manual_consumption.json').write_text(json.dumps({'dispatch_ids': ['consumed']}))
++    return root, sha, tmp_path / 'lifecycle.json'
++
++
++@pytest.mark.parametrize('exit_code', [0, 17])
++def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstall(
++    lifecycle_fixture, monkeypatch, capsys, exit_code
++):
++    """Exercise the entire harness with host/process/install boundaries replaced."""
++    import shutil
++    import subprocess
++
++    module = _load_lifecycle_harness()
++    root, sha, evidence = lifecycle_fixture
++    durable = {p: p.read_bytes() for directory in ('config', 'data', 'logs', 'reports')
++               for p in (root / directory).iterdir()}
++    monkeypatch.setattr(module, 'BRIDGE_ROOT', root)
++    monkeypatch.setenv('PYTHONPATH', 'invalid-inherited-path')
++    monkeypatch.setenv('PYTHONHOME', 'invalid-inherited-home')
++    monkeypatch.setenv('FOX2_LIFECYCLE_SENTINEL', 'preserved')
++    supervisor_calls = []
++    install_calls = []
++    stopped = False
++    reinstalled = False
++    tray_counts = iter(['1', '0', '0', '0'])
++
++    def child(argv, **kwargs):
++        nonlocal stopped
++        assert not supervisor_calls, 'no command may follow a failed supervisor'
++        if argv[-1] == str(root / 'uninstall.ps1'):
++            assert argv == [r'C:\Program Files\PowerShell\7\pwsh.exe',
++                            '-NoProfile', '-NonInteractive', '-File', str(root / 'uninstall.ps1')]
++            assert kwargs['cwd'] == root
++            assert kwargs['capture_output'] and kwargs['text'] and kwargs['timeout'] == 90
++            assert kwargs['errors'] == 'replace'
++            assert not {'PYTHONPATH', 'PYTHONHOME'} & {k.upper() for k in kwargs['env']}
++            assert kwargs['env']['FOX2_LIFECYCLE_SENTINEL'] == 'preserved'
++            assert not module.Path(argv[0]).is_relative_to(root / 'versions')
++            supervisor_calls.append(argv)
++            if exit_code == 0:
++                shutil.rmtree(root / 'versions')
++                (root / 'current.json').unlink()
++            return subprocess.CompletedProcess(argv, exit_code,
++                'supervisor-output password="private fixture value"\n' + 'x' * 5000,
++                'supervisor-error Bearer fixture-value\n' + 'e' * 5000)
++        if '-Command' in argv:
++            if 'Get-ScheduledTask' in argv[-1]:
++                payload = {'run_level': 'Limited', 'logon_type': 'Interactive',
++                           'action': 'launch.ps1', 'instances': 'IgnoreNew'}
++                return subprocess.CompletedProcess(argv, 0, json.dumps(payload), '')
++            return subprocess.CompletedProcess(argv, 0, next(tray_counts), '')
++        if '-File' in argv:
++            assert argv[-1].endswith('desktop_launcher.ps1')
++            return subprocess.CompletedProcess(argv, 0, '', '')
++        assert argv[1:4] == ['-I', '-m', 'fox2_agent_bridge']
++        args = argv[4:]
++        assert args[0] != 'uninstall', 'installed Python must never uninstall'
++        if args == ['worker']:
++            return subprocess.CompletedProcess(argv, 1, '', 'LOCK_HELD')
++        if args == ['control', 'request-exit']:
++            stopped = True
++        if args == ['control', 'status']:
++            payload = {'paused': True, 'state': 'STOPPED' if stopped else 'PAUSED',
++                       'stop_requested': stopped, 'heartbeat': 'fixture-heartbeat'}
++        elif args[0] == 'status':
++            payload = {'dispatch': {'dispatch_state': 'NEEDS_RECONCILIATION'}}
++        else:
++            payload = {'status': 'FIXTURE_OK'}
++        return subprocess.CompletedProcess(argv, 0, json.dumps(payload), '')
++
++    # After success, remaining installed control calls are permitted only after
++    # the reinstall stub verifies that the uninstall evidence was already saved.
++    def run(argv, **kwargs):
++        if reinstalled:
++            assert argv[4] in {'setup', 'status'}
++            payload = ({'dispatch': {'dispatch_state': 'NEEDS_RECONCILIATION'}}
++                       if argv[4] == 'status' else {'status': 'FIXTURE_OK'})
++            return subprocess.CompletedProcess(argv, 0, json.dumps(payload), '')
++        return child(argv, **kwargs)
++
++    def reinstall(package, expected_sha):
++        nonlocal reinstalled
++        saved = json.loads(evidence.read_text())['uninstall']
++        assert saved['status'] == 'UNINSTALLED' and saved['exit_code'] == 0
++        assert all(saved['post_uninstall'].values())
++        install_calls.append((package, expected_sha))
++        reinstalled = True
++        (root / 'versions' / sha).mkdir(parents=True)
++        (root / 'current.json').write_text(json.dumps({'package_sha256': sha}))
++        return {'status': 'INSTALLED'}
++
++    monkeypatch.setattr(module.subprocess, 'run', run)
++    monkeypatch.setattr(module, 'install', reinstall)
++    if exit_code:
++        with pytest.raises(RuntimeError, match='evidence persisted; no retry'):
++            module.main(root / 'fixture.zip', sha, evidence)
++        assert not install_calls and 'USER_LIFECYCLE=PASS' not in capsys.readouterr().out
++    else:
++        module.main(root / 'fixture.zip', sha, evidence)
++        assert len(install_calls) == 1
++        assert 'USER_LIFECYCLE=PASS' in capsys.readouterr().out
++    saved = json.loads(evidence.read_text())
++    result = saved['uninstall']
++    assert len(supervisor_calls) == 1 and result['exit_code'] == exit_code
++    assert result['supervisor']['kind'] == 'STABLE_EXTERNAL_POWERSHELL7'
++    assert result['supervisor']['path'] == 'BridgeRoot/uninstall.ps1'
++    assert len(result['supervisor']['sha256']) == 64
++    assert result['stdout'].startswith('supervisor-output')
++    assert len(result['stdout']) == module.UNINSTALL_OUTPUT_LIMIT
++    assert result['stderr'].startswith('supervisor-error')
++    assert len(result['stderr']) == module.UNINSTALL_OUTPUT_LIMIT
++    assert 'private fixture value' not in evidence.read_text()
++    assert 'fixture-value' not in evidence.read_text()
++    assert result['post_uninstall']['current_pointer_absent'] == (exit_code == 0)
++    assert result['post_uninstall']['versions_absent'] == (exit_code == 0)
++    assert result['post_uninstall']['configuration_preserved']
++    assert result['post_uninstall']['database_preserved']
++    assert result['post_uninstall']['consumption_file_preserved']
++    assert all(p.read_bytes() == original for p, original in durable.items())
++    if exit_code == 0:
++        assert len(saved['durable_consumption']) == 4
++        assert set(saved['durable_consumption'].values()) == {'NEEDS_RECONCILIATION'}
++
++
++@pytest.mark.parametrize('failure', ['timeout', 'start', 'incomplete', 'config', 'consumption', 'unreadable_checks'])
++def test_lifecycle_uninstall_failure_always_persists_and_stops(lifecycle_fixture, monkeypatch, failure):
++    import subprocess
++
++    module = _load_lifecycle_harness()
++    root, _, evidence = lifecycle_fixture
++    before = (root / 'config/bridge.toml').read_bytes()
++    calls = []
++
++    def run(argv, **kwargs):
++        calls.append(argv)
++        if failure == 'timeout':
++            raise subprocess.TimeoutExpired(argv, 90, b'partial password=fixture-private', b'partial error')
++        if failure == 'start':
++            raise OSError('private host details')
++        if failure == 'unreadable_checks':
++            (root / 'config/bridge.toml').unlink()
++            return subprocess.CompletedProcess(argv, 23, 'failed stdout', 'failed stderr')
++        if failure in {'config', 'consumption'}:
++            (root / 'current.json').unlink()
++            (root / 'versions' / ('a' * 64)).rmdir()
++            path = root / ('config/bridge.toml' if failure == 'config' else 'data/manual_consumption.json')
++            path.write_bytes(b'changed')
++        return subprocess.CompletedProcess(argv, 0, 'supervisor finished', '')
++
++    monkeypatch.setattr(module.subprocess, 'run', run)
++    with pytest.raises(RuntimeError, match='no retry'):
++        module.certify_uninstall(root, root.parent / 'pwsh.exe', before, {}, evidence)
++    result = json.loads(evidence.read_text())['uninstall']
++    assert len(calls) == 1
++    assert result['status'] == {'timeout': 'SUPERVISOR_TIMEOUT', 'start': 'SUPERVISOR_START_FAILED',
++                               'unreadable_checks': 'SUPERVISOR_FAILED'}.get(
++        failure, 'POSTCONDITION_FAILED')
++    assert 'fixture-private' not in evidence.read_text() and 'private host details' not in evidence.read_text()
++    if failure == 'timeout':
++        assert result['exit_code'] is None and result['stdout'].startswith('partial')
++        assert result['stderr'] == 'partial error'
++    if failure == 'unreadable_checks':
++        assert result['exit_code'] == 23 and result['post_uninstall'] == {'checks_unavailable': True}
++        assert result['stdout'] == 'failed stdout' and result['stderr'] == 'failed stderr'
++
++
++@pytest.mark.parametrize('installed_parent', [False, True])
++def test_lifecycle_rejects_installed_supervisor_or_parent_before_launch(
++    lifecycle_fixture, monkeypatch, installed_parent
++):
++    module = _load_lifecycle_harness()
++    root, sha, evidence = lifecycle_fixture
++    installed_python = root / 'versions' / sha / 'runtime/Scripts/python.exe'
++    pwsh = root.parent / 'pwsh.exe' if installed_parent else installed_python
++    if installed_parent:
++        monkeypatch.setattr(module.sys, 'executable', str(installed_python))
++    monkeypatch.setattr(module.subprocess, 'run', lambda *a, **k: pytest.fail('must fail before launch'))
++    with pytest.raises(ValueError, match='stable external supervisors'):
++        module.certify_uninstall(root, pwsh, b'# durable config', {}, evidence)
++
++
++def test_lifecycle_uninstall_output_redacts_before_limit():
++    module = _load_lifecycle_harness()
++    values = ['ghp_' + 'x' * 30, 'sk-' + 'x' * 30, 'Bearer fixture',
++              'https://fixture:private@example.invalid/', 'api_key="private fixture"',
++              '-----BEGIN PRIVATE KEY-----\nfixture\n-----END PRIVATE KEY-----']
++    for value in values:
++        assert 'private' not in module._uninstall_output(value).lower()
++        assert 'fixture' not in module._uninstall_output(value).lower() or value.startswith('https')
++        assert len(module._uninstall_output('x' * 4090 + value)) <= module.UNINSTALL_OUTPUT_LIMIT

@@ -1,0 +1,124 @@
+{
+  "chat_pass_to_assign": {
+    "blob_sha1": "afb5a864c9125ac63f1758ea22970c218a8f1abf",
+    "commit": "0cc8e9b55107beff6854dd573bec946707c7cbde",
+    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PACKAGE_LIFECYCLE_A03_PASS_TO_ASSIGN_20261021.md",
+    "sha256": "b58ff4ecc6777622c8fe4db9947f6d7ad5dbf276f4793adcf1ee04aca7ecf4b7"
+  },
+  "dispatch": {
+    "blob_sha1": "bfa449e8b9050b0f524ac5c8552e95eb3bccb7e4",
+    "commit": "9ddb2154d87fc88ccbdfd4c3e9550574f0bb6a66",
+    "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A03-CODEX-001.json",
+    "sha256": "3de663ba782126321393398aff8e0ab53bfdb34d43e7e6df608f39ca3e38f791"
+  },
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A03-CODEX-001",
+  "execution_start_head": "e052082afd7279f21611d76669dc8e761c003e79",
+  "observations": {
+    "authority_verified": "Owner task-scoped BUILD authority plus exact Dispatch and CHAT PASS_TO_ASSIGN; no global runtime or release promotion",
+    "clean_worktree_before_edits": "PASS",
+    "dispatch_remote_readback": "git fetch --no-tags origin exact Dispatch commit; blob matched launcher environment",
+    "entry_HEAD_matches_dispatch_runtime_base": "PASS",
+    "exact_branch": "PASS",
+    "one_writer": {
+      "model": "gpt-6.1-sol",
+      "parent_pid": 14752,
+      "permission_profile": "FULL_ACCESS",
+      "pid": 21216,
+      "reasoning_effort": "high",
+      "started_at_utc": "2026-10-21T22:33:44.809276+07:00",
+      "status": "PASS",
+      "subagents": 0,
+      "task_scoped_codex_processes": 1
+    },
+    "prestart_changed_paths": [
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix/package_lifecycle_a01_preexec.ps1",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix/prompt.md",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix/task.md",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt02/package_lifecycle_a02_preexec.ps1",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt02/prompt.md",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt02/task.md",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/package_lifecycle_a03_preexec.ps1",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/prompt.md",
+      "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/task.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/package_lifecycle_a01.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/package_lifecycle_a02.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/package_lifecycle_a03.json"
+    ],
+    "prestart_product_code_drift": [],
+    "prior_attempt_replay": false,
+    "product_base_ancestor": "PASS",
+    "real_host_lifecycle": "NOT_RUN",
+    "remote_task_branch_before_edits": "e052082afd7279f21611d76669dc8e761c003e79",
+    "source_bytes_verified": "PASS"
+  },
+  "preexec": {
+    "blob_sha1": "6a08ac2bcd3ca60556f1a0bd7f7ffdc37d5bfa49",
+    "commit": "e052082afd7279f21611d76669dc8e761c003e79",
+    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/package_lifecycle_a03.json",
+    "sha256": "4b79f2186dd9adf8a14bbfd1d897899efcf49b969a83268d27d94609cc987842"
+  },
+  "product_source_base": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
+  "prompt": {
+    "blob_sha1": "23e562253b1d61f413ed6378a218ba903f87d92e",
+    "commit": "39d6a8f36dd573a4fb9e61a5d4102a15e9b3a80f",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/prompt.md",
+    "sha256": "25ff86531e9841a9cc8cde6259f0fc9512fe8949c98a57457d689c61bcabce77"
+  },
+  "root_cause": {
+    "blob_sha1": "ef57a7689e560aa070522f2dbb03b0cd5f019d90",
+    "commit": "adaa169b7e35861d35bbd5d2ecdab1ae2ec43dde",
+    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PACKAGE_LIFECYCLE_UNINSTALL_ROOT_CAUSE_20261021.md",
+    "sha256": "97b0f3884ddcf60a799b2825d82bb51024f905fc18f190a701383f6a8c3f3bdd"
+  },
+  "source_set": {
+    "dictionary": {
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+    },
+    "governance_release": {
+      "blob_sha1": "122a333cf2f8e025061dabb974d32c705576e6b3",
+      "commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+      "path": "reports/FOX2-POLICY-V2-MIGRATION-20261019/governance_decoupling_release_receipt_20261019.json",
+      "sha256": "983bce7617d4d4a8e6600a4ca2d11ac210e456e12017cfd29aa4bcffcf478851"
+    },
+    "policy": {
+      "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e"
+    },
+    "protocol": {
+      "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6"
+    },
+    "registry": {
+      "blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+      "commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+      "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "sha256": "bb590e0117436af6f8bd1b863a20097aa43904f996cddbb84e4e54cf0361393a"
+    },
+    "result_schema": {
+      "blob_sha1": "b7617cc5c75c288c7997c64536a22fb836b8200b",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "sha256": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b"
+    },
+    "routing": {
+      "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205"
+    }
+  },
+  "task": {
+    "blob_sha1": "264c1bb54e985d8cd3a73df21072b04271b79d6c",
+    "commit": "ac12501e1b3c94a0e75b72adc7dc78743d18e660",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/task.md",
+    "sha256": "b6bbe42d781939a1b05b1dd2aa3fd985677d970b783ab8c2a30b11e9ada85c7e"
+  },
+  "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A03"
+}
