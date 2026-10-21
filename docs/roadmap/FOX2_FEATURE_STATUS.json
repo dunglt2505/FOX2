@@ -40,15 +40,15 @@
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
       "blocker": null,
-      "as_of": "2026-10-21T22:58:00+07:00",
-      "next_safe_action": "OWNER_LAUNCH_A03_DISPATCH_9DDB2154_EXACTLY_ONCE_WITH_DURABLE_NO_REPLAY_CLAIM; THEN_CHAT_REMOTE_RESULT_INTAKE",
+      "as_of": "2026-10-21T23:05:00+07:00",
+      "next_safe_action": "PREPARE_FRESH_CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_FROM_ACCEPTED_A03_RESULT_2FAA33F9; FRESH_PREEXEC_AND_HOST_MUTATION_AUTHORITY_REQUIRED; G3_REMAINS_HOLD",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A01_CONSUMED_SAFE_STOP_NO_PRODUCT_CHANGE; A02_DISPATCHES_REJECTED_PRELAUNCH; A03_PREEXEC_PASS_REMOTE_E052082A; A03_DISPATCH_9DDB2154_SCHEMA_VALID_REMOTE_READBACK; OWNER_LAUNCH_READY",
+      "package_lifecycle": "A03_CHAT_ACCEPT_BUILD_ONLY; RESULT_2FAA33F9_ACCEPTED_FOR_HARNESS_SOURCE; REAL_OWNER_HOST_LIFECYCLE_NOT_RUN",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -151,7 +151,27 @@
             "status": "PUBLISHED_UNCONSUMED",
             "owner_launch_ready": true
           },
-          "blocker": null
+          "blocker": null,
+          "result": {
+            "implementation_commit": "fab3642b818415428ae3f67965430e3ea0b11401",
+            "result_commit": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+            "review_commit": "37691b71b64de03091de9908014da2256c1d2901",
+            "verdict": "CHAT_ACCEPT_BUILD_ONLY",
+            "full_initial": "592_PASS_25_FAIL_MAX_PATH_PRESERVED",
+            "full_final": "617_PASS_PROCESS_ONLY_CORE_LONGPATHS",
+            "manifest_hashes": "18_OF_18_MATCH",
+            "real_host_lifecycle": "NOT_RUN"
+          }
+        },
+        "next_phase": {
+          "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION",
+          "stage": "TEST",
+          "status": "NOT_RUN",
+          "source_result": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+          "requires_fresh_task_prompt_preexec_dispatch": true,
+          "host_mutation": true,
+          "allowed_before_g3": true,
+          "g3_unlocked": false
         }
       },
       "downstream_readiness": {
