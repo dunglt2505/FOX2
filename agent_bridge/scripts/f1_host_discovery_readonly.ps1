@@ -40,11 +40,23 @@ $services = @(Probe {
 $tasks = @(Probe {
     @(Get-ScheduledTask | Where-Object {
         $task = $_
-        $task.TaskName -match '(?i)fox2|agentbridge' -or
-        @($task.Actions | Where-Object {
-            $_.Execute -match '(?i)fox2|agent_bridge' -or
-            $_.Arguments -match '(?i)fox2|agent_bridge'
-        }).Count -gt 0
+        $match = $task.TaskName -match '(?i)fox2|agentbridge'
+        foreach ($action in @($task.Actions)) {
+            if ($null -eq $action) { continue }
+            $executeProperty = $action.PSObject.Properties['Execute']
+            $argumentsProperty = $action.PSObject.Properties['Arguments']
+            $execute = if ($null -ne $executeProperty) {
+                [string]$executeProperty.Value
+            } else { '' }
+            $arguments = if ($null -ne $argumentsProperty) {
+                [string]$argumentsProperty.Value
+            } else { '' }
+            if ($execute -match '(?i)fox2|agent_bridge' -or
+                $arguments -match '(?i)fox2|agent_bridge') {
+                $match = $true
+            }
+        }
+        $match
     } | ForEach-Object {
         [ordered]@{ name = $_.TaskName; state = [string]$_.State }
     })
