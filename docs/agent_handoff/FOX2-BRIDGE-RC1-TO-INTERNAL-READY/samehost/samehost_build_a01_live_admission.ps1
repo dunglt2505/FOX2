@@ -150,7 +150,8 @@ try {
     $ancestorCheck = Run-Tool -File $GitExe -ToolArgs @('-C',$Worktree,'merge-base','--is-ancestor',$MetadataReceiptCommit,$PublicationHead) -TimeoutSeconds 30 -WorkingDirectory $Worktree
     Require ($ancestorCheck.Code -eq 0) 'PUBLICATION_NOT_DESCENDANT_OF_METADATA_RECEIPT'
 
-    $changedPaths = @(Git @('diff','--name-only',$MetadataReceiptCommit,$PublicationHead) -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+    $changedOutput = Git @('diff','--name-only',$MetadataReceiptCommit,$PublicationHead)
+    $changedPaths = @($changedOutput -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
     Require ($changedPaths.Count -eq 1 -and $changedPaths[0] -ceq $ScriptPath) 'PUBLICATION_LINEAGE_NOT_SCRIPT_ONLY'
 
     $scriptBlob = Git @('rev-parse',($PublicationHead + ':' + $ScriptPath))
