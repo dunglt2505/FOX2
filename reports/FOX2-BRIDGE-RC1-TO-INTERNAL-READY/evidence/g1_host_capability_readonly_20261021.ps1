@@ -100,7 +100,7 @@ $ciToolAvailable = [bool]($null -ne $ciTool)
 
 $out = [ordered]@{
     schema = 'FOX2_F1_G1_HOST_CAPABILITY_READ_ONLY_V1'
-    design_source_sha = '98ac60768db260d6f6e46635823c6525f2673e2d'
+    design_source_sha = 'f15f8efba214d0f5a3ca51304ff5127d293356cc'
     mode = 'READ_ONLY_NO_BRIDGE_EXECUTION_NO_POLICY_CHANGE'
     os = $os
     windows_current_version = $currentVersion
