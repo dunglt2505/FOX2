@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "G3_HOST_ENFORCEMENT_AND_G4_ADOPTION_VERIFICATION_REQUIRED_BEFORE_DEPLOY_READY",
-      "blocker": "G3_PRIVILEGED_HOST_AUTHORITY_NOT_GRANTED; G3_HOST_PREEXEC_NOT_RUN; F1_RUNTIME_NOT_ENFORCED; CANARY_HOLD",
-      "as_of": "2026-10-21T16:30:00+07:00",
-      "next_safe_action": "OWNER_EXPLICIT_G3_PRIVILEGED_ISOLATED_HOST_AUTHORITY_REQUIRED; THEN LIVE_SOURCE_RESOLUTION + G3_HOST_PREEXEC + ONE_GOVERNED_G3_EXECUTION",
+      "blocker": "G3_SCOPED_OWNER_AUTHORITY_RECORDED; G3_HOST_PREEXEC_NOT_RUN; ISOLATED_TARGET_NOT_YET_ADMITTED",
+      "as_of": "2026-10-21T16:45:00+07:00",
+      "next_safe_action": "RUN_G3_HOST_PREEXEC_ONLY_ON_ISOLATED_WINDOWS_VM; CHAT_REMOTE_INTAKE_BEFORE_G3_EXECUTION",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -558,20 +558,19 @@
       },
       "g3_entry": {
         "stage": "TEST",
-        "status": "BLOCKED",
-        "evidence": "NON_EXECUTABLE_G3_ENTRY_AND_ACCEPTANCE_GATES_PREPARED",
-        "candidate_path": "docs/architecture/FOX2_BRIDGE_F1_G3_HOST_ENFORCEMENT_TEST_ENTRY_CANDIDATE_20261021.md",
-        "candidate_commit": "f0fcc1bfefa682701f3d9a9f8e0a24d2ab33b071",
-        "governance_head_verified": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
-        "authority": "NOT_GRANTED",
-        "host_preexec": "NOT_RUN",
-        "service_install_start": "NOT_AUTHORIZED_NOT_RUN",
-        "applocker_apply": "NOT_AUTHORIZED_NOT_RUN",
-        "positive_spawn": "NOT_AUTHORIZED_NOT_RUN",
-        "rollback_mutation": "NOT_AUTHORIZED_NOT_RUN",
-        "target": "ISOLATED_WINDOWS_HOST_PREFERRED; OWNER_DAILY_HOST_NOT_AUTHORIZED_AS_G3_TARGET",
-        "blocker": "EXPLICIT_OWNER_G3_PRIVILEGED_ISOLATED_HOST_AUTHORITY_REQUIRED",
-        "next_safe_action": "ON_AUTHORITY: RE_RESOLVE_SOURCE, BIND_TARGET/PACKAGE/POLICY, RUN_G3_HOST_PREEXEC, THEN EXECUTE_NEGATIVES_BEFORE_SINGLE_POSITIVE_FIXTURE"
+        "status": "IN_PROGRESS",
+        "authority": "GRANTED_SCOPED_G3_ISOLATED_HOST_ONLY",
+        "owner_directive_commit": "3dfefb9f18b5634252c9f6da6a795069ea262ce6",
+        "branch": "work/FOX2-BRIDGE-F1-G3-HOST-ENFORCEMENT-20261021",
+        "source_head": "d065186a94ee70303be31d3a08231ace25202cfd",
+        "task_id": "FOX2-BRIDGE-RC1-G3-HOST-A01",
+        "task_sha256": "1676ca5990d9c1808bae70dcaf885a13db04143ca563b61caa6bb43d744872b3",
+        "preexec_runner_sha256": "ac6fc899af2b667535b41230bbbd498c29db79547d68909486d45975030fe4f2",
+        "preexec": "NOT_RUN",
+        "pass_to_execute": false,
+        "host_mutation_started": false,
+        "no_replay_g2": true,
+        "next_safe_action": "RUN_PREEXEC_ONLY_AND_RETURN_RECEIPT_TO_CHAT"
       }
     }
   ]
