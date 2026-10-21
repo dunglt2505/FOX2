@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01",
+  "checked_at": "2026-10-21T17:10:58.0205712Z",
+  "status": "PASS",
+  "blockers": [],
+  "task_branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-20261022",
+  "source_result_base": "9dd91becf47d934183baf147d0a4f03f4bf5933d",
+  "product_source": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+  "publication_head": "7207a3c455b40bd24b71e0cd94c5f42d7e348bd0",
+  "task": {
+    "commit": "aabe81fad8a465ea12a763fd4cccc54670dd707f",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework/task.md",
+    "blob_sha1": "e6503c2a817450f270ab674ce1cd723019961dce",
+    "sha256": "50bf03fc9fdb149dd7b4d0a3edf4bd2acbc26ec0000f39208b17b9d2f7bc2b01"
+  },
+  "prompt": {
+    "commit": "de3f6768fa01b1396b6686f3c06c103669bcd24d",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework/prompt.md",
+    "blob_sha1": "5bd037b3536592d31e68b3b5e5929b84fb48d50f",
+    "sha256": "88359fad2607aeb7669f3678966390a118c131d9849697c24a8505e3d9932dd9"
+  },
+  "route": {
+    "agent": "CODEX",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS",
+    "execution_path": "MANUAL_LOCAL"
+  },
+  "capabilities": {
+    "pwsh7": "PASS",
+    "python": "PASS",
+    "git": "PASS",
+    "codex_login": "PASS",
+    "codex_cli_contract": "PASS",
+    "one_writer": "PASS",
+    "exact_task_prompt": "PASS",
+    "clean_worktree": "PASS",
+    "live_route_admission": "PASS",
+    "dotnet": "PASS",
+    "python_3_13": "PASS"
+  },
+  "observed_versions": {
+    "python": "3.13.15",
+    "pwsh": "7.6.7",
+    "dotnet": "8.0.426"
+  },
+  "live_probe": {
+    "status": "PASS",
+    "exit_code": 0,
+    "marker": "FOX2_LIFECYCLE_WPF_REWORK_A01_ADMISSION_OK",
+    "working_directory_kind": "EMPTY_TEMP_DIRECTORY",
+    "sandbox": "read-only",
+    "approval_policy": "never_via_config_override",
+    "project_files_accessed": false
+  },
+  "implementation_agent_execution_started": false,
+  "dispatch_published": false,
+  "dispatch_consumed": false,
+  "real_host_lifecycle_mutation": false,
+  "g3_mutation": false,
+  "notes": [
+    "PreExec v1 was rejected before execution and is historical non-executable evidence.",
+    "PreExec v2 is the current Source BUILD rework PreExec; no product code changed.",
+    "Live probe verifies pinned CODEX route reachability only.",
+    "Real installed Bridge launch/install/update/uninstall/reinstall remains NOT_RUN.",
+    "Worker/F1/G3/G4/AppLocker/service/ACL mutation remains NOT_RUN.",
+    "Final assignment still requires CHAT remote intake and a fresh executable Dispatch."
+  ]
+}
