@@ -232,12 +232,20 @@
         {
           "commit": "9410edb0d88631c33ffda8494b238ec9f4446dc1",
           "path": "docs/architecture/FOX2_BRIDGE_F1_G2_INTEGRATED_BUILD_SCOPE_CANDIDATE_20261021.md"
+        },
+        {
+          "commit": "2f8fa342613ec7f64204d8e192559847581235e6",
+          "path": "docs/architecture/FOX2_BRIDGE_F1_G2_PREEXEC_CONTRACT_CANDIDATE_20261021.md"
+        },
+        {
+          "commit": "75522a4805784a0fa24f769e62f7a211972ecf23",
+          "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "G2_EXECUTABLE_ENTRY_BLOCKED_BY_OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING; ROUTE_PREEXEC_NOT_RUN; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
-      "as_of": "2026-10-21T10:30:00+07:00",
-      "next_safe_action": "WAIT_FOR_EXPLICIT_LIFT_OR_SPECIFIC_OVERRIDE_OF_CODING_HOLD; THEN_RUN_G2_TASK_SPECIFIC_PREEXEC_AND_PROMPT_BUILDER; NO_DISPATCH_REPLAY",
+      "blocker": "G2_EXECUTABLE_ENTRY_BLOCKED_BY_OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING; TASK_SPECIFIC_PREEXEC_NOT_RUN; ROUTE_NOT_VERIFIED; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
+      "as_of": "2026-10-21T10:45:00+07:00",
+      "next_safe_action": "NO_MORE_EXECUTABLE_G2_ACTION_WHILE_CODING_HOLD_ACTIVE; ON_EXPLICIT_LIFT_CREATE_EXACT_G2_WORKTREE_FROM_4D492E96_THEN_TASK_SPECIFIC_PREEXEC",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -429,6 +437,31 @@
         "agent_started": false,
         "blocker": "OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING",
         "next_safe_action": "EXPLICIT_LIFT_OR_SPECIFIC_OVERRIDE_THEN_TASK_SPECIFIC_PREEXEC"
+      },
+      "g2_preexec_contract": {
+        "stage": "BUILD",
+        "status": "BLOCKED",
+        "evidence": "TASK_SPECIFIC_PREEXEC_CONTRACT_PREPARED; SHARED_BATCH_B_PROFILE_REUSE_FORBIDDEN; CODE_BASE_PROVENANCE_CHECKED",
+        "source_sha": "2f8fa342613ec7f64204d8e192559847581235e6",
+        "planned_branch": "work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+        "planned_base_sha": "4d492e96cd18bc836a48aae7e76ae4ab4fa631a8",
+        "planned_task_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md",
+        "planned_prompt_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/prompt.md",
+        "planned_receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/g2_preflight.json",
+        "route": {
+          "actor": "CODEX",
+          "model": "GPT-6.1 Sol",
+          "thinking": "HIGH",
+          "execution_path": "MANUAL_LOCAL"
+        },
+        "current_shared_bridge_profile": "INCOMPATIBLE_TASK_IDENTITY_FOR_G2_IF_REUSED_UNCHANGED",
+        "preexec": "NOT_RUN",
+        "worktree": "NOT_CREATED",
+        "task_published": false,
+        "prompt_published": false,
+        "agent_started": false,
+        "blocker": "OWNER_EXPLICIT_GPT_6_1_SOL_HOLD_CODING",
+        "next_safe_action": "EXPLICIT_LIFT_OR_SPECIFIC_OVERRIDE_THEN_CREATE_EXACT_WORKTREE_AND_RUN_TASK_SPECIFIC_PREEXEC"
       }
     }
   ]
