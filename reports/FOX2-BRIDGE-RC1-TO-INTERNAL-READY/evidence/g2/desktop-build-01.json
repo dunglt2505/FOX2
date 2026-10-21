@@ -1,0 +1,22 @@
+{
+  "command": [
+    "dotnet",
+    "build",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj",
+    "-c",
+    "Release",
+    "-p:ContinuousIntegrationBuild=true"
+  ],
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+  "environment_overrides": {
+    "bytecode": "disabled",
+    "core.longpaths": "true (per-child only)"
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-21T03:59:17.796370+00:00",
+  "id": "desktop-build",
+  "result": "PASS",
+  "started_at": "2026-10-21T03:59:12.893745+00:00",
+  "stderr_tail": "",
+  "stdout_tail": "  Determining projects to restore...\n  Restored C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021\\agent_bridge\\desktop_app\\src\\FOX2.Bridge.Desktop\\FOX2.Bridge.Desktop.csproj (in 76 ms).\n  FOX2.Bridge.Desktop -> C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021\\agent_bridge\\desktop_app\\src\\FOX2.Bridge.Desktop\\bin\\Release\\net8.0-windows\\FOX2.Bridge.Desktop.dll\n\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:04.56\n"
+}

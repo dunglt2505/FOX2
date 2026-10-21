@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "agent_bridge/tests/test_f1_broker_store.py",
+    "agent_bridge/tests/test_f1_reconcile.py",
+    "agent_bridge/tests/test_runtime_ledger.py",
+    "agent_bridge/tests/test_rc1_launcher.py",
+    "agent_bridge/tests/test_desktop.py",
+    "agent_bridge/tests/test_ops_runner.py",
+    "agent_bridge/tests/test_e2e_runner.py",
+    "agent_bridge/tests/test_installation.py",
+    "agent_bridge/tests/test_rc1_package.py"
+  ],
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+  "exit_code": 1,
+  "finished_at": "2026-10-21T03:41:52.191145+00:00",
+  "id": "regression",
+  "result": "FAIL",
+  "started_at": "2026-10-21T03:41:37.877304+00:00",
+  "stderr_tail": "",
+  "stdout_tail": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n.......................F................................                 [100%]\n================================== FAILURES ===================================\n_ test_stable_bootstrap_external_process_bounded_arguments_and_environment[False] _\n\ntmp_path = WindowsPath('//?/C:/Projects/FOX2-worktrees/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021/agent_bridge/test_artifacts/4c7e2b53535643399408f4f60566a8b6')\nextra_argument = False\n\n    @pytest.mark.parametrize('extra_argument', [False, True])\n    def test_stable_bootstrap_external_process_bounded_arguments_and_environment(tmp_path, extra_argument):\n        root = tmp_path/'owned'\n        version = root/'versions'/('a'*64)\n        site = version/'runtime/Lib/site-packages'\n        package = site/'fox2_agent_bridge'\n        package.mkdir(parents=True)\n        (version/'receipt.json').write_text('{}')\n        (root/'current.json').write_text(json.dumps({'package_sha256': 'a'*64}))\n        (package/'__init__.py').write_text('')\n        # A boundary witness, independent of Bridge's deletion implementation.\n        (package/'__main__.py').write_text('''import json, os, sys\n    from pathlib import Path\n    def main(args):\n        assert args == ['uninstall']\n        root = Path.cwd()\n        assert not Path(sys.executable).resolve().is_relative_to(root/'versions')\n        assert not {'PYTHONPATH','PYTHONHOME'} & {k.upper() for k in os.environ}\n        print(json.dumps({'external_interpreter': True, 'cwd_outside_versions': True}))\n        return 0\n    ''')\n        (root/'uninstall.py').write_text(module.UNINSTALL_BOOTSTRAP)\n        (root/'uninstall.ps1').write_text(module.UNINSTALL_LAUNCHER.replace(\n            '__BASE_PYTHON__', str(Path(module.sys._base_executable).resolve()).replace(\"'\", \"''\")))\n        env = {**os.environ, 'PYTHONPATH': 'invalid-source', 'PYTHONHOME': 'invalid-home'}\n        if extra_argument:\n            args = [module.sys._base_executable, '-I', '-B', str(root/'uninstall.py'), '--arbitrary-root']\n        else:\n            args = [shutil.which('pwsh'), '-NoProfile', '-NonInteractive', '-File', str(root/'uninstall.ps1')]\n        result = subprocess.run(args, env=env, capture_output=True, text=True, timeout=30)\n        if extra_argument:\n            assert result.returncode == 2 and not result.stdout\n            assert json.loads(result.stderr)['status'] == 'ERROR'\n        else:\n>           assert result.returncode == 0, result.stderr\nE           AssertionError: SecurityError: AuthorizationManager check failed.\nE             \nE           assert 1 == 0\nE            +  where 1 = CompletedProcess(args=['C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.EXE', '-NoProfile', '-NonInteractive', '-File', '\\\\\\\\?\\...566a8b6\\\\owned\\\\uninstall.ps1'], returncode=1, stdout='', stderr='SecurityError: AuthorizationManager check failed.\\n').returncode\n\nagent_bridge\\tests\\test_installation.py:238: AssertionError\n=========================== short test summary info ===========================\nFAILED agent_bridge\\tests\\test_installation.py::test_stable_bootstrap_external_process_bounded_arguments_and_environment[False]\n1 failed, 199 passed in 13.85s\n"
+}

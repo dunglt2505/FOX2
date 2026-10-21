@@ -1,0 +1,16 @@
+{
+  "command": "read-only diagnostic of existing failed PreExec fixture",
+  "exit_code": 0,
+  "result_exit": 31,
+  "failure": "GIT_OPERATION_FAILED",
+  "failed_git": [
+    {
+      "args": [
+        "show",
+        "227c86f353df5331929df83ff18e87470eb31654:docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md"
+      ],
+      "exit_code": 128,
+      "stderr": "fatal: failed to stat '227c86f353df5331929df83ff18e87470eb31654:docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md': Filename too long\n"
+    }
+  ]
+}

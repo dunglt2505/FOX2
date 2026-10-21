@@ -1,0 +1,12 @@
+{
+  "changed_sha256": "PASS",
+  "command": "python evidence/g2/validate_result.py",
+  "credential_pattern_scan": "PASS",
+  "evidence_sha256": "PASS",
+  "exit_code": 0,
+  "host_enforcement": "NOT_RUN_G3",
+  "implementation_unchanged": "PASS",
+  "k1": "PASS",
+  "observed_at": "2026-10-21T04:06:26.540415+00:00",
+  "schema": "PASS"
+}

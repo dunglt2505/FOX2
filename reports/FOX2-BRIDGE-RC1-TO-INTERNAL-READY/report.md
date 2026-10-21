@@ -1,108 +1,169 @@
-# FOX2 Bridge — CHAT direct offline engineering progress (F1 package provenance)
+# FOX2 G2 Integrated F1 Build A01 — Agent result
 
-**Date:** 2026-10-21 ICT. **Existing Whole-WP:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`. **Stage:** BUILD / PACKAGE_PROVENANCE_SOURCE_AND_TEST_SUBGATES_PASS / F1_AUTHORITY_BLOCKED. **Actor:** CHAT direct-first, not CODEX/WORK Result. **Source baseline:** immutable `c3af81429b389bb3301effc96c68fbf88744aeff` containing previously accepted F0 source `611ec26c28484de740e963d86de6b00946f1492d`. **Work branch:** `work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021`. **Last code+test commit:** `ecaff9c62736560d0dc8e4606052c302ae4a4c5a`. No replay of consumed Attempt-001.
+## R01 — Identification and disposition
 
-## Implemented — bounded F1 package chain dependency
+Project/WP/task/change: FOX2 / FOX2-BRIDGE-RC1-TO-INTERNAL-READY / FOX2-BRIDGE-RC1-G2-A01 / G2-F1-INTEGRATED-A01.
+CODEX `gpt-6.1-sol`, reasoning `high`, MANUAL_LOCAL, FULL_ACCESS technical sandbox. Active turn context observed at 2026-10-21T03:31:22.526Z; host: Windows-11-10.0.26300-SP0. One implementation attempt, no Dispatch/Agent retry or model substitution. Usage NOT_MEASURED.
 
-1. `agent_bridge/scripts/build_user_package.py` (`NECESSARY_DEPENDENCY`): resolves all five runtime wheel versions using the exact isolated selected build interpreter, not an unrelated host interpreter. Rejects non-isolated/unproven/incomplete dependency metadata. Adds a source commit resolver refusing uncommitted packaged source paths; records `source_git_commit`, the actual `source_files` SHA-256 inventory and `wheel_source_modules` verified byte-for-byte against the staged Python modules along with existing `source_sha256` in the manifest. This is build provenance, not a signature or installed authorization.
-2. `agent_bridge/tests/test_rc1_package.py` (`REQUESTED / NECESSARY_DEPENDENCY`): sixteen new negative/positive synthetic tests of isolated dependency discovery, selected build-Python/platform metadata, incomplete/host-like environments, uncommitted source, unavailable Git identity, wheel module mismatch and missing module. Does not launch installed Bridge or manipulate real ledger.
-3. `.github/workflows/fox2-bridge-f1-offline-ci.yml` (`JUSTIFIED_GENERATED`): exact-branch Windows hosted isolated test, read-only checkout token, Python 3.13 syntax check, affected package tests and full current-source Bridge suite. No `main`, no broker/provider, no installation or runtime activation.
+Disposition at report assembly: LOCAL_ONLY, with G2 source/build checks completed for independent CHAT review after actual push. No self-acceptance. F1 Owner-host runtime remains DENY; G3/G4 enforcement is NOT_RUN_G3. This result does not establish INTERNAL_FOX2_BRIDGE_READY.
 
-## Execution and acceptance matrix
+## R02 — Authority and PreExec
 
-| Gate | Exact current state |
+The full immutable task was read before implementation. The exact G2 PreExec at `preexec/g2_preflight.json` was PASS at 2026-10-21T03:27:17.603284+00:00, with pinned CODEX/model/high/FULL_ACCESS, this non-main worktree, NONE_OBSERVED writer competition, and all three dispatch/start flags false. Active session metadata independently confirmed the model, high effort, danger-full-access and approval=never. Other active thread metadata used the project-chat workspace; no competing G2 material writer was observed.
+
+Scoped Owner G2 hold-lift and accepted G1 design are controlling. Policy 2.0.0, Dictionary 1.3, Routing 1.4.0 and Protocol 12 bytes were checked against the task's pinned commits/blobs. Bridge machine Dictionary 1.2 compatibility remains only the separately published scoped receipt. BRD-09/TechSpec remain globally candidate; neither is promoted to EFFECTIVE. Scope and routing checks are PASS for this task only. No STOP condition was bypassed.
+
+## R03 — Exact immutable inputs and SHAs
+
+- Start SHA: `94c936b1d93bbfcee5818db24dd75bd9bb32733f`.
+- Task publication: `653e49fc0d0f15981bf230995925c89d6994723d`; blob `7f0b82e56f7bfa001e40bb176bb26b0ef918c609`.
+- Task base/Owner scoped grant: `fe926ad24d89231e5cf80f0f48ea44eb36887834`.
+- PreExec source head: `ca684b09b3eaea7fa2ce7fc7983f890384202296`; task bytes equal publication bytes; this source is an ancestor of the start SHA.
+- Final implementation SHA: `66e8f0a8b3a93140b5f908628b55ac965e15b96e`. The final result/report commit containing this document cannot self-reference its own SHA; its observed remote SHA is supplied outside the committed report after push.
+- Source/authority distinctions and full path/commit/blob/SHA-256 observations: `evidence/g2/source_readback.json`.
+
+## R04 — Implemented behavior and limits
+
+Implemented a LocalSystem/SCM-only Windows authority boundary, explicit-DACL local named pipe, OS-derived caller identity/token/session/PID, fixed protected global store, boot epoch fencing, durable claim and one-use spawn intent, service-owned suspended CreateProcessAsUser/Job creation and guarded resumption, lease/revoke/clock/policy/service/source/package checks, and idempotent informational outcomes. Revocation durably tombstones the sealed adoption-plan digest, so restart/rollback cannot reactivate an unchanged plan. No client bearer launch token or caller-side installed spawn fallback exists.
+
+Launcher starts only presentation; ledger retains installed direct-claim denial and now closes installed alternate-database and pre-spawn bypasses. Installed/configured E2E delegates before local creation/claim/adapters; Ops/Desktop/App use that runner. Installed smoke requires a staged service task. Existing offline reconciliation and F0 primitives remain in use. Runtime/SCM configuration drift or missing bindings deny; failed revocation storage still closes jobs.
+
+Deterministic AppLocker artifact support enforces EXE/Script/MSI/DLL collections, uses exact hashes/SID scopes, closes copied legacy fixtures without path trust, includes service/system extensions, and distinguishes raw versus AppLocker hashes. Unsupported Python-source rules fail: interpreter identity must be fenced. Packaging includes F1 modules and read-only inventory support with DENY_PENDING_G3_G4. No new product dependency was introduced.
+
+Details, protected-plan contract, explicit 60-second lease bound, interpreter constraints, operational limits and primary API references are in `evidence/g2/implementation_notes.md`. The actual full offline user-package build is NOT_RUN: no provisioned isolated setuptools/build/wheel environment was present. Package/source contract tests and static checks ran; no release package was fabricated. A real non-elevated Windows desktop build ran separately.
+
+## R05 — Changed paths and K1
+
+Every material hunk is classified in `evidence/g2/k1.json`; UNEXPLAINED=0. New source/test files are entirely REQUESTED. Fixture-name shortening is NECESSARY_DEPENDENCY for this exact long Windows path. Result receipts are JUSTIFIED_GENERATED. No governance/BRD/TechSpec or unrelated engine edit occurred.
+
+| Path | K1 classification |
 |---|---|
-| Git source/changed-path candidate | `PUBLISHED_NONMAIN / CHAT_READBACK_PASS` |
-| Added automated tests | `16_NEW_CASES_COMMITTED; 23_PACKAGE_TESTS_PASS; 444_FULL_REGRESSION_PASS` |
-| GitHub Actions Windows isolated test | `RUN_39512223944_COMPLETED_SUCCESS_WINDOWS; COMMIT_f035eaa147be3cae4abac66ad1a65a97978a1889` |
-| Offline package archive | `NOT_RUN`; F1 claim authority is not complete so this is not a release package |
-| F1 durable old-executor retirement enforcement | `NOT_IMPLEMENTED/NOT_ATTESTED`; no false positive unblocking token |
-| F0 six protected negatives, historic C3/F0 | `HISTORICAL_ACCEPTANCE_PRESERVED; FRESH_444_FULL_PYTHON_TESTS_PASS_ON_f035eaa` |
-| Installed module adoption, Worker lease, Canary009, Internal Ready | `HOLD / NOT_RUN` |
-| Current CODEX `unelevated` write boundary | `UNSAFE_OUTSIDE_WRITE_ALLOWED`; **NO-GO** for FOX2 source coding on that host |
-| CHAT acceptance of this partial candidate | `SCOPED_PACKAGE_PROVENANCE_SOURCE_TEST_PASS_ONLY; F1_FULL_BUILD_HOLD` |
+| `agent_bridge/scripts/build_user_package.py` | REQUESTED |
+| `agent_bridge/scripts/f1_inventory.ps1` | REQUESTED |
+| `agent_bridge/scripts/f1_policy_artifact.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/app.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/desktop.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/e2e_runner.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_authority.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_broker_store.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_client.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_policy.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_protocol.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_service.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/f1_windows.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/installation.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/launcher.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/ledger.py` | REQUESTED |
+| `agent_bridge/src/fox2_agent_bridge/startup.py` | REQUESTED |
+| `agent_bridge/tests/test_f1_authority.py` | REQUESTED |
+| `agent_bridge/tests/test_f1_consumers.py` | REQUESTED |
+| `agent_bridge/tests/test_f1_host_fence.py` | REQUESTED |
+| `agent_bridge/tests/test_f1_policy.py` | REQUESTED |
+| `agent_bridge/tests/test_f1_windows.py` | REQUESTED |
+| `agent_bridge/tests/test_installation.py` | NECESSARY_DEPENDENCY |
+| `agent_bridge/tests/test_rc1_launcher.py` | REQUESTED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/command_inventory.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/delivery_checks.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-01.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-02.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-01.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-02.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-03.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-04.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-02.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-03.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/implementation_notes.md` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/k1.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/preexec_diagnostic.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-01.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-02.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-03.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-04.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-05.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-06.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/result_preparation_diagnostic.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.py` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-01.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-02.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-03.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static_checks.py` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py` | NECESSARY_DEPENDENCY |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-01.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-02.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json` | JUSTIFIED_GENERATED |
+| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md` | REQUESTED |
 
-This progress is an independently traceable engineering update within the same Whole-WP, **not** a new WP, Agent task/attempt, executable Dispatch, ACCEPT_BUILD or claim-authority release. Source provenance fields in a manifest do **not** prove source binaries are signed/OS-retired; actual host-based legacy retirement and lease guards are still needed before positive claims.
+`ops_runner.py` and `f1_reconcile.py` were inspected and reused unchanged: Ops calls the gated runner; reconciliation keeps WAL/SHM/missing-root/overlap HOLD behavior. `install_user.ps1` has no service/policy activation path added.
 
-**NEXT_SAFE_ACTION:** preserve Windows CI pass against immutable f035eaa; do not build/install an F0-only package. Retain F0 deny. Continue integrated F1 contract/host fencing via an actually secure isolated executor with true writer restrictions. No installed Bridge, old writer, ledger or UI E2E lifecycle touched. Keep F1 Windows-installed gate separate.
+## R06 — Commands actually run
 
-## CI incident and fresh execution (no historical PASS laundering)
+Final checks: 61 passed in 2.47s; 200 passed in 13.14s; 557 passed in 208.24s (0:03:28); 3 passed in 0.51s.
+Required final order: focused → affected regression → full supported suite → static/package contract → native Windows tests → Windows build. Exact bounded commands, UTC start/end, exit codes and output tails are in each JSON receipt. Every earlier failed run remains recorded; no historical CI substituted for new source tests.
 
-- Prior run `39465107989` against source `15f56336...`: **FAIL** at new package tests due to syntax corruption introduced by CHAT during a Git text splice (`pydef` and a broken `TemporaryDirectory` line); 11 failed, 7 passed, full regression SKIPPED. Failure preserved as factual evidence.
-- Fresh run `39511855970` against source `ecaff9c62736560d0dc8e4606052c302ae4a4c5a`: immutable checkout and Python 3.13 install PASS; **syntax and affected package tests PASS** at last review; **full current-source Bridge regression FAILED**, 397 PASS / 4 FAIL / 43 ERROR because shallow Git checkout omitted historical source objects and the Windows owner-layout fixture was absent; this is preserved as a CI infrastructure failure, not a test PASS.
-- No package archive produced; no Windows installed Bridge or legacy worker interacted with; F1 positive authority and runtime admission remain DENY/HOLD.
+| Receipt | Exit | Result | Summary |
+|---|---:|---|---|
+| `desktop-build-01.json` | 0 | PASS | Time Elapsed 00:00:04.56 |
+| `desktop-build-02.json` | 0 | PASS | Time Elapsed 00:00:00.97 |
+| `focused-01.json` | 0 | PASS | 48 passed in 2.10s |
+| `focused-02.json` | 0 | PASS | 51 passed in 2.04s |
+| `focused-03.json` | 0 | PASS | 60 passed in 2.38s |
+| `focused-04.json` | 0 | PASS | 61 passed in 2.47s |
+| `full-01.json` | 1 | FAIL | 26 failed, 518 passed in 181.63s (0:03:01) |
+| `full-02.json` | 0 | PASS | 556 passed in 217.79s (0:03:37) |
+| `full-03.json` | 0 | PASS | 557 passed in 208.24s (0:03:28) |
+| `regression-01.json` | 1 | FAIL | 7 failed, 193 passed in 13.72s |
+| `regression-02.json` | 1 | FAIL | 1 failed, 199 passed in 13.85s |
+| `regression-03.json` | 0 | PASS | 200 passed in 14.06s |
+| `regression-04.json` | 0 | PASS | 200 passed in 15.51s |
+| `regression-05.json` | 0 | PASS | 200 passed in 14.16s |
+| `regression-06.json` | 0 | PASS | 200 passed in 13.14s |
+| `static-01.json` | 0 | PASS | {"syntax": "PASS", "allowlist": "PASS", "diff_check": "PASS", "powershell_scripts_parsed": 2, "wheel_source_contract_modules": 40, "actual_offline_package_build": "NOT_RUN_NO_ISOLATED_BUILD_ENV", "effective_policy_mutation": false, "service_install_start": false} |
+| `static-02.json` | 0 | PASS | {"syntax": "PASS", "allowlist": "PASS", "diff_check": "PASS", "powershell_scripts_parsed": 2, "wheel_source_contract_modules": 40, "actual_offline_package_build": "NOT_RUN_NO_ISOLATED_BUILD_ENV", "effective_policy_mutation": false, "service_install_start": false} |
+| `static-03.json` | 0 | PASS | {"syntax": "PASS", "allowlist": "PASS", "diff_check": "PASS", "powershell_scripts_parsed": 2, "wheel_source_contract_modules": 40, "actual_offline_package_build": "NOT_RUN_NO_ISOLATED_BUILD_ENV", "effective_policy_mutation": false, "service_install_start": false} |
+| `windows-01.json` | 0 | PASS | 3 passed in 0.50s |
+| `windows-02.json` | 0 | PASS | 3 passed in 0.51s |
 
-## Fresh immutable Windows CI evidence — PASS (2026-10-21 ICT)
+Earlier installation failures were Windows MAX_PATH in fixture paths; extended-path spelling then failed PowerShell script authorization, so the fixture uses a shorter unique name in the same directory. The first full run exposed Git `show commit:path` MAX_PATH in unchanged PreExec fixtures and a missing Utility module import in the new inventory helper. Git core.longpaths is now per-test-child only; no host Git setting changed. The helper imports fixed Windows module paths. Read-only diagnostics are retained in `preexec_diagnostic.json`.
 
-- Final branch source tested: `f035eaa147be3cae4abac66ad1a65a97978a1889`; this is descendant of package/code commit `ecaff9c62736560d0dc8e4606052c302ae4a4c5a` with **only Windows CI workflow configuration amended**.
-- GitHub Actions workflow run `39512223944` / Windows job `118935781394`: `completed/success`. All checkout, Python 3.13, pinned source SHA, full-history fixture, dependency install and test steps PASS.
-- Actual Windows log: `23 passed in 0.30s` (affected package tests); `444 passed in 179.62s` (complete `agent_bridge/tests`); no skips/failures/errors reported in these final two test summaries. The full suite includes the existing F0 protection test file but this report does not claim Windows installed/E2E proof.
-- The preceding failure against `ecaff9c` is preserved. A GitHub Actions fix changed checkout from shallow to full source history, and created an **isolated CI-only** `C:\\Projects\\FOX2` worktree for historical source-bound tests, matching the known successful runner pattern. Neither file was changed in a real Owner Windows host.
-- `RESULT_CLASS = CHAT_DIRECT_BUILD_SUBGATE_SOURCE_TEST_ACCEPTANCE`, **NOT** F1 authority implementation/production package/adoption/release. Package archive `NOT_RUN`, host retirement proof `NOT_ATTESTED`, Canary HOLD.
+## R07 — Security/replay/concurrency acceptance
 
-## Ephemeral Windows package construction — new source-bound CI gate
+| Requirement | G2 result | Evidence |
+|---|---|---|
+| Service absent, AppIDSvc/policy unavailable/drift, SCM/runtime drift → DENY | PASS (source plus native absence/ACL/pipe tests) | final focused, native Windows |
+| Forged caller/task/source/package/actor/nonce/epoch → DENY | PASS | focused protocol/authority |
+| Same dispatch concurrency, global consumed identity | PASS: 32 concurrent requests, one service creation/consumed identity | focused authority; existing broker regressions |
+| Claim/intent before creation; ambiguous spawn consumed | PASS | focused persisted-intent assertions |
+| Restart/revoke/lease expiry/clock rollback; durable heartbeat floor | PASS | focused authority/store |
+| Launcher/Desktop/App/Ops/E2E cannot bypass service | PASS | focused consumers; regression |
+| Copied legacy/current identity and interpreter-SID artifact model | PASS (model only) | focused policy |
+| WAL/SHM/missing roots/manual overlap and frozen F0 negatives | PASS | affected/full suites |
+| Rollback primitive revokes and preserves consumed/tombstones | PASS (source fixture); installed rollback NOT_RUN_G3 | focused authority |
+| Changed scripts/module packaging/non-activation/allowlist | PASS | static/package contract |
+| Effective AppLocker/LocalSystem spawn/Owner-host installation | NOT_RUN_G3 | intentionally outside G2 |
 
-- Commit `6afd86841d7f3d2677a2a657201e0829cc671ba3` extends the same branch's isolated Windows workflow after the existing package tests and full regression.
-- The added gate provisions a Python 3.13 virtual environment, resolves five runtime dependencies in that interpreter, uses .NET 8 to publish a Windows self-contained WPF Desktop, builds the wheel, verifies exact staged source-module bytes against wheel entries, and constructs **one** deterministic ZIP candidate.
-- It checks the receipt SHA-256 against the actual archive, `manifest.source_git_commit` against the workflow checkout, source module inventory and Desktop contents. Archive remains inside temporary CI runner storage and is **not uploaded, installed, activated, released or attested as F1**.
-- The produced archive is explicitly named `FOX2_RC1_F0_DENY_CI_QUARANTINE.zip`. It is **not** a complete F1 positive-authority package. Its creation must not clear the host old-writer retirement blocker or any installed/Canary gate.
-- CI run `39517792799` / job `118954416543` at source `6afd868`: **COMPLETED/SUCCESS**. Windows CI logs attest 23 package tests PASS, 444 full Bridge Python regression PASS, and quarantined package build PASS. Package SHA-256: `5691a0d39873e9465ff6595a76ec0817013e55920440ec944e2dd9319dfa1112`; manifest `source_git_commit=6afd86841d7f3d2677a2a657201e0829cc671ba3` verified by workflow. This package was ephemeral in CI, not uploaded or installed. Previous `39512223944` remains an independent 23+444 source/test PASS only.
+## R08 — Evidence inventory
 
-## Package gate acceptance boundary
+`evidence_manifest.json` follows Result Schema v2 and contains evidence paths, raw SHA-256, command statuses and acceptance links. Evidence is bounded to `evidence/g2/`. Failure receipts contain synthetic test diagnostics and ordinary local paths, without real credentials or account tokens. Source readback is byte proof plus the supplied scoped task authority, not a global release certificate.
 
-**ACCEPT (scoped)**: one Windows CI-only F0-default-DENY source-bound package was constructed and its actual SHA-256, receipt, module inventory, Desktop publication and source commit checked at run `39517792799`. Source/test `23 + 444 PASS` against exact `6afd868`. This is not an F1 positive-authority implementation, no installed-runtime adoption, no persisted downloadable archive, no independent Windows host retirement certificate and no Canary permission. **Whole-WP remains BUILD BLOCKED / F1 HOST AUTHORITY NOT_ATTESTED.**
+## R09 — Git delivery
 
-## F1 host authority design and adversarial regression extension (2026-10-21)
+Repository `dunglt2505/FOX2`; branch `work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021`; exact worktree `C:\Projects\FOX2-worktrees\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021`. Code and report publication owner is AGENT. At report assembly the result is LOCAL_ONLY. After actual push and remote SHA readback the external pointer is PUSHED_UNREVIEWED. No PR, merge, main write or self-acceptance.
 
-- Test source commit `018d947619b26d9f61114d48fdfc380c5211a4a8` adds two synthetic negative/hazard cases in `agent_bridge/tests/test_runtime_ledger.py`: (a) forged installed-root SQLite `SINGLE_ROOT`/retirement/epoch metadata cannot grant a direct claim; (b) an unfenced legacy ledger can independently claim an ID while the installed current root denies it. This latter counterexample is a **known old-executor risk**, not a desired positive F1 acceptance.
-- Design evidence: `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md` at commit `ea33d368034d112edfe964b0ccd882526f7fca52`, specifies mandatory independently OS-enforced old-executor retirement, authenticated host trust anchor, single global claim namespace, live lease, anti-rollback and negative evidence. Design status **NOT_ATTESTED**.
-- CI `39518762540` / job `118957198091` at test source `018d947`: **COMPLETED/SUCCESS**. Exact Windows job logs show 23 package tests PASS and **446 full Bridge regression tests PASS** (includes the two new adversarial cases), followed by isolated Windows package construction PASS. Quarantined archive SHA-256 `26ad584902bd62fe271a93fedcbc09be8286311d6ed3e00acf91ced5811ff195`, source manifest commit `018d947619b26d9f61114d48fdfc380c5211a4a8`. No installed adoption, positive F1 authority or Canary permission.
-- No positive F1 authority, installed adoption, service, real host ledger, legacy process, Canary or LIVE access was attempted.
+## R10 — Host-only gaps and boundaries
 
-## Local pre-spawn PAUSE/STOP guard — scoped offline acceptance (2026-10-21)
+All elevated/host enforcement tests are NOT_RUN_G3: effective AppLocker deployment and full OS/dependency inventory; copied/interpreter/shell/DLL bypass closure on Windows; LocalSystem child creation with real user credentials; service crash/reboot/logoff and lifetime behavior; protected-root attack probes; installed rollback/reinstall; G4 Owner-host adoption. Source/native non-elevated tests are not enforcement certification.
 
-- Source `9bcefa500f242ccbbc8ff11f5ce2647e166f29da` adds `SQLiteLedger.spawn_permitted()` fail-closed on corrupt/missing control payload, and rechecks worker controls and supervisor callback immediately before the paid Agent adapter call in `BridgeE2ERunner.run_once`.
-- A PAUSE/STOP or malformed state **after a durable claim but before Agent spawn** produces `AGENT_NOT_STARTED`, prevents adapter invocation, and retains the consumed dispatch ID. No automatic retry/replay.
-- 7 new parameterized offline tests cover post-claim PAUSE/STOP/malformed state and invalid control payload variants.
-- Windows CI `39519781500` / job `118960730105`: **COMPLETED/SUCCESS**. Logs show 23 package tests PASS, **453 full Bridge regression tests PASS**, and quarantined F0 DENY package build PASS. Package SHA-256 `e8fbffb04f9c4da7726e3bb3ef85cee358761e2e8547398d743765c81addde51`, source commit `9bcefa500f242ccbbc8ff11f5ce2647e166f29da`.
-- This is an **additional local guard only**, with a remaining time-of-check/time-of-use race and no independently OS-enforced legacy retirement or host lease. **F1 positive claim authority remains NOT_IMPLEMENTED**. Package not persisted/installed; Canary HOLD.
+Confirmed for this attempt: no AppLocker policy installed/applied; no authority service installed or started; no elevation; no scheduled-task mutation; no main/merge/deploy/provider/trading-broker/Canary/LIVE action. F1 positive Owner-host authority remains DENY. The service's protected state is independent of per-user uninstall; privileged G3 rollback must revoke authority and retain the broker store, not delete or recreate consumption.
 
-## F1 global broker storage core — offline implementation, host boundary still blocked
+## R11 — Attempt accounting
 
-- Source `73df64a14b1ab496ffe3524b923e6abb2b4ad253`: `agent_bridge/src/fox2_agent_bridge/f1_broker_store.py` adds an **unwired**, deny-by-default broker SQLite core with atomic global consumed IDs, historical ID import before authority provisioning, epoch/package binding, bounded leases, revocation, rollback rejection, and service-side spawn lease checks.
-- Source `901153cb6ec450c2c357de2c4c8ba02035b54523`: `agent_bridge/tests/test_f1_broker_store.py` adds six offline tests, including a 20-contender concurrent claim against the same SQLite file, restart/no-replay, historical import, revocation, expiry and epoch rollover.
-- Source `324f93ca709c4f29a05b5043e34397664301eeb8` strengthens quarantined Windows package CI to require exact `f1_broker_store.py` module provenance in the built wheel.
-- **Not a privileged Windows service:** provisioning and claim methods are intentionally **not connected** to desktop, installed ledger or Agent launch. An ordinary process can instantiate this class; therefore this code is not a trust anchor. Production F1 requires a separately installed privileged broker with authenticated IPC, OS ACLs, durable legacy-executor retirement, trusted time and service-owned spawn. These host-specific gates are `NOT_ATTESTED`.
-- Windows CI `39520823626` / job `118964023254` at source `324f93ca709c4f29a05b5043e34397664301eeb8`: **COMPLETED/SUCCESS**. Exact Windows logs show **23 package tests PASS and 459 full Bridge regression tests PASS** (including six F1 broker storage tests). Quarantined F0 DENY archive built with required F1 broker module wheel provenance. SHA-256 `b02127d251ceede406c5c427ca3536706994fccf068234997ebfbfe43051e4aa`. No Windows privileged broker, trusted host retirement, live IPC, installed adoption, positive claim or Canary permission.
+A01 implementation attempts=1; Dispatch retries=0. Internal test/fix/recheck cycles are recorded above and are not Agent replays. No paid Agent readiness probe, nested implementation Agent or model substitution was launched by this implementation session. Tokens/credits NOT_MEASURED.
 
-## F1 cross-root consumed-ID reconciliation — offline code candidate (2026-10-21)
+## R12 — CHAT intake
 
-- Source `a1d7db98b4166ede995ab65466f63e7360ad8728`: `f1_reconcile.py` and synthetic `test_f1_reconcile.py` implement read-only two-root inventory, manual consumed markers, SHA-256 fingerprint, cross-root duplicate/alias rejection, malformed/orphan execution and review-event rejection, and immutable SQLite reads with fail-closed WAL/SHM sidecar checks.
-- Scope: offline reconciliation helper only; caller-supplied `inventory_complete` is **not authenticated** and cannot certify that all roots or marker stores were discovered. A privileged host must independently fence writers, checkpoint WAL, verify root closure and independently attest inventory before broker provisioning. This source is **not wired** into installed Bridge, `claim_dispatch` or the broker service.
-- Windows CI for final code `a1d7db98b4166ede995ab65466f63e7360ad8728`: run `39521960900`, job `118967655678` **COMPLETED/SUCCESS**. Exact Windows logs show **23 package tests PASS and 476 full Bridge regression tests PASS** (17 new F1 reconciliation cases). Quarantined F0 DENY package built with exact F1 reconciliation module wheel provenance; archive SHA-256 `15e76da8099f1034233727b67d7e8198fef2ce0c7d3cc572e713126e020ab9a2`. No privileged host attestation, installed adoption or positive claim permission.
-- Release gates unchanged: `F1_HOST_TRUST=NOT_ATTESTED`, `F1_POSITIVE_AUTHORITY=NOT_IMPLEMENTED`, `INSTALLED=NOT_RUN`, `CANARY=HOLD`.
-
-## F1 broker durable-time and Windows host discovery — scoped CHAT direct acceptance
-
-- Code source `008922b1e0567adafdccfd5dc6a003283335e906`: F1 broker SQLite storage now persists `authority.time_floor` across restart and epoch transitions, rejects previously observed clock rollback, advances the floor even on otherwise denied but syntactically valid claims/spawn checks, migrates older offline broker schemas without resetting authority, and explicitly closes all SQLite connections. The caller's `now` **must** originate from a future independently trusted Windows service; this module does not create a trusted clock or IPC security.
-- Added six offline tests and corrected one historical test that previously used a non-monotonic synthetic clock; lease-expiry and live-revocation are checked independently. The initial Windows CI `39526683053` was **FAIL (480 PASS, 1 FAIL)** on the stale historical fixture. This is preserved as a real failed attempt, not recast as PASS.
-- New `agent_bridge/scripts/f1_host_discovery_readonly.ps1` inventories potential FOX2 Windows services, scheduled tasks, processes, startup and Run entries, and available code-integrity observations without mutating services, tasks, registry, ACLs, files or installed Bridge. Its JSON deliberately declares `durable_legacy_retirement_verified=false`, `privileged_broker_verified=false`, `positive_claim_authority=DENY`, `canary=HOLD`. The Windows CI probe runs **on the ephemeral GitHub runner only**; the Owner host has **NOT_RUN** and no privileged attestation exists.
-- Final Windows CI `39527183226` / job `118984488068` at immutable source `008922b1e0567adafdccfd5dc6a003283335e906`: **COMPLETED/SUCCESS**, **23 package tests PASS**, **482 full Bridge regression tests PASS**, read-only host discovery guard PASS, source-bound quarantined F0 DENY package PASS, SHA-256 `368a434f5da79eb0c3ba3dab919f3913913512ff42302fcdc9d3f4f84d2d086d`. Package was not retained as an installable release or installed on Owner host.
-- **CHAT acceptance:** `ACCEPT_SCOPED_OFFLINE_F1_DURABLE_TIME_AND_HOST_DISCOVERY_ONLY`. F1 Windows service, OS-enforced legacy retirement, authenticated IPC, service-owned Agent spawn, live host clock, positive installed claim and Canary remain `NOT_IMPLEMENTED / NOT_ATTESTED / HOLD` as applicable.
-
-## StrictMode ScheduledTask optional-property correction — 2026-10-21
-
-**Current scoped correction:** code `442721769dcca2643e111b6fefc16f2a2924cc94`, precheck/task `a018bd9a539c43a377e00c71e886f3c08b46eb59`, baseline `434276765b2d09dbf8bf3a74716f40c20c878083`, same non-main F1 integrated branch. Owner's current explicit instruction authorizes this bounded fix/test/result scope. Prior model/coding holds and unsafe unelevated Agent route are not reused or generalized into new Agent rights. CHAT directly authored candidate bytes and ran mocked tests; no new Agent assignment, executable Dispatch, consumed attempt or model switch.
-
-- **REQUESTED code hunk:** inspect each action's `PSObject.Properties['Execute']` / `['Arguments']` before reading values and skip null actions. Original name/Execute/Arguments matching patterns and JSON schema remain intact. This prevents StrictMode errors on non-exec/partial actions from making the outer Probe discard subsequent matching tasks. No host-writing commands or authority grants added.
-- **Regression:** nine parameterized synthetic task cases plus access-denied and static read-only guards. Tests replace all host-facing discovery commands; they assert later matches survive opaque/null/partial actions, state/name results and output privacy remain correct, and all F1 flags remain false / DENY / HOLD.
-- **Red control:** identical final tests against the original immutable script produced **6 failed / 5 passed**, exit 1. This is expected evidence that the regression catches the original defect. **Fixed local Windows candidate: 11 passed / 0 failed / 0 errors / 0 skipped**, exit 0, PowerShell 7.6.7, Python 3.13, pytest 8.3.5. Exact script/test bytes were then remote-read back from the code commit. Development fixture errors and corrections are preserved in `evidence/f1_strictmode_20261021/test_summary.json` and are not recast as passes.
-- **Governance/source:** live Registry on the named Owner release branch at `d34da1e3b4918a902646621b487ca8ad3e05b0e0` matches the previously published Registry blob. Policy 2.0.0, Dictionary 1.3, Routing 1.4.0 and unchanged Protocol 12 were resolved from its pinned entries and materialized/hashed; exact commit/path/blob/SHA-256 source lock is in `evidence/f1_strictmode_20261021/source_lock.json`. Their scoped governance effectivity does not attest installed machine adoption. Bridge v0.7 remains a candidate context, never promoted. No BRD/business semantics changed.
-- **Delivery and review boundary:** existing Whole-WP `report.md` / `evidence_manifest.json` plus actual source-lock, local logs, test summary and scoped self-review; provenance is CHAT direct, not Agent Result v2 or independent audit. Code diff contains exactly two requested paths. Git CLI network DNS/reset failure was bypassed with the already-authorized GitHub connector; remote head was guarded at each ref update. No Owner manual execution is required.
-- **Remaining limitation:** opaque/non-exec actions are safely tolerated but not certified as fully inspected. Enumeration success cannot establish durable legacy retirement. Real Owner host discovery, OS enforcement, privileged broker, installed adoption, Canary and Internal Ready remain NOT_RUN / NOT_ATTESTED / HOLD. **F1 positive authority DENY, Canary HOLD; no merge/main/deploy/installed runtime change.**
-
-### Fresh CI and bounded result verdict for this correction
-
-Windows run [39531008148](https://github.com/dunglt2505/FOX2/actions/runs/39531008148), job `118996627829`, exact source `442721769dcca2643e111b6fefc16f2a2924cc94`: **COMPLETED / SUCCESS**. Retrieved job logs show **23 package tests PASS** and **493 full Bridge regression tests PASS in 179.84s**, including the eleven new StrictMode cases, with no failures/errors/skips in those summaries. Read-only discovery guard PASS on the ephemeral runner. Existing workflow additionally built and verified a quarantined F0 DENY package, SHA-256 `dad84caf22d11468dc98390d00dce25445f80f22837ecfb383f5a5615c6de930`, bound to the same source. Archive not retained as a release, installed or activated. Exact timestamped log excerpts and run receipt are committed beside the local red/green evidence.
-
-**Verdict: SCOPED_DIRECT_SOURCE_LOCAL_AND_WINDOWS_CI_VERIFIED; WHOLE_FEATURE_HOLD.** This self-review is not independent Agent acceptance or complete F1 certification. The current requested correction and Git evidence delivery are complete after immutable remote readback; no remaining permission blocker for this bounded result. Remaining Whole-WP gates retain their original NOT_IMPLEMENTED / NOT_ATTESTED / NOT_RUN states. **NEXT_SAFE_ACTION:** review the committed correction; any installed-host enforcement/adoption requires its own valid authorization and evidence. No merge, deploy or Canary is authorized or performed.
+Requested decision: independent REVIEW through fox2-result-review against the immutable remote result commit and Dictionary-bound intake v9. G2 source/build review is separate from G3/G4 host authorization. Do not self-accept, enable positive host execution, merge or run Canary from this result.

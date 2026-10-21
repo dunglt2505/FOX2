@@ -1,0 +1,7 @@
+{
+  "command": "python evidence/g2/validate_result.py --record",
+  "exit_code": 1,
+  "result": "FAIL_INITIAL_RESULT_METADATA",
+  "summary": "Schema v2 requires PUSHED_UNREVIEWED when submission_state is READY_FOR_CHAT_REVIEW. Before push, both submission and delivery are now truthfully LOCAL_ONLY. Actual remote SHA and PUSHED_UNREVIEWED are supplied in the external final pointer after readback.",
+  "product_source_changed": false
+}

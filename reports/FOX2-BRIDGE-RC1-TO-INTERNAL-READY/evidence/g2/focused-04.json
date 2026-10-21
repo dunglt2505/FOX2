@@ -1,0 +1,24 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "agent_bridge/tests/test_f1_authority.py",
+    "agent_bridge/tests/test_f1_policy.py",
+    "agent_bridge/tests/test_f1_consumers.py",
+    "agent_bridge/tests/test_f1_host_fence.py"
+  ],
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+  "environment_overrides": {
+    "bytecode": "disabled",
+    "core.longpaths": "true (per-child only)"
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-21T04:00:21.711671+00:00",
+  "id": "focused",
+  "result": "PASS",
+  "started_at": "2026-10-21T04:00:18.779767+00:00",
+  "stderr_tail": "",
+  "stdout_tail": ".............................................................            [100%]\n61 passed in 2.47s\n"
+}

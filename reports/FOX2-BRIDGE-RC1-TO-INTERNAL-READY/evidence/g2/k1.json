@@ -1,0 +1,720 @@
+{
+  "final_implementation_sha": "66e8f0a8b3a93140b5f908628b55ac965e15b96e",
+  "paths": [
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -132 +132,2 @@ def build(output: Path, python: Path) -> dict:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -167,0 +169,2 @@ def build(output: Path, python: Path) -> dict:"
+        }
+      ],
+      "path": "agent_bridge/scripts/build_user_package.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,28 @@"
+        }
+      ],
+      "path": "agent_bridge/scripts/f1_inventory.ps1",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,23 @@"
+        }
+      ],
+      "path": "agent_bridge/scripts/f1_policy_artifact.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -120,0 +121,2 @@ class BridgeApp:"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/app.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -188,0 +189,2 @@ class DesktopWorker:"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -49,0 +50,11 @@ _ADAPTERS = {\"CODEX\": CodexAdapter, \"COPILOT\": CopilotAdapter}"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -786 +797 @@ class BridgeE2ERunner:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -816,0 +828,9 @@ class BridgeE2ERunner:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -877,2 +897,2 @@ class BridgeE2ERunner:"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,172 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_authority.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -67,0 +68,2 @@ class F1BrokerStore:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -125 +127 @@ class F1BrokerStore:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -129,0 +132,3 @@ class F1BrokerStore:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -136,0 +142,5 @@ class F1BrokerStore:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -234,0 +245,82 @@ class F1BrokerStore:"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_broker_store.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,50 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_client.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,128 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_policy.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,57 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_protocol.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,295 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_service.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,429 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_windows.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -79,0 +80,4 @@ def verified_package(package: Path, expected_sha256: str) -> tuple[dict, dict[st"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/installation.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -1 +1 @@"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -30,2 +30,2 @@ def launch() -> dict:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -41 +41,2 @@ def launch() -> dict:"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/launcher.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -6,0 +7 @@ import sqlite3"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -138,0 +140,17 @@ class SQLiteLedger:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -150,0 +169,2 @@ class SQLiteLedger:"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -442 +462 @@ class SQLiteLedger:"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -1 +1 @@"
+        }
+      ],
+      "path": "agent_bridge/src/fox2_agent_bridge/startup.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,223 @@"
+        }
+      ],
+      "path": "agent_bridge/tests/test_f1_authority.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,96 @@"
+        }
+      ],
+      "path": "agent_bridge/tests/test_f1_consumers.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,61 @@"
+        }
+      ],
+      "path": "agent_bridge/tests/test_f1_host_fence.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,76 @@"
+        }
+      ],
+      "path": "agent_bridge/tests/test_f1_policy.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -0,0 +1,116 @@"
+        }
+      ],
+      "path": "agent_bridge/tests/test_f1_windows.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "@@ -12,0 +13,12 @@ import pytest"
+        }
+      ],
+      "path": "agent_bridge/tests/test_installation.py",
+      "reason": "Short Windows fixture names preserve existing installer checks under this exact long worktree."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -1 +1 @@"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -30 +30 @@ def test_launcher_independent_children_and_detached_handles(tmp_path, monkeypatc"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -34 +34,2 @@ def test_launcher_independent_children_and_detached_handles(tmp_path, monkeypatc"
+        },
+        {
+          "classification": "REQUESTED",
+          "identity": "@@ -36,3 +37,2 @@ def test_launcher_independent_children_and_detached_handles(tmp_path, monkeypatc"
+        }
+      ],
+      "path": "agent_bridge/tests/test_rc1_launcher.py",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/command_inventory.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/delivery_checks.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-01.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-02.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-01.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-02.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-03.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-04.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-02.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-03.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/implementation_notes.md",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/k1.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/preexec_diagnostic.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-01.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-02.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-03.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-04.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-05.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-06.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/result_preparation_diagnostic.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.py",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-01.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-02.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-03.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static_checks.py",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "hunks": [
+        {
+          "classification": "NECESSARY_DEPENDENCY",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py",
+      "reason": "Repeatable G2 verification/result assembly or bounded implementation notes."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-01.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-02.json",
+      "reason": "Bounded command/source/diff evidence for this A01; failures retained."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "hunks": [
+        {
+          "classification": "JUSTIFIED_GENERATED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reason": "Required Result Contract v2 evidence inventory."
+    },
+    {
+      "classification": "REQUESTED",
+      "hunks": [
+        {
+          "classification": "REQUESTED",
+          "identity": "ALL_MATERIAL_ARTIFACT_HUNKS"
+        }
+      ],
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reason": "Integrated F1 authority, consumer closure, policy/package support, tests or required report."
+    }
+  ],
+  "start_sha": "94c936b1d93bbfcee5818db24dd75bd9bb32733f",
+  "unexplained_hunks": 0
+}

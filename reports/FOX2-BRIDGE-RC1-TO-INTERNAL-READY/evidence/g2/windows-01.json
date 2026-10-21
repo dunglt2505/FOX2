@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "agent_bridge/tests/test_f1_windows.py"
+  ],
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+  "environment_overrides": {
+    "bytecode": "disabled",
+    "core.longpaths": "true (per-child only)"
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-21T03:59:09.733065+00:00",
+  "id": "windows",
+  "result": "PASS",
+  "started_at": "2026-10-21T03:59:08.758816+00:00",
+  "stderr_tail": "",
+  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.50s\n"
+}

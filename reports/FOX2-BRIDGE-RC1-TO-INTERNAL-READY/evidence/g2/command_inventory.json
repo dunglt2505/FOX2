@@ -1,0 +1,654 @@
+{
+  "commands": [
+    {
+      "at": "2026-10-21T03:31:27.440Z",
+      "command_sha256": "1f2eeacdd38a41ee8b3285778802eae1a4e4d36e5416e8b70a5a5190f760b969",
+      "exit_code": 0,
+      "id": 1,
+      "identity": "Get-Content -LiteralPath 'docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md' -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:27.440Z",
+      "command_sha256": "bb37bf3abc998ad3f71c292db77a13ed8f707081ada45760364950f22b9c3b1f",
+      "exit_code": 0,
+      "id": 2,
+      "identity": "Get-Content -LiteralPath 'C:/Users/Fox Le/.codex/plugins/cache/created-by-me-remote/fox2-skills-integrated/0.3.6/skills/fox2-governance-preflight/SKILL.md' -Raw; Get-Content -LiteralPath 'C:/Users/Fox Le/.codex/plugins/cache/created-by-me-remote/fox2-skills-integrated/0.3.6/skills/fox2-source-resolver/SKILL.md' -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:33.685Z",
+      "command_sha256": "9f82002b90d9a3d02dee1e201cdd8c8d2bb7cdfbb97edca7f5e50e2bd273fd83",
+      "exit_code": 0,
+      "id": 3,
+      "identity": "git status --short --branch; git rev-parse HEAD; git branch --show-current; git worktree list --porcelain; git hash-object docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md; git show 653e49fc0d0f15981bf230995925c89d6994723d:docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:33.685Z",
+      "command_sha256": "842064ebb6db415340d43780b389749f560510d27c1a59101c2f5df912e6330c",
+      "exit_code": 0,
+      "id": 4,
+      "identity": "rg --files -g AGENTS.md -g '*preexec*' -g '*PreExec*' -g '*PREEXEC*' -g '*g2*' -g '*G2*'; Get-Content -LiteralPath 'docs/architecture/FOX2_BRIDGE_F1_G2_PREEXEC_CONTRACT_CANDIDATE_20261021.md' -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:33.685Z",
+      "command_sha256": "fd80d06bec4e0ff27be23cc90f4aa899366411e32eff8bd033ca5c18ba3014b2",
+      "exit_code": 0,
+      "id": 5,
+      "identity": "Get-ChildItem -LiteralPath 'C:/Users/Fox Le/.codex' -Force | Select-Object Name,Mode; Get-ChildItem Env: | Where-Object Name -Match 'CODEX|MODEL|REASON|SESSION' | Select-Object Name",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:42.099Z",
+      "command_sha256": "da78819b41bdc3386c78d3b38e351bc0045443235995688acb5d1dbdcdd2d876",
+      "exit_code": 0,
+      "id": 6,
+      "identity": "Get-Content -LiteralPath 'reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/g2_preflight.json' -Raw; Get-Content -LiteralPath 'docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/prompt.md' -Raw; git log -5 --format='%H %s'",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:42.099Z",
+      "command_sha256": "bdecd1975119e63216c4dded7f85f99124d4a4e6fab596e06ba2a8f8454bc24e",
+      "exit_code": 0,
+      "id": 7,
+      "identity": "$checkPaths = @('C:/AGENTS.md','C:/Projects/AGENTS.md','C:/Projects/FOX2-worktrees/AGENTS.md','C:/Projects/FOX2-worktrees/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021/AGENTS.md','C:/Users/Fox Le/.codex/AGENTS.md'); foreach ($checkPath in $checkPaths) { if (Test-Path -LiteralPath $checkPath) { Write-Output $checkPath; Get-Content -LiteralPath $checkPath -Raw } }; Get-Content -LiteralPath 'C:/Users/Fox Le/.codex/config.toml' | Select-String -Pattern '^model\\s*=|^model_reasoning_effort\\s*=|^sandbox_mode\\s*=|^approval_policy\\s*='; Get-ChildItem -LiteralPath 'C:/Users/Fox Le/.codex/thread-writer-locks' -File | Select-Object Name,LastWriteTime",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:42.099Z",
+      "command_sha256": "6915fdaf96a438126b93b10c55186e1f97e522f6f41d6d200db4845fba500e37",
+      "exit_code": 0,
+      "id": 8,
+      "identity": "$sessionId = $env:CODEX_SESSION_ID; $threadId = $env:CODEX_THREAD_ID; Write-Output \"session=$sessionId thread=$threadId\"; rg -l --fixed-strings --glob '*.jsonl' $threadId 'C:/Users/Fox Le/.codex/sessions/2026/10/21'",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:47.178Z",
+      "command_sha256": "8d69bf1d5c1d02b31bc4f735af22f6ea6d7cff352157af36e26e06c063d74a5f",
+      "exit_code": 0,
+      "id": 9,
+      "identity": "$sessionFile = 'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl'; Get-Content -LiteralPath $sessionFile | ForEach-Object { $entry = $_ | ConvertFrom-Json; if ($entry.type -eq 'turn_context') { [pscustomobject]@{ timestamp=$entry.timestamp; model=$entry.payload.model; effort=$entry.payload.effort; cwd=$entry.payload.cwd; approval_policy=$entry.payload.approval_policy; sandbox_policy=$entry.payload.sandbox_policy } | ConvertTo-Json -Depth 4 -Compress } }; git status --porcelain; Get-Date -AsUTC -Format o",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:53.919Z",
+      "command_sha256": "9c283b66ea686f73a8ed6a16ddce4c02af1e67b1c221fc0330274a75648638c9",
+      "exit_code": 0,
+      "id": 10,
+      "identity": "Get-Content -LiteralPath 'docs/architecture/FOX2_BRIDGE_F1_G1_DESIGN_ACCEPTANCE_20261021.md' -Raw; Get-Content -LiteralPath 'docs/architecture/FOX2_BRIDGE_F1_G2_INTEGRATED_BUILD_SCOPE_CANDIDATE_20261021.md' -Raw; Get-Content -LiteralPath 'docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json' -Raw; Get-Content -LiteralPath 'docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md' -Raw; Get-Content -LiteralPath 'docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v9.md' -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:31:53.919Z",
+      "command_sha256": "e6f71badc785303c2985726f6a7044979392558485ef0fe81c521f3ca082773f",
+      "exit_code": null,
+      "id": 11,
+      "identity": "rg --files agent_bridge/src agent_bridge/tests agent_bridge/scripts | rg '(f1_|ledger|launcher|desktop|app\\.py|ops_runner|e2e_runner|installation|startup|package|AGENTS)'; Get-Content -LiteralPath 'agent_bridge/src/fox2_agent_bridge/f1_broker_store.py' -Raw; Get-Content -LiteralPath 'agent_bridge/src/fox2_agent_bridge/f1_reconcile.py' -Raw",
+      "identity_truncated": false,
+      "summary": "PENDING"
+    },
+    {
+      "at": "2026-10-21T03:32:02.572Z",
+      "command_sha256": "56887a8eedaee74f5cfb0762e67a9b646de23b853976c35acfac6183cc091c3c",
+      "exit_code": 0,
+      "id": 12,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/launcher.py -Raw; Get-Content agent_bridge/src/fox2_agent_bridge/ledger.py -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:02.572Z",
+      "command_sha256": "19dc29bb37b046d5ef4435e3823af1d43ebf8111dc1531dfc16c90ae416f7d9c",
+      "exit_code": 0,
+      "id": 13,
+      "identity": "rg -n 'claim_dispatch|Popen|spawn|installed|launcher|executor|execute|run_once' agent_bridge/src/fox2_agent_bridge/{desktop,app,ops_runner,e2e_runner,installation,startup}.py; Get-Content agent_bridge/src/fox2_agent_bridge/installation.py -Raw; Get-Content agent_bridge/src/fox2_agent_bridge/startup.py -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:02.572Z",
+      "command_sha256": "18140b74c4d90c6df3c59eb3170eba27a7834e5a8eb432f76954424ab31a8a93",
+      "exit_code": 0,
+      "id": 14,
+      "identity": "Get-Content agent_bridge/scripts/build_user_package.py -Raw; Get-Content agent_bridge/pyproject.toml -Raw; Get-Content agent_bridge/tests/test_rc1_launcher.py -Raw; Get-Content agent_bridge/tests/test_f1_broker_store.py -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:02.572Z",
+      "command_sha256": "f983d46219f7212a8202f54a74466a348f5c2e8c7df22b3164d57c44652d5fa4",
+      "exit_code": 0,
+      "id": 15,
+      "identity": "Get-Content reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/g2_dictionary_compatibility.md -Raw; Get-Content docs/agent_handoff/FOX2_AGENT_RESULT_TEMPLATE_v4.md -Raw; Get-Content docs/agent_handoff/FOX2_CHAT_RESULT_INTAKE_CHECKLIST_v9.md -Raw; git remote -v; Get-ChildItem -LiteralPath 'C:/Users/Fox Le/.codex/thread-writer-locks' -File -Filter '*.lock' | ForEach-Object { Get-Content -LiteralPath $_.FullName -Raw }",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:07.072Z",
+      "command_sha256": "a1b18f8c4e33df031ac7c5dd504696e18079f316928e8def3442edf87b4fefb1",
+      "exit_code": 0,
+      "id": 16,
+      "identity": "rg -n 'claim_dispatch|Popen|spawn|installed|launcher' agent_bridge/src/fox2_agent_bridge/desktop.py agent_bridge/src/fox2_agent_bridge/app.py agent_bridge/src/fox2_agent_bridge/ops_runner.py agent_bridge/src/fox2_agent_bridge/e2e_runner.py agent_bridge/src/fox2_agent_bridge/installation.py agent_bridge/src/fox2_agent_bridge/startup.py; Get-Content agent_bridge/tests/test_rc1_launcher.py -Raw; Get-Content agent_bridge/pyproject.toml -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:10.564Z",
+      "command_sha256": "d3893a0fe46395cc4ede0e0a6da0a6cd6a039e63f8d52421778cb3aabb261b2a",
+      "exit_code": 0,
+      "id": 17,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/desktop.py -First 210; Get-Content agent_bridge/src/fox2_agent_bridge/app.py -First 170; Get-Content agent_bridge/src/fox2_agent_bridge/ops_runner.py -First 170; Get-Content agent_bridge/src/fox2_agent_bridge/e2e_runner.py | Select-Object -Skip 680 -First 255",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:26.891Z",
+      "command_sha256": "43095cd8a7017e056d9bb199c0a5921d90df3948f5621ac682dbed4769fcf362",
+      "exit_code": 0,
+      "id": 18,
+      "identity": "Get-Content agent_bridge/scripts/build_user_package.py -Raw; Get-Content agent_bridge/src/fox2_agent_bridge/installation.py | Select-Object -First 170; Get-Content agent_bridge/src/fox2_agent_bridge/installation.py | Select-Object -Skip 224 -First 100; Get-Content agent_bridge/src/fox2_agent_bridge/ledger.py | Select-Object -Skip 425 -First 115; Get-Content agent_bridge/src/fox2_agent_bridge/startup.py -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:32:46.044Z",
+      "command_sha256": "6f30868a4af3c2386716600019797997a08d84567ac54e04cd26c7dd9c957e2b",
+      "exit_code": 0,
+      "id": 19,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/ledger.py | Select-Object -Skip 382 -First 65; Get-Content agent_bridge/src/fox2_agent_bridge/installation.py | Select-Object -Skip 230 -First 80; Get-Content agent_bridge/tests/test_runtime_ledger.py -First 50; rg --files -uu agent_bridge | rg '(python.exe$|pytest.ini|\\.venv|build-venv)' | Select-Object -First 12; git ls-remote origin refs/heads/work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:36:23.031Z",
+      "command_sha256": "6aad00326c08d696e808827381c9fc9322dc2c857d34b363d1ee106f35cb637a",
+      "exit_code": 0,
+      "id": 20,
+      "identity": "rg -n 'task|source|package|nonce|epoch|immutable' agent_bridge/src/fox2_agent_bridge/e2e_runner.py | Select-Object -First 55; Get-Content agent_bridge/src/fox2_agent_bridge/e2e_runner.py -First 125; rg -n 'spawn_permitted|smoke|adapter|worker_started|F1' agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_rc1_package.py | Select-Object -First 65; Get-Content reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md -Raw",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:38:21.080Z",
+      "command_sha256": "b608e16add0372dd24ce8b2dac8d5e5ec73b3b4930aef52262f72ad75924bd53",
+      "exit_code": 0,
+      "id": 21,
+      "identity": "python --version; python -c \"import pytest,jsonschema; print('test dependencies available')\"; rg --files -g AGENTS.md -uu agent_bridge reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY; git diff --stat; git status --porcelain",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:39:44.655Z",
+      "command_sha256": "2fc39dac5ea9d6f45d9fa33bc0d5a73ffe647bf3e43d429f045de300eff69ebe",
+      "exit_code": 0,
+      "id": 22,
+      "identity": "Get-Content agent_bridge/tests/conftest.py -First 145; Get-Content agent_bridge/tests/test_ops_runner.py -First 70; Get-Content agent_bridge/tests/test_e2e_runner.py -First 75; rg -n 'test_.*f0|cross_root|F0' agent_bridge/tests/test_f1* agent_bridge/tests/test_desktop.py agent_bridge/tests/test_runtime_ledger.py; Get-Content docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json | Select-Object -Skip 245 -First 355",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:40:23.997Z",
+      "command_sha256": "ee48e771dce2a0b6a01c40293aba62595f773518d54548d62e9de464c895df9b",
+      "exit_code": 0,
+      "id": 23,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py focused",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:40:38.985Z",
+      "command_sha256": "1d0472e62011510bf93dce2d62137b8a03547875e3aa506a1f242adaf98b7743",
+      "exit_code": 1,
+      "id": 24,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py regression",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T03:41:36.583Z",
+      "command_sha256": "cdebfbbfe74c8598f29d0897dd5f5a542911ce1fa66dc8c65a25ff39524e1d22",
+      "exit_code": 0,
+      "id": 25,
+      "identity": "Get-Content agent_bridge/tests/test_installation.py -First 30; Get-Content reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-01.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty stdout_tail | Select-String -Pattern 'FAILED|TypeError|Error:|assert ' -AllMatches; Get-ChildItem -LiteralPath 'C:/Projects/FOX2/agent_bridge' -Directory -Force | Select-Object Name; python -c \"import importlib.util; print({n:bool(importlib.util.find_spec(n)) for n in ('build','setuptools','wheel')})\"",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:41:36.583Z",
+      "command_sha256": "1d0472e62011510bf93dce2d62137b8a03547875e3aa506a1f242adaf98b7743",
+      "exit_code": 1,
+      "id": 26,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py regression",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T03:41:57.434Z",
+      "command_sha256": "0baec9232975fea9ffbe008c9f31cb0f648887aed3b2bd7a9123058146f1ba87",
+      "exit_code": 0,
+      "id": 27,
+      "identity": "rg -n 'build-python|build-venv|setuptools|wheelhouse' reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence -g '*.md' -g '*.json' | Select-Object -First 22; Get-ChildItem -LiteralPath 'C:/Projects/FOX2-worktrees/FOX2-BRIDGE-RC1-INTEGRATED-RECOVERY-20261020/agent_bridge' -Directory -Force | Select-Object Name; Get-Content agent_bridge/tests/test_rc1_package.py -First 165",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:42:09.086Z",
+      "command_sha256": "de49ce0bd0de72e89fbb069728307a20d47941b15cea854b831fe229e9c03afd",
+      "exit_code": 0,
+      "id": 28,
+      "identity": "python -c \"from pathlib import Path; r=Path.cwd()/'agent_bridge/test_artifacts'/'abcd'/'owned'; print(len(str(r/'versions'/('a'*64)/'runtime/Lib/site-packages/fox2_agent_bridge/__main__.py'))); print(len(str(r/'versions'/('a'*64)/'payload/wheels/fox2_agent_bridge-0.1.0-py3-none-any.whl')))\"",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:42:15.625Z",
+      "command_sha256": "1d0472e62011510bf93dce2d62137b8a03547875e3aa506a1f242adaf98b7743",
+      "exit_code": 0,
+      "id": 29,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py regression",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:42:52.553Z",
+      "command_sha256": "bae2d73c2435b5eb55b4a616e00cdca53c9b25fb08f331af4e5e700df106bce1",
+      "exit_code": 0,
+      "id": 30,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/installation.py | Select-Object -Skip 175 -First 28; Get-Content agent_bridge/scripts/desktop_launcher.ps1 -First 100; Get-Content agent_bridge/scripts/desktop_tray_host.ps1 -First 20; Get-Content agent_bridge/src/fox2_agent_bridge/f1_authority.py | Select-Object -First 110",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:43:19.918Z",
+      "command_sha256": "73b3b0730c9bcac9df1f2f19dcccf498b149827c3ee2a830f7dcad76ab5fcee2",
+      "exit_code": 1,
+      "id": 31,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py full",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T03:44:24.932Z",
+      "command_sha256": "5f4f087fb03666f95cf4c123bb92ba0f51c34320747094153e180bd4818d769a",
+      "exit_code": 0,
+      "id": 32,
+      "identity": "$locks = Get-ChildItem -LiteralPath 'C:/Users/Fox Le/.codex/thread-writer-locks' -File -Filter '*.lock'; foreach ($lockFile in $locks) { $id = $lockFile.BaseName; $sessionFiles = Get-ChildItem -LiteralPath 'C:/Users/Fox Le/.codex/sessions/2026/10/21' -File -Filter \"*$id.jsonl\"; foreach ($sessionFile in $sessionFiles) { $metadata = Get-Content -LiteralPath $sessionFile.FullName -TotalCount 1 | ConvertFrom-Json; [pscustomobject]@{thread=$id; cwd=$metadata.payload.cwd; source=$metadata.payload.source} | ConvertTo-Json -Compress } }; Get-Date -AsUTC -Format o",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:44:54.447Z",
+      "command_sha256": "463ae0ac5d7f054531ebf8a3346a2df2fd7639d6d2bc06952b1fd7a32faed0b3",
+      "exit_code": 1,
+      "id": 33,
+      "identity": "Get-Process python,pwsh,dotnet -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,CPU,StartTime; Get-Content reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json -Tail 2 -ErrorAction SilentlyContinue",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T03:45:28.177Z",
+      "command_sha256": "12b8d136bbabc53df596654609a928a52c01025c775e0c8064c2ac84b5c8350f",
+      "exit_code": 0,
+      "id": 34,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.py",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:45:52.848Z",
+      "command_sha256": "61c43d85e4545ba8778b2b8283c4953198723ddf49427b3d19ee20df3c853a06",
+      "exit_code": 0,
+      "id": 35,
+      "identity": "Get-CimInstance Win32_Process | Where-Object { $_.Name -in @('python.exe','pwsh.exe','powershell.exe','dotnet.exe') } | ForEach-Object { [pscustomobject]@{pid=$_.ProcessId; parent=$_.ParentProcessId; created=$_.CreationDate; pytest=$_.CommandLine -match 'pytest'; evidence_runner=$_.CommandLine -match 'run_checks'; native_inventory=$_.CommandLine -match 'f1_inventory'; test_fixture=$_.CommandLine -match 'test_artifacts'; mode_version=$_.CommandLine -match 'version'; command_script=$_.CommandLine -match '\\-Command|\\-File'} } | ConvertTo-Json -Compress; rg -n 'timeout_seconds=300|timeout=300|sleep\\(|WaitForExit' agent_bridge/tests -g '*.py' | Select-Object -First 35",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:46:21.578Z",
+      "command_sha256": "0c02b5a7cb01d1164f6cac9df5f47ce660b9de326bf801eadf3bc4aa79afc61e",
+      "exit_code": 1,
+      "id": 36,
+      "identity": "Get-Date -AsUTC -Format o; Get-Process -Id 9292 -ErrorAction SilentlyContinue | Select-Object Id,CPU,StartTime; rg -n 'sleep|timeout|while ' agent_bridge/tests/test_*.py",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T03:46:34.649Z",
+      "command_sha256": "1443845ace2699773a0d66b895feca05641624f20f0a4ebaffe2fb6ecef8dab4",
+      "exit_code": 1,
+      "id": 37,
+      "identity": "Get-Content reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty stdout_tail | Select-Object -First 1; Get-Content agent_bridge/tests/test_preexec.py -First 125; rg -n 'GIT_OPERATION_FAILED|def git|clean|status' agent_bridge/src/fox2_agent_bridge/preexec/engine.py; $env:PYTHONPATH = Join-Path (Get-Location) 'agent_bridge/src'; python -m pytest -q agent_bridge/tests/test_f1_windows.py::test_native_applocker_hash_inventory_is_read_only -rA",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T03:46:45.791Z",
+      "command_sha256": "deb23c99740afd2b3b1adb637bbdad1980774eb279798c2c8c2862fa96a778b4",
+      "exit_code": 0,
+      "id": 38,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/preexec/engine.py -First 45; Get-Content agent_bridge/src/fox2_agent_bridge/preexec/engine.py | Select-Object -Skip 225 -First 48; & \"$env:WINDIR/System32/WindowsPowerShell/v1.0/powershell.exe\" -NoProfile -NonInteractive -File agent_bridge/scripts/f1_inventory.ps1 -LiteralPath agent_bridge/scripts/f1_inventory.ps1; git -C agent_bridge/test_artifacts/f2a2df88e4eb4833a1cf578673bb4d8b/task status --porcelain=v1 -z --untracked-files=all; git -C agent_bridge/test_artifacts/f2a2df88e4eb4833a1cf578673bb4d8b/task diff --quiet",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:46:55.246Z",
+      "command_sha256": "19fe0bf7523880f96b5f10f58568662d28a004dd4b09a1e3f40e00077c5be18d",
+      "exit_code": 0,
+      "id": 39,
+      "identity": "@'\nfrom pathlib import Path\nimport subprocess,json\np=Path('agent_bridge/test_artifacts/e7085fafbd034e44922ed46c6f055de9/legacy.ps1').resolve()\ns=Path('agent_bridge/scripts/f1_inventory.ps1').resolve()\nr=subprocess.run([r'C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\powershell.exe','-NoProfile','-NonInteractive','-File',str(s),'-LiteralPath',str(p)],capture_output=True,text=True)\nprint(json.dumps(dict(code=r.returncode,out=r.stdout[-500:],err=r.stderr[-1800:])))\n'@ | python -",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:47:05.950Z",
+      "command_sha256": "fedf3693ae8d443f32361b09d50286c46064e2db4545b05eca407c9e06996656",
+      "exit_code": 0,
+      "id": 40,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/preexec/engine.py | Select-Object -Skip 269 -First 62; Get-Content agent_bridge/src/fox2_agent_bridge/preexec/engine.py | Select-Object -Skip 365 -First 45",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:47:09.987Z",
+      "command_sha256": "d667075c51d6b97c0445d88bf369b37f7bb4973a066893265d4fdd836a29458c",
+      "exit_code": 0,
+      "id": 41,
+      "identity": "Get-Content agent_bridge/src/fox2_agent_bridge/preexec/engine.py | Select-Object -Skip 188 -First 32; git -C agent_bridge/test_artifacts/f2a2df88e4eb4833a1cf578673bb4d8b/task ls-tree -r --name-only HEAD; git -C agent_bridge/test_artifacts/f2a2df88e4eb4833a1cf578673bb4d8b/task worktree list --porcelain",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:47:25.909Z",
+      "command_sha256": "b2f8fe0decf1ea977523f24bca1a93e6495f716feb8f39fc0883c9b53b4149ed",
+      "exit_code": 0,
+      "id": 42,
+      "identity": "@'\nimport sys,json,subprocess\nfrom pathlib import Path\nsys.path.insert(0,str(Path('agent_bridge/src').resolve()))\nfrom fox2_agent_bridge.preexec import PreExec,Requirements\nfrom fox2_agent_bridge.preexec import engine as module\nfrom fox2_agent_bridge.preexec.profiles import ROUTES\nfrom fox2_agent_bridge.preexec.probes import observation\nroot=Path('agent_bridge/test_artifacts/f2a2df88e4eb4833a1cf578673bb4d8b/task').resolve()\nsource=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD']).decode().strip()\nconfig=Requirements('FOX2-TEST','work/FOX2-TEST',root,source,'docs/agent_handoff/FOX2-TEST/task.md','reports/FOX2-TEST/preexec/receipt.json',ROUTES)\noriginal=module.git\nfailures=[]\ndef trace(root,*args):\n    try: return original(root,*args)\n    except Exception:\n        r=subprocess.run(['git','-C',str(root),*args],capture_output=True,text=True)\n        failures.append(dict(args=args,exit_code=r.returncode,stderr=r.stderr[-1600:]))\n        raise\nmodule.git=trace\nresult=PreExec(config,writer_observer=lambda _:False,probe=lambda route,_:observation('PASS')).run(publish=False)\nreceipt=dict(command='read-only diagnostic of existing failed PreExec fixture',exit_code=0,result_exit=result.exit_code,failure=result.failure,failed_git=failures)\nPath('reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/preexec_diagnostic.json').write_text(json.dumps(receipt,indent=2)+'\\n')\nprint(json.dumps(receipt))\n'@ | python -",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:47:32.105Z",
+      "command_sha256": "c4f470dcb1270d027d29edbae6e787f661d6f7d0587a4c829a92fe12e78cb52e",
+      "exit_code": 0,
+      "id": 43,
+      "identity": "git -c core.longpaths=true -C agent_bridge/test_artifacts/f2a2df88e4eb4833a1cf578673bb4d8b/task show 227c86f353df5331929df83ff18e87470eb31654:docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_3_0_EFFECTIVE_ROUTING_INDEX_20261014.md | Measure-Object -Line; $env:PYTHONPATH = Join-Path (Get-Location) 'agent_bridge/src'; python -m pytest -q agent_bridge/tests/test_f1_windows.py::test_native_applocker_hash_inventory_is_read_only",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:48:00.083Z",
+      "command_sha256": "ee48e771dce2a0b6a01c40293aba62595f773518d54548d62e9de464c895df9b",
+      "exit_code": 0,
+      "id": 44,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py focused",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:48:07.371Z",
+      "command_sha256": "1d0472e62011510bf93dce2d62137b8a03547875e3aa506a1f242adaf98b7743",
+      "exit_code": 0,
+      "id": 45,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py regression",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:49:37.527Z",
+      "command_sha256": "ee48e771dce2a0b6a01c40293aba62595f773518d54548d62e9de464c895df9b",
+      "exit_code": 0,
+      "id": 46,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py focused",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:49:45.145Z",
+      "command_sha256": "1d0472e62011510bf93dce2d62137b8a03547875e3aa506a1f242adaf98b7743",
+      "exit_code": 0,
+      "id": 47,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py regression",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:50:24.817Z",
+      "command_sha256": "73b3b0730c9bcac9df1f2f19dcccf498b149827c3ee2a830f7dcad76ab5fcee2",
+      "exit_code": 0,
+      "id": 48,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py full",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:50:53.773Z",
+      "command_sha256": "f482f0f99c9c61048ee3dfd349531580f6603e57a35130d390543e6510704448",
+      "exit_code": 0,
+      "id": 49,
+      "identity": "Get-Date -AsUTC -Format o; git diff --numstat; Get-Content reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md -First 12; Get-Content docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json | Select-Object -Skip 594 -First 300",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:52:27.363Z",
+      "command_sha256": "1ee5c2a54c8d428238a8fb45f44d9f118b3cfd4be663a44cf5d34aecbd17d219",
+      "exit_code": null,
+      "id": 50,
+      "identity": "Get-Date -AsUTC -Format o; git status --short | Measure-Object -Line",
+      "identity_truncated": false,
+      "summary": "RUNNING_AT_CUTOFF"
+    },
+    {
+      "at": "2026-10-21T03:53:36.142Z",
+      "command_sha256": "f5d68860dbaf3741996f52fb89b40bce85db8bd6b8c988d4021394018455cb29",
+      "exit_code": 0,
+      "id": 51,
+      "identity": "Get-Date -AsUTC -Format o; Get-Process python -ErrorAction SilentlyContinue | Select-Object Id,CPU,StartTime",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:59:03.270Z",
+      "command_sha256": "bdcaa918b95f0a5135254c30d5230fab32f69f975d1622edc219d2965d12d8e7",
+      "exit_code": 0,
+      "id": 52,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py static",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:59:08.364Z",
+      "command_sha256": "643119a928b0d261395e7c4d87e0d7612775097c2c92584ec68bdf30d0bfad19",
+      "exit_code": 0,
+      "id": 53,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py windows",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T03:59:12.514Z",
+      "command_sha256": "1746d4953b02c1f2a170608ae18ebcf0843412e12398c5364c392db5adb7eb67",
+      "exit_code": 0,
+      "id": 54,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py desktop-build",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:00:18.121Z",
+      "command_sha256": "ee48e771dce2a0b6a01c40293aba62595f773518d54548d62e9de464c895df9b",
+      "exit_code": 0,
+      "id": 55,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py focused",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:00:55.711Z",
+      "command_sha256": "1d0472e62011510bf93dce2d62137b8a03547875e3aa506a1f242adaf98b7743",
+      "exit_code": 0,
+      "id": 56,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py regression",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:01:41.312Z",
+      "command_sha256": "73b3b0730c9bcac9df1f2f19dcccf498b149827c3ee2a830f7dcad76ab5fcee2",
+      "exit_code": 0,
+      "id": 57,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py full",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:02:25.290Z",
+      "command_sha256": "aeaa9440cfdd6ccf318540f8f98fbe876a89884f2338c9ee37cae28732e4e418",
+      "exit_code": 0,
+      "id": 58,
+      "identity": "git diff --check; git diff -- agent_bridge/src/fox2_agent_bridge/ledger.py agent_bridge/src/fox2_agent_bridge/e2e_runner.py agent_bridge/src/fox2_agent_bridge/launcher.py agent_bridge/tests/test_installation.py; git status --porcelain; Get-Date -AsUTC -Format o",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:02:47.502Z",
+      "command_sha256": "cd6b0094bcea46797c49e08544fea85a9c266ba8d38ef41cdd93f6b985f86057",
+      "exit_code": 0,
+      "id": 59,
+      "identity": "@'\nimport json,collections\nfrom pathlib import Path\np=Path(r'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl')\ncounts=collections.Counter()\nfor line in p.open(encoding='utf-8'):\n e=json.loads(line); q=e.get('payload',{}); counts[(e.get('type'),q.get('type'),q.get('name'))]+=1\nprint(json.dumps([[list(k),v] for k,v in counts.items() if k[0]=='response_item']))\n'@ | python -",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:02:52.942Z",
+      "command_sha256": "220220a59ffe5449f7c5ca3cc407c2502b0f20ea736a606d5a11ba1d498a837f",
+      "exit_code": 0,
+      "id": 60,
+      "identity": "@'\nimport json\np=r'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl'\nseen=set()\nfor line in open(p,encoding='utf-8'):\n e=json.loads(line); q=e.get('payload',{}); t=q.get('type')\n if t in ('custom_tool_call','custom_tool_call_output') and t not in seen:\n  seen.add(t); print(json.dumps(dict(type=t,keys=list(q),value_types={k:type(v).__name__ for k,v in q.items()})))\n'@ | python -",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:03:02.281Z",
+      "command_sha256": "f5d68860dbaf3741996f52fb89b40bce85db8bd6b8c988d4021394018455cb29",
+      "exit_code": 0,
+      "id": 61,
+      "identity": "Get-Date -AsUTC -Format o; Get-Process python -ErrorAction SilentlyContinue | Select-Object Id,CPU,StartTime",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:03:37.723Z",
+      "command_sha256": "33cca774a4745a8b37fd91ccf03f60f2d961795cc4866ddc7934014fe10aac7d",
+      "exit_code": 0,
+      "id": 62,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py 'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl'",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:03:49.282Z",
+      "command_sha256": "2211cb6a9756b46b15380336538fece00d563e9a1af33fdc5b3ac5c2dd3d9dea",
+      "exit_code": 0,
+      "id": 63,
+      "identity": "@'\nimport json\nfrom pathlib import Path\nx=json.loads(Path('reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/command_inventory.json').read_text())\nprint(json.dumps([{k:r[k] for k in ('id','identity','summary')} for r in x['commands'] if r['exit_code'] is None],indent=2)[:3500])\n'@ | python -",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:04:13.687Z",
+      "command_sha256": "33cca774a4745a8b37fd91ccf03f60f2d961795cc4866ddc7934014fe10aac7d",
+      "exit_code": 0,
+      "id": 64,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py 'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl'",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:04:46.496Z",
+      "command_sha256": "7057d2cc970de190c6f2788f3780d4601bfab6299bf185148ea7994ea9d45c0c",
+      "exit_code": 0,
+      "id": 65,
+      "identity": "Get-Date -AsUTC -Format o; git diff --quiet -- docs; Write-Output \"immutable_docs_diff_exit=$LASTEXITCODE\"; git rev-parse HEAD",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:05:19.973Z",
+      "command_sha256": "bdcaa918b95f0a5135254c30d5230fab32f69f975d1622edc219d2965d12d8e7",
+      "exit_code": 0,
+      "id": 66,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py static",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:05:24.125Z",
+      "command_sha256": "643119a928b0d261395e7c4d87e0d7612775097c2c92584ec68bdf30d0bfad19",
+      "exit_code": 0,
+      "id": 67,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py windows",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:05:24.125Z",
+      "command_sha256": "1746d4953b02c1f2a170608ae18ebcf0843412e12398c5364c392db5adb7eb67",
+      "exit_code": 0,
+      "id": 68,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py desktop-build",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:05:42.329Z",
+      "command_sha256": "a80bc007598cd804c1a0c0b1016d0cd10ceb6d691e0ab4399a19b576f65c1b3e",
+      "exit_code": 0,
+      "id": 69,
+      "identity": "if ((git branch --show-current) -ne 'work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021') { throw 'Branch identity changed' }\nif ((git rev-parse HEAD) -ne '94c936b1d93bbfcee5818db24dd75bd9bb32733f') { throw 'Unexpected writer/source head' }\ngit add -- 'agent_bridge/src/fox2_agent_bridge/f1_*.py' agent_bridge/src/fox2_agent_bridge/app.py agent_bridge/src/fox2_agent_bridge/desktop.py agent_bridge/src/fox2_agent_bridge/e2e_runner.py agent_bridge/src/fox2_agent_bridge/installation.py agent_bridge/src/fox2_agent_bridge/launcher.py agent_bridge/src/fox2_agent_bridge/ledger.py agent_bridge/src/fox2_agent_bridge/startup.py 'agent_bridge/scripts/f1_*.py' 'agent_bridge/scripts/f1_*.ps1' agent_bridge/scripts/build_user_package.py 'agent_bridge/tests/test_f1_*.py' agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_launcher.py\nif ($LASTEXITCODE -ne 0) { throw 'Source staging failed' }\ngit diff --cached --check\nif ($LASTEXITCODE -ne 0) { throw 'Staged source check failed' }\ngit commit -m 'feat(bridge): build trusted Windows F1 execution authority for G2 A01'\nif ($LASTEXITCODE -ne 0) { throw 'Source commit failed' }\ngit rev-parse HEAD",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:05:53.997Z",
+      "command_sha256": "a4b5400841b555bc47686c5ff6ac6a1dbd4adb2c7e586269bc3b31a59f58be9e",
+      "exit_code": 1,
+      "id": 70,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py 'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl'\nif ($LASTEXITCODE -ne 0) { throw 'Command inventory failed' }\npython reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py 66e8f0a8b3a93140b5f908628b55ac965e15b96e\nif ($LASTEXITCODE -ne 0) { throw 'Result preparation failed' }\npython reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py --record\nif ($LASTEXITCODE -ne 0) { throw 'Result validation failed' }",
+      "identity_truncated": false,
+      "summary": "NONZERO_RECORDED"
+    },
+    {
+      "at": "2026-10-21T04:06:22.466Z",
+      "command_sha256": "f386a97b2243b0aecd43972fe2b68932a2f409d42d3dafb046e7ede67e621e88",
+      "exit_code": 0,
+      "id": 71,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py 66e8f0a8b3a93140b5f908628b55ac965e15b96e\nif ($LASTEXITCODE -ne 0) { throw 'Result preparation failed' }\npython reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py --record\nif ($LASTEXITCODE -ne 0) { throw 'Result validation failed' }",
+      "identity_truncated": false,
+      "summary": "COMPLETED"
+    },
+    {
+      "at": "2026-10-21T04:06:46.784Z",
+      "command_sha256": "8998070c87102273ab28de5157792560b5a7e617926b94405714baa85880c9e0",
+      "exit_code": null,
+      "id": 72,
+      "identity": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py static\nif ($LASTEXITCODE -ne 0) { throw 'Final static check failed' }\npython reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py 'C:/Users/Fox Le/.codex/sessions/2026/10/21/rollout-2026-10-21T10-31-20-01a15c83-6cd2-7f63-8b2b-3e5f46661162.jsonl'\nif ($LASTEXITCODE -ne 0) { throw 'Command inventory failed' }\npython reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py 66e8f0a8b3a93140b5f908628b55ac965e15b96e\nif ($LASTEXITCODE -ne 0) { throw 'Final result preparation failed' }\npython reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py\nif ($LASTEXITCODE -ne 0) { throw 'Final result validation failed' }\ngit status --short",
+      "identity_truncated": false,
+      "summary": "PENDING"
+    }
+  ],
+  "cutoff": "2026-10-21T04:06:48.536155+00:00",
+  "note": "Engineering test details are in dedicated bounded receipts. Final commit/push readback follows this inventory cutoff and is observed in the external delivery pointer."
+}

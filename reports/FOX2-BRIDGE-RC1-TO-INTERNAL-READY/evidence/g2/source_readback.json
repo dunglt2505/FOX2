@@ -1,0 +1,125 @@
+{
+  "active_session": {
+    "approval": "never",
+    "effort": "high",
+    "model": "gpt-6.1-sol",
+    "observed_turn_context": "2026-10-21T03:31:22.526Z",
+    "sandbox": "danger-full-access"
+  },
+  "authority": "USER_PINNED_TASK_SCOPE + OWNER_G2_HOLD_LIFT + G1_DESIGN_ONLY",
+  "bindings": [
+    {
+      "blob": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+      "commit": "1f04d62fb7039646c9a213f04a1f1eb17e0f2cc5",
+      "id": "registry",
+      "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "sha256": "bb590e0117436af6f8bd1b863a20097aa43904f996cddbb84e4e54cf0361393a",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "186fdbc72dc1b22e97330895142d68600591ac21",
+      "commit": "b04ded4b9d7fb241dc69ad25097eb474807cf68c",
+      "id": "resolution",
+      "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+      "sha256": "474b971e375d8c51eeeedffa746781ff65aac743d71f21c3508b246c75fdb9b3",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "id": "policy",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "id": "dictionary",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "id": "routing",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "id": "protocol",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "99971d65ccb90874e75ace54e6a4f8ec21ba0188",
+      "commit": "e13820c05ec0c7e97853daa61f6f5fb6b73391cc",
+      "id": "brd",
+      "path": "docs/brd_mirror/FOX2-BRD-09_v0.1_CANDIDATE.md",
+      "sha256": "77bc5f741d328bd4d8153f88893f3de376c4e8d8bf613602c2b83c567b596ae1",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "5a82bd74b30f71f7b46652f67a70cd7768f68143",
+      "commit": "e13820c05ec0c7e97853daa61f6f5fb6b73391cc",
+      "id": "techspec",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "sha256": "5bd553bec8ce359c58df7ebb499bd007e10235572ad0367784d82f7cfbf2e0d6",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "blob": "7f0b82e56f7bfa001e40bb176bb26b0ef918c609",
+      "commit": "653e49fc0d0f15981bf230995925c89d6994723d",
+      "id": "task",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g2/task.md",
+      "sha256": "708ab8addd6e6cbcde581bc03efc66dfb518eb8ac575d568c2be825827e649b9",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "commit": "9c27e7c7104facdb7f083350f38d2451939b6c2a",
+      "id": "FOX2_BRIDGE_F1_G1_DESIGN_ACCEPTANCE_20261021",
+      "path": "docs/architecture/FOX2_BRIDGE_F1_G1_DESIGN_ACCEPTANCE_20261021.md",
+      "sha256": "b70cc0466a13a5fb277ace436541bda0d8202f03963a09c6955fa81797f9a4b6",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "commit": "9410edb0d88631c33ffda8494b238ec9f4446dc1",
+      "id": "FOX2_BRIDGE_F1_G2_INTEGRATED_BUILD_SCOPE_CANDIDATE_20261021",
+      "path": "docs/architecture/FOX2_BRIDGE_F1_G2_INTEGRATED_BUILD_SCOPE_CANDIDATE_20261021.md",
+      "sha256": "097aa092620c04668f2ee8d8b8532bfeeedd2a88952ac50d4a78eb892104bbce",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "commit": "0feff4223746a48e449bb961eecabb1d86388e41",
+      "id": "FOX2_BRIDGE_F1_G2_SOURCE_ROUTE_PREEXEC_ENTRY_20261021",
+      "path": "docs/architecture/FOX2_BRIDGE_F1_G2_SOURCE_ROUTE_PREEXEC_ENTRY_20261021.md",
+      "sha256": "2f12b12609364d8949cbfe81d905a7a87e387a10893f1ea4bd543623827c0be7",
+      "status": "SOURCE_BYTES_VERIFIED"
+    },
+    {
+      "commit": "2f8fa342613ec7f64204d8e192559847581235e6",
+      "id": "FOX2_BRIDGE_F1_G2_PREEXEC_CONTRACT_CANDIDATE_20261021",
+      "path": "docs/architecture/FOX2_BRIDGE_F1_G2_PREEXEC_CONTRACT_CANDIDATE_20261021.md",
+      "sha256": "5bd5c9dd466b9e037c1d0975bc02ed42b16ff3054b1ea8d1be60545b33ca94d6",
+      "status": "SOURCE_BYTES_VERIFIED"
+    }
+  ],
+  "command": "python evidence/g2/source_readback.py",
+  "exit_code": 0,
+  "global_brd_techspec_effective": false,
+  "observed_at": "2026-10-21T03:45:30.624847+00:00",
+  "one_writer": "NONE_OBSERVED: other active thread metadata uses project-chat workspace; no G2 writer observed",
+  "preexec": {
+    "checked_at": "2026-10-21T03:27:17.603284+00:00",
+    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/g2_preflight.json",
+    "source_head": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
+    "status": "PASS"
+  },
+  "runtime_enforcement": "NOT_RUN_G3",
+  "start_sha": "94c936b1d93bbfcee5818db24dd75bd9bb32733f"
+}

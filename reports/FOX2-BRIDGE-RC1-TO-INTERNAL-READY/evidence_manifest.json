@@ -1,233 +1,1234 @@
 {
-  "schema_version": 1,
-  "producer": "CHAT_DIRECT_OFFLINE_CANDIDATE_NOT_AGENT_RESULT_V2",
-  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-  "branch": "work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021",
-  "baseline": "c3af81429b389bb3301effc96c68fbf88744aeff",
-  "source_code_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
-  "report_commit": "OBSERVED_REMOTE_RESULT_SHA_DELIVERED_OUTSIDE_THIS_COMMITTED_ARTIFACT",
-  "files": [
+  "acceptance": [
     {
-      "path": "agent_bridge/scripts/build_user_package.py",
-      "git_blob_sha": "4b0f783b3c085871c67b9becc96042f5c8f5a00e",
-      "sha256": "b3dd9a3ba0fa48f6198efb974514b9a82e47e88f74611947cd4ce5b1f68ad965",
-      "size_bytes": 10052,
-      "status": "PUBLISHED_WINDOWS_CI_PASS"
+      "evidence_ids": [
+        "desktop-build-02",
+        "focused-04",
+        "full-03",
+        "regression-06",
+        "static-03",
+        "windows-02"
+      ],
+      "id": "G2_BUILD",
+      "reason": "Source/build checks only; subject to independent CHAT result review.",
+      "status": "PASS"
     },
     {
-      "path": "agent_bridge/tests/test_rc1_package.py",
-      "git_blob_sha": "7ef8ead14be62a6b4fb9bc59b2d343315aeeb0a0",
-      "sha256": "bcdf71e118e464b6a219a48de4bafec2c0624af38e93df0a385c7bc4235e13d1",
-      "size_bytes": 8247,
-      "status": "PUBLISHED_WINDOWS_CI_PASS"
-    },
-    {
-      "path": ".github/workflows/fox2-bridge-f1-offline-ci.yml",
-      "git_blob_sha": "21d36ba5d67ab2fa3680e925e4bcde8a470a7c8d",
-      "sha256": "c6dc4dd12f64e8228b2b765b44c253a5c2d4936abb7633dc630b00341f81bccd",
-      "size_bytes": 6268,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "sha256": "588f96070a2551ba1c823797d010482db283d3f155ca1ea045f6c2dcbf8c1d40",
-      "size_bytes": 21679,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "agent_bridge/tests/test_runtime_ledger.py",
-      "git_blob_sha": "21b56f7e800e6d3be7ef22a082fa4f03104fc46a",
-      "sha256": "3a5015778bc2ebdc479726dfbd224e6f850f454dd7fa8f07e4a8d8ae95a74577",
-      "size_bytes": 33499,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md",
-      "git_blob_sha": "7ca9750d7b19d100547f4cd3a880bbc2ba35274d",
-      "sha256": "b8d2f83e95491167540f28959ff7467cad9eea72a2e8874c2902b5844e7e974d",
-      "size_bytes": 3871,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
-      "git_blob_sha": "6fb5127984efa3dbc510914b47e50ef00c1f8645",
-      "sha256": "72b8992c5f9c306ca0178d0f9f4254f7c175ce1393a658f248397e69c6358887",
-      "size_bytes": 26859,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
-      "git_blob_sha": "66667d3d20af64151173a7ba514c072f2010a696",
-      "sha256": "f6950985f7de8abd56323e9e6f83d805985ff1d93b88bd7ec997edc752c1fb13",
-      "size_bytes": 43038,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_broker_store.py",
-      "git_blob_sha": "37505d218868589d3fda2e7c22f1052a55a13dd6",
-      "sha256": "1bc712d946a88b01620b1fec7b24b7b4da45afce7c173c491a9ee716b29309ab",
-      "size_bytes": 11463,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_broker_store.py",
-      "git_blob_sha": "0bb52e25300e6267c77efd42760fce2cf144a962",
-      "sha256": "5976bde67769a4e4d55b3a54f96e62cf1740f5b351dfdc71c327b0f766d960a3",
-      "size_bytes": 11245,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_reconcile.py",
-      "git_blob_sha": "659602ce95d7431fca13b73dd4d4bbd2a6c4c02e",
-      "sha256": "b535375be52045ad6c11c93a8147b9e6fcf3f72ba5acb3e3ead2cc32659ab3b6",
-      "size_bytes": 7242,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_reconcile.py",
-      "git_blob_sha": "38b86324fd6609e7949c14891f57fb0a052c493d",
-      "sha256": "7d42609a279cd5d06c005b94464731a50d4e3f8b92d781957528ac6b3bfdc360",
-      "size_bytes": 5282,
-      "status": "PUBLISHED_CI_VERIFIED_SCOPED"
-    },
-    {
-      "path": "agent_bridge/scripts/f1_host_discovery_readonly.ps1",
-      "git_blob_sha": "704ebb98e8d16eb5d777daf1d16665f7b87485b4",
-      "sha256": "76d007068b31ac2a5157f77bcc0859d13cef0353ab1948eda64423d1d3556327",
-      "size_bytes": null,
-      "status": "PUBLISHED_WINDOWS_CI_PASS_4427217"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_host_discovery.py",
-      "git_blob_sha": "0003769e5ce25de0efab0a97b57a15c3b774bc1d",
-      "sha256": "3bda8f73d0d2833ba3f1333f01406bc38e5a0ab1907b9015837b72fe2703efea",
-      "size_bytes": null,
-      "status": "PUBLISHED_WINDOWS_CI_PASS_4427217"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/source_lock.json",
-      "sha256": "6f0a51328babd4ea5bc9c343f79c3e8b7ef9cd17d8f704d7870b31319a0b9375",
-      "size_bytes": 3651,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/test_summary.json",
-      "sha256": "6239bf8a0ffe400a383e51a2f1f38a7b8a4fcc30b4eb7aeba1cac5f08c30d5cb",
-      "size_bytes": 2527,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/baseline_regression.log",
-      "sha256": "5ffb5e85c81dbfd30971d3bec0b2923eb7c70482bcbbd19f44313177e58ca46c",
-      "size_bytes": 3391,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/candidate_regression.log",
-      "sha256": "295fddc01ce00914a0d089207ba349cca4f4d4f8bd87c5c8515457c985859f16",
-      "size_bytes": 99,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/review.json",
-      "sha256": "79f07e42c6cca321f9655dd40a6b88666b6856d7870c6253c0679ff3afd781e7",
-      "size_bytes": 1928,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/ci_receipt.json",
-      "sha256": "c5ee5e116c8b6ac69032fd3286fc3177439a9596ec67abc90cee3722617db8a2",
-      "size_bytes": 1104,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/ci_excerpt.log",
-      "sha256": "2b839bfc3c5b3dd5fbf1949d3afc0e973ca96b42236ae12468398b1de0a7dfa5",
-      "size_bytes": 590,
-      "status": "SCOPED_CURRENT_EVIDENCE"
-    },
-    {
-      "path": "docs/roadmap/FOX2_FEATURE_STATUS.json",
-      "sha256": "ec9ea47e03d5fa052811ed742bed8451c813e6c2106422d10acc0611deabca8e",
-      "size_bytes": 17541,
-      "status": "SCOPED_CURRENT_EVIDENCE"
+      "evidence_ids": [
+        "implementation_notes"
+      ],
+      "id": "G3_G4",
+      "reason": "NOT_RUN_G3; host service/policy enforcement and adoption outside this task.",
+      "status": "NOT_RUN"
     }
   ],
-  "tests": {
-    "source_sha": "442721769dcca2643e111b6fefc16f2a2924cc94",
-    "status": "PASS_SCOPED_OFFLINE_WINDOWS",
-    "final_run_id": 39531008148,
-    "final_job_id": 118996627829,
-    "affected_local_strictmode_pass": 11,
-    "full_regression_pass": 493,
-    "package_tests_pass": 23,
-    "failures": 0,
-    "errors": 0,
-    "skipped": 0,
-    "red_control": {
-      "source_sha": "434276765b2d09dbf8bf3a74716f40c20c878083",
-      "failed": 6,
-      "passed": 5,
-      "status": "EXPECTED_FAILURE_CONTROL"
+  "agent": {
+    "finished_at_utc": "2026-10-21T04:06:48.644147+00:00",
+    "host": "Windows-11-10.0.26300-SP0",
+    "mode": "high / MANUAL_LOCAL / FULL_ACCESS",
+    "model": "gpt-6.1-sol",
+    "product": "CODEX",
+    "quota_observation": "NOT_MEASURED",
+    "started_at_utc": "2026-10-21T03:31:22.526Z"
+  },
+  "change_id": "G2-F1-INTEGRATED-A01",
+  "contract_version": "2.0",
+  "evidence": [
+    {
+      "description": "Bounded G2 A01 capture_command_inventory.py",
+      "id": "capture_command_inventory_script",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py",
+      "sanitized": true,
+      "sha256": "7f910dba0a83ceb6e100a878994726c2589ffa77e54d3fc633c4c44df03ab35d",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
     },
-    "quarantined_package_build": "PASS_CI_EPHEMERAL_NOT_INSTALL_OR_RELEASE",
-    "read_only_host_discovery": "PASS_CI_RUNNER_ONLY"
-  },
-  "package": {
-    "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
-    "sha256": "dad84caf22d11468dc98390d00dce25445f80f22837ecfb383f5a5615c6de930",
-    "source_commit": "442721769dcca2643e111b6fefc16f2a2924cc94",
-    "downloadable": false,
-    "installed": false,
-    "release_approved": false
-  },
-  "F1_positive_authority": "NOT_IMPLEMENTED",
-  "installed_adoption": "NOT_RUN",
-  "canary": "HOLD",
-  "self_digest": "EXCLUDED",
-  "workflow_source_commit": "021453988cbcc65d628a35b09d917fb1628ebec5",
-  "F1_broker_store": "OFFLINE_CORE_TIME_FLOOR_HARDENED_NOT_PRIVILEGED_SERVICE",
-  "F1_reconciliation": "IMPLEMENTED_OFFLINE_READ_ONLY_NOT_HOST_ATTESTED",
-  "F1_host_discovery": "READ_ONLY_SCRIPT_CI_ONLY_OWNER_HOST_NOT_RUN",
-  "historical_source_code_commit": "008922b1e0567adafdccfd5dc6a003283335e906",
-  "prior_report_commit": "86ad445012ed1e1fd31516dd6151eb81421d016a",
-  "historical_tests_before_strictmode": {
-    "added_case_count": 54,
-    "final_run_id": 39527183226,
-    "final_job_id": 118984488068,
-    "source_sha": "008922b1e0567adafdccfd5dc6a003283335e906",
-    "status": "PASS_SCOPED_OFFLINE_WINDOWS",
-    "affected_tests_pass": 23,
-    "full_regression_pass": 482,
-    "failures": 0,
-    "errors": 0,
-    "skipped": 0,
-    "quarantined_package_build": "PASS",
-    "read_only_host_discovery": "PASS_CI_RUNNER_ONLY",
-    "historical_failed_run": {
-      "id": 39526683053,
-      "full_regression_pass": 480,
-      "full_regression_fail": 1,
-      "disposition": "FIXED_TEST_CHRONOLOGY_AND_RERUN_NO_PASS_RECAST"
+    {
+      "description": "Bounded G2 A01 command_inventory.json",
+      "id": "command_inventory",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/command_inventory.json",
+      "sanitized": true,
+      "sha256": "cd04245a42a1cc0d31f05ffd92c659eb0ea10ef3a08d1cc4cc95fc7afd313e44",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 delivery_checks.json",
+      "id": "delivery_checks",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/delivery_checks.json",
+      "sanitized": true,
+      "sha256": "702a51f08b3fa998e2af2ee4b9ad8f5756ea25b9b3b455bff91391f5a3eca56c",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 desktop-build-01.json",
+      "id": "desktop-build-01",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-01.json",
+      "sanitized": true,
+      "sha256": "5f2ec7f4f8a2d84f061810d08ac9e57a0e231c4ef4f054426735e872ad63368f",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 desktop-build-02.json",
+      "id": "desktop-build-02",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-02.json",
+      "sanitized": true,
+      "sha256": "0bcc5d47c5a086b6c1a05be2f32f6fc16d504255f1658f58a1d99cac5a90d6cc",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 focused-01.json",
+      "id": "focused-01",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-01.json",
+      "sanitized": true,
+      "sha256": "392bb220446928defc36642b8e45e2bb91a317f7df9224ee72f8f2889ae9e3c6",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 focused-02.json",
+      "id": "focused-02",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-02.json",
+      "sanitized": true,
+      "sha256": "456335d188ceed5c6ea4faecf4d2c489ccb53ee3e3c488bddccec97d80e6e4a2",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 focused-03.json",
+      "id": "focused-03",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-03.json",
+      "sanitized": true,
+      "sha256": "38acbc202d5fe62d6976e4d6be44a551c6d8569b69ea9a1e3f7c24d084266e95",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 focused-04.json",
+      "id": "focused-04",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-04.json",
+      "sanitized": true,
+      "sha256": "66e08e31cc1a9c08d30298fe4a1763db39489044c56ccbb0571e246b68c64da3",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 full-01.json",
+      "id": "full-01",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json",
+      "sanitized": true,
+      "sha256": "c3f704fcff565c9dc87d1c49ff195c425b8e5d63a0dbcfcb5c09589457768ac7",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 full-02.json",
+      "id": "full-02",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-02.json",
+      "sanitized": true,
+      "sha256": "71df01fd4b7704e281171852adc874eb71d3884d18b7ffb5f0ec50ef4af7b357",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 full-03.json",
+      "id": "full-03",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-03.json",
+      "sanitized": true,
+      "sha256": "f4bd270976d382fe448d003f202871e6793770693b3935c8c51cc12fabb225d7",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 implementation_notes.md",
+      "id": "implementation_notes",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/implementation_notes.md",
+      "sanitized": true,
+      "sha256": "ebed17d629a8795895b9718a525f7d73250b41faf184faa5be60ab9d765aafd5",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 k1.json",
+      "id": "k1",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/k1.json",
+      "sanitized": true,
+      "sha256": "46c563f723ca01e33075d8b4c80c19111173504e0a879ffbc4f649865a2c69a1",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 preexec_diagnostic.json",
+      "id": "preexec_diagnostic",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/preexec_diagnostic.json",
+      "sanitized": true,
+      "sha256": "c6fa464ed9d1f3dbffbbe5c8b673d34213559c1464e9d533ab3925bac59a2423",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 prepare_result.py",
+      "id": "prepare_result_script",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py",
+      "sanitized": true,
+      "sha256": "8068275f594a3eda1cb2bd771249d15a2eb51dfba1accf36ddd5785385c27dba",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 regression-01.json",
+      "id": "regression-01",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-01.json",
+      "sanitized": true,
+      "sha256": "5f625856e52636869ac18b07cd9bccfaafe7377d31914ba6f775342af61ae536",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 regression-02.json",
+      "id": "regression-02",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-02.json",
+      "sanitized": true,
+      "sha256": "50695bdf23fa02fcf09adbf98f7af68eca09482b431dfb0d39b7d240b1bf6d7f",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 regression-03.json",
+      "id": "regression-03",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-03.json",
+      "sanitized": true,
+      "sha256": "f1ff24d8fe3242941ccdf9771c3defe3b9ff59d383a193b28f7cf40f3661d30b",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 regression-04.json",
+      "id": "regression-04",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-04.json",
+      "sanitized": true,
+      "sha256": "27aa8db5788bad41f3db38e83b36d77e8f004f935704adcd803a7963ad5c1c10",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 regression-05.json",
+      "id": "regression-05",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-05.json",
+      "sanitized": true,
+      "sha256": "c333141b3e5c2bb4d88c391d8344cd51dd40cc0dbf8275fbe50a395dbcdf9f4b",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 regression-06.json",
+      "id": "regression-06",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-06.json",
+      "sanitized": true,
+      "sha256": "d8290e6cd848500591d3bbd6ab6e98850551e62db5421798cedc15aff400b3f8",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 result_preparation_diagnostic.json",
+      "id": "result_preparation_diagnostic",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/result_preparation_diagnostic.json",
+      "sanitized": true,
+      "sha256": "f7253c33d0dba4b4137925fe067e4946252da1d408a9cc8a1c28099c2da382cc",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 run_checks.py",
+      "id": "run_checks_script",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py",
+      "sanitized": true,
+      "sha256": "e815a96d8997033864690044bfd8fcee345897db946ad56972ac6b84806fcd3a",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 source_readback.json",
+      "id": "source_readback",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.json",
+      "sanitized": true,
+      "sha256": "7104b8bf68161d3e23327f98e4c47da1a4918ccce11e7cff573b58b9a355b48f",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 source_readback.py",
+      "id": "source_readback_script",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.py",
+      "sanitized": true,
+      "sha256": "5e9fb614c1c0c6cf74472bad1e00dc3eb7995ee87f5e4c4ed819bf3e1f58de6b",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 static-01.json",
+      "id": "static-01",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-01.json",
+      "sanitized": true,
+      "sha256": "018e1133456ee7f8f55ad6487ee69c81b4f1dd27b5ffd1a686c51148d352435d",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 static-02.json",
+      "id": "static-02",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-02.json",
+      "sanitized": true,
+      "sha256": "d88851a9bc8eea073f0190a1c93726c632eaaeeab0acd35fe5397f1060897b9d",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 static-03.json",
+      "id": "static-03",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-03.json",
+      "sanitized": true,
+      "sha256": "291ad6df6188cb78d88a3a7fa85ae71daea8ce62292e720787578bbdca92ee78",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 static_checks.py",
+      "id": "static_checks_script",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static_checks.py",
+      "sanitized": true,
+      "sha256": "643efb138f6852a2be4e26817442a65ba84703423b5a1cbcb9de827b4328cfb7",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 validate_result.py",
+      "id": "validate_result_script",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py",
+      "sanitized": true,
+      "sha256": "a4e88161cce852655c917cc98bd0823fdb0a85c4a6401db2c0bb19b6999f3863",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 windows-01.json",
+      "id": "windows-01",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-01.json",
+      "sanitized": true,
+      "sha256": "c7e7dc3e853a0e41994afec6d43f4e69a9255ffcc10b8ac7f0afcada336b872b",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Bounded G2 A01 windows-02.json",
+      "id": "windows-02",
+      "kind": "TEST_LOG",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-02.json",
+      "sanitized": true,
+      "sha256": "65c301141348a0c75027f05db7e99600714b6bbc0378f81ebe6e24bbfbefce39",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
+    },
+    {
+      "description": "Agent G2 result report",
+      "id": "G2_REPORT",
+      "kind": "REPORT",
+      "observed_at_utc": "2026-10-21T04:06:48.644147+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "sanitized": true,
+      "sha256": "2049d8408f5f35f42dda49180de50f0d0441eb5be872634c853d59b0553b9892",
+      "supports_ids": [
+        "G2_BUILD"
+      ]
     }
+  ],
+  "git": {
+    "branch": "work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+    "delivery_status": "LOCAL_ONLY",
+    "local_head_before_submission": "66e8f0a8b3a93140b5f908628b55ac965e15b96e",
+    "pr_url": null,
+    "report_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+    "repository": "dunglt2505/FOX2",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+    "writer_lease": "G2 PreExec NONE_OBSERVED and active thread/worktree inspection; one implementation writer"
   },
-  "historical_package_before_strictmode": {
-    "status": "CI_ONLY_F0_DENY_QUARANTINED_BUILD_PASS_NOT_PERSISTED",
-    "sha256": "368a434f5da79eb0c3ba3dab919f3913913512ff42302fcdc9d3f4f84d2d086d",
-    "source_commit": "008922b1e0567adafdccfd5dc6a003283335e906",
-    "downloadable": false,
-    "installed": false,
-    "release_approved": false
+  "next_step": {
+    "action": "Independent fox2-result-review at observed remote SHA",
+    "owner_role": "CHAT",
+    "prerequisite_gate": "Remote SHA readback; no self-acceptance or host activation",
+    "requested_chat_decision": "REVIEW"
   },
-  "strictmode": {
-    "precheck_commit": "a018bd9a539c43a377e00c71e886f3c08b46eb59",
-    "baseline": "434276765b2d09dbf8bf3a74716f40c20c878083",
-    "scope": "TWO_REQUESTED_CODE_TEST_PATHS_PLUS_REPORTS_EVIDENCE_AND_OPEN_FEATURE_STATUS",
-    "review": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/review.json",
-    "verdict": "SCOPED_DIRECT_SOURCE_LOCAL_AND_WINDOWS_CI_VERIFIED; WHOLE_FEATURE_HOLD",
-    "owner_current_scope": "2026-10-21_EXPLICIT_FIX_TEST_GIT_RESULT",
-    "agent_assignment": "NONE_CHAT_DIRECT_NO_DISPATCH_OR_REPLAY",
-    "source_lock": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_strictmode_20261021/source_lock.json",
-    "host_io": "MOCKED_LOCALLY; CI_RUNNER_DIAGNOSTIC_ONLY; OWNER_HOST_NOT_RUN"
-  }
+  "permissions": {
+    "broker_write": false,
+    "code_allowed": true,
+    "dnse_production": false,
+    "git_code_push": true,
+    "git_report_push": true,
+    "git_report_write": true,
+    "git_source_read": true,
+    "grant_evidence": "Immutable G2 task and scoped Owner hold-lift; no host enforcement grant",
+    "live": false,
+    "merge_allowed": false,
+    "pr_create": false
+  },
+  "project": "FOX2",
+  "risks": [
+    {
+      "id": "HOST_ENFORCEMENT",
+      "impact": "No positive installed enforcement certified; interpreter/dependency closure and real service lifecycle require G3.",
+      "next_action": "Independent CHAT review, then separately authorized isolated host tests.",
+      "owner_role": "CHAT/G3 host owner",
+      "severity": "HIGH",
+      "state": "NOT_VERIFIED"
+    }
+  ],
+  "routing": {
+    "assignment_check": "PASS",
+    "policy_check": "PASS",
+    "r0": "PASS",
+    "r1": "PASS",
+    "r2": "PASS",
+    "r3": "PASS",
+    "r4": "PASS",
+    "r5": "PASS",
+    "r6": "PASS",
+    "r7": "PASS",
+    "routing_evidence": "Exact G2 PreExec PASS plus active model/high/full-access metadata; task-scoped only.",
+    "task_state_check": "PASS"
+  },
+  "scope": {
+    "changed_paths": [
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "8e937d23304d061bd5f051e804a64734c90f1b0b7eb4ad6d4c2398ebd1565d43",
+        "operation": "MODIFY",
+        "path": "agent_bridge/scripts/build_user_package.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "b986c0f3ffcee8e37fe7823bd767ef573403be2176af62083e0d97a35d726ae7",
+        "operation": "ADD",
+        "path": "agent_bridge/scripts/f1_inventory.ps1",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "edae0648ead8ea8c9991e4a7d15240822f1de74f210b8a59a883b894520daa50",
+        "operation": "ADD",
+        "path": "agent_bridge/scripts/f1_policy_artifact.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "e315f823b512cbde1b86a6d2b2be8ef2fe69d65828ac42e5ec28061b5219ff74",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/app.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "7e87471675f9c2065b60142902e46d2ef3a69b3b170b3c19b7e682b4d9ec92fe",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "2e785d6921127fcae988d5e5f1037ef8ecc3e7c69a2b904e64f8b74c8e7370d7",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "a93fa6e33aeccc60a3883b623c36ef8d2fd3b5a29dece6088edaea770646ecfb",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_authority.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "1cc28469b0b9d48954ee3fbc0ad0fea1170fdb792949a81f216b174353da9541",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_broker_store.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "21ebc4e929b181ec6282263b22a3ce5523cca3ec5123dca9d489103ec70b263c",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_client.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "748d5f7e49d2b9f82ff1fd0eb9c926fc7185f460f12f88473cc699d930f10ea6",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_policy.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "f3e5f6caf3431c3d1035925afbcd6d4502de23aeabce8721ab66852f504c2c25",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_protocol.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "9f306cd5bfad96f050ef76ebccb8704c9e62db06500ff0a296bab3071e9bd262",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_service.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "701933dec8e336e29c09e92eed859e0fc06650d3fe32914c23b9a14854bb2019",
+        "operation": "ADD",
+        "path": "agent_bridge/src/fox2_agent_bridge/f1_windows.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "7a49db8c503aec878731f99c0c9eec5098e341fdfec7edf426f115ba7b87267c",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/installation.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "fe4667caa32c0116deabc6528952db5a2cdb4cc83bd81eea7b00faf87ba9e4e8",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/launcher.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "458a4181143335a50d3c7ccfda0e3daa47fdf141b7a9f7762b9430a360acd4e2",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "8b548e1d79a0c80a05517294d7511510b4fc2a4bcf686e9e79cc1d859e35eae1",
+        "operation": "MODIFY",
+        "path": "agent_bridge/src/fox2_agent_bridge/startup.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "f376895195a888a328b401b61435301f9ec31e9b105cd2c825168a6a1674345b",
+        "operation": "ADD",
+        "path": "agent_bridge/tests/test_f1_authority.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "4cdf56a3143a787f6ddad4d9852fe01fcd8878121d9cd9b9a9622ecd486e5d57",
+        "operation": "ADD",
+        "path": "agent_bridge/tests/test_f1_consumers.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "8b90f6a847bbcc2b9b80a56dcd3d8b079f7728b3ba0cdf70bc2394d4a0c8a884",
+        "operation": "ADD",
+        "path": "agent_bridge/tests/test_f1_host_fence.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "c83a821625f13377fb5026609577a22a922651bcc23adf3a2b453d8d1de1fdc1",
+        "operation": "ADD",
+        "path": "agent_bridge/tests/test_f1_policy.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "463ee579e7fc1474150117c1c0c01f254b925b5ec61155ab4c2d3d5b17d26aa4",
+        "operation": "ADD",
+        "path": "agent_bridge/tests/test_f1_windows.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Short Windows fixture names preserve existing installer checks under this exact long worktree.",
+        "new_sha256": "5ea4af780ae3d94c1a90b4f5f13761f0bdd727c3d3ff23cdc8668adc8562a858",
+        "operation": "MODIFY",
+        "path": "agent_bridge/tests/test_installation.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "fad88ab0261425135b6c3c9f1c76bef74609ade6f5e914da4a390aec0e40b99b",
+        "operation": "MODIFY",
+        "path": "agent_bridge/tests/test_rc1_launcher.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "7f910dba0a83ceb6e100a878994726c2589ffa77e54d3fc633c4c44df03ab35d",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "cd04245a42a1cc0d31f05ffd92c659eb0ea10ef3a08d1cc4cc95fc7afd313e44",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/command_inventory.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "702a51f08b3fa998e2af2ee4b9ad8f5756ea25b9b3b455bff91391f5a3eca56c",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/delivery_checks.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "5f2ec7f4f8a2d84f061810d08ac9e57a0e231c4ef4f054426735e872ad63368f",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-01.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "0bcc5d47c5a086b6c1a05be2f32f6fc16d504255f1658f58a1d99cac5a90d6cc",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-02.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "392bb220446928defc36642b8e45e2bb91a317f7df9224ee72f8f2889ae9e3c6",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-01.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "456335d188ceed5c6ea4faecf4d2c489ccb53ee3e3c488bddccec97d80e6e4a2",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-02.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "38acbc202d5fe62d6976e4d6be44a551c6d8569b69ea9a1e3f7c24d084266e95",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-03.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "66e08e31cc1a9c08d30298fe4a1763db39489044c56ccbb0571e246b68c64da3",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-04.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "c3f704fcff565c9dc87d1c49ff195c425b8e5d63a0dbcfcb5c09589457768ac7",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "71df01fd4b7704e281171852adc874eb71d3884d18b7ffb5f0ec50ef4af7b357",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-02.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "f4bd270976d382fe448d003f202871e6793770693b3935c8c51cc12fabb225d7",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-03.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "ebed17d629a8795895b9718a525f7d73250b41faf184faa5be60ab9d765aafd5",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/implementation_notes.md",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "46c563f723ca01e33075d8b4c80c19111173504e0a879ffbc4f649865a2c69a1",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/k1.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "c6fa464ed9d1f3dbffbbe5c8b673d34213559c1464e9d533ab3925bac59a2423",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/preexec_diagnostic.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "8068275f594a3eda1cb2bd771249d15a2eb51dfba1accf36ddd5785385c27dba",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "5f625856e52636869ac18b07cd9bccfaafe7377d31914ba6f775342af61ae536",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-01.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "50695bdf23fa02fcf09adbf98f7af68eca09482b431dfb0d39b7d240b1bf6d7f",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-02.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "f1ff24d8fe3242941ccdf9771c3defe3b9ff59d383a193b28f7cf40f3661d30b",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-03.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "27aa8db5788bad41f3db38e83b36d77e8f004f935704adcd803a7963ad5c1c10",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-04.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "c333141b3e5c2bb4d88c391d8344cd51dd40cc0dbf8275fbe50a395dbcdf9f4b",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-05.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "d8290e6cd848500591d3bbd6ab6e98850551e62db5421798cedc15aff400b3f8",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-06.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "f7253c33d0dba4b4137925fe067e4946252da1d408a9cc8a1c28099c2da382cc",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/result_preparation_diagnostic.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "e815a96d8997033864690044bfd8fcee345897db946ad56972ac6b84806fcd3a",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "7104b8bf68161d3e23327f98e4c47da1a4918ccce11e7cff573b58b9a355b48f",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "5e9fb614c1c0c6cf74472bad1e00dc3eb7995ee87f5e4c4ed819bf3e1f58de6b",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "018e1133456ee7f8f55ad6487ee69c81b4f1dd27b5ffd1a686c51148d352435d",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-01.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "d88851a9bc8eea073f0190a1c93726c632eaaeeab0acd35fe5397f1060897b9d",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-02.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "291ad6df6188cb78d88a3a7fa85ae71daea8ce62292e720787578bbdca92ee78",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-03.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "643efb138f6852a2be4e26817442a65ba84703423b5a1cbcb9de827b4328cfb7",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static_checks.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "NECESSARY_DEPENDENCY: Repeatable G2 verification/result assembly or bounded implementation notes.",
+        "new_sha256": "a4e88161cce852655c917cc98bd0823fdb0a85c4a6401db2c0bb19b6999f3863",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "c7e7dc3e853a0e41994afec6d43f4e69a9255ffcc10b8ac7f0afcada336b872b",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-01.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Bounded command/source/diff evidence for this A01; failures retained.",
+        "new_sha256": "65c301141348a0c75027f05db7e99600714b6bbc0378f81ebe6e24bbfbefce39",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-02.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "JUSTIFIED_GENERATED: Required Result Contract v2 evidence inventory.",
+        "new_sha256": null,
+        "operation": "MODIFY",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "REQUESTED: Integrated F1 authority, consumer closure, policy/package support, tests or required report.",
+        "new_sha256": "2049d8408f5f35f42dda49180de50f0d0441eb5be872634c853d59b0553b9892",
+        "operation": "MODIFY",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+        "within_allowed_paths": true
+      }
+    ],
+    "completed": [
+      "Trusted Windows authority/IPC/store/spawn, deterministic policy artifacts, installed consumer closure, source/native tests"
+    ],
+    "explicit_exclusions": [
+      "Host policy/service installation/start",
+      "main/merge/deploy/provider/broker/Canary/LIVE"
+    ],
+    "forbidden_paths_touched": false,
+    "not_done": [
+      "Complete offline user-package build: no provisioned isolated build environment",
+      "NOT_RUN_G3 host enforcement/adoption"
+    ],
+    "partial": [
+      "G2 source/build only; installed positive runtime remains DENY"
+    ],
+    "requested": [
+      "Integrated G2 F1 source/build per immutable task"
+    ]
+  },
+  "security": {
+    "check_notes": "Bounded source/test evidence; final credential-pattern scan recorded separately.",
+    "evidence_redacted": true,
+    "licensed_raw_feed_in_git": false,
+    "private_account_data_in_git": false,
+    "secret_scan": "PASS"
+  },
+  "source": {
+    "approved_base_commit_sha": "fe926ad24d89231e5cf80f0f48ea44eb36887834",
+    "brd_revisions": [
+      "BRD-09 v0.1 REV3 candidate / task-specific G1 design"
+    ],
+    "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "policy_version": "2.0.0 scoped G2 Owner authority",
+    "previous_evidence_reused": [
+      "G1 task-specific design acceptance only; no historical CI used for new code"
+    ],
+    "source_manifest_sha256": "7104b8bf68161d3e23327f98e4c47da1a4918ccce11e7cff573b58b9a355b48f",
+    "source_readback_status": "PASS",
+    "task_commit_sha": "653e49fc0d0f15981bf230995925c89d6994723d"
+  },
+  "submission_state": "LOCAL_ONLY",
+  "submitted_at_utc": "2026-10-21T04:06:48.644147+00:00",
+  "task_id": "FOX2-BRIDGE-RC1-G2-A01",
+  "tests": [
+    {
+      "command_or_method": "dotnet build agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj -c Release -p:ContinuousIntegrationBuild=true",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "desktop-build-01"
+      ],
+      "id": "desktop-build-01",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:59:12.893745+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "dotnet build agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj -c Release -p:ContinuousIntegrationBuild=true",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "desktop-build-02"
+      ],
+      "id": "desktop-build-02",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:05:25.835397+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_authority.py agent_bridge/tests/test_f1_policy.py agent_bridge/tests/test_f1_consumers.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "focused-01"
+      ],
+      "id": "focused-01",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:40:24.366000+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_authority.py agent_bridge/tests/test_f1_policy.py agent_bridge/tests/test_f1_consumers.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "focused-02"
+      ],
+      "id": "focused-02",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:48:00.445139+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_authority.py agent_bridge/tests/test_f1_policy.py agent_bridge/tests/test_f1_consumers.py agent_bridge/tests/test_f1_host_fence.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "focused-03"
+      ],
+      "id": "focused-03",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:49:38.299892+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_authority.py agent_bridge/tests/test_f1_policy.py agent_bridge/tests/test_f1_consumers.py agent_bridge/tests/test_f1_host_fence.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "focused-04"
+      ],
+      "id": "focused-04",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:00:18.779767+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "full-01"
+      ],
+      "id": "full-01",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:43:20.606410+00:00",
+      "status": "FAIL"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "full-02"
+      ],
+      "id": "full-02",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:50:25.178145+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "full-03"
+      ],
+      "id": "full-03",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:01:41.683667+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_broker_store.py agent_bridge/tests/test_f1_reconcile.py agent_bridge/tests/test_runtime_ledger.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "regression-01"
+      ],
+      "id": "regression-01",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:40:39.379979+00:00",
+      "status": "FAIL"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_broker_store.py agent_bridge/tests/test_f1_reconcile.py agent_bridge/tests/test_runtime_ledger.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "regression-02"
+      ],
+      "id": "regression-02",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:41:37.877304+00:00",
+      "status": "FAIL"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_broker_store.py agent_bridge/tests/test_f1_reconcile.py agent_bridge/tests/test_runtime_ledger.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "regression-03"
+      ],
+      "id": "regression-03",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:42:15.967993+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_broker_store.py agent_bridge/tests/test_f1_reconcile.py agent_bridge/tests/test_runtime_ledger.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "regression-04"
+      ],
+      "id": "regression-04",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:48:07.724248+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_broker_store.py agent_bridge/tests/test_f1_reconcile.py agent_bridge/tests/test_runtime_ledger.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "regression-05"
+      ],
+      "id": "regression-05",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:49:45.502594+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_broker_store.py agent_bridge/tests/test_f1_reconcile.py agent_bridge/tests/test_runtime_ledger.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_desktop.py agent_bridge/tests/test_ops_runner.py agent_bridge/tests/test_e2e_runner.py agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "regression-06"
+      ],
+      "id": "regression-06",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:00:56.114928+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021\\reports\\FOX2-BRIDGE-RC1-TO-INTERNAL-READY\\evidence\\g2\\static_checks.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "static-01"
+      ],
+      "id": "static-01",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:59:03.638660+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021\\reports\\FOX2-BRIDGE-RC1-TO-INTERNAL-READY\\evidence\\g2\\static_checks.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "static-02"
+      ],
+      "id": "static-02",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:05:20.310256+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021\\reports\\FOX2-BRIDGE-RC1-TO-INTERNAL-READY\\evidence\\g2\\static_checks.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "static-03"
+      ],
+      "id": "static-03",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:06:47.473822+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_windows.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "windows-01"
+      ],
+      "id": "windows-01",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T03:59:08.758816+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -q agent_bridge/tests/test_f1_windows.py",
+      "environment": "Windows non-elevated; per-child core.longpaths when recorded",
+      "evidence_ids": [
+        "windows-02"
+      ],
+      "id": "windows-02",
+      "kind": "INTEGRATION",
+      "notes": "Bounded exit/result receipt; earlier failures retained.",
+      "run_at_utc": "2026-10-21T04:05:24.512236+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "Elevated service/policy/positive execution enforcement tests",
+      "environment": "Isolated Windows / Owner host",
+      "evidence_ids": [
+        "implementation_notes"
+      ],
+      "id": "G3_HOST",
+      "kind": "INTEGRATION",
+      "notes": "NOT_RUN_G3; never PASS.",
+      "run_at_utc": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "command_or_method": "Complete offline user-package build",
+      "environment": "No selected isolated build environment",
+      "evidence_ids": [
+        "implementation_notes"
+      ],
+      "id": "OFFLINE_USER_PACKAGE",
+      "kind": "STATIC",
+      "notes": "Static package-module contract and fixture tests ran; no new full release package built.",
+      "run_at_utc": null,
+      "status": "NOT_RUN"
+    }
+  ],
+  "usage": {
+    "attempts": 1,
+    "credits_used": null,
+    "escalation_reason": "NONE; no model/route substitution or expanded scope",
+    "retries": 0,
+    "tokens_used": null,
+    "usage_status": "NOT_MEASURED"
+  },
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY"
 }

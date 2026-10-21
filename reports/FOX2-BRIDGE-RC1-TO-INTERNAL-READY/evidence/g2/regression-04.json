@@ -1,0 +1,29 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "agent_bridge/tests/test_f1_broker_store.py",
+    "agent_bridge/tests/test_f1_reconcile.py",
+    "agent_bridge/tests/test_runtime_ledger.py",
+    "agent_bridge/tests/test_rc1_launcher.py",
+    "agent_bridge/tests/test_desktop.py",
+    "agent_bridge/tests/test_ops_runner.py",
+    "agent_bridge/tests/test_e2e_runner.py",
+    "agent_bridge/tests/test_installation.py",
+    "agent_bridge/tests/test_rc1_package.py"
+  ],
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+  "environment_overrides": {
+    "bytecode": "disabled",
+    "core.longpaths": "true (per-child only)"
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-21T03:48:23.665594+00:00",
+  "id": "regression",
+  "result": "PASS",
+  "started_at": "2026-10-21T03:48:07.724248+00:00",
+  "stderr_tail": "",
+  "stdout_tail": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n........................................................                 [100%]\n200 passed in 15.51s\n"
+}

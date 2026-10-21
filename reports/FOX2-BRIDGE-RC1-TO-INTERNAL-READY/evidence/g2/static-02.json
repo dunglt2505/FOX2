@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021\\reports\\FOX2-BRIDGE-RC1-TO-INTERNAL-READY\\evidence\\g2\\static_checks.py"
+  ],
+  "cwd": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
+  "environment_overrides": {
+    "bytecode": "disabled",
+    "core.longpaths": "true (per-child only)"
+  },
+  "exit_code": 0,
+  "finished_at": "2026-10-21T04:05:21.259203+00:00",
+  "id": "static",
+  "result": "PASS",
+  "started_at": "2026-10-21T04:05:20.310256+00:00",
+  "stderr_tail": "",
+  "stdout_tail": "{\"syntax\": \"PASS\", \"allowlist\": \"PASS\", \"diff_check\": \"PASS\", \"powershell_scripts_parsed\": 2, \"wheel_source_contract_modules\": 40, \"actual_offline_package_build\": \"NOT_RUN_NO_ISOLATED_BUILD_ENV\", \"effective_policy_mutation\": false, \"service_install_start\": false}\n"
+}
