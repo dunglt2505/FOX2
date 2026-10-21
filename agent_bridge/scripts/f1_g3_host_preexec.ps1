@@ -147,9 +147,10 @@ if($LASTEXITCODE -ne 0){throw 'G3 receipt diff check failed.'}
 $staged=(Invoke-Git @('diff','--cached','--name-only')).Text
 if($staged.Trim() -ne $ReceiptPath){throw "STOP: staged path outside receipt: $staged"}
 
-& git -C $Worktree commit -m 'preexec(fox2): record G3 isolated-host readiness'
+& git -C $Worktree -c 'user.name=FOX2 G3 Host PreExec' -c 'user.email=fox2-g3-preexec@local.invalid' commit -m 'preexec(fox2): record G3 isolated-host readiness'
 if($LASTEXITCODE -ne 0){throw 'G3 receipt commit failed.'}
 $receiptCommit=(Invoke-Git @('rev-parse','HEAD')).Text
+$receiptBase64=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($json))
 $pushSpec=$receiptCommit+':refs/heads/'+$ExpectedBranch
 & git -C $Worktree push origin $pushSpec
 $pushExit=$LASTEXITCODE
@@ -160,6 +161,7 @@ Write-Output ('FOX2_G3_PREEXEC_STATUS='+$statusValue)
 Write-Output ('FOX2_G3_PREEXEC_LOCAL_RECEIPT_SHA='+$receiptCommit)
 Write-Output ('FOX2_G3_PREEXEC_PUSH_EXIT='+$pushExit)
 Write-Output ('FOX2_G3_PREEXEC_REMOTE_SHA='+$remoteSha)
+Write-Output ('FOX2_G3_PREEXEC_RECEIPT_BASE64='+$receiptBase64)
 Write-Output 'FOX2_G3_HOST_MUTATION_STARTED=FALSE'
 if($remoteSha -eq $receiptCommit){Write-Output 'FOX2_G3_PREEXEC_DELIVERY=REMOTE_READBACK_PASS';Write-Output 'FOX2_G3_NEXT=RETURN_OUTPUT_TO_CHAT_FOR_INTAKE'}
 else{Write-Output 'FOX2_G3_PREEXEC_DELIVERY=REMOTE_READBACK_UNKNOWN';Write-Output 'FOX2_G3_NEXT=CHAT_REMOTE_READBACK_REQUIRED'}
