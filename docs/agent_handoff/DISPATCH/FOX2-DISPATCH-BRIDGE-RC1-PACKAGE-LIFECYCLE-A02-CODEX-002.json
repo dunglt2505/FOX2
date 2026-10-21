@@ -1,0 +1,136 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A02-CODEX-002",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt02/task.md",
+    "commit_sha": "fc03d7b130f0d987c94ecd6bb636ca482d9f637e",
+    "sha256": "3e9aca6b43485f9dcecf3ee72749e8c8c1b8ae4c4e31ef41eff5df5306acf4fd"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt02/prompt.md",
+    "git_commit": "3321d69a998e3279782476c9d52f7224095fb2d8",
+    "git_blob_sha1": "23c821c9c27d2e46855539a1b2314b48a1abd1d2",
+    "sha256": "3271f23f8eecc308899fb5f2200d3bb274562eefaf5d13d9d49248767b089852"
+  },
+  "source": {
+    "commit_sha": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner-directed continuation of FOX2 Bridge Whole-WP Phase 2 package lifecycle correction. A01 Dispatch FOX2-DISPATCH-BRIDGE-RC1-PACKAGE-LIFECYCLE-A01-CODEX-001 is EXITED_CONSUMED and MUST NOT be replayed. A02 immutable task/prompt fc03d7b130f0d987c94ecd6bb636ca482d9f637e / 3321d69a998e3279782476c9d52f7224095fb2d8; A02 PreExec PASS receipt 036de99a6d649bfcf9a427aa914809a9d53592c3 blob ce4cd89b718a44ff2398e33aa1872df4009f3dce; CHAT PASS_TO_ASSIGN 0a0ff3d9889cfd9b299262cefb1b3b50789f711a. A02 Dispatch001 e4a58760efba32c4f4da5f6d82b9421354ef349e was rejected pre-launch as schema-invalid and is not executable. Scope is offline harness code/tests/result only; no real install/uninstall, AppLocker/service/ACL/G3/G4/Canary/main/merge/provider/broker/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
+    "base_sha": "036de99a6d649bfcf9a427aa914809a9d53592c3",
+    "allowed_code_paths": [
+      "agent_bridge/scripts/certify_user_lifecycle.py",
+      "agent_bridge/tests/test_installation.py",
+      "agent_bridge/tests/test_rc1_package.py",
+      "agent_bridge/tests/test_*lifecycle*.py"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python",
+      "pwsh7",
+      "codex_cli",
+      "pinned_gpt_6_1_sol_high",
+      "full_access_permission_profile",
+      "dedicated_clean_worktree",
+      "single_writer",
+      "immutable_a02_task_prompt_binding",
+      "task_specific_preexec_pass_036de99a",
+      "dispatch_remote_readback_before_start"
+    ],
+    "stop_conditions": [
+      "fresh_a02_task_prompt_preexec_or_dispatch_binding_mismatch",
+      "task_branch_remote_head_not_exact_runtime_base_before_start",
+      "source_commit_sha_b065a468_not_ancestor_of_runtime_base",
+      "unexplained_prestart_product_code_drift",
+      "wrong_worktree_branch_or_unrelated_WIP",
+      "competing_task_scoped_writer",
+      "codex_model_reasoning_or_permission_profile_mismatch",
+      "auth_quota_capacity_or_runtime_failure_after_start_means_consumed_no_replay",
+      "unauthorized_path_change_or_drive_by_refactor",
+      "accepted_product_uninstall_contract_proven_defective_requires_scope_expansion",
+      "real_install_update_uninstall_or_reinstall_required",
+      "AppLocker_AppIDSvc_service_or_ProgramData_ACL_mutation_required",
+      "historical_BatchB_FAIL_or_consumed_A01_rewrite",
+      "A02_Dispatch001_schema_invalid_do_not_execute",
+      "result_contract_report_or_evidence_delivery_failure",
+      "secret_diff_check_test_or_remote_readback_failure",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "LIFECYCLE_HARNESS_STABLE_EXTERNAL_UNINSTALL_ENTRYPOINT",
+    "NO_INSTALLED_PYTHON_SELF_DELETE_PATH_IN_CERTIFICATION",
+    "UNINSTALL_SUCCESS_STRUCTURED_EVIDENCE",
+    "UNINSTALL_NONZERO_PRESERVES_SANITIZED_EXIT_STDOUT_STDERR_AND_STOPS",
+    "PRODUCT_SELF_DELETE_FAIL_CLOSED_REGRESSION",
+    "DURABLE_CONFIG_DATA_CONSUMED_IDENTITY_PRESERVATION",
+    "FOCUSED_LIFECYCLE_AND_INSTALLATION_TESTS",
+    "FULL_AGENT_BRIDGE_TESTS",
+    "STATIC_SYNTAX_AND_POWERSHELL_PARSE_AS_APPLICABLE",
+    "CHANGED_PATH_ALLOWLIST",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK",
+    "K1_UNEXPLAINED_ZERO",
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+    "REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-21T15:20:00Z",
+  "max_runs": 1
+}
