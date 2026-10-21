@@ -1,0 +1,96 @@
+{
+  "schema": "FOX2_CHAT_DIRECT_SCOPED_PRECHECK_V1",
+  "whole_wp": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "date": "2026-10-21",
+  "classification": "AUTHORIZED_CANDIDATE_WRITE_AND_MOCKED_OFFLINE_TEST",
+  "stage": "BUILD",
+  "source_base": "434276765b2d09dbf8bf3a74716f40c20c878083",
+  "registry_live_commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+  "registry_blob": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+  "source_entries": [
+    {
+      "key": "policy",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "git_blob_sha": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "expected_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e"
+    },
+    {
+      "key": "dictionary",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "git_blob_sha": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "expected_sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+    },
+    {
+      "key": "routing_index",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "git_blob_sha": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "expected_sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205"
+    },
+    {
+      "key": "git_first_protocol",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "git_blob_sha": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "expected_sha256": null
+    },
+    {
+      "key": "preexec",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "git_blob_sha": "a452a2c9cdd71e613d6fe378927831ed840c9398",
+      "expected_sha256": null
+    },
+    {
+      "key": "spec",
+      "path": "docs/architecture/FOX2_LOCAL_AGENT_BRIDGE_TECHNICAL_SPEC_v0.7_CANDIDATE.md",
+      "commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "git_blob_sha": "5a82bd74b30f71f7b46652f67a70cd7768f68143",
+      "expected_sha256": null
+    },
+    {
+      "key": "contract",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md",
+      "commit": "434276765b2d09dbf8bf3a74716f40c20c878083",
+      "git_blob_sha": "7ca9750d7b19d100547f4cd3a880bbc2ba35274d",
+      "expected_sha256": null
+    }
+  ],
+  "source_bytes": "IMMUTABLE_CONNECTOR_READBACK_AND_MATERIALIZED_SHA256_MATCH_FOR_POLICY_DICTIONARY_ROUTING_SCRIPT",
+  "authority": "CURRENT_OWNER_EXPLICIT_BOUNDED_FIX_AND_NONMAIN_RESULT",
+  "governance_effective": "SCOPED_OWNER_GOVERNANCE_RELEASE_CHAIN_READ_NOT_CRYPTOGRAPHIC_AUTHORITY",
+  "runtime_enforced": "NOT_ATTESTED",
+  "routing": {
+    "R0": "Existing Whole-WP and F1 branch, no duplicate WP",
+    "R1": "BUILD_BLOCKED_F1_AUTHORITY; scoped defect only",
+    "R2": "Policy2/Dictionary1.3/Routing1.4/Protocol12; old runtime Dictionary1.2 unchanged",
+    "R3": "Connector push permission true; PowerShell7.6.7 Python3.13 pytest8.3.5 observed; numeric quota unknown nonmaterial",
+    "R4": "CHAT direct-first; no Agent dispatch/assignment",
+    "R5": "Dedicated new local candidate directory; remote expected-head CAS; no other local worktree modified",
+    "R6": "Connector Git delivery/readback; CLI network DNS/reset failed, not permissions denial",
+    "R7": "Exact task acceptance and STOP in sibling task.md"
+  },
+  "checks": {
+    "remote_head": "434276765b2d09dbf8bf3a74716f40c20c878083",
+    "connector_push_permission": true,
+    "local_existing_git_lock": false,
+    "local_candidate_writer_lock_preexisting": false,
+    "real_host_discovery": "NOT_RUN",
+    "agent_preexec": "NOT_APPLICABLE_NO_AGENT_ASSIGNMENT; NO_SYNTHETIC_AGENT_PASS",
+    "old_unelevated_route": "NOT_USED_REMAINS_UNSAFE_HISTORICALLY",
+    "installed_bridge": "NOT_ACCESSED"
+  },
+  "decision": "GO_SCOPED_DIRECT_CANDIDATE_AND_MOCKED_TEST_ONLY",
+  "f1": "DENY",
+  "canary": "HOLD",
+  "skills": {
+    "source_resolver": "APPLIED",
+    "governance_preflight": "APPLIED",
+    "agent_route_runtime": "APPLIED",
+    "agent_prompt_builder": "APPLIED_DIRECT_FIRST_NO_NEW_AGENT_ASSIGNMENT",
+    "result_review": "APPLIED_BOUNDED_SELF_REVIEW_NOT_INDEPENDENT_AGENT_ACCEPTANCE",
+    "feature_certification": "APPLIED_HOLD_WHOLE_FEATURE"
+  }
+}
