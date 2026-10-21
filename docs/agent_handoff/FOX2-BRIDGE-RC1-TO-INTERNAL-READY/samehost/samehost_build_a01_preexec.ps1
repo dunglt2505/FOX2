@@ -1,6 +1,6 @@
 #requires -Version 7.0
 <# Owner-authorized PreExec publication only. No implementation/host-policy execution.
-   Source lock stays 600f8ceb; PublicationHead is its single script-only child.
+   Source lock stays 600f8ceb; recovery is a script-only child of the pinned publication.
    Run in a child pwsh -File; no exit command can close the Owner's shell.
    Existing receipts/WIP are never deleted, reset, stashed or replayed.
 #>
@@ -13,6 +13,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 $SourceHead = '600f8ceb6943d1f1ecf341ff06072bf31c1babe0'
+$PreviousPublication = 'f3a0e86515c5285715730ff86781eb71c62c7ab0'
 $Branch = 'work/FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021'
 $TaskId = 'FOX2-BRIDGE-RC1-SAMEHOST-BUILD-A01'
 $ScriptPath = 'docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/samehost_build_a01_preexec.ps1'
@@ -72,19 +73,48 @@ function Remote-Head {
 function Assert-Writers {
     $owners = @((Git @('worktree', 'list', '--porcelain')) -split '\r?\n' | Where-Object { $_ -eq ('branch refs/heads/' + $Branch) })
     Require ($owners.Count -eq 1) 'COMPETING_WORKTREE'
-    # CIM failure or an unreadable CODEX command line is UNKNOWN, never absence.
+    # Process enumeration must succeed. Opaque user/session CODEX or wrappers block.
     $processes = @(Get-CimInstance Win32_Process -ErrorAction Stop)
     $markers = @($Worktree, $Worktree.Replace('\','/'), $TaskId, $Branch, 'FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021', $TaskPath, $PromptPath)
     foreach ($proc in $processes) {
         $name = [string]$proc.Name
         $line = [string]$proc.CommandLine
         $isCodex = $name -match '(?i)^codex(?:[.-].*)?(?:\.exe)?$'
-        $isWrapper = ($name -match '(?i)^(node|cmd|pwsh|powershell)\.exe$') -and ($line -match '(?i)codex(?:\.js|\.cmd|\.ps1|\.exe|\s)')
+        $wrapperName = $name -match '(?i)^(node|cmd|pwsh|powershell)\.exe$'
+        $opaque = [string]::IsNullOrWhiteSpace($line)
+        # This process is the PreExec host, not a competing Agent wrapper.
+        if ($wrapperName -and $proc.ProcessId -eq $PID) { continue }
+        $isWrapper = $wrapperName
         if (-not ($isCodex -or $isWrapper)) { continue }
-        Require (-not [string]::IsNullOrWhiteSpace($line)) 'CODEX_PROCESS_ATTRIBUTION_UNKNOWN'
+        # Even infrastructure must not carry a task marker when its line is readable.
         foreach ($marker in $markers) {
             Require ($line.IndexOf($marker, [StringComparison]::OrdinalIgnoreCase) -lt 0) 'TASK_SCOPED_CODEX_WRITER_PRESENT'
         }
+        # Narrow SCM infrastructure identity; never exempt the codex-* family.
+        $scmInfrastructure = $false
+        if ($name -ieq 'codex-windows-sandbox-service.exe' -and $proc.SessionId -eq 0) {
+            $parents = @($processes | Where-Object {
+                $_.ProcessId -eq $proc.ParentProcessId -and
+                $_.Name -ieq 'services.exe' -and $_.SessionId -eq 0
+            })
+            if ($parents.Count -eq 1) {
+                # Optional read-only SCM corroboration. Access denial does not require elevation.
+                $servicesReadable = $false
+                $services = @()
+                try {
+                    $services = @(Get-CimInstance Win32_Service -ErrorAction Stop)
+                    $servicesReadable = $true
+                } catch { }
+                if ($servicesReadable) {
+                    $serviceRows = @($services | Where-Object { $_.ProcessId -eq $proc.ProcessId })
+                    Require ($serviceRows.Count -gt 0) 'CODEX_SANDBOX_SERVICE_ATTRIBUTION_MISMATCH'
+                }
+                $scmInfrastructure = $true
+                Write-Output ('FOX2_CODEX_INFRASTRUCTURE=SCM_SANDBOX; PROCESS_ID=' + $proc.ProcessId + '; SCM_CORROBORATED=' + $servicesReadable)
+            }
+        }
+        if ($scmInfrastructure) { continue }
+        Require (-not $opaque) 'CODEX_PROCESS_ATTRIBUTION_UNKNOWN'
     }
 }
 function Codex-Info {
@@ -107,13 +137,16 @@ try {
     Require ((Git @('rev-parse','--show-toplevel')).Replace('/','\') -eq $Worktree.TrimEnd('\')) 'WORKTREE_ROOT_MISMATCH'
     Require ((Git @('branch','--show-current')) -ceq $Branch) 'BRANCH_MISMATCH'
     $initialHead = Git @('rev-parse','HEAD')
-    Require ($initialHead -in @($SourceHead, $PublicationHead)) 'HEAD_MISMATCH'
+    Require ($initialHead -in @($SourceHead, $PreviousPublication, $PublicationHead)) 'HEAD_MISMATCH'
     Require ([string]::IsNullOrWhiteSpace((Git @('status','--porcelain=v1','--untracked-files=all')))) 'DIRTY_WORKTREE'
     $origin = Git @('remote','get-url','origin')
     Require ($origin -match '^(https://github\.com/|git@github\.com:|ssh://git@github\.com/)dunglt2505/FOX2(?:\.git)?$') 'ORIGIN_MISMATCH'
     Require ((Remote-Head) -eq $PublicationHead) 'REMOTE_HEAD_MISMATCH'
-    Require ((Git @('rev-list','--parents','-n','1',$PublicationHead)) -ceq ($PublicationHead + ' ' + $SourceHead)) 'PUBLICATION_PARENT_MISMATCH'
+    Require ((Git @('rev-list','--parents','-n','1',$PreviousPublication)) -ceq ($PreviousPublication + ' ' + $SourceHead)) 'PREVIOUS_PUBLICATION_PARENT_MISMATCH'
+    Require ((Git @('diff-tree','--no-commit-id','--name-status','-r',$SourceHead,$PreviousPublication)) -ceq ("A`t" + $ScriptPath)) 'PREVIOUS_PUBLICATION_NOT_SCRIPT_ONLY'
+    Require ((Git @('rev-list','--parents','-n','1',$PublicationHead)) -ceq ($PublicationHead + ' ' + $PreviousPublication)) 'PUBLICATION_PARENT_MISMATCH'
     Require ((Git @('diff-tree','--no-commit-id','--name-status','-r',$SourceHead,$PublicationHead)) -ceq ("A`t" + $ScriptPath)) 'PUBLICATION_NOT_SCRIPT_ONLY'
+    Require ((Git @('diff-tree','--no-commit-id','--name-status','-r',$PreviousPublication,$PublicationHead)) -ceq ("M`t" + $ScriptPath)) 'RECOVERY_NOT_SCRIPT_ONLY'
     $scriptBlob = Git @('rev-parse', ($PublicationHead + ':' + $ScriptPath))
     Require ((Git @('hash-object','--no-filters',$PSCommandPath)) -eq $scriptBlob) 'RUNNING_SCRIPT_MISMATCH'
     Assert-Writers
@@ -140,7 +173,7 @@ if actual!="25fe465f82a16edf29ebf773a220969192f546e8": raise SystemExit(22)
     $rawCheck = Run-Tool $PythonExe @('-c',$verify,$Worktree,$SourceHead,$TaskPath,$PromptPath,$SchemaPath)
     Require ($rawCheck.Code -eq 0) 'SOURCE_BLOB_HASH_MISMATCH'
     Observe 'task_prompt_raw_identity' $true 'Task/prompt Git SHA-1 and raw blob SHA-256 match immutable source lock.' 'SOURCE'
-    if ($initialHead -eq $SourceHead) { $null = Git @('-c','core.hooksPath=NUL','merge','--ff-only',$PublicationHead) }
+    if ($initialHead -ne $PublicationHead) { $null = Git @('-c','core.hooksPath=NUL','merge','--ff-only',$PublicationHead) }
     Require ((Git @('rev-parse','HEAD')) -eq $PublicationHead) 'PREEXEC_HEAD_MISMATCH'
     Observe 'exact_branch_head' $true ('Publication head=' + $PublicationHead + '; source lock=' + $SourceHead) 'SOURCE'
     Observe 'clean_worktree' ([string]::IsNullOrWhiteSpace((Git @('status','--porcelain=v1','--untracked-files=all')))) 'Worktree and index checked before receipt.' 'WORKTREE'
@@ -180,7 +213,7 @@ if actual!="25fe465f82a16edf29ebf773a220969192f546e8": raise SystemExit(22)
         worktree=@{ status='PASS'; path=$Worktree; competing_writer='NONE_OBSERVED'; stale_receipt_cleanup='NOT_NEEDED' }
         candidate_route=@{ product='CODEX'; model_policy='PINNED'; model='gpt-6.1-sol'; reasoning_effort='high'; permission_profile='FULL_ACCESS' }
         dispatch_state=@{ executable_dispatch_published=$false; dispatch_consumed=$false }; agent_execution_started=$false
-        notes=@("Task=$TaskId; metadata-only PreExec; PASS means scoped checks only, not PASS_TO_ASSIGN.", "Original source lock=$SourceHead; publication adds only this PreExec script.", 'No Agent implementation, AppLocker/service/ACL mutation, install, deploy or replay performed.', 'Historical BLOCKED/FAIL/NOT_RUN retained. CHAT remote intake required; no model/quota/live execution proof.')
+        notes=@("Task=$TaskId; metadata-only PreExec; PASS means scoped checks only, not PASS_TO_ASSIGN.", "Original source lock=$SourceHead; publication lineage adds/patches only this PreExec script.", 'No Agent implementation, AppLocker/service/ACL mutation, install, deploy or replay performed.', 'Historical BLOCKED/FAIL/NOT_RUN retained. CHAT remote intake required; no model/quota/live execution proof.')
     }
     $json = (($receipt | ConvertTo-Json -Depth 12) -replace '\r\n', "`n").TrimEnd() + "`n"
     $null = New-Item -ItemType Directory -Force -Path (Split-Path -Parent $receiptFull)
