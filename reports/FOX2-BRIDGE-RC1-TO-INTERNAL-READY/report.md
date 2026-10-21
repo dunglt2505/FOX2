@@ -58,3 +58,11 @@ This progress is an independently traceable engineering update within the same W
 - Design evidence: `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md` at commit `ea33d368034d112edfe964b0ccd882526f7fca52`, specifies mandatory independently OS-enforced old-executor retirement, authenticated host trust anchor, single global claim namespace, live lease, anti-rollback and negative evidence. Design status **NOT_ATTESTED**.
 - CI `39518762540` / job `118957198091` at test source `018d947`: **COMPLETED/SUCCESS**. Exact Windows job logs show 23 package tests PASS and **446 full Bridge regression tests PASS** (includes the two new adversarial cases), followed by isolated Windows package construction PASS. Quarantined archive SHA-256 `26ad584902bd62fe271a93fedcbc09be8286311d6ed3e00acf91ced5811ff195`, source manifest commit `018d947619b26d9f61114d48fdfc380c5211a4a8`. No installed adoption, positive F1 authority or Canary permission.
 - No positive F1 authority, installed adoption, service, real host ledger, legacy process, Canary or LIVE access was attempted.
+
+## Local pre-spawn PAUSE/STOP guard — scoped offline acceptance (2026-10-21)
+
+- Source `9bcefa500f242ccbbc8ff11f5ce2647e166f29da` adds `SQLiteLedger.spawn_permitted()` fail-closed on corrupt/missing control payload, and rechecks worker controls and supervisor callback immediately before the paid Agent adapter call in `BridgeE2ERunner.run_once`.
+- A PAUSE/STOP or malformed state **after a durable claim but before Agent spawn** produces `AGENT_NOT_STARTED`, prevents adapter invocation, and retains the consumed dispatch ID. No automatic retry/replay.
+- 7 new parameterized offline tests cover post-claim PAUSE/STOP/malformed state and invalid control payload variants.
+- Windows CI `39519781500` / job `118960730105`: **COMPLETED/SUCCESS**. Logs show 23 package tests PASS, **453 full Bridge regression tests PASS**, and quarantined F0 DENY package build PASS. Package SHA-256 `e8fbffb04f9c4da7726e3bb3ef85cee358761e2e8547398d743765c81addde51`, source commit `9bcefa500f242ccbbc8ff11f5ce2647e166f29da`.
+- This is an **additional local guard only**, with a remaining time-of-check/time-of-use race and no independently OS-enforced legacy retirement or host lease. **F1 positive claim authority remains NOT_IMPLEMENTED**. Package not persisted/installed; Canary HOLD.
