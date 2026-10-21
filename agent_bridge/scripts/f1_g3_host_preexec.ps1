@@ -83,13 +83,19 @@ $isVirtual=$vmText -match '(?i)(virtual|vmware|virtualbox|kvm|qemu|parallels|hyp
 if($isVirtual -and -not $cs.PartOfDomain){$cap.isolated_virtual_target=Obs 'PASS' $true ('Virtual non-domain target observed: '+$cs.Manufacturer+' / '+$cs.Model)}
 else{Add-Blocker $blockers 'G3_ISOLATED_TARGET_UNPROVEN' 'PERMISSION' 'G3 requires a virtual isolated non-domain test target.';$cap.isolated_virtual_target=Obs 'FAIL' $true 'Isolated virtual target not proven.' 1 'G3_ISOLATED_TARGET_UNPROVEN'}
 
-$appLocker=Get-Module -ListAvailable AppLocker|Select-Object -First 1
-if($null -ne $appLocker){$cap.applocker_module=Obs 'PASS' $true ('AppLocker module available: '+$appLocker.Version)}
-else{Add-Blocker $blockers 'G3_APPLOCKER_MODULE_MISSING' 'CAPABILITY' 'AppLocker module unavailable.';$cap.applocker_module=Obs 'MISSING' $true 'AppLocker module unavailable.' 1 'G3_APPLOCKER_MODULE_MISSING'}
-
 $effectiveXml=$null;$localXml=$null
-try{Import-Module AppLocker -ErrorAction Stop;$effectiveXml=Get-AppLockerPolicy -Effective -Xml -ErrorAction Stop;$localXml=Get-AppLockerPolicy -Local -Xml -ErrorAction Stop;$cap.applocker_policy_query=Obs 'PASS' $true 'Effective and local AppLocker policy are readable.'}
-catch{Add-Blocker $blockers 'G3_APPLOCKER_QUERY_FAILED' 'CAPABILITY' 'Cannot read effective/local AppLocker policy.';$cap.applocker_policy_query=Obs 'FAIL' $true 'AppLocker policy query failed.' 1 'G3_APPLOCKER_QUERY_FAILED'}
+try{
+    Import-Module AppLocker -ErrorAction Stop
+    $effectiveXml=Get-AppLockerPolicy -Effective -Xml -ErrorAction Stop
+    $localXml=Get-AppLockerPolicy -Local -Xml -ErrorAction Stop
+    $cap.applocker_module=Obs 'PASS' $true 'AppLocker cmdlets are operational in this PowerShell host.'
+    $cap.applocker_policy_query=Obs 'PASS' $true 'Effective and local AppLocker policy are readable.'
+}
+catch{
+    Add-Blocker $blockers 'G3_APPLOCKER_QUERY_FAILED' 'CAPABILITY' 'AppLocker cmdlets/policy query are not operational.'
+    $cap.applocker_module=Obs 'FAIL' $true 'AppLocker cmdlets are not operational in this PowerShell host.' 1 'G3_APPLOCKER_QUERY_FAILED'
+    $cap.applocker_policy_query=Obs 'FAIL' $true 'AppLocker policy query failed.' 1 'G3_APPLOCKER_QUERY_FAILED'
+}
 
 $appId=Get-Service -Name AppIDSvc -ErrorAction SilentlyContinue
 if($null -ne $appId){$cap.appidsvc_present=Obs 'PASS' $true ('AppIDSvc observed; current state='+$appId.Status)}
