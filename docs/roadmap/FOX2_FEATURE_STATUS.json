@@ -41,7 +41,7 @@
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
       "status": "BLOCKED",
-      "evidence": "METADATA_PREEXEC_PASS_AT_F60AB169; LIVE_ADMISSION_ATTEMPT_AT_EDBB16A9_BLOCKED_BEFORE_CODEX_PROBE_ON_GIT_LINEAGE_CHECK; CORRECTED_TOOLING_6308FCF7_PUBLISHED; LIVE_ADMISSION_EVIDENCE_ABSENT",
+      "evidence": "METADATA_PREEXEC_PASS_AT_F60AB169; LIVE_ADMISSION_TOOLING_AT_6308FCF7; LATEST_LAUNCH_STOPPED_BEFORE_FETCH_PROBE_DUE_LOCAL_WIP; REMOTE_EVIDENCE_ABSENT",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "CORRECTED_LIVE_CODEX_ROUTE_ADMISSION_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_IMPLEMENTATION",
-      "blocker": "MODEL_QUOTA_RUNTIME_READINESS_NOT_VERIFIED",
-      "as_of": "2026-10-21T20:05:00+07:00",
-      "next_safe_action": "OWNER_FAST_FORWARD_TO_6308FCF7_AND_RUN_CORRECTED_VERSIONED_LIVE_ADMISSION_ONCE; CHAT_REMOTE_INTAKE",
+      "exit_gate": "RECONCILE_LOCAL_WIP_THEN_RUN_VERSIONED_LIVE_ADMISSION_ONCE; CHAT_INTAKE_REQUIRED_BEFORE_IMPLEMENTATION",
+      "blocker": "LOCAL_WORKTREE_WIP_UNKNOWN",
+      "as_of": "2026-10-21T20:15:00+07:00",
+      "next_safe_action": "READ_ONLY_GIT_STATUS_AND_DIFF_NAME_PROBE_ON_SAMEHOST_WORKTREE; NO_RESET_STASH_DELETE",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -663,19 +663,15 @@
           "pass_to_assign": false
         },
         "live_admission": {
-          "metadata_receipt_commit": "f60ab169baaf8c3e0f644adbf850021cea9ebf7d",
-          "prior_attempt_commit": "edbb16a907ca1c85ad238f81b3cc2ed0fc709885",
-          "prior_attempt": "BLOCKED_BEFORE_CODEX_PROBE",
-          "prior_blocker": "GIT_FAILED:diff",
-          "corrected_tooling_commit": "6308fcf79d2a9adbb3c81f59b2ce9354a6d06bd0",
-          "corrected_tooling_blob": "b9ff6fb0a078464c16bf6bb4fae70d92c288c446",
-          "tooling_lineage": "5_COMMITS_FROM_METADATA_RECEIPT; TOTAL_DIFF_ONLY_ADMISSION_SCRIPT",
-          "lineage_validation": "REV_LIST_PLUS_DIFF_TREE_PER_COMMIT",
-          "status": "READY_NOT_RUN",
+          "tooling_commit": "6308fcf79d2a9adbb3c81f59b2ce9354a6d06bd0",
+          "tooling_blob": "b9ff6fb0a078464c16bf6bb4fae70d92c288c446",
+          "latest_attempt": "STOPPED_BEFORE_FETCH_AND_LIVE_PROBE",
+          "latest_blocker": "LOCAL_WORKTREE_WIP",
           "evidence_remote": "ABSENT",
           "implementation_started": false,
           "dispatch_consumed": false,
-          "host_policy_mutation": false
+          "host_policy_mutation": false,
+          "local_wip": "UNKNOWN_PENDING_READ_ONLY_PROBE"
         }
       }
     }
