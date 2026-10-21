@@ -87,3 +87,10 @@ Owner-host evidence intake: docs/roadmap/FOX2_BRIDGE_F1_G1_OWNER_HOST_CAPABILITY
 G1 boundary clarification: effective AppLocker policy and running AppIDSvc are NOT prerequisites for DESIGN acceptance; requiring them in G1 would improperly execute G3/G4. They remain mandatory before any positive runtime authority. Current Owner host observation has empty effective AppLocker collections and AppIDSvc stopped, therefore installed enforcement remains NOT_ATTESTED.
 
 Selected G2 baseline: AppLocker Enforce-rules OS fence administered outside ordinary Bridge requester + privileged F1 Windows service owning authenticated IPC, global atomic consumed-ID state, lease/revocation and actual child spawn. Signed App Control is optional hardening, not G2 prerequisite. F1 positive runtime remains DENY.
+
+## G2 entry review — non-executable scope locked
+Candidate: docs/architecture/FOX2_BRIDGE_F1_G2_INTEGRATED_BUILD_SCOPE_CANDIDATE_20261021.md at 9410edb0d88631c33ffda8494b238ec9f4446dc1.
+
+G2 remains one integrated BUILD gate. CHAT inspected the actual agent_bridge code tree and locked the future build envelope: trusted Windows service + authenticated IPC + AppLocker policy artifact support + service-owned atomic claim/spawn + consumer convergence + offline/Windows-CI tests. This is not a coding task or Dispatch.
+
+G2 STATUS=BLOCKED. Existing Owner coding HOLD is preserved; no executable source lock, route PreExec, one-writer receipt, task.md or prompt.md has been created. Historical consumed attempts are not replayed.
