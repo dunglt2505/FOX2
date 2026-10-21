@@ -75,24 +75,35 @@ def test_expiry_package_epoch_and_revocation_are_fail_closed(
                            package_sha256="f" * 64, now=100, expires_at=200)
     assert not store.claim(dispatch_id="wrong-epoch", lease_id="B", epoch=2,
                            package_sha256=PACKAGE, now=100, expires_at=200)
-    assert not store.claim(dispatch_id="expired", lease_id="C", epoch=1,
-                           package_sha256=PACKAGE, now=500, expires_at=501)
     assert not store.claim(dispatch_id="overlong", lease_id="D", epoch=1,
                            package_sha256=PACKAGE, now=100, expires_at=501)
     assert store.claim(dispatch_id="valid", lease_id="E", epoch=1,
-                       package_sha256=PACKAGE, now=100, expires_at=200)
+                       package_sha256=PACKAGE, now=100, expires_at=300)
     assert store.spawn_permitted(dispatch_id="valid", lease_id="E", epoch=1,
                                  package_sha256=PACKAGE, now=199)
     assert not store.spawn_permitted(dispatch_id="valid", lease_id="E", epoch=1,
-                                     package_sha256=PACKAGE, now=200)
-    assert not store.spawn_permitted(dispatch_id="valid", lease_id="E", epoch=1,
-                                     package_sha256="f" * 64, now=101)
+                                     package_sha256="f" * 64, now=199)
     store.revoke_from_privileged_service()
     assert not store.spawn_permitted(dispatch_id="valid", lease_id="E", epoch=1,
-                                     package_sha256=PACKAGE, now=101)
+                                     package_sha256=PACKAGE, now=200)
     assert not store.claim(dispatch_id="after-revoke", lease_id="F", epoch=1,
-                           package_sha256=PACKAGE, now=101, expires_at=200)
+                           package_sha256=PACKAGE, now=201, expires_at=300)
+    assert not store.claim(dispatch_id="expired", lease_id="C", epoch=1,
+                           package_sha256=PACKAGE, now=500, expires_at=501)
     assert store.consumed_ids() == ("valid",)
+
+
+def test_lease_expiry_is_denied_at_exact_boundary(tmp_path: Path) -> None:
+    store = new_store(tmp_path)
+    store.provision_from_privileged_service(epoch())
+    assert store.claim(dispatch_id="D", lease_id="L", epoch=1,
+                       package_sha256=PACKAGE, now=100, expires_at=200)
+    assert store.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                 package_sha256=PACKAGE, now=199)
+    assert not store.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                     package_sha256=PACKAGE, now=200)
+    assert not store.spawn_permitted(dispatch_id="D", lease_id="L", epoch=1,
+                                     package_sha256=PACKAGE, now=199)
 
 
 def test_new_epoch_invalidates_old_leases_without_replay(
