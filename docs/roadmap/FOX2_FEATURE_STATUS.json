@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "G3_HOST_PREEXEC_PASS_ON_ELEVATED_ISOLATED_WINDOWS_TARGET_REQUIRED",
-      "blocker": "G3_ADMIN_REQUIRED; G3_ISOLATED_TARGET_UNPROVEN; APPLOCKER_MODULE_FALSE_NEGATIVE_FIXED_FOR_NEXT_PREEXEC",
-      "as_of": "2026-10-21T17:45:00+07:00",
-      "next_safe_action": "ESTABLISH_ISOLATED_WINDOWS_VM_TARGET; RUN POWERSHELL7 ELEVATED; FAST_FORWARD G3 BRANCH TO C61FFD25; RERUN PREEXEC; CHAT_INTAKE",
+      "blocker": "G3_TARGET_IS_PHYSICAL_DAILY_HOST; ISOLATED_VM_NOT_YET_BOUND; ELEVATED_ADMIN_NOT_IN_CURRENT_SHELL",
+      "as_of": "2026-10-21T17:55:00+07:00",
+      "next_safe_action": "READ_ONLY_HYPERV_CIM_DISCOVERY_FOR_EXISTING_ISOLATED_VM_OR_MANAGEMENT_STACK; NO_FEATURE_ENABLEMENT_OR_VM_CREATION_YET",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -576,7 +576,22 @@
         "current_runner_source_head": "c61ffd259a384e9c96b563968c6b7b98a0f156cd",
         "pass_to_execute": false,
         "host_mutation_started": false,
-        "next_safe_action": "MOVE_TO_EXISTING_OR_NEW_ISOLATED_WINDOWS_VM_AND_RERUN_PREEXEC_ELEVATED"
+        "next_safe_action": "MOVE_TO_EXISTING_OR_NEW_ISOLATED_WINDOWS_VM_AND_RERUN_PREEXEC_ELEVATED",
+        "discovery": {
+          "host_os": "Microsoft Windows 11 Pro",
+          "host_build": "26300",
+          "manufacturer": "LENOVO",
+          "model": "20UQS1RQ00",
+          "domain_member": false,
+          "hypervisor_present": true,
+          "current_instance_virtual": false,
+          "current_shell_elevated_admin": false,
+          "hyperv_feature_state": 2,
+          "virtual_machine_platform_state": 2,
+          "disposable_client_vm_state": 2,
+          "get_vm_available": false,
+          "interpretation": "PHYSICAL_HOST_WITH_ACTIVE_HYPERVISOR; NO_ISOLATED_TARGET_BOUND"
+        }
       }
     }
   ]
