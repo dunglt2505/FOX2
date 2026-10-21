@@ -158,7 +158,10 @@ class SQLiteLedger:
                 state = json.loads(row["payload"])
                 if not isinstance(state, dict):
                     return False
-                return state.get("paused") is not True and state.get("stop_requested") is not True
+                paused = state.get("paused", False)
+                stop_requested = state.get("stop_requested", False)
+                return (type(paused) is bool and type(stop_requested) is bool
+                        and not paused and not stop_requested)
         except (sqlite3.Error, ValueError, TypeError, OSError):
             return False
 
