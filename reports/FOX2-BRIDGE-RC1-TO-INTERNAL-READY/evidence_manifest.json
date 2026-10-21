@@ -2,375 +2,488 @@
   "acceptance": [
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_PACKAGE_VERIFICATION"
       ],
-      "id": "A01_SUPERVISOR",
-      "reason": "Stable external supervisor selected synchronously; PowerShell 7 and cwd outside versions.",
+      "id": "EXACT_ACCEPTED_SOURCE_PACKAGE_BUILD_PROVENANCE",
+      "reason": "Unmodified accepted-source temporary task-branch checkout; manifest source_git_commit exactly 2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_PACKAGE_VERIFICATION",
+        "E_PACKAGE_MANIFEST"
       ],
-      "id": "A02_NO_SELF_DELETE",
-      "reason": "No installed cli uninstall; installed parent/supervisor rejected before launch.",
+      "id": "PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION",
+      "reason": "All payload/source/wheel module hashes checked before install.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_PRE_STATE",
+        "E_PRE_INSTALL_STATE"
       ],
-      "id": "A03_BOUNDED_EVIDENCE",
-      "reason": "Supervisor identity, exit/stdout/stderr and filesystem/durable checks checkpointed.",
+      "id": "PRE_STATE_DURABLE_HASH_SNAPSHOT",
+      "reason": "Bounded original and immediate pre-install snapshots captured; no drift.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_EXECUTION",
+        "E_POST_INSTALL_STATE"
       ],
-      "id": "A04_STOP_ON_FAILURE",
-      "reason": "Nonzero failure evidence saved; no retry, alternate entrypoint or reinstall.",
+      "id": "REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS",
+      "reason": "Supported per-user installer exit 0, UPDATED.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_POST_INSTALL_STATE"
       ],
-      "id": "A05_PRODUCT_GUARD",
-      "reason": "Accepted installed-interpreter self-delete rejection remains unchanged and green.",
+      "id": "CURRENT_POINTER_AND_INSTALLED_RECEIPT_BIND_EXACT_PACKAGE_SOURCE",
+      "reason": "Pointer, installed receipt and source match exact accepted package.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_POST_INSTALL_STATE"
       ],
-      "id": "A06_DURABLE",
-      "reason": "Durable config/data/manual consumption and claimed identities remain preserved in regressions.",
+      "id": "SAFE_PAUSED_STATE_BEFORE_CERTIFICATION",
+      "reason": "STOPPED, paused, setup_complete; zero active worker/legacy tray.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_EXECUTION",
+        "E_FAILURE_ANALYSIS"
       ],
-      "id": "A07_FOCUSED",
-      "reason": "11 final lifecycle regressions PASS.",
+      "id": "CORRECTED_LIFECYCLE_CERTIFICATION_RUN_ON_OWNER_HOST",
+      "reason": "One real invocation exits 1: installed tray/worker did not become healthy. No replay.",
+      "status": "FAIL"
+    },
+    {
+      "evidence_ids": [
+        "E_EXECUTION"
+      ],
+      "id": "STABLE_EXTERNAL_UNINSTALL_EXERCISED_EXACTLY_ONCE",
+      "reason": "Earlier health failure prevented reaching stable uninstall; attempts=0.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_ids": [
+        "E_EXECUTION"
+      ],
+      "id": "UNINSTALL_EXIT_ZERO",
+      "reason": "Uninstall not invoked.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_ids": [
+        "E_FINAL_STATE"
+      ],
+      "id": "POST_UNINSTALL_CURRENT_POINTER_AND_OWNED_VERSIONS_ABSENT",
+      "reason": "Uninstall not invoked; both owned versions remain.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_ids": [
+        "E_FAILURE_ANALYSIS",
+        "E_FINAL_STATE"
+      ],
+      "id": "DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED",
+      "reason": "Across-uninstall preservation is unverified. All three hashes are unchanged across the actual install/failed-run window.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_ids": [
+        "E_EXECUTION",
+        "E_FINAL_STATE"
+      ],
+      "id": "SAME_EXACT_PACKAGE_REINSTALL_PASS",
+      "reason": "Reinstall not reached; recovery unnecessary because exact package remains installed.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_ids": [
+        "E_FINAL_STATE"
+      ],
+      "id": "FINAL_CURRENT_POINTER_EXACT",
+      "reason": "Final installed pointer and source match accepted package.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_FULL_XML"
+        "E_FINAL_STATE",
+        "E_FAILURE_ANALYSIS"
       ],
-      "id": "A08_FULL",
-      "reason": "617 full tests PASS under documented process-only Git longpath setting.",
+      "id": "FINAL_SETUP_AND_HEALTH_PASS",
+      "reason": "Setup_complete remains true and worker paused/STOPPED, but required healthy tray/worker certification failed. One WPF Desktop remains.",
+      "status": "FAIL"
+    },
+    {
+      "evidence_ids": [
+        "E_FAILURE_ANALYSIS",
+        "E_FINAL_STATE"
+      ],
+      "id": "CONSUMED_IDENTITIES_PRESERVED",
+      "reason": "28 dispatch identity/state/payload-hash records unchanged; four historical Batch-B identities remain NEEDS_RECONCILIATION.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_STATIC_CHECKS_JSON",
-        "E_K1_JSON"
+        "E_SOURCE_BINDING",
+        "E_EXECUTION"
       ],
-      "id": "A09_STATIC_K1",
-      "reason": "Allowlist, syntax, PowerShell parsing, bounded secret scan, diff and K1 PASS.",
+      "id": "NO_OLD_DISPATCH_REPLAY",
+      "reason": "Only launcher-bound fresh Dispatch consumed once; no Agent or lifecycle retry.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_SOURCE_BINDING_JSON"
+        "E_FAILURE_ANALYSIS",
+        "E_PACKAGE_MANIFEST"
       ],
-      "id": "A10_HOST_NOT_RUN",
-      "reason": "Real host lifecycle remains NOT_RUN; exclusion compliance only.",
+      "id": "NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION",
+      "reason": "No forbidden mutation invoked; accepted package activation remains DENY_PENDING_G3_G4.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_REPORT_MD"
+        "E_STATIC_CHECKS",
+        "E_VERIFY_RESULT",
+        "E_K1"
       ],
-      "id": "A11_RESULT_ARTIFACTS",
-      "reason": "Report/manifest and bounded evidence prepared for authorized branch publication; remote result SHA external.",
+      "id": "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY",
+      "reason": "Bounded report/evidence checks and repeatable verifier; containing result commit SHA supplied externally.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_SOURCE_BINDING_JSON"
+        "E_STATIC_CHECKS",
+        "E_VERIFY_RESULT",
+        "E_K1"
       ],
-      "id": "A12_HISTORICAL_FAIL",
-      "reason": "Historical Batch-B UNINSTALL_PATH=FAIL remains factual and unchanged.",
+      "id": "SECRET_SCAN",
+      "reason": "Bounded report/evidence checks and repeatable verifier; containing result commit SHA supplied externally.",
       "status": "PASS"
     },
     {
       "evidence_ids": [
-        "E_VERIFY_PY",
-        "E_RESULT_VALIDATION_TXT"
+        "E_STATIC_CHECKS",
+        "E_VERIFY_RESULT",
+        "E_K1"
       ],
-      "id": "A13_CONTRACT",
-      "reason": "Result Contract v2 validates; no containing-commit self-reference.",
+      "id": "GIT_DIFF_CHECK",
+      "reason": "Bounded report/evidence checks and repeatable verifier; containing result commit SHA supplied externally.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E_STATIC_CHECKS",
+        "E_VERIFY_RESULT",
+        "E_K1"
+      ],
+      "id": "K1_UNEXPLAINED_ZERO",
+      "reason": "Bounded report/evidence checks and repeatable verifier; containing result commit SHA supplied externally.",
+      "status": "PASS"
+    },
+    {
+      "evidence_ids": [
+        "E_STATIC_CHECKS",
+        "E_VERIFY_RESULT",
+        "E_K1"
+      ],
+      "id": "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+      "reason": "Bounded report/evidence checks and repeatable verifier; containing result commit SHA supplied externally.",
       "status": "PASS"
     }
   ],
   "agent": {
-    "finished_at_utc": "2026-10-21T15:46:36.832734+00:00",
-    "host": "Windows local CODEX CLI",
-    "mode": "high / MANUAL_LOCAL / FULL_ACCESS",
+    "finished_at_utc": "2026-10-21T16:51:41.076961+00:00",
+    "host": "Owner physical Windows host",
+    "mode": "high / MANUAL_LOCAL / task-scoped FULL_ACCESS",
     "model": "gpt-6.1-sol",
     "product": "CODEX",
-    "quota_observation": "NOT_MEASURED; existing task-specific route admission PASS and pinned current process observed; no new probe or Agent launch.",
-    "started_at_utc": "2026-10-21T15:33:44.809276+00:00"
+    "quota_observation": "NOT_MEASURED; inherited exact route admission and live pinned process observed; no new Agent probe.",
+    "started_at_utc": "2026-10-21T16:45:27.051350+00:00"
   },
-  "change_id": "PACKAGE-LIFECYCLE-A03",
+  "change_id": "HOST-LIFECYCLE-CERT-A01",
   "contract_version": "2.0",
   "evidence": [
     {
-      "description": "Bounded A03 report.md",
-      "id": "E_REPORT_MD",
+      "description": "Bounded host-certification report.md",
+      "id": "E_REPORT",
       "kind": "REPORT",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
       "sanitized": true,
-      "sha256": "26b43bb0a3e49304b253e723df909532cb06303608218e0caed8d450a088a810",
+      "sha256": "50681ae719456ba6e3c70fac8e3932276bdad970ef3abfd6d0d7a1c54d97c62e",
       "supports_ids": [
-        "A11_RESULT_ARTIFACTS"
+        "T_DELIVERY"
       ]
     },
     {
-      "description": "Bounded A03 evidence_normalization.json",
-      "id": "E_EVIDENCE_NORMALIZATION_JSON",
+      "description": "Bounded host-certification assemble_result.py",
+      "id": "E_ASSEMBLE_RESULT",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/evidence_normalization.json",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/assemble_result.py",
       "sanitized": true,
-      "sha256": "53ff16bacdcc672b9c76212457925d56ff85ce6fef34e2d1a1880e5c81c7bd2c",
+      "sha256": "6d75c41f3f9f8ba21ff3e429afae1358ff7fa9ba8dcf3147f03448bcadbe35ab",
       "supports_ids": [
         "T_STATIC"
       ]
     },
     {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_FOCUSED_LOG",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/focused.log",
-      "sanitized": true,
-      "sha256": "5b18f658da4bf27b04f4977ea3f1409e9bf92230d8ec20df5dec5b325d87f416",
-      "supports_ids": [
-        "T_FOCUSED"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_FOCUSED_XML",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/focused.xml",
-      "sanitized": true,
-      "sha256": "9c4f79866c789f9b4928b41be1f24bf46f5118b68f8c71f4cad3b4bb9dd6eaad",
-      "supports_ids": [
-        "T_FOCUSED"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_FULL_LOG",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full.log",
-      "sanitized": true,
-      "sha256": "a18417451e902452a1045534b10feca96e443356e53f48a73c991dcbeef807ed",
-      "supports_ids": [
-        "T_FULL"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_FULL_XML",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full.xml",
-      "sanitized": true,
-      "sha256": "2ee269812049314a2d76d7cfd46ae41eefa6ad657eb9865aac6f2c3fdf563f21",
-      "supports_ids": [
-        "T_FULL"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_FULL_INITIAL_LOG",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full_initial.log",
-      "sanitized": true,
-      "sha256": "87a80b1abed591bfe87b9f8d344a38d551bffbe737497bd59f022a4b26b56140",
-      "supports_ids": [
-        "T_FULL_INITIAL"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_FULL_INITIAL_XML",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full_initial.xml",
-      "sanitized": true,
-      "sha256": "a1d8d8da49f32165004814f6f281b4b46f6e8c4d50be51dcf826b8f4e1fa2750",
-      "supports_ids": [
-        "T_FULL_INITIAL"
-      ]
-    },
-    {
-      "description": "Bounded A03 implementation.diff",
-      "id": "E_IMPLEMENTATION_DIFF",
-      "kind": "DIFF",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/implementation.diff",
-      "sanitized": true,
-      "sha256": "a91ddf7d91779f9a86e5fda67fe78a3c6fbf0a4582b11a45e4fa58388f8c2c09",
-      "supports_ids": [
-        "T_STATIC"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_INSTALLATION_PACKAGE_LOG",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/installation_package.log",
-      "sanitized": true,
-      "sha256": "3848483e2224e9a2cdf24753177089fe3e6720cb60ee031a6b6db5384de5f61a",
-      "supports_ids": [
-        "T_PACKAGE",
-        "T_FOCUSED"
-      ]
-    },
-    {
-      "description": "Fixture-based test evidence; no real host lifecycle.",
-      "id": "E_INSTALLATION_PACKAGE_XML",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/installation_package.xml",
-      "sanitized": true,
-      "sha256": "99ad222e8cdeab169224dd7a294c88c6f733e2378296d2840c6001f83067f8b3",
-      "supports_ids": [
-        "T_PACKAGE",
-        "T_FOCUSED"
-      ]
-    },
-    {
-      "description": "Bounded A03 k1.json",
-      "id": "E_K1_JSON",
+      "description": "Bounded host-certification execution.json",
+      "id": "E_EXECUTION",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/k1.json",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/execution.json",
       "sanitized": true,
-      "sha256": "38aa644c3a1ebfa75023751a945b0f46f82b4f2fd8f81eb3817d46bda3ed6f88",
+      "sha256": "c4b48b61d6ce08910c9868ce399007ac86213877ab841df603f321da19137f92",
+      "supports_ids": [
+        "REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS",
+        "CORRECTED_LIFECYCLE_CERTIFICATION_RUN_ON_OWNER_HOST",
+        "STABLE_EXTERNAL_UNINSTALL_EXERCISED_EXACTLY_ONCE",
+        "UNINSTALL_EXIT_ZERO",
+        "SAME_EXACT_PACKAGE_REINSTALL_PASS",
+        "NO_OLD_DISPATCH_REPLAY",
+        "T_INSTALL",
+        "T_LIFECYCLE",
+        "T_UNINSTALL",
+        "T_REINSTALL"
+      ]
+    },
+    {
+      "description": "Bounded host-certification failure_analysis.json",
+      "id": "E_FAILURE_ANALYSIS",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/failure_analysis.json",
+      "sanitized": true,
+      "sha256": "3f3d104e06299c4bcf4c4ac0e9b3edba437beddb6958801becf72df3ae7c8fc4",
+      "supports_ids": [
+        "CORRECTED_LIFECYCLE_CERTIFICATION_RUN_ON_OWNER_HOST",
+        "DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED",
+        "FINAL_SETUP_AND_HEALTH_PASS",
+        "CONSUMED_IDENTITIES_PRESERVED",
+        "NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION",
+        "T_LIFECYCLE",
+        "T_DURABLE_BOUNDARY"
+      ]
+    },
+    {
+      "description": "Bounded host-certification final_state.json",
+      "id": "E_FINAL_STATE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/final_state.json",
+      "sanitized": true,
+      "sha256": "93952ac7fddb43cc6cc85b2e296b936662221ef428959e8ea852fe64cc99efb4",
+      "supports_ids": [
+        "POST_UNINSTALL_CURRENT_POINTER_AND_OWNED_VERSIONS_ABSENT",
+        "DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED",
+        "SAME_EXACT_PACKAGE_REINSTALL_PASS",
+        "FINAL_CURRENT_POINTER_EXACT",
+        "FINAL_SETUP_AND_HEALTH_PASS",
+        "CONSUMED_IDENTITIES_PRESERVED",
+        "T_DURABLE_BOUNDARY"
+      ]
+    },
+    {
+      "description": "Bounded host-certification k1.json",
+      "id": "E_K1",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/k1.json",
+      "sanitized": true,
+      "sha256": "e5d9df6bca8c7ede2bb0b38e0431ecda0043a467c8dd0ea7cb8109c1b73abf5f",
+      "supports_ids": [
+        "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "K1_UNEXPLAINED_ZERO",
+        "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+        "T_STATIC"
+      ]
+    },
+    {
+      "description": "Bounded host-certification observe.py",
+      "id": "E_OBSERVE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/observe.py",
+      "sanitized": true,
+      "sha256": "0af5501bd9e54b9911126e225013a763a36839e95a1624abff8b9e59c48b87be",
       "supports_ids": [
         "T_STATIC"
       ]
     },
     {
-      "description": "Bounded A03 source_binding.json",
-      "id": "E_SOURCE_BINDING_JSON",
+      "description": "Bounded host-certification package_manifest.json",
+      "id": "E_PACKAGE_MANIFEST",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/package_manifest.json",
+      "sanitized": true,
+      "sha256": "071676137a0109196e871727a97e4c5c675bb734459986786a25cfcf9ce0de5f",
+      "supports_ids": [
+        "PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION",
+        "NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION",
+        "T_PACKAGE"
+      ]
+    },
+    {
+      "description": "Bounded host-certification package_verification.json",
+      "id": "E_PACKAGE_VERIFICATION",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/package_verification.json",
+      "sanitized": true,
+      "sha256": "f5bda56765de2fc475ae5270296d045b41d4fdbeb6688f2997c47fde44a21e72",
+      "supports_ids": [
+        "EXACT_ACCEPTED_SOURCE_PACKAGE_BUILD_PROVENANCE",
+        "PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION",
+        "T_PACKAGE"
+      ]
+    },
+    {
+      "description": "Bounded host-certification post_install_state.json",
+      "id": "E_POST_INSTALL_STATE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/post_install_state.json",
+      "sanitized": true,
+      "sha256": "4bbfd81871e3980da111a826e14cd2fb9d728f13f2a0d39c48e4c72ee78cbba5",
+      "supports_ids": [
+        "REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS",
+        "CURRENT_POINTER_AND_INSTALLED_RECEIPT_BIND_EXACT_PACKAGE_SOURCE",
+        "SAFE_PAUSED_STATE_BEFORE_CERTIFICATION",
+        "T_INSTALL"
+      ]
+    },
+    {
+      "description": "Bounded host-certification pre_install_state.json",
+      "id": "E_PRE_INSTALL_STATE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/pre_install_state.json",
+      "sanitized": true,
+      "sha256": "155448b56702751c522599f03c3fbc14e8bb4a8b5e6eaef9c696e9e487feeda8",
+      "supports_ids": [
+        "PRE_STATE_DURABLE_HASH_SNAPSHOT"
+      ]
+    },
+    {
+      "description": "Bounded host-certification pre_state.json",
+      "id": "E_PRE_STATE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/pre_state.json",
+      "sanitized": true,
+      "sha256": "47badad642beeb451e12dcb88638f0ab182a4bdab22cb9c68fcbc2cd987e1549",
+      "supports_ids": [
+        "PRE_STATE_DURABLE_HASH_SNAPSHOT",
+        "T_DURABLE_BOUNDARY"
+      ]
+    },
+    {
+      "description": "Bounded host-certification run_once.py",
+      "id": "E_RUN_ONCE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/run_once.py",
+      "sanitized": true,
+      "sha256": "a7f898d1fe9d4bf30736f96567cd69e776477f53077bc48ccdce8d4f97cde7f3",
+      "supports_ids": [
+        "T_STATIC"
+      ]
+    },
+    {
+      "description": "Bounded host-certification source_binding.json",
+      "id": "E_SOURCE_BINDING",
       "kind": "SOURCE_READBACK",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/source_binding.json",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/source_binding.json",
       "sanitized": true,
-      "sha256": "4a553ef4182dd99d484c38ea817eab17f9691ccfae9c06dfc80e1a4e4b8a1773",
+      "sha256": "6f222b2c2e49e8b4c4cf939a2baf81276b606b587d726ba5213b52f7d0634e7e",
       "supports_ids": [
-        "T_SOURCE",
-        "A10_HOST_NOT_RUN",
-        "A12_HISTORICAL_FAIL"
+        "NO_OLD_DISPATCH_REPLAY",
+        "T_SOURCE"
       ]
     },
     {
-      "description": "Bounded A03 static_checks.json",
-      "id": "E_STATIC_CHECKS_JSON",
+      "description": "Bounded host-certification static_checks.json",
+      "id": "E_STATIC_CHECKS",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/static_checks.json",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/static_checks.json",
       "sanitized": true,
-      "sha256": "0544d10b76575240fb8f08885f68b578aa1756265401f7753caa6aa23e5c925c",
+      "sha256": "bf5b7b9e78a6b4f7b81640a52cf9b207c12668d8e945e758a57c26cf775901e6",
+      "supports_ids": [
+        "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "K1_UNEXPLAINED_ZERO",
+        "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+        "T_STATIC"
+      ]
+    },
+    {
+      "description": "Bounded host-certification verify_package.py",
+      "id": "E_VERIFY_PACKAGE",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/verify_package.py",
+      "sanitized": true,
+      "sha256": "2618c0c06c22c1e84685ef9c30267ba736567871e422031382fc048d8346660e",
       "supports_ids": [
         "T_STATIC"
       ]
     },
     {
-      "description": "Bounded A03 test_summary.json",
-      "id": "E_TEST_SUMMARY_JSON",
+      "description": "Bounded host-certification verify_result.py",
+      "id": "E_VERIFY_RESULT",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/test_summary.json",
+      "observed_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/verify_result.py",
       "sanitized": true,
-      "sha256": "4335eb5a08c21b319d2b160493bebf4afbaf07423b8dc208674921e2e505a3a7",
+      "sha256": "eb8b49b81266e631f14e508b1d9c3792f7452e0497ce932324292b6695cbcbdc",
       "supports_ids": [
-        "T_FOCUSED",
-        "T_PACKAGE",
-        "T_FULL",
-        "T_FULL_INITIAL"
-      ]
-    },
-    {
-      "description": "Bounded A03 validation_history.json",
-      "id": "E_VALIDATION_HISTORY_JSON",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/validation_history.json",
-      "sanitized": true,
-      "sha256": "b01373f7b18dcf9dd20dc4881c46fadcd8961fd3ce56070ce9b798ccb8e56b40",
-      "supports_ids": [
-        "T_STATIC",
-        "T_FULL_INITIAL"
-      ]
-    },
-    {
-      "description": "Bounded A03 verify.py",
-      "id": "E_VERIFY_PY",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/verify.py",
-      "sanitized": true,
-      "sha256": "3ced869fac850d60ea5cda39736ad726925800ee143268ee6611693493abd26f",
-      "supports_ids": [
-        "T_STATIC",
-        "T_CONTRACT"
-      ]
-    },
-    {
-      "description": "Observed successful Result Contract v2/hash/reference/scope validation; repeated after receipt inclusion.",
-      "id": "E_RESULT_VALIDATION_TXT",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-21T15:47:32.899158+00:00",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/result_validation.txt",
-      "sanitized": true,
-      "sha256": "468b8cda3678cfdd4211af99608f5d4b039258fd3c2dded4473081e7aa2e8fcc",
-      "supports_ids": [
-        "T_CONTRACT",
-        "A13_CONTRACT"
+        "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY",
+        "SECRET_SCAN",
+        "GIT_DIFF_CHECK",
+        "K1_UNEXPLAINED_ZERO",
+        "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+        "T_STATIC"
       ]
     }
   ],
   "git": {
-    "branch": "work/FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
+    "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021",
     "delivery_status": "PUSHED_UNREVIEWED",
-    "local_head_before_submission": "fab3642b818415428ae3f67965430e3ea0b11401",
+    "local_head_before_submission": "208de84f39dcf783bd4ee9053c0288cda9aa0024",
     "pr_url": null,
     "report_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
     "repository": "dunglt2505/FOX2",
-    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
-    "writer_lease": "One task-scoped CODEX PID 21216, clean entry; no competing task writer observed, no subagents. Source binding receipt."
+    "worktree": "WORKTREES/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021",
+    "writer_lease": "One task CODEX PID 18272; clean entry, no subagents or competing G3/G4/Canary writer."
   },
   "next_step": {
-    "action": "Independently remote-read the external result SHA and review A03 code/results; retain historical FAIL and real-host NOT_RUN.",
+    "action": "Review immutable pushed FAIL evidence; create separately authorized current-launcher lifecycle rework. Preserve NOT_RUN and historical FAIL; do not replay consumed Dispatch.",
     "owner_role": "CHAT",
-    "prerequisite_gate": "Exact authorized task-branch push and independent remote-head readback; no merge/release/host lifecycle implied.",
-    "requested_chat_decision": "REVIEW"
+    "prerequisite_gate": "Independent CHAT remote result review; any new executable task requires fresh binding and PreExec.",
+    "requested_chat_decision": "REWORK"
   },
   "permissions": {
     "broker_write": false,
-    "code_allowed": true,
+    "code_allowed": false,
     "dnse_production": false,
-    "git_code_push": true,
+    "git_code_push": false,
     "git_report_push": true,
     "git_report_write": true,
     "git_source_read": true,
-    "grant_evidence": "Owner execution prompt and exact executable A03 Dispatch; bounded code/test/result paths, authorized non-main branch push only.",
+    "grant_evidence": "Owner immutable task/prompt plus exact fresh Dispatch authorizes only bounded per-user lifecycle and report/evidence push; source code disabled.",
     "live": false,
     "merge_allowed": false,
     "pr_create": false
@@ -378,20 +491,20 @@
   "project": "FOX2",
   "risks": [
     {
-      "id": "R_HOST",
-      "impact": "Source/test correction does not certify the real installed host lifecycle; historical Batch-B failure remains.",
-      "next_action": "CHAT review; any later host lifecycle requires a separately authorized task.",
-      "owner_role": "CHAT/Owner",
-      "severity": "MEDIUM",
-      "state": "NOT_VERIFIED"
+      "id": "R_LIFECYCLE",
+      "impact": "Real lifecycle FAIL; uninstall/reinstall and final healthy runtime are unverified.",
+      "next_action": "CHAT review and separately authorized source rework; fresh task/PreExec/Dispatch required, no replay.",
+      "owner_role": "CHAT",
+      "severity": "HIGH",
+      "state": "BLOCKED"
     },
     {
-      "id": "R_MAX_PATH",
-      "impact": "Long nested test fixture paths fail under default Git for Windows path handling.",
-      "next_action": "Use the documented process-only core.longpaths=true for this task worktree. Preserve original failed evidence.",
-      "owner_role": "CODEX/CHAT",
+      "id": "R_PRESENTATION",
+      "impact": "One WPF presentation process from this failed test remains open; startup remains enabled. Worker stopped and paused.",
+      "next_action": "Record final state and address presentation cleanup/contract in the separately scoped next task; no forced termination here.",
+      "owner_role": "Owner/CHAT",
       "severity": "LOW",
-      "state": "MITIGATED"
+      "state": "OPEN"
     }
   ],
   "routing": {
@@ -405,308 +518,302 @@
     "r5": "PASS",
     "r6": "PASS",
     "r7": "PASS",
-    "routing_evidence": "Exact launcher-supplied executable A03 Dispatch, CHAT PASS_TO_ASSIGN, PreExec and process-observed route; source_binding.json. Scope is offline harness BUILD only.",
+    "routing_evidence": "Exact launcher-bound Dispatch, task-specific PreExec v5 and CHAT PASS_TO_ASSIGN; live route/writer/source/host readback in source_binding.json. No broader authority granted.",
     "task_state_check": "PASS"
   },
   "scope": {
     "changed_paths": [
       {
-        "intent": "REQUESTED: harness/regression/result.",
-        "new_sha256": "09bba0d6ce649728b05c2f5d7c69db375540fddf6ca0d5f737adcf294e5b2a72",
-        "operation": "MODIFY",
-        "path": "agent_bridge/scripts/certify_user_lifecycle.py",
-        "within_allowed_paths": true
-      },
-      {
-        "intent": "REQUESTED: harness/regression/result.",
-        "new_sha256": "1c5bc3d666e8037979dae42c3fe889808ace665b64a0b2ed8604a6bf2f063798",
-        "operation": "MODIFY",
-        "path": "agent_bridge/tests/test_rc1_package.py",
-        "within_allowed_paths": true
-      },
-      {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "53ff16bacdcc672b9c76212457925d56ff85ce6fef34e2d1a1880e5c81c7bd2c",
+        "intent": "NECESSARY_DEPENDENCY: bounded failed host-certification evidence.",
+        "new_sha256": "6d75c41f3f9f8ba21ff3e429afae1358ff7fa9ba8dcf3147f03448bcadbe35ab",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/evidence_normalization.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/assemble_result.py",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "5b18f658da4bf27b04f4977ea3f1409e9bf92230d8ec20df5dec5b325d87f416",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "c4b48b61d6ce08910c9868ce399007ac86213877ab841df603f321da19137f92",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/focused.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/execution.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "9c4f79866c789f9b4928b41be1f24bf46f5118b68f8c71f4cad3b4bb9dd6eaad",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "3f3d104e06299c4bcf4c4ac0e9b3edba437beddb6958801becf72df3ae7c8fc4",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/focused.xml",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/failure_analysis.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "a18417451e902452a1045534b10feca96e443356e53f48a73c991dcbeef807ed",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "93952ac7fddb43cc6cc85b2e296b936662221ef428959e8ea852fe64cc99efb4",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/final_state.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "2ee269812049314a2d76d7cfd46ae41eefa6ad657eb9865aac6f2c3fdf563f21",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "e5d9df6bca8c7ede2bb0b38e0431ecda0043a467c8dd0ea7cb8109c1b73abf5f",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full.xml",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/k1.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "87a80b1abed591bfe87b9f8d344a38d551bffbe737497bd59f022a4b26b56140",
+        "intent": "NECESSARY_DEPENDENCY: bounded failed host-certification evidence.",
+        "new_sha256": "0af5501bd9e54b9911126e225013a763a36839e95a1624abff8b9e59c48b87be",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full_initial.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/observe.py",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "a1d8d8da49f32165004814f6f281b4b46f6e8c4d50be51dcf826b8f4e1fa2750",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "071676137a0109196e871727a97e4c5c675bb734459986786a25cfcf9ce0de5f",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/full_initial.xml",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/package_manifest.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "a91ddf7d91779f9a86e5fda67fe78a3c6fbf0a4582b11a45e4fa58388f8c2c09",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "f5bda56765de2fc475ae5270296d045b41d4fdbeb6688f2997c47fde44a21e72",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/implementation.diff",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/package_verification.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "3848483e2224e9a2cdf24753177089fe3e6720cb60ee031a6b6db5384de5f61a",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "4bbfd81871e3980da111a826e14cd2fb9d728f13f2a0d39c48e4c72ee78cbba5",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/installation_package.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/post_install_state.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "99ad222e8cdeab169224dd7a294c88c6f733e2378296d2840c6001f83067f8b3",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "155448b56702751c522599f03c3fbc14e8bb4a8b5e6eaef9c696e9e487feeda8",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/installation_package.xml",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/pre_install_state.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "38aa644c3a1ebfa75023751a945b0f46f82b4f2fd8f81eb3817d46bda3ed6f88",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "47badad642beeb451e12dcb88638f0ab182a4bdab22cb9c68fcbc2cd987e1549",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/k1.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/pre_state.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "468b8cda3678cfdd4211af99608f5d4b039258fd3c2dded4473081e7aa2e8fcc",
+        "intent": "NECESSARY_DEPENDENCY: bounded failed host-certification evidence.",
+        "new_sha256": "a7f898d1fe9d4bf30736f96567cd69e776477f53077bc48ccdce8d4f97cde7f3",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/result_validation.txt",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/run_once.py",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "4a553ef4182dd99d484c38ea817eab17f9691ccfae9c06dfc80e1a4e4b8a1773",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "6f222b2c2e49e8b4c4cf939a2baf81276b606b587d726ba5213b52f7d0634e7e",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/source_binding.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/source_binding.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "0544d10b76575240fb8f08885f68b578aa1756265401f7753caa6aa23e5c925c",
+        "intent": "JUSTIFIED_GENERATED: bounded failed host-certification evidence.",
+        "new_sha256": "bf5b7b9e78a6b4f7b81640a52cf9b207c12668d8e945e758a57c26cf775901e6",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/static_checks.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/static_checks.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "4335eb5a08c21b319d2b160493bebf4afbaf07423b8dc208674921e2e505a3a7",
+        "intent": "NECESSARY_DEPENDENCY: bounded failed host-certification evidence.",
+        "new_sha256": "2618c0c06c22c1e84685ef9c30267ba736567871e422031382fc048d8346660e",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/test_summary.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/verify_package.py",
         "within_allowed_paths": true
       },
       {
-        "intent": "JUSTIFIED_GENERATED: bounded task evidence.",
-        "new_sha256": "b01373f7b18dcf9dd20dc4881c46fadcd8961fd3ce56070ce9b798ccb8e56b40",
+        "intent": "NECESSARY_DEPENDENCY: bounded failed host-certification evidence.",
+        "new_sha256": "eb8b49b81266e631f14e508b1d9c3792f7452e0497ce932324292b6695cbcbdc",
         "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/validation_history.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/verify_result.py",
         "within_allowed_paths": true
       },
       {
-        "intent": "NECESSARY_DEPENDENCY: reproducible evidence verification.",
-        "new_sha256": "3ced869fac850d60ea5cda39736ad726925800ee143268ee6611693493abd26f",
-        "operation": "ADD",
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/verify.py",
-        "within_allowed_paths": true
-      },
-      {
-        "intent": "REQUESTED: harness/regression/result.",
+        "intent": "REQUESTED: bounded failed host-certification evidence.",
         "new_sha256": null,
         "operation": "MODIFY",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
         "within_allowed_paths": true
       },
       {
-        "intent": "REQUESTED: harness/regression/result.",
-        "new_sha256": "26b43bb0a3e49304b253e723df909532cb06303608218e0caed8d450a088a810",
+        "intent": "REQUESTED: bounded failed host-certification evidence.",
+        "new_sha256": "50681ae719456ba6e3c70fac8e3932276bdad970ef3abfd6d0d7a1c54d97c62e",
         "operation": "MODIFY",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
         "within_allowed_paths": true
       }
     ],
     "completed": [
-      "Stable external PowerShell 7 uninstall; checkpoint before reinstall; nonzero/timeout/start/postcondition failure stops once.",
-      "11 final lifecycle cases, 62 installation/package and 617 full tests PASS; product guard and durable identities preserved.",
-      "Required report, evidence, K1 and Result Contract v2 verification."
+      "Exact package build/provenance, real supported update, paused pre-state and one lifecycle invocation; first failure and final durable/installed state preserved.",
+      "Report/evidence-only validation and authorized non-main publication."
     ],
     "explicit_exclusions": [
-      "A01 replay or A02 execution; product uninstall redesign.",
-      "AppLocker/AppIDSvc/service/ProgramData ACL, reboot, G3/G4/Canary.",
-      "main/PR/merge/provider/broker/LIVE and global release."
+      "Product/source/test edits; Agent/lifecycle/uninstall replay.",
+      "G3/G4/AppLocker/AppIDSvc/F1-service/ProgramData-ACL/reboot/Canary/main/PR/merge/provider/broker/LIVE."
     ],
     "forbidden_paths_touched": false,
     "not_done": [
-      "Real host lifecycle NOT_RUN; independent CHAT review pending."
+      "Successful lifecycle certification, uninstall/postconditions, across-uninstall durability, reinstall, final healthy runtime and CHAT acceptance."
     ],
-    "partial": [],
+    "partial": [
+      "Lifecycle FAIL at tray/worker health; stable uninstall and reinstall NOT_RUN."
+    ],
     "requested": [
-      "Correct lifecycle uninstall entrypoint, retain bounded sanitized evidence, add focused regressions, test and publish bounded A03 result."
+      "Exact current-package Owner-host lifecycle TEST certification, one attempt and bounded evidence delivery."
     ]
   },
   "security": {
-    "check_notes": "Bounded changed-file scan; exactly two synthetic sanitizer vectors excluded in source/diff; artificial secret test parameters redacted from XML; original hashes retained.",
+    "check_notes": "Bounded changed-text scan; only hashes, path aliases, sanitized process error and aggregate ledger evidence; no raw config/database/prompt/log/package binary.",
     "evidence_redacted": true,
     "licensed_raw_feed_in_git": false,
     "private_account_data_in_git": false,
     "secret_scan": "PASS"
   },
   "source": {
-    "approved_base_commit_sha": "e052082afd7279f21611d76669dc8e761c003e79",
+    "approved_base_commit_sha": "208de84f39dcf783bd4ee9053c0288cda9aa0024",
     "brd_revisions": [
-      "Accepted product contract at b065a468279cbf63ae4bbfad7a0efaad1e6046e4; no BRD or TechSpec change"
+      "Immutable host-lifecycle task at d95f08ceed2f5a25ad288b9630ffc87b698f329c; no BRD/TechSpec/product change"
     ],
     "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
     "policy_version": "2.0.0 task-scoped Owner authority",
     "previous_evidence_reused": [
-      "Accepted product/result baseline b065a468279cbf63ae4bbfad7a0efaad1e6046e4 and CHAT acceptance 278daa5aff70b2e17a2bf3b563cbcd2585cd2f7f as source authority only.",
-      "Phase-2 root cause adaa169b7e35861d35bbd5d2ecdab1ae2ec43dde; task-specific A03 PreExec and CHAT PASS_TO_ASSIGN, no replay."
+      "Accepted source/result 2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb; implementation fab3642b818415428ae3f67965430e3ea0b11401; BUILD-only CHAT acceptance 37691b71b64de03091de9908014da2256c1d2901. Historical A03/Batch-B evidence retained; no prior real lifecycle PASS reused."
     ],
-    "source_manifest_sha256": "4a553ef4182dd99d484c38ea817eab17f9691ccfae9c06dfc80e1a4e4b8a1773",
+    "source_manifest_sha256": "6f222b2c2e49e8b4c4cf939a2baf81276b606b587d726ba5213b52f7d0634e7e",
     "source_readback_status": "PASS",
-    "task_commit_sha": "ac12501e1b3c94a0e75b72adc7dc78743d18e660"
+    "task_commit_sha": "d95f08ceed2f5a25ad288b9630ffc87b698f329c"
   },
   "submission_state": "READY_FOR_CHAT_REVIEW",
-  "submitted_at_utc": "2026-10-21T15:46:36.832734+00:00",
-  "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A03",
+  "submitted_at_utc": "2026-10-21T16:51:41.076961+00:00",
+  "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
   "tests": [
     {
-      "command_or_method": "Verify inherited exact Dispatch, task/prompt/PreExec hashes, runtime base, ancestry, clean entry and writer.",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
+      "command_or_method": "observe.py preflight; exact Git fetch/ls-remote/object digests",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
       "evidence_ids": [
-        "E_SOURCE_BINDING_JSON"
+        "E_SOURCE_BINDING"
       ],
       "id": "T_SOURCE",
       "kind": "READBACK",
-      "notes": "Remote exact Dispatch and CHAT receipt fetched; model/effort/full-access observed.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "notes": "Launcher bindings, fresh PreExec and single writer checked.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "status": "PASS"
     },
     {
-      "command_or_method": "python -m pytest agent_bridge/tests/test_rc1_package.py -k lifecycle -q; final 11 cases in installation/package suite",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
+      "command_or_method": "Unmodified build_user_package.py; verify_package.py",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
       "evidence_ids": [
-        "E_FOCUSED_XML",
-        "E_INSTALLATION_PACKAGE_XML"
-      ],
-      "id": "T_FOCUSED",
-      "kind": "POSITIVE",
-      "notes": "Initial focused 8 PASS; three further cases included in final 11 lifecycle PASS.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
-      "status": "PASS"
-    },
-    {
-      "command_or_method": "python -m pytest agent_bridge/tests/test_installation.py agent_bridge/tests/test_rc1_package.py -q",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
-      "evidence_ids": [
-        "E_INSTALLATION_PACKAGE_XML"
+        "E_PACKAGE_VERIFICATION",
+        "E_PACKAGE_MANIFEST"
       ],
       "id": "T_PACKAGE",
-      "kind": "INTEGRATION",
-      "notes": "62 PASS; self-delete guard, stable bootstrap and durable claims regressions.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "kind": "STATIC",
+      "notes": "One exact-source build; no installed dependencies; retained external package.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "status": "PASS"
     },
     {
-      "command_or_method": "python -m pytest agent_bridge/tests -q; original Git environment",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
+      "command_or_method": "install_user.ps1 -Package BUILD_ROOT/accepted-package.zip -Sha256 exact SHA",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
       "evidence_ids": [
-        "E_FULL_INITIAL_XML",
-        "E_VALIDATION_HISTORY_JSON"
+        "E_EXECUTION",
+        "E_POST_INSTALL_STATE"
       ],
-      "id": "T_FULL_INITIAL",
+      "id": "T_INSTALL",
       "kind": "INTEGRATION",
-      "notes": "592 PASS / 25 FAIL in unchanged preexec tests; reproduced Git MAX_PATH infrastructure issue.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "notes": "Exit 0 UPDATED; exact installed receipt and paused state.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
+      "status": "PASS"
+    },
+    {
+      "command_or_method": "certify_user_lifecycle.py --package exact --sha256 exact --evidence BUILD_ROOT/lifecycle-raw.json",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
+      "evidence_ids": [
+        "E_EXECUTION",
+        "E_FAILURE_ANALYSIS"
+      ],
+      "id": "T_LIFECYCLE",
+      "kind": "INTEGRATION",
+      "notes": "One invocation; RuntimeError before uninstall. No retry.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "status": "FAIL"
     },
     {
-      "command_or_method": "python -m pytest agent_bridge/tests -q; process-only core.longpaths=true via GIT_CONFIG_COUNT/KEY/VALUE",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
+      "command_or_method": "Stable external BridgeRoot/uninstall.ps1",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
       "evidence_ids": [
-        "E_FULL_XML",
-        "E_TEST_SUMMARY_JSON"
+        "E_EXECUTION"
       ],
-      "id": "T_FULL",
+      "id": "T_UNINSTALL",
       "kind": "INTEGRATION",
-      "notes": "617 PASS; no failure/error/skip. Agent was not relaunched.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "notes": "Not reached after first health failure.",
+      "run_at_utc": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "command_or_method": "Same exact accepted package reinstall",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
+      "evidence_ids": [
+        "E_EXECUTION"
+      ],
+      "id": "T_REINSTALL",
+      "kind": "INTEGRATION",
+      "notes": "Not reached; recovery not needed.",
+      "run_at_utc": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "command_or_method": "Bounded pre/final hashes, read-only SQLite identity/state digest and quick_check",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
+      "evidence_ids": [
+        "E_PRE_STATE",
+        "E_FINAL_STATE",
+        "E_FAILURE_ANALYSIS"
+      ],
+      "id": "T_DURABLE_BOUNDARY",
+      "kind": "READBACK",
+      "notes": "Actual install/failed-run boundary only; across-uninstall durability is NOT_RUN.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "status": "PASS"
     },
     {
-      "command_or_method": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/verify.py",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
+      "command_or_method": "verify_result.py static and result validation",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
       "evidence_ids": [
-        "E_STATIC_CHECKS_JSON",
-        "E_K1_JSON"
+        "E_STATIC_CHECKS",
+        "E_K1",
+        "E_VERIFY_RESULT"
       ],
       "id": "T_STATIC",
       "kind": "STATIC",
-      "notes": "Syntax, PowerShell 7 parse, allowlist, product-contract unchanged, diff check, bounded secrets and K1 UNEXPLAINED=0.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "notes": "Allowlist/diff/secret scan/K1/Result Contract v2; no product suite rerun for report-only writes.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "status": "PASS"
     },
     {
-      "command_or_method": "python reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/package_lifecycle_fix/verify.py --result",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
+      "command_or_method": "git push exact authorized non-main HEAD, followed by git ls-remote and remote file readback",
+      "environment": "Owner Windows physical host; task-scoped per-user TEST",
       "evidence_ids": [
-        "E_VERIFY_PY",
-        "E_RESULT_VALIDATION_TXT"
+        "E_REPORT"
       ],
-      "id": "T_CONTRACT",
-      "kind": "STATIC",
-      "notes": "Result Contract v2, evidence hashes/references and complete changed-path coverage validated before commit.",
-      "run_at_utc": "2026-10-21T15:46:36.832734+00:00",
+      "id": "T_DELIVERY",
+      "kind": "READBACK",
+      "notes": "Containing result SHA returned externally after actual push/readback.",
+      "run_at_utc": "2026-10-21T16:51:41.076961+00:00",
       "status": "PASS"
-    },
-    {
-      "command_or_method": "Real Owner-host install/update/uninstall/reinstall",
-      "environment": "Windows; source imports; isolated test fixtures. No Owner installed-root lifecycle.",
-      "evidence_ids": [],
-      "id": "T_HOST",
-      "kind": "OTHER",
-      "notes": "Forbidden by this task; fixture tests do not establish real host lifecycle success.",
-      "run_at_utc": null,
-      "status": "NOT_RUN"
     }
   ],
   "usage": {
     "attempts": 1,
     "credits_used": null,
-    "escalation_reason": "No Agent replay/model substitution. Test rerun only after proven process-environment MAX_PATH correction.",
+    "escalation_reason": "First real lifecycle failure preserved; no Agent/model/lifecycle/uninstall retry or product fix. Preparation/evidence-only corrections recorded.",
     "retries": 0,
     "tokens_used": null,
     "usage_status": "NOT_MEASURED"

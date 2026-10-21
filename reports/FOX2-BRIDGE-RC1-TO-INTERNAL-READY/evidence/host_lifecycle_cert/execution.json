@@ -1,0 +1,26 @@
+{
+  "finished_at_utc": "2026-10-21T16:48:37.133912+00:00",
+  "first_failure": {
+    "message": "corrected lifecycle failed; no retry",
+    "observed_at_utc": "2026-10-21T16:48:35.407741+00:00",
+    "traceback": "Traceback (most recent call last):\n  File \"WORKTREE\\reports\\FOX2-BRIDGE-RC1-TO-INTERNAL-READY\\evidence\\host_lifecycle_cert\\run_once.py\", line 88, in <module>\n    assert result['exit_code']==0, 'corrected lifecycle failed; no retry'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: corrected lifecycle failed; no retry\n",
+    "type": "AssertionError"
+  },
+  "install": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{'status': 'UPDATED', 'package_sha256': '52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4', 'source_sha256': '6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73'}\n"
+  },
+  "install_attempts": 1,
+  "lifecycle_attempts": 1,
+  "lifecycle_process": {
+    "exit_code": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"WORKTREE\\agent_bridge\\scripts\\certify_user_lifecycle.py\", line 173, in <module>\n    a=p.parse_args(); main(a.package,a.sha256,a.evidence)\n                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"WORKTREE\\agent_bridge\\scripts\\certify_user_lifecycle.py\", line 133, in main\n    else: raise RuntimeError('installed tray/worker did not become healthy')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: installed tray/worker did not become healthy\n",
+    "stdout": ""
+  },
+  "package_sha256": "52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4",
+  "recovery_attempts": 0,
+  "stable_uninstall_attempts": 0,
+  "started_at_utc": "2026-10-21T16:47:20.863447+00:00",
+  "status": "FAIL"
+}

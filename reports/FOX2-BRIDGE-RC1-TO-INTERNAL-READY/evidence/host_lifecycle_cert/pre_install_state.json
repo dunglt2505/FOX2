@@ -1,0 +1,44 @@
+{
+  "active_runtime_processes": 0,
+  "bridge_root_alias": "LOCALAPPDATA/FOX2/AgentBridge",
+  "control": {
+    "active_dispatch_present": false,
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "state": "STOPPED",
+    "stop_requested": true
+  },
+  "current": {
+    "package_sha256": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+    "source_sha256": "9990e91c9bb2f9d176dd5b2501294e0cfae9bd0eed6e32d92881754466d982a8"
+  },
+  "database_quick_check": "ok",
+  "database_size": 634880,
+  "dispatch_count": 28,
+  "dispatch_identity_state_digest": "8049a39c5e4e1572d4ed7c60e6c6bfd8c694c44b899eb289d353ddaf2d97391c",
+  "hashes": {
+    "config/bridge.toml": "b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7",
+    "current.json": "60b3e243448b1716c7ad42fa5a0f5057a186a0c37631c18d3f487957c6cadea7",
+    "data/bridge.db": "70d387ed9ee57e950a4509b392af19966496cec770f7872e52925528e5b8d884",
+    "data/manual_consumption.json": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c",
+    "uninstall.ps1": "ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff"
+  },
+  "historical_consumed_states": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION"
+  },
+  "installed_manifest_sha256": "81047f7a9a6697cb71e3852a088eb76a041991301377c0b11aca94d3bedf10bb",
+  "installed_source_git_commit": null,
+  "logon_type": "Interactive",
+  "observed_at_utc": "2026-10-21T16:46:40.452256+00:00",
+  "owned_versions": [
+    "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac"
+  ],
+  "receipt_sha256": "c27e4f637e39c10be00a565d5b449ed76f3e92f29916713178695eb8413221f7",
+  "run_level": "Limited",
+  "startup_task_present": true,
+  "startup_task_state": "Ready"
+}

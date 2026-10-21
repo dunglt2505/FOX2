@@ -1,0 +1,97 @@
+{
+  "UNEXPLAINED": 0,
+  "base": "208de84f39dcf783bd4ee9053c0288cda9aa0024",
+  "changes": [
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/assemble_result.py",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/execution.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/failure_analysis.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/final_state.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/k1.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/observe.py",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/package_manifest.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/package_verification.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/post_install_state.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/pre_install_state.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/pre_state.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/run_once.py",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/source_binding.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "JUSTIFIED_GENERATED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/static_checks.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/verify_package.py",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "NECESSARY_DEPENDENCY",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert/verify_result.py",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "REQUESTED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    },
+    {
+      "classification": "REQUESTED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reason": "Task-defined failed host-certification evidence or its bounded observer/orchestrator/verifier; no product change."
+    }
+  ],
+  "product_hunks": 0
+}

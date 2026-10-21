@@ -1,0 +1,93 @@
+{
+  "agent_attempts": 1,
+  "agent_retries": 0,
+  "all_dispatch_identity_states_preserved": true,
+  "checkpoint_limit": "Harness persists results only at uninstall and final completion; this earlier failure produced no lifecycle-raw.json. Sanitized process stderr is preserved in execution.json.",
+  "database_quick_check": "ok",
+  "dispatch_count_after": 28,
+  "dispatch_count_before": 28,
+  "durable_hashes_preserved": {
+    "config/bridge.toml": true,
+    "data/bridge.db": true,
+    "data/manual_consumption.json": true
+  },
+  "final_installed_package_exact": true,
+  "final_paused": true,
+  "final_setup_complete": true,
+  "final_worker_state": "STOPPED",
+  "first_observed_harness_failure": {
+    "exit_code": 1,
+    "message": "installed tray/worker did not become healthy",
+    "source_line": 133,
+    "type": "RuntimeError"
+  },
+  "forbidden_mutation_basis": "Task command/code audit: no AppLocker/AppIDSvc/F1-service/ProgramData-ACL/reboot/G3/G4/Canary/provider/broker/LIVE mutation command invoked. Package F1 activation remains DENY_PENDING_G3_G4.",
+  "forbidden_mutations_performed": false,
+  "inference": "Harness health expectation is incompatible with the accepted current launcher path. Real runtime health was not certified. Resolve under a separately authorized source task; do not bypass F1/G3 or start a different worker here.",
+  "lifecycle_reruns": 0,
+  "no_active_worker_or_legacy_powershell_tray": true,
+  "observed_at_utc": "2026-10-21T16:50:00.094653+00:00",
+  "old_dispatch_replay": false,
+  "presentation_limit": "The original observer active_runtime_processes field counts worker/legacy PowerShell tray/launcher, not WPF presentation. One WPF Desktop from this failed test remains; no additional launch, forced termination or UI mutation performed after failure.",
+  "presentation_observation": {
+    "desktop_presentation_count": 1,
+    "desktop_processes": [
+      {
+        "created_at_utc": "2026-10-21T16:47:47.0384060Z",
+        "exact_package": true,
+        "pid": 22280
+      }
+    ]
+  },
+  "product_source_test_changes": 0,
+  "recovery": "NOT_NEEDED_EXACT_PACKAGE_REMAINS_INSTALLED",
+  "reinstall": "NOT_RUN",
+  "required_next_work": "REWORK_REQUIRED",
+  "review_receipts": [
+    {
+      "commit": "37691b71b64de03091de9908014da2256c1d2901",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PACKAGE_LIFECYCLE_A03_CHAT_RESULT_REVIEW_20261021.md",
+      "remote_fetch_verified": true,
+      "sha256": "22e641489731e9f8bf9bde528e4b29ae9ad126d5add9434be340e88cc8bb1a15"
+    },
+    {
+      "commit": "185f4cdcdfb6a7487f8bbc0f256c304fb1d9f263",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/HOST_LIFECYCLE_CERT_A01_PASS_TO_ASSIGN_20261022.md",
+      "remote_fetch_verified": true,
+      "sha256": "2fcb79fbb8a3d88441fca233c391291f40cadfd315ebffcee3d78d180eca828d"
+    }
+  ],
+  "source_evidence": [
+    {
+      "commit": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "sha256": "09bba0d6ce649728b05c2f5d7c69db375540fddf6ca0d5f737adcf294e5b2a72"
+    },
+    {
+      "commit": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+      "path": "agent_bridge/scripts/desktop_launcher.ps1",
+      "sha256": "05abf67481d288e1db1f3ae676161edd24e91718b88952e4326a0a481b29a8b2"
+    },
+    {
+      "commit": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+      "path": "agent_bridge/src/fox2_agent_bridge/launcher.py",
+      "sha256": "fe4667caa32c0116deabc6528952db5a2cdb4cc83bd81eea7b00faf87ba9e4e8"
+    },
+    {
+      "commit": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml.cs",
+      "sha256": "c0ddfca9750ed4584039869c4a4f0d0fae9bf6b6f978ba6abd4e431af4b9ea1f"
+    }
+  ],
+  "source_observations": [
+    "Accepted harness requires PAUSED heartbeat plus exactly one pwsh process running desktop_tray.ps1 within 45 seconds.",
+    "Accepted desktop_launcher.ps1 invokes fox2_agent_bridge.launcher.",
+    "Accepted launcher.launch starts WPF presentation only, returns worker_started=False, and does not start a Worker.",
+    "WPF presentation and worker are separate; CLI request-exit alone does not trigger the WPF model Exit command."
+  ],
+  "startup_enabled": true,
+  "startup_scheduler_state": "Ready",
+  "uninstall": "NOT_RUN",
+  "uninstall_attempts": 0,
+  "verdict": "FAIL"
+}

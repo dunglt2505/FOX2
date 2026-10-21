@@ -1,0 +1,45 @@
+{
+  "active_runtime_processes": 0,
+  "bridge_root_alias": "LOCALAPPDATA/FOX2/AgentBridge",
+  "control": {
+    "active_dispatch_present": false,
+    "paused": true,
+    "setup_complete": true,
+    "start_with_windows": true,
+    "state": "STOPPED",
+    "stop_requested": true
+  },
+  "current": {
+    "package_sha256": "52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4",
+    "source_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73"
+  },
+  "database_quick_check": "ok",
+  "database_size": 634880,
+  "dispatch_count": 28,
+  "dispatch_identity_state_digest": "8049a39c5e4e1572d4ed7c60e6c6bfd8c694c44b899eb289d353ddaf2d97391c",
+  "hashes": {
+    "config/bridge.toml": "b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7",
+    "current.json": "8aed3eaf88d03264d292429e6b09efcd4a80b508f63ec1afc5ae928d8fcf4ddf",
+    "data/bridge.db": "70d387ed9ee57e950a4509b392af19966496cec770f7872e52925528e5b8d884",
+    "data/manual_consumption.json": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c",
+    "uninstall.ps1": "ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff"
+  },
+  "historical_consumed_states": {
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003": "NEEDS_RECONCILIATION",
+    "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004": "NEEDS_RECONCILIATION"
+  },
+  "installed_manifest_sha256": "50a355fdc2909be4ae6bf2c6e2950d81e063d27a28b2614f14198dd92cf3056f",
+  "installed_source_git_commit": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+  "logon_type": "Interactive",
+  "observed_at_utc": "2026-10-21T16:48:37.132741+00:00",
+  "owned_versions": [
+    "52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4",
+    "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac"
+  ],
+  "receipt_sha256": "4075f48dc0718b7574a0764e5392fb31ca8ddc9a8896f7cd9747d7c2a67339c4",
+  "run_level": "Limited",
+  "startup_task_present": true,
+  "startup_task_state": "Ready"
+}
