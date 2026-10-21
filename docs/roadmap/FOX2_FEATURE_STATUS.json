@@ -39,9 +39,9 @@
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
-      "stage": "BUILD",
+      "stage": "TEST",
       "status": "BLOCKED",
-      "evidence": "F0_OFFLINE_BUILD_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_267_FOCUSED_EQUIVALENT_SOURCE_88_FINAL_SOURCE_PASS;_OWNER_254_RAW_VERIFIED;_F1_NOT_ACCEPTED",
+      "evidence": "G1_DESIGN_ACCEPTED; G2_A01_CHAT_ACCEPTED_BUILD; RESULT_REMOTE_READBACK_VERIFIED; G3_G4_RUNTIME_NOT_RUN",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "G2_A01_CODE_COMMIT_RECOVERED_REMOTE; RESULT_CONTRACT_AND_EVIDENCE_REMAIN_LOCAL_WIP; CHAT_ACCEPTANCE_NOT_RUN; F1_RUNTIME_NOT_ENFORCED; G3_G4_NOT_RUN; CANARY_HOLD",
-      "as_of": "2026-10-21T16:00:00+07:00",
-      "next_safe_action": "COMPLETE_EXISTING_A01_RESULT_DELIVERY_ONLY: VALIDATE_AGENT_RESULT_V2_AND_EVIDENCE_HASHES, COMMIT/PUSH REPORT_EVIDENCE_WIP, THEN CHAT_RESULT_REVIEW; NO_CODEX_RETRY",
+      "exit_gate": "G3_HOST_ENFORCEMENT_AND_G4_ADOPTION_VERIFICATION_REQUIRED_BEFORE_DEPLOY_READY",
+      "blocker": "G3_PRIVILEGED_HOST_AUTHORITY_NOT_GRANTED; G3_HOST_PREEXEC_NOT_RUN; F1_RUNTIME_NOT_ENFORCED; CANARY_HOLD",
+      "as_of": "2026-10-21T16:20:00+07:00",
+      "next_safe_action": "PREPARE_G3_HOST_ENFORCEMENT_TEST_ENTRY_AND_PRIVILEGED_OPERATION_GATE; DO_NOT_INSTALL_SERVICE_OR_APPLY_APPLOCKER_WITHOUT_SEPARATE_G3_AUTHORITY",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -468,7 +468,7 @@
       },
       "g2_execution_entry": {
         "stage": "BUILD",
-        "status": "IN_PROGRESS",
+        "status": "ACCEPTED",
         "evidence": "OWNER_CODING_HOLD_LIFT_RECORDED; G2_BRANCH_CREATED; TASK_AND_PROMPT_PUBLISHED; MACHINE_DICTIONARY_COMPATIBILITY_PASS_SCOPED",
         "owner_lift_commit": "fe926ad24d89231e5cf80f0f48ea44eb36887834",
         "branch": "work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021",
@@ -501,8 +501,8 @@
         "pass_to_assign": true,
         "agent_started": true,
         "dispatch_created": false,
-        "blocker": "NONE_FOR_ASSIGNMENT",
-        "next_safe_action": "OWNER_MANUAL_RECOVERY_INSPECT_LOCAL_ONLY_THEN_BOUNDED_PUSH_OF_EXISTING_COMMITTED_RESULT_IF_VALID",
+        "blocker": "NONE_FOR_G2_BUILD",
+        "next_safe_action": "CLOSED_ACCEPTED_NO_REPLAY; ADVANCE_TO_SEPARATE_G3_ENTRY",
         "preexec_receipt": {
           "commit": "94c936b1d93bbfcee5818db24dd75bd9bb32733f",
           "parent": "ca684b09b3eaea7fa2ce7fc7983f890384202296",
@@ -520,17 +520,17 @@
           "dispatch_published": false,
           "dispatch_consumed": false
         },
-        "attempt_state": "NEEDS_RECONCILIATION",
+        "attempt_state": "CHAT_ACCEPTED_BUILD",
         "remote_result_state": {
-          "observed_at": "2026-10-21T15:51:00+07:00",
-          "remote_head": "94c936b1d93bbfcee5818db24dd75bd9bb32733f",
-          "compare_to_receipt": "IDENTICAL",
-          "new_result_commits": 0,
-          "verdict": "DELIVERY_NOT_OBSERVED_REMOTE"
+          "observed_at": "2026-10-21T16:20:00+07:00",
+          "remote_head": "ac1d1184255945b2c4304641360a1e661ff2d7bd",
+          "code_commit": "66e8f0a8b3a93140b5f908628b55ac965e15b96e",
+          "result_commit": "ac1d1184255945b2c4304641360a1e661ff2d7bd",
+          "verdict": "PUSHED_AND_CHAT_REVIEWED"
         },
         "no_replay": true,
         "recovery": {
-          "state": "NEEDS_RECONCILIATION",
+          "state": "RECOVERED",
           "attempt": "A01_CONSUMED_NO_REPLAY",
           "codex_exit": 1,
           "local_head_observed": "66e8f0a8b3a93140b5f908628b55ac965e15b96e",
@@ -549,9 +549,24 @@
           "remote_code_scope": "WITHIN_TASK_ALLOWLIST",
           "local_result_wip_paths": 35,
           "local_result_wip_scope": "REPORT_AND_EVIDENCE_G2_ONLY",
-          "agent_result_contract": "LOCAL_WIP_NOT_IMMUTABLE",
-          "chat_acceptance": "NOT_RUN"
+          "agent_result_contract": "IMMUTABLE_REMOTE",
+          "chat_acceptance": "CHAT_ACCEPT_G2_BUILD_ONLY",
+          "result_commit": "ac1d1184255945b2c4304641360a1e661ff2d7bd",
+          "review_commit": "dcf42dd76c8f22e155d469d356e1f1219f3d7b14",
+          "review_blob_sha1": "45dbd5cb3b5d64ca7c8340d36a5449661a6ab64d"
         }
+      },
+      "g3_entry": {
+        "stage": "TEST",
+        "status": "BLOCKED",
+        "evidence": "NOT_RUN",
+        "authority": "NOT_GRANTED",
+        "host_preexec": "NOT_RUN",
+        "service_install_start": "NOT_AUTHORIZED",
+        "applocker_apply": "NOT_AUTHORIZED",
+        "positive_spawn": "NOT_AUTHORIZED",
+        "blocker": "SEPARATE_G3_PRIVILEGED_HOST_AUTHORITY_REQUIRED",
+        "next_safe_action": "CHAT_PREPARE_NON_EXECUTABLE_G3_HOST_TEST_ENTRY_AND_EXACT_PRIVILEGED_GATES"
       }
     }
   ]
