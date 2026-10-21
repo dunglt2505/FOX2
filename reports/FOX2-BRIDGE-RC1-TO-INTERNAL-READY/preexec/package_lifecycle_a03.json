@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "task_id": "FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-A03",
+  "checked_at": "2026-10-21T15:21:23.8977517Z",
+  "status": "PASS",
+  "blockers": [],
+  "task_branch": "work/FOX2-BRIDGE-RC1-PACKAGE-LIFECYCLE-FIX-20261021",
+  "source_code_base": "b065a468279cbf63ae4bbfad7a0efaad1e6046e4",
+  "publication_head": "52686a5f573dd177341adb72d4feef4cc929a4be",
+  "task": {
+    "commit": "ac12501e1b3c94a0e75b72adc7dc78743d18e660",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/task.md",
+    "blob_sha1": "264c1bb54e985d8cd3a73df21072b04271b79d6c",
+    "sha256": "b6bbe42d781939a1b05b1dd2aa3fd985677d970b783ab8c2a30b11e9ada85c7e"
+  },
+  "prompt": {
+    "commit": "39d6a8f36dd573a4fb9e61a5d4102a15e9b3a80f",
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/package_lifecycle_fix_attempt03/prompt.md",
+    "blob_sha1": "23e562253b1d61f413ed6378a218ba903f87d92e",
+    "sha256": "25ff86531e9841a9cc8cde6259f0fc9512fe8949c98a57457d689c61bcabce77"
+  },
+  "route": {
+    "agent": "CODEX",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS",
+    "execution_path": "MANUAL_LOCAL"
+  },
+  "capabilities": {
+    "pwsh7": "PASS",
+    "python": "PASS",
+    "git": "PASS",
+    "codex_login": "PASS",
+    "codex_cli_contract": "PASS",
+    "one_writer": "PASS",
+    "exact_task_prompt": "PASS",
+    "clean_worktree": "PASS",
+    "live_route_admission": "PASS"
+  },
+  "live_probe": {
+    "status": "PASS",
+    "exit_code": 0,
+    "marker": "FOX2_PACKAGE_LIFECYCLE_A03_ADMISSION_OK",
+    "working_directory_kind": "EMPTY_TEMP_DIRECTORY",
+    "sandbox": "read-only",
+    "approval_policy": "never_via_config_override",
+    "project_files_accessed": false
+  },
+  "implementation_agent_execution_started": false,
+  "dispatch_published": false,
+  "dispatch_consumed": false,
+  "host_lifecycle_mutation": false,
+  "notes": [
+    "PreExec only; no product code changed.",
+    "Live probe verifies pinned CODEX route reachability only.",
+    "Real install/update/uninstall/reinstall remains NOT_RUN.",
+    "Final assignment still requires CHAT remote intake and a fresh executable Dispatch."
+  ]
+}
