@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "HOST_LIFECYCLE_CERT_A01_PREEXEC_V5_NOT_RUN",
-      "as_of": "2026-10-22T00:12:00+07:00",
-      "next_safe_action": "OWNER_FAST_FORWARD_DEDICATED_HOST_CERT_WORKTREE_768B3516_TO_27E79EF9_AND_RUN_PREEXEC_V5_ONCE; CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_FRESH_HOST_MUTATING_DISPATCH",
+      "blocker": null,
+      "as_of": "2026-10-22T00:20:00+07:00",
+      "next_safe_action": "OWNER_LAUNCH_HOST_LIFECYCLE_DISPATCH_8CAC3D27_EXACTLY_ONCE_WITH_DURABLE_NO_REPLAY_CLAIM; THEN_CHAT_REMOTE_RESULT_INTAKE; G3_REMAINS_HOLD",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A03_BUILD_ACCEPTED; HOST_STATE_STOPPED_PAUSED_ZERO_RUNTIME; DISCOVERY_V3_EXISTING_BUILD_ENV_ACCEPTED; PREEXEC_V4_HISTORICAL_BLOCKED; PREEXEC_V5_BOUND_BUILD_ENV_VALIDATED_READY_NOT_RUN",
+      "package_lifecycle": "A03_BUILD_ACCEPTED; HOST_LIFECYCLE_PREEXEC_V5_PASS_REMOTE_208DE84F; HOST_LIFECYCLE_DISPATCH_8CAC3D27_SCHEMA_VALID_PUBLISHED_UNCONSUMED; OWNER_LAUNCH_READY",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -246,11 +246,25 @@
           "preexec_v5": {
             "commit": "27e79ef9266760807187ce90f451ffa26bc97e2f",
             "blob": "59b1f9c432900f97afda0c419f2c3eb0c5d2124b",
-            "status": "READY_NOT_RUN",
-            "receipt_present": false,
-            "build_env_bound": true,
-            "source_product_drift": "NONE",
-            "remote_validated": true
+            "receipt_commit": "208de84f39dcf783bd4ee9053c0288cda9aa0024",
+            "receipt_blob": "08056cb73333934a148cef2b4f1f3da11f6b9b3e",
+            "status": "PASS_REMOTE_ACCEPTED"
+          },
+          "pass_to_assign_review": "185f4cdcdfb6a7487f8bbc0f256c304fb1d9f263",
+          "dispatch": {
+            "id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
+            "control_branch": "work/FOX2-DISPATCH-chat",
+            "commit": "8cac3d2798c4e3906ceac351676d32ada761056e",
+            "blob": "353ca16452d5d717ca023872a54c2eeb2f3c310b",
+            "schema_blob": "1692061941e2bef498515cd0e96b9b3046119ebb",
+            "schema_validation": "PASS",
+            "runtime_base": "208de84f39dcf783bd4ee9053c0288cda9aa0024",
+            "source": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+            "max_runs": 1,
+            "status": "PUBLISHED_UNCONSUMED",
+            "code_allowed": false,
+            "host_lifecycle_mutation_scope": "PACKAGE_BUILD_INSTALL_UPDATE_UNINSTALL_ONCE_REINSTALL_DURABLE_STATE_ONLY",
+            "owner_launch_ready": true
           }
         }
       },
