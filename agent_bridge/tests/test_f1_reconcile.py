@@ -106,3 +106,12 @@ def test_read_only_reconciliation_does_not_create_sqlite_sidecars(
     for path in (a, b):
         assert not Path(str(path) + "-wal").exists()
         assert not Path(str(path) + "-shm").exists()
+
+def test_orphan_review_event_is_held_as_ambiguous_history(tmp_path: Path) -> None:
+    a = root(tmp_path / "old.db", (("D", "CLAIMED", "h"),))
+    b = root(tmp_path / "new.db")
+    with sqlite3.connect(a) as con:
+        con.execute("CREATE TABLE review_events (dispatch_id TEXT)")
+        con.execute("INSERT INTO review_events VALUES ('MISSING')")
+    with pytest.raises(ReconciliationHold, match="review event"):
+        reconcile_consumed((a, b), manual_consumed=(), inventory_complete=True)
