@@ -70,7 +70,11 @@ function Run-Tool {
 function Git {
     param([Parameter(Mandatory)][string[]]$GitArgs)
     $r = Run-Tool -File $GitExe -ToolArgs (@('-C', $Worktree) + $GitArgs) -TimeoutSeconds 60 -WorkingDirectory $Worktree
-    if ($r.Code -ne 0) { throw ('GIT_FAILED:' + $GitArgs[0]) }
+    if ($r.Code -ne 0) {
+        $detail = ([string]$r.ErrorText).Trim()
+        if ($detail.Length -gt 300) { $detail = $detail.Substring(0,300) }
+        throw ('GIT_FAILED:' + $GitArgs[0] + ':' + $detail)
+    }
     return [string]$r.Text
 }
 
@@ -150,9 +154,17 @@ try {
     $ancestorCheck = Run-Tool -File $GitExe -ToolArgs @('-C',$Worktree,'merge-base','--is-ancestor',$MetadataReceiptCommit,$PublicationHead) -TimeoutSeconds 30 -WorkingDirectory $Worktree
     Require ($ancestorCheck.Code -eq 0) 'PUBLICATION_NOT_DESCENDANT_OF_METADATA_RECEIPT'
 
-    $changedOutput = Git @('diff','--name-only',$MetadataReceiptCommit,$PublicationHead)
-    $changedPaths = @($changedOutput -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
-    Require ($changedPaths.Count -eq 1 -and $changedPaths[0] -ceq $ScriptPath) 'PUBLICATION_LINEAGE_NOT_SCRIPT_ONLY'
+    $lineageCommitsOutput = Git @('rev-list',($MetadataReceiptCommit + '..' + $PublicationHead))
+    $lineageCommits = @($lineageCommitsOutput -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+    Require ($lineageCommits.Count -ge 1) 'PUBLICATION_LINEAGE_EMPTY'
+    $lineagePaths = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+    foreach ($lineageCommit in $lineageCommits) {
+        $commitPathsOutput = Git @('diff-tree','--no-commit-id','--name-only','-r',$lineageCommit)
+        foreach ($commitPath in @($commitPathsOutput -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })) {
+            $null = $lineagePaths.Add($commitPath)
+        }
+    }
+    Require ($lineagePaths.Count -eq 1 -and $lineagePaths.Contains($ScriptPath)) 'PUBLICATION_LINEAGE_NOT_SCRIPT_ONLY'
 
     $scriptBlob = Git @('rev-parse',($PublicationHead + ':' + $ScriptPath))
     Require ((Git @('hash-object','--no-filters',$PSCommandPath)) -eq $scriptBlob) 'RUNNING_SCRIPT_MISMATCH'
