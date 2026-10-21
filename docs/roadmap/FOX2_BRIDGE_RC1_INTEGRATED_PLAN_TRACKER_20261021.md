@@ -49,3 +49,25 @@ Source snapshot: 62be753a775b2bb59538213d3738f3e239af38cf; documentary review: d
 G1 design disposition: **HOLD_FOR_HOST_CAPABILITY_AND_CONTRACT_ADDENDUM**, not FAIL of already-reviewed candidate design. Technical position: OS-enforced independent legacy retirement is mandatory before positive claim; WDAC/App Control or AppLocker is not selected until actual host capability, policy issuer and administrator separation are verified. Trusted service performs atomic claim and actual child spawn, while desktop/tray remains interactive and does not gain project authority. Untrusted workers must never spawn based on bearer tokens alone. Enforce fail-closed rollback, tombstone preservation, and full direct-consumer closure.
 
 Do not treat 493/23 Windows CI, 11/11 StrictMode tests or prior F0 results as installed host enforcement. F1 DENY; Canary009 HOLD; INTERNAL_FOX2_BRIDGE_READY NOT_ATTESTED. No new Dispatch, code, service install, merge, Canary or LIVE authorized by this tracker update.
+
+## G1 continuation — Windows enforcement choice narrowed / host observation pending
+Design decision artifact: docs/architecture/FOX2_BRIDGE_F1_G1_WINDOWS_ENFORCEMENT_DECISION_CANDIDATE_20261021.md at f15f8efba214d0f5a3ca51304ff5127d293356cc.
+Read-only host probe: reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g1_host_capability_readonly_20261021.ps1 at 74d83520ae8dda4ff89534d6d746bc06f9fcd428.
+
+Decision candidate:
+- Preferred: signed App Control for Business enforced policy + Secure Boot + policy issuer/admin boundary independent from ordinary Bridge requester.
+- Conditional fallback: AppLocker only with effective enforcement, complete EXE/script/installer/DLL legacy-surface coverage, and independently administered policy distribution.
+- Neither: G1 HOLD; no weakened positive authorization path.
+
+Current gate state:
+- STAGE=DESIGN
+- STATUS=IN_PROGRESS
+- EVIDENCE=BRD_TECHSPEC_RECONCILED_PLUS_WINDOWS_ENFORCEMENT_DECISION_CANDIDATE
+- SOURCE_SHA=f15f8efba214d0f5a3ca51304ff5127d293356cc
+- EXIT_GATE=SUPPORTED_HOST_MECHANISM_PLUS_INDEPENDENT_POLICY_AUTHORITY_PLUS_SERVICE_PROTOCOL_CONSUMER_ACCEPTANCE
+- BLOCKER=OWNER_HOST_CAPABILITY_JSON_NOT_YET_OBSERVED; POLICY_ISSUER_INDEPENDENCE_NOT_ATTESTED
+- ACTOR=CHAT_DIRECT_DESIGN; OWNER_MANUAL_READ_ONLY_HOST_PROBE_ONLY_FOR_UNAVAILABLE_LOCAL_HOST_ACCESS
+- NEXT_SAFE_ACTION=RUN_EXACT_READ_ONLY_G1_HOST_CAPABILITY_PROBE_ON_OWNER_WINDOWS_HOST_AND_RETURN_REDACTED_JSON; THEN_CHAT_SELECTS_MECHANISM_AND_ISSUES_G1_DESIGN_DISPOSITION
+- CHAT_VERDICT=HOLD_FOR_NARROW_HOST_EVIDENCE_NOT_DESIGN_REJECTION
+
+Probe execution does not authorize service/policy changes, code execution through Bridge, installation, G2 coding, Canary or LIVE. Output remains evidence only; actual denial/bypass/reboot enforcement is deferred to G3.
