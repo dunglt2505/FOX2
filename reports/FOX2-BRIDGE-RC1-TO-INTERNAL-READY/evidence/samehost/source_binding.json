@@ -1,0 +1,146 @@
+{
+  "source_bytes": "SOURCE_BYTES_VERIFIED",
+  "authority": "OWNER_TASK_SCOPED; active Owner prompt plus pinned directive and CHAT design acceptance",
+  "global_machine_effectivity": "NOT_ATTESTED",
+  "result_schema_version": "2.0",
+  "entry_head": "0962ec74617613ff01a629926e64b7ae8b122979",
+  "lineage_base": "c61ffd259a384e9c96b563968c6b7b98a0f156cd",
+  "accepted_g2_code": "66e8f0a8b3a93140b5f908628b55ac965e15b96e",
+  "governance_head": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+  "sources": [
+    {
+      "id": "task",
+      "commit": "2a46a456bae3ea83ca236d210e3a0c9901a4b31d",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/task.md",
+      "blob_sha1": "8b69f093b8e625fd4404d07d3922658a9bc84a0d",
+      "sha256": "71c4e1c0401c429878fabb95859f64c568c43dbe02f2ffab7b8c0de41b0837fa"
+    },
+    {
+      "id": "prompt",
+      "commit": "600f8ceb6943d1f1ecf341ff06072bf31c1babe0",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/prompt.md",
+      "blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
+      "sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9"
+    },
+    {
+      "id": "owner_directive",
+      "commit": "438169d5728a4b5b5da19b737e79db3fc6515ce0",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/owner_directives/G3_PHYSICAL_HOST_ONLY_TARGET_20261021.md",
+      "blob_sha1": "ef3bbb45b4e820cf7a4320409139fe236a372d94",
+      "sha256": "bd1d8f723e931033ba7c1ff1782d38ed1e694aa31863e9794439cddcb3531f66"
+    },
+    {
+      "id": "design",
+      "commit": "c8307980362a1ab64b93ba7d7e020d979017c849",
+      "path": "docs/architecture/FOX2_BRIDGE_F1_G3_SAME_HOST_GUARDED_ENFORCEMENT_CANDIDATE_20261021.md",
+      "blob_sha1": "656dbe923b7e98a3c084bcbbbdc04e457a8582b5",
+      "sha256": "bf03de0e594b4c8e0a2994239ec1dd13a1f6bf0bb752615e9c13f674623242c5"
+    },
+    {
+      "id": "design_acceptance",
+      "commit": "0837361aa97f5d7f2116868cb2273eeac3acd0dc",
+      "path": "docs/architecture/FOX2_BRIDGE_F1_G3_SAME_HOST_DESIGN_ACCEPTANCE_20261021.md",
+      "blob_sha1": "1f310d658a4f4cfc73811fbc87088c91d34d7e7f",
+      "sha256": "8514c6bab78899f57f6a8f844b81850ca8829aa8a58337331ac76c4353a3904f"
+    },
+    {
+      "id": "policy",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e"
+    },
+    {
+      "id": "dictionary",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+    },
+    {
+      "id": "routing",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205"
+    },
+    {
+      "id": "protocol",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6"
+    },
+    {
+      "id": "registry",
+      "commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+      "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "blob_sha1": "1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35",
+      "sha256": "bb590e0117436af6f8bd1b863a20097aa43904f996cddbb84e4e54cf0361393a"
+    },
+    {
+      "id": "source_resolution",
+      "commit": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+      "path": "docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json",
+      "blob_sha1": "186fdbc72dc1b22e97330895142d68600591ac21",
+      "sha256": "474b971e375d8c51eeeedffa746781ff65aac743d71f21c3508b246c75fdb9b3"
+    },
+    {
+      "id": "result_schema",
+      "commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+      "path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+      "blob_sha1": "b7617cc5c75c288c7997c64536a22fb836b8200b",
+      "sha256": "e325db19331dad718589d67dbe20ceabe1f8be774e765678bfdbc1d4c41e619b"
+    },
+    {
+      "id": "preexec_protocol",
+      "commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+      "path": "docs/agent_handoff/FOX2_PREEXEC_EVIDENCE_PROTOCOL_v1.1.md",
+      "blob_sha1": "a452a2c9cdd71e613d6fe378927831ed840c9398",
+      "sha256": "a933f00cca2d2b8009e62a39b84a9b82371c41ccb69d52364a7fd76343d0584b"
+    },
+    {
+      "id": "preexec_schema",
+      "commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+      "path": "docs/agent_handoff/FOX2_PREFLIGHT_RECEIPT_SCHEMA_v1.json",
+      "blob_sha1": "25fe465f82a16edf29ebf773a220969192f546e8",
+      "sha256": "d79f5c42c06253d7b7311b0eb89724910028eaea225f2b5cef00e63bc7f47352"
+    },
+    {
+      "id": "metadata_preexec",
+      "commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/samehost_build_a01.json",
+      "blob_sha1": "340ea3401d8ea94b86ae85bd8f067d17ddb44bb8",
+      "sha256": "12f757962f32bc6856f214bd383b80ab7dfc0c18bd1cd87552be1597973b3ac5"
+    },
+    {
+      "id": "live_admission",
+      "commit": "0962ec74617613ff01a629926e64b7ae8b122979",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/samehost_build_a01_live_admission.json",
+      "blob_sha1": "2c24f03f7a970692178d220f7a15455288b838b0",
+      "sha256": "955fdbec2a89e3991ed3d439ca00537572e2e842a234cf2eb132a0050b8a119b"
+    }
+  ],
+  "preexec": {
+    "metadata": "PASS",
+    "live_admission": "PASS",
+    "not_replayed": true
+  },
+  "actor": {
+    "role": "CODEX primary implementation owner",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission": "MANUAL_LOCAL / FULL_ACCESS",
+    "observed_process": 6176,
+    "command_flags_verified": true
+  },
+  "writer": {
+    "initial_clean_worktree": true,
+    "branch_worktree_owners": 1,
+    "other_task_scoped_writers_observed": 0,
+    "subagents": 0
+  },
+  "observed_remote_task_head": "0962ec74617613ff01a629926e64b7ae8b122979",
+  "observed_remote_governance_head": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+  "agent_process_started_at_utc": "2026-10-21T12:32:55.3553819Z"
+}

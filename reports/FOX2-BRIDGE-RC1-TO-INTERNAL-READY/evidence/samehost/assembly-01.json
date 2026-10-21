@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "stage": "Interim result assembly / preliminary delivery",
+  "observed_at_utc": "2026-10-21T12:46:11.456815+00:00",
+  "reason": "Evidence enumeration included an ignored __pycache__ directory; preliminary diff check then rejected CRLF in generated JSON under reports/** -text.",
+  "resolution": "Enumerate regular files, serialize UTF-8 LF and explicitly decode Git output as UTF-8. Product code unchanged.",
+  "host_mutation": false,
+  "additional_observed_failure": "Default cp1252 decoding of UTF-8 Git report diff failed while extracting K1 hunk headers."
+}

@@ -1,169 +1,83 @@
-# FOX2 G2 Integrated F1 Build A01 — Agent result
+# FOX2 â€” Same-Host Guarded Policy BUILD A01 result
 
-## R01 — Identification and disposition
+## R01 â€” Identification and conclusion
 
-Project/WP/task/change: FOX2 / FOX2-BRIDGE-RC1-TO-INTERNAL-READY / FOX2-BRIDGE-RC1-G2-A01 / G2-F1-INTEGRATED-A01.
-CODEX `gpt-6.1-sol`, reasoning `high`, MANUAL_LOCAL, FULL_ACCESS technical sandbox. Active turn context observed at 2026-10-21T03:31:22.526Z; host: Windows-11-10.0.26300-SP0. One implementation attempt, no Dispatch/Agent retry or model substitution. Usage NOT_MEASURED.
+- Task: `FOX2-BRIDGE-RC1-SAMEHOST-BUILD-A01`; Whole-WP: `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`.
+- Actor: CODEX / `gpt-6.1-sol` / high / MANUAL_LOCAL / FULL_ACCESS; one implementation attempt, no Agent retry or delegation.
+- Reported/finished UTC: `2026-10-21T12:47:14.602391+00:00`.
+- Observed CLI process start: `2026-10-21T12:32:55.3553819Z`. Host: Windows; PowerShell 7.6.7; Python 3.13.15.
+- Conclusion: **BUILD PASS candidate**. Delivery: `PUSHED_UNREVIEWED`; CHAT acceptance remains pending.
+- Implementation commit: `be883bb8106ca1c058b2b34765e55c2529fe883f`.
+- No effective AppLocker, AppIDSvc, Windows-service, ProgramData authority-root ACL/state or reboot mutation was performed. No Canary009, broker/provider/LIVE, main or merge operation ran.
 
-Disposition at report assembly: LOCAL_ONLY, with G2 source/build checks completed for independent CHAT review after actual push. No self-acceptance. F1 Owner-host runtime remains DENY; G3/G4 enforcement is NOT_RUN_G3. This result does not establish INTERNAL_FOX2_BRIDGE_READY.
+## R02â€“R03 â€” Authority, admission and immutable sources
 
-## R02 — Authority and PreExec
+The active Owner assignment and pinned physical-host directive plus CHAT design acceptance authorize this BUILD scope. Governance follows Policy 2.0.0, Dictionary 1.3, Routing 1.4.0 and Git-first Protocol 12 at the exact commits in task.md. The live governance remote was observed at `d34da1e3b4918a902646621b487ca8ad3e05b0e0`. This is scoped Owner/task authority, with no cryptographic signer or installed-machine effectivity claim.
 
-The full immutable task was read before implementation. The exact G2 PreExec at `preexec/g2_preflight.json` was PASS at 2026-10-21T03:27:17.603284+00:00, with pinned CODEX/model/high/FULL_ACCESS, this non-main worktree, NONE_OBSERVED writer competition, and all three dispatch/start flags false. Active session metadata independently confirmed the model, high effort, danger-full-access and approval=never. Other active thread metadata used the project-chat workspace; no competing G2 material writer was observed.
-
-Scoped Owner G2 hold-lift and accepted G1 design are controlling. Policy 2.0.0, Dictionary 1.3, Routing 1.4.0 and Protocol 12 bytes were checked against the task's pinned commits/blobs. Bridge machine Dictionary 1.2 compatibility remains only the separately published scoped receipt. BRD-09/TechSpec remain globally candidate; neither is promoted to EFFECTIVE. Scope and routing checks are PASS for this task only. No STOP condition was bypassed.
-
-## R03 — Exact immutable inputs and SHAs
-
-- Start SHA: `94c936b1d93bbfcee5818db24dd75bd9bb32733f`.
-- Task publication: `653e49fc0d0f15981bf230995925c89d6994723d`; blob `7f0b82e56f7bfa001e40bb176bb26b0ef918c609`.
-- Task base/Owner scoped grant: `fe926ad24d89231e5cf80f0f48ea44eb36887834`.
-- PreExec source head: `ca684b09b3eaea7fa2ce7fc7983f890384202296`; task bytes equal publication bytes; this source is an ancestor of the start SHA.
-- Final implementation SHA: `66e8f0a8b3a93140b5f908628b55ac965e15b96e`. The final result/report commit containing this document cannot self-reference its own SHA; its observed remote SHA is supplied outside the committed report after push.
-- Source/authority distinctions and full path/commit/blob/SHA-256 observations: `evidence/g2/source_readback.json`.
-
-## R04 — Implemented behavior and limits
-
-Implemented a LocalSystem/SCM-only Windows authority boundary, explicit-DACL local named pipe, OS-derived caller identity/token/session/PID, fixed protected global store, boot epoch fencing, durable claim and one-use spawn intent, service-owned suspended CreateProcessAsUser/Job creation and guarded resumption, lease/revoke/clock/policy/service/source/package checks, and idempotent informational outcomes. Revocation durably tombstones the sealed adoption-plan digest, so restart/rollback cannot reactivate an unchanged plan. No client bearer launch token or caller-side installed spawn fallback exists.
-
-Launcher starts only presentation; ledger retains installed direct-claim denial and now closes installed alternate-database and pre-spawn bypasses. Installed/configured E2E delegates before local creation/claim/adapters; Ops/Desktop/App use that runner. Installed smoke requires a staged service task. Existing offline reconciliation and F0 primitives remain in use. Runtime/SCM configuration drift or missing bindings deny; failed revocation storage still closes jobs.
-
-Deterministic AppLocker artifact support enforces EXE/Script/MSI/DLL collections, uses exact hashes/SID scopes, closes copied legacy fixtures without path trust, includes service/system extensions, and distinguishes raw versus AppLocker hashes. Unsupported Python-source rules fail: interpreter identity must be fenced. Packaging includes F1 modules and read-only inventory support with DENY_PENDING_G3_G4. No new product dependency was introduced.
-
-Details, protected-plan contract, explicit 60-second lease bound, interpreter constraints, operational limits and primary API references are in `evidence/g2/implementation_notes.md`. The actual full offline user-package build is NOT_RUN: no provisioned isolated setuptools/build/wheel environment was present. Package/source contract tests and static checks ran; no release package was fabricated. A real non-elevated Windows desktop build ran separately.
-
-## R05 — Changed paths and K1
-
-Every material hunk is classified in `evidence/g2/k1.json`; UNEXPLAINED=0. New source/test files are entirely REQUESTED. Fixture-name shortening is NECESSARY_DEPENDENCY for this exact long Windows path. Result receipts are JUSTIFIED_GENERATED. No governance/BRD/TechSpec or unrelated engine edit occurred.
-
-| Path | K1 classification |
+| Binding | Exact commit / identity |
 |---|---|
-| `agent_bridge/scripts/build_user_package.py` | REQUESTED |
-| `agent_bridge/scripts/f1_inventory.ps1` | REQUESTED |
-| `agent_bridge/scripts/f1_policy_artifact.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/app.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/desktop.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/e2e_runner.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_authority.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_broker_store.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_client.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_policy.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_protocol.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_service.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/f1_windows.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/installation.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/launcher.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/ledger.py` | REQUESTED |
-| `agent_bridge/src/fox2_agent_bridge/startup.py` | REQUESTED |
-| `agent_bridge/tests/test_f1_authority.py` | REQUESTED |
-| `agent_bridge/tests/test_f1_consumers.py` | REQUESTED |
-| `agent_bridge/tests/test_f1_host_fence.py` | REQUESTED |
-| `agent_bridge/tests/test_f1_policy.py` | REQUESTED |
-| `agent_bridge/tests/test_f1_windows.py` | REQUESTED |
-| `agent_bridge/tests/test_installation.py` | NECESSARY_DEPENDENCY |
-| `agent_bridge/tests/test_rc1_launcher.py` | REQUESTED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/capture_command_inventory.py` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/command_inventory.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/delivery_checks.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-01.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/desktop-build-02.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-01.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-02.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-03.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/focused-04.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-01.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-02.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/full-03.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/implementation_notes.md` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/k1.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/preexec_diagnostic.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/prepare_result.py` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-01.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-02.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-03.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-04.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-05.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/regression-06.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/result_preparation_diagnostic.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/run_checks.py` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/source_readback.py` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-01.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-02.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static-03.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/static_checks.py` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/validate_result.py` | NECESSARY_DEPENDENCY |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-01.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/g2/windows-02.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json` | JUSTIFIED_GENERATED |
-| `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md` | REQUESTED |
+| Task publication | `2a46a456bae3ea83ca236d210e3a0c9901a4b31d` |
+| Task path | `docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/samehost/task.md` |
+| Raw task SHA-256 | `71c4e1c0401c429878fabb95859f64c568c43dbe02f2ffab7b8c0de41b0837fa` |
+| Raw prompt SHA-256 | `2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9` |
+| Owner physical-host directive | `438169d5728a4b5b5da19b737e79db3fc6515ce0` |
+| Accepted design candidate | `c8307980362a1ab64b93ba7d7e020d979017c849` |
+| CHAT design acceptance | `0837361aa97f5d7f2116868cb2273eeac3acd0dc` |
+| Accepted G2 code | `66e8f0a8b3a93140b5f908628b55ac965e15b96e` |
+| Task branch lineage base | `c61ffd259a384e9c96b563968c6b7b98a0f156cd` |
+| Entry head / result diff base | `0962ec74617613ff01a629926e64b7ae8b122979` |
 
-`ops_runner.py` and `f1_reconcile.py` were inspected and reused unchanged: Ops calls the gated runner; reconciliation keeps WAL/SHM/missing-root/overlap HOLD behavior. `install_user.ps1` has no service/policy activation path added.
+The task/prompt at entry are byte-identical to the immutable publication. Missing local design objects were fetched by exact issued SHA before editing; no replacement branch/document was used. [Source binding](evidence/samehost/source_binding.json) records 16 pinned blobs and raw hashes, the Registry/source-resolution chain and scoped authority limits. Result schema v2 was resolved through Dictionary 1.3 and verified at entry.
 
-## R06 — Commands actually run
+Metadata PreExec and the existing live-admission probe are PASS. The metadata receipt's live probe remains NOT_RUN; the separately published live-admission receipt proves pinned route reachability only at its recorded time. Current process flags independently match the issued model/high/full-access tuple. Neither receipt was replayed. The branch had one owning worktree, no unrelated WIP and no other observed task writer. R0â€“R7/assignment conclusions are bounded to this Owner-issued MANUAL_LOCAL BUILD tuple, sources, capabilities and path grant; no installed Bridge admission is asserted.
 
-Final checks: 61 passed in 2.47s; 200 passed in 13.14s; 557 passed in 208.24s (0:03:28); 3 passed in 0.51s.
-Required final order: focused → affected regression → full supported suite → static/package contract → native Windows tests → Windows build. Exact bounded commands, UTC start/end, exit codes and output tails are in each JSON receipt. Every earlier failed run remains recorded; no historical CI substituted for new source tests.
+## R04â€“R05 â€” Implemented scope and K1
 
-| Receipt | Exit | Result | Summary |
-|---|---:|---|---|
-| `desktop-build-01.json` | 0 | PASS | Time Elapsed 00:00:04.56 |
-| `desktop-build-02.json` | 0 | PASS | Time Elapsed 00:00:00.97 |
-| `focused-01.json` | 0 | PASS | 48 passed in 2.10s |
-| `focused-02.json` | 0 | PASS | 51 passed in 2.04s |
-| `focused-03.json` | 0 | PASS | 60 passed in 2.38s |
-| `focused-04.json` | 0 | PASS | 61 passed in 2.47s |
-| `full-01.json` | 1 | FAIL | 26 failed, 518 passed in 181.63s (0:03:01) |
-| `full-02.json` | 0 | PASS | 556 passed in 217.79s (0:03:37) |
-| `full-03.json` | 0 | PASS | 557 passed in 208.24s (0:03:28) |
-| `regression-01.json` | 1 | FAIL | 7 failed, 193 passed in 13.72s |
-| `regression-02.json` | 1 | FAIL | 1 failed, 199 passed in 13.85s |
-| `regression-03.json` | 0 | PASS | 200 passed in 14.06s |
-| `regression-04.json` | 0 | PASS | 200 passed in 15.51s |
-| `regression-05.json` | 0 | PASS | 200 passed in 14.16s |
-| `regression-06.json` | 0 | PASS | 200 passed in 13.14s |
-| `static-01.json` | 0 | PASS | {"syntax": "PASS", "allowlist": "PASS", "diff_check": "PASS", "powershell_scripts_parsed": 2, "wheel_source_contract_modules": 40, "actual_offline_package_build": "NOT_RUN_NO_ISOLATED_BUILD_ENV", "effective_policy_mutation": false, "service_install_start": false} |
-| `static-02.json` | 0 | PASS | {"syntax": "PASS", "allowlist": "PASS", "diff_check": "PASS", "powershell_scripts_parsed": 2, "wheel_source_contract_modules": 40, "actual_offline_package_build": "NOT_RUN_NO_ISOLATED_BUILD_ENV", "effective_policy_mutation": false, "service_install_start": false} |
-| `static-03.json` | 0 | PASS | {"syntax": "PASS", "allowlist": "PASS", "diff_check": "PASS", "powershell_scripts_parsed": 2, "wheel_source_contract_modules": 40, "actual_offline_package_build": "NOT_RUN_NO_ISOLATED_BUILD_ENV", "effective_policy_mutation": false, "service_install_start": false} |
-| `windows-01.json` | 0 | PASS | 3 passed in 0.50s |
-| `windows-02.json` | 0 | PASS | 3 passed in 0.51s |
+Five code/test files changed:
 
-Earlier installation failures were Windows MAX_PATH in fixture paths; extended-path spelling then failed PowerShell script authorization, so the fixture uses a shorter unique name in the same directory. The first full run exposed Git `show commit:path` MAX_PATH in unchanged PreExec fixtures and a missing Utility module import in the new inventory helper. Git core.longpaths is now per-test-child only; no host Git setting changed. The helper imports fixed Windows module paths. Read-only diagnostics are retained in `preexec_diagnostic.json`.
+- `f1_policy.py`: requires an explicit host baseline; accepts strict exact-hash, exact-publisher and restricted Windows/SystemApps/Program Files path rules. Exe/Script enforce; Msi/Dll default to NotConfigured and require explicit reviewed mode agreement. Existing baseline rules are preserved; unsupported XML, broad/user-writable path forms, ambiguous paths, duplicate IDs, reserved baseline controls and conflicting exact baseline allows are rejected.
+- Full `effective_policy_digest` and independent `f1_control_digest` are deterministic. The sealed selector contains UUIDs derived from source/package/inventory. The subset binds actual principals, actions, hashes, current/legacy identities, all collection modes and relied-upon service/SystemApps extensions. Missing, duplicate or unexpected controls fail closed.
+- `f1_service.py`: requires both digests and the sealed F1 selector. A legacy single-digest plan cannot grant authority. The broker epoch uses the full effective identity; the sealed adoption-plan digest also binds the F1 identity. Protected-root, runtime hashes, service/pipe authentication, source/package and no-replay code remain in place.
+- `f1_policy_artifact.py`: requires `--baseline`; accepts optional local/effective snapshot and rollback artifact inputs as a complete set; writes final/audit XML and transition identities without applying any policy.
+- Policy and HostFence tests cover safe baseline preservation, unsafe paths/XML, deterministic identities, mandatory/conditional modes, both drift directions, immutable controls and the offline CLI contract.
 
-## R07 — Security/replay/concurrency acceptance
+[Contract examples](evidence/samehost/contract_examples.json) are fixtures, not host policy, an adoption plan or executable rollback readiness. Snapshot identities preserve the raw prior XML, including unsupported prior collections for exact rollback. Audit evidence is explicitly NOT_RUN_G3 for compatibility/rollback validation and grants no adoption authority.
 
-| Requirement | G2 result | Evidence |
+[K1](evidence/samehost/k1.json) classifies every material hunk as REQUESTED, NECESSARY_DEPENDENCY or JUSTIFIED_GENERATED. **UNEXPLAINED=0**. The old assertion that all four collections always enforce was replaced with the accepted Exe/Script-mandatory, Msi/Dll-conditional contract. The old model's conditional-surface deny assertion now reports NotEnforced when the collection is disabled; it never claims Windows enforcement. Host baselines are not evaluated by that narrow F1 exact-identity fixture model.
+
+Only the five implementation/test paths, this required report/manifest and bounded `evidence/samehost/` additions changed. Historical G2/G3 receipts/results and the existing admission receipt remain byte-identical to entry. Earlier report/manifest versions remain available at the immutable entry and G2 commits.
+
+## R06â€“R08 â€” Tests and evidence
+
+| Check | Result | Evidence |
 |---|---|---|
-| Service absent, AppIDSvc/policy unavailable/drift, SCM/runtime drift → DENY | PASS (source plus native absence/ACL/pipe tests) | final focused, native Windows |
-| Forged caller/task/source/package/actor/nonce/epoch → DENY | PASS | focused protocol/authority |
-| Same dispatch concurrency, global consumed identity | PASS: 32 concurrent requests, one service creation/consumed identity | focused authority; existing broker regressions |
-| Claim/intent before creation; ambiguous spawn consumed | PASS | focused persisted-intent assertions |
-| Restart/revoke/lease expiry/clock rollback; durable heartbeat floor | PASS | focused authority/store |
-| Launcher/Desktop/App/Ops/E2E cannot bypass service | PASS | focused consumers; regression |
-| Copied legacy/current identity and interpreter-SID artifact model | PASS (model only) | focused policy |
-| WAL/SHM/missing roots/manual overlap and frozen F0 negatives | PASS | affected/full suites |
-| Rollback primitive revokes and preserves consumed/tombstones | PASS (source fixture); installed rollback NOT_RUN_G3 | focused authority |
-| Changed scripts/module packaging/non-activation/allowlist | PASS | static/package contract |
-| Effective AppLocker/LocalSystem spawn/Owner-host installation | NOT_RUN_G3 | intentionally outside G2 |
+| Immutable source/admission binding | PASS, scoped | [source_binding.json](evidence/samehost/source_binding.json) |
+| Initial focused run | FAIL: 2 failed, 136 passed | [focused-01.json](evidence/samehost/focused-01.json) |
+| Final focused policy/HostFence/authority/consumer/store/reconcile/native Windows run | PASS: 142 tests | [focused-02.json](evidence/samehost/focused-02.json) |
+| Full `python -m pytest -q -p no:cacheprovider agent_bridge/tests` | PASS: 606 tests, 224.92 seconds | [full-01.json](evidence/samehost/full-01.json) |
+| Syntax, PowerShell parsing, wheel source contract | PASS: 3 scripts parsed, 40 modules checked | [static-01.json](evidence/samehost/static-01.json) |
+| Final allowlist, `git diff --check`, bounded secret scan, source/evidence hashes, Result Contract v2 and K1 | PASS | [delivery_checks.json](evidence/samehost/delivery_checks.json) |
+| Physical host enforcement/compatibility/rollback, G3/G4 | NOT_RUN | BUILD-only boundary |
+| Complete release-package build | NOT_RUN | Source-module/package regression checks passed; release packaging is outside this BUILD |
 
-## R08 — Evidence inventory
+Interim evidence assembly also failed on an ignored cache directory, generated JSON CRLF and default code-page decoding of a UTF-8 diff; regular-file enumeration and explicit UTF-8/LF handling corrected result assembly without a product change. [assembly-01.json](evidence/samehost/assembly-01.json) preserves that FAIL.
 
-`evidence_manifest.json` follows Result Schema v2 and contains evidence paths, raw SHA-256, command statuses and acceptance links. Evidence is bounded to `evidence/g2/`. Failure receipts contain synthetic test diagnostics and ordinary local paths, without real credentials or account tokens. Source readback is byte proof plus the supplied scoped task authority, not a global release certificate.
+The initial focused failures exposed a denial-reason bug: AuthorityDeny inherits ValueError, so the new parser exception handler caught intentional drift denials and replaced their reason with POLICY_CONTRACT. An explicit AuthorityDeny passthrough corrected this without permitting execution. The original FAIL remains recorded. Full regression includes current no-replay, consumer, source/package, security and native Windows tests. HostFence OS policy responses are mocked in its fixtures; native inventory constructs XML in memory and does not apply it. Per-child `core.longpaths=true` was used for full regression fixture repositories; no global Git configuration changed.
 
-## R09 — Git delivery
+Acceptance 1â€“13 and 15 are supported by the focused/full/static/delivery evidence. Acceptance 14 is the Result Contract v2 publication with remote readback; the observed remote result SHA is returned outside committed artifacts. No historical PASS/FAIL/BLOCKED/NOT_RUN is reclassified.
 
-Repository `dunglt2505/FOX2`; branch `work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021`; exact worktree `C:\Projects\FOX2-worktrees\FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021`. Code and report publication owner is AGENT. At report assembly the result is LOCAL_ONLY. After actual push and remote SHA readback the external pointer is PUSHED_UNREVIEWED. No PR, merge, main write or self-acceptance.
+## R09 â€” Git delivery
 
-## R10 — Host-only gaps and boundaries
+- Repository: `dunglt2505/FOX2`.
+- Exact branch: `work/FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021`.
+- Dedicated worktree: `C:/Projects/FOX2-worktrees/FOX2-BRIDGE-F1-SAME-HOST-POLICY-BUILD-20261021`.
+- The observed remote result SHA is supplied separately after push/readback; this report does not self-reference its containing commit.
+- Status remains PUSHED_UNREVIEWED until a separate CHAT-owned result review. No PR/main/merge permission is claimed.
 
-All elevated/host enforcement tests are NOT_RUN_G3: effective AppLocker deployment and full OS/dependency inventory; copied/interpreter/shell/DLL bypass closure on Windows; LocalSystem child creation with real user credentials; service crash/reboot/logoff and lifetime behavior; protected-root attack probes; installed rollback/reinstall; G4 Owner-host adoption. Source/native non-elevated tests are not enforcement certification.
+## R10â€“R12 â€” Residual gates and next actor
 
-Confirmed for this attempt: no AppLocker policy installed/applied; no authority service installed or started; no elevation; no scheduled-task mutation; no main/merge/deploy/provider/trading-broker/Canary/LIVE action. F1 positive Owner-host authority remains DENY. The service's protected state is independent of per-user uninstall; privileged G3 rollback must revoke authority and retain the broker store, not delete or recreate consumption.
+This BUILD does not establish safe coverage for the Owner's actual applications. Path parsing is a conservative lexical boundary; G3 must prove actual ownership/DACLs, absence of writable descendants/reparse redirection and compatibility for every relied-upon path tree. Unsupported effective-policy XML (including Appx/unknown extensions/exceptions) is rejected rather than silently dropped. A host outside the supported grammar requires bounded design review, never ad hoc policy broadening.
 
-## R11 — Attempt accounting
+After CHAT accepts the exact source/result SHAs, a new physical-host G3 task and fresh PreExec must verify the physical Lenovo/Windows 11 Pro target, elevation, operational AppLocker cmdlets, exact local/effective snapshots, AppIDSvc and F1 service/root state, complete required-app baseline, protected runtime/source/package inventory, copied legacy closure, audit compatibility, and a generated/readable/syntax-checked/tested rollback artifact bound to the snapshots. No real rollback script was generated or executed in this BUILD. Conditional Msi/Dll enforcement needs separate concrete audited coverage. G3 must record whether it restores the original policy or preserves an explicitly accepted state; G4 adoption remains separate.
 
-A01 implementation attempts=1; Dispatch retries=0. Internal test/fix/recheck cycles are recorded above and are not Agent replays. No paid Agent readiness probe, nested implementation Agent or model substitution was launched by this implementation session. Tokens/credits NOT_MEASURED.
-
-## R12 — CHAT intake
-
-Requested decision: independent REVIEW through fox2-result-review against the immutable remote result commit and Dictionary-bound intake v9. G2 source/build review is separate from G3/G4 host authorization. Do not self-accept, enable positive host execution, merge or run Canary from this result.
+Next actor: CHAT applies fox2-result-review to the pushed result. Remaining physical-host gates are NOT_RUN, and the old isolated-host G3 receipt remains BLOCKED. Attempts=1, Agent retries=0; numeric usage/credits are NOT_MEASURED. No escalation or scope expansion occurred.

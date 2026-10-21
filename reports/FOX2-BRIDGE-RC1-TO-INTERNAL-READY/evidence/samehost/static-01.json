@@ -1,0 +1,28 @@
+{
+  "allowlist": "PASS",
+  "changed_paths": [
+    "agent_bridge/scripts/f1_policy_artifact.py",
+    "agent_bridge/src/fox2_agent_bridge/f1_policy.py",
+    "agent_bridge/src/fox2_agent_bridge/f1_service.py",
+    "agent_bridge/tests/test_f1_host_fence.py",
+    "agent_bridge/tests/test_f1_policy.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/contract_examples.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/delivery_checks.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/focused-01.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/focused-02.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/full-01.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/source_binding.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/static-01.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/verify_build.py"
+  ],
+  "diff_check": "PASS",
+  "bounded_secret_scan": "PASS",
+  "source_blobs": "PASS",
+  "historical_evidence_unchanged": "PASS",
+  "syntax": "PASS",
+  "host_mutation": false,
+  "observed_at_utc": "2026-10-21T12:43:59.923541+00:00",
+  "powershell_scripts_parsed": 3,
+  "wheel_source_modules": 40,
+  "full_release_package": "NOT_RUN_BUILD_SOURCE_ONLY"
+}

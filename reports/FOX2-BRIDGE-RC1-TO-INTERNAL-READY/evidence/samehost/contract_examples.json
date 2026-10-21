@@ -1,0 +1,114 @@
+{
+  "evidence_kind": "OFFLINE_FIXTURE_ONLY_NOT_A_HOST_POLICY_OR_ADOPTION_PLAN",
+  "final_policy_xml": "<?xml version='1.0' encoding='utf-8'?>\n<AppLockerPolicy Version=\"1\"><RuleCollection Type=\"Exe\" EnforcementMode=\"Enabled\"><FilePathRule Id=\"abcf458d-a62a-5aae-a17c-849cebefd42a\" Name=\"Reviewed host coverage\" Description=\"Fixture; requires physical G3 ACL review\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FilePathCondition Path=\"%PROGRAMFILES%\\ReviewedHost\\*\" /></Conditions></FilePathRule><FileHashRule Id=\"c6c2f129-ad61-5d2f-8c9f-2d83b7a11967\" Name=\"current.exe\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x3333333333333333333333333333333333333333333333333333333333333333\" SourceFileName=\"current.exe\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><FileHashRule Id=\"9d3bbee0-9548-54dd-9e0d-91bf8cdec6eb\" Name=\"legacy.exe\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Deny\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x1111111111111111111111111111111111111111111111111111111111111111\" SourceFileName=\"legacy.exe\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><RuleCollectionExtensions><ThresholdExtensions><Services EnforcementMode=\"Enabled\" /></ThresholdExtensions><RedstoneExtensions><SystemApps Allow=\"Enabled\" /></RedstoneExtensions></RuleCollectionExtensions></RuleCollection><RuleCollection Type=\"Script\" EnforcementMode=\"Enabled\"><FilePathRule Id=\"61e89049-8d64-512a-b917-917936858545\" Name=\"Reviewed host coverage\" Description=\"Fixture; requires physical G3 ACL review\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FilePathCondition Path=\"%PROGRAMFILES%\\ReviewedHost\\*\" /></Conditions></FilePathRule><FileHashRule Id=\"9eb1cf15-a84d-52a7-92eb-2ed27cf02fc4\" Name=\"current.ps1\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x4444444444444444444444444444444444444444444444444444444444444444\" SourceFileName=\"current.ps1\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><FileHashRule Id=\"c166bc85-97d4-5058-ae4f-65ddc4eae8c5\" Name=\"legacy.ps1\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Deny\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x2222222222222222222222222222222222222222222222222222222222222222\" SourceFileName=\"legacy.ps1\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule></RuleCollection><RuleCollection Type=\"Msi\" EnforcementMode=\"NotConfigured\"><FileHashRule Id=\"686fd157-1d4e-59fe-8515-a8af02684049\" Name=\"retired.msi\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Deny\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x6666666666666666666666666666666666666666666666666666666666666666\" SourceFileName=\"retired.msi\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule></RuleCollection><RuleCollection Type=\"Dll\" EnforcementMode=\"NotConfigured\"><FileHashRule Id=\"76b40fdd-e335-547a-a0a7-ef6fa2fb1515\" Name=\"runtime.dll\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x5555555555555555555555555555555555555555555555555555555555555555\" SourceFileName=\"runtime.dll\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><RuleCollectionExtensions><ThresholdExtensions><Services EnforcementMode=\"Enabled\" /></ThresholdExtensions><RedstoneExtensions><SystemApps Allow=\"Enabled\" /></RedstoneExtensions></RuleCollectionExtensions></RuleCollection></AppLockerPolicy>\n",
+  "audit_policy_xml": "<?xml version='1.0' encoding='utf-8'?>\n<AppLockerPolicy Version=\"1\"><RuleCollection Type=\"Exe\" EnforcementMode=\"AuditOnly\"><FilePathRule Id=\"abcf458d-a62a-5aae-a17c-849cebefd42a\" Name=\"Reviewed host coverage\" Description=\"Fixture; requires physical G3 ACL review\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FilePathCondition Path=\"%PROGRAMFILES%\\ReviewedHost\\*\" /></Conditions></FilePathRule><FileHashRule Id=\"c6c2f129-ad61-5d2f-8c9f-2d83b7a11967\" Name=\"current.exe\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x3333333333333333333333333333333333333333333333333333333333333333\" SourceFileName=\"current.exe\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><FileHashRule Id=\"9d3bbee0-9548-54dd-9e0d-91bf8cdec6eb\" Name=\"legacy.exe\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Deny\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x1111111111111111111111111111111111111111111111111111111111111111\" SourceFileName=\"legacy.exe\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><RuleCollectionExtensions><ThresholdExtensions><Services EnforcementMode=\"Enabled\" /></ThresholdExtensions><RedstoneExtensions><SystemApps Allow=\"Enabled\" /></RedstoneExtensions></RuleCollectionExtensions></RuleCollection><RuleCollection Type=\"Script\" EnforcementMode=\"AuditOnly\"><FilePathRule Id=\"61e89049-8d64-512a-b917-917936858545\" Name=\"Reviewed host coverage\" Description=\"Fixture; requires physical G3 ACL review\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FilePathCondition Path=\"%PROGRAMFILES%\\ReviewedHost\\*\" /></Conditions></FilePathRule><FileHashRule Id=\"9eb1cf15-a84d-52a7-92eb-2ed27cf02fc4\" Name=\"current.ps1\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x4444444444444444444444444444444444444444444444444444444444444444\" SourceFileName=\"current.ps1\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><FileHashRule Id=\"c166bc85-97d4-5058-ae4f-65ddc4eae8c5\" Name=\"legacy.ps1\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Deny\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x2222222222222222222222222222222222222222222222222222222222222222\" SourceFileName=\"legacy.ps1\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule></RuleCollection><RuleCollection Type=\"Msi\" EnforcementMode=\"NotConfigured\"><FileHashRule Id=\"686fd157-1d4e-59fe-8515-a8af02684049\" Name=\"retired.msi\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Deny\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x6666666666666666666666666666666666666666666666666666666666666666\" SourceFileName=\"retired.msi\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule></RuleCollection><RuleCollection Type=\"Dll\" EnforcementMode=\"NotConfigured\"><FileHashRule Id=\"76b40fdd-e335-547a-a0a7-ef6fa2fb1515\" Name=\"runtime.dll\" Description=\"FOX2 F1 exact inventoried identity\" UserOrGroupSid=\"S-1-1-0\" Action=\"Allow\"><Conditions><FileHashCondition><FileHash Type=\"SHA256\" Data=\"0x5555555555555555555555555555555555555555555555555555555555555555\" SourceFileName=\"runtime.dll\" SourceFileLength=\"123\" /></FileHashCondition></Conditions></FileHashRule><RuleCollectionExtensions><ThresholdExtensions><Services EnforcementMode=\"Enabled\" /></ThresholdExtensions><RedstoneExtensions><SystemApps Allow=\"Enabled\" /></RedstoneExtensions></RuleCollectionExtensions></RuleCollection></AppLockerPolicy>\n",
+  "policy_manifest": {
+    "format": "FOX2_F1_POLICY_ARTIFACT_2",
+    "source_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "package_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "policy_digest": "4a895207fe23fa86a45bba35015e5db470e69fa63e89b0ab1427607f3e58b07c",
+    "effective_policy_digest": "4a895207fe23fa86a45bba35015e5db470e69fa63e89b0ab1427607f3e58b07c",
+    "f1_control_digest": "cf10ae8492d8a8e06953b393a09dd842d7ee3bdb6a7f587b78e5f63de21724c7",
+    "f1_rule_ids": [
+      "686fd157-1d4e-59fe-8515-a8af02684049",
+      "76b40fdd-e335-547a-a0a7-ef6fa2fb1515",
+      "9d3bbee0-9548-54dd-9e0d-91bf8cdec6eb",
+      "9eb1cf15-a84d-52a7-92eb-2ed27cf02fc4",
+      "c166bc85-97d4-5058-ae4f-65ddc4eae8c5",
+      "c6c2f129-ad61-5d2f-8c9f-2d83b7a11967"
+    ],
+    "conditional_modes": {
+      "Msi": "NotConfigured",
+      "Dll": "NotConfigured"
+    },
+    "baseline_xml_sha256": "1f10f27704a32bab98b9caa5c40dcdc79afaf60e326f604536f5f678830cddf2",
+    "baseline_review": "REQUIRED_G3_HOST_COMPATIBILITY_AND_PATH_ACL",
+    "xml_sha256": "42ccc7d19186a8c3d70a729f166db5e903c2f793acba22703640e2d3c052eaef",
+    "inventory": [
+      {
+        "collection": "Dll",
+        "name": "runtime.dll",
+        "length": 123,
+        "applocker_hash": "5555555555555555555555555555555555555555555555555555555555555555",
+        "raw_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+        "disposition": "Allow",
+        "principal": "S-1-1-0"
+      },
+      {
+        "collection": "Exe",
+        "name": "legacy.exe",
+        "length": 123,
+        "applocker_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "raw_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "disposition": "Deny",
+        "principal": "S-1-1-0"
+      },
+      {
+        "collection": "Exe",
+        "name": "current.exe",
+        "length": 123,
+        "applocker_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+        "raw_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "disposition": "Allow",
+        "principal": "S-1-1-0"
+      },
+      {
+        "collection": "Msi",
+        "name": "retired.msi",
+        "length": 123,
+        "applocker_hash": "6666666666666666666666666666666666666666666666666666666666666666",
+        "raw_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+        "disposition": "Deny",
+        "principal": "S-1-1-0"
+      },
+      {
+        "collection": "Script",
+        "name": "legacy.ps1",
+        "length": 123,
+        "applocker_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+        "raw_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "disposition": "Deny",
+        "principal": "S-1-1-0"
+      },
+      {
+        "collection": "Script",
+        "name": "current.ps1",
+        "length": 123,
+        "applocker_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+        "raw_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+        "disposition": "Allow",
+        "principal": "S-1-1-0"
+      }
+    ],
+    "host_enforcement": "NOT_RUN_G3"
+  },
+  "transition_contract": {
+    "format": "FOX2_F1_AUDIT_TO_ENFORCE_1",
+    "pre_enforcement_local_xml_sha256": "635222d6f1ee0a7561e6c04e8894e688a5d19a3ce7549294f4c821a11f807e15",
+    "pre_enforcement_effective_xml_sha256": "635222d6f1ee0a7561e6c04e8894e688a5d19a3ce7549294f4c821a11f807e15",
+    "audit_xml_sha256": "5e8769a77f6176b2bd68bca0505cd98d7b73b20a9dab2865ef99db056aae4219",
+    "audit_policy_digest": "2af025fbd9ac4a5dd0993b960057c8dae25d44aed6e95e9f08ca75720b5bf66b",
+    "effective_policy_digest": "4a895207fe23fa86a45bba35015e5db470e69fa63e89b0ab1427607f3e58b07c",
+    "f1_control_digest": "cf10ae8492d8a8e06953b393a09dd842d7ee3bdb6a7f587b78e5f63de21724c7",
+    "rollback_artifact_sha256": "eafc499b266fed4b60f83750afefed4cd42fe09e759aac4f0b63237d6549961b",
+    "host_compatibility": "NOT_RUN_G3",
+    "rollback_validation": "NOT_RUN_G3",
+    "service_and_protected_root_snapshot": "REQUIRED_G3",
+    "host_mutation": false,
+    "adoption_authority": false
+  },
+  "sealed_plan_required_policy_fields": {
+    "effective_policy_digest": "4a895207fe23fa86a45bba35015e5db470e69fa63e89b0ab1427607f3e58b07c",
+    "f1_control_digest": "cf10ae8492d8a8e06953b393a09dd842d7ee3bdb6a7f587b78e5f63de21724c7",
+    "f1_rule_ids": [
+      "686fd157-1d4e-59fe-8515-a8af02684049",
+      "76b40fdd-e335-547a-a0a7-ef6fa2fb1515",
+      "9d3bbee0-9548-54dd-9e0d-91bf8cdec6eb",
+      "9eb1cf15-a84d-52a7-92eb-2ed27cf02fc4",
+      "c166bc85-97d4-5058-ae4f-65ddc4eae8c5",
+      "c6c2f129-ad61-5d2f-8c9f-2d83b7a11967"
+    ]
+  },
+  "epoch_policy_binding": "effective_policy_digest",
+  "legacy_policy_digest": "full-policy compatibility alias only; rejected as sole HostFence identity"
+}

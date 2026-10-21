@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "agent_bridge/tests/test_f1_policy.py",
+    "agent_bridge/tests/test_f1_host_fence.py",
+    "agent_bridge/tests/test_f1_authority.py",
+    "agent_bridge/tests/test_f1_consumers.py",
+    "agent_bridge/tests/test_f1_broker_store.py",
+    "agent_bridge/tests/test_f1_reconcile.py",
+    "agent_bridge/tests/test_f1_windows.py"
+  ],
+  "started_at_utc": "2026-10-21T12:38:41.931341+00:00",
+  "finished_at_utc": "2026-10-21T12:38:52.109569+00:00",
+  "exit_code": 0,
+  "stdout": "........................................................................ [ 50%]\n......................................................................   [100%]\n142 passed in 8.51s\n",
+  "stderr": "",
+  "host_mutation": false
+}
