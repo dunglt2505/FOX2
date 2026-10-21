@@ -75,12 +75,13 @@ $GitExe = (Get-Command git.exe -ErrorAction Stop).Source
 $PythonExe = (Get-Command python.exe -ErrorAction Stop).Source
 $CodexExe = (Get-Command codex -CommandType Application -ErrorAction Stop | Select-Object -First 1).Source
 
-function Git([string[]]$Args) {
-    $r = Run-Tool -File $GitExe -ToolArgs (@('-C',$Worktree) + $Args) -TimeoutSeconds 60
+function Git([string[]]$GitArgs) {
+    Require ($null -ne $GitArgs -and $GitArgs.Count -ge 1) 'GIT_ARGUMENTS_EMPTY'
+    $r = Run-Tool -File $GitExe -ToolArgs (@('-C',$Worktree) + $GitArgs) -TimeoutSeconds 60
     if ($r.Code -ne 0) {
         $detail = ([string]$r.Err).Trim()
         if ($detail.Length -gt 300) { $detail = $detail.Substring(0,300) }
-        throw ('GIT_FAILED:' + $Args[0] + ':' + $detail)
+        throw ('GIT_FAILED:' + $GitArgs[0] + ':' + $detail)
     }
     return ([string]$r.Out).Trim()
 }
