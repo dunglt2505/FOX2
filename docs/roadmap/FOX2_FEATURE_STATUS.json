@@ -40,8 +40,8 @@
       "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
-      "status": "BLOCKED",
-      "evidence": "SAMEHOST_DESIGN_CHAT_ACCEPTED; BUILD_TASK_PROMPT_PUBLISHED; VERSIONED_PREEXEC_TOOLING_CHAT_ACCEPTED; REAL_PREEXEC_NOT_RUN",
+      "status": "IN_PROGRESS",
+      "evidence": "METADATA_PREEXEC_CHAT_ACCEPTED_AT_F60AB169; LIVE_ADMISSION_TOOLING_PUBLISHED_AT_CB1FB345; LIVE_ADMISSION_NOT_RUN",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "REAL_SAMEHOST_BUILD_PREEXEC_RECEIPT_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_CODEX_START",
-      "blocker": "SAMEHOST_BUILD_PREEXEC_BLOCKED_CODEX_PROCESS_ATTRIBUTION_UNKNOWN; ATTRIBUTION_PROBE_INFRA_FAILED_ON_POWERSHELL_RESERVED_PID_VARIABLE; NO_RECEIPT_PUBLISHED; AGENT_NOT_STARTED",
-      "as_of": "2026-10-21T16:54:00+07:00",
-      "next_safe_action": "RERUN_READ_ONLY_CODEX_ATTRIBUTION_PROBE_WITH_PROCESSID_VARIABLE; THEN RECONCILE_WRITER_STATE",
+      "exit_gate": "LIVE_CODEX_ROUTE_ADMISSION_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_IMPLEMENTATION",
+      "blocker": "MODEL_QUOTA_RUNTIME_READINESS_NOT_VERIFIED",
+      "as_of": "2026-10-21T19:20:00+07:00",
+      "next_safe_action": "OWNER_RUN_VERSIONED_LIVE_ADMISSION_CB1FB345; CHAT_REMOTE_INTAKE; IF_PASS_ISSUE_IMPLEMENTATION_LAUNCH",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -609,7 +609,7 @@
         "prompt_blob_sha1": "f9a60988fd5e13158cd898492910e92dfbbed253",
         "prompt_sha256": "2b67241b343989b2da6dd17c6927fc5ace6c75678f28efbfa4934e717875f5d9",
         "route": "CODEX_GPT_6_1_SOL_HIGH_MANUAL_LOCAL",
-        "preexec": "BLOCKED_NEEDS_RECONCILIATION",
+        "preexec": "METADATA_PASS",
         "agent_execution_started": false,
         "host_mutation_authorized": false,
         "historical_g3_receipt": "14a02ab5f42a7659efd2b1e60324c49ff70695b5",
@@ -653,6 +653,24 @@
           "task_scoped_count": "UNKNOWN",
           "unattributed_count": "UNKNOWN",
           "agent_execution_started": false,
+          "host_policy_mutation": false
+        },
+        "metadata_preexec": {
+          "receipt_commit": "f60ab169baaf8c3e0f644adbf850021cea9ebf7d",
+          "receipt_blob": "340ea3401d8ea94b86ae85bd8f067d17ddb44bb8",
+          "verdict": "CHAT_ACCEPT_METADATA_PREEXEC_PASS",
+          "agent_live_probe": "NOT_RUN",
+          "pass_to_assign": false
+        },
+        "live_admission": {
+          "tooling_commit": "cb1fb3450ad24d9ba32f6f06e142c94333de4716",
+          "tooling_blob": "2d9ac9377fb184731143a83598df0a508e72a826",
+          "status": "READY_NOT_RUN",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "high",
+          "sandbox": "read-only",
+          "implementation_started": false,
+          "dispatch_consumed": false,
           "host_policy_mutation": false
         }
       }
