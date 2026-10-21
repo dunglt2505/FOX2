@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import sys
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
@@ -136,6 +137,23 @@ class SQLiteLedger:
         connection.execute("PRAGMA busy_timeout = 10000")
         return connection
 
+    def requires_service(self) -> bool:
+        """Installed/configured runtime roots cannot select the offline engine."""
+        if self._installed_runtime() or self.database_path.resolve().is_relative_to(BRIDGE_ROOT.resolve()):
+            return True
+        try:
+            with self.connect() as connection:
+                row = connection.execute("SELECT value FROM bridge_meta WHERE key='claim_authority'").fetchone()
+                return row is None or row[0] != 'SINGLE_ROOT'
+        except (sqlite3.Error, OSError):
+            return True
+
+    @staticmethod
+    def _installed_runtime() -> bool:
+        root = BRIDGE_ROOT.resolve()
+        return (Path(__file__).resolve().is_relative_to(root)
+                or Path(sys.executable).resolve().is_relative_to(root))
+
     def worker_state(self) -> dict[str, object]:
         with self.connect() as connection:
             return json.loads(connection.execute(
@@ -148,6 +166,8 @@ class SQLiteLedger:
         Treat malformed/missing state or SQLite errors as DENY. This is only a
         best-effort local control: it cannot retire or fence a legacy writer.
         """
+        if self.requires_service():
+            return False
         try:
             with self.connect() as connection:
                 row = connection.execute(
@@ -439,7 +459,7 @@ class SQLiteLedger:
         # The installed root is UNKNOWN until separately fenced. A caller may
         # bypass initialize(), including against an older SINGLE_ROOT ledger.
         # Verify at claim time; no metadata in that root can authorize a spawn.
-        if self.database_path.resolve().is_relative_to(BRIDGE_ROOT.resolve()):
+        if self._installed_runtime() or self.database_path.resolve().is_relative_to(BRIDGE_ROOT.resolve()):
             return False
         try:
             with self.connect() as connection:

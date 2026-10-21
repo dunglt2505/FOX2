@@ -77,6 +77,10 @@ def verified_package(package: Path, expected_sha256: str) -> tuple[dict, dict[st
             'desktop/FOX2.Bridge.Desktop.exe', 'desktop/FOX2.Bridge.Desktop.dll',
             'desktop/FOX2.Bridge.Desktop.runtimeconfig.json', 'desktop/FOX2.Bridge.Desktop.deps.json')):
         raise ValueError('incomplete Desktop payload')
+    if manifest.get('f1_support') is not None and manifest['f1_support'] != {
+            'protocol': 1, 'activation': 'DENY_PENDING_G3_G4',
+            'service_module': 'fox2_agent_bridge.f1_service'}:
+        raise ValueError('unsupported F1 package contract')
     return manifest, files
 
 

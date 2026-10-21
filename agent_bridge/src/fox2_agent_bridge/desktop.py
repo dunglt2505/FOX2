@@ -186,6 +186,8 @@ class DesktopWorker:
         heartbeat_thread = None
         try:
             self.ledger = initialize_runtime(self.config)
+            from .f1_client import inspect_authority
+            self.ledger.update_worker(f1_authority=inspect_authority())
             self.state('STARTING', generation=str(uuid.uuid4()), started=utc_now(),
                        stopped=None, stop_requested=False)
             self.state('RECONCILING')

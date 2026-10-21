@@ -1,4 +1,4 @@
-"""Stable-launch helper: independent siblings, no inherited caller pipes.
+"""Stable interactive Desktop launch and non-granting F1 service observation.
 
 The fixed installed runtime alone may enter here. Presentation never starts or
 owns the Worker. Standard handles are DEVNULL so callers can finish immediately.
@@ -27,8 +27,8 @@ def launch() -> dict:
         return subprocess.Popen(arguments, cwd=root, env=environment, stdin=subprocess.DEVNULL,
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
             creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0), close_fds=True)
-    worker = spawn([str(python), '-I', '-m', 'fox2_agent_bridge', 'worker'])
-    # Worker is already independent before any Desktop validation/start attempt.
+    from .f1_client import inspect_authority
+    authority = inspect_authority()
     desktop = version / 'payload/desktop/FOX2.Bridge.Desktop.exe'
     ui = None
     try:
@@ -38,7 +38,8 @@ def launch() -> dict:
         ui = spawn([str(desktop)])
     except (ValueError, OSError):
         pass
-    return {'worker_started': True, 'desktop_started': ui is not None,
+    return {'worker_started': False, 'desktop_started': ui is not None,
+            'f1_authority': authority,
             'package_sha256': current['package_sha256']}
 
 

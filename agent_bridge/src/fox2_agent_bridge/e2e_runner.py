@@ -48,6 +48,17 @@ _ADAPTERS = {"CODEX": CodexAdapter, "COPILOT": CopilotAdapter}
 
 
 @dataclass(frozen=True)
+class F1Submission:
+    """Service receipt only; no caller-side Agent result/publication authority."""
+    dispatch_id: str
+    status: str = 'F1_SERVICE_STARTED'
+
+    def as_dict(self) -> dict:
+        return {'status': self.status, 'dispatch_id': self.dispatch_id,
+                'result': 'SERVICE_OWNED_PENDING_OUTCOME'}
+
+
+@dataclass(frozen=True)
 class E2EResult:
     status: str
     dispatch_id: str
@@ -783,7 +794,7 @@ class BridgeE2ERunner:
         *,
         dispatch_path: str,
         timeout_seconds: int = 300,
-    ) -> E2EResult:
+    ) -> E2EResult | F1Submission:
         self._progress("poll control branch")
         poller = DispatchPoller(
             self.config,
@@ -813,6 +824,15 @@ class BridgeE2ERunner:
             dispatch_path=dispatch_path,
             observed_blob_sha=dispatch_blob_sha,
         )
+
+        if self.ledger.requires_service():
+            from .f1_client import execute_dispatch
+            if not self.can_claim():
+                raise ReplayBlocked('new claims paused or graceful stop requested')
+            receipt = execute_dispatch(str(payload['dispatch_id']), hashlib.sha256(raw_dispatch).hexdigest())
+            if receipt.get('decision') != 'STARTED':
+                raise ReplayBlocked('F1 service denied installed execution: ' + str(receipt.get('reason')))
+            return F1Submission(str(payload['dispatch_id']))
 
         self._progress("resolve/create exact worktree")
         worktree, before_head = self._resolve_worktree(payload)
@@ -874,8 +894,8 @@ class BridgeE2ERunner:
             delivery_instruction = ('Commit and push only the exact authorized task branch; verify remote SHA.'
                                     if owner == 'AGENT' else
                                     'Leave commit and push to Bridge. Do not change Git history or publish.')
-            # F1 hard host retirement/lease remains NOT_IMPLEMENTED. This
-            # additional local gate prevents a PAUSE/STOP received after the
+            # Offline fixture execution only: installed requests returned above.
+            # This local gate prevents a PAUSE/STOP received after the
             # durable claim from reaching the paid Agent spawn checkpoint.
             # Preserve consumed identity even if launch is now denied.
             if not self.can_claim() or not self.ledger.spawn_permitted():

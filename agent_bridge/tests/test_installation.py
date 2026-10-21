@@ -10,6 +10,18 @@ import zipfile
 
 import pytest
 
+
+@pytest.fixture
+def tmp_path(tmp_path):
+    # This exact task worktree plus a digest-named package exceeds MAX_PATH.
+    # Use a shorter unique fixture name in the same owned test directory;
+    # PowerShell's script authorization rejects extended-length path prefixes.
+    if os.name == 'nt':
+        short = tmp_path.parent / tmp_path.name[:8]
+        short.mkdir()
+        return short
+    return tmp_path
+
 from fox2_agent_bridge import installation as module
 from fox2_agent_bridge.desktop import initialize_runtime
 from fox2_agent_bridge.ledger import SQLiteLedger, utc_now

@@ -1,4 +1,4 @@
-"""Current-user logon task; fixed Bridge launcher, no passwords or SYSTEM."""
+"""Current-user Desktop logon task. F1 service lifecycle is independent."""
 from pathlib import Path
 import subprocess
 

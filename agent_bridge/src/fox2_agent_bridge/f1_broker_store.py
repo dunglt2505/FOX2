@@ -65,6 +65,8 @@ class F1BrokerStore:
                             "lease_id TEXT NOT NULL UNIQUE, epoch INTEGER NOT NULL,"
                             "package_sha256 TEXT NOT NULL, expires_at INTEGER NOT NULL,"
                             "revoked INTEGER NOT NULL CHECK(revoked IN (0,1)))")
+                con.execute('CREATE TABLE IF NOT EXISTS revoked_service_plans '
+                            '(plan_digest TEXT PRIMARY KEY)')
                 con.execute("COMMIT")
             except BaseException:
                 con.execute("ROLLBACK")
@@ -122,17 +124,25 @@ class F1BrokerStore:
                 con.execute("ROLLBACK")
                 raise
 
-    def revoke_from_privileged_service(self) -> None:
+    def revoke_from_privileged_service(self, *, adoption_digest: str | None = None) -> None:
         """Service-internal; revocation is durable and invalidates all leases."""
         with closing(self._db()) as con:
             con.execute("BEGIN IMMEDIATE")
             try:
+                if adoption_digest is not None:
+                    con.execute('INSERT OR IGNORE INTO revoked_service_plans VALUES (?)',
+                                (adoption_digest,))
                 con.execute("UPDATE authority SET revoked=1 WHERE id=1")
                 con.execute("UPDATE leases SET revoked=1 WHERE revoked=0")
                 con.execute("COMMIT")
             except BaseException:
                 con.execute("ROLLBACK")
                 raise
+
+    def service_plan_revoked(self, adoption_digest: str) -> bool:
+        with closing(self._db()) as con:
+            return con.execute('SELECT 1 FROM revoked_service_plans WHERE plan_digest=?',
+                               (adoption_digest,)).fetchone() is not None
 
     @staticmethod
     def _advance_trusted_time(con: sqlite3.Connection, now: int) -> bool:
@@ -232,3 +242,85 @@ class F1BrokerStore:
         with closing(self._db()) as con:
             return tuple(row[0] for row in con.execute(
                 "SELECT dispatch_id FROM consumed ORDER BY dispatch_id"))
+
+    def begin_service_epoch(self, binding: BrokerEpoch) -> int:
+        """Fence every boot, including boots whose policy/adoption check fails."""
+        with closing(self._db()) as con:
+            con.execute('BEGIN IMMEDIATE')
+            try:
+                previous = con.execute('SELECT epoch FROM authority WHERE id=1').fetchone()
+                epoch = (previous[0] if previous else 0) + 1
+                con.execute('INSERT INTO authority (id,epoch,policy_id,source_commit,'
+                            'package_sha256,expires_at,revoked) VALUES (1,?,?,?,?,?,1) '
+                            'ON CONFLICT(id) DO UPDATE SET epoch=excluded.epoch,'
+                            'policy_id=excluded.policy_id,source_commit=excluded.source_commit,'
+                            'package_sha256=excluded.package_sha256,'
+                            'expires_at=excluded.expires_at,revoked=1',
+                            (epoch, binding.policy_id, binding.source_commit,
+                             binding.package_sha256, binding.expires_at))
+                con.execute('UPDATE leases SET revoked=1')
+                con.execute('COMMIT')
+                return epoch
+            except BaseException:
+                con.execute('ROLLBACK')
+                raise
+
+    def observe_trusted_time(self, now: int) -> bool:
+        """Service heartbeat floor, durable even when no dispatch is claimed."""
+        with closing(self._db()) as con:
+            con.execute('BEGIN IMMEDIATE')
+            allowed = self._advance_trusted_time(con, now)
+            con.execute('COMMIT')
+            return allowed
+
+    def activate_service_epoch(self, epoch: int, now: int) -> None:
+        with closing(self._db()) as con:
+            con.execute('BEGIN IMMEDIATE')
+            try:
+                if not self._advance_trusted_time(con, now):
+                    raise ValueError('trusted time rollback')
+                updated = con.execute('UPDATE authority SET revoked=0 WHERE id=1 '
+                                      'AND epoch=? AND expires_at>?', (epoch, now))
+                if updated.rowcount != 1:
+                    raise ValueError('invalid service epoch')
+                con.execute('COMMIT')
+            except BaseException:
+                con.execute('ROLLBACK')
+                raise
+
+    def take_spawn_intent(self, **lease) -> bool:
+        """One durable creation intent per claim; ambiguous creation is consumed."""
+        if not self.spawn_permitted(**lease):
+            return False
+        with closing(self._db()) as con:
+            con.execute('BEGIN IMMEDIATE')
+            # Recheck authority/lease in the same write transaction as intent.
+            row = con.execute('SELECT 1 FROM authority a JOIN leases l ON a.id=1 '
+                'WHERE a.epoch=? AND a.revoked=0 AND l.revoked=0 AND l.epoch=a.epoch '
+                'AND l.dispatch_id=? AND l.lease_id=? AND a.package_sha256=l.package_sha256 '
+                'AND l.package_sha256=? AND a.time_floor<=? AND a.expires_at>? '
+                'AND l.expires_at>?', (lease['epoch'], lease['dispatch_id'], lease['lease_id'],
+                lease['package_sha256'], lease['now'], lease['now'], lease['now'])).fetchone()
+            changed = con.execute("UPDATE consumed SET reason='SPAWN_INTENT' "
+                "WHERE dispatch_id=? AND reason='CLAIMED_UNCERTAIN' AND epoch=?",
+                (lease['dispatch_id'], lease['epoch'])).rowcount if row else 0
+            con.execute('COMMIT')
+            return changed == 1
+
+    def report_outcome(self, dispatch_id: str, outcome: str) -> bool:
+        # Outcome is informational, terminal and never clears a claim/lease.
+        if outcome not in ('EXITED', 'FAILED', 'UNCERTAIN'):
+            return False
+        with closing(self._db()) as con:
+            con.execute('CREATE TABLE IF NOT EXISTS outcomes '
+                        '(dispatch_id TEXT PRIMARY KEY, outcome TEXT NOT NULL)')
+            con.execute('BEGIN IMMEDIATE')
+            if not con.execute('SELECT 1 FROM consumed WHERE dispatch_id=?',
+                               (dispatch_id,)).fetchone():
+                con.execute('ROLLBACK')
+                return False
+            con.execute('INSERT OR IGNORE INTO outcomes VALUES (?,?)', (dispatch_id, outcome))
+            actual = con.execute('SELECT outcome FROM outcomes WHERE dispatch_id=?',
+                                 (dispatch_id,)).fetchone()[0]
+            con.execute('COMMIT')
+            return actual == outcome

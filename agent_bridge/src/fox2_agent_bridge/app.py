@@ -118,6 +118,8 @@ class BridgeApp:
     ) -> CopilotRunResult:
         if not self._started:
             raise StartupBlocked("Copilot smoke relay requires a started Bridge")
+        if self.ledger.requires_service():
+            raise StartupBlocked('F1 service requires an independently staged task; smoke cannot bypass it')
         prompt = (
             "Return exactly FOX2_BRIDGE_COPILOT_SMOKE_OK. "
             "Do not edit files. Do not run tools. Do not make Git changes."

@@ -129,7 +129,8 @@ def build(output: Path, python: Path) -> dict:
             '.venv', '.build-venv', '__pycache__', '*.pyc', '*.egg-info', 'build', 'dist', '.pytest_cache', 'reports', 'test_artifacts', 'bin', 'obj', 'publish'))
         resources = source / 'src/fox2_agent_bridge/resources'
         resources.mkdir()
-        scripts = {p.name: p.read_bytes() for p in (ROOT/'scripts').glob('desktop_*.ps1')}
+        scripts = {p.name: p.read_bytes() for pattern in ('desktop_*.ps1', 'f1_*.ps1')
+                   for p in (ROOT/'scripts').glob(pattern)}
         for name, raw in scripts.items():
             (resources/name).write_bytes(raw)
         wheels = stage / 'wheels'
@@ -165,6 +166,8 @@ def build(output: Path, python: Path) -> dict:
         sys.path.insert(0,str(ROOT/'src'))
         from fox2_agent_bridge import project_dictionary as registry
         manifest = {'format':'FOX2_USER_PACKAGE_1', 'python':check['python'],
+                    'f1_support':{'protocol':1, 'activation':'DENY_PENDING_G3_G4',
+                                  'service_module':'fox2_agent_bridge.f1_service'},
                     'platform':check['platform'], 'dictionary_sha256':registry.SOURCE_SHA256,
                     'dictionary_version':registry.DICTIONARY_VERSION,
                     'desktop':'NET8_WPF_SELF_CONTAINED_WIN_X64',

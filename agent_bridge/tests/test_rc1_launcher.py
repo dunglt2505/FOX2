@@ -1,4 +1,4 @@
-"""Presentation failure never cancels Worker; caller pipes never enter siblings."""
+"""Launcher creates presentation only; Worker/Agent require the F1 service."""
 import subprocess
 import ast
 from pathlib import Path
@@ -27,15 +27,15 @@ def test_launcher_independent_children_and_detached_handles(tmp_path, monkeypatc
         assert kwargs['creationflags'] == subprocess.CREATE_NO_WINDOW
         assert not {'PYTHONPATH', 'PYTHONHOME'} & {k.upper() for k in kwargs['env']}
         assert kwargs['cwd'] == root
-        if desktop == 'spawn_failure' and len(calls) == 2: raise OSError('UI failure')
+        if desktop == 'spawn_failure': raise OSError('UI failure')
         return object()
     monkeypatch.setattr(launcher.subprocess, 'Popen', child)
     result = launcher.launch()
-    assert result['worker_started'] is True
+    assert result['worker_started'] is False
+    assert result['f1_authority']['decision'] == 'DENY'
     assert result['desktop_started'] == (desktop == 'valid')
-    assert calls[0][0] == [str(python), '-I', '-m', 'fox2_agent_bridge', 'worker']
-    assert len(calls) == (1 if desktop == 'missing' else 2)
-    if len(calls) == 2: assert calls[1][0] == [str(ui)]
+    assert len(calls) == (0 if desktop == 'missing' else 1)
+    if calls: assert calls[0][0] == [str(ui)]
 
 
 def test_source_interpreter_cannot_launch_installed_worker(tmp_path, monkeypatch):
