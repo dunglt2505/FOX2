@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "HOST_LIFECYCLE_A01_REWORK_LAUNCHER_HARNESS_CONTRACT_MISMATCH",
-      "as_of": "2026-10-22T00:30:00+07:00",
-      "next_safe_action": "PUBLISH_FRESH_SOURCE_REWORK_TASK_PROMPT_FROM_9DD91BEC; PRESERVE_WPF_PRESENTATION_ONLY_AND_F1_WORKER_OWNERSHIP; FIX_CERTIFY_USER_LIFECYCLE_TO_CURRENT_WPF_CONTRACT; THEN_FRESH_CODEX_PREEXEC",
+      "blocker": "LIFECYCLE_WPF_CONTRACT_REWORK_A01_PREEXEC_V2_NOT_RUN",
+      "as_of": "2026-10-22T00:42:00+07:00",
+      "next_safe_action": "OWNER_CREATE_OR_FAST_FORWARD_DEDICATED_REWORK_WORKTREE_TO_7207A3C4_AND_RUN_PREEXEC_V2_ONCE; CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_FRESH_CODEX_BUILD_DISPATCH",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "HOST_LIFECYCLE_A01_TRUTHFUL_FAIL_CHAT_REWORK; INSTALL_PASS; REAL_LIFECYCLE_FAIL_BEFORE_UNINSTALL; UNINSTALL_REINSTALL_NOT_RUN; ROOT_CAUSE_CURRENT_HARNESS_REQUIRES_LEGACY_DESKTOP_TRAY_AND_WORKER_HEARTBEAT_CONTRADICTING_ACCEPTED_WPF_F1_ARCHITECTURE",
+      "package_lifecycle": "HOST_LIFECYCLE_A01_CHAT_REWORK; SOURCE_REWORK_TASK_PROMPT_PUBLISHED; PREEXEC_V1_REJECTED_PRELAUNCH_PREFIX_MISMATCH; PREEXEC_V2_VALIDATED_READY_NOT_RUN; NO_PRODUCT_DRIFT; NO_REAL_HOST_MUTATION",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -278,10 +278,34 @@
             "no_replay": true
           },
           "rework": {
-            "source_decision": "PRESERVE_WPF_PRESENTATION_ONLY_LAUNCHER_AND_F1_WORKER_OWNERSHIP",
-            "techspec_rev10": "CANDIDATE_NO_PROMOTION_NON_AUTHORITY",
-            "existing_reusable_ui_certification": "agent_bridge/scripts/certify_rc1_ui.ps1",
-            "product_fix_target": "certify_user_lifecycle.py_and_tests",
+            "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01",
+            "branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-20261022",
+            "source_result_base": "9dd91becf47d934183baf147d0a4f03f4bf5933d",
+            "product_source": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+            "task_commit": "aabe81fad8a465ea12a763fd4cccc54670dd707f",
+            "task_blob": "e6503c2a817450f270ab674ce1cd723019961dce",
+            "task_sha256": "50bf03fc9fdb149dd7b4d0a3edf4bd2acbc26ec0000f39208b17b9d2f7bc2b01",
+            "prompt_commit": "de3f6768fa01b1396b6686f3c06c103669bcd24d",
+            "prompt_blob": "5bd037b3536592d31e68b3b5e5929b84fb48d50f",
+            "prompt_sha256": "88359fad2607aeb7669f3678966390a118c131d9849697c24a8505e3d9932dd9",
+            "architecture_decision": "PRESERVE_WPF_PRESENTATION_ONLY_LAUNCHER_AND_F1_WORKER_OWNERSHIP",
+            "preexec_v1": {
+              "commit": "544c1a39861966b3d589f692bb8e0b27c6f329c3",
+              "blob": "ef329ab0bc5ecf88048734012c0d66e292f84f43",
+              "status": "PUBLISHED_INVALID_NOT_EXECUTABLE",
+              "review_commit": "6db4755e2f652377a9c0a74250a76823397467c7"
+            },
+            "preexec_v2": {
+              "commit": "7207a3c455b40bd24b71e0cd94c5f42d7e348bd0",
+              "blob": "68db0d3f0d867bd18aaa8dee6174791f31b36f9b",
+              "status": "READY_NOT_RUN",
+              "receipt_present": false,
+              "product_drift": "NONE",
+              "remote_validated": true
+            },
+            "dispatch_published": false,
+            "agent_started": false,
+            "real_host_lifecycle_mutation": false,
             "g3_unlocked": false
           }
         }
