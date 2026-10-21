@@ -243,9 +243,9 @@
         }
       ],
       "exit_gate": "REAL_SAMEHOST_BUILD_PREEXEC_RECEIPT_PASS_AND_CHAT_INTAKE_REQUIRED_BEFORE_CODEX_START",
-      "blocker": "SAMEHOST_BUILD_PREEXEC_BLOCKED_CODEX_PROCESS_ATTRIBUTION_UNKNOWN; NO_RECEIPT_PUBLISHED; AGENT_NOT_STARTED",
-      "as_of": "2026-10-21T19:10:00+07:00",
-      "next_safe_action": "READ_ONLY_CODEX_PROCESS_ATTRIBUTION_PROBE; RECONCILE_COMPETING_WRITER_STATE; THEN RERUN_VERSIONED_PREEXEC_IF_SAFE",
+      "blocker": "SAMEHOST_BUILD_PREEXEC_BLOCKED_CODEX_PROCESS_ATTRIBUTION_UNKNOWN; ATTRIBUTION_PROBE_INFRA_FAILED_ON_POWERSHELL_RESERVED_PID_VARIABLE; NO_RECEIPT_PUBLISHED; AGENT_NOT_STARTED",
+      "as_of": "2026-10-21T16:54:00+07:00",
+      "next_safe_action": "RERUN_READ_ONLY_CODEX_ATTRIBUTION_PROBE_WITH_PROCESSID_VARIABLE; THEN RECONCILE_WRITER_STATE",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -644,6 +644,16 @@
           "agent_execution_started": false,
           "host_policy_mutation": false,
           "no_replay": true
+        },
+        "last_attribution_probe": {
+          "classification": "PROBE_INFRA_FAILED",
+          "reason": "POWERSHELL_RESERVED_AUTOMATIC_VARIABLE_PID_COLLISION",
+          "observed_candidate_count": 5,
+          "attribution_complete": false,
+          "task_scoped_count": "UNKNOWN",
+          "unattributed_count": "UNKNOWN",
+          "agent_execution_started": false,
+          "host_policy_mutation": false
         }
       }
     }
