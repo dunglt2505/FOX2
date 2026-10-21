@@ -7,7 +7,7 @@
       "feature_id": "FOX2-BRIDGE-RC1",
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
-      "stage": "BUILD",
+      "stage": "TEST",
       "status": "IN_PROGRESS",
       "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED_278DAA5A; PHASE2_UNINSTALL_HARNESS_ROOT_CAUSE_PROVEN_ADAA169B; PACKAGE_LIFECYCLE_A01_TASK_31CAEB95_PROMPT_56F3A805_PREEXEC_TOOL_14F46F7D; PREEXEC_NOT_RUN",
       "evidence_scope": "PHASE1_BUILD_ACCEPTED; PHASE2_CODE_DEFECT_PROVEN; NEW_CORRECTION_TASK_PREPARED_NOT_ASSIGNED",
@@ -39,16 +39,16 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": null,
-      "as_of": "2026-10-21T23:05:00+07:00",
-      "next_safe_action": "PREPARE_FRESH_CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_FROM_ACCEPTED_A03_RESULT_2FAA33F9; FRESH_PREEXEC_AND_HOST_MUTATION_AUTHORITY_REQUIRED; G3_REMAINS_HOLD",
+      "blocker": "HOST_LIFECYCLE_CERT_A01_PREEXEC_NOT_RUN",
+      "as_of": "2026-10-21T23:20:00+07:00",
+      "next_safe_action": "OWNER_CREATE_OR_FAST_FORWARD_DEDICATED_HOST_LIFECYCLE_WORKTREE_TO_768B3516_AND_RUN_PREEXEC_V4_ONCE; CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_FRESH_HOST_MUTATING_DISPATCH; G3_REMAINS_HOLD",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "A03_CHAT_ACCEPT_BUILD_ONLY; RESULT_2FAA33F9_ACCEPTED_FOR_HARNESS_SOURCE; REAL_OWNER_HOST_LIFECYCLE_NOT_RUN",
+      "package_lifecycle": "A03_BUILD_CORRECTION_CHAT_ACCEPT_2FAA33F9; REAL_HOST_LIFECYCLE_NOT_RUN; HOST_CERT_TASK_PROMPT_PUBLISHED; PREEXEC_V1_V2_V3_REJECTED_PRELAUNCH; PREEXEC_V4_VALIDATED_READY_NOT_RUN",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -171,6 +171,44 @@
           "requires_fresh_task_prompt_preexec_dispatch": true,
           "host_mutation": true,
           "allowed_before_g3": true,
+          "g3_unlocked": false
+        },
+        "host_lifecycle_cert": {
+          "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
+          "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021",
+          "accepted_source": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+          "task_commit": "d95f08ceed2f5a25ad288b9630ffc87b698f329c",
+          "task_blob": "86e0afaec6f6e47c9d15b51564a38bf5167a892b",
+          "task_sha256": "95d64b3cb3999c55700ded2a6451cd9ffa23872fb87fd00c97df7edbb8c06221",
+          "prompt_commit": "250c8ab15bdfd8339e6332dc105a559dbd5b3151",
+          "prompt_blob": "2fd33dbef3fc327ca71844b1e05670b312eefc7d",
+          "prompt_sha256": "4a3cab3096b9eca8a65938e5b36d658ceaca5e684def26524ce44cedebe1a689",
+          "preexec_v1": {
+            "commit": "c1772c9f51f03425c865198329b2740921b6df51",
+            "blob": "d13a6688b65f68c671ed4ea1eb3409b4fa2da203",
+            "status": "PUBLISHED_INVALID_NOT_EXECUTABLE"
+          },
+          "preexec_v2": {
+            "commit": "69bc6fb7b61d4405d6db296a5b8211bddb6c13b2",
+            "blob": "ee7b22338e4ce2e67e987587e8bb29f3dedc1075",
+            "status": "PUBLISHED_INVALID_NOT_EXECUTABLE"
+          },
+          "preexec_v3": {
+            "commit": "45afc00b621f579202633fe705e2ec6f5ba4b5ed",
+            "blob": "bd246b96709c918d4b7576e763525930d656c56e",
+            "status": "PUBLISHED_INVALID_NOT_EXECUTABLE"
+          },
+          "preexec_v4": {
+            "commit": "768b35164fd740bb6a455ee50fc4dcaae331fed8",
+            "blob": "a2ac93b5d99e2817f1a777a02094a05811c46930",
+            "status": "READY_NOT_RUN",
+            "receipt_present": false,
+            "validated_remote": true,
+            "source_product_drift": "NONE"
+          },
+          "dispatch_published": false,
+          "agent_started": false,
+          "host_mutation": false,
           "g3_unlocked": false
         }
       },
