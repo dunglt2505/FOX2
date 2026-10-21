@@ -271,12 +271,30 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal
     install_calls = []
     stopped = False
     reinstalled = False
-    tray_counts = iter(['1', '0', '0', '0'])
+    presentation_live = False
+    launch_calls = []
+    ui_actions = []
+    lock = root.parent / 'BridgeDesktop/desktop.lock'
+    lock.parent.mkdir()
+    lock.write_bytes(b'presentation lock fixture')
+    desktop = root / 'versions' / sha / 'payload/desktop/FOX2.Bridge.Desktop.exe'
+    desktop.parent.mkdir(parents=True)
+    desktop.write_bytes(b'presentation fixture')
+    path_open = module.Path.open
+
+    def open_lock(path, *args, **kwargs):
+        if path == lock and presentation_live:
+            raise PermissionError('fixture WPF FileShare.None')
+        return path_open(path, *args, **kwargs)
+
+    monkeypatch.setattr(module.Path, 'open', open_lock)
 
     def child(argv, **kwargs):
-        nonlocal stopped
+        nonlocal stopped, presentation_live
         assert not supervisor_calls, 'no command may follow a failed supervisor'
         if argv[-1] == str(root / 'uninstall.ps1'):
+            assert stopped and not presentation_live and ui_actions == ['inspect', 'check', 'exit']
+            assert len(launch_calls) == 2
             assert argv == [r'C:\Program Files\PowerShell\7\pwsh.exe',
                             '-NoProfile', '-NonInteractive', '-File', str(root / 'uninstall.ps1')]
             assert kwargs['cwd'] == root
@@ -297,20 +315,32 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal
                 payload = {'run_level': 'Limited', 'logon_type': 'Interactive',
                            'action': 'launch.ps1', 'instances': 'IgnoreNew'}
                 return subprocess.CompletedProcess(argv, 0, json.dumps(payload), '')
-            return subprocess.CompletedProcess(argv, 0, next(tray_counts), '')
+            assert "Name='FOX2.Bridge.Desktop.exe'" in argv[-1]
+            payload = [{'ProcessId': 1234, 'ExecutablePath': str(desktop)}] if presentation_live else []
+            return subprocess.CompletedProcess(argv, 0, json.dumps(payload), '')
         if '-File' in argv:
-            assert argv[-1].endswith('desktop_launcher.ps1')
-            return subprocess.CompletedProcess(argv, 0, '', '')
+            if argv[-1] == str(root / 'launch.ps1'):
+                launch_calls.append(argv)
+                presentation_live = True
+                return subprocess.CompletedProcess(argv, 0, '', '')
+            assert module.Path(argv[argv.index('-File') + 1]).name == 'certify_rc1_ui.ps1'
+            action = argv[-1]
+            ui_actions.append(action)
+            payload = {'screens': ['Dashboard', 'Activity', 'Agents', 'Diagnostics', 'Artifacts', 'Settings'],
+                       'process_id': 1234, 'check_now_enabled': False}
+            output = json.dumps(payload) if action == 'inspect' else 'PAUSED_CHECK_DISABLED'
+            if action == 'exit':
+                stopped = True
+                presentation_live = False
+                output = 'EXIT_INVOKED'
+            return subprocess.CompletedProcess(argv, 0, output, '')
         assert argv[1:4] == ['-I', '-m', 'fox2_agent_bridge']
         args = argv[4:]
         assert args[0] != 'uninstall', 'installed Python must never uninstall'
-        if args == ['worker']:
-            return subprocess.CompletedProcess(argv, 1, '', 'LOCK_HELD')
-        if args == ['control', 'request-exit']:
-            stopped = True
+        assert args[0] != 'worker' and args != ['control', 'request-exit']
         if args == ['control', 'status']:
             payload = {'paused': True, 'state': 'STOPPED' if stopped else 'PAUSED',
-                       'stop_requested': stopped, 'heartbeat': 'fixture-heartbeat'}
+                       'stop_requested': stopped, 'setup_complete': True, 'current_dispatch': None}
         elif args[0] == 'status':
             payload = {'dispatch': {'dispatch_state': 'NEEDS_RECONCILIATION'}}
         else:
@@ -321,9 +351,10 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal
     # the reinstall stub verifies that the uninstall evidence was already saved.
     def run(argv, **kwargs):
         if reinstalled:
-            assert argv[4] in {'setup', 'status'}
+            assert argv[4] in {'setup', 'status', 'control'}
             payload = ({'dispatch': {'dispatch_state': 'NEEDS_RECONCILIATION'}}
-                       if argv[4] == 'status' else {'status': 'FIXTURE_OK'})
+                       if argv[4] == 'status' else {'paused': True, 'setup_complete': True,
+                       'current_dispatch': None, 'state': 'STOPPED'})
             return subprocess.CompletedProcess(argv, 0, json.dumps(payload), '')
         return child(argv, **kwargs)
 
@@ -350,6 +381,9 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal
         assert 'USER_LIFECYCLE=PASS' in capsys.readouterr().out
     saved = json.loads(evidence.read_text())
     result = saved['uninstall']
+    assert saved['worker_f1_health'] == 'NOT_APPLICABLE_PRE_G3'
+    assert saved['presentation']['count'] == 1 and saved['presentation']['two_launches']
+    assert saved['presentation_lock_released'] and saved['graceful_exit']['explicit_ui_exit']
     assert len(supervisor_calls) == 1 and result['exit_code'] == exit_code
     assert result['supervisor']['kind'] == 'STABLE_EXTERNAL_POWERSHELL7'
     assert result['supervisor']['path'] == 'BridgeRoot/uninstall.ps1'

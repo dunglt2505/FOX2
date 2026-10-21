@@ -1,0 +1,69 @@
+{
+  "hunks": [
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -88,6 +88,107 @@ def certify_uninstall(root, pwsh, config_before, results, evidence):",
+      "sha256": "e748cb916333ef1fe57763cef89972f3124feaa2b914f8ae2b1d7f2e8a016509",
+      "classification": "REQUESTED",
+      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -101,7 +202,7 @@ def main(package,sha,evidence):",
+      "sha256": "c5a6fd388ddb2311d9f970e080fc4fbc47d1d93eccd4bd76a515e88f8503ea71",
+      "classification": "REQUESTED",
+      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -112,43 +213,7 @@ def main(package,sha,evidence):",
+      "sha256": "7a7f1201fb98ad9c08c5cca40b5c4181d41cafbeefbd87a97f30da5cc06e2c82",
+      "classification": "REQUESTED",
+      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -157,6 +222,8 @@ def main(package,sha,evidence):",
+      "sha256": "7db4b57a3cf306f1e0e970f98678117b14a67f51cb8f2e6f00be4293d06bd7c6",
+      "classification": "REQUESTED",
+      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -271,12 +271,30 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "faaaa282ec6fb12ce12a95ffedfe1c0685938a99b9cdb7aab09435ccf6c1740e",
+      "classification": "NECESSARY_DEPENDENCY",
+      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -297,20 +315,32 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "5a7bbb306034d9ef0e28d6b29dccee2136bd57d544d66ff637983022aa38d0eb",
+      "classification": "NECESSARY_DEPENDENCY",
+      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -321,9 +351,10 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "cc9da0e417e1404db994ba643fd4c6a583b6cc987fd48e210b22a43e1d3872e9",
+      "classification": "NECESSARY_DEPENDENCY",
+      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -350,6 +381,9 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "fd79bc7e62fb98f73a46b9cbd36fc8ced86f8e406f1d4ab37db982ddda8176f8",
+      "classification": "NECESSARY_DEPENDENCY",
+      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -0,0 +1,194 @@",
+      "sha256": "cfea0f4a3bd7dfa0626e1b28a4a269b87fc4708728b2e47c0dde444dc0bdcda3",
+      "classification": "REQUESTED",
+      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+    }
+  ],
+  "UNEXPLAINED": 0,
+  "evidence_classification": "JUSTIFIED_GENERATED; verification scripts NECESSARY_DEPENDENCY"
+}

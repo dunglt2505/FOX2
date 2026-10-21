@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-10-21T17:32:01.544888+00:00",
+  "python_syntax_compile": [
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "sha256": "c744d5cdaf0c51802c17d270b5a1435031e69208f9548a6d8293c113d613af37",
+      "status": "PASS"
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "sha256": "a284a674f101501379550041f70b367ffb896f0656fa8c1186f80ae6979c0c6b",
+      "status": "PASS"
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "sha256": "6793b8d01826521b9267de3d6427e6fa27a4eadaefedec8e25ff0c1a9cbd0444",
+      "status": "PASS"
+    }
+  ],
+  "changed_path_allowlist": "PASS",
+  "forbidden_files_byte_identical": [
+    "agent_bridge/src/fox2_agent_bridge/launcher.py",
+    "agent_bridge/src/fox2_agent_bridge/f1_service.py",
+    "agent_bridge/src/fox2_agent_bridge/installation.py",
+    "agent_bridge/scripts/certify_rc1_ui.ps1",
+    "agent_bridge/desktop_app/FOX2.Bridge.Desktop.sln",
+    "agent_bridge/desktop_app/README.md",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml.cs",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/AssemblyInfo.cs",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml.cs",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/ArtifactVaultService.cs",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/BridgeControlClient.cs",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/DesktopPreferences.cs",
+    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/ViewModels/MainViewModel.cs",
+    "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/FOX2.Bridge.Desktop.ContractTests.csproj",
+    "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/Program.cs"
+  ],
+  "a03_supervisor_and_redaction_ast_identical": true,
+  "git_diff_check": "PASS",
+  "secret_scan": {
+    "status": "PASS",
+    "max_bytes_per_file": 2000000,
+    "scanned": [
+      {
+        "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+        "bytes": 12149
+      },
+      {
+        "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+        "bytes": 9638
+      },
+      {
+        "path": "agent_bridge/tests/test_rc1_package.py",
+        "bytes": 21416
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+        "bytes": 4997
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
+        "bytes": 21967
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+        "bytes": 6510
+      }
+    ],
+    "findings": []
+  },
+  "K1_UNEXPLAINED": 0
+}

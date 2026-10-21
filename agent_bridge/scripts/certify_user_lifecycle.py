@@ -88,6 +88,107 @@ def certify_uninstall(root, pwsh, config_before, results, evidence):
     return result
 
 
+def require_safe_control(state, *, stopped=False):
+    if (state.get('paused') is not True or state.get('setup_complete') is not True or
+            state.get('current_dispatch') is not None or
+            (stopped and state.get('state') != 'STOPPED')):
+        raise RuntimeError('Phase-2 requires paused/setup_complete/no current dispatch')
+
+
+def certify_presentation(root, sha, pwsh, cli, results, evidence):
+    """Observe only WPF presentation; protected Worker/F1 belongs to G3/G4."""
+    env = {k: v for k, v in os.environ.items()
+           if k.upper() not in {'PYTHONPATH', 'PYTHONHOME'}}
+    expected = root / 'versions' / sha / 'payload/desktop/FOX2.Bridge.Desktop.exe'
+    lock = root.parent / 'BridgeDesktop/desktop.lock'
+    results['worker_f1_health'] = 'NOT_APPLICABLE_PRE_G3'
+
+    def ps(*args, timeout=30):
+        process = subprocess.run([str(pwsh), '-NoProfile', '-NonInteractive', *args],
+            capture_output=True, text=True, timeout=timeout, env=env,
+            creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        if process.returncode:
+            raise RuntimeError('WPF presentation certification command failed')
+        return process.stdout.strip()
+
+    def presentations():
+        return json.loads(ps('-Command',
+            "ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process "
+            "-Filter \"Name='FOX2.Bridge.Desktop.exe'\" | "
+            "Select-Object ProcessId,ExecutablePath)"))
+
+    def exact_presentation():
+        observed = presentations()
+        if len(observed) != 1:
+            return None
+        record = observed[0]
+        if (not record.get('ExecutablePath') or
+                Path(record['ExecutablePath']).resolve() != expected.resolve() or
+                not expected.is_file() or installed_version(root)['package_sha256'] != sha):
+            raise RuntimeError('WPF presentation is not the exact current package')
+        return record
+
+    def wait_for(predicate, label, seconds=45):
+        deadline = time.monotonic() + seconds
+        while time.monotonic() < deadline:
+            value = predicate()
+            if value:
+                return value
+            time.sleep(0.5)
+        raise RuntimeError(label)
+
+    def ui(action):
+        return ps('-File', str(Path(__file__).with_name('certify_rc1_ui.ps1')),
+                  '-Action', action)
+
+    try:
+        require_safe_control(cli('control', 'status'))
+        for _ in range(2):
+            ps('-WindowStyle', 'Hidden', '-File', str(root / 'launch.ps1'), timeout=120)
+        live = wait_for(exact_presentation, 'Expected exactly one current WPF presentation')
+        # WPF opens this existing file with FileShare.None. Never alter its bytes.
+        if not lock.is_file():
+            raise RuntimeError('Live WPF presentation lock is missing')
+        try:
+            with lock.open('r+b'):
+                pass
+        except OSError:
+            results['live_presentation_lock_held'] = True
+        else:
+            raise RuntimeError('Live WPF presentation lock is not held')
+        screens = json.loads(ui('inspect'))
+        if (screens.get('screens') != ['Dashboard', 'Activity', 'Agents', 'Diagnostics', 'Artifacts', 'Settings'] or
+                screens.get('process_id') != live['ProcessId'] or
+                screens.get('check_now_enabled') is not False):
+            raise RuntimeError('Current WPF navigation/paused control proof failed')
+        if ui('check') != 'PAUSED_CHECK_DISABLED':
+            raise RuntimeError('Paused Check Now proof failed')
+        require_safe_control(cli('control', 'status'))
+        if exact_presentation() != live:
+            raise RuntimeError('WPF presentation changed before explicit exit')
+        results['presentation'] = {'two_launches': True, 'count': 1,
+            'package_sha256': sha, 'process_id': live['ProcessId'],
+            'executable': str(expected), 'screens': screens['screens'],
+            'paused_check_now': 'DISABLED'}
+        write_json(evidence, results)
+        exit_started = time.monotonic()
+        if ui('exit') != 'EXIT_INVOKED':
+            raise RuntimeError('Explicit WPF exit was not invoked')
+        wait_for(lambda: not presentations(), 'WPF did not finish graceful exit', seconds=30)
+        with lock.open('r+b'):
+            results['presentation_lock_released'] = True
+        state = cli('control', 'status')
+        require_safe_control(state, stopped=True)
+        results['graceful_exit'] = {'state': state['state'], 'paused': True,
+            'setup_complete': True, 'current_dispatch': None, 'presentation_count': 0,
+            'explicit_ui_exit': True, 'elapsed_seconds': round(time.monotonic() - exit_started, 3)}
+        write_json(evidence, results)
+    except Exception:
+        results['presentation_status'] = 'FAILED_BEFORE_UNINSTALL'
+        write_json(evidence, results)
+        raise
+
+
 def main(package,sha,evidence):
     root=BRIDGE_ROOT
     current=installed_version(root)
@@ -101,7 +202,7 @@ def main(package,sha,evidence):
         return json.loads(r.stdout)
     config_before=(root/'config/bridge.toml').read_bytes()
     state=cli('control','status')
-    assert state['paused'] is True
+    require_safe_control(state)
     results['setup']=cli('setup')
     results['startup']=cli('control','set-start-with-windows','--enabled','true')
     inspect=r'''$Identity=[Security.Principal.WindowsIdentity]::GetCurrent();
@@ -112,43 +213,7 @@ def main(package,sha,evidence):
     task=json.loads(r.stdout); assert task['run_level']=='Limited' and task['logon_type']=='Interactive'
     assert 'launch.ps1' in task['action'] and task['instances']=='IgnoreNew'
     results['task_scheduler']={k:v for k,v in task.items() if k!='action'}
-    tray=root/'versions'/sha/'payload/scripts/desktop_tray.ps1'
-    launcher=tray.with_name('desktop_launcher.ps1')
-    env={**os.environ,'FOX2_CERT_TRAY':str(tray)}
-    def tray_count():
-        r=subprocess.run([pwsh,'-NoProfile','-Command',
-            "@(Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'pwsh.exe' -and $_.CommandLine -and $_.CommandLine.Contains($env:FOX2_CERT_TRAY) }).Count"],
-            capture_output=True,text=True,timeout=15,env=env)
-        assert r.returncode==0
-        return int(r.stdout.strip())
-    try:
-        for _ in range(2):
-            subprocess.run([pwsh,'-NoProfile','-NonInteractive','-WindowStyle','Hidden','-STA','-File',str(launcher)],
-                capture_output=True,timeout=15,creationflags=subprocess.CREATE_NO_WINDOW,check=True)
-        deadline=time.monotonic()+45
-        while time.monotonic()<deadline:
-            state=cli('control','status')
-            if state.get('state')=='PAUSED' and state.get('heartbeat') and tray_count()==1: break
-            time.sleep(1)
-        else: raise RuntimeError('installed tray/worker did not become healthy')
-        results['installed_tray_worker']={'state':state['state'],'heartbeat':state['heartbeat'],
-            'tray_processes':tray_count(),'two_launches':True,'source_pythonpath':'UNSET_BY_TRAY'}
-        r=subprocess.run([str(python),'-I','-m','fox2_agent_bridge','worker'],capture_output=True,text=True,timeout=30)
-        assert r.returncode!=0 and 'LOCK_HELD' in r.stderr
-        results['single_instance']={'second_worker_exit':r.returncode,'second_worker':'LOCK_HELD'}
-    finally:
-        cli('control','request-exit')
-        exit_started=time.monotonic()
-        deadline=time.monotonic()+30
-        while time.monotonic()<deadline and tray_count(): time.sleep(1)
-        if tray_count(): raise RuntimeError('tray did not finish graceful exit')
-        state=cli('control','status')
-        assert state['state']=='STOPPED' and state['stop_requested'] is True
-        from fox2_agent_bridge.process_lock import ProcessLock
-        with ProcessLock(root/'data/bridge.lock'):
-            results['graceful_exit']={'state':state['state'],'stop_requested':True,
-                'tray_processes':0,'worker_lock_released':True,
-                'elapsed_seconds':round(time.monotonic()-exit_started,3)}
+    certify_presentation(root,sha,pwsh,cli,results,evidence)
     support=root/'reports/support-certification.zip'
     results['diagnostics']=cli('diagnostics','--output',str(support))
     results['startup_disabled']=cli('control','set-start-with-windows','--enabled','false')
@@ -157,6 +222,8 @@ def main(package,sha,evidence):
     certify_uninstall(root,pwsh,config_before,results,evidence)
     results['reinstall']=install(package,sha)
     results['reinstalled_setup']=cli('setup')
+    assert installed_version(root)['package_sha256']==sha
+    require_safe_control(cli('control','status'), stopped=True)
     after={i:cli('status','--dispatch-id',i)['dispatch']['dispatch_state'] for i in ids}
     assert before==after and all(s=='NEEDS_RECONCILIATION' for s in after.values())
     assert (root/'config/bridge.toml').read_bytes()==config_before

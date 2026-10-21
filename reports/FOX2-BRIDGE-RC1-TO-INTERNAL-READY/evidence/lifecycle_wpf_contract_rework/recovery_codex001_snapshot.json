@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "record_type": "FOX2_PARTIAL_AGENT_WIP_RECOVERY_SNAPSHOT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01",
+  "source_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
+  "source_dispatch_commit": "b7894655bb53ac302279439d024de7822139abe5",
+  "source_attempt": 1,
+  "source_actor": "CODEX",
+  "provenance": "LOCAL_WIP_FROM_CONSUMED_CODEX_ATTEMPT",
+  "publisher_role": "OWNER_HOST_RECOVERY_CAPTURE",
+  "source_attempt_state": "EXITED_CONSUMED",
+  "source_attempt_exit_code": 1,
+  "source_attempt_delivery": "NEEDS_RECONCILIATION",
+  "failure_class": "CODEX_USAGE_LIMIT",
+  "replay_allowed": false,
+  "chat_accepted": false,
+  "result_contract_complete": false,
+  "snapshot_is_agent_result": false,
+  "base_sha": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+  "task_branch_remote_at_capture": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+  "control_branch_remote_at_capture": "b7894655bb53ac302279439d024de7822139abe5",
+  "changed_path_count": 9,
+  "unauthorized_path_count": 0,
+  "diff_check": "PASS",
+  "tests": "NOT_VERIFIED",
+  "k1": "NOT_VERIFIED",
+  "static_checks": "NOT_VERIFIED",
+  "real_host_lifecycle": "NOT_RUN",
+  "worker_f1_start": false,
+  "g3_allowed": false,
+  "captured_at_utc": "2026-10-21T17:39:24.8134238Z",
+  "files": [
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "bytes": 12149,
+      "sha256": "c744d5cdaf0c51802c17d270b5a1435031e69208f9548a6d8293c113d613af37",
+      "scope_class": "ALLOWED_CODE"
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "bytes": 9638,
+      "sha256": "6793b8d01826521b9267de3d6427e6fa27a4eadaefedec8e25ff0c1a9cbd0444",
+      "scope_class": "ALLOWED_CODE"
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "bytes": 21416,
+      "sha256": "a284a674f101501379550041f70b367ffb896f0656fa8c1186f80ae6979c0c6b",
+      "scope_class": "ALLOWED_CODE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+      "bytes": 16869,
+      "sha256": "41f90949e3e2ce3486ae2e8335d171fcd198dfcb5bf3da6cb64626f299797ce1",
+      "scope_class": "ALLOWED_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+      "bytes": 4997,
+      "sha256": "a427f18a3d478614981019920830e407bbd69d2c927bf9bfebedb86ee867b635",
+      "scope_class": "ALLOWED_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
+      "bytes": 3756,
+      "sha256": "b3410ed0e780a3b532fca101e09ea3cea345e6113217b7b2b7da3c251186358e",
+      "scope_class": "ALLOWED_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
+      "bytes": 21967,
+      "sha256": "3dabd882248ea06cafbdc45e51c5a4b3dbe958f372ec7964aba627401b42ea25",
+      "scope_class": "ALLOWED_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
+      "bytes": 3094,
+      "sha256": "0f1421dbfd3df00ecf78b432b09516d01e256a9178faf2d3754fc27e48439742",
+      "scope_class": "ALLOWED_EVIDENCE"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+      "bytes": 6510,
+      "sha256": "5f8acf3c3b3fa55b1578abf188cf887049542bf37bd514b5abc691137cf8d067",
+      "scope_class": "ALLOWED_EVIDENCE"
+    }
+  ]
+}
