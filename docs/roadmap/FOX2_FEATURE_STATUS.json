@@ -41,7 +41,7 @@
       "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
       "stage": "BUILD",
       "status": "BLOCKED",
-      "evidence": "METADATA_PREEXEC_PASS_AT_F60AB169; REMOTE_LIVE_ADMISSION_EVIDENCE_ABSENT; LOCAL_WORKTREE_HAS_SINGLE_STAGED_ADMISSION_EVIDENCE_FILE_AT_HEAD_EDBB16A9; CONTENT_NOT_YET_RECONCILED",
+      "evidence": "METADATA_PREEXEC_PASS_AT_F60AB169; LIVE_CODEX_ADMISSION_EXECUTION_PASS_LOCAL_STAGED_BLOB_36D52527_AT_TOOL_EDBB16A9; REMOTE_ADMISSION_EVIDENCE_ABSENT; DELIVERY_BLOCKED_BY_CRLF_DIFF_CHECK_AND_REMOTE_HEAD_6308FCF7",
       "evidence_scope": "OFFLINE_CONFIGURED_ROOT_DENIAL;_CRASH_AFTER_CLAIM_AND_SYNTHETIC_CHILD;_NO_REPLAY;_CONFIGURATION_FAILURE_RECOVERY;_NO_INSTALLED_OR_REAL_AGENT_CERTIFICATION",
       "source_sha": "611ec26c28484de740e963d86de6b00946f1492d",
       "evidence_refs": [
@@ -242,10 +242,10 @@
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
         }
       ],
-      "exit_gate": "RECONCILE_STAGED_ADMISSION_EVIDENCE_IDENTITY_AND_STATUS; THEN DECIDE PRESERVE/PUBLISH/DISCARD; NO RERUN",
-      "blocker": "LOCAL_STAGED_ADMISSION_EVIDENCE_UNRECONCILED",
-      "as_of": "2026-10-21T20:20:00+07:00",
-      "next_safe_action": "READ_ONLY_PARSE_STAGED_AND_WORKTREE_ADMISSION_JSON; COMPARE BLOB_AND_STATUS; NO_RESET_STASH_DELETE",
+      "exit_gate": "PUBLISH_EXISTING_PASS_ADMISSION_EVIDENCE_WITHOUT_RERUN; CHAT_REMOTE_INTAKE; THEN PASS_TO_ASSIGN_CHECK",
+      "blocker": "LIVE_ADMISSION_EVIDENCE_DELIVERY_BLOCKED",
+      "as_of": "2026-10-21T20:30:00+07:00",
+      "next_safe_action": "PRESERVE_LOCAL_STAGED_PASS_EVIDENCE; NORMALIZE_CRLF_TO_LF_SEMANTICS_UNCHANGED; FAST_FORWARD_TO_REMOTE_6308FCF7; COMMIT_PUSH_READBACK_EVIDENCE_ONLY; NO_PROBE_RERUN",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -663,16 +663,27 @@
           "pass_to_assign": false
         },
         "live_admission": {
-          "remote_tooling_head": "6308fcf79d2a9adbb3c81f59b2ce9354a6d06bd0",
-          "local_head_observed": "edbb16a907ca1c85ad238f81b3cc2ed0fc709885",
-          "remote_evidence": "ABSENT",
-          "local_staged_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/samehost/samehost_build_a01_live_admission.json",
-          "local_staged_state": "PRESENT_UNRECONCILED",
-          "unstaged_paths": 0,
-          "untracked_paths": 0,
-          "implementation_started": false,
+          "execution_status": "PASS_LOCAL",
+          "checked_at": "2026-10-21T10:48:22.1203448Z",
+          "model": "gpt-6.1-sol",
+          "reasoning_effort": "high",
+          "sandbox": "read-only",
+          "approval_policy": "never_via_config_override",
+          "probe_exit_code": 0,
+          "marker_match": true,
+          "duration_seconds": 8.324,
+          "probe_agent_execution_started": true,
+          "task_agent_execution_started": false,
           "dispatch_consumed": false,
-          "host_policy_mutation": false
+          "host_policy_mutation": false,
+          "project_files_accessed_by_probe": false,
+          "admission_tool_commit": "edbb16a907ca1c85ad238f81b3cc2ed0fc709885",
+          "local_evidence_blob": "36d5252755ba4f1f3814f06bbaa58350863973a8",
+          "remote_tooling_head": "6308fcf79d2a9adbb3c81f59b2ce9354a6d06bd0",
+          "remote_evidence": "ABSENT",
+          "delivery_status": "BLOCKED_RECOVERABLE",
+          "delivery_blocker": "CRLF_DIFF_CHECK_AND_LOCAL_HEAD_BEHIND_REMOTE",
+          "rerun_allowed": false
         }
       }
     }
