@@ -127,3 +127,22 @@ G2 executable branch created: `work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021`
 
 Current G2 branch source head for PreExec: `ca684b09b3eaea7fa2ce7fc7983f890384202296`.
 PreExec receipt = NOT_RUN; Agent = NOT_STARTED; Dispatch = NOT_CREATED. Next action is Owner-manual PowerShell 7 task-specific PreExec only; CHAT must remote-intake the receipt before CODEX implementation launch.
+
+## G2 A01 PreExec intake — PASS_TO_ASSIGN
+Owner-host task-specific PreExec published remote receipt `94c936b1d93bbfcee5818db24dd75bd9bb32733f`.
+
+CHAT remote readback verified:
+- receipt parent exactly `ca684b09b3eaea7fa2ce7fc7983f890384202296`;
+- commit changes only `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/g2_preflight.json`;
+- receipt status PASS, blockers empty;
+- CODEX `gpt-6.1-sol` / `high` / FULL_ACCESS material route PASS;
+- eligible_agent_route PASS;
+- G2 task/prompt/Dictionary compatibility identities PASS;
+- worktree PASS / competing_writer NONE_OBSERVED;
+- dispatch unpublished/unconsumed; Agent not started;
+- branch HEAD equals receipt commit.
+
+Immutable task SHA-256: `708ab8addd6e6cbcde581bc03efc66dfb518eb8ac575d568c2be825827e649b9`.
+Immutable prompt SHA-256: `a9bda49bede3955996226801d231fefe690088490de5ed9ddfe13ab055625bed`.
+
+Verdict: `PASS_TO_ASSIGN` for one CODEX A01 implementation attempt only. No merge/Canary/LIVE rights. Next: Owner-manual PowerShell 7 exact CODEX launch; then Git result remote readback + fox2-result-review.
