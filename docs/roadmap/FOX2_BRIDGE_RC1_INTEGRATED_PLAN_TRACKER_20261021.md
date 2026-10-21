@@ -103,3 +103,14 @@ Resolved governance source for prospective G2: Projectwide Registry 1f04d62; Sou
 Route candidate: CODEX / Owner-pinned GPT-6.1 Sol / HIGH / MANUAL_LOCAL dedicated non-main worktree. Installed Bridge is not used to modify itself. Actual CLI/model/auth/capacity/worktree readiness remains ROUTE_NOT_VERIFIED until a task-specific PreExec is lawfully run.
 
 G2 remains BLOCKED solely at executable entry by preserved Owner coding HOLD. No task.md, prompt.md, Dispatch or Agent start. The source/route preparation above does not consume an attempt and does not alter F1 DENY / Canary HOLD.
+
+## G2 task-specific PreExec contract prepared — execution still HOLD
+Candidate: docs/architecture/FOX2_BRIDGE_F1_G2_PREEXEC_CONTRACT_CANDIDATE_20261021.md at 2f8fa342613ec7f64204d8e192559847581235e6.
+
+Key finding: current shared `bridge` PreExec registration cannot be reused unchanged because it binds the historical Desktop Batch-B WP/branch/task/receipt and CODEX medium reasoning. G2 requires the current Whole-WP plus GPT-6.1 Sol / HIGH. Reusing Batch-B identity would be a false source/task binding.
+
+Planned future G2 identity is now reserved at design level: `work/FOX2-BRIDGE-F1-G2-INTEGRATED-BUILD-20261021`, fork base `4d492e96cd18bc836a48aae7e76ae4ab4fa631a8`, exact G2 task/prompt/preflight/result paths documented in the contract. The branch/worktree and those files remain NOT_CREATED while coding HOLD is active.
+
+Code provenance check: compare accepted StrictMode result `804b2e21cd2f8793168ca24bc402e5cdcdb70b3e` to preparation base `4d492e96...` is 19 commits ahead with only G1/G2 docs, Feature Status and read-only host probe changes; no agent_bridge source/test/runtime code drift observed in that interval.
+
+PreExec contract state = PREPARED; PreExec execution = NOT_RUN; route verification = NOT_RUN; task/prompt = NOT_PUBLISHED; Agent = NOT_STARTED.
