@@ -51,3 +51,10 @@ This progress is an independently traceable engineering update within the same W
 ## Package gate acceptance boundary
 
 **ACCEPT (scoped)**: one Windows CI-only F0-default-DENY source-bound package was constructed and its actual SHA-256, receipt, module inventory, Desktop publication and source commit checked at run `39517792799`. Source/test `23 + 444 PASS` against exact `6afd868`. This is not an F1 positive-authority implementation, no installed-runtime adoption, no persisted downloadable archive, no independent Windows host retirement certificate and no Canary permission. **Whole-WP remains BUILD BLOCKED / F1 HOST AUTHORITY NOT_ATTESTED.**
+
+## F1 host authority design and adversarial regression extension (2026-10-21)
+
+- Test source commit `018d947619b26d9f61114d48fdfc380c5211a4a8` adds two synthetic negative/hazard cases in `agent_bridge/tests/test_runtime_ledger.py`: (a) forged installed-root SQLite `SINGLE_ROOT`/retirement/epoch metadata cannot grant a direct claim; (b) an unfenced legacy ledger can independently claim an ID while the installed current root denies it. This latter counterexample is a **known old-executor risk**, not a desired positive F1 acceptance.
+- Design evidence: `reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/f1_host_authority_contract.md` at commit `ea33d368034d112edfe964b0ccd882526f7fca52`, specifies mandatory independently OS-enforced old-executor retirement, authenticated host trust anchor, single global claim namespace, live lease, anti-rollback and negative evidence. Design status **NOT_ATTESTED**.
+- CI `39518762540` at test source `018d947`: **RUNNING / NOT_VERIFIED** at initial publication. Existing `39517792799` PASS cannot prove the two newly added tests until this new run completes.
+- No positive F1 authority, installed adoption, service, real host ledger, legacy process, Canary or LIVE access was attempted.
