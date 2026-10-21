@@ -252,12 +252,16 @@
         {
           "commit": "e18ba0a2573adcc8a549c1792d969a306613f1fb",
           "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json"
+        },
+        {
+          "commit": "a7e649fc4ac6a82291b428f598c2dcd9eab17659",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json"
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
       "blocker": "F1_DURABLE_LEGACY_RETIREMENT_NOT_VERIFIED;_INSTALLED_MANUAL_LOCAL_POSITIVE_ADMISSION_NOT_RUN;_SEVEN_FINAL_CANARY_GATES_NOT_RUN;_ATTEMPT06_AGENT_RESULT_V2_NOT_DELIVERED_HISTORICAL_CONSUMED_NO_REPLAY",
       "as_of": "2026-10-21",
-      "next_safe_action": "SELECT_AND_VERIFY_INDEPENDENT_OS_ENFORCED_LEGACY_RETIREMENT_AND_TRUST_ANCHOR;_IMPLEMENT_F1_CLAIM_TIME_LEASE_AND_GLOBAL_IDENTITY_AFTER_HOST_GATE;_ONE_F1_PACKAGE;_NO_INSTALLED_OR_CANARY",
+      "next_safe_action": "IMPLEMENT_AND_VERIFY_OS_ENFORCED_LEGACY_RETIREMENT_PLUS_EXTERNAL_HOST_TRUST_ANCHOR;_CURRENT_LOCAL_PRESPAWN_CHECK_NOT_A_HOST_LEASE;_NO_INSTALLED_OR_CANARY",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -465,15 +469,15 @@
           "agent_bridge/tests/test_rc1_package.py",
           ".github/workflows/fox2-bridge-f1-offline-ci.yml"
         ],
-        "added_test_cases": 18,
-        "CI_workflow_run_id": 39518762540,
-        "CI_run_status": "COMPLETED_SUCCESS_23_PACKAGE_TESTS_446_FULL_REGRESSION_AND_QUARANTINED_F0_DENY_PACKAGE",
+        "added_test_cases": 25,
+        "CI_workflow_run_id": 39519781500,
+        "CI_run_status": "COMPLETED_SUCCESS_23_PACKAGE_TESTS_453_FULL_REGRESSION_AND_QUARANTINED_F0_DENY_PACKAGE",
         "implementation_scope": "F1_SINGLE_PACKAGE_PROVENANCE_ISOLATED_BUILD_INTERPRETER_GIT_INVENTORY_WHEEL_SOURCE_BYTE_VERIFICATION",
         "F1_positive_authority": "NOT_IMPLEMENTED",
         "installed_adoption": "NOT_RUN",
         "git_readback": "PASS",
-        "chat_final_acceptance": "ACCEPT_SCOPED_F1_NEGATIVE_TESTS_AND_OFFLINE_F0_DENY_PACKAGE_ONLY",
-        "latest_report_and_manifest": "e18ba0a2573adcc8a549c1792d969a306613f1fb",
+        "chat_final_acceptance": "ACCEPT_SCOPED_POST_CLAIM_PRE_SPAWN_LOCAL_DENY_TESTS_AND_OFFLINE_F0_DENY_PACKAGE_ONLY",
+        "latest_report_and_manifest": "a7e649fc4ac6a82291b428f598c2dcd9eab17659",
         "CI_prior_failures": [
           {
             "run_id": 39465107989,
@@ -486,16 +490,16 @@
             "test_counts": "397_PASS_4_FAIL_43_ERROR"
           }
         ],
-        "ci_source_commit": "018d947619b26d9f61114d48fdfc380c5211a4a8",
-        "CI_job_id": 118957198091,
+        "ci_source_commit": "9bcefa500f242ccbbc8ff11f5ce2647e166f29da",
+        "CI_job_id": 118960730105,
         "affected_test_passed": 23,
-        "full_regression_passed": 446,
+        "full_regression_passed": 453,
         "tests_failed": 0,
         "tests_skipped": 0,
         "package_build": "PASS_CI_ONLY_NOT_PERSISTED",
         "canary": "HOLD",
-        "package_sha256": "26ad584902bd62fe271a93fedcbc09be8286311d6ed3e00acf91ced5811ff195",
-        "package_source_commit": "018d947619b26d9f61114d48fdfc380c5211a4a8",
+        "package_sha256": "e8fbffb04f9c4da7726e3bb3ef85cee358761e2e8547398d743765c81addde51",
+        "package_source_commit": "9bcefa500f242ccbbc8ff11f5ce2647e166f29da",
         "F1_host_contract": "DESIGNED_NOT_ATTESTED"
       }
     }
