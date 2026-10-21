@@ -65,12 +65,17 @@ $isAdmin=$principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
 if($isAdmin){$cap.elevated_admin=Obs 'PASS' $true 'Elevated Administrator token observed.'}
 else{Add-Blocker $blockers 'G3_ADMIN_REQUIRED' 'PERMISSION' 'Elevated Administrator token required on isolated G3 target.';$cap.elevated_admin=Obs 'FAIL' $true 'Current token is not elevated Administrator.' 1 'G3_ADMIN_REQUIRED'}
 
+$cap.pwsh=Obs 'PASS' $true ('PowerShell '+$PSVersionTable.PSVersion.ToString())
+$gitVersion=(Invoke-Git @('--version')).Text
+$cap.git_tool=Obs 'PASS' $true $gitVersion
+
 $os=Get-CimInstance Win32_OperatingSystem
 $cs=Get-CimInstance Win32_ComputerSystem
-$productName=(Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ProductName
-$osOk=($productName -match 'Windows 11') -and ($productName -match 'Pro|Enterprise|Education')
-if($osOk){$cap.windows_applocker_edition=Obs 'PASS' $true ('Supported Windows edition/build observed: '+$productName+' / '+$os.BuildNumber)}
-else{Add-Blocker $blockers 'G3_WINDOWS_EDITION_UNSUPPORTED' 'CAPABILITY' 'Windows 11 Pro/Enterprise/Education class required.';$cap.windows_applocker_edition=Obs 'FAIL' $true 'Unsupported Windows edition for this G3 contract.' 1 'G3_WINDOWS_EDITION_UNSUPPORTED'}
+$caption=[string]$os.Caption
+$buildNumber=[int]$os.BuildNumber
+$osOk=($buildNumber -ge 22000) -and ($caption -match 'Pro|Enterprise|Education')
+if($osOk){$cap.windows_applocker_edition=Obs 'PASS' $true ('Supported Windows edition/build observed: '+$caption+' / '+$os.BuildNumber)}
+else{Add-Blocker $blockers 'G3_WINDOWS_EDITION_UNSUPPORTED' 'CAPABILITY' 'Windows 11-class build with Pro/Enterprise/Education edition required.';$cap.windows_applocker_edition=Obs 'FAIL' $true 'Unsupported Windows edition for this G3 contract.' 1 'G3_WINDOWS_EDITION_UNSUPPORTED'}
 
 $vmText=[string]($cs.Manufacturer+' '+$cs.Model)
 $isVirtual=$vmText -match '(?i)(virtual|vmware|virtualbox|kvm|qemu|parallels|hyper-v)'
