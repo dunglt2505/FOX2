@@ -1,13 +1,13 @@
 {
   "schema": "FOX2_CURRENT_SOURCE_RESOLUTION_V1",
   "project": "FOX2",
-  "recorded_date": "2026-10-19",
+  "recorded_date": "2026-10-22",
   "recorded_by": "CHAT",
   "purpose": "Governance current selection for new/re-scoped FOX2 CHAT work per Owner-approved projectwide Governance Registry; independent machine deployment remains tracked separately.",
   "status": "GOVERNANCE_EFFECTIVE_OWNER_APPROVED__MACHINE_INSTALLED_ADOPTION_NOT_ATTESTED",
   "owner_authority": {
-    "basis": "Direct Owner instruction in FOX2 conversation on 2026-10-19 to apply approved newest Policy and complete Governance source publication",
-    "scope": "FOX2 projectwide Governance documents and new/re-scoped CHAT coordination, not installed runtime or executable Agent grant",
+    "basis": "Direct Owner instructions on 2026-10-19 for Governance v2.0.0 plus 2026-10-22 standing instruction to simplify FOX2 internal-only process using risk-proportionate Fast Lane.",
+    "scope": "FOX2 projectwide Governance documents and new/re-scoped CHAT coordination, including INTERNAL_ONLY/NON_LIVE Fast Lane standing override; excludes installed runtime claims and external provider/broker/LIVE rights.",
     "approval": "EXPLICIT_OWNER_IN_CHAT",
     "cryptographic_signature": "NOT_PROVIDED",
     "independent_release_chain_attestation": "NOT_PROVIDED; OWNER_CHAT_SCOPE_ACCEPTED_FOR_INTERNAL_GOVERNANCE_ONLY",
@@ -49,6 +49,16 @@
       "source_commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
       "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
       "operational_use": "CURRENT_RELEASED_PROTOCOL_NO_AUTOMATIC_V13_CANDIDATE_PROMOTION"
+    },
+    "internal_fast_lane": {
+      "version": "1",
+      "path": "docs/governance/releases/FOX2_INTERNAL_FAST_LANE_OWNER_OVERRIDE_20261022.md",
+      "source_commit": "5160e9a33234bfda6ca3a56e807e7ac63ac6e84f",
+      "blob_sha1": "549488d08d9cdb76cda3d285a002d6976bfdb8a3",
+      "sha256": "df94d8ce1bcebae50cf416243579218d3939bd76a1453f4fd311533bd476f9f3",
+      "scope": "INTERNAL_ONLY_NON_LIVE",
+      "operational_use": "OWNER_APPROVED_STANDING_OVERRIDE_FOR_NEW_AND_RESCOPED_INTERNAL_WORK",
+      "machine_runtime_enforcement": "NOT_CLAIMED"
     }
   },
   "unchanged_semantics": {
@@ -64,7 +74,7 @@
     "acceptance": "v0.4 UNCHANGED"
   },
   "supersession": {
-    "human_operating": "Owner 2026-10-19 Policy v2.0.0 and CODE-FIRST directive supersede conflicting older v1.8.9 governance instructions and BRIDGE_FIRST scheduling for NEW and rescoping work",
+    "human_operating": "Owner 2026-10-19 Policy v2.0.0/CODE-FIRST plus 2026-10-22 INTERNAL_FAST_LANE standing override supersede conflicting older FOX2 internal sequencing/process requirements for new/re-scoped INTERNAL_ONLY/NON_LIVE work; in-flight immutable Dispatches remain pinned.",
     "older_sources": "Preserved as immutable historical evidence; in-flight tasks/Dispatches stay pinned and require material review before any rebind",
     "rc1_wp_registry": "WP_ONLY_TRUST_BINDING at docs/governance/FOX2_RC1_TRUST_BUNDLE_20261017/REGISTRY.json is not a global project registry",
     "governance_20261018": "10-source Policy v1.9 prospective package remains historical/candidate, not silently promoted to effective",
@@ -73,21 +83,26 @@
   "lifecycle": {
     "policy_document_git_and_library": "PUBLISHED_AND_MIRRORED_PRIOR_VERIFIED",
     "candidate_dictionary_git_library": "PUBLISHED_AND_MIRRORED_PRIOR_VERIFIED",
-    "owner_human_operating_rule": "GOVERNANCE_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+    "owner_human_operating_rule": "GOVERNANCE_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK; INTERNAL_FAST_LANE_OWNER_APPROVED_FOR_INTERNAL_ONLY_NON_LIVE",
     "global_machine_registry_effective": "NOT_CLAIMED; PROJECTWIDE_GOVERNANCE_REGISTRY_ONLY",
     "owner_windows_installed_runtime": "NOT_ATTESTED_NO_LONGER_GOVERNANCE_RELEASE_GATE",
     "app_offline_dev_route": "INDEPENDENT_CODE_FIRST_NOT_BLOCKED_BY_BRIDGE_ONLY",
     "master_plan_library_divergence": "PRESERVED_HISTORICAL_COPY; CURRENT_OPERATING_ADDENDUM_MIRRORED",
     "master_plan_operating_addendum": "GIT_AND_LIBRARY_EXACT_BYTES_READBACK_PASS",
-    "master_plan_operating_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md"
+    "master_plan_operating_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
+    "internal_fast_lane": "OWNER_APPROVED_HUMAN_OPERATING_OVERRIDE; NOT_RUNTIME_ENFORCEMENT"
   },
   "instructions_for_CHAT": [
     "At the start of a new task, verify the projectwide GOVERNANCE Registry and this source-map on the owner-approved release branch, apply Governance EFFECTIVE source and independently check actual machine route support; NEVER treat product tests as a Governance document release requirement.",
     "At task start resolve Owner-approved source applicable to that scope; never use highest filename or stale document header as operative current",
     "Use this recorded Owner-operating resolution as a scoped human directive, not a cryptographically verified global machine Registry",
-    "Freeze immutable source-set for each eligible new executable task only after task precheck, Git-first prompt publication, source/authority and route-specific gates",
     "Preserve old pinned Dispatches and forbid replay; no automatic full machine/Bridge adoption or test PASS invention",
-    "Use CODE-FIRST for independent offline app task preparation under real permissions; do not block it on Bridge worker installed READY"
+    "Use CODE-FIRST for independent offline app task preparation under real permissions; do not block it on Bridge worker installed READY",
+    "For INTERNAL_ONLY/NON_LIVE work, apply FOX2_INTERNAL_FAST_LANE_OWNER_OVERRIDE_20261022: Whole-WP first, compact R0-R7, reuse valid PASS, minimize standalone PreExec/PASS_TO_ASSIGN/evidence artifacts, and use one integrated internal validation where technically safe.",
+    "For bounded correction after CHAT_REWORK with unchanged Actor/Model/Thinking/permissions/allowed paths, reuse existing task/prompt/source authority and issue only a fresh no-replay Dispatch plus changed/time-dependent pre-consume checks; do not create a new Owner-facing micro-WP.",
+    "Independent WORK audit is not a default INTERNAL_ONLY gate; require it only for real financial safety, external provider/broker/LIVE, materially high-risk concurrency/recovery, contested authority, or explicit Owner request.",
+    "Current Bridge post-R5 internal path is R5_CHAT_ACCEPT -> BRIDGE_INTERNAL_VALIDATION -> FINAL_CHAT_ACCEPTANCE -> INTERNAL_FOX2_BRIDGE_READY; BRIDGE_INTERNAL_VALIDATION may combine A05, remaining G3/G4 assertions, local runtime trial and restart/no-replay.",
+    "Never apply Fast Lane to main/merge/deploy/provider/broker/LIVE or use it to convert FAIL/BLOCKED/NOT_RUN into PASS or replay a consumed Dispatch."
   ],
   "source_evidence": {
     "policy_release_manifest": "docs/governance/FOX2_POLICY_V2.0.0_RELEASE_MANIFEST_20261019.json",
@@ -114,6 +129,14 @@
       "source_map": "PASS_EXACT_BYTES_BEFORE_THIS_UPDATE",
       "method": "Git blob hash and SHA-256 compared with materialized Library snapshot",
       "date": "2026-10-19"
+    },
+    "internal_fast_lane": {
+      "path": "docs/governance/releases/FOX2_INTERNAL_FAST_LANE_OWNER_OVERRIDE_20261022.md",
+      "commit": "5160e9a33234bfda6ca3a56e807e7ac63ac6e84f",
+      "blob_sha1": "549488d08d9cdb76cda3d285a002d6976bfdb8a3",
+      "sha256": "df94d8ce1bcebae50cf416243579218d3939bd76a1453f4fd311533bd476f9f3",
+      "authority": "EXPLICIT_OWNER_IN_CHAT_2026_10_22",
+      "scope": "INTERNAL_ONLY_NON_LIVE"
     }
   },
   "protected_permissions": {
