@@ -1,58 +1,22 @@
 ---
 name: fox2-agent-route-runtime
-description: Route a FOX2 task to CHAT / WORK / Copilot / CODEX based on actual capabilities and policy.
+description: Choose CHAT/native CODEX/Copilot/WORK or the actual Bridge route by capability and task risk before executable binding.
 ---
 
 # fox2-agent-route-runtime
 
-## Agile Lite Owner-approved operating precedence (2026-10-22)
-
-Apply project-wide Policy v2.1.0 and shared `../shared/operating_rules.md` as the common management model. Routine authorized reversible work uses one Kanban task -> implementation -> appropriate tests -> CHAT acceptance. Historical mandatory R0-R7 / PreExec / immutable Git prompt / Dispatch language below applies ONLY if the selected actual Bridge/irreversible technical transport requires it; it is NOT an administrative prerequisite to ordinary native DEV. Preserve all substantive domain, technical safety, immutable historical and no-replay instructions. Do not cascade version-reference edits without material consumer impact. Installed plugin version remains distinct from this source candidate.
-
 ## Activate when
-Execution ownership/model/actor selection, stage-based Skill selection or any prospective NEW Agent assignment.
+Actor/model/thinking, task execution route, or native versus Bridge transport must be selected.
 
 ## Work to perform
-Identify achievable direct CHAT work, independent audit necessity and host-only operations. Preserve pinned model/effort and current R0–R7 policy without inventing an access check. Evaluate WIP, scope, cost, no-replay and dependency order.
+Start with CHAT direct ability and the residual task, not feature size. Native reversible work: choose the lowest adequate capable CODEX/COPILOT plus ordinary writer/scope/test controls; no separate R0–R7 ceremony and no default High. WORK only for truly independent auditor judgment. If Bridge is explicitly selected because it provides the required installed execution transport, inspect actual available CODEX/Copilot CLI, permissions, mode and quota before freezing Route.
+
+For Bridge, produce one unambiguous binding in task/prompt: `Role · Engine/Model · Thinking · Scope · STOP`, actor product, permission profile, model_policy, model or current config, reasoning_effort only if CODEX supports it, branch/worktree and selected delivery owner. The inspected Bridge R5 permits CODEX `PINNED`, `CURRENT_CONFIG`, `PINNED_PREFERRED` and Copilot policies subject to `agent_policy.validate_selection`; `reasoning_effort` supported for CODEX `low|medium|high`. No silent downgrade, model-policy mixing or default HIGH. Actual Bridge R0–R7/decision receipt remains a machine contract for that Bridge route, not the project-management workflow.
+
+When selected route requires material PreExec, hand the frozen tuple to Governance Preflight. PreExec checks compatibility; it does not pick actor or secretly change requested model. Preserve the route of consumed/pinned attempts; material new route requires a new safely authorized attempt within same logical task. No synthetic capability PASS.
 
 ## Completion / stop
-One justified route or bounded division, with owner, model/effort, scope, evidence and next transition.
+Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
 
-
-For routine independent internal work follow the Agile Lite rule above. The controlled-route contract below applies only to an execution path that actually needs immutable Bridge or consequential safety evidence.
-
-## Legacy controlled-route execution contract (conditional)
-- **TRIGGER:** Execution owner, Actor/model/effort choice, stage routing or ANY NEW Agent assignment; also feature load when selecting relevant Skills.
-- **PRECONDITIONS:** Owner intent, resolved current scope/Policy/Task State and available host/tool capabilities; unknown capabilities remain UNKNOWN.
-- **REQUIRED_ACTIONS:** Classify task/stage; select REQUIRED Skills and CHAT DIRECT-FIRST work; run R0–R7 where applicable; choose actual actor/model/effort and whether Owner-manual Windows PowerShell is required.
-- **REQUIRED_EVIDENCE:** Actual Skills read or access-failure evidence; route/capability/permission/quota observations and source/task status, not assumed PASS.
-- **DELIVERABLES:** Route decision with `Role · Engine/Model · Thinking · Scope · STOP`; Skill Coverage with `REQUIRED/APPLIED/NOT_APPLICABLE/UNAVAILABLE`; PowerShell Owner-delivery requirement passed to Prompt Builder.
-- **VALIDATION:** Decline premature route selection if required Skill/host missing; check that controlled-route Agent tasks requiring immutable prompts use Prompt Builder and that manual CLI delivery is not omitted.
-- **FAILURE_STATE:** `SKILL_UNAVAILABLE` / `ROUTE_NOT_VERIFIED` / `ASSIGNMENT_HOLD` for missing mandatory source, skill, host or authority; safe CHAT work continues.
-- **COMPLETION_GATE:** One verified direct execution or bounded authorized agent route plus required Skill coverage and next action; routing alone is NOT Agent completion.
-## Route-specific completion chain (material routes only)
-For a selected controlled Bridge route only: POLICY_CHECK → TASK_STATE_CHECK → ROUTING_R0_R7 → ASSIGNMENT_CHECK. Compare CHAT, COPILOT, CODEX, WORK plus any capable alternative, actual permission and quota (UNKNOWN where absent). CHAT owns connector-accessible work. WORK only for a materially independent question. Bridge installed runtime readiness is not a prerequisite for demonstrably independent offline DEV; use route-specific PreExec/Owner override without converting BLOCKED to PASS. Final coding assignment is incomplete without a Git-published/readback prompt, source lock and a named Git result delivery owner. Never activate a fake native launcher or silently replay old Dispatch.
-
-## Consume current Owner-approved human direction
-CHAT does not choose Policy version from hard-coded 1.8.9, installed Bridge state, or latest filename. Take the resolver's scoped Owner decision (currently Policy v2.1.0 outcome-first for prospective management if validated live), alongside separately proven runtime capability. Prefer native/offline application DEV when independently supported and authorized; do not demand Bridge readiness for unused infrastructure. Source and task permission, actual host route/PreExec and immutable binding still govern execution. A missing runtime v2 update is `RUNTIME_NOT_ENFORCED` for that execution path, NOT a reason to reverse approved human prioritization. WORK exception only if independent judgment material; keep pinned model/effort.
-
-## Scoped human source rule
-Consume `OWNER_APPROVED_PRINCIPLE` only for a duly evidenced Owner-approved scope; keep `PUBLISHED_EFFECTIVE` and `RUNTIME_ENFORCED` separate. Never turn old Dispatch into a new task or skip real material gates.
-
-## Anti-delegation execution decision
-Before handoff, CHAT lists the actual accessible tool/action and attempts any currently authorized direct steps. A long task, token budget concern, many files, Git/Library synchronization or complex analysis never by itself justifies WORK. WORK requires a named independently reviewable question and acceptance, not generic “better suited”. Host-only coding/Windows work goes to the appropriate CODEX/Copilot/host route after checks. Transfer only the unavoidable remainder; CHAT keeps the outcome, Git readback and acceptance. No extra micro-WP or Owner reapproval for established scope.
-
-## Skill selection when materially relevant
-Classify `FEATURE_LOAD`, `PLAN`, `DESIGN`, `BUILD`, `TEST`, `DEPLOY`, `MAINTAIN`, `AGENT_TASK_HANDOFF`, `AGENT_RESULT_RETURN`, `RECOVERY`, `PUBLICATION` and any combined intents. Use the stage/task matrix in `shared/sdlc_skill_routing_v035.md` where exposed; inline minimum: PLAN → status-roadmap/source-resolver/strategic-agent-triage; DESIGN → techspec-validator plus brd-change-control/dictionary-impact only when semantic/identity changes; BUILD → source-resolver/governance-preflight/agent-route-runtime; TEST → result-review/feature-certification; DEPLOY → governance-preflight/feature-certification; MAINTAIN → project-health/status-roadmap; RECOVERY → execution-recovery. Add `fox2-agent-prompt-builder` for ANY NEW task handoff, including WORK→CHAT task transfer. Add `fox2-result-review` for an EXISTING assignment's result return. Capture `REQUIRED / APPLIED / N_A(reason) / UNAVAILABLE(reason)` based on actual access, not self-declared PASS. An unavailable mandatory Skill → HOLD affected handoff; safe reading continues. Do not load 17 Skills indiscriminately.
-Do CHAT DIRECT-FIRST work before delegation. For a verified Windows CLI route, request full safe PowerShell launch, printed inline if Owner must copy; do not fabricate WORK CLI or an Agent/Bridge launch capability. Route-specific source lock, preflight and permission remain mandatory where material.
-
-
-## v0.3.7 — Task-level complexity/risk route contract (FOX2 project-wide)
-For each selected controlled-route executable task, assess the **residual task**, not its feature name/file count; carry forward accepted PASS. When that route uses R0–R7, include a compact `TASK_ROUTE_ASSESSMENT` **before** route selection: `COMPLEXITY=EASY|MEDIUM|HARD`, ambiguity, `EXECUTION_RISK=LOW|MEDIUM|HIGH`, `SAFETY_OVERRIDE=YES|NO`, dependency impact, evidence quality and `ROUTE_RATIONALE`. EASY: deterministic/reversible; MEDIUM: bounded edge cases; HARD: ambiguous architecture/concurrency/security or irreversible work. Safety risk can raise a small task; a hard feature does not force every task to high. Choose supported Actor/Model/Thinking/Scope/STOP with cost after quality/safety. Unknown host availability != PASS. Do not default high from templates. Existing pinned/consumed tasks stay immutable; correction requires evidenced materiality and authorized supersession within the same Whole-WP, never replay or blanket recheck.
-
-## v0.3.7 — Domain-specific bounded recovery
-Treat one failure as bounded diagnosis/repair, not automatic new route or whole-task Dispatch. Reuse actor/model when valid; require fresh identity and PreExec for genuinely new executable action.
-
-
-## v0.3.7 — Project-wide focused correction and PASS preservation
-FOX2 all stages: earliest causal divergence. Accepted PASS is REUSE_VERIFIED by default; no blanket recheck. Retest only changed fact→affected gate or mandatory gates. CONSUMED Attempt cannot replay; accepted PASS evidence from it is reusable. NOT_RUN/UNKNOWN remain scoped.
+## Shared operating and Bridge applicability
+Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
