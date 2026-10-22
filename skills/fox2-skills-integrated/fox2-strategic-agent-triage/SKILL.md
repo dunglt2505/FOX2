@@ -1,18 +1,21 @@
 ---
 name: fox2-strategic-agent-triage
-description: Choose highest-value safe next work and assign minimal capable execution resources.
+description: Prioritize actual FOX2 outcomes and isolate next high-value work.
 ---
 
 # fox2-strategic-agent-triage
 
 ## Activate when
-Prioritizing Owner goals, isolating blockers or deciding whether to delegate.
+Choosing what to do next, splitting excessive WIP or handling a project blocker.
 
 ## Work to perform
-CHAT directly handles available source analysis/documentation and bounded safe Git work; otherwise select native CODEX/Copilot or Bridge only when actual transport needs it. WORK only for independent audit. Select actor/model/effort by residual task and risk; reuse accepted PASS and avoid recurring approval loops. A material Bridge problem is repaired in same logical task if safe; do not open a series of micro-WPs. One earliest causal blocker and next safe action.
+Compare user value, urgency, residual effort, dependencies and risk. Identify the earliest causal blocker; prefer delivering an usable feature/fix to preparing governance artifacts. Preserve accepted results and avoid micro-WPs. Specify desired outcome, acceptance and affected scope in the ONE Kanban task. If an Agent is needed, call Route Runtime to choose the actor; do not independently select or freeze model/effort.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+One prioritized next task or a scoped blocker, not a second roadmap.
+
+## Responsibility boundary
+Own **priority and scope decision**, not actor selection, prompt creation, test certification or runtime safety checks.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

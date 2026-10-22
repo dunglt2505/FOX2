@@ -1,18 +1,21 @@
 ---
 name: fox2-status-roadmap
-description: Maintain single outcome-based FOX2 Kanban across all features and agents.
+description: Maintain one outcome-focused FOX2 Kanban with task status and next delivery.
 ---
 
 # fox2-status-roadmap
 
 ## Activate when
-Updating backlog, progress, next milestones or confirmed task closure.
+A specific task/feature changes progress or Owner asks about project plan/next work.
 
 ## Work to perform
-Use BACKLOG, DOING, BLOCKED, DONE. One record: ID, goal, scope, owner/Agent, done_when, status and result pointer/blocker. Prioritize deliverables and bugs, no parallel stage approval boards. Bridge `PUSHED_UNREVIEWED` remains DOING until CHAT reviews accepted diff/test result. WIP limit two material code writers on disjoint paths. Mark DONE only for observed acceptance, never for a Dispatch or prompt commit alone.
+Use BACKLOG, DOING, BLOCKED, DONE. Keep one task record: ID, objective, scope, owner/Agent, acceptance, observed status, output pointer or blocker. `PUSHED_UNREVIEWED` stays DOING until CHAT accepts result. Update from verified Git/test/runtime evidence only for the changed task; no parallel approval stage/status board, no bulk rescans or task churn. Respect WIP/coding ownership when material.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+One current Kanban state and next meaningful work, not a second project health scorecard.
+
+## Responsibility boundary
+Own **task plan/state**, not aggregate risk/health assessment or technical execution states.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

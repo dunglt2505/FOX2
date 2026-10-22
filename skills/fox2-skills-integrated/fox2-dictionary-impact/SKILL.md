@@ -1,18 +1,21 @@
 ---
 name: fox2-dictionary-impact
-description: Analyze material Dictionary/schema consumer impacts without spreading version-only revisions.
+description: Trace semantic field and machine-contract changes to affected producer/consumer behavior.
 ---
 
 # fox2-dictionary-impact
 
 ## Activate when
-Identifiers, schema fields, governed contracts or generator binding really change.
+A Dictionary field, identifier, unit, type, machine schema, generator or consumer changes semantically.
 
 ## Work to perform
-Map authoritative field before/after to producer, consumer, validation tests, generated binding, null/zero, timestamp/as-of and compatibility status. Determine which machine components actually depend on the change, including Bridge `project_dictionary.py`, Dispatch Schema v3, normalizer, PreExec engine and client adapters when touched. Preserve old machine identity for consumed immutable tasks; a later human Policy version does not require blanket generator regeneration. On an actual active consumer incompatibility, change affected resolver/generator and focused regression as one bounded task. Mark unknown consumers UNKNOWN; never promote a breaking field solely on filename version.
+Map old/new semantics, producers, active consumers, null/zero, timestamps/as-of, compatibility fixtures and affected generated bindings. Check only consumers proven relevant to the changed field (Bridge parser/normalizer/adapter/ledger when truly touched). Repair the smallest incompatible consumer with focused tests and preserve old immutable identities. Do not bump BRD, TechSpec or old Policy references simply to match a Registry version.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+Impact map plus exact affected consumer/test changes and unresolved unknowns.
+
+## Responsibility boundary
+Own **impact analysis**, not selecting authoritative source, generating Dispatch or publishing new current pointers.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

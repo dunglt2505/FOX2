@@ -1,20 +1,21 @@
 ---
 name: fox2-execution-recovery
-description: Recover bounded failures without re-running consumed Bridge attempts or invalidating unaffected PASS.
+description: Locate first causal execution failure, preserve PASS, and prevent unsafe replay.
 ---
 
 # fox2-execution-recovery
 
 ## Activate when
-A task/Bridge run fails, times out, produces conflicting results or becomes uncertain.
+Agent/Bridge/native task execution fails, stalls or has uncertain side effects.
 
 ## Work to perform
-Identify the earliest causal failing step and observed changed dependencies. Preserve accepted, unaffected PASS and all original hashes, branch positions and ledger states. For reversible native DEV, repair in same task and rerun focused plus impacted tests.
-
-Bridge: inspect transport fetch/poll, candidate validation, PreExec receipt, ledger claim/ACK, agent start, exit metadata, output, publishing checkpoint, Git remote branch and result store. Distinguish NOT_STARTED from CLAIMED/RUNNING/AGENT_EXITED/PUBLISHING, `PUSHED_UNREVIEWED`, FAILED and `NEEDS_RECONCILIATION`. Timeout is not proof no side effects occurred. If consumed or state uncertain, **do not replay** same Dispatch; reconcile ledger, real host action and Git side effects. A necessary safe rerun uses new identity and source binding within SAME logical task, only after observed no-replay and rights checks. Never reset dirty worktree, rewrite accepted status or rerun broker/LIVE effects.
+Inspect concrete error, stage, changed dependency, expected state and observed side effects. For native DEV, correct the causal defect within the existing task; reuse prior accepted evidence and run focused/impacted tests. For Bridge, use actual poll/ledger/host/result Git observations to distinguish NOT_STARTED, CLAIMED/RUNNING, AGENT_EXITED/PUBLISHING, PUSHED_UNREVIEWED and NEEDS_RECONCILIATION. A timeout is not proof of no execution. If claimed/consumed or uncertain, reconcile before any new attempt, and never replay the original Dispatch. Do not rewrite host ledger or reset WIP based on assumed facts.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+One failure classification, verified preserved evidence and bounded recovery recommendation or STOP.
+
+## Responsibility boundary
+Own **diagnosis and safe recovery decision**, not owning Bridge executor implementation, automatic replay or reopening a closed milestone.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

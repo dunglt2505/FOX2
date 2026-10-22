@@ -1,18 +1,21 @@
 ---
 name: fox2-techspec-validator
-description: Check technical interfaces and consumer compatibility when real behavior changes.
+description: Validate relevant technical contracts, interfaces and failure cases.
 ---
 
 # fox2-techspec-validator
 
 ## Activate when
-API, data contract, concurrency, error or deployment technical design changes.
+Architecture/API/type/contract behavior is designed or materially modified.
 
 ## Work to perform
-Map BRD acceptance to producer/consumer APIs, types, units, timeout, retry idempotency, null semantics, timestamps/as-of, error handling and negative/security tests. For Bridge changes check Dispatch parser, adapter, ledger claim, publication owner and PreExec consistency with actual installed Schema and contract. Verify focused integration tests, do not assume source version equality. Preserve prior TechSpecs when only governance Policy/Dictionary version changes; update only impacted contract and consumer.
+Validate BRD acceptance against actual API, types, units, null semantics, as-of timestamps, errors, timeouts, retries/idempotency, concurrency, data contracts and affected producers/consumers. Require focused compatibility, negative and security tests for changed surfaces. For Bridge code changes, inspect impacted normalizer/schema/ledger/adapter contracts **only** when modified. Do not regenerate TechSpec because human Policy version changed.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+A concise interface/contract defect list or validation verdict with focused tests.
+
+## Responsibility boundary
+Own **technical design conformance**, not business requirement approval, code execution or acceptance of an Agent result.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

@@ -1,10 +1,10 @@
 # FOX2 Bridge E2E technical contract — Skill support v0.4.1
 
-This file documents the existing Bridge RC1 R5 machine interface; it does not make new Policy, Schema, preflight, or runtime. Applicable ONLY when `execution_path=BRIDGE`, not native reversible DEV. Inspect actual installed Bridge version and adapt to its observed contract before assignment. If older or different, STOP the affected handoff and inspect its matching contract.
+REFERENCE FOR BRIDGE/GIT EXECUTION OWNERS ONLY, NOT A PROMPT BUILDER CHECKLIST. This file documents the existing Bridge RC1 R5 machine interface; it does not make new Policy, Schema, preflight, or runtime. Applicable ONLY when `execution_path=BRIDGE`, not native reversible DEV. Inspect actual installed Bridge version and adapt to its observed contract before assignment. If older or different, STOP the affected handoff and inspect its matching contract.
 
 ## 1. Input decision and route
 - Owner outcome, existing logical task/WP, authorized scope, actual actor, measurable acceptance and STOP.
-- CHAT selects CODEX or COPILOT plus policy/model/reasoning/permissions based on real host capability, quota and complexity **before** PreExec. For Bridge the tuple must match `agent_policy.validate_selection` and actual CLI help/version. Never choose High just by feature name. Do not silently switch a pinned actor/model.
+- Route Runtime selects CODEX or COPILOT plus policy/model/reasoning/permissions based on real host capability, quota and complexity **before** PreExec. For Bridge the tuple must match `agent_policy.validate_selection` and actual CLI help/version. Never choose High just by feature name. Do not silently switch a pinned actor/model.
 - `CODEX` allows `PINNED`, `CURRENT_CONFIG`, `PINNED_PREFERRED`, `reasoning_effort` only when supported (`low|medium|high` in inspected R5). `COPILOT` allows its supported native/pinned policies; don't give CODEX effort to Copilot. Current Bridge `FULL_ACCESS` permission profile is a machine contract, not authority to access live assets. Actual allowed paths and protected operation denials still apply.
 
 ## 2. Immutable task and prompt publication
@@ -32,6 +32,6 @@ The inspected Bridge R5 `FOX2_LOCAL_AGENT_DISPATCH_SCHEMA_v3.json` requires:
 - Failed, timeout or uncertain post-start state goes to `NEEDS_RECONCILIATION`; reconcile ledger, ACK, side effects and remote Git before any follow-up. A consumed Dispatch is NEVER replayed. A bounded safe correction may be a NEW immutable attempt within the SAME logical task, after checking authority and actual previous status.
 
 ## 5. Owner-operated Windows PowerShell (only if actually requested)
-- Prompt Builder writes **full, copy-ready `pwsh` 7+ script inline** in CHAT, with first executable guard rejecting `$PSVersionTable.PSVersion.Major -lt 7` and STOP on missing installed commands or unknown flags.
+- The actual verified host-launch executor supplies **full, copy-ready `pwsh` 7+ script inline** in CHAT, with first executable guard rejecting `$PSVersionTable.PSVersion.Major -lt 7` and STOP on missing installed commands or unknown flags.
 - The script must confirm correct task branch, source identity, clean worktree, single writer, actual PreExec/Bridge receipt and no-replay; use real observed CLI syntax and STOP before any unsafe mutation. Do not invent `work.exe`, use `powershell.exe` 5.1 or create generic local host commands without verifying capability.
 - `OWNER_LAUNCH_READY` is only a verified handoff; it is NOT Agent executed, result pushed or CHAT accepted.

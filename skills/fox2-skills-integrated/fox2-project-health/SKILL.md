@@ -1,18 +1,21 @@
 ---
 name: fox2-project-health
-description: Assess actual product outcomes, blockers and readiness without counting governance artifacts as features.
+description: Evaluate aggregate FOX2 product progress, quality and delivery risks.
 ---
 
 # fox2-project-health
 
 ## Activate when
-Owner requests project status or prioritization evidence.
+Owner asks whether FOX2 is progressing effectively, healthy or at risk overall.
 
 ## Work to perform
-Use one Kanban board and real Git/test/host evidence: user-visible features, defects fixed/open, blocked reason, owner, cycle time and next product priority. Distinguish Governance PUBLISHED, plugin installed, Bridge runtime installed, Agent EXECUTED, result PUSHED_UNREVIEWED, CHAT ACCEPTED and LIVE availability. Report UNKNOWN rather than guessed PASS. Avoid status sprawl, micro-WP and frequent reinspection of unchanged evidence.
+Summarize verified usable features, open defects, testing depth, blockers, throughput/cycle time and roadmap priorities from the single Kanban and real test/Git/host evidence. Distinguish source published, plugin installed, CLI/Bridge runtime tested and feature usable. State unknown/stale inputs explicitly; no fake green health badges from docs released or Agents launched. Recommend one highest-impact next improvement without creating tracking artifacts.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+Concise project-level assessment with trends, real risks and next decision.
+
+## Responsibility boundary
+Own **aggregate health and delivery quality**, not updating individual task Kanban states.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

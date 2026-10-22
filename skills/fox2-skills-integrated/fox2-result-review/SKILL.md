@@ -1,22 +1,21 @@
 ---
 name: fox2-result-review
-description: Accept, rework or block real Agent Git results, including Bridge PUSHED_UNREVIEWED outputs.
+description: Assess returned Agent or task output against acceptance using observed code and test evidence.
 ---
 
 # fox2-result-review
 
 ## Activate when
-CHAT receives an actual Agent result or must decide whether a task is DONE.
+A real native DEV or Bridge Agent task returns output for CHAT evaluation.
 
 ## Work to perform
-Native DEV: compare actual changed artifact/diff and focused test results against acceptance; mark DONE, REWORK or BLOCKED within the same logical Kanban task; no new assignment when receiving an existing result.
-
-Bridge result: require observed `dispatch_id`, original task/prompt/source identities, selected actor and delivery owner, actual Git result branch/commit/SHA and Bridge/ledger state. `AGENT` delivery means Agent commit/push verified by Bridge; `BRIDGE` delivery means Bridge commit/push verifies after Agent leaves Git unchanged. `PUSHED_UNREVIEWED` means transport completed, not CHAT accepted. Fetch observed remote SHA, check ancestry, changed allowlisted paths, code diff, required result/report artifacts (`reports/<WP>/report.md`, `reports/<WP>/evidence_manifest.json` where task contract requires), tests actually run, negative/security relevant results and remaining risks. No fabricated report file or PASS based on Agent self-declaration.
-
-CHAT returns `CHAT_ACCEPTED`/DONE, `REWORK` (scoped defect and safe fix in SAME logical task), or `BLOCKED` with one concrete blocker. For any already claimed/consumed attempt, correction needs a new authorized immutable attempt if Bridge runs it; never replay original Dispatch. Remote Git push, CI, code existence, feature acceptance and LIVE status are distinct.
+Compare the original task goal/acceptance with actual changed diff/files, commit/ref as applicable, test execution outputs, negative/security cases and remaining defects. For Bridge read the actual pushed result and verified transport state; `PUSHED_UNREVIEWED` is not CHAT acceptance. Check result and report artifacts only when the **selected task/result contract** required them. Make one conclusion: DONE/CHAT_ACCEPTED, REWORK or BLOCKED in the SAME logical task. A correction can be performed natively when safe; a consumed Bridge attempt cannot replay and any new run needs a genuinely new authorized attempt.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+One acceptance verdict, concrete evidence and smallest next fix or closure, not a second approval committee.
+
+## Responsibility boundary
+Own **product/task acceptance**, not Bridge result publishing, runtime state management, new prompt creation or milestone certification.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.
