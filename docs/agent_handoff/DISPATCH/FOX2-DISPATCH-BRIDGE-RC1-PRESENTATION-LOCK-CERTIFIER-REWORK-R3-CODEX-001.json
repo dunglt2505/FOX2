@@ -1,0 +1,131 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r3/task.md",
+    "commit_sha": "c5b8ccef94fc222bc2626209c74c074b827269f3",
+    "sha256": "4dde2215f4095f26caa00bb6c0254cfb421d3d5d21086e5c1b6769b197acec5e"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r3/prompt.md",
+    "git_commit": "aed565cd230ccea9f7b8353ed72820c616985fd9",
+    "git_blob_sha1": "aee25625c67abf1a4ec5b8aa1cda22e517214a8e",
+    "sha256": "44f0138cf10ae96de0392d84f11b5151ad85496fa93d64aa056a3316ad42d75c"
+  },
+  "source": {
+    "commit_sha": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "R3 PASS_TO_ASSIGN 7efa989c070da15d2000ca105b04632f092701a5 blob d3804453e23b6157a9341343d5c5292bbc41c73c SHA256 02e71cecd14aa2603a2779aa858eb1cfe1dcc9fa5f476df00c5a18c9bad5ed8e; schema-valid PreExec v4 receipt 7fcdfd19e0d9177b4d85e39fd249b5e65ccc0d49 blob 8c21474702cf5160c37c14f43bce50e3c0089d8b SHA256 722a53f840ce868bb8a2e59504c26ce56e9f925f9ab1bdc3921e1fa626608843. Whole feature remains TEST; this Dispatch is bounded R3 certifier BUILD correction only."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-20261022",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-20261022",
+    "base_sha": "7fcdfd19e0d9177b4d85e39fd249b5e65ccc0d49",
+    "allowed_code_paths": [
+      "agent_bridge/scripts/certify_user_lifecycle.py",
+      "agent_bridge/tests/test_lifecycle_wpf_contract.py"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r3/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "python_3_13_with_pytest_8_3_5_and_jsonschema_4_26_0_or_verified_compatible",
+      "pwsh7",
+      "codex_cli_0_162_1_or_verified_compatible",
+      "pinned_gpt_6_1_sol_medium",
+      "full_access_permission_profile",
+      "dedicated_clean_r3_worktree",
+      "single_writer",
+      "immutable_r3_task_prompt_binding",
+      "schema_valid_preexec_v4_receipt_7fcdfd19",
+      "r3_pass_to_assign_7efa989c",
+      "dispatch_schema_v3_blob_1692061941e2bef498515cd0e96b9b3046119ebb",
+      "dispatch_remote_readback_before_start",
+      "result_contract_report_and_evidence_delivery"
+    ],
+    "stop_conditions": [
+      "any_replay_or_reuse_of_superseded_R1_R2_or_R3_PreExec_v1_v2_v3_as_authorizing_receipt",
+      "task_prompt_preexec_pass_to_assign_or_dispatch_binding_mismatch",
+      "task_branch_remote_head_not_exact_runtime_base_before_start",
+      "accepted_source_085cc830_not_ancestor_of_runtime_base",
+      "prestart_agent_bridge_product_or_test_drift",
+      "wrong_worktree_branch_or_unrelated_WIP",
+      "competing_task_scoped_writer",
+      "codex_model_reasoning_or_permission_profile_mismatch",
+      "third_product_or_test_file_required",
+      "WPF_product_code_change_required",
+      "package_build_install_update_uninstall_reinstall_or_real_host_lifecycle_required",
+      "tool_install_or_elevation_required",
+      "focused_or_full_agent_bridge_regression_material_failure",
+      "changed_path_allowlist_secret_scan_git_diff_check_or_K1_failure",
+      "result_contract_report_or_evidence_delivery_failure",
+      "A05_G3_G4_Canary_main_PR_merge_provider_broker_or_LIVE_action"
+    ]
+  },
+  "required_tests": [
+    "REMOTE_TASK_PROMPT_PREEXEC_PASS_TO_ASSIGN_DISPATCH_BINDINGS_PASS",
+    "SOURCE_BLOBS_MATCH_7E62103E_AND_F80E50D5",
+    "FOCUSED_PYTEST_AGENT_BRIDGE_TESTS_TEST_LIFECYCLE_WPF_CONTRACT_PY",
+    "FULL_PYTEST_AGENT_BRIDGE_TESTS",
+    "GIT_DIFF_CHECK",
+    "CHANGED_PATH_ALLOWLIST_EXACT_TWO_CODE_TEST_PLUS_R3_RESULT_EVIDENCE",
+    "SECRET_PRIVACY_SCAN",
+    "K1_HUNK_CLASSIFICATION_UNEXPLAINED_ZERO",
+    "NO_PACKAGE_BUILD_INSTALL_OR_HOST_LIFECYCLE_MUTATION",
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-22T09:47:00Z",
+  "max_runs": 1
+}
