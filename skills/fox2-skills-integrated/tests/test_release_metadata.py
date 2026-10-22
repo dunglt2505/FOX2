@@ -6,7 +6,7 @@ class TestReleaseV041(unittest.TestCase):
   meta=[json.loads((R/x).read_text()) for x in ['plugin.json','.codex-plugin/plugin.json','manifest.json']]
   self.assertEqual({x['version'] for x in meta},{json.loads((R/'plugin.json').read_text())['version']})
   self.assertEqual({x['name'] for x in meta},{'fox2-skills-integrated'})
-  self.assertEqual(meta[2]['skills_count'],17)
+  self.assertEqual(meta[2]['skills_count'],11)
  def test_overlay_hashes_not_historical_files(self):
   m=json.loads((R/'manifest.json').read_text());f=json.loads((R/m['current_file_hashes']).read_text())
   self.assertEqual(f['version'],json.loads((R/'plugin.json').read_text())['version'])
