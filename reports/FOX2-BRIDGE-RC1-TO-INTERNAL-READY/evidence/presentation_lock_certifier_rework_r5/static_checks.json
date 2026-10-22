@@ -1,0 +1,37 @@
+{
+  "changed_paths": [
+    "agent_bridge/scripts/certify_user_lifecycle.py",
+    "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/assemble_result.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/code_diff.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/dispatch.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/environment.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused.log",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused_run.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full.log",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full_run.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/k1.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/source_binding.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/static_checks.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/test_snapshot.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/validation_history.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/verify_result.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md"
+  ],
+  "changed_path_allowlist": "PASS",
+  "code_test_paths_exactly_two": true,
+  "git_diff_check": "PASS",
+  "syntax": "PASS",
+  "preserved_lifecycle_tail_ast": "PASS",
+  "task_prompt_dispatch_preexec_salvage_binding": "PASS",
+  "secret_privacy_scan": {
+    "status": "PASS",
+    "files_scanned": 18,
+    "findings": [],
+    "method": "Credential/private-key/authenticated-URL/private-user-path patterns plus material diff review; no host-data export."
+  },
+  "K1_UNEXPLAINED": 0,
+  "real_host_lifecycle": "NOT_RUN",
+  "worker_f1": "NOT_APPLICABLE_PRE_G3"
+}

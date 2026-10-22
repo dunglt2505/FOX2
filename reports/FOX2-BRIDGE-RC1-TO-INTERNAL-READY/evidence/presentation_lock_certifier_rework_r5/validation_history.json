@@ -1,0 +1,12 @@
+{
+  "runs_before_final_validation": [
+    {
+      "command": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "exit_code": 1,
+      "result": "Source-layout package absent from import path; collection stopped, no tests executed"
+    }
+  ],
+  "resolution": "Use byte-identical short detached fixture worktree with process-scoped PYTHONPATH, as in R4; avoids known Windows fixture path limits.",
+  "host_lifecycle": "NOT_RUN",
+  "attempts": 1
+}

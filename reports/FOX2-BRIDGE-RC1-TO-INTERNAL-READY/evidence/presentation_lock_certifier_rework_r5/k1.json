@@ -1,0 +1,130 @@
+{
+  "hunks": [
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -191,8 +191,11 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence, *, continuatio",
+      "sha256": "4f99351b32d7ecb4a0a646fbd0d87cd87217149deff95c71bae5715c10a7d84a",
+      "classification": "REQUESTED",
+      "reason": "Require exactly OPENABLE for pre-live errno13 differential proof; reject ABSENT before UI/exit; preserve existing-live provisional path. Tests cover absent sharing PASS and errno13 FAIL in fresh/zero-WPF modes."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -315,8 +315,11 @@ def test_pre_live_denial_stops_before_launch(presentation):",
+      "sha256": "83e9248c3c6f9a57e43319f357a661d1549c4d234735d816dff08e7d7c63810c",
+      "classification": "REQUESTED",
+      "reason": "Require exactly OPENABLE for pre-live errno13 differential proof; reject ABSENT before UI/exit; preserve existing-live provisional path. Tests cover absent sharing PASS and errno13 FAIL in fresh/zero-WPF modes."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -328,6 +331,21 @@ def test_absent_pre_live_lock_allowed(presentation, monkeypatch):",
+      "sha256": "61f7357ab3b5f49e33d2f8b04d89ad66e8baef5edf068adb83bb64d5a1a9aa46",
+      "classification": "REQUESTED",
+      "reason": "Require exactly OPENABLE for pre-live errno13 differential proof; reject ABSENT before UI/exit; preserve existing-live provisional path. Tests cover absent sharing PASS and errno13 FAIL in fresh/zero-WPF modes."
+    }
+  ],
+  "result_and_evidence": [
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/assemble_result.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/code_diff.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/dispatch.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/environment.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused_run.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full_run.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/k1.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/source_binding.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/static_checks.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/test_snapshot.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/validation_history.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/verify_result.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R5 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    }
+  ],
+  "allowed_classes": [
+    "REQUESTED",
+    "NECESSARY_DEPENDENCY",
+    "JUSTIFIED_GENERATED",
+    "UNEXPLAINED"
+  ],
+  "UNEXPLAINED": 0
+}

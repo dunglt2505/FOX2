@@ -1,0 +1,14 @@
+{
+  "base": "59ba8b50136ac5bcee7cf2d2edbf65e360812b78",
+  "tracked_agent_bridge_files_compared": 106,
+  "all_bytes_match": true,
+  "test_cwd": "C:/Projects/FOX2/.git/wpf-r5-test",
+  "environment": {
+    "PYTHONPATH": "test_cwd/agent_bridge/src"
+  },
+  "tool_installation": false,
+  "allowed_final_files": {
+    "agent_bridge/scripts/certify_user_lifecycle.py": "2dd3ada124d80059c694f6395c0c30c3c881d847df738fc44290b74c3648eadd",
+    "agent_bridge/tests/test_lifecycle_wpf_contract.py": "dfb249cd9207e7ade7078a617360ce1caac8608edbc18de263eaf7ed3383e044"
+  }
+}

@@ -315,8 +315,11 @@ def test_pre_live_denial_stops_before_launch(presentation):
     assert fixture['launches'] == 0
 
 
-def test_absent_pre_live_lock_allowed(presentation, monkeypatch):
+@pytest.mark.parametrize('continuation', [False, True])
+@pytest.mark.parametrize('denial', ['sharing', 'eacces'])
+def test_absent_pre_live_lock_requires_sharing_violation(presentation, monkeypatch, continuation, denial):
     module, root, sha, cli, evidence, fixture, lock = presentation
+    fixture['denial'] = denial
     lock.unlink()
     run = module.subprocess.run
 
@@ -328,6 +331,21 @@ def test_absent_pre_live_lock_allowed(presentation, monkeypatch):
 
     monkeypatch.setattr(module.subprocess, 'run', create_on_launch)
     results = {}
-    module.certify_presentation(root, sha, 'fixture-pwsh7', cli, results, evidence)
+    if denial == 'eacces':
+        with pytest.raises(RuntimeError, match='lacks pre-live openability proof'):
+            module.certify_presentation(root, sha, 'fixture-pwsh7', cli, results, evidence,
+                                        continuation=continuation)
+        proof = json.loads(evidence.read_text())
+        assert proof['presentation_status'] == 'FAILED_BEFORE_UNINSTALL'
+        assert proof['presentation_lock_probes']['live']['classification'] == 'ACCESS_DENIED_REQUIRES_DIFFERENTIAL'
+        assert not proof.get('live_presentation_lock_held', False)
+        assert 'presentation_lock_status' not in proof
+        assert not fixture['exited'] and 'inspect' not in fixture['events']
+    else:
+        module.certify_presentation(root, sha, 'fixture-pwsh7', cli, results, evidence,
+                                    continuation=continuation)
+        assert results['presentation_lock_status'] == 'PRESENTATION_LOCK_HELD'
+        assert results['presentation_lock_probes']['post_exit']['classification'] == 'OPENABLE'
+    assert fixture['launches'] == (1 if continuation else 2)
     assert results['presentation_lock_probes']['pre_live']['classification'] == 'ABSENT'
     assert lock.read_bytes() == b'unchanged lock bytes'

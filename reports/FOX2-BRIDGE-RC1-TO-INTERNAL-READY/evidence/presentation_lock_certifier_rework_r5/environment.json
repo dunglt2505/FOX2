@@ -1,0 +1,13 @@
+{
+  "python": "3.13.15",
+  "pytest": "8.3.5",
+  "jsonschema": "4.26.0",
+  "installation_or_upgrade": false,
+  "elevation": false,
+  "push_dry_run": "PASS; Everything up-to-date",
+  "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+  "real_host_lifecycle": "NOT_RUN",
+  "package_build_install": "NOT_RUN",
+  "worker_f1": "NOT_APPLICABLE_PRE_G3",
+  "git_diff_check": "PASS"
+}

@@ -2,18 +2,18 @@
   "contract_version": "2.0",
   "project": "FOX2",
   "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-  "task_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4",
-  "change_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4",
+  "task_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5",
+  "change_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5",
   "submission_state": "READY_FOR_CHAT_REVIEW",
-  "submitted_at_utc": "2026-10-22T10:37:35.281198+00:00",
+  "submitted_at_utc": "2026-10-22T16:10:40.805964+00:00",
   "agent": {
     "product": "CODEX",
     "model": "gpt-6.1-sol",
     "mode": "BUILD_CORRECTION_ONLY / medium / FULL_ACCESS",
     "host": "Existing Windows environment; offline fixtures only",
-    "started_at_utc": "2026-10-22T10:26:44.2883420Z",
-    "finished_at_utc": "2026-10-22T10:37:35.281198+00:00",
-    "quota_observation": "Current pinned execution active; current R4 PreExec capacity PASS reused; totals NOT_MEASURED"
+    "started_at_utc": "2026-10-22T16:02:52.594325+00:00",
+    "finished_at_utc": "2026-10-22T16:10:40.805964+00:00",
+    "quota_observation": "R5 PreExec selected-route capacity PASS reused; totals NOT_MEASURED"
   },
   "routing": {
     "r0": "NOT_CHECKED",
@@ -27,25 +27,22 @@
     "policy_check": "PASS",
     "task_state_check": "PASS",
     "assignment_check": "PASS",
-    "routing_evidence": "Current user prompt plus exact task/prompt/current R4 PreExec and observed pinned process; historical route evidence reused, not re-executed. No fresh R4 Dispatch file in starting tree."
+    "routing_evidence": "Fresh R5 Dispatch FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-CODEX-001; R5 PreExec PASS 59ba8b50136ac5bcee7cf2d2edbf65e360812b78; task/prompt/route/salvage hashes verified. Upstream route decision reused."
   },
   "source": {
     "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
     "policy_version": "2.0.0",
-    "task_commit_sha": "6b6cc697ca35b35ade1ccdf363782a1f912a8936",
-    "source_manifest_sha256": "6e95a5ef0d0486da19198614f0262ca04206beee525ff19e0f845ceaff7c906c",
-    "approved_base_commit_sha": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0",
+    "task_commit_sha": "8fb7d23217067474488203aceef094b838e828ab",
+    "source_manifest_sha256": "8b9d75e990cc687381ef4adf72992c7eff7217f51afa207c0154116ef498a38b",
+    "approved_base_commit_sha": "59ba8b50136ac5bcee7cf2d2edbf65e360812b78",
     "source_readback_status": "PASS",
     "brd_revisions": [
       "Bridge TechSpec v0.7 REV10 remains CANDIDATE_NO_PROMOTION; no semantic promotion."
     ],
     "previous_evidence_reused": [
       "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-      "Package/provenance/install/safe-state/singleton PASS remains reusable; not repeated",
-      "R3 route rationale and historical PreExec v4 same-session capability only",
-      "ad7d6f0b9889fe4247c29ac3d77f0b90b5f40e56",
-      "da6fd27d78380db42fce155d634044c94a661229",
-      "R3 A01 CONSUMED_NO_RESULT / NO_REPLAY; historical FAIL/NOT_RUN retained"
+      "A04 package/provenance/install/safe-state/singleton PASS unchanged",
+      "R4 unaffected route/source/no-host evidence only; 66 focused/683 full historical, not product acceptance"
     ]
   },
   "permissions": {
@@ -59,28 +56,28 @@
     "dnse_production": false,
     "broker_write": false,
     "live": false,
-    "grant_evidence": "Current user R4 execution prompt; exact two source/test files plus R4 report/evidence and non-main commit/push only."
+    "grant_evidence": "Fresh R5 Dispatch FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-CODEX-001 and current execution prompt: exact two product/test files, R5 result paths, task-branch commit/push."
   },
   "git": {
     "repository": "dunglt2505/FOX2",
-    "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-20261022",
-    "worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-20261022",
-    "writer_lease": "One current task-scoped CODEX process observed; detached fixture worktree belongs to same writer; no subagents.",
+    "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+    "worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+    "writer_lease": "Single R5 execution; detached test snapshot under same writer; no subagents.",
     "report_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
     "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": null,
-    "local_head_before_submission": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0"
+    "local_head_before_submission": "59ba8b50136ac5bcee7cf2d2edbf65e360812b78"
   },
   "scope": {
     "requested": [
-      "Bounded differential presentation-lock proof and A04 continuation API/flag; exact two-file regression coverage"
+      "Fix only R4 errno13 pre-live OPENABLE proof gap and missing ABSENT negative fixtures"
     ],
     "completed": [
-      "Fresh and continuation proof, bounded errors, same-file release, unchanged lock bytes, required offline validation"
+      "Strict OPENABLE gate, ABSENT fail-closed fixtures, preserved continuation/lifecycle proof, final offline validation"
     ],
     "partial": [],
     "not_done": [
-      "Real host lifecycle NOT_RUN, outside R4"
+      "Real host lifecycle NOT_RUN; outside R5"
     ],
     "explicit_exclusions": [
       "WPF product changes; package rebuild/install; host lifecycle; Worker/F1; A05/G3/G4/Canary; main/merge/provider/broker/LIVE"
@@ -91,126 +88,112 @@
         "operation": "MODIFY",
         "intent": "REQUESTED",
         "within_allowed_paths": true,
-        "new_sha256": "f527ce9078da59da95caf06689949cced241d5d772b5636c9cba19cee016b7fb"
+        "new_sha256": "2dd3ada124d80059c694f6395c0c30c3c881d847df738fc44290b74c3648eadd"
       },
       {
         "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
         "operation": "MODIFY",
         "intent": "REQUESTED",
         "within_allowed_paths": true,
-        "new_sha256": "1596af8f402a544d8acc9af36d9847cfd1ea786dcde7d9ab3b34af1fb8a40481"
+        "new_sha256": "dfb249cd9207e7ade7078a617360ce1caac8608edbc18de263eaf7ed3383e044"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/assemble_result.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/assemble_result.py",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "521db9bc72841727f386df911ee4c8ed959184dd71219d9e51dabba0cc57ec32"
+        "new_sha256": "0d846667c3171e4e4bc883056556f38ecbacf1b6909cfd48375f03443d028952"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/code_diff.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/code_diff.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "800548500424f15aa4f4fa39b589e6ac50cd3974e4a851087444fe63960634de"
+        "new_sha256": "59482dd79549360ae7a5fb87a1a43393e3171cacd1fde350b0793d78b7209639"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/dispatch.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "39e814dc0b61ed654c2c87baf71f55b1966a02074b78bbc637984d67e91c07e9"
+        "new_sha256": "1f30dc467fdb0c5fc20faecf2d28d529fd92adc628e9dbec8ecbcee51843084b"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused_run.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/environment.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "4bfa9079c1b19cda70248e4de6311c0fa4ec724851e3c6453ff2b2cec17dde22"
+        "new_sha256": "2f3669b2c9a564b805cd385ae1732336bb7124945fe021396e7f3a5d1ca6500f"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused.log",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "6157a3c7d2f5ff35b38f384ff9663134634b47014a5292f7813627d9f5e39ad4"
+        "new_sha256": "c3465dfba05afe20577f872f8d775e9448aab75c300b18a008a87bd9f116e1d9"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full_run.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused_run.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "92ff167cd495dec9a1836618e4a4691c40b0edf44d58666b6b507c3fc29b93b2"
+        "new_sha256": "df8564440d2e3c98d55e64f51debab3dc2ff81c515c728f0046ba48adc8d79a8"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/k1.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full.log",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "1a1a96d0bd149dfe57de081847dadea394049e47e627645589a224276d661304"
+        "new_sha256": "5708eb58c47785bdf23806ca607a551aaeb5ce2a6584fe6357c1ef23a38c0832"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full_run.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "8766b8fea158bfb2ab4da309541978d8a8bba867b416b85e1799135e37a4ae44"
+        "new_sha256": "56106c9340b9d1806475485d92681da6969f31008f458fe5f80e42bae69288de"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused_run.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/k1.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "ca3fd955ebf8c1e3a7586b73a40e6b138f61870718fbd1218836da0b38c60d4d"
+        "new_sha256": "bc7fd70b7db760cd4c9d89cef7f476641d30c99d5739427bae3b163378924ad0"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/source_binding.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "b9680dc3d511e75c4319fb7419ec9962d38bc1b60d0dad227e7baf46389cd842"
+        "new_sha256": "8b9d75e990cc687381ef4adf72992c7eff7217f51afa207c0154116ef498a38b"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full_run.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/static_checks.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "127c672f1717c616bd3d976fd188b47d3d90e39e73d67ddf300fd3ee996ae353"
+        "new_sha256": "2283192c86af138d870cebf44a41015abb6d827b655924e25f16b7e773c23bf5"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/source_binding.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/test_snapshot.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "6e95a5ef0d0486da19198614f0262ca04206beee525ff19e0f845ceaff7c906c"
+        "new_sha256": "cd70bcef6d784a39ce1679edac7be13babe5c69d5c03db41fadfa6bf7b153c74"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/static_checks.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/validation_history.json",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "3ad7cc6d2ed2f16510e2824900abaae98921630ea70c90fbb6c5a836aa2e0c43"
+        "new_sha256": "13b1868f3e81dc9e999652158eb3626a5fde8b9675f097a7accaf0e1fe529451"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/test_snapshot.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/verify_result.py",
         "operation": "ADD",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "f6b799949425c5ba8a1d88d0c7c97bda66ecef0fdb170c22a32fef7de1a6e883"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/validation_history.json",
-        "operation": "ADD",
-        "intent": "JUSTIFIED_GENERATED",
-        "within_allowed_paths": true,
-        "new_sha256": "90945da559e4067aa40b49eadc2bb23c965a0b4da67511388f452395c7a5ee52"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/verify_result.py",
-        "operation": "ADD",
-        "intent": "JUSTIFIED_GENERATED",
-        "within_allowed_paths": true,
-        "new_sha256": "2b2a9a4853a5a6795b85000a8bdc6c1eb216f92b4ec45f9935dc35d05b38cbd0"
+        "new_sha256": "1c4cb10821f23bce9d931ac5beea6bc3691f5a8f5fd310c7355db356030af9c7"
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
@@ -224,7 +207,7 @@
         "operation": "MODIFY",
         "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "eee6656596cfecfacca8bc312ca02a3d73fba781c6bd6c64c576bd750a4ce157"
+        "new_sha256": "cdcd709b6bf90bcdbf33d5cf688c5126018c14f73de90a5f38f326cd72001944"
       }
     ],
     "forbidden_paths_touched": false
@@ -235,39 +218,39 @@
       "kind": "INTEGRATION",
       "status": "PASS",
       "command_or_method": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
-      "environment": "Existing Windows Python 3.13.15/pytest 8.3.5; byte-identical short fixture worktree",
-      "run_at_utc": "2026-10-22T10:33:21.112654+00:00",
+      "environment": "Existing Windows Python; byte-identical short fixture worktree; process-scoped PYTHONPATH",
+      "run_at_utc": "2026-10-22T16:02:56.492298+00:00",
       "evidence_ids": [
         "E_focused_log",
         "E_focused_run_json"
       ],
-      "notes": "66 passed in 1.09s"
+      "notes": "69 passed in 2.95s"
     },
     {
       "id": "T_FULL",
       "kind": "INTEGRATION",
       "status": "PASS",
       "command_or_method": "python -m pytest -q agent_bridge/tests",
-      "environment": "Existing Windows Python 3.13.15/pytest 8.3.5; byte-identical short fixture worktree",
-      "run_at_utc": "2026-10-22T10:37:01.262763+00:00",
+      "environment": "Existing Windows Python; byte-identical short fixture worktree; process-scoped PYTHONPATH",
+      "run_at_utc": "2026-10-22T16:10:17.851207+00:00",
       "evidence_ids": [
         "E_full_log",
         "E_full_run_json"
       ],
-      "notes": "683 passed in 219.59s (0:03:39)"
+      "notes": "686 passed in 440.19s (0:07:20)"
     },
     {
       "id": "T_STATIC",
       "kind": "STATIC",
       "status": "PASS",
-      "command_or_method": "verify_result.py and --manifest-only",
-      "environment": "Authorized R4 worktree; offline only",
-      "run_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "command_or_method": "verify_result.py; verify_result.py --manifest-only; git diff --check",
+      "environment": "Authorized R5 worktree; offline only",
+      "run_at_utc": "2026-10-22T16:10:40.805964+00:00",
       "evidence_ids": [
         "E_static_checks_json",
         "E_k1_json"
       ],
-      "notes": "Allowlist/privacy/syntax/diff/K1/preserved lifecycle tail/schema/hashes"
+      "notes": "Exact allowlist/privacy/syntax/preserved lifecycle/K1/schema/hashes"
     }
   ],
   "acceptance": [
@@ -278,7 +261,7 @@
         "E_focused_log",
         "E_static_checks_json"
       ],
-      "reason": "Full winerror32 and errno13 differential PASS; pre-live denial FAIL"
+      "reason": "ABSENT plus winerror32 PASS; ABSENT plus errno13 FAIL in fresh and zero-WPF continuation"
     },
     {
       "id": "A_2",
@@ -287,7 +270,7 @@
         "E_focused_log",
         "E_static_checks_json"
       ],
-      "reason": "Existing exact continuation errno13 provisional until same-file release; retained denial FAIL; zero-WPF one launch"
+      "reason": "OPENABLE plus errno13 PASS in fresh/zero-WPF; existing-live provisional errno13 requires same-lock post-exit OPENABLE"
     },
     {
       "id": "A_3",
@@ -296,7 +279,7 @@
         "E_focused_log",
         "E_static_checks_json"
       ],
-      "reason": "Missing/free/replaced lock and unrelated OSError FAIL; lock bytes unchanged"
+      "reason": "Post-exit denial, unrelated OSError and winerror5 FAIL; lock bytes unchanged; no Worker/F1/tray fallback"
     },
     {
       "id": "A_4",
@@ -305,26 +288,17 @@
         "E_focused_log",
         "E_static_checks_json"
       ],
-      "reason": "Duplicate/wrong-path/PID/current-pointer/UI/safe-state negatives; Worker/F1 NOT_APPLICABLE_PRE_G3; no fallback"
-    },
-    {
-      "id": "A_5",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_focused_log",
-        "E_static_checks_json"
-      ],
-      "reason": "Exact two source/test paths; K1 UNEXPLAINED=0; no real host action"
+      "reason": "Exactly two product/test paths; K1 UNEXPLAINED=0; no host mutation; schema/hash verification"
     }
   ],
   "evidence": [
     {
       "id": "E_assemble_result_py",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/assemble_result.py",
-      "sha256": "521db9bc72841727f386df911ee4c8ed959184dd71219d9e51dabba0cc57ec32",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/assemble_result.py",
+      "sha256": "0d846667c3171e4e4bc883056556f38ecbacf1b6909cfd48375f03443d028952",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: assemble_result.py",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: assemble_result.py",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -332,11 +306,35 @@
     },
     {
       "id": "E_code_diff_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/code_diff.json",
-      "sha256": "800548500424f15aa4f4fa39b589e6ac50cd3974e4a851087444fe63960634de",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/code_diff.json",
+      "sha256": "59482dd79549360ae7a5fb87a1a43393e3171cacd1fde350b0793d78b7209639",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: code_diff.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: code_diff.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_dispatch_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/dispatch.json",
+      "sha256": "1f30dc467fdb0c5fc20faecf2d28d529fd92adc628e9dbec8ecbcee51843084b",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: dispatch.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_environment_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/environment.json",
+      "sha256": "2f3669b2c9a564b805cd385ae1732336bb7124945fe021396e7f3a5d1ca6500f",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: environment.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -344,11 +342,11 @@
     },
     {
       "id": "E_focused_log",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused.log",
-      "sha256": "39e814dc0b61ed654c2c87baf71f55b1966a02074b78bbc637984d67e91c07e9",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused.log",
+      "sha256": "c3465dfba05afe20577f872f8d775e9448aab75c300b18a008a87bd9f116e1d9",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: focused.log",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: focused.log",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -356,11 +354,11 @@
     },
     {
       "id": "E_focused_run_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused_run.json",
-      "sha256": "4bfa9079c1b19cda70248e4de6311c0fa4ec724851e3c6453ff2b2cec17dde22",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/focused_run.json",
+      "sha256": "df8564440d2e3c98d55e64f51debab3dc2ff81c515c728f0046ba48adc8d79a8",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: focused_run.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: focused_run.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -368,11 +366,11 @@
     },
     {
       "id": "E_full_log",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full.log",
-      "sha256": "6157a3c7d2f5ff35b38f384ff9663134634b47014a5292f7813627d9f5e39ad4",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full.log",
+      "sha256": "5708eb58c47785bdf23806ca607a551aaeb5ce2a6584fe6357c1ef23a38c0832",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: full.log",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: full.log",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -380,11 +378,11 @@
     },
     {
       "id": "E_full_run_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full_run.json",
-      "sha256": "92ff167cd495dec9a1836618e4a4691c40b0edf44d58666b6b507c3fc29b93b2",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/full_run.json",
+      "sha256": "56106c9340b9d1806475485d92681da6969f31008f458fe5f80e42bae69288de",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: full_run.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: full_run.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -392,59 +390,11 @@
     },
     {
       "id": "E_k1_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/k1.json",
-      "sha256": "1a1a96d0bd149dfe57de081847dadea394049e47e627645589a224276d661304",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/k1.json",
+      "sha256": "bc7fd70b7db760cd4c9d89cef7f476641d30c99d5739427bae3b163378924ad0",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: k1.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_preliminary_focused_log",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused.log",
-      "sha256": "8766b8fea158bfb2ab4da309541978d8a8bba867b416b85e1799135e37a4ae44",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: preliminary_focused.log",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_preliminary_focused_run_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused_run.json",
-      "sha256": "ca3fd955ebf8c1e3a7586b73a40e6b138f61870718fbd1218836da0b38c60d4d",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: preliminary_focused_run.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_preliminary_full_log",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full.log",
-      "sha256": "b9680dc3d511e75c4319fb7419ec9962d38bc1b60d0dad227e7baf46389cd842",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: preliminary_full.log",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_preliminary_full_run_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full_run.json",
-      "sha256": "127c672f1717c616bd3d976fd188b47d3d90e39e73d67ddf300fd3ee996ae353",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: preliminary_full_run.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: k1.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -452,11 +402,11 @@
     },
     {
       "id": "E_source_binding_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/source_binding.json",
-      "sha256": "6e95a5ef0d0486da19198614f0262ca04206beee525ff19e0f845ceaff7c906c",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/source_binding.json",
+      "sha256": "8b9d75e990cc687381ef4adf72992c7eff7217f51afa207c0154116ef498a38b",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: source_binding.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: source_binding.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -464,11 +414,11 @@
     },
     {
       "id": "E_static_checks_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/static_checks.json",
-      "sha256": "3ad7cc6d2ed2f16510e2824900abaae98921630ea70c90fbb6c5a836aa2e0c43",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/static_checks.json",
+      "sha256": "2283192c86af138d870cebf44a41015abb6d827b655924e25f16b7e773c23bf5",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: static_checks.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: static_checks.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -476,11 +426,11 @@
     },
     {
       "id": "E_test_snapshot_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/test_snapshot.json",
-      "sha256": "f6b799949425c5ba8a1d88d0c7c97bda66ecef0fdb170c22a32fef7de1a6e883",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/test_snapshot.json",
+      "sha256": "cd70bcef6d784a39ce1679edac7be13babe5c69d5c03db41fadfa6bf7b153c74",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: test_snapshot.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: test_snapshot.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -488,11 +438,11 @@
     },
     {
       "id": "E_validation_history_json",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/validation_history.json",
-      "sha256": "90945da559e4067aa40b49eadc2bb23c965a0b4da67511388f452395c7a5ee52",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/validation_history.json",
+      "sha256": "13b1868f3e81dc9e999652158eb3626a5fde8b9675f097a7accaf0e1fe529451",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: validation_history.json",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: validation_history.json",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -500,11 +450,11 @@
     },
     {
       "id": "E_verify_result_py",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/verify_result.py",
-      "sha256": "2b2a9a4853a5a6795b85000a8bdc6c1eb216f92b4ec45f9935dc35d05b38cbd0",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/verify_result.py",
+      "sha256": "1c4cb10821f23bce9d931ac5beea6bc3691f5a8f5fd310c7355db356030af9c7",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: verify_result.py",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: verify_result.py",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -513,10 +463,10 @@
     {
       "id": "E_report_md",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "sha256": "eee6656596cfecfacca8bc312ca02a3d73fba781c6bd6c64c576bd750a4ce157",
+      "sha256": "cdcd709b6bf90bcdbf33d5cf688c5126018c14f73de90a5f38f326cd72001944",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
-      "description": "R4 offline result evidence: report.md",
+      "observed_at_utc": "2026-10-22T16:10:40.805964+00:00",
+      "description": "R5 offline evidence: report.md",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -546,11 +496,11 @@
     "usage_status": "NOT_MEASURED",
     "tokens_used": null,
     "credits_used": null,
-    "escalation_reason": "One R4 agent attempt; fixture reruns documented; no R3 replay."
+    "escalation_reason": "One fresh R5 execution; R4 Dispatch consumed/no-replay; no model substitution."
   },
   "next_step": {
     "requested_chat_decision": "REVIEW",
-    "action": "Apply independent CHAT result review to immutable pushed R4 result.",
+    "action": "Independent CHAT result review of immutable pushed R5 result.",
     "owner_role": "CHAT",
     "prerequisite_gate": "PUSHED_UNREVIEWED; any host continuation requires separate authorization."
   }

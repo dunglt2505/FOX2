@@ -1,0 +1,53 @@
+{
+  "task_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5",
+  "runtime_base": "59ba8b50136ac5bcee7cf2d2edbf65e360812b78",
+  "salvage_base": "d997756b5f4cfaa7e442dfc5d929093782b7a90f",
+  "salvage_state": "UNACCEPTED SALVAGE INPUT ONLY; CHAT_REWORK 07ce66987345859f978c06fbb4abbdeeaa0ff04c",
+  "accepted_product_source": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+  "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r5/task.md",
+    "commit_sha": "8fb7d23217067474488203aceef094b838e828ab",
+    "sha256": "d7054edbb574661df9cbba08dcdf282cf175d2cd5496a5dc7b2c2af6cdaa7062"
+  },
+  "task_blob": "cbc546dcad97c9dcab02d6e82b68eef163d2b17d",
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r5/prompt.md",
+    "git_commit": "b33d0610649cbfb466bb5febd1e295f91f35e53d",
+    "git_blob_sha1": "10b95e130289752701c790beb41b2d0cde9af017",
+    "sha256": "ffeaccd6a60eb4b56da907bf1092bb3889b38a80a8cd957ca5d8a90860e79fba"
+  },
+  "original_blobs": {
+    "agent_bridge/scripts/certify_user_lifecycle.py": "cc469b9e29301db488605d621c8cbb37d9c442e0",
+    "agent_bridge/tests/test_lifecycle_wpf_contract.py": "e2d6551ca119e72a8cb59f38f50bded09a276731"
+  },
+  "dispatch": {
+    "id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-CODEX-001",
+    "control_commit": "c86e95d9f3e26490f6273cccbb8993d4609e3edb",
+    "path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-CODEX-001.json",
+    "blob": "1857e20efaa2ae6b38225fa76941d02d4b1155b2",
+    "git_bytes_sha256": "1f30dc467fdb0c5fc20faecf2d28d529fd92adc628e9dbec8ecbcee51843084b",
+    "remote_head_observed": "c86e95d9f3e26490f6273cccbb8993d4609e3edb"
+  },
+  "preexec": {
+    "commit": "59ba8b50136ac5bcee7cf2d2edbf65e360812b78",
+    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/presentation_lock_certifier_rework_r5.json",
+    "git_bytes_sha256": "4426c651dd4e0719f96061491450143317b1e04012e2016b249cc74137d33b04",
+    "status": "PASS",
+    "checked_at": "2026-10-22T10:50:15.3189865Z"
+  },
+  "route": {
+    "product": "CODEX",
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "verification": "Fresh R5 Dispatch and current PreExec selected_route_verification PASS; no model substitution"
+  },
+  "initial_worktree_clean": true,
+  "salvage_agent_bridge_bytes_unchanged_at_runtime_base": true,
+  "R4_dispatch": "CONSUMED_NO_REPLAY",
+  "host_lifecycle": "NOT_RUN",
+  "reuse": [
+    "A04 package/provenance/install/safe-state/singleton PASS unchanged",
+    "R4 unaffected route/source/no-host evidence only; 66 focused/683 full historical, not product acceptance"
+  ]
+}

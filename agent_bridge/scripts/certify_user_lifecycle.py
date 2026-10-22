@@ -191,8 +191,11 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence, *, continuatio
         denial = probes['live']['classification']
         if denial not in {'SHARING_VIOLATION', 'ACCESS_DENIED_REQUIRES_DIFFERENTIAL'}:
             raise RuntimeError('Live WPF presentation lock denial is not proven')
-        if denial == 'SHARING_VIOLATION' or 'pre_live' in probes:
+        if (denial == 'SHARING_VIOLATION' or
+                probes.get('pre_live', {}).get('classification') == 'OPENABLE'):
             results['live_presentation_lock_held'] = True
+        elif 'pre_live' in probes:
+            raise RuntimeError('Live WPF presentation lock lacks pre-live openability proof')
         else:
             results['presentation_lock_status'] = 'PROVISIONAL_ACCESS_DENIED'
         screens = json.loads(ui('inspect'))
