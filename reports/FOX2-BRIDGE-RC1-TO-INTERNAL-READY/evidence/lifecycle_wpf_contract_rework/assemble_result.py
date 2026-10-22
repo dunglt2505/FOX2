@@ -1,182 +1,219 @@
-"""Assemble the bounded BUILD result; never executes installed lifecycle actions."""
+"""Assemble the A02 BUILD report/manifest from actual, independently rerun evidence."""
 from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[4]
 OUT = Path(__file__).resolve().parent
 WP = 'FOX2-BRIDGE-RC1-TO-INTERNAL-READY'
 PREFIX = 'reports/' + WP + '/'
-BASE = 'e7d5acf51dddcbc95324a992ad6be2773e61285f'
-git = lambda *args: subprocess.check_output(['git', '-C', str(ROOT), *args])
-digest = lambda raw: hashlib.sha256(raw).hexdigest()
+BASE = '4504bf95dd2baf474b30f896b23365c52fe10c9f'
+ORIGINAL = 'e7d5acf51dddcbc95324a992ad6be2773e61285f'
+SNAPSHOT = '1a11fa0b232a69f0c26a0b4029c331ee2a8c840f'
+git = lambda *a: subprocess.check_output(['git', '-C', str(ROOT), *a])
+digest = lambda b: hashlib.sha256(b).hexdigest()
 now = datetime.now(timezone.utc).isoformat()
 binding = json.loads((OUT / 'source_binding.json').read_text())
 claim = binding['claim']
 dispatch = json.loads(git('show', claim['dispatch_commit'] + ':' + binding['dispatch_path']))
-full_name = 'full_short_longpaths.log' if (OUT / 'full_short_longpaths.log').exists() else 'full_short_initial.log'
-full = (OUT / full_name).read_text()
-assert re.search(r'=+ \d+ passed in [\d.]+s =+', full), 'Full suite has not passed'
-summary = full.strip().splitlines()[-1].strip('= ')
-focused = (OUT / 'focused_extended_path.log').read_text()
-assert '66 passed' in focused
-historical = json.loads(git('show', BASE + ':' + PREFIX + 'evidence_manifest.json'))
+runs = sorted([json.loads(p.read_text()) for p in OUT.glob('*_run.json')], key=lambda r: r['started_at_utc'])
+focused = next(r for r in reversed(runs) if r['suite'] == 'focused' and r['exit_code'] == 0)
+full = next(r for r in reversed(runs) if r['suite'] == 'full' and r['exit_code'] == 0)
+for run in [focused, full]:
+    assert re.search(r'=+ \d+ passed in [\d.]+s(?: \([^)]+\))? =+', run['output_tail']), run
+    assert run['output_tail'] in (OUT / run['log']).read_text()
+focused_summary = focused['output_tail'].strip('= ')
+full_summary = full['output_tail'].strip('= ')
+failed_runs = [r for r in runs if r['exit_code']]
+if failed_runs:
+    assert all(r['suite'] == 'full' and not r['environment']['process_core_longpaths'] for r in failed_runs)
+    environment_note = 'The initial full-suite failure is retained verbatim. Git MAX_PATH behavior required only a child-process core.longpaths=true override on the final run. No repository/global Git configuration, test or host setting changed.'
+else:
+    environment_note = 'The focused and full runs passed without a core.longpaths override. No repository/global Git configuration, test or host setting changed.'
 
-runs = [
-    ('focused_initial.log', 'FAIL', None, 'Initial command lacked process PYTHONPATH; conftest import failed.'),
-    ('focused.log', 'FAIL', 1, 'Long-path ordinary invocation: 4 failed, 37 passed, 25 errors; fixture path creation.'),
-    ('focused_extended_path.log', 'PASS', 0, '66 passed; Windows extended test paths; all subprocess boundaries in the new seam are fixtures.'),
-    ('full_initial.log', 'FAIL', 1, 'Extended paths: 37 failed, 544 passed, 63 errors; PowerShell/SQLite/Git path incompatibilities in unchanged fixtures.'),
-    ('full_short_initial.log', 'PASS' if full_name == 'full_short_initial.log' else 'FAIL',
-     0 if full_name == 'full_short_initial.log' else 1,
-     'Exact-byte short detached fixture worktree; no persistent Git or host configuration changes.'),
-]
-if full_name != 'full_short_initial.log':
-    runs.append((full_name, 'PASS', 0, 'Only process GIT_CONFIG_COUNT/KEY/VALUE append core.longpaths=true. No test/config file changes.'))
-receipts = []
-for name, status, code, note in runs:
-    path = OUT / name
-    text = path.read_text()
-    tests = ['agent_bridge/tests/test_lifecycle_wpf_contract.py', 'agent_bridge/tests/test_rc1_package.py',
-             'agent_bridge/tests/test_rc1_launcher.py'] if name.startswith('focused') else ['agent_bridge/tests']
-    if name in ['focused_extended_path.log', 'full_initial.log']:
-        tests = ['\\\\?\\' + str(ROOT / p).replace('/', '\\') for p in tests]
-    if name.startswith('full_short'):
-        tests = ['C:/Projects/FOX2/.git/wpf-a01-test/' + p for p in tests]
-    receipts.append({'log': name, 'status': status, 'observed_pytest_exit_code': code,
-        'run_at_utc': datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat(),
-        'started_at_utc': datetime.fromtimestamp(path.stat().st_birthtime, timezone.utc).isoformat(),
-        'argv': ['python', '-m', 'pytest', *tests, '-v', '--tb=short'],
-        'command': subprocess.list2cmdline(['python', '-m', 'pytest', *tests, '-v', '--tb=short']),
-        'notes': note, 'output_tail': text.strip().splitlines()[-1],
-        'environment': ('short exact-byte detached worktree; process PYTHONPATH=its agent_bridge/src'
-                        if name.startswith('full_short') else 'task worktree; PYTHONPATH=agent_bridge/src except initial import failure')})
-(OUT / 'test_runs.json').write_text(json.dumps({'runs': receipts,
-    'agent_attempts': 1, 'agent_retries': 0,
-    'static_verification_history': 'First raw Git-vs-worktree byte comparison rejected existing CRLF checkout conversion in unchanged WPF. Corrected evidence check uses Git hash-object blob identity plus raw same-base checkout comparison; no product change.'}, indent=2) + '\n')
+# Markdown is a readable companion; structured inventory/hashes live in the manifest.
+report = f'''# FOX2 Lifecycle/WPF Contract Rework A02 â€” BUILD result
 
-report = f'''# FOX2 Lifecycle/WPF Contract Rework A01 — BUILD result
+## R01 â€” Identification and submission
 
-Task `{claim['task_id']}`. Delivery: **PUSHED_UNREVIEWED** following authorized branch push. CHAT acceptance is not claimed. This corrects the offline certification harness; real host lifecycle remains **NOT_RUN**.
+Task `{claim['task_id']}`; Whole-WP `{WP}`. CODEX `gpt-6.1-sol`, high, MANUAL_LOCAL, task-scoped FULL_ACCESS. One fresh A02 Agent attempt, no retries or subagents. Started `{claim['started_at_utc']}`; report assembled `{now}`. Delivery state after the authorized branch push is **PUSHED_UNREVIEWED**. CHAT acceptance is not claimed.
 
-## R01 — Source and execution binding
+## R02 â€” Authority, routing and start gates
 
-One CODEX `gpt-6.1-sol`, high, MANUAL_LOCAL, task-scoped FULL_ACCESS attempt; no subagents, model substitution or Agent replay. Starting HEAD `{BASE}` matched fresh Dispatch runtime base and task remote. Dispatch `{claim['dispatch_id']}`, commit `{claim['dispatch_commit']}`, blob `{claim['dispatch_blob']}`. Launcher claim PID {claim['pid']} is STARTED_CONSUMED and its exclusive writer lock was observed held.
+Fresh Dispatch `{claim['dispatch_id']}` is at `{claim['dispatch_commit']}`, blob `{claim['dispatch_blob']}` on `work/FOX2-DISPATCH-chat`. It grants bounded code/report writes and non-main result push, with no PR/merge/provider/broker/LIVE permission. The task-specific PreExec REV3 receipt at `{BASE}` and CHAT PASS_TO_ASSIGN `61b75156bb4b241b88a26c0c11cb8af79f79a94b` bind this route. Policy 2.0.0, Dictionary 1.3, Routing Index 1.4.0 and Protocol v12 immutable bytes were verified independently. Source bytes and task-scoped execution authority are verified; global publication/runtime promotion is not claimed. TechSpec v0.7 REV10 remains **CANDIDATE_NO_PROMOTION**.
 
-Task commit `{claim['task_commit']}`, raw SHA-256 `{claim['task_sha256']}`. Prompt commit `{claim['prompt_commit']}`, raw SHA-256 `{claim['prompt_sha256']}`. Task-specific PreExec v2 PASS is at `{BASE}`. Policy {dispatch['policy']['version']} and Dictionary {dispatch['dictionary']['version']} Git bytes match Dispatch hashes. Source binding is recorded in `evidence/lifecycle_wpf_contract_rework/source_binding.json`.
+Required-versus-observed gates: exact branch/worktree/base and remote task head PASS; recovery ancestor PASS; task/prompt/PreExec/Dispatch hashes PASS; Dispatch schema blob `1692061941e2bef498515cd0e96b9b3046119ebb` PASS; current launcher claim/model/effort/FULL_ACCESS PASS; initial worktree clean PASS; no pre-start product drift PASS; one task Agent process PID {claim['process_id']} observed PASS. Fresh PreExec authenticated capacity probe PASS and this pinned execution is active; numeric quota is not measured. Only the two bound task/prompt additions and PreExec receipt separate recovery snapshot from runtime base. Start verdict: **GO for offline BUILD only**. See `evidence/lifecycle_wpf_contract_rework/source_binding.json` for identities, R0â€“R7 provenance and observations.
 
-Failed host result `9dd91becf47d934183baf147d0a4f03f4bf5933d` remains an ancestor; accepted product source `2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb` is unchanged before implementation. Only task/prompt/PreExec binding evidence preceded start. Historical host A01 FAIL and consumed Dispatch remain unchanged/no-replay.
+## R03 â€” Immutable inputs and A01 preservation
 
-## R02 — Correction and preserved boundaries
+Runtime base `{BASE}`; original runtime base `{ORIGINAL}`; recovery snapshot `{SNAPSHOT}`. Task commit `{claim['task_commit']}`, task SHA-256 `{dispatch['task']['sha256']}`. Prompt commit `{claim['prompt_commit']}`, blob `{dispatch['prompt']['git_blob_sha1']}`, prompt SHA-256 `{claim['prompt_sha256']}`.
 
-Only `certify_user_lifecycle.py`, its existing A03 package fixtures, and one new focused test file changed. The harness launches `BridgeRoot/launch.ps1` twice, waits boundedly for exactly one `FOX2.Bridge.Desktop.exe`, verifies its executable path against the exact current package and matches the UI inspection PID to that process. It requires paused=true, setup_complete=true and no current dispatch, without checking Worker heartbeat or starting a duplicate Worker.
+A01/CODEX-001 remains EXITED_CONSUMED, exit 1, CODEX_USAGE_LIMIT, NEEDS_RECONCILIATION, no Git result, no CHAT acceptance and no replay. Its recovery provenance JSON is byte-identical. Salvage is input, never accepted evidence. Every inherited source/test hunk was reviewed; provisional evidence and A01-bound helpers were replaced with fresh A02 execution evidence. `salvage_review.json`, `k1.json`, `original_to_final_diff.json` and `salvage_to_final_diff.json` distinguish retained salvage from A02 corrections.
 
-The existing `certify_rc1_ui.ps1` provides inspect/check/exit. Navigation must expose Dashboard, Activity, Agents, Diagnostics, Artifacts and Settings; Check Now must be disabled. The harness observes the live presentation and held WPF lock, invokes explicit UI exit, uses a 30-second exit deadline with bounded process probes, opens the existing presentation lock without altering bytes, and checks STOPPED/paused/setup/no-current-dispatch before uninstall. Failure checkpoints evidence and prevents uninstall/reinstall; no force-kill path exists.
+## R04 â€” Implemented behavior and corrections
 
-Worker/F1 health is **NOT_APPLICABLE_PRE_G3**. The launcher, F1 ownership/activation DENY_PENDING_G3_G4, WPF singleton, installed UI seam and installation source retain their original Git blobs. TechSpec v0.7 REV10 remains CANDIDATE_NO_PROMOTION.
+The harness uses stable `BridgeRoot/launch.ps1` twice and validates one current-package `FOX2.Bridge.Desktop.exe` by its exact installed executable path, current package pointer and inspected UI PID. It requires paused=true, setup_complete=true and explicit current_dispatch=null. No desktop-tray health, legacy launcher-process health, Worker heartbeat or Worker start is required. Worker/F1 health is **NOT_APPLICABLE_PRE_G3**, never a health PASS.
 
-## R03 — A03 and durable-state preservation
+Existing `certify_rc1_ui.ps1` supplies inspect/check/explicit exit. Inspect validates all six navigation entries and the current presentation PID; check proves Check Now disabled while paused. The harness observes the held presentation lock, rechecks safe control and exact presentation identity, invokes graceful UI exit, waits boundedly for zero presentations, observes lock release and rechecks STOPPED/paused/setup/no-current-dispatch before uninstall. No forced-exit path was added.
 
-The uninstall supervisor and output sanitizer ASTs are identical to the entry source. Stable external BridgeRoot/uninstall.ps1, PowerShell 7, synchronous single attempt, installed-Python exclusion, sanitized bounded output, timeout/nonzero/start/postcondition stop-once handling, checkpoint before reinstall, and exact-package reinstall after success are preserved. Existing regressions cover successful uninstall and all failure classes.
+Three A02 proof gaps were corrected: absent current_dispatch no longer passes as null; only WinError 32 sharing violation proves a live FileShare.None lock, while access-denied/other errors fail; process queries fail on PowerShell errors and must return an explicit array, so null cannot falsely prove exit. Negative fixtures also cover process-query failure/timeout, PID changes and unsafe state changes before/after exit. Correct salvaged behavior was retained.
 
-Configuration/database/manual-consumption checks and historical Batch-B consumed identities 001–004 remain in place. Reinstall uses the same package and SHA, now explicitly verifies the current installed package and final safe paused state. No consumed identity is rewritten or replayed.
+## R05 â€” A03 preservation and changed-path ownership
 
-## R04 — Validation and environment history
+Only the allowed lifecycle harness and two test files contain material source/test changes. `test_rc1_launcher.py` was rerun unchanged. A03 `certify_uninstall` and `_uninstall_output` ASTs match the original runtime base. Stable external PowerShell 7 at `BridgeRoot/uninstall.ps1`, synchronous single attempt, installed-Python exclusion, sanitized bounded output, nonzero/timeout/start/postcondition stop-once behavior and checkpoint-before-reinstall semantics remain intact.
 
-Focused WPF/package/launcher: **66 passed**. Full `agent_bridge/tests`: **{summary}**. Full output includes installation/package and launcher suites. Syntax/compile, changed-path allowlist, unchanged forbidden source checks, bounded secret scan and git diff --check pass. K1 **UNEXPLAINED=0**; each source/test hunk is classified in k1.json.
+Configuration/database/manual-consumption checks and historical Batch-B consumed identities 001â€“004 remain intact. Successful reinstall uses the same package/SHA, verifies the current package, and rechecks the safe stopped/paused state. No historical consumed identity was replayed or rewritten. The protected launcher/F1/installation/UI/WPF source files retain original Git blobs and raw bytes from a same-base checkout. All other agent_bridge paths remain unchanged.
 
-Every earlier failed run is retained with its real output. The first command lacked PYTHONPATH; the next exposed Windows MAX_PATH fixture creation failures. Extended-path pytest spelling resolved the focused run but exposed PowerShell/SQLite/Git incompatibilities in unchanged full-suite fixtures. A shorter detached test worktree contains exact matching source/test bytes, verified file-by-file. It has no material writer or installed runtime. Tests were neither edited nor skipped to address path behavior. {'The short full run needed only the established child-process core.longpaths=true override; its initial FAIL remains preserved.' if full_name != 'full_short_initial.log' else 'The short full run passed without any Git configuration override.'} No repository/global Git config or Windows long-path setting changed.
+The complete changed-path inventory and raw SHA-256 values are in `evidence_manifest.json`; the manifest's own hash is null to avoid self-reference. No unrelated WIP was present or introduced. Test artifacts are isolated in a detached short fixture worktree, with no second material writer.
 
-Exact test commands, timestamps, exit observations and logs are in test_runs.json. Result Contract v2 schema, evidence hash references and changed-path delivery are verified by verify_result.py. Manifest self-hash is intentionally null; the observed remote result SHA is returned outside this report.
+## R06 â€” Executed validation and environment
 
-## R05 — Scope and next owner
+Focused lifecycle/WPF + launcher + package + installation: **{focused_summary}**. Full `agent_bridge/tests`: **{full_summary}**. Real command lines, cwd, environment, UTC times, exit codes and unabridged logs are retained in `*_run.json` and associated `.log` files.
 
-No real installed package was built/launched/installed/updated/uninstalled/reinstalled. No Task Scheduler, Bridge config/data/database, Worker/F1 service, AppLocker/AppIDSvc/service/ACL, reboot, G3/G4/Canary, provider/broker/LIVE, main/PR/merge action occurred. All lifecycle process and install calls in the changed tests are fixtures.
+The short detached A02 test worktree at `C:/Projects/FOX2/.git/wpf-a02-test` starts from the exact runtime base and has byte-for-byte copies of the final allowed source/test files; all tracked agent_bridge files were compared before each run. This follows the established short-worktree test approach for Windows MAX_PATH. No test was edited or skipped to hide environment behavior. {environment_note}
 
-CHAT must independently review this immutable BUILD result. A future real host lifecycle certification requires a fresh separately authorized task/PreExec/Dispatch. Host lifecycle and G3/G4 readiness are not certified by these fixture passes.
+An initial generated-evidence formatting check found CRLF trailing-whitespace diagnostics; its output is retained in diff_check_initial.log. A02-generated text was normalized to LF and writers now request LF explicitly; the immutable recovery provenance bytes were preserved. A later staged check flagged the literal blank context lines in unified-diff evidence; exact Git stdout is now stored in JSON, with that failed validation output preserved in static_validation_history.json. Syntax/compile checks, static parsing of the generated PowerShell query (without executing it), changed-path allowlist, forbidden production-file byte identity, immutable recovery provenance, A03 AST identity, git diff --check, bounded secret scan and K1 **UNEXPLAINED=0** all pass. K1 classifies material hunks against both original runtime base and salvage as REQUESTED or NECESSARY_DEPENDENCY; regenerated evidence is JUSTIFIED_GENERATED. Result Contract v2 schema and evidence/changed-file hash readback are verified by `verify_result.py --manifest-only`.
+
+## R07 â€” Requirements and evidence
+
+All Dispatch-required offline checks are mapped individually in the manifest. Singleton/current identity/safe state/UI/lock/exit tests use intercepted process boundaries; launcher tests retain worker_started=False. Stable-uninstall success and nonzero/timeout/start/postcondition stop-once cases are rerun, along with durable-state assertions. No prior A01 PASS substitutes for an A02 result. Historical host lifecycle FAIL remains unchanged in Git history.
+
+Evidence includes source binding, test snapshot byte hashes, actual pytest receipts/logs, salvage review, both source diffs, hunk classifications, static checks and Result Contract validation output. The manifest binds every evidence item with raw SHA-256. Observed remote result SHA is returned outside this committed report.
+
+## R08 â€” Scope, risks and next owner
+
+Real installed-host lifecycle: **NOT_RUN**. No actual package install/update/uninstall/reinstall, installed WPF launch, Task Scheduler change, Bridge durable data/config/database change, Worker/F1 start, AppLocker/AppIDSvc/service/ACL change, reboot, G3/G4/Canary, main/PR/merge or provider/broker/LIVE action occurred during A02 BUILD. Tests exercise temporary offline fixtures.
+
+Fixture validation does not certify Owner-host lifecycle, F1 adoption, G3/G4 or operational readiness. Usage totals are NOT_MEASURED; attempts=1, retries=0. CHAT must independently review this immutable pushed BUILD result. Any future real host certification needs its own authorized binding and material PreExec. No CHAT acceptance or feature-stage promotion is claimed here.
 '''
-(ROOT / PREFIX / 'report.md').write_text(report, encoding='utf-8')
+(ROOT / PREFIX / 'report.md').write_text(report, encoding='utf-8', newline='\n')
 
-# Static checks run after report generation and before hashes are assembled.
-subprocess.run(['python', str(OUT / 'verify_result.py')], check=True)
-d = historical
-d['task_id'] = claim['task_id']
-d['change_id'] = claim['task_id']
-d['submission_state'] = 'READY_FOR_CHAT_REVIEW'
-d['submitted_at_utc'] = now
-d['agent'] = {'product': 'CODEX', 'model': 'gpt-6.1-sol', 'mode': 'BUILD_CORRECTION_ONLY',
-    'host': 'WINDOWS_OWNER_HOST_OFFLINE_FIXTURES', 'started_at_utc': claim['started_at_utc'],
-    'finished_at_utc': now, 'quota_observation': 'Not measured; no quota probe or model substitution.'}
-d['routing']['routing_evidence'] = 'Fresh Dispatch/PreExec v2/PASS_TO_ASSIGN/launcher claim and observed writer/source binding; see source_binding.json. Offline BUILD only.'
-d['source'] = {'policy_sha256': dispatch['policy']['sha256'], 'policy_version': dispatch['policy']['version'],
-    'task_commit_sha': claim['task_commit'], 'source_manifest_sha256': digest((OUT / 'source_binding.json').read_bytes()),
-    'approved_base_commit_sha': BASE, 'source_readback_status': 'PASS', 'brd_revisions': [],
-    'previous_evidence_reused': ['Historical host FAIL 9dd91bec; accepted product source 2faa33f9; A03 supervisor semantics; no historical PASS substitutes for new tests.']}
-for key in ['code_allowed', 'git_code_push']:
-    d['permissions'][key] = True
-d['permissions']['grant_evidence'] = 'Owner immutable task/prompt plus fresh scoped Dispatch; source correction and authorized non-main result push only.'
-d['git'].update(branch=claim['task_branch'], worktree=str(ROOT), local_head_before_submission=BASE,
-    writer_lease='Launcher exclusive task writer lock; claim CODEX PID 1784; one Agent attempt; detached test snapshot has no competing writer.')
-d['git']['delivery_status'] = 'PUSHED_UNREVIEWED'
-d['scope'] = {'requested': ['Correct pre-G3 lifecycle/WPF seam within allowed paths; preserve A03 and durable history.'],
-    'completed': ['WPF launch/singleton/exact identity/safe control/UI/graceful exit fixtures; A03 regressions; full suite; static/K1/Result Contract.'],
-    'partial': [], 'not_done': ['Independent CHAT acceptance; future real host lifecycle certification.'],
-    'explicit_exclusions': ['Installed-host mutation, Worker/F1 start, G3/G4/Canary, main/PR/merge/provider/broker/LIVE.'],
-    'changed_paths': [], 'forbidden_paths_touched': False}
-d['tests'] = []
-d['evidence'] = []
-for index, receipt in enumerate(receipts):
-    evid = 'E_TEST_' + str(index + 1)
-    d['tests'].append({'id': 'T_RUN_' + str(index + 1), 'kind': 'INTEGRATION', 'status': receipt['status'],
-        'command_or_method': receipt['command'], 'environment': receipt['environment'],
-        'run_at_utc': receipt['run_at_utc'], 'evidence_ids': [evid], 'notes': receipt['notes']})
-static_ids = ['PYTHON_SYNTAX_STATIC', 'CHANGED_PATH_ALLOWLIST', 'SECRET_SCAN', 'GIT_DIFF_CHECK', 'K1_UNEXPLAINED_ZERO',
-              'RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST']
-source_ids = ['REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN']
-fixture_ids = [i for i in dispatch['required_tests'] if i not in static_ids + source_ids]
-d['acceptance'] = [{'id': i, 'status': 'PASS', 'evidence_ids': ['E_TEST_' + str(len(receipts))] if i == 'INSTALLATION_AND_PACKAGE_TESTS' else ['E_TEST_3'],
-                    'reason': 'Fresh offline fixtures; process/install boundaries intercepted; no host-health claim.'}
-                   for i in fixture_ids if i != 'FULL_AGENT_BRIDGE_TESTS']
-d['acceptance'].append({'id': 'FULL_AGENT_BRIDGE_TESTS', 'status': 'PASS',
-    'evidence_ids': ['E_TEST_' + str(len(receipts))], 'reason': summary + '; exact-byte detached test worktree.'})
-d['acceptance'] += [{'id': i, 'status': 'PASS', 'evidence_ids': ['E_STATIC'], 'reason': 'Fresh bounded result verification.'} for i in static_ids]
-d['acceptance'].append({'id': source_ids[0], 'status': 'PASS', 'evidence_ids': ['E_SOURCE'],
-                       'reason': 'Offline-only execution scope; real installed host lifecycle remains NOT_RUN.'})
-d['tests'].append({'id': 'T_STATIC', 'kind': 'STATIC', 'status': 'PASS',
-    'command_or_method': 'python evidence/lifecycle_wpf_contract_rework/verify_result.py; --manifest-only',
-    'environment': 'Offline Windows source/evidence verification', 'run_at_utc': now,
-    'evidence_ids': ['E_STATIC'], 'notes': 'Schema/hash readback performed after manifest assembly.'})
-known = {r['log']: ('E_TEST_' + str(i + 1), ['T_RUN_' + str(i + 1)]) for i, r in enumerate(receipts)}
-known.update({'static_checks.json': ('E_STATIC', static_ids + ['T_STATIC']),
-              'source_binding.json': ('E_SOURCE', source_ids),
-              'k1.json': ('E_K1', ['K1_UNEXPLAINED_ZERO'])})
-for index, path in enumerate(sorted(OUT.iterdir())):
-    if not path.is_file() or path.name == 'manifest_validation.log':
-        continue
-    evid, supports = known.get(path.name, ('E_ARTIFACT_' + str(index), ['T_STATIC']))
-    d['evidence'].append({'id': evid, 'path': path.relative_to(ROOT).as_posix(), 'sha256': digest(path.read_bytes()),
-        'kind': 'TEST_LOG' if path.suffix == '.log' else 'OTHER', 'observed_at_utc': now,
-        'description': 'Bounded offline BUILD evidence: ' + path.name, 'supports_ids': supports, 'sanitized': True})
-paths = sorted(set(git('diff', '--name-only', BASE).decode().splitlines()) |
-               set(git('ls-files', '--others', '--exclude-standard').decode().splitlines()) |
-               {PREFIX + 'report.md', PREFIX + 'evidence_manifest.json'})
-for path in paths:
-    d['scope']['changed_paths'].append({'path': path,
-        'operation': 'MODIFY' if git('ls-files', '--', path).strip() else 'ADD',
-        'intent': 'REQUESTED: bounded lifecycle/WPF correction, tests and result evidence.',
-        'within_allowed_paths': True, 'new_sha256': None if path.endswith('evidence_manifest.json') else digest((ROOT / path).read_bytes())})
-d['risks'] = [{'id': 'R_HOST_CERT', 'severity': 'MEDIUM', 'state': 'NOT_VERIFIED',
-    'impact': 'Fixture validation does not certify the real installed Owner-host lifecycle or G3/G4.',
-    'next_action': 'Independent CHAT review; new authorized host-certification task after acceptance.', 'owner_role': 'CHAT'}]
-d['security'] = {'secret_scan': 'PASS', 'private_account_data_in_git': False, 'licensed_raw_feed_in_git': False,
-    'evidence_redacted': True, 'check_notes': 'Bounded changed-file scan; no host secrets/durable data inspected or mutated.'}
-d['usage'] = {'attempts': 1, 'retries': 0, 'usage_status': 'NOT_MEASURED', 'tokens_used': None,
-    'credits_used': None, 'escalation_reason': 'None; same Agent attempt throughout environment-specific test reruns.'}
-d['next_step'] = {'requested_chat_decision': 'REVIEW', 'action': 'Review immutable BUILD correction and evidence; no acceptance claimed.',
-    'owner_role': 'CHAT', 'prerequisite_gate': 'Independent CHAT result intake; fresh task/PreExec/Dispatch for future host lifecycle.'}
-(ROOT / PREFIX / 'evidence_manifest.json').write_text(json.dumps(d, indent=2) + '\n', encoding='utf-8')
-subprocess.run(['python', str(OUT / 'verify_result.py'), '--manifest-only'], check=True)
-print('Offline BUILD result assembled: ' + summary)
+static_log = OUT / 'static_validation.log'
+if static_log.exists() and 'Traceback' in static_log.read_text():
+    history_path = OUT / 'static_validation_history.json'
+    history = json.loads(history_path.read_text()) if history_path.exists() else {'runs': []}
+    history['runs'].append({'command': 'python verify_result.py', 'exit_code': 1, 'status': 'FAIL',
+        'reason': 'Previous validation log retained literal diff context whitespace; archive exact output in JSON before refreshing the live log.',
+        'output': static_log.read_text()})
+    history_path.write_text(json.dumps(history, indent=2) + '\n', encoding='utf-8', newline='\n')
+static_log.write_text('', encoding='utf-8', newline='\n')
+static = subprocess.run([sys.executable, str(OUT / 'verify_result.py')], capture_output=True, text=True)
+(OUT / 'static_validation.log').write_text(static.stdout + static.stderr, encoding='utf-8', newline='\n')
+assert static.returncode == 0, static.stdout + static.stderr
+
+run_ids = {r['name']: 'E_' + r['name'].upper() for r in runs}
+focus_id, full_id = run_ids[focused['name']], run_ids[full['name']]
+static_requirements = {'PYTHON_SYNTAX_STATIC', 'CHANGED_PATH_ALLOWLIST', 'FORBIDDEN_FILE_BYTE_IDENTITY',
+    'SECRET_SCAN', 'GIT_DIFF_CHECK', 'K1_UNEXPLAINED_ZERO'}
+reasons = {
+    'NO_LEGACY_DESKTOP_TRAY_HEALTH_DEPENDENCY': 'test_no_legacy_tray_worker_heartbeat_or_f1_g3_mutation; no tray or legacy launcher health probe.',
+    'LAUNCH_TWICE_ONE_WPF_PRESENTATION': 'test_launch_twice_exact_singleton_paused_ui_and_graceful_exit; duplicate/missing presentation negatives.',
+    'EXACT_CURRENT_PACKAGE_PRESENTATION_IDENTITY': 'Positive exact package path/current pointer/UI PID; old_package, unknown_path, pointer_drift, wrong_ui_pid and pid_changed rejected.',
+    'PAUSED_SETUP_NO_CURRENT_DISPATCH_PRE_G3': 'Paused/setup/null tests reject unsafe values and absent fields; unsafe pre/post-exit control rejected.',
+    'CERTIFY_RC1_UI_INSPECT_CHECK_EXIT_REUSED': 'Positive fixture verifies the existing script/action argv and inspect -> check -> exit order; UI failures rejected.',
+    'GRACEFUL_WPF_EXIT_BEFORE_UNINSTALL': 'Positive integration gates uninstall on explicit UI exit, count zero and lock release; exit timeout/retained lock rejected.',
+    'NO_WORKER_START_OR_HEARTBEAT_REQUIREMENT': 'Process/CLI fixtures reject any Worker command; no heartbeat in state or evidence; launcher reports worker_started=False.',
+    'WORKER_F1_HEALTH_NOT_APPLICABLE_PRE_G3': 'Fixture asserts worker_f1_health=NOT_APPLICABLE_PRE_G3; no health PASS claim.',
+    'NO_F1_G3_MUTATION': 'Mocked lifecycle process boundary, source guard and unchanged F1/G3 production paths.',
+    'STABLE_EXTERNAL_UNINSTALL_SUCCESS': 'End-to-end stable external supervisor exit 0, preserved durable fixtures, checkpoint before exact reinstall.',
+    'STABLE_EXTERNAL_UNINSTALL_FAILURE_STOP_ONCE': 'Nonzero, timeout, start failure, incomplete postconditions, changed config/consumption and unreadable checks persist evidence and prevent retry/reinstall.',
+    'INSTALLATION_AND_PACKAGE_TESTS': 'test_installation.py and test_rc1_package.py rerun in focused and full suites.',
+    'RC1_LAUNCHER_TESTS': 'Unchanged test_rc1_launcher.py rerun; presentation-only/F1 denial assertions preserved.',
+    'FULL_AGENT_BRIDGE_TESTS': full_summary + '; all tests collected, no skips/exclusions.',
+    'REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN': 'BUILD boundary honored; all lifecycle calls in changed fixtures intercepted; real installed-host certification NOT_RUN.'}
+acceptance = []
+for req in dispatch['required_tests']:
+    if req in static_requirements:
+        ids, reason = ['E_STATIC', 'E_STATIC_LOG'], 'Fresh static/identity/AST/allowlist/diff/scan/K1 execution.'
+    elif req == 'RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST':
+        ids, reason = ['E_MANIFEST_VALIDATION'], 'Dictionary-resolved Result Contract v2 schema, evidence hashes, path hashes and references read back.'
+    elif req == 'REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN':
+        ids, reason = ['E_SOURCE', focus_id], reasons[req]
+    elif req == 'FULL_AGENT_BRIDGE_TESTS':
+        ids, reason = [full_id], reasons[req]
+    else:
+        ids, reason = [focus_id], reasons[req]
+    acceptance.append({'id': req, 'status': 'PASS', 'evidence_ids': ids, 'reason': reason})
+acceptance += [{'id': 'REAL_HOST_LIFECYCLE_CERTIFICATION', 'status': 'NOT_RUN', 'evidence_ids': [], 'reason': 'Outside offline BUILD authorization.'},
+               {'id': 'CHAT_ACCEPTANCE', 'status': 'NOT_RUN', 'evidence_ids': [], 'reason': 'Independent CHAT intake follows PUSHED_UNREVIEWED delivery.'}]
+tests = [{'id': 'T_' + r['name'].upper(), 'kind': 'INTEGRATION', 'status': r['status'],
+    'command_or_method': subprocess.list2cmdline(r['argv']), 'environment': json.dumps({'cwd': r['cwd'], **r['environment']}),
+    'run_at_utc': r['started_at_utc'], 'evidence_ids': [run_ids[r['name']]], 'notes': r['output_tail']} for r in runs]
+tests += [
+    {'id': 'T_STATIC', 'kind': 'STATIC', 'status': 'PASS', 'command_or_method': 'python evidence/lifecycle_wpf_contract_rework/verify_result.py', 'environment': 'Offline source/evidence checks; PowerShell query parsed only.', 'run_at_utc': now, 'evidence_ids': ['E_STATIC', 'E_STATIC_LOG'], 'notes': 'Includes K1 and A03/protected production byte identity.'},
+    {'id': 'T_SOURCE', 'kind': 'READBACK', 'status': 'PASS', 'command_or_method': 'python evidence/lifecycle_wpf_contract_rework/bind_source.py', 'environment': 'Read-only Git/source/PreExec/Dispatch/claim/process inventory.', 'run_at_utc': binding['checked_at_utc'], 'evidence_ids': ['E_SOURCE'], 'notes': 'Source bytes and scoped authority verified; no runtime/global promotion.'},
+    {'id': 'T_MANIFEST', 'kind': 'READBACK', 'status': 'PASS', 'command_or_method': 'python evidence/lifecycle_wpf_contract_rework/verify_result.py --manifest-only', 'environment': 'Dictionary-resolved immutable Result Contract schema; local raw-byte evidence readback.', 'run_at_utc': now, 'evidence_ids': ['E_MANIFEST_VALIDATION'], 'notes': 'Executed after manifest assembly, with stable validation log included.'}]
+
+value = {'contract_version': '2.0', 'project': 'FOX2', 'wp_id': WP, 'task_id': claim['task_id'], 'change_id': claim['task_id'],
+    'submission_state': 'READY_FOR_CHAT_REVIEW', 'submitted_at_utc': now,
+    'agent': {'product': 'CODEX', 'model': claim['model'], 'mode': 'BUILD_CORRECTION_ONLY / high / MANUAL_LOCAL / FULL_ACCESS',
+        'host': 'Owner Windows host; offline temporary fixtures', 'started_at_utc': claim['started_at_utc'], 'finished_at_utc': now,
+        'quota_observation': binding['auth_capacity'] + '; usage totals NOT_MEASURED'},
+    'routing': {**{k: 'PASS' for k in ['policy_check', 'task_state_check', *['r' + str(i) for i in range(8)], 'assignment_check']},
+        'routing_evidence': 'Fresh Dispatch and CHAT PASS_TO_ASSIGN plus PreExec REV3; current launcher claim and single process. See source_binding.json.'},
+    'source': {'policy_sha256': dispatch['policy']['sha256'], 'policy_version': dispatch['policy']['version'],
+        'task_commit_sha': claim['task_commit'], 'source_manifest_sha256': digest((OUT / 'source_binding.json').read_bytes()),
+        'approved_base_commit_sha': BASE, 'source_readback_status': 'PASS', 'brd_revisions': ['Bridge TechSpec v0.7 REV10 remains CANDIDATE_NO_PROMOTION; no semantic promotion.'],
+        'previous_evidence_reused': ['Recovery snapshot is salvage input only; no A01 PASS reused. A01 consumed/quota failure and historical host FAIL preserved. Fresh A02 tests/static/K1 rerun.']},
+    'permissions': {'git_source_read': True, 'git_report_write': True, 'git_report_push': True, 'git_code_push': True, 'code_allowed': True,
+        'pr_create': False, 'merge_allowed': False, 'dnse_production': False, 'broker_write': False, 'live': False,
+        'grant_evidence': 'Owner task plus fresh A02 Dispatch/CHAT PASS_TO_ASSIGN; offline BUILD only; exact authorized non-main result push.'},
+    'git': {'repository': 'dunglt2505/FOX2', 'branch': dispatch['runtime_contract']['branch'], 'worktree': str(ROOT),
+        'writer_lease': 'One current task CODEX PID ' + str(claim['process_id']) + '; one running consumed launcher claim; no subagents or competing material writer observed.',
+        'report_path': PREFIX + 'report.md', 'delivery_status': 'PUSHED_UNREVIEWED', 'pr_url': None, 'local_head_before_submission': BASE},
+    'scope': {'requested': ['Finish and independently verify salvaged lifecycle/WPF certification within the four allowed code/test paths.'],
+        'completed': ['Presentation-only WPF contract retained/corrected; negative fixtures; A03 durable uninstall regressions; focused/full tests; static/K1/Result Contract evidence.'],
+        'partial': [], 'not_done': ['CHAT acceptance; real installed-host lifecycle certification; G3/G4 adoption.'],
+        'explicit_exclusions': ['Real installed lifecycle, Worker/F1, AppLocker/service/ACL, G3/G4/Canary, main/PR/merge/provider/broker/LIVE.'],
+        'changed_paths': [], 'forbidden_paths_touched': False},
+    'tests': tests, 'acceptance': acceptance, 'evidence': [],
+    'risks': [{'id': 'R_HOST_NOT_CERTIFIED', 'severity': 'MEDIUM', 'state': 'NOT_VERIFIED',
+        'impact': 'Offline fixture success does not certify the installed Owner-host lifecycle, F1 adoption or G3/G4 readiness.',
+        'next_action': 'Independent CHAT intake; separately authorized host certification if approved.', 'owner_role': 'CHAT'}],
+    'security': {'secret_scan': 'PASS', 'private_account_data_in_git': False, 'licensed_raw_feed_in_git': False,
+        'evidence_redacted': True, 'check_notes': 'Bounded changed-delivery-file scan; no credentials or Bridge durable host data read or changed.'},
+    'usage': {'attempts': 1, 'retries': 0, 'usage_status': 'NOT_MEASURED', 'tokens_used': None, 'credits_used': None,
+        'escalation_reason': 'No Agent retry or replay; fixture reruns within this one A02 attempt only.'},
+    'next_step': {'requested_chat_decision': 'REVIEW', 'action': 'Independently review immutable A02 code/diff/tests/evidence; no acceptance claimed.',
+        'owner_role': 'CHAT', 'prerequisite_gate': 'CHAT result intake; any future host lifecycle requires its own authorized task and material PreExec.'}}
+known = {r['log']: (run_ids[r['name']], ['T_' + r['name'].upper()]) for r in runs}
+known.update({'source_binding.json': ('E_SOURCE', ['T_SOURCE']), 'static_checks.json': ('E_STATIC', ['T_STATIC']),
+              'static_validation.log': ('E_STATIC_LOG', ['T_STATIC']), 'manifest_validation.log': ('E_MANIFEST_VALIDATION', ['T_MANIFEST'])})
+
+def write_manifest():
+    value['evidence'] = []
+    for i, path in enumerate(sorted(OUT.iterdir())):
+        assert path.is_file(), path
+        eid, supports = known.get(path.name, ('E_ARTIFACT_' + str(i), ['T_STATIC']))
+        value['evidence'].append({'id': eid, 'path': path.relative_to(ROOT).as_posix(), 'sha256': digest(path.read_bytes()),
+            'kind': 'TEST_LOG' if path.suffix == '.log' else 'DIFF' if path.suffix == '.diff' else 'OTHER',
+            'observed_at_utc': now, 'description': 'A02 offline BUILD evidence: ' + path.name,
+            'supports_ids': supports, 'sanitized': True})
+    value['evidence'].append({'id': 'E_REPORT', 'path': PREFIX + 'report.md', 'sha256': digest((ROOT / PREFIX / 'report.md').read_bytes()),
+        'kind': 'REPORT', 'observed_at_utc': now, 'description': 'A02 bounded BUILD result report.', 'supports_ids': ['T_MANIFEST'], 'sanitized': True})
+    paths = sorted(set(git('diff', '--name-only', BASE).decode().splitlines()) |
+        set(git('ls-files', '--others', '--exclude-standard').decode().splitlines()) |
+        {p.relative_to(ROOT).as_posix() for p in OUT.iterdir()} | {PREFIX + 'report.md', PREFIX + 'evidence_manifest.json'})
+    value['scope']['changed_paths'] = [{'path': path,
+        'operation': 'MODIFY' if subprocess.run(['git', 'cat-file', '-e', BASE + ':' + path], cwd=ROOT, capture_output=True).returncode == 0 else 'ADD',
+        'intent': 'REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.',
+        'within_allowed_paths': True, 'new_sha256': None if path == PREFIX + 'evidence_manifest.json' else digest((ROOT / path).read_bytes())}
+        for path in paths if path != PREFIX + 'evidence/lifecycle_wpf_contract_rework/recovery_codex001_snapshot.json']
+    (ROOT / PREFIX / 'evidence_manifest.json').write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8', newline='\n')
+
+# The validation log has constant text and contains no self-referential manifest hash.
+validation_path = OUT / 'manifest_validation.log'
+validation_path.touch(exist_ok=True)
+write_manifest()
+validation = subprocess.run([sys.executable, str(OUT / 'verify_result.py'), '--manifest-only'], capture_output=True, text=True)
+validation_path.write_text(validation.stdout + validation.stderr, encoding='utf-8', newline='\n')
+assert validation.returncode == 0, validation.stdout + validation.stderr
+write_manifest()
+final = subprocess.run([sys.executable, str(OUT / 'verify_result.py'), '--manifest-only'], capture_output=True, text=True)
+assert final.returncode == 0 and final.stdout == validation.stdout, final.stdout + final.stderr
+print('A02 BUILD result assembled: focused ' + focused_summary + '; full ' + full_summary)
+print(final.stdout, end='')

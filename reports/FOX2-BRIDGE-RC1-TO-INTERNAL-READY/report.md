@@ -1,91 +1,53 @@
-# FOX2 Current-Package Owner-Host Lifecycle A01 — FAIL
+# FOX2 Lifecycle/WPF Contract Rework A02 â€” BUILD result
 
-## R01 — Result and submission
+## R01 â€” Identification and submission
 
-Task `FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01`; Whole-WP `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`.
-Dispatch `FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001`. One CODEX `gpt-6.1-sol`, high, MANUAL_LOCAL, task-scoped FULL_ACCESS attempt; no model substitution or Agent replay.
-Host execution UTC: 2026-10-21T16:47:20.863447+00:00 to 2026-10-21T16:48:37.133912+00:00.
-Result: **FAIL / REWORK_REQUIRED**. Submission: READY_FOR_CHAT_REVIEW; delivery PUSHED_UNREVIEWED after authorized branch publication. CHAT acceptance is not claimed.
+Task `FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02`; Whole-WP `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`. CODEX `gpt-6.1-sol`, high, MANUAL_LOCAL, task-scoped FULL_ACCESS. One fresh A02 Agent attempt, no retries or subagents. Started `2026-10-22T02:29:30.5759665Z`; report assembled `2026-10-22T02:38:46.542606+00:00`. Delivery state after the authorized branch push is **PUSHED_UNREVIEWED**. CHAT acceptance is not claimed.
 
-The supported installer updated the exact accepted package successfully. The single lifecycle invocation then exited 1 with **RuntimeError: installed tray/worker did not become healthy**, at `certify_user_lifecycle.py:133`, before uninstall. Stable uninstall attempts: **0**; reinstall: **NOT_RUN**; recovery attempts: **0**. No lifecycle or uninstall retry occurred.
+## R02 â€” Authority, routing and start gates
 
-## R02 — Authority and routing
+Fresh Dispatch `FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001` is at `126e8d857e7e4964fe05a47d558215763779535f`, blob `0997c8126e24dbf973949fb14610324b49b99bdc` on `work/FOX2-DISPATCH-chat`. It grants bounded code/report writes and non-main result push, with no PR/merge/provider/broker/LIVE permission. The task-specific PreExec REV3 receipt at `4504bf95dd2baf474b30f896b23365c52fe10c9f` and CHAT PASS_TO_ASSIGN `61b75156bb4b241b88a26c0c11cb8af79f79a94b` bind this route. Policy 2.0.0, Dictionary 1.3, Routing Index 1.4.0 and Protocol v12 immutable bytes were verified independently. Source bytes and task-scoped execution authority are verified; global publication/runtime promotion is not claimed. TechSpec v0.7 REV10 remains **CANDIDATE_NO_PROMOTION**.
 
-Owner task plus exact fresh Dispatch authorize bounded Phase-2 per-user TEST only. Task-specific PreExec v5 PASS blob `08056cb73333934a148cef2b4f1f3da11f6b9b3e`, CHAT PASS_TO_ASSIGN `185f4cdcdfb6a7487f8bbc0f256c304fb1d9f263`, and A03 BUILD-only acceptance `37691b71b64de03091de9908014da2256c1d2901` are source-bound. Policy 2.0.0 applies as task-scoped Owner authority. R0–R7/assignment PASS are inherited from the exact Dispatch and PreExec, with route, writer and host checks observed again here. Product/source/test writes remain disabled despite the legacy Dispatch decision field.
+Required-versus-observed gates: exact branch/worktree/base and remote task head PASS; recovery ancestor PASS; task/prompt/PreExec/Dispatch hashes PASS; Dispatch schema blob `1692061941e2bef498515cd0e96b9b3046119ebb` PASS; current launcher claim/model/effort/FULL_ACCESS PASS; initial worktree clean PASS; no pre-start product drift PASS; one task Agent process PID 3496 observed PASS. Fresh PreExec authenticated capacity probe PASS and this pinned execution is active; numeric quota is not measured. Only the two bound task/prompt additions and PreExec receipt separate recovery snapshot from runtime base. Start verdict: **GO for offline BUILD only**. See `evidence/lifecycle_wpf_contract_rework/source_binding.json` for identities, R0â€“R7 provenance and observations.
 
-## R03 — Immutable bindings and package
+## R03 â€” Immutable inputs and A01 preservation
 
-Starting HEAD `208de84f39dcf783bd4ee9053c0288cda9aa0024` matched the live remote task branch and Dispatch runtime base before build. Accepted source `2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb` is an ancestor; all eight pre-start changed paths are task/prompt/PreExec evidence, with no product drift. Exact Dispatch commit `8cac3d2798c4e3906ceac351676d32ada761056e`, blob `353ca16452d5d717ca023872a54c2eeb2f3c310b` was fetched and matched to launcher environment bindings. Task commit `d95f08ceed2f5a25ad288b9630ffc87b698f329c` and prompt commit `250c8ab15bdfd8339e6332dc105a559dbd5b3151` pass raw SHA-256 readback. See source_binding.json for all locked identities.
+Runtime base `4504bf95dd2baf474b30f896b23365c52fe10c9f`; original runtime base `e7d5acf51dddcbc95324a992ad6be2773e61285f`; recovery snapshot `1a11fa0b232a69f0c26a0b4029c331ee2a8c840f`. Task commit `f796306ca4e79b9ab61cd436cf69a5f28ede4faf`, task SHA-256 `7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c`. Prompt commit `56e4c1eeb9341062fdb8ec52110e4e5c44c329e2`, blob `faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2`, prompt SHA-256 `a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201`.
 
-Package alias: `BUILD_ROOT/accepted-package.zip`, outside BridgeRoot and retained for this task. SHA-256: `52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4`; size 64529059 bytes. Manifest source_git_commit is exactly `2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb`. Build used the already-existing isolated Python 3.13.15 / setuptools 84.0.0 / wheel 0.48.0 / build 1.6.1 environment and dotnet 8.0.426. No tools or dependencies were installed to satisfy capability. The unmodified builder downloaded pinned wheel payloads and built the self-contained package.
+A01/CODEX-001 remains EXITED_CONSUMED, exit 1, CODEX_USAGE_LIMIT, NEEDS_RECONCILIATION, no Git result, no CHAT acceptance and no replay. Its recovery provenance JSON is byte-identical. Salvage is input, never accepted evidence. Every inherited source/test hunk was reviewed; provisional evidence and A01-bound helpers were replaced with fresh A02 execution evidence. `salvage_review.json`, `k1.json`, `original_to_final_diff.json` and `salvage_to_final_diff.json` distinguish retained salvage from A02 corrections.
 
-The temporary clean checkout carries the accepted commit while the execution worktree retains its Dispatch base. All 59 source inventory and 40 wheel module entries, all payload hashes, sorted fixed-time ZIP entries and declared deterministic build flags were checked. No second build was performed. Machine dictionary 1.2 (`7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7`) and Dispatch routing dictionary 1.3 are independently pinned; global machine adoption is not claimed.
+## R04 â€” Implemented behavior and corrections
 
-Two preparation corrections are preserved in package_verification.json: the temporary clone already had the task branch, so an initial branch-creation command refused before build; an evidence-only assertion initially conflated the two dictionary layers. Both were resolved before install without changing product code or rebuilding the package.
+The harness uses stable `BridgeRoot/launch.ps1` twice and validates one current-package `FOX2.Bridge.Desktop.exe` by its exact installed executable path, current package pointer and inspected UI PID. It requires paused=true, setup_complete=true and explicit current_dispatch=null. No desktop-tray health, legacy launcher-process health, Worker heartbeat or Worker start is required. Worker/F1 health is **NOT_APPLICABLE_PRE_G3**, never a health PASS.
 
-## R04 — Completed and remaining scope
+Existing `certify_rc1_ui.ps1` supplies inspect/check/explicit exit. Inspect validates all six navigation entries and the current presentation PID; check proves Check Now disabled while paused. The harness observes the held presentation lock, rechecks safe control and exact presentation identity, invokes graceful UI exit, waits boundedly for zero presentations, observes lock release and rechecks STOPPED/paused/setup/no-current-dispatch before uninstall. No forced-exit path was added.
 
-Exact build, package verification, durable pre-state, supported real install/update, exact installed receipt and safe paused pre-certification state completed. The real lifecycle failed at its first healthy tray/worker condition. Stable external uninstall, uninstall postconditions, diagnostics stage, single-instance stage and same-package reinstall were not reached. Across-uninstall durability remains NOT_RUN. No recovery was needed because the exact package remains installed.
+Three A02 proof gaps were corrected: absent current_dispatch no longer passes as null; only WinError 32 sharing violation proves a live FileShare.None lock, while access-denied/other errors fail; process queries fail on PowerShell errors and must return an explicit array, so null cannot falsely prove exit. Negative fixtures also cover process-query failure/timeout, PID changes and unsafe state changes before/after exit. Correct salvaged behavior was retained.
 
-## R05 — Changed paths and ownership
+## R05 â€” A03 preservation and changed-path ownership
 
-Only report.md, evidence_manifest.json and evidence/host_lifecycle_cert/** changed. The initial worktree was clean; one task CODEX writer PID 18272 was observed, with no G3/G4/Canary writer or subagent. Exact path/hash inventory is in the manifest; K1 classifies all paths in k1.json. Package binaries, temporary source checkout, config/database contents, raw prompts and raw local logs are excluded from Git.
+Only the allowed lifecycle harness and two test files contain material source/test changes. `test_rc1_launcher.py` was rerun unchanged. A03 `certify_uninstall` and `_uninstall_output` ASTs match the original runtime base. Stable external PowerShell 7 at `BridgeRoot/uninstall.ps1`, synchronous single attempt, installed-Python exclusion, sanitized bounded output, nonzero/timeout/start/postcondition stop-once behavior and checkpoint-before-reinstall semantics remain intact.
 
-## R06 — Observed tests
+Configuration/database/manual-consumption checks and historical Batch-B consumed identities 001â€“004 remain intact. Successful reinstall uses the same package/SHA, verifies the current package, and rechecks the safe stopped/paused state. No historical consumed identity was replayed or rewritten. The protected launcher/F1/installation/UI/WPF source files retain original Git blobs and raw bytes from a same-base checkout. All other agent_bridge paths remain unchanged.
 
-Build/provenance, install, pointer/receipt and paused pre-state PASS. Corrected real-host lifecycle FAIL, exit 1. Bounded source inspection shows the harness expects a legacy pwsh desktop_tray.ps1 process and a PAUSED Worker heartbeat. The accepted launcher starts WPF presentation only and returns worker_started=False. This is an observed contract mismatch requiring a separately authorized source task; no code fix or alternative Worker launch was attempted here.
+The complete changed-path inventory and raw SHA-256 values are in `evidence_manifest.json`; the manifest's own hash is null to avoid self-reference. No unrelated WIP was present or introduced. Test artifacts are isolated in a detached short fixture worktree, with no second material writer.
 
-## R07 — Required acceptance matrix
+## R06 â€” Executed validation and environment
 
-| Required check | Result | Evidence |
-|---|---|---|
-| EXACT_ACCEPTED_SOURCE_PACKAGE_BUILD_PROVENANCE | PASS | E_PACKAGE_VERIFICATION |
-| PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION | PASS | E_PACKAGE_VERIFICATION, E_PACKAGE_MANIFEST |
-| PRE_STATE_DURABLE_HASH_SNAPSHOT | PASS | E_PRE_STATE, E_PRE_INSTALL_STATE |
-| REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS | PASS | E_EXECUTION, E_POST_INSTALL_STATE |
-| CURRENT_POINTER_AND_INSTALLED_RECEIPT_BIND_EXACT_PACKAGE_SOURCE | PASS | E_POST_INSTALL_STATE |
-| SAFE_PAUSED_STATE_BEFORE_CERTIFICATION | PASS | E_POST_INSTALL_STATE |
-| CORRECTED_LIFECYCLE_CERTIFICATION_RUN_ON_OWNER_HOST | FAIL | E_EXECUTION, E_FAILURE_ANALYSIS |
-| STABLE_EXTERNAL_UNINSTALL_EXERCISED_EXACTLY_ONCE | NOT_RUN | E_EXECUTION |
-| UNINSTALL_EXIT_ZERO | NOT_RUN | E_EXECUTION |
-| POST_UNINSTALL_CURRENT_POINTER_AND_OWNED_VERSIONS_ABSENT | NOT_RUN | E_FINAL_STATE |
-| DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED | NOT_RUN | E_FAILURE_ANALYSIS, E_FINAL_STATE |
-| SAME_EXACT_PACKAGE_REINSTALL_PASS | NOT_RUN | E_EXECUTION, E_FINAL_STATE |
-| FINAL_CURRENT_POINTER_EXACT | PASS | E_FINAL_STATE |
-| FINAL_SETUP_AND_HEALTH_PASS | FAIL | E_FINAL_STATE, E_FAILURE_ANALYSIS |
-| CONSUMED_IDENTITIES_PRESERVED | PASS | E_FAILURE_ANALYSIS, E_FINAL_STATE |
-| NO_OLD_DISPATCH_REPLAY | PASS | E_SOURCE_BINDING, E_EXECUTION |
-| NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION | PASS | E_FAILURE_ANALYSIS, E_PACKAGE_MANIFEST |
-| CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY | PASS | E_STATIC_CHECKS, E_VERIFY_RESULT, E_K1 |
-| SECRET_SCAN | PASS | E_STATIC_CHECKS, E_VERIFY_RESULT, E_K1 |
-| GIT_DIFF_CHECK | PASS | E_STATIC_CHECKS, E_VERIFY_RESULT, E_K1 |
-| K1_UNEXPLAINED_ZERO | PASS | E_STATIC_CHECKS, E_VERIFY_RESULT, E_K1 |
-| RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST | PASS | E_STATIC_CHECKS, E_VERIFY_RESULT, E_K1 |
+Focused lifecycle/WPF + launcher + package + installation: **103 passed in 3.34s**. Full `agent_bridge/tests`: **653 passed in 236.02s (0:03:56)**. Real command lines, cwd, environment, UTC times, exit codes and unabridged logs are retained in `*_run.json` and associated `.log` files.
 
-## R08 — Bounded evidence and final host state
+The short detached A02 test worktree at `C:/Projects/FOX2/.git/wpf-a02-test` starts from the exact runtime base and has byte-for-byte copies of the final allowed source/test files; all tracked agent_bridge files were compared before each run. This follows the established short-worktree test approach for Windows MAX_PATH. No test was edited or skipped to hide environment behavior. The focused and full runs passed without a core.longpaths override. No repository/global Git configuration, test or host setting changed.
 
-Final current pointer is `52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4`, with installed source `2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb` and installed receipt SHA-256 `4075f48dc0718b7574a0764e5392fb31ca8ddc9a8896f7cd9747d7c2a67339c4`. Both the new and previous owned version remain; uninstall was not attempted. Worker is STOPPED, paused=true, setup_complete=true, no active dispatch; startup=true and the Limited/Interactive per-user scheduled task is Ready.
+An initial generated-evidence formatting check found CRLF trailing-whitespace diagnostics; its output is retained in diff_check_initial.log. A02-generated text was normalized to LF and writers now request LF explicitly; the immutable recovery provenance bytes were preserved. A later staged check flagged the literal blank context lines in unified-diff evidence; exact Git stdout is now stored in JSON, with that failed validation output preserved in static_validation_history.json. Syntax/compile checks, static parsing of the generated PowerShell query (without executing it), changed-path allowlist, forbidden production-file byte identity, immutable recovery provenance, A03 AST identity, git diff --check, bounded secret scan and K1 **UNEXPLAINED=0** all pass. K1 classifies material hunks against both original runtime base and salvage as REQUESTED or NECESSARY_DEPENDENCY; regenerated evidence is JUSTIFIED_GENERATED. Result Contract v2 schema and evidence/changed-file hash readback are verified by `verify_result.py --manifest-only`.
 
-Config hash `b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7`, database hash `70d387ed9ee57e950a4509b392af19966496cec770f7872e52925528e5b8d884` and manual-consumption hash `c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c` are unchanged from pre-state. SQLite quick_check=ok; all 28 dispatch identity/state records and four historical consumed identities are unchanged.
+## R07 â€” Requirements and evidence
 
-One WPF Desktop process created by this run remains open. The observer's active_runtime_processes field counts worker/legacy PowerShell tray/launcher, not WPF presentation; failure_analysis.json records that limitation and the separate presentation observation. The CLI request-exit in the harness cleanup did not close the WPF presentation. No forced termination, additional runtime launch or further host mutation was attempted after failure.
+All Dispatch-required offline checks are mapped individually in the manifest. Singleton/current identity/safe state/UI/lock/exit tests use intercepted process boundaries; launcher tests retain worker_started=False. Stable-uninstall success and nonzero/timeout/start/postcondition stop-once cases are rerun, along with durable-state assertions. No prior A01 PASS substitutes for an A02 result. Historical host lifecycle FAIL remains unchanged in Git history.
 
-The harness writes lifecycle checkpoints at uninstall and completion, so this earlier failure produced no raw lifecycle JSON. execution.json preserves sanitized process exit/stderr and the original RuntimeError separately from the orchestration assertion. Evidence IDs, relative paths and SHA-256 values are in evidence_manifest.json. No raw configuration or database content is included.
+Evidence includes source binding, test snapshot byte hashes, actual pytest receipts/logs, salvage review, both source diffs, hunk classifications, static checks and Result Contract validation output. The manifest binds every evidence item with raw SHA-256. Observed remote result SHA is returned outside this committed report.
 
-## R09 — Git delivery
+## R08 â€” Scope, risks and next owner
 
-Repository dunglt2505/FOX2, branch work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-20261021. Report/evidence only; no PR/main/merge. Local HEAD before result submission: `208de84f39dcf783bd4ee9053c0288cda9aa0024`. Push is followed by independent remote branch-head readback. The observed containing commit SHA is returned outside this report. Final delivery state is PUSHED_UNREVIEWED, pending CHAT intake.
+Real installed-host lifecycle: **NOT_RUN**. No actual package install/update/uninstall/reinstall, installed WPF launch, Task Scheduler change, Bridge durable data/config/database change, Worker/F1 start, AppLocker/AppIDSvc/service/ACL change, reboot, G3/G4/Canary, main/PR/merge or provider/broker/LIVE action occurred during A02 BUILD. Tests exercise temporary offline fixtures.
 
-## R10 — Risks and boundaries
-
-Lifecycle certification remains FAIL; uninstall/reinstall and final healthy runtime remain unverified. Startup remains enabled and one presentation process remains open; worker stays stopped and paused. REWORK_REQUIRED must be handled through a fresh source/task/PreExec/Dispatch with no replay of this consumed attempt. Historical A03 BUILD evidence remains at `2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb` and the separate acceptance receipt; historical Batch-B UNINSTALL_PATH=FAIL remains factual and unchanged.
-
-No AppLocker, AppIDSvc, FOX2F1Authority service, ProgramData authority ACL, reboot, G3/G4, Canary, provider/broker/LIVE mutation was invoked. Package F1 activation remains DENY_PENDING_G3_G4. Bounded changed-text secret/private-path scan, allowlist and diff checks pass; K1 UNEXPLAINED=0. Result Contract v2 and evidence hashes/references are validated by verify_result.py.
-
-## R11 — Attempts and usage
-
-Agent attempts=1, Agent retries=0; package builds=1, install/update attempts=1, lifecycle invocations=1, stable uninstall attempts=0, reinstall attempts=0, recovery attempts=0. Token/credit usage NOT_MEASURED. Preparation/evidence corrections are not Agent or lifecycle retries.
-
-## R12 — CHAT decision requested
-
-Review the immutable pushed FAIL result and arrange separately authorized rework of current-package certification/launcher compatibility. Do not accept Phase 2 TEST, replay this Dispatch or progress to G3/G4/Canary from this result.
+Fixture validation does not certify Owner-host lifecycle, F1 adoption, G3/G4 or operational readiness. Usage totals are NOT_MEASURED; attempts=1, retries=0. CHAT must independently review this immutable pushed BUILD result. Any future real host certification needs its own authorized binding and material PreExec. No CHAT acceptance or feature-stage promotion is claimed here.

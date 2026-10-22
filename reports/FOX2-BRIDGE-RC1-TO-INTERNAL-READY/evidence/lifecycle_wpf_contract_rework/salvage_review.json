@@ -1,0 +1,56 @@
+{
+  "snapshot": "1a11fa0b232a69f0c26a0b4029c331ee2a8c840f",
+  "reviewed_paths": [
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "disposition": "KEPT_WITH_BOUNDED_A02_CORRECTIONS",
+      "reason": "Correct and required salvage retained; new negative checks correct three proof gaps."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "disposition": "KEPT_WITH_BOUNDED_A02_CORRECTIONS",
+      "reason": "Correct and required salvage retained; new negative checks correct three proof gaps."
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "disposition": "KEPT_WITH_BOUNDED_A02_CORRECTIONS",
+      "reason": "Correct and required salvage retained; new negative checks correct three proof gaps."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+      "disposition": "REGENERATED_FROM_A02_EXECUTION",
+      "reason": "Historical A01 helper identities and provisional PASS claims cannot certify A02; replaced by actual A02 checks."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+      "disposition": "REGENERATED_FROM_A02_EXECUTION",
+      "reason": "Historical A01 helper identities and provisional PASS claims cannot certify A02; replaced by actual A02 checks."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
+      "disposition": "REGENERATED_FROM_A02_EXECUTION",
+      "reason": "Historical A01 helper identities and provisional PASS claims cannot certify A02; replaced by actual A02 checks."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/recovery_codex001_snapshot.json",
+      "disposition": "PRESERVED_BYTE_IDENTICAL",
+      "reason": "Immutable historical consumed/no-replay recovery record."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
+      "disposition": "REGENERATED_FROM_A02_EXECUTION",
+      "reason": "Historical A01 helper identities and provisional PASS claims cannot certify A02; replaced by actual A02 checks."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
+      "disposition": "REGENERATED_FROM_A02_EXECUTION",
+      "reason": "Historical A01 helper identities and provisional PASS claims cannot certify A02; replaced by actual A02 checks."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+      "disposition": "REGENERATED_FROM_A02_EXECUTION",
+      "reason": "Historical A01 helper identities and provisional PASS claims cannot certify A02; replaced by actual A02 checks."
+    }
+  ],
+  "historical_pass_authoritative": false
+}

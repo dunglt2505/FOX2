@@ -1,0 +1,23 @@
+{
+  "name": "full_initial",
+  "suite": "full",
+  "argv": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "agent_bridge/tests",
+    "-v",
+    "--tb=short"
+  ],
+  "cwd": "C:\\Projects\\FOX2\\.git\\wpf-a02-test",
+  "environment": {
+    "PYTHONPATH": "C:\\Projects\\FOX2\\.git\\wpf-a02-test\\agent_bridge\\src",
+    "process_core_longpaths": false
+  },
+  "started_at_utc": "2026-10-22T02:32:45.399891+00:00",
+  "finished_at_utc": "2026-10-22T02:36:41.963318+00:00",
+  "exit_code": 0,
+  "status": "PASS",
+  "log": "full_initial.log",
+  "output_tail": "======================= 653 passed in 236.02s (0:03:56) ======================="
+}

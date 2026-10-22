@@ -27,6 +27,7 @@ def presentation(tmp_path, monkeypatch):
     lock.parent.mkdir()
     lock.write_bytes(b'unchanged lock bytes')
     fixture = {'variant': 'ok', 'events': [], 'exited': False, 'launches': 0,
+               'observations': 0, 'control_reads': 0,
                'state': {'paused': True, 'setup_complete': True,
                          'current_dispatch': None, 'state': 'STOPPED'}}
     monkeypatch.setattr(module, 'installed_version', lambda _: {
@@ -41,7 +42,9 @@ def presentation(tmp_path, monkeypatch):
             fixture['events'].append('lock_probe')
             if (not fixture['exited'] and fixture['variant'] != 'live_lock_free' or
                     fixture['variant'] == 'lock_retained'):
-                raise PermissionError('fixture exclusive WPF lock')
+                error = PermissionError('fixture exclusive WPF lock')
+                error.winerror = 5 if fixture['variant'] == 'lock_access_denied' else 32
+                raise error
         return path_open(path, *args, **kwargs)
 
     monkeypatch.setattr(Path, 'open', open_lock)
@@ -56,10 +59,18 @@ def presentation(tmp_path, monkeypatch):
         output = ''
         if '-Command' in argv:
             assert argv[-1] == (
+                "$ErrorActionPreference='Stop'; "
                 'ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process '
                 '-Filter "Name=\'FOX2.Bridge.Desktop.exe\'" | Select-Object ProcessId,ExecutablePath)')
             fixture['events'].append('observe')
+            fixture['observations'] += 1
+            if variant == 'observe_failure':
+                return subprocess.CompletedProcess(argv, 1, '', 'fixture query failure')
+            if variant == 'observe_timeout':
+                raise subprocess.TimeoutExpired(argv, kwargs['timeout'])
             record = {'ProcessId': 42, 'ExecutablePath': str(desktop)}
+            if variant == 'pid_changed' and fixture['observations'] > 1:
+                record['ProcessId'] = 43
             if variant == 'old_package':
                 record['ExecutablePath'] = str(root / 'versions' / ('b' * 64) / desktop.name)
             if variant == 'unknown_path':
@@ -68,6 +79,8 @@ def presentation(tmp_path, monkeypatch):
             if variant == 'missing' or fixture['exited'] and variant != 'exit_timeout':
                 records = []
             output = json.dumps(records)
+            if variant == 'null_after_exit' and fixture['exited']:
+                output = 'null'
         elif argv[-1] == str(root / 'launch.ps1'):
             fixture['events'].append('launch')
             fixture['launches'] += 1
@@ -100,6 +113,9 @@ def presentation(tmp_path, monkeypatch):
     def cli(*args):
         assert args == ('control', 'status'), 'No Worker/F1/control mutation permitted'
         state = dict(fixture['state'])
+        fixture['control_reads'] += 1
+        if fixture['variant'] == 'unsafe_before_exit' and fixture['control_reads'] > 1:
+            state['current_dispatch'] = 'active'
         if fixture['variant'] == 'unsafe_after_exit' and fixture['exited']:
             state['paused'] = False
         if fixture['variant'] == 'not_stopped_after_exit' and fixture['exited']:
@@ -129,14 +145,15 @@ def test_launch_twice_exact_singleton_paused_ui_and_graceful_exit(presentation):
 
 @pytest.mark.parametrize('variant', [
     'old_package', 'unknown_path', 'pointer_drift', 'duplicate', 'missing',
-    'live_lock_free', 'launch_failure', 'inspect_failure', 'check_failure', 'exit_failure',
+    'live_lock_free', 'lock_access_denied', 'launch_failure', 'inspect_failure', 'check_failure', 'exit_failure',
     'wrong_ui_pid', 'navigation', 'enabled_check', 'check_marker', 'exit_marker',
     'exit_timeout', 'lock_retained', 'unsafe_after_exit', 'not_stopped_after_exit',
+    'observe_failure', 'observe_timeout', 'null_after_exit', 'pid_changed', 'unsafe_before_exit',
 ])
 def test_presentation_failure_checkpoints_before_uninstall(presentation, variant):
     module, root, sha, cli, evidence, fixture, _ = presentation
     fixture['variant'] = variant
-    with pytest.raises((RuntimeError, PermissionError)):
+    with pytest.raises((RuntimeError, PermissionError, subprocess.TimeoutExpired)):
         module.certify_presentation(root, sha, 'fixture-pwsh7', cli, {}, evidence)
     proof = json.loads(evidence.read_text())
     assert proof['presentation_status'] == 'FAILED_BEFORE_UNINSTALL'
@@ -151,6 +168,15 @@ def test_presentation_failure_checkpoints_before_uninstall(presentation, variant
 def test_paused_setup_no_current_dispatch_required_before_launch(presentation, unsafe):
     module, root, sha, cli, evidence, fixture, _ = presentation
     fixture['state'].update(unsafe)
+    with pytest.raises(RuntimeError, match='Phase-2 requires'):
+        module.certify_presentation(root, sha, 'fixture-pwsh7', cli, {}, evidence)
+    assert fixture['launches'] == 0
+
+
+@pytest.mark.parametrize('field', ['paused', 'setup_complete', 'current_dispatch'])
+def test_missing_safe_control_field_rejected_before_launch(presentation, field):
+    module, root, sha, cli, evidence, fixture, _ = presentation
+    del fixture['state'][field]
     with pytest.raises(RuntimeError, match='Phase-2 requires'):
         module.certify_presentation(root, sha, 'fixture-pwsh7', cli, {}, evidence)
     assert fixture['launches'] == 0

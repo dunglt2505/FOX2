@@ -1,69 +1,255 @@
 {
+  "original_runtime_base": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+  "salvage_source": "1a11fa0b232a69f0c26a0b4029c331ee2a8c840f",
+  "a02_runtime_base": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
   "hunks": [
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -88,6 +88,113 @@ def certify_uninstall(root, pwsh, config_before, results, evidence):",
+      "sha256": "7411b425d47671e866f7cd5f7dabdeeda174f9eba9ff503f4b61cbec42d8c08e",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -101,7 +208,7 @@ def main(package,sha,evidence):",
+      "sha256": "53548cf868833192dab380367295321ce18b2a685b80fa6a57a3f65947f6058c",
+      "classification": "REQUESTED",
+      "provenance": "SALVAGED_UNCHANGED_FROM_A01",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -112,43 +219,7 @@ def main(package,sha,evidence):",
+      "sha256": "e58801dfac750e299aa642e7d2da437ab80df6d1d866714f40ecf83343279a46",
+      "classification": "REQUESTED",
+      "provenance": "SALVAGED_UNCHANGED_FROM_A01",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -157,6 +228,8 @@ def main(package,sha,evidence):",
+      "sha256": "eeb7ee2cf81bcd9c7e9f1e8db6407448b26ff84c4bb2244d2df4b2ef4fc334fa",
+      "classification": "REQUESTED",
+      "provenance": "SALVAGED_UNCHANGED_FROM_A01",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -90,7 +90,7 @@ def certify_uninstall(root, pwsh, config_before, results, evidence):",
+      "sha256": "ce8842f0101079b82a3fb3020925b640e2ba99cb79d2d4dae33f5ffb0f993722",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -112,10 +112,14 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):",
+      "sha256": "e335b97cc6af549c366ea12d1ddc77a180a2bccd101efec958632f5b567fd5aa",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -152,7 +156,9 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):",
+      "sha256": "c4a3d385ff7bbc75ba53ea314f264b38a0cd0f6cd6f2ce2242a15c55b0514c6d",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -271,12 +271,32 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "12579c969dabf815f428bba54ace4efa0455da408f8523e6828bb4e2c5c898de",
+      "classification": "NECESSARY_DEPENDENCY",
+      "provenance": "A02_CORRECTION",
+      "reason": "Adapt existing A03 integration fixture to WPF, retaining stable uninstall/durable-state assertions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -297,20 +317,32 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "2f60a1905b2267d140df692380154f65b051c25db5ecfd66471e07e1b5d338fe",
+      "classification": "NECESSARY_DEPENDENCY",
+      "provenance": "SALVAGED_UNCHANGED_FROM_A01",
+      "reason": "Adapt existing A03 integration fixture to WPF, retaining stable uninstall/durable-state assertions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -321,9 +353,10 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "6fc5efb82e25208eb89bf2a6e1e823a8c50be56b94e609a4d22bebac383f7f99",
+      "classification": "NECESSARY_DEPENDENCY",
+      "provenance": "SALVAGED_UNCHANGED_FROM_A01",
+      "reason": "Adapt existing A03 integration fixture to WPF, retaining stable uninstall/durable-state assertions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -350,6 +383,9 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "fe802f637be8d7ed387937dc968abb9cf3258dd849f2d5d83b29cc748ea814d9",
+      "classification": "NECESSARY_DEPENDENCY",
+      "provenance": "SALVAGED_UNCHANGED_FROM_A01",
+      "reason": "Adapt existing A03 integration fixture to WPF, retaining stable uninstall/durable-state assertions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_rc1_package.py",
+      "header": "@@ -284,7 +284,9 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
+      "sha256": "782060dbbdc916bb8170ebc1db1c880eda4467fda14c21f897bd62cf2dfcab17",
+      "classification": "NECESSARY_DEPENDENCY",
+      "provenance": "A02_CORRECTION",
+      "reason": "Adapt existing A03 integration fixture to WPF, retaining stable uninstall/durable-state assertions."
+    },
+    {
+      "comparison": "original_runtime_base_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -0,0 +1,220 @@",
+      "sha256": "6c04e5aeb6a601f56f11df8074422f72076210bf1ce5a513ff51d900f2a75280",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -27,6 +27,7 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "517cacbb0e322750f864273efcb8a32b5780e06f20bbc5b1773bbfce5a662913",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -41,7 +42,9 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "41c0ceb2620b5ce86c2f9e3d850f242cd5991c8bbe61b0fa3e5c0acc4f834c87",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -56,10 +59,18 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "f344f0486c7bfb78f60588bf0f7b08b592c5dae8822607294ce888468b1b3848",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -68,6 +79,8 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "cd90524ad4eb6c8e138f24c7ccddeb5fe6ab68f51b658c9a11cb14bae1749ef1",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -100,6 +113,9 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "28c4bae341dc0b2f0a791ebddabf8cb5d08958add6abb73bd14a97950598ce9c",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -129,14 +145,15 @@ def test_launch_twice_exact_singleton_paused_ui_and_graceful_exit(presentation):",
+      "sha256": "cd306d01a7af14cbfd48453eee54607d07a607463aafa657e3ea0f32b1f6e026",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    },
+    {
+      "comparison": "salvage_source_to_final",
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -156,6 +173,15 @@ def test_paused_setup_no_current_dispatch_required_before_launch(presentation, u",
+      "sha256": "4d7d93a8ecfa318a15f1d484f376e0f520428588e0b6653558fe69fad17e241f",
+      "classification": "REQUESTED",
+      "provenance": "A02_CORRECTION",
+      "reason": "Requested pre-G3 presentation-only lifecycle semantics and fail-closed negative regressions."
+    }
+  ],
+  "salvaged_code_hunk_review": [
     {
       "path": "agent_bridge/scripts/certify_user_lifecycle.py",
       "header": "@@ -88,6 +88,107 @@ def certify_uninstall(root, pwsh, config_before, results, evidence):",
       "sha256": "e748cb916333ef1fe57763cef89972f3124feaa2b914f8ae2b1d7f2e8a016509",
-      "classification": "REQUESTED",
-      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "REQUESTED"
     },
     {
       "path": "agent_bridge/scripts/certify_user_lifecycle.py",
       "header": "@@ -101,7 +202,7 @@ def main(package,sha,evidence):",
       "sha256": "c5a6fd388ddb2311d9f970e080fc4fbc47d1d93eccd4bd76a515e88f8503ea71",
-      "classification": "REQUESTED",
-      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "REQUESTED"
     },
     {
       "path": "agent_bridge/scripts/certify_user_lifecycle.py",
       "header": "@@ -112,43 +213,7 @@ def main(package,sha,evidence):",
       "sha256": "7a7f1201fb98ad9c08c5cca40b5c4181d41cafbeefbd87a97f30da5cc06e2c82",
-      "classification": "REQUESTED",
-      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "REQUESTED"
     },
     {
       "path": "agent_bridge/scripts/certify_user_lifecycle.py",
       "header": "@@ -157,6 +222,8 @@ def main(package,sha,evidence):",
       "sha256": "7db4b57a3cf306f1e0e970f98678117b14a67f51cb8f2e6f00be4293d06bd7c6",
-      "classification": "REQUESTED",
-      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "REQUESTED"
     },
     {
       "path": "agent_bridge/tests/test_rc1_package.py",
       "header": "@@ -271,12 +271,30 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
       "sha256": "faaaa282ec6fb12ce12a95ffedfe1c0685938a99b9cdb7aab09435ccf6c1740e",
-      "classification": "NECESSARY_DEPENDENCY",
-      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "NECESSARY_DEPENDENCY"
     },
     {
       "path": "agent_bridge/tests/test_rc1_package.py",
       "header": "@@ -297,20 +315,32 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
       "sha256": "5a7bbb306034d9ef0e28d6b29dccee2136bd57d544d66ff637983022aa38d0eb",
-      "classification": "NECESSARY_DEPENDENCY",
-      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "NECESSARY_DEPENDENCY"
     },
     {
       "path": "agent_bridge/tests/test_rc1_package.py",
       "header": "@@ -321,9 +351,10 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
       "sha256": "cc9da0e417e1404db994ba643fd4c6a583b6cc987fd48e210b22a43e1d3872e9",
-      "classification": "NECESSARY_DEPENDENCY",
-      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "NECESSARY_DEPENDENCY"
     },
     {
       "path": "agent_bridge/tests/test_rc1_package.py",
       "header": "@@ -350,6 +381,9 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal",
       "sha256": "fd79bc7e62fb98f73a46b9cbd36fc8ced86f8e406f1d4ab37db982ddda8176f8",
-      "classification": "NECESSARY_DEPENDENCY",
-      "reason": "Adapt existing A03 end-to-end fixtures to WPF without changing supervisor assertions."
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "NECESSARY_DEPENDENCY"
     },
     {
       "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
       "header": "@@ -0,0 +1,194 @@",
-      "sha256": "cfea0f4a3bd7dfa0626e1b28a4a269b87fc4708728b2e47c0dde444dc0bdcda3",
-      "classification": "REQUESTED",
-      "reason": "Implement and regress the requested presentation-only pre-G3 lifecycle contract."
+      "sha256": "19fdf0232a1e4fed65ed2193d21e492a83c9d0198d112b0b18da01ed31eadacb",
+      "verdict": "KEPT_REQUIRED; A02 corrections restricted to safe-control completeness, sharing-violation proof and process-query failure handling.",
+      "classification": "REQUESTED"
     }
   ],
   "UNEXPLAINED": 0,
-  "evidence_classification": "JUSTIFIED_GENERATED; verification scripts NECESSARY_DEPENDENCY"
+  "evidence_classification": "JUSTIFIED_GENERATED; executable evidence helpers NECESSARY_DEPENDENCY",
+  "note": "Original-to-final hunks containing both salvage and A02 corrections are tagged A02_CORRECTION; unchanged surrounding salvage is retained."
 }

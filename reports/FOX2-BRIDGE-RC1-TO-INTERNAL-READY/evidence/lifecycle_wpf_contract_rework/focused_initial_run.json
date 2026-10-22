@@ -1,0 +1,26 @@
+{
+  "name": "focused_initial",
+  "suite": "focused",
+  "argv": [
+    "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-m",
+    "pytest",
+    "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+    "agent_bridge/tests/test_rc1_launcher.py",
+    "agent_bridge/tests/test_rc1_package.py",
+    "agent_bridge/tests/test_installation.py",
+    "-v",
+    "--tb=short"
+  ],
+  "cwd": "C:\\Projects\\FOX2\\.git\\wpf-a02-test",
+  "environment": {
+    "PYTHONPATH": "C:\\Projects\\FOX2\\.git\\wpf-a02-test\\agent_bridge\\src",
+    "process_core_longpaths": false
+  },
+  "started_at_utc": "2026-10-22T02:32:37.283577+00:00",
+  "finished_at_utc": "2026-10-22T02:32:41.538176+00:00",
+  "exit_code": 0,
+  "status": "PASS",
+  "log": "focused_initial.log",
+  "output_tail": "============================= 103 passed in 3.34s ============================="
+}

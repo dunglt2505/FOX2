@@ -1,514 +1,215 @@
 {
-  "checked_at_utc": "2026-10-21T17:31:33.324699+00:00",
+  "checked_at_utc": "2026-10-22T02:32:13.206519+00:00",
   "status": "PASS",
-  "stage": "OFFLINE_BUILD_CORRECTION",
+  "stage": "OFFLINE_BUILD_CORRECTION_A02",
   "claim": {
-    "schema_version": "1.0",
-    "claim_type": "FOX2_DURABLE_MANUAL_AGENT_ATTEMPT",
-    "project": "FOX2",
-    "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-    "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01",
-    "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
-    "dispatch_commit": "b7894655bb53ac302279439d024de7822139abe5",
-    "dispatch_blob": "cd91624ff7d85cb23f04bf60d2ee641601f7afc1",
-    "dispatch_control_branch": "work/FOX2-DISPATCH-chat",
-    "task_branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-20261022",
-    "runtime_base": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
-    "failed_result_source": "9dd91becf47d934183baf147d0a4f03f4bf5933d",
-    "product_source": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
-    "task_commit": "aabe81fad8a465ea12a763fd4cccc54670dd707f",
-    "task_blob": "e6503c2a817450f270ab674ce1cd723019961dce",
-    "task_sha256": "50bf03fc9fdb149dd7b4d0a3edf4bd2acbc26ec0000f39208b17b9d2f7bc2b01",
-    "prompt_commit": "de3f6768fa01b1396b6686f3c06c103669bcd24d",
-    "prompt_blob": "5bd037b3536592d31e68b3b5e5929b84fb48d50f",
-    "prompt_sha256": "88359fad2607aeb7669f3678966390a118c131d9849697c24a8505e3d9932dd9",
-    "preexec_receipt_commit": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
-    "preexec_receipt_blob": "66fc3c02a35ad05b40faed578ecd0355472111ee",
-    "pass_to_assign_commit": "af221e3a7e84f3a6489a59fbd70dbc7e86163040",
-    "agent": "CODEX",
-    "model": "gpt-6.1-sol",
-    "reasoning_effort": "high",
-    "permission_profile": "FULL_ACCESS",
-    "execution_path": "MANUAL_LOCAL",
-    "max_runs": 1,
-    "attempt_number": 1,
-    "state": "STARTED_CONSUMED",
-    "dispatch_consumed": true,
-    "no_replay_after_consume": true,
-    "created_at_utc": "2026-10-21T17:26:48.2901671Z",
-    "updated_at_utc": "2026-10-21T17:26:49.7835462Z",
-    "pid": 1784,
-    "exit_code": null,
-    "local_head_after": null,
-    "remote_head_after": null,
-    "worktree_dirty_after": null,
+    "process_id": 3496,
+    "task_commit": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
+    "schema": "FOX2_AGENT_ATTEMPT_CLAIM_V1",
     "result_delivery": "RUNNING",
-    "consumed_at_utc": "2026-10-21T17:26:49.7540763Z",
-    "started_at_utc": "2026-10-21T17:26:49.7811740Z"
+    "agent_started": true,
+    "dispatch_commit": "126e8d857e7e4964fe05a47d558215763779535f",
+    "runtime_base": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+    "created_at_utc": "2026-10-22T02:29:27.9133879Z",
+    "recovery_snapshot": "1a11fa0b232a69f0c26a0b4029c331ee2a8c840f",
+    "reasoning": "high",
+    "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02",
+    "permission_profile": "FULL_ACCESS",
+    "dispatch_blob": "0997c8126e24dbf973949fb14610324b49b99bdc",
+    "dispatch_consumed": true,
+    "started_at_utc": "2026-10-22T02:29:30.5759665Z",
+    "prompt_commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+    "state": "RUNNING_CONSUMED",
+    "no_replay_after_consume": true,
+    "project": "FOX2",
+    "prompt_sha256": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201",
+    "model": "gpt-6.1-sol",
+    "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001"
   },
-  "dispatch_path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001.json",
-  "dispatch_sha256": "7e7aba25c1e6274870c2dfad1a9255ee89ed0def2fef06401b9ea871c61734d8",
-  "remote_task_head_at_entry": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
-  "remote_control_head": "b7894655bb53ac302279439d024de7822139abe5",
+  "dispatch_path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001.json",
+  "dispatch_sha256": "b4ee5b36de3a85318dafcafcc2593b2f4c94433f8c82a723264743324cc02aac",
   "bindings": [
     {
       "name": "task",
-      "commit": "aabe81fad8a465ea12a763fd4cccc54670dd707f",
-      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework/task.md",
-      "sha256": "50bf03fc9fdb149dd7b4d0a3edf4bd2acbc26ec0000f39208b17b9d2f7bc2b01"
+      "commit": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/task.md",
+      "blob": "3beb3bf2f3c2a76dcd8b10308f3670da98e70424",
+      "sha256": "7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c"
     },
     {
       "name": "prompt",
-      "commit": "de3f6768fa01b1396b6686f3c06c103669bcd24d",
-      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework/prompt.md",
-      "sha256": "88359fad2607aeb7669f3678966390a118c131d9849697c24a8505e3d9932dd9"
+      "commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/prompt.md",
+      "blob": "faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2",
+      "sha256": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201"
     },
     {
       "name": "policy",
       "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
       "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "blob": "2d373f374f906bf7959062050bbeae5350b0c482",
       "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e"
     },
     {
       "name": "dictionary",
       "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
       "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "blob": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
       "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+    },
+    {
+      "name": "routing",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "blob": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205"
+    },
+    {
+      "name": "preexec",
+      "commit": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/lifecycle_wpf_contract_rework_a02_preflight.json",
+      "blob": "827fb02b57a49483b8a5be7589170d38cbb9df59",
+      "sha256": "0d265137e1567a2b47999e99716cacca9c6121bb2ac606688b949b4f88aa6c2f"
+    },
+    {
+      "name": "protocol",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6"
     }
   ],
-  "writer_lock": "OBSERVED_EXCLUSIVE_LOCK_HELD_BY_LAUNCHER",
-  "writer_observation": "Initial process inventory: one task-scoped CODEX exec PID 1784; this process. No subagents.",
-  "entry_worktree": "CLEAN; observed before source writes",
-  "pre_start_product_changes": [],
-  "test_snapshot": "C:\\Projects\\FOX2\\.git\\wpf-a01-test",
-  "test_snapshot_files": [
-    {
-      "path": "agent_bridge/.gitignore",
-      "sha256": "6827323a3fa1eb25744536d38836f4a091aabc53a2268967ba451a3f7acdff70"
-    },
-    {
-      "path": "agent_bridge/README.md",
-      "sha256": "b1c8b2660072b537cdcc7fbfe118327c20a178feb2c276f78d86a61430b732be"
-    },
-    {
-      "path": "agent_bridge/desktop_app/FOX2.Bridge.Desktop.sln",
-      "sha256": "0aaf8d7145566552b7203933d651c7523cac1b69d77f737975fbbdc9c34ece41"
-    },
-    {
-      "path": "agent_bridge/desktop_app/README.md",
-      "sha256": "d6eba39b8f09ae2755e2ba8148a4d6a6379ab3e4106d88d5a5c2401f742188bf"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml",
-      "sha256": "2e081fcb0eb2405c2a400f453cd7f65f42147e197c6cca71119a0a019692786b"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml.cs",
-      "sha256": "fb2aa0c57913a36df19eac6f3e20dc59e4c32157102028cb3f256a4495adb2fd"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/AssemblyInfo.cs",
-      "sha256": "f5f2b275d0c591d4801db591af407e57ff9583c636b5385091402ff67d5c2de6"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj",
-      "sha256": "c665ca525e3dfb0c3931c0b2e80d0ea10423a2a066fd08ad0eb160a8fa274fb5"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml",
-      "sha256": "df667cc6bd40fbcad13304aae89219f3ecf54e5b0e8bfc97e7abb857025d96f4"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml.cs",
-      "sha256": "b5c98c02a803b654b356b2d4414b06ec1a5d4a307449b9fb023adf3f40127b17"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/ArtifactVaultService.cs",
-      "sha256": "24d14ff4e636f82e8764ccb18e60b3e7c457f331ca6b3ab0fd6359d748938f16"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/BridgeControlClient.cs",
-      "sha256": "affd760b2fa9ca8bd59119926a4dd2e3ef6f19d29e2d3c10812177636241af26"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/DesktopPreferences.cs",
-      "sha256": "d415855b566ff1e1038a493146fccfdf0f6bac2183d020db9bf590b972e984bd"
-    },
-    {
-      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/ViewModels/MainViewModel.cs",
-      "sha256": "92ae99ca8c4812448868f54c7d52f408e9a7a1774514fd845f1223eee8ca3827"
-    },
-    {
-      "path": "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/FOX2.Bridge.Desktop.ContractTests.csproj",
-      "sha256": "208e652ac5233b61265732d8c03e4ca499aa6104453af153349b3e6d5ef78187"
-    },
-    {
-      "path": "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/Program.cs",
-      "sha256": "31ee1816d8c940b02feb4dccecb4c8dbe1ac14cb31a675ffb73c476642681c56"
-    },
-    {
-      "path": "agent_bridge/pyproject.toml",
-      "sha256": "c5b9db9449634a99b8a5abf987e3bd217963be8dba69f3ba64570cf6912ad011"
-    },
-    {
-      "path": "agent_bridge/reports/BRG-003_RESULT.md",
-      "sha256": "f8c4cb4fc5e6c4b9b84a944b0515e66cdf59820dab4b81692ddce095162ba650"
-    },
-    {
-      "path": "agent_bridge/scripts/bridge_ops.ps1",
-      "sha256": "ee55fe1f11640f62e04125cb4cd7f0dd45d6f2b7a3713d9c562100a9a7892be1"
-    },
-    {
-      "path": "agent_bridge/scripts/build_user_package.py",
-      "sha256": "8e937d23304d061bd5f051e804a64734c90f1b0b7eb4ad6d4c2398ebd1565d43"
-    },
-    {
-      "path": "agent_bridge/scripts/certify_rc1_installed.py",
-      "sha256": "459f172d40abe8996c348e2623af06a66233775c356ad6069fc85c50674d1fe0"
-    },
-    {
-      "path": "agent_bridge/scripts/certify_rc1_ui.ps1",
-      "sha256": "76b8dbaac66ab448f3bfeec642c4e66ee023eb7583e65cf0892b38a3310661f9"
-    },
-    {
-      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
-      "sha256": "c744d5cdaf0c51802c17d270b5a1435031e69208f9548a6d8293c113d613af37"
-    },
-    {
-      "path": "agent_bridge/scripts/copilot_smoke.ps1",
-      "sha256": "c5ccd01530bd78258c0af3701c781203a5da244aa338524daba5e1f758aa84d0"
-    },
-    {
-      "path": "agent_bridge/scripts/desktop_launcher.ps1",
-      "sha256": "a1a9225d99e475ec121ee07fdc1920bd1a2d0dbc9b91f768376a5394600b33bc"
-    },
-    {
-      "path": "agent_bridge/scripts/desktop_setup.ps1",
-      "sha256": "dffacbd4aa4907fb9016723b6d38a0e9780127dc94b6c688a6492d47d1b9d03a"
-    },
-    {
-      "path": "agent_bridge/scripts/desktop_startup.ps1",
-      "sha256": "393ca7d7627e2f8673ed139ff3d913498aef626f5ff69f4ee73922724a9e73b9"
-    },
-    {
-      "path": "agent_bridge/scripts/desktop_tray.ps1",
-      "sha256": "aa6015dd999dec7153ac459b5570e5ee7baaab583147577e5e2b2b8ceb27df0b"
-    },
-    {
-      "path": "agent_bridge/scripts/e2e_canary.ps1",
-      "sha256": "00440c8393539c8f126086a01c607de749f0b02d01fe01b825765066b08c24f7"
-    },
-    {
-      "path": "agent_bridge/scripts/f1_g3_host_preexec.ps1",
-      "sha256": "5ba3bf7353f7229848f4d17e4c84a4015056337ad7e93d3db5b01d08b6054a57"
-    },
-    {
-      "path": "agent_bridge/scripts/f1_host_discovery_readonly.ps1",
-      "sha256": "51911ea8fb58564fe6a924db30e5a266f3dbf1f57bd8a72d327e54e451135e8b"
-    },
-    {
-      "path": "agent_bridge/scripts/f1_inventory.ps1",
-      "sha256": "8119375758057541f320ab67a5a4053536f5865fa1b4a9fd3b47975962ca7e0c"
-    },
-    {
-      "path": "agent_bridge/scripts/f1_policy_artifact.py",
-      "sha256": "9dcef27f9076112928b97f43f26de89985fa65ad61dc1e63984ebd07b278f969"
-    },
-    {
-      "path": "agent_bridge/scripts/generate_dispatch_schema_v3_contract.py",
-      "sha256": "851218826c049f1592e255849a445319bdef6338a381c21c2b2cb3086d625d1d"
-    },
-    {
-      "path": "agent_bridge/scripts/generate_project_dictionary.py",
-      "sha256": "d0fcaf6f4c64d9999bdcc184916665cc5fa2a1b77eb18e6a4cb43603c15fdb50"
-    },
-    {
-      "path": "agent_bridge/scripts/install_user.ps1",
-      "sha256": "e653f24eab16be4347b0d2e8e63406bd1a4faeac73a0e1af637dc309888d5bf8"
-    },
-    {
-      "path": "agent_bridge/scripts/preexec.py",
-      "sha256": "46556418363f26ea46c6384b3a61d85bf1022482814961365a5021ed746e3f22"
-    },
-    {
-      "path": "agent_bridge/scripts/validate_batch_a.py",
-      "sha256": "ea951924010f9a232bda682fa91fb7a8432c686cf705b1d9c7b8d6a017abd993"
-    },
-    {
-      "path": "agent_bridge/scripts/validate_desktop_delivery.py",
-      "sha256": "9e8fbf7c266d930cd491de3249f69b17cde1bab0c072827c6dfe0e950c327738"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/__init__.py",
-      "sha256": "28655f98fe3ba91caa6c2a756a64271ab27dbd47a0f530adc4c4edfcb1cd87a2"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/__main__.py",
-      "sha256": "075a1f90656d004bcee7e4ab2b8fca8b4a6c017ef7d8adcb469e540b5512afff"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/agent_policy.py",
-      "sha256": "993dd8bf27cd3b44ce6179d57687b8851441aa02d23673fc9ef669699011fd5c"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/app.py",
-      "sha256": "e315f823b512cbde1b86a6d2b2be8ef2fe69d65828ac42e5ec28061b5219ff74"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/artifacts.py",
-      "sha256": "50123cd9be170eb55fdc228d6ec75675137240238cdf723179794483941aefdb"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/codex_adapter.py",
-      "sha256": "12fd4705348ffa1ff82ea4bbe1e5571bc57f3afa7e72b806215b406c7ef8cf99"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/config.py",
-      "sha256": "5389a285947ef17ab4f746c0b4c7b74f9e6f9de645dfaf634c2997bf0a788527"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/copilot_adapter.py",
-      "sha256": "d4886cd3777334f55062992e158a61adf78915eb4789b9c3513645bacc93b48d"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/desktop.py",
-      "sha256": "7e87471675f9c2065b60142902e46d2ef3a69b3b170b3c19b7e682b4d9ec92fe"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_normalizer.py",
-      "sha256": "44bc4254b49847ed84dfdffeaca0f7a6d33cf8e9798bfa76c0334dde309011a6"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_poller.py",
-      "sha256": "c02a3a9dd2298ed898ba7207c5d47447b705c8bc76d44f0637fdc3dbef5efcc6"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/dispatch_schema_v3_contract.py",
-      "sha256": "e6528f54c095d2b8ad933a7ef9fc0a5c1e59683f63c4f54dd7546d59d2098422"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/e2e_runner.py",
-      "sha256": "2e785d6921127fcae988d5e5f1037ef8ecc3e7c69a2b904e64f8b74c8e7370d7"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/errors.py",
-      "sha256": "e29a69560250885a4762cd525c9f29e551cded09aa94daa675bfefe032b6cb89"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_authority.py",
-      "sha256": "a93fa6e33aeccc60a3883b623c36ef8d2fd3b5a29dece6088edaea770646ecfb"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_broker_store.py",
-      "sha256": "1cc28469b0b9d48954ee3fbc0ad0fea1170fdb792949a81f216b174353da9541"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_client.py",
-      "sha256": "21ebc4e929b181ec6282263b22a3ce5523cca3ec5123dca9d489103ec70b263c"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_policy.py",
-      "sha256": "3e68e5496551aadd580d6532a35eee5117b57e18a313c9db634c7dc1769ab1eb"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_protocol.py",
-      "sha256": "f3e5f6caf3431c3d1035925afbcd6d4502de23aeabce8721ab66852f504c2c25"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_reconcile.py",
-      "sha256": "b535375be52045ad6c11c93a8147b9e6fcf3f72ba5acb3e3ead2cc32659ab3b6"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_service.py",
-      "sha256": "ec41537f8085d7600e29024922ecd5d90db7dcec9a68636529cf721da5f9c6b9"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/f1_windows.py",
-      "sha256": "701933dec8e336e29c09e92eed859e0fc06650d3fe32914c23b9a14854bb2019"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/hashing.py",
-      "sha256": "74327359f80cf122c5c9dcc8dd9b5c1dbac5dc443bdad3d60332e2d4e529ee8d"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/installation.py",
-      "sha256": "7a49db8c503aec878731f99c0c9eec5098e341fdfec7edf426f115ba7b87267c"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/launcher.py",
-      "sha256": "fe4667caa32c0116deabc6528952db5a2cdb4cc83bd81eea7b00faf87ba9e4e8"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/ledger.py",
-      "sha256": "458a4181143335a50d3c7ccfda0e3daa47fdf141b7a9f7762b9430a360acd4e2"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/logging_config.py",
-      "sha256": "ec3895fd5a81b6e8bedb44c3f3fafffba5ccf9cb457b3f18dc67cc5d7342b6c0"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/models.py",
-      "sha256": "904eeb94a102ed5d77cac800762ef423a8e71d8208166879de2d93126c478137"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/ops_runner.py",
-      "sha256": "9268b9a6e19d492d072ca6a8eb8b782dda86384e98c71c330d6134ce019ac456"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/paths.py",
-      "sha256": "4d151ffe30ee0fd2ac866ace00b488e2b3d453245f859e3ec07f53c5a4b56b3a"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/preexec/__init__.py",
-      "sha256": "51222f065d7b0a84a8bf7a28c2a0ccce0194088024062827727d47ed7890c017"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/preexec/engine.py",
-      "sha256": "0c727a82ccca43ee7a1b63dae142e92282c108acf78d196ef1eb0017d4aa978d"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/preexec/probes.py",
-      "sha256": "6beb9f92c54ed5ed237b9159f7d22a7eeeb03ccdc609e882899fd55fbb6cff96"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/preexec/profiles.py",
-      "sha256": "f037e908419a68fad2b65e3e853afed38ec0f1805c06b577eb709ef3abe6e6d0"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/process_lock.py",
-      "sha256": "4b74d003d5ea07ce427eb30189f2139a025a7d77527b7dd16cab2ca29640384f"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/project_dictionary.py",
-      "sha256": "6ba6570bfa7904641569f053d2138d587d4e7ddb7b99e396b7fc90036726324f"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/result_store.py",
-      "sha256": "a582ccf140c4faa87cb45311a7db2dde9a63a42e4d13b070b0c51ce82f6b48b6"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/runtime_tools.py",
-      "sha256": "22779eeed6c3a8de21fee74ae75849aae9b306b78f09aac9a2814b73ad4322bd"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/schema_validation.py",
-      "sha256": "928b1b2b6f2629d32c1610bd18d9302796f4ed1353e737d625faea846e511d84"
-    },
-    {
-      "path": "agent_bridge/src/fox2_agent_bridge/startup.py",
-      "sha256": "8b548e1d79a0c80a05517294d7511510b4fc2a4bcf686e9e79cc1d859e35eae1"
-    },
-    {
-      "path": "agent_bridge/tests/conftest.py",
-      "sha256": "15fe154540693f39ce6e953a07f0257daf7e8097860ca259697d5b1f3230193c"
-    },
-    {
-      "path": "agent_bridge/tests/test_batch_a.py",
-      "sha256": "c351451ca5f74ed5a05f4d73f094eb0844087242bf0c8daf72503c3fb251bc20"
-    },
-    {
-      "path": "agent_bridge/tests/test_codex_adapter.py",
-      "sha256": "2dc1915de9b5d01942bb45a45e26ad331434812e0e4a333d8fa2433de7895539"
-    },
-    {
-      "path": "agent_bridge/tests/test_config_paths.py",
-      "sha256": "d19216750d7d641023e92ab4a815504b42550a1e293260a3827dd54ab7430c50"
-    },
-    {
-      "path": "agent_bridge/tests/test_copilot_adapter.py",
-      "sha256": "9b37f8dad5ff9b9a2eb96f789a07764733c76f13bd3f20787de24ac0bf9ac478"
-    },
-    {
-      "path": "agent_bridge/tests/test_desktop.py",
-      "sha256": "51c9854588a261b01991d31460ce4d42a8d5b4aed164b69a1742904015089d46"
-    },
-    {
-      "path": "agent_bridge/tests/test_dispatch_poller.py",
-      "sha256": "831bca305138258f2e5150dbc3951986c41d837aaa30e6ac5f648bb3c9f19f9a"
-    },
-    {
-      "path": "agent_bridge/tests/test_e2e_runner.py",
-      "sha256": "f3bb4e93177e07c2fd948c48f37c99d0e529cc126d6db6f6ed2cda9c95e22af5"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_authority.py",
-      "sha256": "f376895195a888a328b401b61435301f9ec31e9b105cd2c825168a6a1674345b"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_broker_store.py",
-      "sha256": "5976bde67769a4e4d55b3a54f96e62cf1740f5b351dfdc71c327b0f766d960a3"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_consumers.py",
-      "sha256": "4cdf56a3143a787f6ddad4d9852fe01fcd8878121d9cd9b9a9622ecd486e5d57"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_host_discovery.py",
-      "sha256": "3bda8f73d0d2833ba3f1333f01406bc38e5a0ab1907b9015837b72fe2703efea"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_host_fence.py",
-      "sha256": "832a6f2940580d59f1f0c48a84f339f2c570fb6dcea3bc1a6c4b2aa40312a234"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_policy.py",
-      "sha256": "c7e2004531a5f6a1fab9c0d9eecd8b9f28279c666c17a648c14c946720e823c3"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_reconcile.py",
-      "sha256": "7d42609a279cd5d06c005b94464731a50d4e3f8b92d781957528ac6b3bfdc360"
-    },
-    {
-      "path": "agent_bridge/tests/test_f1_windows.py",
-      "sha256": "463ee579e7fc1474150117c1c0c01f254b925b5ec61155ab4c2d3d5b17d26aa4"
-    },
-    {
-      "path": "agent_bridge/tests/test_installation.py",
-      "sha256": "5ea4af780ae3d94c1a90b4f5f13761f0bdd727c3d3ff23cdc8668adc8562a858"
-    },
-    {
-      "path": "agent_bridge/tests/test_lock_logging_health.py",
-      "sha256": "f3e4ec092d164d9dc5714442e1b403e302af4ab052b97963ddedff8edfd3f7a2"
-    },
-    {
-      "path": "agent_bridge/tests/test_ops_runner.py",
-      "sha256": "0884d570bbe3191471b61e48262a83213d34c314c9eea9c45fb13f99492fab4b"
-    },
-    {
-      "path": "agent_bridge/tests/test_preexec.py",
-      "sha256": "bfb4fa17d9f86a35b37501f17c0935cad1ff8b75d7fd910cb067ec1546493d67"
-    },
-    {
-      "path": "agent_bridge/tests/test_project_dictionary.py",
-      "sha256": "84320f66993431b603e17eed16261bacef40bda59f530eaceab6f57ea4228c8b"
-    },
-    {
-      "path": "agent_bridge/tests/test_rc1_first_run.py",
-      "sha256": "33ffa34012b897b4e609fcc56e2408c4122079cbcedae15b75d7a5fe2c79395f"
-    },
-    {
-      "path": "agent_bridge/tests/test_rc1_launcher.py",
-      "sha256": "fad88ab0261425135b6c3c9f1c76bef74609ade6f5e914da4a390aec0e40b99b"
-    },
-    {
-      "path": "agent_bridge/tests/test_rc1_package.py",
-      "sha256": "a284a674f101501379550041f70b367ffb896f0656fa8c1186f80ae6979c0c6b"
-    },
-    {
-      "path": "agent_bridge/tests/test_runtime_ledger.py",
-      "sha256": "3a5015778bc2ebdc479726dfbd224e6f850f454dd7fa8f07e4a8d8ae95a74577"
-    },
-    {
-      "path": "agent_bridge/tests/test_tray_lifecycle.py",
-      "sha256": "ca78145a2694eac35d181014b9880f0c13148b6484dcda8799f201f6a08fbc9d"
-    },
-    {
-      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
-      "sha256": "6793b8d01826521b9267de3d6427e6fa27a4eadaefedec8e25ff0c1a9cbd0444"
-    }
+  "remote_task_head_at_entry": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+  "remote_control_head": "126e8d857e7e4964fe05a47d558215763779535f",
+  "pre_start_setup_paths": [
+    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/prompt.md",
+    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/task.md",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/lifecycle_wpf_contract_rework_a02_preflight.json"
   ],
-  "test_snapshot_note": "Detached same-base test worktree with exact byte copies of the three implementation/test files. No test edits or persistent Git/host configuration.",
-  "historical_host_dispatch": "CONSUMED_NO_REPLAY",
+  "pre_start_product_drift": [],
+  "entry_worktree": "CLEAN observed by git status --porcelain before any source/evidence writes",
+  "one_writer": {
+    "status": "PASS",
+    "processes": [
+      {
+        "ProcessId": 3496,
+        "ParentProcessId": 20560,
+        "Name": "codex.exe",
+        "CommandLine": "\"C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe\" --ask-for-approval never exec --sandbox danger-full-access --json --model gpt-6.1-sol -c \"model_reasoning_effort=\\\"high\\\"\" -"
+      }
+    ],
+    "subagents": 0,
+    "cli_version": "codex-cli 0.162.1"
+  },
+  "auth_capacity": "PreExec REV3 authenticated service probe PASS; current pinned execution active; no numeric quota inferred",
+  "source_bytes": "SOURCE_BYTES_VERIFIED",
+  "scoped_authority": "Owner task plus fresh CHAT PASS_TO_ASSIGN and Dispatch; AUTHORITY_VERIFIED for bounded offline BUILD only",
+  "global_effectivity_or_runtime_promotion": "NOT_CLAIMED; TechSpec REV10 CANDIDATE_NO_PROMOTION",
+  "chat_intake": {
+    "commit": "61b75156bb4b241b88a26c0c11cb8af79f79a94b",
+    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/LIFECYCLE_WPF_REWORK_A02_PASS_TO_ASSIGN_20261022.md",
+    "sha256": "01d317432a2ef8d4b1d63b52f6db05fab5b028fdadeb2c1ca7e4a134a4c2d266"
+  },
+  "governance_commit_for_schemas": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+  "result_schema_path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+  "a01_no_replay": {
+    "schema_version": "1.0",
+    "record_type": "FOX2_PARTIAL_AGENT_WIP_RECOVERY_SNAPSHOT",
+    "project": "FOX2",
+    "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+    "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01",
+    "source_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
+    "source_dispatch_commit": "b7894655bb53ac302279439d024de7822139abe5",
+    "source_attempt": 1,
+    "source_actor": "CODEX",
+    "provenance": "LOCAL_WIP_FROM_CONSUMED_CODEX_ATTEMPT",
+    "publisher_role": "OWNER_HOST_RECOVERY_CAPTURE",
+    "source_attempt_state": "EXITED_CONSUMED",
+    "source_attempt_exit_code": 1,
+    "source_attempt_delivery": "NEEDS_RECONCILIATION",
+    "failure_class": "CODEX_USAGE_LIMIT",
+    "replay_allowed": false,
+    "chat_accepted": false,
+    "result_contract_complete": false,
+    "snapshot_is_agent_result": false,
+    "base_sha": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+    "task_branch_remote_at_capture": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+    "control_branch_remote_at_capture": "b7894655bb53ac302279439d024de7822139abe5",
+    "changed_path_count": 9,
+    "unauthorized_path_count": 0,
+    "diff_check": "PASS",
+    "tests": "NOT_VERIFIED",
+    "k1": "NOT_VERIFIED",
+    "static_checks": "NOT_VERIFIED",
+    "real_host_lifecycle": "NOT_RUN",
+    "worker_f1_start": false,
+    "g3_allowed": false,
+    "captured_at_utc": "2026-10-21T17:39:24.8134238Z",
+    "files": [
+      {
+        "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+        "bytes": 12149,
+        "sha256": "c744d5cdaf0c51802c17d270b5a1435031e69208f9548a6d8293c113d613af37",
+        "scope_class": "ALLOWED_CODE"
+      },
+      {
+        "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+        "bytes": 9638,
+        "sha256": "6793b8d01826521b9267de3d6427e6fa27a4eadaefedec8e25ff0c1a9cbd0444",
+        "scope_class": "ALLOWED_CODE"
+      },
+      {
+        "path": "agent_bridge/tests/test_rc1_package.py",
+        "bytes": 21416,
+        "sha256": "a284a674f101501379550041f70b367ffb896f0656fa8c1186f80ae6979c0c6b",
+        "scope_class": "ALLOWED_CODE"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+        "bytes": 16869,
+        "sha256": "41f90949e3e2ce3486ae2e8335d171fcd198dfcb5bf3da6cb64626f299797ce1",
+        "scope_class": "ALLOWED_EVIDENCE"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+        "bytes": 4997,
+        "sha256": "a427f18a3d478614981019920830e407bbd69d2c927bf9bfebedb86ee867b635",
+        "scope_class": "ALLOWED_EVIDENCE"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
+        "bytes": 3756,
+        "sha256": "b3410ed0e780a3b532fca101e09ea3cea345e6113217b7b2b7da3c251186358e",
+        "scope_class": "ALLOWED_EVIDENCE"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
+        "bytes": 21967,
+        "sha256": "3dabd882248ea06cafbdc45e51c5a4b3dbe958f372ec7964aba627401b42ea25",
+        "scope_class": "ALLOWED_EVIDENCE"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
+        "bytes": 3094,
+        "sha256": "0f1421dbfd3df00ecf78b432b09516d01e256a9178faf2d3754fc27e48439742",
+        "scope_class": "ALLOWED_EVIDENCE"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+        "bytes": 6510,
+        "sha256": "5f8acf3c3b3fa55b1578abf188cf887049542bf37bd514b5abc691137cf8d067",
+        "scope_class": "ALLOWED_EVIDENCE"
+      }
+    ]
+  },
+  "recovery_provenance_sha256": "ee2511234bac861916b092c94cebc7162041b64c612988882e64e3fbe2a94c50",
   "real_host_lifecycle": "NOT_RUN",
-  "worker_f1_g3_g4_canary_mutation": "NOT_RUN"
+  "worker_f1_g3_g4_canary_mutation": "NOT_RUN",
+  "skill_coverage": {
+    "source-resolver": "APPLIED",
+    "governance-preflight": "APPLIED",
+    "agent-route-runtime": "APPLIED: existing pinned route",
+    "result-review": "N_A: independent CHAT intake follows delivery",
+    "feature-certification": "N_A: offline BUILD verification only; no feature promotion",
+    "agent-prompt-builder": "N_A: consuming existing assignment; no new handoff"
+  }
 }

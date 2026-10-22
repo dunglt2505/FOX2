@@ -1,0 +1,368 @@
+Initial generated-evidence formatting check
+exit=2
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py:210: trailing whitespace.
++print(final.stdout, end='')
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py:105: trailing whitespace.
++print('A02 source/task/prompt/Dispatch/schema/PreExec/claim/one-writer/no-replay: PASS')
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:2: trailing whitespace.
++  "checked_at_utc": "2026-10-22T02:32:13.206519+00:00",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:4: trailing whitespace.
++  "stage": "OFFLINE_BUILD_CORRECTION_A02",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:6: trailing whitespace.
++    "process_id": 3496,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:7: trailing whitespace.
++    "task_commit": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:8: trailing whitespace.
++    "schema": "FOX2_AGENT_ATTEMPT_CLAIM_V1",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:9: trailing whitespace.
++    "result_delivery": "RUNNING",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:10: trailing whitespace.
++    "agent_started": true,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:11: trailing whitespace.
++    "dispatch_commit": "126e8d857e7e4964fe05a47d558215763779535f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:12: trailing whitespace.
++    "runtime_base": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:13: trailing whitespace.
++    "created_at_utc": "2026-10-22T02:29:27.9133879Z",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:14: trailing whitespace.
++    "recovery_snapshot": "1a11fa0b232a69f0c26a0b4029c331ee2a8c840f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:15: trailing whitespace.
++    "reasoning": "high",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:16: trailing whitespace.
++    "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:18: trailing whitespace.
++    "dispatch_blob": "0997c8126e24dbf973949fb14610324b49b99bdc",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:20: trailing whitespace.
++    "started_at_utc": "2026-10-22T02:29:30.5759665Z",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:21: trailing whitespace.
++    "prompt_commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:22: trailing whitespace.
++    "state": "RUNNING_CONSUMED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:24: trailing whitespace.
++    "project": "FOX2",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:25: trailing whitespace.
++    "prompt_sha256": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:26: trailing whitespace.
++    "model": "gpt-6.1-sol",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:27: trailing whitespace.
++    "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:29: trailing whitespace.
++  "dispatch_path": "docs/agent_handoff/DISPATCH/FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001.json",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:30: trailing whitespace.
++  "dispatch_sha256": "b4ee5b36de3a85318dafcafcc2593b2f4c94433f8c82a723264743324cc02aac",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:34: trailing whitespace.
++      "commit": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:35: trailing whitespace.
++      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/task.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:36: trailing whitespace.
++      "blob": "3beb3bf2f3c2a76dcd8b10308f3670da98e70424",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:37: trailing whitespace.
++      "sha256": "7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:41: trailing whitespace.
++      "commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:42: trailing whitespace.
++      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/prompt.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:43: trailing whitespace.
++      "blob": "faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:44: trailing whitespace.
++      "sha256": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:50: trailing whitespace.
++      "blob": "2d373f374f906bf7959062050bbeae5350b0c482",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:57: trailing whitespace.
++      "blob": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:61: trailing whitespace.
++      "name": "routing",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:62: trailing whitespace.
++      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:63: trailing whitespace.
++      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:64: trailing whitespace.
++      "blob": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:65: trailing whitespace.
++      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:68: trailing whitespace.
++      "name": "preexec",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:69: trailing whitespace.
++      "commit": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:70: trailing whitespace.
++      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/lifecycle_wpf_contract_rework_a02_preflight.json",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:71: trailing whitespace.
++      "blob": "827fb02b57a49483b8a5be7589170d38cbb9df59",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:72: trailing whitespace.
++      "sha256": "0d265137e1567a2b47999e99716cacca9c6121bb2ac606688b949b4f88aa6c2f"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:75: trailing whitespace.
++      "name": "protocol",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:76: trailing whitespace.
++      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:77: trailing whitespace.
++      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:78: trailing whitespace.
++      "sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:81: trailing whitespace.
++  "remote_task_head_at_entry": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:82: trailing whitespace.
++  "remote_control_head": "126e8d857e7e4964fe05a47d558215763779535f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:83: trailing whitespace.
++  "pre_start_setup_paths": [
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:84: trailing whitespace.
++    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/prompt.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:85: trailing whitespace.
++    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/task.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:86: trailing whitespace.
++    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/lifecycle_wpf_contract_rework_a02_preflight.json"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:87: trailing whitespace.
++  ],
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:88: trailing whitespace.
++  "pre_start_product_drift": [],
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:89: trailing whitespace.
++  "entry_worktree": "CLEAN observed by git status --porcelain before any source/evidence writes",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:90: trailing whitespace.
++  "one_writer": {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:91: trailing whitespace.
++    "status": "PASS",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:92: trailing whitespace.
++    "processes": [
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:93: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:94: trailing whitespace.
++        "ProcessId": 3496,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:95: trailing whitespace.
++        "ParentProcessId": 20560,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:96: trailing whitespace.
++        "Name": "codex.exe",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:97: trailing whitespace.
++        "CommandLine": "\"C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe\" --ask-for-approval never exec --sandbox danger-full-access --json --model gpt-6.1-sol -c \"model_reasoning_effort=\\\"high\\\"\" -"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:98: trailing whitespace.
++      }
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:99: trailing whitespace.
++    ],
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:100: trailing whitespace.
++    "subagents": 0,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:101: trailing whitespace.
++    "cli_version": "codex-cli 0.162.1"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:102: trailing whitespace.
++  },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:103: trailing whitespace.
++  "auth_capacity": "PreExec REV3 authenticated service probe PASS; current pinned execution active; no numeric quota inferred",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:104: trailing whitespace.
++  "source_bytes": "SOURCE_BYTES_VERIFIED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:105: trailing whitespace.
++  "scoped_authority": "Owner task plus fresh CHAT PASS_TO_ASSIGN and Dispatch; AUTHORITY_VERIFIED for bounded offline BUILD only",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:106: trailing whitespace.
++  "global_effectivity_or_runtime_promotion": "NOT_CLAIMED; TechSpec REV10 CANDIDATE_NO_PROMOTION",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:107: trailing whitespace.
++  "chat_intake": {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:108: trailing whitespace.
++    "commit": "61b75156bb4b241b88a26c0c11cb8af79f79a94b",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:109: trailing whitespace.
++    "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/LIFECYCLE_WPF_REWORK_A02_PASS_TO_ASSIGN_20261022.md",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:110: trailing whitespace.
++    "sha256": "01d317432a2ef8d4b1d63b52f6db05fab5b028fdadeb2c1ca7e4a134a4c2d266"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:111: trailing whitespace.
++  },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:112: trailing whitespace.
++  "governance_commit_for_schemas": "d34da1e3b4918a902646621b487ca8ad3e05b0e0",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:113: trailing whitespace.
++  "result_schema_path": "docs/agent_handoff/FOX2_AGENT_RESULT_SCHEMA_v2.json",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:114: trailing whitespace.
++  "a01_no_replay": {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:115: trailing whitespace.
++    "schema_version": "1.0",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:116: trailing whitespace.
++    "record_type": "FOX2_PARTIAL_AGENT_WIP_RECOVERY_SNAPSHOT",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:117: trailing whitespace.
++    "project": "FOX2",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:118: trailing whitespace.
++    "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:119: trailing whitespace.
++    "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:120: trailing whitespace.
++    "source_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:121: trailing whitespace.
++    "source_dispatch_commit": "b7894655bb53ac302279439d024de7822139abe5",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:122: trailing whitespace.
++    "source_attempt": 1,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:123: trailing whitespace.
++    "source_actor": "CODEX",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:124: trailing whitespace.
++    "provenance": "LOCAL_WIP_FROM_CONSUMED_CODEX_ATTEMPT",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:125: trailing whitespace.
++    "publisher_role": "OWNER_HOST_RECOVERY_CAPTURE",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:126: trailing whitespace.
++    "source_attempt_state": "EXITED_CONSUMED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:127: trailing whitespace.
++    "source_attempt_exit_code": 1,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:128: trailing whitespace.
++    "source_attempt_delivery": "NEEDS_RECONCILIATION",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:129: trailing whitespace.
++    "failure_class": "CODEX_USAGE_LIMIT",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:130: trailing whitespace.
++    "replay_allowed": false,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:131: trailing whitespace.
++    "chat_accepted": false,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:132: trailing whitespace.
++    "result_contract_complete": false,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:133: trailing whitespace.
++    "snapshot_is_agent_result": false,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:134: trailing whitespace.
++    "base_sha": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:135: trailing whitespace.
++    "task_branch_remote_at_capture": "e7d5acf51dddcbc95324a992ad6be2773e61285f",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:136: trailing whitespace.
++    "control_branch_remote_at_capture": "b7894655bb53ac302279439d024de7822139abe5",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:137: trailing whitespace.
++    "changed_path_count": 9,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:138: trailing whitespace.
++    "unauthorized_path_count": 0,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:139: trailing whitespace.
++    "diff_check": "PASS",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:140: trailing whitespace.
++    "tests": "NOT_VERIFIED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:141: trailing whitespace.
++    "k1": "NOT_VERIFIED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:142: trailing whitespace.
++    "static_checks": "NOT_VERIFIED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:143: trailing whitespace.
++    "real_host_lifecycle": "NOT_RUN",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:144: trailing whitespace.
++    "worker_f1_start": false,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:145: trailing whitespace.
++    "g3_allowed": false,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:146: trailing whitespace.
++    "captured_at_utc": "2026-10-21T17:39:24.8134238Z",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:147: trailing whitespace.
++    "files": [
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:148: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:149: trailing whitespace.
++        "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:150: trailing whitespace.
++        "bytes": 12149,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:151: trailing whitespace.
++        "sha256": "c744d5cdaf0c51802c17d270b5a1435031e69208f9548a6d8293c113d613af37",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:152: trailing whitespace.
++        "scope_class": "ALLOWED_CODE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:153: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:154: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:155: trailing whitespace.
++        "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:156: trailing whitespace.
++        "bytes": 9638,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:157: trailing whitespace.
++        "sha256": "6793b8d01826521b9267de3d6427e6fa27a4eadaefedec8e25ff0c1a9cbd0444",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:158: trailing whitespace.
++        "scope_class": "ALLOWED_CODE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:159: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:160: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:161: trailing whitespace.
++        "path": "agent_bridge/tests/test_rc1_package.py",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:162: trailing whitespace.
++        "bytes": 21416,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:163: trailing whitespace.
++        "sha256": "a284a674f101501379550041f70b367ffb896f0656fa8c1186f80ae6979c0c6b",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:164: trailing whitespace.
++        "scope_class": "ALLOWED_CODE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:165: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:166: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:167: trailing whitespace.
++        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:168: trailing whitespace.
++        "bytes": 16869,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:169: trailing whitespace.
++        "sha256": "41f90949e3e2ce3486ae2e8335d171fcd198dfcb5bf3da6cb64626f299797ce1",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:170: trailing whitespace.
++        "scope_class": "ALLOWED_EVIDENCE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:171: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:172: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:173: trailing whitespace.
++        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:174: trailing whitespace.
++        "bytes": 4997,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:175: trailing whitespace.
++        "sha256": "a427f18a3d478614981019920830e407bbd69d2c927bf9bfebedb86ee867b635",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:176: trailing whitespace.
++        "scope_class": "ALLOWED_EVIDENCE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:177: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:178: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:179: trailing whitespace.
++        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:180: trailing whitespace.
++        "bytes": 3756,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:181: trailing whitespace.
++        "sha256": "b3410ed0e780a3b532fca101e09ea3cea345e6113217b7b2b7da3c251186358e",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:182: trailing whitespace.
++        "scope_class": "ALLOWED_EVIDENCE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:183: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:184: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:185: trailing whitespace.
++        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:186: trailing whitespace.
++        "bytes": 21967,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:187: trailing whitespace.
++        "sha256": "3dabd882248ea06cafbdc45e51c5a4b3dbe958f372ec7964aba627401b42ea25",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:188: trailing whitespace.
++        "scope_class": "ALLOWED_EVIDENCE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:189: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:190: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:191: trailing whitespace.
++        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:192: trailing whitespace.
++        "bytes": 3094,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:193: trailing whitespace.
++        "sha256": "0f1421dbfd3df00ecf78b432b09516d01e256a9178faf2d3754fc27e48439742",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:194: trailing whitespace.
++        "scope_class": "ALLOWED_EVIDENCE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:195: trailing whitespace.
++      },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:196: trailing whitespace.
++      {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:197: trailing whitespace.
++        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:198: trailing whitespace.
++        "bytes": 6510,
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:199: trailing whitespace.
++        "sha256": "5f8acf3c3b3fa55b1578abf188cf887049542bf37bd514b5abc691137cf8d067",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:200: trailing whitespace.
++        "scope_class": "ALLOWED_EVIDENCE"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:201: trailing whitespace.
++      }
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:202: trailing whitespace.
++    ]
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:203: trailing whitespace.
++  },
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:204: trailing whitespace.
++  "recovery_provenance_sha256": "ee2511234bac861916b092c94cebc7162041b64c612988882e64e3fbe2a94c50",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:206: trailing whitespace.
++  "worker_f1_g3_g4_canary_mutation": "NOT_RUN",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:207: trailing whitespace.
++  "skill_coverage": {
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:208: trailing whitespace.
++    "source-resolver": "APPLIED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:209: trailing whitespace.
++    "governance-preflight": "APPLIED",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:210: trailing whitespace.
++    "agent-route-runtime": "APPLIED: existing pinned route",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:211: trailing whitespace.
++    "result-review": "N_A: independent CHAT intake follows delivery",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:212: trailing whitespace.
++    "feature-certification": "N_A: offline BUILD verification only; no feature promotion",
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:213: trailing whitespace.
++    "agent-prompt-builder": "N_A: consuming existing assignment; no new handoff"
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json:214: trailing whitespace.
++  }
+reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py:176: trailing whitespace.
++    validate_manifest() if '--manifest-only' in sys.argv else check()

@@ -1,43 +1,161 @@
 {
-  "checked_at_utc": "2026-10-21T17:32:01.544888+00:00",
+  "checked_at_utc": "2026-10-22T02:38:51.454944+00:00",
   "python_syntax_compile": [
     {
       "path": "agent_bridge/scripts/certify_user_lifecycle.py",
-      "sha256": "c744d5cdaf0c51802c17d270b5a1435031e69208f9548a6d8293c113d613af37",
+      "sha256": "68e6b3298816f23728e09d95812b576c68f4b8e273b15b5c0841b0fc7576fb80",
       "status": "PASS"
     },
     {
       "path": "agent_bridge/tests/test_rc1_package.py",
-      "sha256": "a284a674f101501379550041f70b367ffb896f0656fa8c1186f80ae6979c0c6b",
+      "sha256": "9f97b909d2e206c92633101511aefa568570a0a8178a2fdbd5952bfc1958b5c7",
+      "status": "PASS"
+    },
+    {
+      "path": "agent_bridge/tests/test_rc1_launcher.py",
+      "sha256": "fad88ab0261425135b6c3c9f1c76bef74609ade6f5e914da4a390aec0e40b99b",
       "status": "PASS"
     },
     {
       "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
-      "sha256": "6793b8d01826521b9267de3d6427e6fa27a4eadaefedec8e25ff0c1a9cbd0444",
+      "sha256": "46c99673ab76f8f89fe9a374b3bcf4edc7ded64b84a29a92d11bb15fe8d8d27b",
+      "status": "PASS"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+      "sha256": "0a28c6f18a4c1c60fe013ef152288544f14bafc63e69b9bd52671aa35eabe48c",
+      "status": "PASS"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+      "sha256": "7fd0c47cff9093b73fc57d4a26cd94cdb24e898958289a72407196a3935aeda6",
+      "status": "PASS"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/run_tests.py",
+      "sha256": "564ee6a009ee69ae55f4f35328f93276f49b3f8ae8e989c6401fb5f53c1e3030",
+      "status": "PASS"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+      "sha256": "8363b0de2a55e0ad646faac4c8b3940392fe18a82ce33a5f91785ba950a84cfd",
       "status": "PASS"
     }
   ],
+  "generated_powershell_syntax": "Generated process-query syntax: PASS",
   "changed_path_allowlist": "PASS",
-  "forbidden_files_byte_identical": [
-    "agent_bridge/src/fox2_agent_bridge/launcher.py",
-    "agent_bridge/src/fox2_agent_bridge/f1_service.py",
-    "agent_bridge/src/fox2_agent_bridge/installation.py",
-    "agent_bridge/scripts/certify_rc1_ui.ps1",
-    "agent_bridge/desktop_app/FOX2.Bridge.Desktop.sln",
-    "agent_bridge/desktop_app/README.md",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml.cs",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/AssemblyInfo.cs",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml.cs",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/ArtifactVaultService.cs",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/BridgeControlClient.cs",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/DesktopPreferences.cs",
-    "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/ViewModels/MainViewModel.cs",
-    "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/FOX2.Bridge.Desktop.ContractTests.csproj",
-    "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/Program.cs"
+  "forbidden_files_byte_identity": [
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/launcher.py",
+      "original_blob": "baa9677adf878b1f4c84d1fd5fa4e082d4bdfd81",
+      "worktree_sha256": "fe4667caa32c0116deabc6528952db5a2cdb4cc83bd81eea7b00faf87ba9e4e8",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/f1_service.py",
+      "original_blob": "41461a1a1589c79a5a8c9e4ff9a7bbaa033b21e1",
+      "worktree_sha256": "ec41537f8085d7600e29024922ecd5d90db7dcec9a68636529cf721da5f9c6b9",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/src/fox2_agent_bridge/installation.py",
+      "original_blob": "c4b635bfc958195d08f787cc9a1f33e57f25664e",
+      "worktree_sha256": "7a49db8c503aec878731f99c0c9eec5098e341fdfec7edf426f115ba7b87267c",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/scripts/certify_rc1_ui.ps1",
+      "original_blob": "479b3e50ca2b552c9aae5874003362e07e07fc2e",
+      "worktree_sha256": "76b8dbaac66ab448f3bfeec642c4e66ee023eb7583e65cf0892b38a3310661f9",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/FOX2.Bridge.Desktop.sln",
+      "original_blob": "7a5467acda9dd85d231dac0fc8d1c5aafb1983bf",
+      "worktree_sha256": "0aaf8d7145566552b7203933d651c7523cac1b69d77f737975fbbdc9c34ece41",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/README.md",
+      "original_blob": "a42f807328b10c8f52c427aabd39c8f27d4403e8",
+      "worktree_sha256": "d6eba39b8f09ae2755e2ba8148a4d6a6379ab3e4106d88d5a5c2401f742188bf",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml",
+      "original_blob": "ce21c7d015ec8cfc1c909d104af7ef30663e27e6",
+      "worktree_sha256": "2e081fcb0eb2405c2a400f453cd7f65f42147e197c6cca71119a0a019692786b",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/App.xaml.cs",
+      "original_blob": "c23a88259a772ca057d55cc24d64b5551b492e1d",
+      "worktree_sha256": "fb2aa0c57913a36df19eac6f3e20dc59e4c32157102028cb3f256a4495adb2fd",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/AssemblyInfo.cs",
+      "original_blob": "aa6ae6db866b955beeb8974592ea0cae8a6a77ff",
+      "worktree_sha256": "f5f2b275d0c591d4801db591af407e57ff9583c636b5385091402ff67d5c2de6",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/FOX2.Bridge.Desktop.csproj",
+      "original_blob": "db87aca8d01c87fef262491eab5097632c7be769",
+      "worktree_sha256": "c665ca525e3dfb0c3931c0b2e80d0ea10423a2a066fd08ad0eb160a8fa274fb5",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml",
+      "original_blob": "926df553c73dcc2fef79e19a56d71312819689aa",
+      "worktree_sha256": "df667cc6bd40fbcad13304aae89219f3ecf54e5b0e8bfc97e7abb857025d96f4",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/MainWindow.xaml.cs",
+      "original_blob": "dd7a1b88ef5ec0b7292c5c4ac533240075924222",
+      "worktree_sha256": "b5c98c02a803b654b356b2d4414b06ec1a5d4a307449b9fb023adf3f40127b17",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/ArtifactVaultService.cs",
+      "original_blob": "27c60c9830ca4b9a90b65b9121f13e0b4a93f7bb",
+      "worktree_sha256": "24d14ff4e636f82e8764ccb18e60b3e7c457f331ca6b3ab0fd6359d748938f16",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/BridgeControlClient.cs",
+      "original_blob": "b26e0b9789de02a4351aedc7f848ba13172fc16b",
+      "worktree_sha256": "affd760b2fa9ca8bd59119926a4dd2e3ef6f19d29e2d3c10812177636241af26",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/Services/DesktopPreferences.cs",
+      "original_blob": "314ad04ba4150d0603aa9dcc2e07e1ef9d3b5be5",
+      "worktree_sha256": "d415855b566ff1e1038a493146fccfdf0f6bac2183d020db9bf590b972e984bd",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/src/FOX2.Bridge.Desktop/ViewModels/MainViewModel.cs",
+      "original_blob": "f023265783aad714f91c0c4cc08701af2daff428",
+      "worktree_sha256": "92ae99ca8c4812448868f54c7d52f408e9a7a1774514fd845f1223eee8ca3827",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/FOX2.Bridge.Desktop.ContractTests.csproj",
+      "original_blob": "0054dc987f931672b29dc675f0d7fc0f7f856da3",
+      "worktree_sha256": "208e652ac5233b61265732d8c03e4ca499aa6104453af153349b3e6d5ef78187",
+      "raw_same_base_checkout_identical": true
+    },
+    {
+      "path": "agent_bridge/desktop_app/tests/FOX2.Bridge.Desktop.ContractTests/Program.cs",
+      "original_blob": "65d0ddc7353c0e62af0d33fd6e226dc3f62e04af",
+      "worktree_sha256": "31ee1816d8c940b02feb4dccecb4c8dbe1ac14cb31a675ffb73c476642681c56",
+      "raw_same_base_checkout_identical": true
+    }
   ],
+  "all_other_agent_bridge_paths_unchanged": true,
+  "recovery_provenance_byte_identical": true,
   "a03_supervisor_and_redaction_ast_identical": true,
   "git_diff_check": "PASS",
   "secret_scan": {
@@ -46,30 +164,113 @@
     "scanned": [
       {
         "path": "agent_bridge/scripts/certify_user_lifecycle.py",
-        "bytes": 12149
+        "bytes": 12467
       },
       {
         "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
-        "bytes": 9638
+        "bytes": 11135
       },
       {
         "path": "agent_bridge/tests/test_rc1_package.py",
-        "bytes": 21416
+        "bytes": 21474
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+        "bytes": 24631
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
-        "bytes": 4997
+        "bytes": 8452
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check.log",
+        "bytes": 65
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check_initial.log",
+        "bytes": 32911
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial.log",
+        "bytes": 13623
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial_run.json",
+        "bytes": 874
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial.log",
+        "bytes": 79484
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial_run.json",
+        "bytes": 694
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
+        "bytes": 14547
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/manifest_validation.log",
+        "bytes": 163
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/original_to_final_diff.json",
+        "bytes": 28188
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/run_tests.py",
+        "bytes": 3119
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_review.json",
+        "bytes": 2979
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_to_final_diff.json",
+        "bytes": 8755
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
-        "bytes": 21967
+        "bytes": 10134
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
+        "bytes": 10986
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation.log",
+        "bytes": 0
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation_history.json",
+        "bytes": 5923
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/test_snapshot_identity.json",
+        "bytes": 17364
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
-        "bytes": 6510
+        "bytes": 12017
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+        "bytes": 33778
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+        "bytes": 9536
       }
     ],
-    "findings": []
+    "findings": [],
+    "benign_fixture_markers": [
+      {
+        "path": "agent_bridge/tests/test_rc1_package.py",
+        "offset": 21112,
+        "reason": "Existing A03 redaction test marker, no key material."
+      }
+    ]
   },
   "K1_UNEXPLAINED": 0
 }

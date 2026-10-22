@@ -90,7 +90,7 @@ def certify_uninstall(root, pwsh, config_before, results, evidence):
 
 def require_safe_control(state, *, stopped=False):
     if (state.get('paused') is not True or state.get('setup_complete') is not True or
-            state.get('current_dispatch') is not None or
+            'current_dispatch' not in state or state['current_dispatch'] is not None or
             (stopped and state.get('state') != 'STOPPED')):
         raise RuntimeError('Phase-2 requires paused/setup_complete/no current dispatch')
 
@@ -112,10 +112,14 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):
         return process.stdout.strip()
 
     def presentations():
-        return json.loads(ps('-Command',
+        observed = json.loads(ps('-Command',
+            "$ErrorActionPreference='Stop'; "
             "ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process "
             "-Filter \"Name='FOX2.Bridge.Desktop.exe'\" | "
             "Select-Object ProcessId,ExecutablePath)"))
+        if not isinstance(observed, list):
+            raise RuntimeError('WPF process observation must be an explicit array')
+        return observed
 
     def exact_presentation():
         observed = presentations()
@@ -152,7 +156,9 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):
         try:
             with lock.open('r+b'):
                 pass
-        except OSError:
+        except OSError as error:
+            if getattr(error, 'winerror', None) != 32:
+                raise
             results['live_presentation_lock_held'] = True
         else:
             raise RuntimeError('Live WPF presentation lock is not held')

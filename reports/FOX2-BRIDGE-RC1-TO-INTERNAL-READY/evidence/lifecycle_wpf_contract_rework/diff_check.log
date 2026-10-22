@@ -1,0 +1,2 @@
+git diff --check 4504bf95dd2baf474b30f896b23365c52fe10c9f
+exit=0

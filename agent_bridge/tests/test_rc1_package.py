@@ -284,7 +284,9 @@ def test_lifecycle_main_uses_external_supervisor_and_checkpoints_before_reinstal
 
     def open_lock(path, *args, **kwargs):
         if path == lock and presentation_live:
-            raise PermissionError('fixture WPF FileShare.None')
+            error = PermissionError('fixture WPF FileShare.None')
+            error.winerror = 32
+            raise error
         return path_open(path, *args, **kwargs)
 
     monkeypatch.setattr(module.Path, 'open', open_lock)
