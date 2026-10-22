@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "OWNER_RUN_R3_PREEXEC_V4_4BDBE33E; V1_BLOCKED_TEST_PYTHON; V2_SCHEMA_INVALID; V3_READONLY_GOVERNANCE_FETCH_FAILED",
+      "blocker": "OWNER_RUN_FRESH_R3_CODEX_MEDIUM_DISPATCH_097C57A7_ONCE; PREEXEC_V4_REMOTE_ACCEPTED; NO_REPLAY_AFTER_CONSUME",
       "as_of": "2026-10-22",
-      "next_safe_action": "RUN_R3_PREEXEC_V4_ONCE; V4_USES_FETCH_HEAD_BOUNDED_RETRY_AND_VALIDATES_RECEIPT_SCHEMA_BEFORE_PUBLICATION; IF_PASS_CHAT_INTAKE_THEN_PASS_TO_ASSIGN_AND_R3_CODEX_MEDIUM_DISPATCH",
+      "next_safe_action": "OWNER_RUN_EXACT_R3_CODEX_MEDIUM_DISPATCH_097C57A7_ONCE; THEN_CHAT_RESULT_REVIEW; PRESERVE_A04_PASS; NO_PACKAGE_OR_HOST_MUTATION_IN_R3",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -174,10 +174,10 @@
         "next_phase": {
           "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R3",
           "stage": "BUILD",
-          "status": "PREEXEC_V4_PUBLISHED_NOT_RUN",
+          "status": "DISPATCH_PUBLISHED_UNCONSUMED_OWNER_LAUNCH_READY",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "preexec": "V4_PUBLISHED_NOT_RUN",
-          "dispatch_published": false,
+          "preexec": "PASS_REMOTE_ACCEPTED_V4",
+          "dispatch_published": true,
           "agent_started": false,
           "result": "NOT_RUN",
           "host_mutation": false,
@@ -204,12 +204,16 @@
           },
           "execution_envelope": {
             "design": "FRESH_R3_AFTER_V037_TASK_ROUTE_ASSESSMENT",
-            "selected_route_candidate": "CODEX_GPT_6_1_SOL_MEDIUM",
-            "route_must_be_verified_by_preexec": true,
+            "selected_route": "CODEX_GPT_6_1_SOL_MEDIUM",
+            "route_verified_by_preexec_v4": true,
+            "runtime_base": "7fcdfd19e0d9177b4d85e39fd249b5e65ccc0d49",
+            "pass_to_assign_commit": "7efa989c070da15d2000ca105b04632f092701a5",
+            "dispatch_commit": "097c57a779d1fca58d08aed80e2af4a0646b7ea8",
             "host_lifecycle_mutation": false,
             "package_build": false,
             "install_update": false,
-            "uninstall_reinstall": false
+            "uninstall_reinstall": false,
+            "no_replay_after_consume": true
           },
           "no_replay_of": [
             "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
@@ -295,7 +299,7 @@
             "actor_candidate": "CODEX",
             "model_candidate": "gpt-6.1-sol",
             "thinking_candidate": "medium",
-            "route_verified": false
+            "route_verified": true
           },
           "superseded_r2_high_binding": {
             "task_commit": "9e1551d4e8e10aff3d302034c3f0c06588eac9ca",
@@ -327,7 +331,8 @@
             "test_python_strategy": "BOUNDED_READONLY_EXISTING_HOST_DISCOVERY_LOCALAPPDATA_PATH_PY_LAUNCHER",
             "install_tools": false,
             "route": "CODEX_GPT_6_1_SOL_MEDIUM",
-            "state": "PUBLISHED_NOT_RUN"
+            "state": "HOST_PROBES_PASS_RECEIPT_SCHEMA_INVALID",
+            "instruction": "DO_NOT_USE_FOR_PASS_TO_ASSIGN"
           },
           "recovery": {
             "commit": "03ba2e7961307a6ce29b424765b05a337da8c200",
@@ -347,11 +352,36 @@
             "route": "CODEX_GPT_6_1_SOL_MEDIUM",
             "fetch_strategy": "FETCH_HEAD_READONLY_WITH_BOUNDED_RETRY",
             "receipt_schema_validation": true,
-            "state": "PUBLISHED_NOT_RUN"
+            "state": "PASS_REMOTE_ACCEPTED",
+            "receipt_commit": "7fcdfd19e0d9177b4d85e39fd249b5e65ccc0d49",
+            "receipt_blob": "8c21474702cf5160c37c14f43bce50e3c0089d8b",
+            "receipt_sha256": "722a53f840ce868bb8a2e59504c26ce56e9f925f9ab1bdc3921e1fa626608843",
+            "receipt_schema_blob": "25fe465f82a16edf29ebf773a220969192f546e8",
+            "chat_intake": "PASS_SCHEMA_VALID_ONE_COMMIT_ONE_RECEIPT_PATH"
           },
           "fetch_recovery": {
             "commit": "dd2707ea0d003ceec0eedda331a7cc6dc59b6d5a",
             "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V3_FETCH_RECOVERY_20261022.md"
+          },
+          "pass_to_assign": {
+            "commit": "7efa989c070da15d2000ca105b04632f092701a5",
+            "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PASS_TO_ASSIGN_20261022.md",
+            "blob": "d3804453e23b6157a9341343d5c5292bbc41c73c",
+            "sha256": "02e71cecd14aa2603a2779aa858eb1cfe1dcc9fa5f476df00c5a18c9bad5ed8e",
+            "verdict": "PASS_TO_ASSIGN_R3_CERTIFIER_ONLY"
+          },
+          "dispatch": {
+            "id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-CODEX-001",
+            "control_branch": "work/FOX2-DISPATCH-chat",
+            "commit": "097c57a779d1fca58d08aed80e2af4a0646b7ea8",
+            "blob": "9cfba0acd7e6e1cbc5d74d7539ef9d414e940cac",
+            "sha256": "df288de7b09d3ba0d8996615513c059a2a8780f96550090ba2648ba9cdea08c3",
+            "schema_version": "3.0",
+            "schema_blob": "1692061941e2bef498515cd0e96b9b3046119ebb",
+            "schema_validation": "PASS_ZERO_ERRORS",
+            "max_runs": 1,
+            "status": "PUBLISHED_UNCONSUMED",
+            "owner_launch_ready": true
           }
         },
         "host_lifecycle_cert": {
