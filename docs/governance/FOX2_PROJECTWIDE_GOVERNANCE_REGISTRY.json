@@ -2,9 +2,9 @@
   "schema": "FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY_V1",
   "project": "FOX2",
   "registry_scope": "PROJECTWIDE_GOVERNANCE_DOCUMENT_AUTHORITY_ONLY",
-  "status": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_IN_SCOPE",
-  "record_date": "2026-10-19",
-  "release_branch": "work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019",
+  "status": "AGILE_LITE_BRANCH_SOURCE_CANDIDATE_NOT_GLOBAL_RELEASED",
+  "record_date": "2026-10-22",
+  "release_branch": "work/FOX2-AGILE-LITE-PROJECT-OPERATING-20261022",
   "authority": {
     "source": "OWNER_DIRECT_IN_CHAT_APPROVAL_AND_INSTRUCTION_2026-10-19",
     "purpose": "Governance documentation release and source selection for new/re-scoped FOX2 CHAT work",
@@ -17,7 +17,20 @@
     "owner_approval_observed": "YES_CURRENT_CONVERSATION",
     "external_cryptographic_signer_proof": "NOT_ATTESTED",
     "scope_limit": "DOES_NOT_AUTHORIZE_AGENTS_MERGE_LIVE_OR_INSTALLED_RUNTIME",
-    "no_repeat_owner_approval_for_exact_scope": true
+    "no_repeat_owner_approval_for_exact_scope": true,
+    "new_owner_approval": {
+      "observed": "EXPLICIT_OWNER_APPROVAL_2026-10-22",
+      "scope": "PROJECT_WIDE_OUTCOME_FIRST_PROJECT_MANAGEMENT",
+      "publication": "GIT_AND_LIBRARY_READBACK_POLICY_PROTOCOL_KANBAN",
+      "effectivity": "PROPOSED_POINTER_BRANCH_ONLY_PENDING_MERGE",
+      "excluded": [
+        "PROTECTED_MAIN_MERGE",
+        "LIVE",
+        "BROKER_PROVIDER_WRITE",
+        "CONSUMED_ATTEMPT_REPLAY",
+        "INSTALLED_PLUGIN_UPDATE"
+      ]
+    }
   },
   "current_governance": {
     "policy": {
@@ -119,7 +132,7 @@
     "generated_binding_hosted_tests": "PASS_REFERENCE_ONLY",
     "bridge_owner_installed": "NOT_ATTESTED",
     "old_bridge_rc1_trust_registry": "WP_ONLY_UNCHANGED",
-    "app_offline_dev": "INDEPENDENT_ROUTE_ELIGIBLE_SUBJECT_TO_TASK_PREEXEC",
+    "app_offline_dev": "OWNER_APPROVED_LIGHTWEIGHT_MANAGEMENT;_ACTUAL_HOST_AND_RUNTIME_NOT_ATTESTED",
     "product_acceptance": "NOT_CLAIMED",
     "global_machine_auto_adoption": "NOT_CLAIMED"
   },
@@ -132,7 +145,7 @@
     "no_auto_dispatch_replay": true,
     "master_plan_priority": "CODE_FIRST"
   },
-  "resolver_rule": "Open this Registry on its explicitly selected non-main release branch; verify pinned policy/dictionary/routing source commits, Git blobs, SHA-256 and Owner scope, then construct immutable per-task source-set. Do not auto-choose newest filename, treat machine installation as governance prerequisite, or silently change historical locked Dispatches.",
+  "resolver_rule": "Projectwide owner decision dated 2026-10-22 governs the Agile Lite candidate for new/re-scoped human management. Git/Library sources are verified on this proposal branch; `current_governance` branch pointers are NOT global until authorized promotion. Machine consumers and locked legacy Dispatches retain their own pinned Dictionary/Policy and real safety checks. Do not blanket-upgrade BRD, Tech Spec or historical version references.",
   "gates": {
     "governance_document": [
       "owner_scope",
