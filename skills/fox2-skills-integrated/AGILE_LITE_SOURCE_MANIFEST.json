@@ -1,0 +1,28 @@
+{
+  "name": "FOX2 Skills Integrated",
+  "version": "0.4.0-candidate",
+  "status": "SOURCE_CANDIDATE_NOT_INSTALLED",
+  "owner_approved": "2026-10-22",
+  "policy": "docs/governance/FOX2_POLICY_V2.1.0.md",
+  "shared": "skills/fox2-skills-integrated/shared/operating_rules.md",
+  "skills": [
+    "fox2-agent-prompt-builder",
+    "fox2-agent-route-runtime",
+    "fox2-brd-change-control",
+    "fox2-dictionary-impact",
+    "fox2-document-publication",
+    "fox2-execution-recovery",
+    "fox2-feature-certification",
+    "fox2-governance-preflight",
+    "fox2-project-health",
+    "fox2-research-validation",
+    "fox2-result-review",
+    "fox2-source-resolver",
+    "fox2-source-sync",
+    "fox2-status-roadmap",
+    "fox2-strategic-agent-triage",
+    "fox2-techspec-validator",
+    "fox2-thread-handoff"
+  ],
+  "note": "Source staged in Git; installed plugin requires separate authenticated publication and adoption."
+}
