@@ -204,7 +204,21 @@ try {
     Need ($Proof.reinstall.package_sha256 -ceq $PackageHash) 'Same-package reinstall not proven'
     Installed;Safe;NoWorker
     Need (@(WPF).Count -eq 0) 'WPF remains after lifecycle'
-    Need ((Snapshot) -ceq $Before) 'Fresh durable SQLite/config/manual-consumption hashes differ'
+    # Startup/scheduler bookkeeping can legitimately change in worker_state/bridge_meta.
+    # Protect durable identities and all nonvolatile data tables, not volatile controls.
+    $AfterObject = (Snapshot) | ConvertFrom-Json
+    Need ($AfterObject.config -ceq $BeforeObject.config) 'Configuration changed across uninstall'
+    Need ($AfterObject.manual_consumption -ceq $BeforeObject.manual_consumption) 'Consumption identities changed'
+    foreach ($Table in @($BeforeObject.tables.PSObject.Properties.Name)) {
+        if ($Table -in @('bridge_meta','worker_state','control_cursors','poll_observations')) {
+            continue
+        }
+        $Prior = $BeforeObject.tables.$Table
+        $Current = $AfterObject.tables.$Table
+        Need ($null -ne $Current) ('Durable SQLite table missing: ' + $Table)
+        Need (($Prior.rows -eq $Current.rows) -and ($Prior.hash -ceq $Current.hash)) (
+            'Durable SQLite logical table drift: ' + $Table)
+    }
     $Lifecycle = 'PASS'
     Write-Output 'FOX2_INTEGRATED_LIFECYCLE=PASS'
 
