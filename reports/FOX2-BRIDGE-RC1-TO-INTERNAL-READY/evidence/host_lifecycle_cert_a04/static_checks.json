@@ -1,5 +1,5 @@
 {
-  "observed_at_utc": "2026-10-22T06:22:34.727442+00:00",
+  "observed_at_utc": "2026-10-22T06:24:05.299902+00:00",
   "changed_path_allowlist": "PASS",
   "python_evidence_syntax": "PASS",
   "orchestration_product_source_test_no_drift": "PASS",
@@ -7,7 +7,7 @@
   "package_source_head": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
   "secret_privacy_scan": {
     "status": "PASS",
-    "files_scanned": 34,
+    "files_scanned": 35,
     "findings": [],
     "method": "Credential signatures, credential assignments, private-key headers, user-profile paths; file inventory inspection excludes raw config/database/prompts/binaries"
   },

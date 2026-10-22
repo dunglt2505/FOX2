@@ -5,14 +5,14 @@
   "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04",
   "change_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04",
   "submission_state": "READY_FOR_CHAT_REVIEW",
-  "submitted_at_utc": "2026-10-22T06:22:34.815393+00:00",
+  "submitted_at_utc": "2026-10-22T06:24:05.387518+00:00",
   "agent": {
     "product": "CODEX",
     "model": "gpt-6.1-sol",
     "mode": "TEST / high / MANUAL_LOCAL / FULL_ACCESS",
     "host": "Owner physical Windows host; per-user Bridge lifecycle",
     "started_at_utc": "2026-10-22T06:11:53Z",
-    "finished_at_utc": "2026-10-22T06:22:34.815393+00:00",
+    "finished_at_utc": "2026-10-22T06:24:05.387518+00:00",
     "quota_observation": "Pinned active CODEX CLI 0.162.1/high/FULL_ACCESS writer and consumed launcher claim verified; numeric usage not measured."
   },
   "routing": {
@@ -193,7 +193,7 @@
         "operation": "MODIFY",
         "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "efbf4b8c2ec8bc25d472e550af088ae41828dd70b450b4ead9226a9f2bf1bc75"
+        "new_sha256": "11fad46bfb5ca3415df228729b9501896530a32c95b498c3a26af3bc9c5d6c8e"
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.json",
@@ -252,6 +252,13 @@
         "new_sha256": "cb8f2d3de43e36498deb071ca6c2b82fc4a44284fab8dfd8744876a37fb94616"
       },
       {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/remote_delivery.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "484f2e7a271ad55696938d1eecaddd22f8fbba56f8dfb0fe9a006c61abc1fc9e"
+      },
+      {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/resolve_governance.py",
         "operation": "MODIFY",
         "intent": "A04 bounded generated execution and audit evidence",
@@ -291,7 +298,7 @@
         "operation": "MODIFY",
         "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "8a7f3ed1d9bba679d36bfbaf8ea30e6a46cea95a90e032c6bdb4cbbdee3f20fe"
+        "new_sha256": "357fc1b50d9905f88e875f3986276c14d08a20d0cf67699992dd537069869960"
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_package.py",
@@ -319,7 +326,7 @@
         "operation": "MODIFY",
         "intent": "A04 report/contract delivery",
         "within_allowed_paths": true,
-        "new_sha256": "7a33d8f7ab6a0159ad8a7ea69abe23df7c1ebc6c18cfaf0d23bd8bc68b1558f9"
+        "new_sha256": "ca145d45c46926883903a69597361c9f2e0a4bcb1c4f38070c90a802620b2af3"
       }
     ],
     "forbidden_paths_touched": false
@@ -331,7 +338,7 @@
       "status": "PASS",
       "command_or_method": "Independent fetched Git envelope and immutable source resolution.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_GATE",
         "E_GOV"
@@ -344,7 +351,7 @@
       "status": "PASS",
       "command_or_method": "One accepted-source builder call plus all payload/source/wheel/dictionary hashes.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_BUILD",
         "E_BUILD_LOG",
@@ -358,7 +365,7 @@
       "status": "PASS",
       "command_or_method": "One bounded stale show signal, same singleton identity, UI inspection, graceful exit and lock release.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_BASELINE",
         "E_CLEANUP",
@@ -372,7 +379,7 @@
       "status": "PASS",
       "command_or_method": "Exact per-user install_user.ps1 with package SHA, then exact safe installed receipt/control.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_INSTALL",
         "E_INSTALL_LOG",
@@ -386,7 +393,7 @@
       "status": "FAIL",
       "command_or_method": "One certify_user_lifecycle.py call; PermissionError errno13 at held-lock proof; no rerun.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_LIFE_ATTEMPT",
         "E_LIFE",
@@ -400,7 +407,7 @@
       "status": "PASS",
       "command_or_method": "Fresh A04 config/manual hashes, all consumed identities and logical DB table hashes unchanged; physical DB hash changes disclosed.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_BASELINE",
         "E_PREINSTALL",
@@ -415,7 +422,7 @@
       "status": "PASS",
       "command_or_method": "Allowed paths, evidence syntax, no source drift, secret/privacy scan, diff check and K1.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_STATIC",
         "E_DIFF",
@@ -429,9 +436,21 @@
       "status": "PASS",
       "command_or_method": "Dictionary-resolved Result Contract v2 schema/formats/hash/reference/path-inventory checks.",
       "environment": "Owner Windows host; A04 scope only",
-      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "evidence_ids": [
         "E_CONTRACT"
+      ],
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
+    },
+    {
+      "id": "T_REMOTE",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "Authorized branch result publication independently read back; final remote pointer outside report.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:24:05.387518+00:00",
+      "evidence_ids": [
+        "E_REMOTE"
       ],
       "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
     }
@@ -717,9 +736,11 @@
     },
     {
       "id": "A31_REMOTE_RESULT_PUBLICATION",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "Transport readback is recorded after the first push; final observed remote SHA is returned outside the committed report."
+      "status": "PASS",
+      "evidence_ids": [
+        "E_REMOTE"
+      ],
+      "reason": "Initial report/evidence result commit pushed to authorized A04 branch and independently read back; final delivery SHA returned outside committed report."
     },
     {
       "id": "LIFECYCLE_OVERALL",
@@ -1234,7 +1255,7 @@
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/diff_check.log",
       "sha256": "5710b6d5006bd2e8fede417a493d2f2c06dce59572355b421f6a4620405a4a15",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T06:22:32.473737+00:00",
+      "observed_at_utc": "2026-10-22T06:24:02.870125+00:00",
       "description": "A04 bounded execution/evidence: diff_check.log",
       "supports_ids": [
         "T_STATIC"
@@ -1316,9 +1337,9 @@
     {
       "id": "E_K1",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/k1.json",
-      "sha256": "efbf4b8c2ec8bc25d472e550af088ae41828dd70b450b4ead9226a9f2bf1bc75",
+      "sha256": "11fad46bfb5ca3415df228729b9501896530a32c95b498c3a26af3bc9c5d6c8e",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T06:22:34.726547+00:00",
+      "observed_at_utc": "2026-10-22T06:24:05.299136+00:00",
       "description": "A04 bounded execution/evidence: k1.json",
       "supports_ids": [
         "T_STATIC"
@@ -1422,6 +1443,18 @@
       "sanitized": true
     },
     {
+      "id": "E_REMOTE",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/remote_delivery.json",
+      "sha256": "484f2e7a271ad55696938d1eecaddd22f8fbba56f8dfb0fe9a006c61abc1fc9e",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:24:02.473028+00:00",
+      "description": "A04 bounded execution/evidence: remote_delivery.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
       "id": "E_FILE_resolve_governance_py",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/resolve_governance.py",
       "sha256": "5e1187ee08e0f4e0058108b02755b5ae325ee46eb810361c941dcc0c53d1f305",
@@ -1484,9 +1517,9 @@
     {
       "id": "E_STATIC",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/static_checks.json",
-      "sha256": "8a7f3ed1d9bba679d36bfbaf8ea30e6a46cea95a90e032c6bdb4cbbdee3f20fe",
+      "sha256": "357fc1b50d9905f88e875f3986276c14d08a20d0cf67699992dd537069869960",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T06:22:34.727548+00:00",
+      "observed_at_utc": "2026-10-22T06:24:05.300136+00:00",
       "description": "A04 bounded execution/evidence: static_checks.json",
       "supports_ids": [
         "T_STATIC"
@@ -1520,9 +1553,9 @@
     {
       "id": "E_REPORT",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "sha256": "7a33d8f7ab6a0159ad8a7ea69abe23df7c1ebc6c18cfaf0d23bd8bc68b1558f9",
+      "sha256": "ca145d45c46926883903a69597361c9f2e0a4bcb1c4f38070c90a802620b2af3",
       "kind": "REPORT",
-      "observed_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "observed_at_utc": "2026-10-22T06:24:05.387518+00:00",
       "description": "A04 truthful FAIL / REWORK_REQUIRED result; remaining lifecycle NOT_RUN.",
       "supports_ids": [
         "T_CONTRACT"

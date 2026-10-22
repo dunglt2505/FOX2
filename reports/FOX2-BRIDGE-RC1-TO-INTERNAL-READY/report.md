@@ -2,7 +2,7 @@
 
 ## R01 — Identification and submission
 
-FOX2 / FOX2-BRIDGE-RC1-TO-INTERNAL-READY / FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04. TEST on the Owner Windows host, CODEX gpt-6.1-sol / high / MANUAL_LOCAL / FULL_ACCESS. One Agent attempt, no substitution or replay. Started 2026-10-22T06:11:53Z; report UTC 2026-10-22T06:22:34.815393+00:00. Submission: READY_FOR_CHAT_REVIEW; delivery: PUSHED_UNREVIEWED after actual publication. **The lifecycle result is FAIL, not PASS.**
+FOX2 / FOX2-BRIDGE-RC1-TO-INTERNAL-READY / FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04. TEST on the Owner Windows host, CODEX gpt-6.1-sol / high / MANUAL_LOCAL / FULL_ACCESS. One Agent attempt, no substitution or replay. Started 2026-10-22T06:11:53Z; report UTC 2026-10-22T06:24:05.387518+00:00. Submission: READY_FOR_CHAT_REVIEW; delivery: PUSHED_UNREVIEWED after actual publication. **The lifecycle result is FAIL, not PASS.**
 
 ## R02 — Authority, routing and grants
 
@@ -74,7 +74,7 @@ E_FINAL/E_PRESERVATION: exact package/source remains installed; STOPPED/paused/s
 | A28_GIT_DIFF_CHECK | PASS | E_DIFF, E_STATIC | git diff --check against runtime base passes. |
 | A29_K1_UNEXPLAINED_ZERO | PASS | E_K1 | Every report/manifest hunk REQUESTED; execution/evidence/helper files JUSTIFIED_GENERATED; UNEXPLAINED=0. |
 | A30_RESULT_CONTRACT_V2 | PASS | E_CONTRACT | Dictionary-resolved v2 schema, formats, evidence references/hashes and full changed-path inventory validated. |
-| A31_REMOTE_RESULT_PUBLICATION | NOT_RUN |  | Transport readback is recorded after the first push; final observed remote SHA is returned outside the committed report. |
+| A31_REMOTE_RESULT_PUBLICATION | PASS | E_REMOTE | Initial report/evidence result commit pushed to authorized A04 branch and independently read back; final delivery SHA returned outside committed report. |
 
 The manifest additionally maps every controlling Dispatch required_test to these gates. Worker/F1 health remains NOT_APPLICABLE_PRE_G3. No current UI/exit/uninstall/reinstall success is inferred from code or earlier evidence.
 
@@ -84,7 +84,7 @@ The companion `evidence_manifest.json` includes every evidence file's raw SHA-25
 
 ## R09 — Git delivery
 
-Repository `dunglt2505/FOX2`; branch `work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022`; runtime base `6d1d2a70f2d1cc47e44f70a0ba6cd07cd3985713`. Result is prepared for authorized non-main publication. Actual remote SHA is returned outside this committed report after push/readback; CHAT review remains pending. No PR/main/merge. CHAT has not accepted this failed certification result. The committed report contains no self-referential result commit SHA.
+Repository `dunglt2505/FOX2`; branch `work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022`; runtime base `6d1d2a70f2d1cc47e44f70a0ba6cd07cd3985713`. Initial remote report/evidence publication verified in E_REMOTE. This finalized result remains PUSHED_UNREVIEWED; final remote SHA is returned outside this committed report. No PR/main/merge. CHAT has not accepted this failed certification result. The committed report contains no self-referential result commit SHA.
 
 ## R10 — Blocker, risks and boundaries
 

@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "observed_at_utc": "2026-10-22T06:24:02.472237+00:00",
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
+  "initial_result_remote_commit": "2003ef5542f47a27f44334a2fb0444707d2c0b7e",
+  "remote_head_equals_local": true,
+  "fetched_remote_objects_verified": true,
+  "complete_changed_path_inventory": true,
+  "all_referenced_evidence_hashes_verified": [
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/after_first_failure.json",
+      "sha256": "bfd19d7c1bc07c6520efeb23160a6e70586eaf33c18b9e3390de59736063d514"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/assemble_result.py",
+      "sha256": "6e488070a09d3b24e75305b85e059534bdcf1aa6241c7987664eee3e59c8cd66"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/baseline_before_build.json",
+      "sha256": "e4c4f1b75915d81b8ff21b87bb0bd6b146d85382295df10af6b0834681111277"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build.log",
+      "sha256": "99ae2caf1b5eb1927a51048cbabdec84641f3c86271441a86ee353d06c2096a8"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_attempt.json",
+      "sha256": "27a5d90f3106023052e763cfa7db0cee60680ee91fb7597af417a9c11fad79f5"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_once.py",
+      "sha256": "e5fadd38f6517a0e3c12e4782b4e86de48fdc279a08bcfd63bc9d40c208e42ae"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/cleanup_once.py",
+      "sha256": "65d0c494596e7bbae7820cf23d456a1c4088b9994a60083e2ab9a6dae9410c94"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/compare_preservation.py",
+      "sha256": "e5c0bc28ec40e62a06174d87173d93cf5c4139f663d5a02e3ffb5200243d9977"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/diff_check.log",
+      "sha256": "5710b6d5006bd2e8fede417a493d2f2c06dce59572355b421f6a4620405a4a15"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/failure_and_preservation.json",
+      "sha256": "aec1b088b8d483c5e51c6455304d940e8b324d8ed36556c770404f7bb5b1daec"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/governance_resolution.json",
+      "sha256": "10793161d8503bb000ba80cd743fe578b9c0ea5e33208d1879f0554d56c5d978"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install.log",
+      "sha256": "4317c6fdd0e390f2979ced4e2ecbf7e9b0f31d7812a691de31b0c51c83135657"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_attempt.json",
+      "sha256": "f0152cab1a647ec472d3d3575883abef0b5c203993b175162a5e4c8e3ca628ed"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_once.py",
+      "sha256": "f6f03af0e5f95727bd1a4d23647f2237fdc175553a65a264371677bb2469db65"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/installed_before_lifecycle.json",
+      "sha256": "57163946ecc56537cb3de6c50e6daf2d86aadc8a9b6c3fe037a886ad38b5b76c"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/k1.json",
+      "sha256": "efbf4b8c2ec8bc25d472e550af088ae41828dd70b450b4ead9226a9f2bf1bc75"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.json",
+      "sha256": "4ed49dc8eecd3389b60db97d701a025f17e420c84127e36e13184981c4e28379"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.log",
+      "sha256": "f5c89c4c75dd3d089a62c354081c62233aea57a55008310671304b84e6fbad41"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_attempt.json",
+      "sha256": "e591ea741248181b9e9f39b8492575441dbdb439021620fbf3f0a632a82da1b1"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_once.py",
+      "sha256": "539deb2249ffa4e6183be80801b5297e763eed7d8bbfdf218230ca265c524f80"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/manifest_validation.log",
+      "sha256": "694643cbbb63d0338b7a8bb01d426e12090537d44bf4d806cf9d37791f7d5640"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/package_verification.json",
+      "sha256": "7a69c3c2e66eb1695cc78dd45b544b887d651b77839110e3262a1a23bde66ed5"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_install.json",
+      "sha256": "4c29a453e6d25add0760d1e67537e53ef5104b2724ed773b6eb8b4c2cc699bbc"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_mutation.json",
+      "sha256": "cb8f2d3de43e36498deb071ca6c2b82fc4a44284fab8dfd8744876a37fb94616"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/resolve_governance.py",
+      "sha256": "5e1187ee08e0f4e0058108b02755b5ae325ee46eb810361c941dcc0c53d1f305"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.json",
+      "sha256": "bd450c2c3f3809b91c8a0cd614b43dedf8dbb7d110d1cb2f0a31d2455c65f84c"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.py",
+      "sha256": "9ebd163e28bd54f3329827e7328d7f01b613867978204dec5bf1feab19b70e82"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/snapshot.py",
+      "sha256": "76694814a502fc7af219d59673ecd93667192e9bdabe51ec3c303cc147e7fc42"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/stale_wpf_cleanup.json",
+      "sha256": "f6d010faf03f75a9d6d7f5617820721149614d6cb6dc00584d32d103f0a1028b"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/static_checks.json",
+      "sha256": "8a7f3ed1d9bba679d36bfbaf8ea30e6a46cea95a90e032c6bdb4cbbdee3f20fe"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_package.py",
+      "sha256": "1e3e4b83262b7f4c88bfd81f5790595d76f25fd8bd3dc763da9815a063379793"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_result.py",
+      "sha256": "cbde2f7022a7b27ebd2b6e188b1d1456c73cda42948556e9c6d33e27e9a94ad6"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "sha256": "7a33d8f7ab6a0159ad8a7ea69abe23df7c1ebc6c18cfaf0d23bd8bc68b1558f9"
+    }
+  ],
+  "initial_push_attempts": 2,
+  "first_push_failure": "DNS resolution failure before remote connection; no remote mutation",
+  "second_push": "SUCCESS",
+  "readback_fetch": "git fetch --no-tags origin work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022; fetched branch/ref/FETCH_HEAD equal observed pushed SHA",
+  "delivery_hygiene": "Generated evidence LF normalized and hashes regenerated; explicitly staged normally ignored .log evidence; staged bytes verified. Host execution was not retried.",
+  "final_result_commit": "Supplied outside committed report after final push/readback",
+  "chat_acceptance": "PENDING; PUSHED_UNREVIEWED"
+}
