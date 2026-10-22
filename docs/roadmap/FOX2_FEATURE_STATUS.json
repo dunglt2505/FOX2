@@ -8,7 +8,7 @@
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
       "stage": "TEST",
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED",
       "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED; HOST_LIFECYCLE_A01_CHAT_REWORK; WPF_REWORK_A01_CONSUMED_NO_RESULT; RECOVERY_SNAPSHOT_1A11FA0B; A02_BUILD_CHAT_ACCEPTED_085CC830",
       "evidence_scope": "A02_BUILD_SOURCE_TEST_EVIDENCE_CHAT_ACCEPTED_ONLY; REAL_OWNER_HOST_LIFECYCLE_RETRY_NOT_RUN; G3_G4_CANARY_NOT_RUN",
       "source_sha": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "OWNER_HOST_PREEXEC_A02_V2_NOT_RUN; V1_FAILED_PRECONSUME_ON_POWERSHELL_ARGS_AUTOMATIC_VARIABLE_COLLISION",
+      "blocker": "HOST_LIFECYCLE_A02_PREEXEC_V2_BLOCKED_WPF_PROCESS_PRESENT_BUT_UI_WINDOW_UNAVAILABLE; NO_RECEIPT_NO_DISPATCH_NO_AGENT_NO_HOST_MUTATION",
       "as_of": "2026-10-22",
-      "next_safe_action": "RUN_EXACT_HOST_LIFECYCLE_CERT_A02_PREEXEC_V2_39B0D5F6; THEN_CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_PASS_TO_ASSIGN_AND_FRESH_HOST_A02_DISPATCH",
+      "next_safe_action": "RUN_READ_ONLY_WPF_PROCESS_UI_RECONCILIATION; DO_NOT_CLOSE_KILL_INSTALL_UNINSTALL_OR_RERUN_PREEXEC_UNTIL_CHAT_REVIEWS_HOST_EVIDENCE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,7 +170,7 @@
         "next_phase": {
           "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A02",
           "stage": "TEST",
-          "status": "PREEXEC_V2_PUBLISHED_NOT_RUN",
+          "status": "PREEXEC_V2_BLOCKED_HOST_SAFETY",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-20261022",
           "task_commit": "d0b070e42d25a1581fee8a8731f393206ec5ef5b",
@@ -183,7 +183,7 @@
           "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a02/host_lifecycle_cert_a02_preexec_v2.ps1",
           "preexec_script_blob": "3782fbad741256408c37e05b47f508cb1473aa47",
           "preexec_script_sha256": "c40a1810a793b6a1b80496b5553ed5bef77c0a532982f61eec39f87e5c6accdb",
-          "preexec": "V1_FAILED_PRECONSUME_V2_PUBLISHED_NOT_RUN",
+          "preexec": "BLOCKED_WPF_INSPECT_UNAVAILABLE",
           "dispatch_published": false,
           "agent_started": false,
           "result": "NOT_RUN",
@@ -196,15 +196,17 @@
             "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001"
           ],
           "last_failure": {
-            "class": "NETWORK_DNS",
-            "observed": "Could not resolve host: github.com",
-            "stage": "INITIAL_GIT_FETCH",
+            "class": "HOST_SAFETY_GATE",
+            "observed": "WPF_INSPECT_FAILED: Installed Desktop window unavailable",
+            "preexec_publication": "39b0d5f609d629c9daa29a49751d5720e87d72bb",
+            "stage": "READ_ONLY_WPF_INSPECTION",
             "receipt_created": false,
             "dispatch_published": false,
             "agent_started": false,
             "host_mutation": false,
-            "replay_risk": false,
-            "recovery_verdict": "RECOVERED_SAFE_TO_RERUN_SAME_PREEXEC"
+            "consumed": false,
+            "remote_branch_unchanged": true,
+            "recovery_verdict": "RECOVERED_HOST_SAFETY_BLOCKED"
           },
           "preexec_v1_failure": {
             "publication_commit": "db69ce19cda3ec68a73cc3e9c9ad05225f0178eb",
@@ -218,7 +220,9 @@
             "host_mutation": false,
             "consumed": false,
             "recovery_verdict": "RECOVERED_SAFE_TO_USE_FIXED_PREEXEC_V2"
-          }
+          },
+          "recovery_review_commit": "915f16dce3c55d6c6d9549f01f93c274e46ed916",
+          "recovery_review_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/HOST_LIFECYCLE_A02_PREEXEC_V2_RECOVERY_20261022.md"
         },
         "host_lifecycle_cert": {
           "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
