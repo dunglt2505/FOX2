@@ -1,0 +1,90 @@
+{
+  "version": "0.5.0",
+  "inventory": "CHANGED_OVERLAY_FILES_ONLY",
+  "files": {
+    ".codex-plugin/plugin.json": {
+      "bytes": 601,
+      "sha256": "7049957ab99e002afd12f2dd418b7f59566528913060c395ecf8c981556ca7ee"
+    },
+    "README.md": {
+      "bytes": 863,
+      "sha256": "72dc269dd6657873a4a563b64ce5d84cc14b6f08193f68b3af7e9045b78f1ed2"
+    },
+    "RELEASE_README_v0_5_0.md": {
+      "bytes": 759,
+      "sha256": "3a6bd9826ad5e10146abf5c1d1674c2e9833031c4397076bfc7e46b774dbc373"
+    },
+    "SKILL_MIGRATION_v0_5_0.md": {
+      "bytes": 1943,
+      "sha256": "ecb5e82244534693ab8adce34b5849b4347aeb659e678ff90684a9775c3b6573"
+    },
+    "manifest.json": {
+      "bytes": 2430,
+      "sha256": "1f9e73d10f03d46dbf0747657ba3ecb8851c8ddf1b7e373ccc9f433aacbb5305"
+    },
+    "plugin.json": {
+      "bytes": 456,
+      "sha256": "42758e65d9d60cca8cb073fdbccebec8e948571da2187c9f622a129898be1a32"
+    },
+    "shared/operating_rules.md": {
+      "bytes": 2014,
+      "sha256": "a925db31fd0a5ef823f130665d0899f392c9d3fffebb93dfc3e1ee82dfe69d43"
+    },
+    "skills/fox2-method-prompt-builder/SKILL.md": {
+      "bytes": 3151,
+      "sha256": "4fd4f13881129f8d0dd19960d43df06f841b6d077b130fe96050f489ddee80fa"
+    },
+    "skills/fox2-method-requirements-design/SKILL.md": {
+      "bytes": 2089,
+      "sha256": "65f905920a2cfd3715c24bbcc83e6a4044c857695f3389cdc8f2a0edc5e238e5"
+    },
+    "skills/fox2-method-research-validation/SKILL.md": {
+      "bytes": 1675,
+      "sha256": "3928096739dcd340d68753fabcf27d9da643ebe34713ba0a3db12be7d35ba394"
+    },
+    "skills/fox2-method-result-acceptance/SKILL.md": {
+      "bytes": 2263,
+      "sha256": "db7e54d7bfd8dc7ae06cf021f1badbd92dbf4b1d779cd0c44c8e5274a1e3300d"
+    },
+    "skills/fox2-method-source-contracts/SKILL.md": {
+      "bytes": 2334,
+      "sha256": "13ab3e3aedfe7947e0ddc1b1b69fcd0d70b4f80d23baf01d009f1ed3770da39d"
+    },
+    "skills/fox2-mgmt-agent-routing/SKILL.md": {
+      "bytes": 2151,
+      "sha256": "ebb59f0bb4ea4da92bb671ee26da8b25f76e26cc669e6c5a29682ff6833877aa"
+    },
+    "skills/fox2-mgmt-context-handoff/SKILL.md": {
+      "bytes": 1789,
+      "sha256": "b0ba78cd60eb2726cb6e577df85216c49905ccbb78fd5a733bfdad1fba4aaf41"
+    },
+    "skills/fox2-mgmt-delivery/SKILL.md": {
+      "bytes": 2225,
+      "sha256": "af0bae5cfdd50af012ceaab285bde2ee330e395d34a0cd6c9a4072080c02ff57"
+    },
+    "skills/fox2-tech-execution-recovery/SKILL.md": {
+      "bytes": 2102,
+      "sha256": "cd9b4203a25eb90f2d7fb7cd9778a5f628d1e57b5f89bb83046e4e979cf0ac4b"
+    },
+    "skills/fox2-tech-publication-sync/SKILL.md": {
+      "bytes": 2287,
+      "sha256": "dabe164f35b519d18037f703add8f956f606ab7b63a3eb83dbf63b39825cc79c"
+    },
+    "skills/fox2-tech-route-preflight/SKILL.md": {
+      "bytes": 2452,
+      "sha256": "0413b00f137eb54a1000fa1ea06792a936e7401acab82e85fb92236d74ac9d12"
+    },
+    "tests/test_role_boundaries.py": {
+      "bytes": 1220,
+      "sha256": "1a78e52f744deb1898af3ff45fd4baed938e431a1c7181f7e48a559b8c0602f6"
+    },
+    "tests/test_source_integrity.py": {
+      "bytes": 857,
+      "sha256": "b36980ae2ba26e46e81d66725eca82fa6def2307aae6ab4ba9cf1062cd84fbc1"
+    },
+    "tests/test_three_layers.py": {
+      "bytes": 1739,
+      "sha256": "fa205d6565ad5bbb301638583a7e05b7c0391fb18e8f0a0fc4585b9a6fa6c750"
+    }
+  }
+}

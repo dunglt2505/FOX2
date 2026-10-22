@@ -1,4 +1,12 @@
 {
+  "name": "fox2-skills-integrated",
+  "version": "0.5.0",
+  "description": "17 FOX2 CHAT-FIRST Skills: scoped, source-bound and host-compatible guidance.",
+  "author": {
+    "name": "Workspace upload"
+  },
+  "keywords": [],
+  "skills": "./skills",
   "interface": {
     "displayName": "FOX2 Skills",
     "shortDescription": "17 FOX2 source-bound operational Skills",
@@ -7,13 +15,5 @@
     "developerName": "Workspace upload",
     "capabilities": [],
     "defaultPrompt": null
-  },
-  "name": "fox2-skills-integrated",
-  "version": "0.4.2",
-  "description": "17 FOX2 CHAT-FIRST Skills: scoped, source-bound and host-compatible guidance.",
-  "author": {
-    "name": "Workspace upload"
-  },
-  "keywords": [],
-  "skills": "./skills"
+  }
 }
