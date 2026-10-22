@@ -1,0 +1,110 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r5/task.md",
+    "commit_sha": "8fb7d23217067474488203aceef094b838e828ab",
+    "sha256": "d7054edbb574661df9cbba08dcdf282cf175d2cd5496a5dc7b2c2af6cdaa7062"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r5/prompt.md",
+    "git_commit": "b33d0610649cbfb466bb5febd1e295f91f35e53d",
+    "git_blob_sha1": "10b95e130289752701c790beb41b2d0cde9af017",
+    "sha256": "ffeaccd6a60eb4b56da907bf1092bb3889b38a80a8cd957ca5d8a90860e79fba"
+  },
+  "source": {
+    "commit_sha": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "R5 PASS_TO_ASSIGN 177bacaab2d863d41e07abc0d55d17ddf75d2aa1; PreExec PASS 59ba8b50136ac5bcee7cf2d2edbf65e360812b78; R4 CHAT_REWORK 07ce66987345859f978c06fbb4abbdeeaa0ff04c."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+    "base_sha": "59ba8b50136ac5bcee7cf2d2edbf65e360812b78",
+    "allowed_code_paths": [
+      "agent_bridge/scripts/certify_user_lifecycle.py",
+      "agent_bridge/tests/test_lifecycle_wpf_contract.py"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r5/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "pwsh7",
+      "python313_pytest835_jsonschema4260",
+      "codex_cli_01621",
+      "gpt_6_1_sol_medium",
+      "one_writer",
+      "R4_no_replay"
+    ],
+    "stop_conditions": [
+      "R5_binding_mismatch",
+      "R4_replay",
+      "third_product_file",
+      "host_lifecycle_or_A05_G3_G4_Canary",
+      "main_merge_provider_broker_live"
+    ]
+  },
+  "required_tests": [
+    "focused_lifecycle_wpf",
+    "full_agent_bridge",
+    "absent_pre_live_errno13_negative_cases",
+    "git_diff_check",
+    "allowlist_privacy_K1",
+    "result_contract_v2"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-22T10:53:00Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-CODEX-001"
+}
