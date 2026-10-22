@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "OWNER_MANUAL_EXECUTION_OF_FRESH_HOST_LIFECYCLE_A02_DISPATCH_NOT_RUN",
+      "blocker": "HOST_A02_PRECONSUME_CLAIMED_STATE_REQUIRES_SAFE_CONTINUATION; DISPATCH_NOT_CONSUMED; AGENT_NOT_STARTED",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_EXACT_HOST_LIFECYCLE_A02_DISPATCH_8DCEB411_ONCE_VIA_CHAT_POWERSHELL; THEN_CHAT_RESULT_REVIEW; NEVER_REPLAY",
+      "next_safe_action": "OWNER_RUN_CLAIMED_PRECONSUME_CONTINUATION_FOR_EXISTING_DISPATCH_8DCEB411; DO_NOT_DELETE_CLAIM_OR_RERUN_ORIGINAL_LAUNCHER; THEN_CHAT_RESULT_REVIEW_OR_RECOVERY",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,7 +170,7 @@
         "next_phase": {
           "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A02",
           "stage": "TEST",
-          "status": "DISPATCH_PUBLISHED_UNCONSUMED_OWNER_LAUNCH_READY",
+          "status": "DISPATCH_CLAIMED_PRECONSUME_RECOVERY_REQUIRED",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-20261022",
           "task_commit": "9ffa283034a4614e5cc5a60899f919e3f12d7a03",
@@ -261,13 +261,14 @@
             "schema_v3_validation": "PASS_ZERO_ERRORS",
             "runtime_base": "76913f36b461689a84e8b4acf57a9ef83a98828d",
             "source": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-            "state": "PUBLISHED_UNCONSUMED",
+            "state": "CLAIMED_PRECONSUME",
             "max_runs": 1,
             "no_replay": true,
-            "retry_of": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001"
+            "retry_of": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
+            "consumed": false
           },
           "launch_readiness": {
-            "verdict": "OWNER_LAUNCH_READY",
+            "verdict": "RECOVERED_SAFE_TO_RESUME_EXISTING_CLAIM_ONLY",
             "task_branch_head": "76913f36b461689a84e8b4acf57a9ef83a98828d",
             "control_branch_head": "8dceb41112d8240ec579ddede23b8ae6a9d06662",
             "code_writes": false,
@@ -275,6 +276,18 @@
             "host_wpf_state": "HIDDEN_OR_MINIMIZED_EXACT_CURRENT",
             "worker_legacy_count": 0,
             "g3": false
+          },
+          "execution_recovery": {
+            "review_commit": "dabe3c81bb063679fb32685670638ae0ae89e65a",
+            "class": "LAUNCHER_CLAIM_STATE_SCOPE_BUG",
+            "root_cause": "First claim write succeeded, but launcher set script-scope ClaimCreated while later Save-Claim/catch observed invocation-scope false; second Save-Claim retried FileMode.CreateNew and stopped before Process.Start.",
+            "claim_state_observed": "CLAIMED",
+            "dispatch_consumed": false,
+            "agent_started": false,
+            "task_remote_head": "76913f36b461689a84e8b4acf57a9ef83a98828d",
+            "control_remote_head": "8dceb41112d8240ec579ddede23b8ae6a9d06662",
+            "no_remote_result": true,
+            "safe_action": "VALIDATE_EXISTING_CLAIM_EXACTLY_AND_RESUME_SAME_ATTEMPT_FROM_CLAIMED_TO_SPAWN_ATTEMPTED; NEVER_DELETE_OR_RECREATE_CLAIM"
           }
         },
         "host_lifecycle_cert": {
