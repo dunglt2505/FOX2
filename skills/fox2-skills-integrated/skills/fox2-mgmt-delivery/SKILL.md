@@ -5,7 +5,7 @@ description: "Plan, prioritize, promote, track, and report FOX2 delivery in one 
 
 # fox2-mgmt-delivery
 
-**FOX2 Layer 1 — Project management — Agile Lite 0.5.2**
+**FOX2 Layer 1 — Project management — Agile Lite 0.5.3**
 
 ## Activate when
 Owner asks what to build next, current status, a blocker, project health, priority, or whether a Master Plan/Roadmap feature should enter the Agile Board.
