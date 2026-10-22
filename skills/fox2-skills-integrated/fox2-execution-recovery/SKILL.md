@@ -1,20 +1,42 @@
 ---
 name: fox2-execution-recovery
-description: Find first meaningful failure; preserve prior valid work and tests.
+description: Safely inspect and recover partial or unknown FOX2 workflow and Agent execution.
 ---
 
 # fox2-execution-recovery
 
-**FOX2 Skills source v0.4.0 candidate — not installed.**
+## Agile Lite Owner-approved operating precedence (2026-10-22)
+
+Use Policy v2.1.0 and canonical `../shared/operating_rules.md` for ONE Kanban / Build -> Test -> Deliver. This Skill's specialized safeguards remain; legacy unconditional R0-R7, full PreExec receipt, Git-published task/prompt, Agent Dispatch, independent review and document release chains are conditional ONLY on a selected material/Bridge/irreversible technical route. Normal authorized native DEV does not need these extra management gates. Fix only actual source/consumer drift, preserve historical bindings and no-replay, never represent UNKNOWN as PASS.
 
 ## Activate when
-Find first meaningful failure; preserve prior valid work and tests.
+Timeout, missed receipt, failed transfer, interrupted worker or uncertain completion.
 
-## Action
-Repair in the existing task where safe. Reconcile ambiguous/consumed execution before any new attempt. Never blindly replay irreversible effects.
+## Work to perform
+Inspect durable ledger/receipts, identity, last writer, source lock, remote result and whether side effects occurred. Distinguish enqueue from delivered/ACK, heartbeat from completion, unknown from failure. Repro on synthetic fixture; NEVER blind retry/replay consumed Dispatch or broker orders.
 
-## Output
-Produce the concrete task-specific result, actual supporting evidence, remaining risks or blocker, and next useful action. No extra review/approval stage unless the action itself requires one.
+## Completion / stop
+Known state with source/receipt evidence, safe next action, or explicit STOP / OWNER decision.
 
-## Shared operating rules
-The canonical source is `../shared/operating_rules.md`. In environments unable to read sibling resources, apply this minimum: one task → working output → relevant tests → CHAT review; no routine administrative PreExec/Dispatch/17-Skill gate; preserve real rights, risk controls, immutable historical evidence and no-replay. Never auto-claim installed adoption.
+
+Completion is governed by the **Execution Contract v0.3.6** below; apply conditional obligations only when triggered, report bounded HOLD otherwise.
+
+## Execution Contract v0.3.6 — observable completion
+- **TRIGGER:** Interrupted/timeout/missing result, ambiguous dispatch delivery or possible duplicate side effects.
+- **PRECONDITIONS:** Original immutable task/Dispatch identity, available ledger, host/receipt/Git history and current writer/attempt status.
+- **REQUIRED_ACTIONS:** Reconcile enqueue/ACK/start/effects/result independently; check no-replay before selecting a new safe action; never blind retry.
+- **REQUIRED_EVIDENCE:** Immutable attempt/source, ledger/receipts, Git remote results and side-effect evidence or explicit UNKNOWN.
+- **DELIVERABLES:** Reconciliation verdict (`RECOVERED`/`NEEDS_RECONCILIATION`/`STOP`) with observed last writer, unknowns and safe next action.
+- **VALIDATION:** Compare task/result identities and delivery timeline; a timeout alone proves neither no execution nor failure.
+- **FAILURE_STATE:** `NEEDS_RECONCILIATION` / `NO_REPLAY_STOP` for consumed, unknown or conflicting state.
+- **COMPLETION_GATE:** Exactly one defensible recovered/unknown verdict and lawful next action, without replay or fake completion.
+## Git-first reconciliation
+Reconcile immutable task/prompt/Dispatch SHA with the claimed start, host ledger, Git result branch/commit, report/evidence manifest and CHAT review receipt. An Agent terminal success without Git push is `DELIVERY_BLOCKED`, not accepted. Unknown start/delivery/timeout is `NEEDS_RECONCILIATION`; inspect recorded effects and writer before deciding a **new authorized attempt**, never replay a consumed Dispatch. CHAT handles Git/source evidence directly; host verifies Windows lock state; WORK only for genuine independent safety audit.
+
+
+## v0.3.7 — Domain-specific bounded recovery
+Identify `FIRST_FAILURE`, affected gate DAG, side effects, immutable PASS and downstream NOT_RUN. Separate delivery-only from code/host/security issues. Classify each PASS for reuse on matching source/input/environment and gate freshness; use one safe discriminating probe, not replay of any consumed attempt. New execution only if authorized and really necessary.
+
+
+## v0.3.7 — Project-wide focused correction and PASS preservation
+FOX2 all stages: earliest causal divergence. Accepted PASS is REUSE_VERIFIED by default; no blanket recheck. Retest only changed fact→affected gate or mandatory gates. CONSUMED Attempt cannot replay; accepted PASS evidence from it is reusable. NOT_RUN/UNKNOWN remain scoped.
