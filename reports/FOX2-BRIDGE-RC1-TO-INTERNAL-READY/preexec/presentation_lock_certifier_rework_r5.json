@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "checked_at": "2026-10-22T10:50:15.3189865Z",
+  "task_branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/presentation_lock_certifier_rework_r5.json",
+  "source_head": "7d18412b0ac1226cd0d93a42c06e372077519a7f",
+  "task_source": {
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r5/task.md",
+    "git_commit_sha": "8fb7d23217067474488203aceef094b838e828ab",
+    "sha256": "d7054edbb574661df9cbba08dcdf282cf175d2cd5496a5dc7b2c2af6cdaa7062"
+  },
+  "status": "PASS",
+  "capabilities": {
+    "source_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "accepted_product=085cc8302e824dbccf9cbef80422ed48894b9cb4; unaccepted_salvage_base=d997756b5f4cfaa7e442dfc5d929093782b7a90f"
+    },
+    "r4_result_review_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "CHAT_REWORK=07ce66987345859f978c06fbb4abbdeeaa0ff04c; R4 Dispatch remains consumed/no-replay"
+    },
+    "route_assessment_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "COMPLEXITY=EASY; EXECUTION_RISK=MEDIUM; SAFETY_OVERRIDE=NO; selected CODEX/gpt-6.1-sol/medium"
+    },
+    "selected_route_verification": {
+      "status": "PASS",
+      "material": true,
+      "version": "codex-cli 0.162.1",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "exit_code": 0,
+      "evidence": "Fresh gpt-6.1-sol/medium read-only capacity probe PASS"
+    },
+    "test_python": {
+      "status": "PASS",
+      "material": true,
+      "version": "Python 3.13; pytest 8.3.5; jsonschema 4.26.0",
+      "executable": "USERLOCAL/Programs/Python/Python313/python.exe",
+      "evidence": "Current existing test runner capability PASS; no install/upgrade"
+    },
+    "salvage_source_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "certifier_blob=cc469b9e29301db488605d621c8cbb37d9c442e0; test_blob=e2d6551ca119e72a8cb59f38f50bded09a276731"
+    },
+    "task_prompt_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "task_sha256=d7054edbb574661df9cbba08dcdf282cf175d2cd5496a5dc7b2c2af6cdaa7062; prompt_sha256=ffeaccd6a60eb4b56da907bf1092bb3889b38a80a8cd957ca5d8a90860e79fba"
+    },
+    "governance_source": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Current Registry/Resolution/Dictionary/Policy/Routing/Protocol/ReceiptSchema/DispatchSchema blobs verified"
+    },
+    "worktree_clean": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Dedicated R5 worktree clean; no agent_bridge drift relative to R4 salvage base before coding"
+    },
+    "one_writer": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "No R5 task-scoped CODEX writer observed"
+    },
+    "git_push_permission": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Program Files\\Git\\cmd\\git.exe",
+      "evidence": "R5 branch push dry-run PASS"
+    },
+    "no_replay": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "R4 Dispatch remains consumed; fresh R5 Dispatch absent"
+    },
+    "host_lifecycle_isolation": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "R5 is two-file certifier correction only; no package/host lifecycle/A05/G3/G4/Canary"
+    }
+  },
+  "blockers": [],
+  "worktree": {
+    "status": "PASS",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022",
+    "competing_writer": "NONE_OBSERVED",
+    "stale_receipt_cleanup": "NOT_NEEDED"
+  },
+  "candidate_route": {
+    "product": "CODEX",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "dispatch_state": {
+    "executable_dispatch_published": false,
+    "dispatch_consumed": false
+  },
+  "agent_execution_started": false,
+  "notes": [
+    "R5 is a fresh bounded attempt after R4 CHAT_REWORK; R4 Dispatch is no-replay.",
+    "R4 result SHA is unaccepted salvage input, not accepted product source.",
+    "Only new-attempt/time-dependent gates were rechecked.",
+    "Receipt is validated against current Receipt Schema v1 before publication.",
+    "PASS permits CHAT intake and one fresh R5 coding Dispatch only."
+  ]
+}
