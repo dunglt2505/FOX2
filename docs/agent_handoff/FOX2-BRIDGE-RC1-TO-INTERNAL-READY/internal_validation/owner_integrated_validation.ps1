@@ -190,6 +190,7 @@ $Stage = 'OUTPUT_DIRECTORY';$Lifecycle = 'NOT_RUN';$Trial = 'NOT_RUN'
 $Failure = $null
 $Evidence = Join-Path $Out 'lifecycle_local.json'
 try {
+    New-Item -Path (Split-Path -Parent $Out) -ItemType Directory -Force -ErrorAction Stop | Out-Null
     New-Item -Path $Out -ItemType Directory -ErrorAction Stop | Out-Null
     $Stage = 'A04_LIFECYCLE_CONTINUATION'
     Write-Output 'FOX2_INTERNAL_ATTEMPT_CONSUMED=TRUE'
