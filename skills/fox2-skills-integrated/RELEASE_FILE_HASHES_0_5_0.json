@@ -7,20 +7,20 @@
       "sha256": "7049957ab99e002afd12f2dd418b7f59566528913060c395ecf8c981556ca7ee"
     },
     "README.md": {
-      "bytes": 863,
-      "sha256": "72dc269dd6657873a4a563b64ce5d84cc14b6f08193f68b3af7e9045b78f1ed2"
+      "bytes": 929,
+      "sha256": "35b41a3acca94d6bea519b6c3824e2abb384dd3d94c605cd33e56d9f388b6af9"
     },
     "RELEASE_README_v0_5_0.md": {
-      "bytes": 759,
-      "sha256": "3a6bd9826ad5e10146abf5c1d1674c2e9833031c4397076bfc7e46b774dbc373"
+      "bytes": 857,
+      "sha256": "4f9829bda2ff7dfaa77a33dac64b95980046868cc498f917bd8f1c4d768755b8"
     },
     "SKILL_MIGRATION_v0_5_0.md": {
       "bytes": 1943,
       "sha256": "ecb5e82244534693ab8adce34b5849b4347aeb659e678ff90684a9775c3b6573"
     },
     "manifest.json": {
-      "bytes": 2430,
-      "sha256": "1f9e73d10f03d46dbf0747657ba3ecb8851c8ddf1b7e373ccc9f433aacbb5305"
+      "bytes": 2698,
+      "sha256": "7c01956fe6f653bb8060588e0a54ccfc690f46eceb1de0641040140cef05cd46"
     },
     "plugin.json": {
       "bytes": 456,
