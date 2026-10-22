@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "OWNER_HOST_PREEXEC_A02_PRECONSUME_NETWORK_DNS_BLOCKED_GITHUB_COM; NO_RECEIPT_NO_DISPATCH_NO_AGENT_NO_HOST_MUTATION",
+      "blocker": "OWNER_HOST_PREEXEC_A02_V2_NOT_RUN; V1_FAILED_PRECONSUME_ON_POWERSHELL_ARGS_AUTOMATIC_VARIABLE_COLLISION",
       "as_of": "2026-10-22",
-      "next_safe_action": "RESTORE_GITHUB_CONNECTIVITY_THEN_RERUN_SAME_PREEXEC_A02_DB69CE19; SAFE_BECAUSE_PREVIOUS_RUN_STOPPED_BEFORE_ANY_RECEIPT_OR_CONSUME_POINT",
+      "next_safe_action": "RUN_EXACT_HOST_LIFECYCLE_CERT_A02_PREEXEC_V2_39B0D5F6; THEN_CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_PASS_TO_ASSIGN_AND_FRESH_HOST_A02_DISPATCH",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,7 +170,7 @@
         "next_phase": {
           "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A02",
           "stage": "TEST",
-          "status": "PREEXEC_PUBLISHED_NOT_RUN",
+          "status": "PREEXEC_V2_PUBLISHED_NOT_RUN",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-20261022",
           "task_commit": "d0b070e42d25a1581fee8a8731f393206ec5ef5b",
@@ -179,11 +179,11 @@
           "prompt_commit": "40bf70cbf0a46be0cfafbf9965704e68eb48fa5e",
           "prompt_blob": "50a96f461bfe48dfa5514ac0d537e48c7a2d6540",
           "prompt_sha256": "c99584faa1b165b5e766579188afefa86532a8833fe9c966e1a8979c6352f8c5",
-          "preexec_publication_commit": "db69ce19cda3ec68a73cc3e9c9ad05225f0178eb",
-          "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a02/host_lifecycle_cert_a02_preexec.ps1",
-          "preexec_script_blob": "d7e47aa95eab54aeeae01e98ac05318face96f1a",
-          "preexec_script_sha256": "ee6ec23b457a3155e95327ebf3aa1d86990c5b2a50b3cf6444c41a068da0b16d",
-          "preexec": "PRECONSUME_NETWORK_BLOCKED_SAFE_TO_RERUN",
+          "preexec_publication_commit": "39b0d5f609d629c9daa29a49751d5720e87d72bb",
+          "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a02/host_lifecycle_cert_a02_preexec_v2.ps1",
+          "preexec_script_blob": "3782fbad741256408c37e05b47f508cb1473aa47",
+          "preexec_script_sha256": "c40a1810a793b6a1b80496b5553ed5bef77c0a532982f61eec39f87e5c6accdb",
+          "preexec": "V1_FAILED_PRECONSUME_V2_PUBLISHED_NOT_RUN",
           "dispatch_published": false,
           "agent_started": false,
           "result": "NOT_RUN",
@@ -205,6 +205,19 @@
             "host_mutation": false,
             "replay_risk": false,
             "recovery_verdict": "RECOVERED_SAFE_TO_RERUN_SAME_PREEXEC"
+          },
+          "preexec_v1_failure": {
+            "publication_commit": "db69ce19cda3ec68a73cc3e9c9ad05225f0178eb",
+            "script_blob": "d7e47aa95eab54aeeae01e98ac05318face96f1a",
+            "class": "PREEXEC_VEHICLE_BUG",
+            "cause": "PowerShell automatic variable collision on parameter name Args",
+            "stage": "FIRST_LOCAL_GIT_HELPER_CALL",
+            "receipt_created": false,
+            "dispatch_published": false,
+            "agent_started": false,
+            "host_mutation": false,
+            "consumed": false,
+            "recovery_verdict": "RECOVERED_SAFE_TO_USE_FIXED_PREEXEC_V2"
           }
         },
         "host_lifecycle_cert": {
