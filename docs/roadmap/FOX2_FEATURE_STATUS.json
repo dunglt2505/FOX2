@@ -7,11 +7,11 @@
       "feature_id": "FOX2-BRIDGE-RC1",
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
-      "stage": "BUILD",
+      "stage": "TEST",
       "status": "IN_PROGRESS",
-      "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED; HOST_LIFECYCLE_A01_CHAT_REWORK; WPF_REWORK_A01_CONSUMED_NO_RESULT; RECOVERY_SNAPSHOT_1A11FA0B; A02_BUILD_CHAT_ACCEPTED_085CC830",
-      "evidence_scope": "A02_BUILD_SOURCE_TEST_EVIDENCE_CHAT_ACCEPTED_ONLY; REAL_OWNER_HOST_LIFECYCLE_RETRY_NOT_RUN; G3_G4_CANARY_NOT_RUN",
-      "source_sha": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
+      "evidence": "BUILD_CHAT_ACCEPTED_085CC830; A04_RESULT_92394D0_CHAT_REWORK_WITH_REUSABLE_PASS; A04_52_PASS_3_FAIL_21_NOT_RUN; SKILLS_V037_REASSESSMENT_7CEE0933",
+      "evidence_scope": "PRODUCT_BUILD_ACCEPTED; A04_PACKAGE_PROVENANCE_INSTALL_SAFE_STATE_SINGLETON_PASS_REUSABLE; PRESENTATION_LOCK_AND_LIFECYCLE_TAIL_PENDING; G3_G4_CURRENT_AUDIT_CANARY_RESTART_FINAL_INTAKE_NOT_RUN",
+      "source_sha": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
       "evidence_refs": [
         {
           "commit": "dcf42dd76c8f22e155d469d356e1f1219f3d7b14",
@@ -40,22 +40,26 @@
         {
           "commit": "cdf9f9c919102a2337ef357f4b658dc9993f48e5",
           "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/LIFECYCLE_WPF_REWORK_A02_CHAT_RESULT_REVIEW_20261022.md"
+        },
+        {
+          "commit": "7cee0933ffd241deaa8e748bfeb626c56fab0cd0",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/BRIDGE_FEATURE_REASSESSMENT_V037_20261022.md"
         }
       ],
-      "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "OWNER_RUN_EXACT_PRESENTATION_LOCK_CERTIFIER_REWORK_R2_PREEXEC_DA869F71",
+      "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
+      "blocker": "R2_UNRUN_BINDING_LACKS_V037_TASK_ROUTE_ASSESSMENT_AND_PREMATURELY_HARDCODES_HIGH; PREEXEC_DA869F71_MUST_NOT_RUN",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_R2_CERTIFIER_PREEXEC_DA869F71_ONCE; THEN_CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_PASS_TO_ASSIGN_AND_FRESH_R2_CODEX_DISPATCH; NO_PACKAGE_BUILD_INSTALL_OR_HOST_LIFECYCLE_IN_R2",
+      "next_safe_action": "SUPERSEDE_UNRUN_R2_HIGH_BINDING; REISSUE_SAME_BOUNDED_CERTIFIER_CORRECTION_WITH_TASK_ROUTE_ASSESSMENT(COMPLEXITY_MEDIUM,EXECUTION_RISK_MEDIUM,SAFETY_OVERRIDE_NO)_AND_CODEX_GPT_6_1_SOL_MEDIUM_CANDIDATE; THEN_FRESH_PREEXEC_VERIFIES_SELECTED_ROUTE_ONLY",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "HOST_LIFECYCLE_A01_FAIL_REWORK_ACCEPTED_AS_HISTORICAL; LIFECYCLE_WPF_REWORK_A02_BUILD_CHAT_ACCEPTED_AT_085CC830; FRESH_REAL_HOST_LIFECYCLE_CERT_A02_REQUIRED; G3_REMAINS_LOCKED",
-      "g3_physical": "NOT_RUN",
-      "g4_installed_adoption": "NOT_RUN",
-      "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
+      "package_lifecycle": "A04_CLOSED_CHAT_REWORK_NO_REPLAY; A04_VALID_PASS_REUSE_VERIFIED; PRESENTATION_LOCK_FAIL_AND_UNINSTALL_REINSTALL_TAIL_PENDING; A05_CONTINUATION_ONLY_AFTER_CERTIFIER_CORRECTION",
+      "g3_physical": "NOT_RUN_HOLD_UNTIL_COMPOSITE_HOST_LIFECYCLE_ACCEPT",
+      "g4_installed_adoption": "NOT_RUN_HOLD_UNTIL_G3",
+      "final_canary": "NOT_RUN_NEW_IDENTITY_REQUIRED_AFTER_G4_AND_CURRENT_INDEPENDENT_PRECANARY_AUDIT",
       "remote_launch_recheck": {
         "task_branch_head": "0962ec74617613ff01a629926e64b7ae8b122979",
         "dispatch_branch_head": "7efb5d98d8b51a26c8e3de1a0b808a0f48b3885c",
@@ -168,11 +172,11 @@
           }
         },
         "next_phase": {
-          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R2",
+          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_V037_REROUTE",
           "stage": "BUILD",
-          "status": "PREEXEC_PUBLISHED_NOT_RUN",
+          "status": "R2_HIGH_BINDING_SUPERSEDED_BEFORE_RUN_ROUTE_REASSESSMENT_REQUIRED",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "preexec": "PUBLISHED_NOT_RUN",
+          "preexec": "SUPERSEDED_BEFORE_RUN",
           "dispatch_published": false,
           "agent_started": false,
           "result": "NOT_RUN",
@@ -199,12 +203,9 @@
             "no_replay": true
           },
           "execution_envelope": {
-            "design": "FRESH_R2_CODEX_CODING_ASSIGNMENT_AFTER_PREEXEC_PASS",
-            "planned_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R2-CODEX-001",
-            "control_branch": "work/FOX2-DISPATCH-chat",
-            "status_branch": "work/FOX2-BRIDGE-F1-G1-INTEGRATED-DESIGN-20261021",
-            "future_commits_not_hardcoded_in_prompt": true,
-            "agent_must_remote_verify": true,
+            "design": "FRESH_REISSUE_AFTER_V037_TASK_ROUTE_ASSESSMENT",
+            "selected_route_candidate": "CODEX_GPT_6_1_SOL_MEDIUM",
+            "route_must_be_verified_by_fresh_preexec": true,
             "host_lifecycle_mutation": false,
             "package_build": false,
             "install_update": false,
@@ -281,6 +282,31 @@
             "r1_dispatch": false,
             "r1_agent_started": false,
             "do_not_run_r1": true
+          },
+          "route_assessment": {
+            "contract": "FOX2_SKILLS_V0.3.7_TASK_LEVEL_COMPLEXITY_RISK_ROUTE",
+            "complexity": "MEDIUM",
+            "ambiguity": "LOW_MEDIUM",
+            "execution_risk": "MEDIUM",
+            "safety_override": "NO",
+            "dependency_impact": "MEDIUM_HIGH",
+            "evidence_quality": "HIGH",
+            "route_rationale": "BOUNDED_TWO_FILE_EXTERNAL_CERTIFIER_CORRECTION_WITH_KNOWN_REAL_HOST_FAILURE_AND_DETERMINISTIC_NEGATIVE_FIXTURES; NO_ARCHITECTURE_OR_IRREVERSIBLE_HOST_MUTATION",
+            "actor_candidate": "CODEX",
+            "model_candidate": "gpt-6.1-sol",
+            "thinking_candidate": "medium",
+            "route_verified": false
+          },
+          "superseded_r2_high_binding": {
+            "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R2-20261022",
+            "task_commit": "9e1551d4e8e10aff3d302034c3f0c06588eac9ca",
+            "prompt_commit": "f6da01e9729b441ca80aece34ac282dd8195b12a",
+            "preexec_publication": "da869f7171eb3e970e766ed3f8ff9100cfa316b0",
+            "reason": "V0.3.7_TASK_ROUTE_ASSESSMENT_REQUIRED_BEFORE_MODEL_THINKING_SELECTION; CURRENT_ARTIFACTS_HARDCODE_HIGH",
+            "receipt_exists": false,
+            "dispatch_exists": false,
+            "agent_started": false,
+            "instruction": "DO_NOT_RUN"
           }
         },
         "host_lifecycle_cert": {
