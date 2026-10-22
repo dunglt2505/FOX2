@@ -5,9 +5,9 @@ description: Publish or prepare governed FOX2 documents with provenance.
 
 # fox2-document-publication
 
-## Agile Lite Owner-approved operating precedence (2026-10-22)
+## Agile Lite project policy precedence
 
-Use Policy v2.1.0 and canonical `../shared/operating_rules.md` for ONE Kanban / Build -> Test -> Deliver. This Skill's specialized safeguards remain; legacy unconditional R0-R7, full PreExec receipt, Git-published task/prompt, Agent Dispatch, independent review and document release chains are conditional ONLY on a selected material/Bridge/irreversible technical route. Normal authorized native DEV does not need these extra management gates. Fix only actual source/consumer drift, preserve historical bindings and no-replay, never represent UNKNOWN as PASS.
+Policy v2.1.0 / `../shared/operating_rules.md` governs ordinary project work. Apply source publication, audit, immutable task and PreExec machinery only to actually selected governed release/Bridge/high-risk transport. For routine native DEV use one task, real deliverable and appropriate tests; preserve relevant professional checks, historical source locks, real permissions and no-replay.
 
 ## Activate when
 Saving/syncing/publishing BRD, Policy, Technical Spec, Agent prompt or governed documents.
