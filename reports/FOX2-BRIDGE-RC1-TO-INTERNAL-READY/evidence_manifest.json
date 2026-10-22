@@ -242,15 +242,15 @@
     },
     {
       "evidence_ids": [
-        "E_VALIDATION"
+        "E_DELIVERY"
       ],
       "id": "AC31",
-      "reason": "Delivery pending at report assembly. Actual push/readback is performed subsequently and remote SHA returned outside this report.",
-      "status": "NOT_RUN"
+      "reason": "Initial report result was pushed and remote-read successfully. Final successor head is returned outside the report.",
+      "status": "PASS"
     }
   ],
   "agent": {
-    "finished_at_utc": "2026-10-22T04:14:23.111324+00:00",
+    "finished_at_utc": "2026-10-22T04:15:13.129215+00:00",
     "host": "Owner Windows host; no lifecycle mutation",
     "mode": "TEST / high / MANUAL_LOCAL / FULL_ACCESS",
     "model": "gpt-6.1-sol",
@@ -265,10 +265,10 @@
       "description": "A03 bounded report evidence: acceptance_mapping.json",
       "id": "E_MAPPING",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/acceptance_mapping.json",
       "sanitized": true,
-      "sha256": "fb31327f2339ae67c94eec43a52abcbc2089045a33fd134366929400414dd3ee",
+      "sha256": "166099c62a2535b7f74037bf87b30e77e8f0a2778c58e6509f1320dc87f2f435",
       "supports_ids": [
         "T_REPORT"
       ]
@@ -277,10 +277,10 @@
       "description": "A03 bounded report evidence: assemble_result.py",
       "id": "E_ASSEMBLER",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/assemble_result.py",
       "sanitized": true,
-      "sha256": "9aacd9ad18e27b5f2b4326bab919675b78adb76e573eea73bc9e4080ef32d6e2",
+      "sha256": "539f05ac8c6db1dcbd0105314f55ab826bc64f736cd99c76c9c53299bc2835d3",
       "supports_ids": [
         "T_REPORT"
       ]
@@ -289,7 +289,7 @@
       "description": "A03 bounded report evidence: authorization.json",
       "id": "E_AUTH",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/authorization.json",
       "sanitized": true,
       "sha256": "a70164ec792a7ab390133a0c763c9fd4f426402910ebc637edeecc66fb076dc3",
@@ -298,13 +298,25 @@
       ]
     },
     {
+      "description": "A03 bounded report evidence: delivery.json",
+      "id": "E_DELIVERY",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/delivery.json",
+      "sanitized": true,
+      "sha256": "9f09ec4776e2b6c27c8e5a605e35d2eaef8b3227ba5aff77d0595498f6ade8d5",
+      "supports_ids": [
+        "T_REPORT"
+      ]
+    },
+    {
       "description": "A03 bounded report evidence: historical_boundaries.json",
       "id": "E_HISTORY",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/historical_boundaries.json",
       "sanitized": true,
-      "sha256": "2552d67a3b0d2330000798fcc499d51171da780bfc7331a9dd930677fbb00bf4",
+      "sha256": "543d466f359c0a1ce4fcf903b002acf6efef830d2c1962d85c0ec708a7a6f0e3",
       "supports_ids": [
         "T_REPORT"
       ]
@@ -313,10 +325,10 @@
       "description": "A03 bounded report evidence: k1.json",
       "id": "E_K1",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/k1.json",
       "sanitized": true,
-      "sha256": "e824f352fb7ef64bd277838cc13ac9f080528579b60921ef102c9f05f20f5ab8",
+      "sha256": "d37544b9127029cf515f80df5fe8510c05709c156eb2face00ae7d7c29644cad",
       "supports_ids": [
         "T_REPORT"
       ]
@@ -325,7 +337,7 @@
       "description": "A03 bounded report evidence: limited_host_observation.json",
       "id": "E_HOST",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/limited_host_observation.json",
       "sanitized": true,
       "sha256": "edf120d57d1afb95c1d851d15819c0f0fc11a2788aaa0773a13fb2223620b121",
@@ -337,7 +349,7 @@
       "description": "A03 bounded report evidence: provenance_blocker.json",
       "id": "E_PROVENANCE",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/provenance_blocker.json",
       "sanitized": true,
       "sha256": "ecd11251441b9d7afaefb6d65bfce94e40797e7a8d7d4faf0b7ceb4d03072b22",
@@ -349,7 +361,7 @@
       "description": "A03 bounded report evidence: report_validation_history.json",
       "id": "E_VALIDATION_HISTORY",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/report_validation_history.json",
       "sanitized": true,
       "sha256": "27d50f774de15020289f39dbcb3648a3f371a6052f5eea466455a25a15ef43ce",
@@ -361,10 +373,10 @@
       "description": "A03 bounded report evidence: validation.json",
       "id": "E_VALIDATION",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/validation.json",
       "sanitized": true,
-      "sha256": "731c39339ef4aae6a78896e2f68548c6dfdcc4fcc2a0b1d34db3605a64a066ce",
+      "sha256": "3aa038456e2c2ada4d69b84755d307e61c133263dd09b04b31e6624bfbb1162d",
       "supports_ids": [
         "T_REPORT"
       ]
@@ -372,7 +384,7 @@
   ],
   "git": {
     "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022",
-    "delivery_status": "LOCAL_ONLY",
+    "delivery_status": "PUSHED_UNREVIEWED",
     "local_head_before_submission": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
     "pr_url": null,
     "report_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
@@ -436,14 +448,14 @@
     "changed_paths": [
       {
         "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
-        "new_sha256": "fb31327f2339ae67c94eec43a52abcbc2089045a33fd134366929400414dd3ee",
+        "new_sha256": "166099c62a2535b7f74037bf87b30e77e8f0a2778c58e6509f1320dc87f2f435",
         "operation": "ADD",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/acceptance_mapping.json",
         "within_allowed_paths": true
       },
       {
         "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
-        "new_sha256": "9aacd9ad18e27b5f2b4326bab919675b78adb76e573eea73bc9e4080ef32d6e2",
+        "new_sha256": "539f05ac8c6db1dcbd0105314f55ab826bc64f736cd99c76c9c53299bc2835d3",
         "operation": "ADD",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/assemble_result.py",
         "within_allowed_paths": true
@@ -457,14 +469,21 @@
       },
       {
         "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
-        "new_sha256": "2552d67a3b0d2330000798fcc499d51171da780bfc7331a9dd930677fbb00bf4",
+        "new_sha256": "9f09ec4776e2b6c27c8e5a605e35d2eaef8b3227ba5aff77d0595498f6ade8d5",
+        "operation": "ADD",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/delivery.json",
+        "within_allowed_paths": true
+      },
+      {
+        "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
+        "new_sha256": "543d466f359c0a1ce4fcf903b002acf6efef830d2c1962d85c0ec708a7a6f0e3",
         "operation": "ADD",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/historical_boundaries.json",
         "within_allowed_paths": true
       },
       {
         "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
-        "new_sha256": "e824f352fb7ef64bd277838cc13ac9f080528579b60921ef102c9f05f20f5ab8",
+        "new_sha256": "d37544b9127029cf515f80df5fe8510c05709c156eb2face00ae7d7c29644cad",
         "operation": "ADD",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/k1.json",
         "within_allowed_paths": true
@@ -492,7 +511,7 @@
       },
       {
         "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
-        "new_sha256": "731c39339ef4aae6a78896e2f68548c6dfdcc4fcc2a0b1d34db3605a64a066ce",
+        "new_sha256": "3aa038456e2c2ada4d69b84755d307e61c133263dd09b04b31e6624bfbb1162d",
         "operation": "ADD",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a03/validation.json",
         "within_allowed_paths": true
@@ -506,7 +525,7 @@
       },
       {
         "intent": "A03 report/evidence for pre-build provenance STOP; JUSTIFIED_GENERATED",
-        "new_sha256": "cb9d924f9db6abff882d06af59e10f885ec2279bc24bec346aed6bc4ee1cec73",
+        "new_sha256": "8cdb91e936aee77bf978ada9e3602d16cf0a535468f37a5bfb09c361682dced8",
         "operation": "MODIFY",
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
         "within_allowed_paths": true
@@ -551,7 +570,7 @@
     "task_commit_sha": "33f6176dff86b00df6c9b8b0ef6f8eefce00578e"
   },
   "submission_state": "BLOCKED",
-  "submitted_at_utc": "2026-10-22T04:14:23.111324+00:00",
+  "submitted_at_utc": "2026-10-22T04:15:13.129215+00:00",
   "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03",
   "tests": [
     {
@@ -563,7 +582,7 @@
       "id": "T_AUTH",
       "kind": "READBACK",
       "notes": "Authorization verified; full host execution gates incomplete.",
-      "run_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "run_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "status": "PASS"
     },
     {
@@ -575,7 +594,7 @@
       "id": "T_PROVENANCE",
       "kind": "READBACK",
       "notes": "Actual return differs from exact required accepted source. No package built.",
-      "run_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "run_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "status": "BLOCKED"
     },
     {
@@ -587,7 +606,7 @@
       "id": "T_REPORT",
       "kind": "STATIC",
       "notes": "Report validation only.",
-      "run_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "run_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "status": "PASS"
     },
     {
@@ -599,7 +618,7 @@
       "id": "T_LIFECYCLE",
       "kind": "INTEGRATION",
       "notes": "Stopped before package build/host mutation; never invoked.",
-      "run_at_utc": "2026-10-22T04:14:23.111324+00:00",
+      "run_at_utc": "2026-10-22T04:15:13.129215+00:00",
       "status": "NOT_RUN"
     }
   ],

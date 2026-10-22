@@ -43,5 +43,5 @@
   "manual_consumption_hash_matches_preexec": true,
   "no_worker_f1_g3_g4_applocker_service_acl_mutation": true,
   "note": "No historical record was rewritten. No old Dispatch was executed. Hash equality of manual consumption is not a full DB/consumed-ledger certification.",
-  "observed_at_utc": "2026-10-22T04:14:23.111324+00:00"
+  "observed_at_utc": "2026-10-22T04:15:13.129215+00:00"
 }

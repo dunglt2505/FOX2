@@ -366,10 +366,10 @@
       "status": "PASS"
     },
     {
-      "evidence_id": "E_VALIDATION",
+      "evidence_id": "E_DELIVERY",
       "id": "AC31",
-      "reason": "Delivery pending at report assembly. Actual push/readback is performed subsequently and remote SHA returned outside this report.",
-      "status": "NOT_RUN"
+      "reason": "Initial report result was pushed and remote-read successfully. Final successor head is returned outside the report.",
+      "status": "PASS"
     }
   ],
   "worker_f1_health": "NOT_APPLICABLE_PRE_G3"

@@ -1,13 +1,13 @@
 {
   "changed_path_allowlist": "PASS",
-  "delivery_status": "LOCAL_ONLY_AT_ASSEMBLY",
+  "delivery_status": "PUSHED_UNREVIEWED",
   "diff_check": "PASS",
   "evidence_hash_validation": "PASS_ON_SUCCESSFUL_ASSEMBLER_COMPLETION",
   "k1_unexplained": 0,
   "limitations": [
     "No build, package validation, host lifecycle or final-state certification executed."
   ],
-  "observed_at_utc": "2026-10-22T04:14:23.111324+00:00",
+  "observed_at_utc": "2026-10-22T04:15:13.129215+00:00",
   "push_readback": "Performed after local commit; observed remote SHA returned outside committed report.",
   "result_scope": "REPORT_ONLY",
   "scan_scope": "All generated JSON/report bytes plus manual review of report generator; scanner regex definitions are non-secret.",

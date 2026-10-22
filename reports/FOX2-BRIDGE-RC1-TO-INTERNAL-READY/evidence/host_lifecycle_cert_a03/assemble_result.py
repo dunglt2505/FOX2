@@ -32,6 +32,8 @@ def write(path, obj):
 auth = json.loads((E / 'authorization.json').read_text())
 blocker = json.loads((E / 'provenance_blocker.json').read_text())
 host = json.loads((E / 'limited_host_observation.json').read_text())
+delivery = json.loads((E / 'delivery.json').read_text()) if (E / 'delivery.json').exists() else None
+delivery_state = 'PUSHED_UNREVIEWED' if delivery else 'LOCAL_ONLY'
 assert auth['immutable_envelope_verification'] == 'PASS'
 assert blocker['observed_source_git_commit_function_return'] == BASE != ACCEPTED
 assert host['task_codex_writer_count'] == 1
@@ -91,6 +93,9 @@ criteria += [
     ('AC30', 'PASS', 'E_VALIDATION', 'Result Contract v2 schema and evidence hashes validated.'),
     ('AC31', 'NOT_RUN', 'E_VALIDATION', 'Delivery pending at report assembly. Actual push/readback is performed subsequently and remote SHA returned outside this report.'),
 ]
+if delivery:
+    assert delivery['push_exit_code'] == 0 and delivery['remote_head_matched_local_result'] is True
+    criteria[-1] = ('AC31', 'PASS', 'E_DELIVERY', 'Initial report result was pushed and remote-read successfully. Final successor head is returned outside the report.')
 
 dispatch = json.loads(subprocess.check_output(['git', '-C', str(ROOT), 'show',
     auth['envelope']['FOX2_DISPATCH_COMMIT'] + ':docs/agent_handoff/DISPATCH/' +
@@ -122,7 +127,7 @@ report = f'''# FOX2 Host Lifecycle Certification A03 - BLOCKED / REWORK_REQUIRED
 
 ## R01 - Identification and submission
 
-Task `{TASK}`, Whole-WP `{WP}`. CODEX gpt-6.1-sol / high / MANUAL_LOCAL / FULL_ACCESS, Owner Windows host. One Agent attempt, zero retries/subagents. Result **BLOCKED**, disposition **REWORK_REQUIRED**; lifecycle **NOT_RUN**. Evidence capture started `{auth['checked_at_utc']}`; report assembled `{NOW}`. Submission BLOCKED for CHAT review. Delivery is initially LOCAL_ONLY; actual push/readback status and remote result SHA are returned outside this report. CHAT acceptance is not claimed.
+Task `{TASK}`, Whole-WP `{WP}`. CODEX gpt-6.1-sol / high / MANUAL_LOCAL / FULL_ACCESS, Owner Windows host. One Agent attempt, zero retries/subagents. Result **BLOCKED**, disposition **REWORK_REQUIRED**; lifecycle **NOT_RUN**. Evidence capture started `{auth['checked_at_utc']}`; report assembled `{NOW}`. Submission BLOCKED for CHAT review. Delivery **{delivery_state}**; actual final remote result SHA is returned outside this report. CHAT acceptance is not claimed.
 
 ## R02 - Authority, routing and grants
 
@@ -162,7 +167,7 @@ Limited observation found existing WPF PID 10608, exactly the current installed 
 
 ## R09 - Git delivery
 
-Repository dunglt2505/FOX2, branch `{BRANCH}`, pre-submission HEAD `{BASE}`. Authorized report-only commit/push and remote readback follow static validation. The committed manifest records LOCAL_ONLY at assembly; the final external pointer records the actual observed PUSHED_UNREVIEWED delivery without a self-referential result SHA. No CHAT acceptance or lifecycle PASS is claimed.
+Repository dunglt2505/FOX2, branch `{BRANCH}`, pre-submission HEAD `{BASE}`. Delivery state **{delivery_state}**. The initial report result was pushed and its exact remote branch head read back before this delivery-finalization update; delivery.json records that observation. One DNS failure on the initial push was followed by a successful ordinary push of the same commit. This final report/evidence successor is committed/pushed and read back subsequently; its observed SHA is returned outside the report. No CHAT acceptance or lifecycle PASS is claimed.
 
 ## R10 - Blocker, history and next action
 
@@ -212,7 +217,7 @@ write(E / 'validation.json', dict(observed_at_utc=NOW, result_scope='REPORT_ONLY
     changed_path_allowlist='PASS', source_drift='NONE', secret_privacy_scan='PASS',
     scan_scope='All generated JSON/report bytes plus manual review of report generator; scanner regex definitions are non-secret.',
     diff_check='PASS', k1_unexplained=0, schema_validation='PASS_ON_SUCCESSFUL_ASSEMBLER_COMPLETION',
-    evidence_hash_validation='PASS_ON_SUCCESSFUL_ASSEMBLER_COMPLETION', delivery_status='LOCAL_ONLY_AT_ASSEMBLY',
+    evidence_hash_validation='PASS_ON_SUCCESSFUL_ASSEMBLER_COMPLETION', delivery_status=delivery_state,
     push_readback='Performed after local commit; observed remote SHA returned outside committed report.',
     limitations=['No build, package validation, host lifecycle or final-state certification executed.']))
 
@@ -220,7 +225,8 @@ evidence_names = {
     'authorization.json': 'E_AUTH', 'provenance_blocker.json': 'E_PROVENANCE',
     'limited_host_observation.json': 'E_HOST', 'historical_boundaries.json': 'E_HISTORY',
     'acceptance_mapping.json': 'E_MAPPING', 'k1.json': 'E_K1', 'validation.json': 'E_VALIDATION',
-    'assemble_result.py': 'E_ASSEMBLER', 'report_validation_history.json': 'E_VALIDATION_HISTORY'}
+    'assemble_result.py': 'E_ASSEMBLER', 'report_validation_history.json': 'E_VALIDATION_HISTORY',
+    'delivery.json': 'E_DELIVERY'}
 evidence = [dict(id=evidence_names[p.name], path=p.relative_to(ROOT).as_posix(), sha256=digest(p),
     kind='OTHER', observed_at_utc=NOW, description='A03 bounded report evidence: ' + p.name,
     supports_ids=['T_REPORT'] if p.name != 'provenance_blocker.json' else ['T_PROVENANCE'], sanitized=True)
@@ -251,7 +257,7 @@ manifest = dict(contract_version='2.0', project='FOX2', wp_id=WP, task_id=TASK, 
         grant_evidence='Fresh A03 Dispatch permissions and Owner runtime envelope, independently Git-verified.'),
     git=dict(repository='dunglt2505/FOX2', branch=BRANCH, worktree='WORKTREES/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022',
         writer_lease='One task CODEX writer PID 4652; no second task writer observed.', report_path=f'reports/{WP}/report.md',
-        delivery_status='LOCAL_ONLY', pr_url=None, local_head_before_submission=BASE),
+        delivery_status=delivery_state, pr_url=None, local_head_before_submission=BASE),
     scope=dict(requested=['Bounded real Owner-host accepted-package lifecycle certification.'],
         completed=['Immutable authorization verification; exact read-only provenance blocker; limited host observation; report validation.'],
         partial=['Full capability/pre-state gates not completed after provenance STOP.'],

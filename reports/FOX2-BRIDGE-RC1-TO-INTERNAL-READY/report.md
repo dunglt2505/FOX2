@@ -2,7 +2,7 @@
 
 ## R01 - Identification and submission
 
-Task `FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03`, Whole-WP `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`. CODEX gpt-6.1-sol / high / MANUAL_LOCAL / FULL_ACCESS, Owner Windows host. One Agent attempt, zero retries/subagents. Result **BLOCKED**, disposition **REWORK_REQUIRED**; lifecycle **NOT_RUN**. Evidence capture started `2026-10-22T04:12:07.893745+00:00`; report assembled `2026-10-22T04:14:23.111324+00:00`. Submission BLOCKED for CHAT review. Delivery is initially LOCAL_ONLY; actual push/readback status and remote result SHA are returned outside this report. CHAT acceptance is not claimed.
+Task `FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03`, Whole-WP `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`. CODEX gpt-6.1-sol / high / MANUAL_LOCAL / FULL_ACCESS, Owner Windows host. One Agent attempt, zero retries/subagents. Result **BLOCKED**, disposition **REWORK_REQUIRED**; lifecycle **NOT_RUN**. Evidence capture started `2026-10-22T04:12:07.893745+00:00`; report assembled `2026-10-22T04:15:13.129215+00:00`. Submission BLOCKED for CHAT review. Delivery **PUSHED_UNREVIEWED**; actual final remote result SHA is returned outside this report. CHAT acceptance is not claimed.
 
 ## R02 - Authority, routing and grants
 
@@ -42,7 +42,7 @@ Limited observation found existing WPF PID 10608, exactly the current installed 
 
 ## R09 - Git delivery
 
-Repository dunglt2505/FOX2, branch `work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022`, pre-submission HEAD `534204d5cc39a17fb4b3beb948b9b472d6e550b5`. Authorized report-only commit/push and remote readback follow static validation. The committed manifest records LOCAL_ONLY at assembly; the final external pointer records the actual observed PUSHED_UNREVIEWED delivery without a self-referential result SHA. No CHAT acceptance or lifecycle PASS is claimed.
+Repository dunglt2505/FOX2, branch `work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022`, pre-submission HEAD `534204d5cc39a17fb4b3beb948b9b472d6e550b5`. Delivery state **PUSHED_UNREVIEWED**. The initial report result was pushed and its exact remote branch head read back before this delivery-finalization update; delivery.json records that observation. One DNS failure on the initial push was followed by a successful ordinary push of the same commit. This final report/evidence successor is committed/pushed and read back subsequently; its observed SHA is returned outside the report. No CHAT acceptance or lifecycle PASS is claimed.
 
 ## R10 - Blocker, history and next action
 

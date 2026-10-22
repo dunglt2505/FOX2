@@ -1,0 +1,12 @@
+{
+  "repository": "dunglt2505/FOX2",
+  "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022",
+  "initial_report_result_commit": "a615ba8d611987e302d6bc20803105347867a6c5",
+  "push_exit_code": 0,
+  "remote_head_matched_local_result": true,
+  "readback_method": "git ls-remote --refs origin exact authorized task branch; compared with git rev-parse HEAD",
+  "delivery_status": "PUSHED_UNREVIEWED",
+  "transport_note": "Initial push failed DNS before delivery; ordinary push of the same commit then succeeded. No host configuration, Dispatch or lifecycle retry.",
+  "final_successor": "This delivery receipt is included in a report-only successor; its final observed remote SHA is returned outside the committed report.",
+  "chat_acceptance_claimed": false
+}
