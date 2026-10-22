@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "PRESENTATION_LOCK_CERTIFIER_REWORK_R2_REQUIRED_BEFORE_ANY_NEW_DISPATCH; PRIOR_R1_PREEXEC_4D0AE563_SUPERSEDED_UNRUN",
+      "blocker": "OWNER_RUN_EXACT_PRESENTATION_LOCK_CERTIFIER_REWORK_R2_PREEXEC_DA869F71",
       "as_of": "2026-10-22",
-      "next_safe_action": "PUBLISH_REUSE_FIRST_CERTIFIER_REWORK_R2; RUN_FRESH_R2_PREEXEC; THEN_ONE_CODEX_CODING_DISPATCH; AFTER_CHAT_ACCEPT_RUN_A05_CONTINUATION_ONLY_USING_A04_PACKAGE_F99C7ADD_WITHOUT_REBUILD_OR_PREINSTALL",
+      "next_safe_action": "OWNER_RUN_R2_CERTIFIER_PREEXEC_DA869F71_ONCE; THEN_CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_PASS_TO_ASSIGN_AND_FRESH_R2_CODEX_DISPATCH; NO_PACKAGE_BUILD_INSTALL_OR_HOST_LIFECYCLE_IN_R2",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -168,9 +168,9 @@
           }
         },
         "next_phase": {
-          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_A01_R2",
+          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R2",
           "stage": "BUILD",
-          "status": "R1_SUPERSEDED_BEFORE_PREEXEC_R2_REQUIRED",
+          "status": "PREEXEC_PUBLISHED_NOT_RUN",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "preexec": "PUBLISHED_NOT_RUN",
           "dispatch_published": false,
@@ -244,10 +244,8 @@
           "runtime_package_subject": {
             "source_commit": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
             "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
-            "source_inventory_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73",
             "archive": "C:\\Projects\\FOX2-artifacts\\host_lifecycle_cert_a04\\FOX2-Bridge-085cc830-A04.zip",
-            "reuse_required": true,
-            "rebuild_forbidden_if_archive_hash_valid": true
+            "unchanged_by_r2": true
           },
           "reuse_plan": {
             "commit": "da6fd27d78380db42fce155d634044c94a661229",
@@ -266,6 +264,32 @@
             "dispatch_exists": false,
             "agent_started": false,
             "instruction": "DO_NOT_RUN"
+          },
+          "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R2-20261022",
+          "task_commit": "9e1551d4e8e10aff3d302034c3f0c06588eac9ca",
+          "task_blob": "e727eeca3d4d24332ba6a0f2afb07d7d8753c860",
+          "task_sha256": "d209ee454efeaf42b9b0001a5182ce80e8f135756bfa07745acb7b64e7425da4",
+          "prompt_commit": "f6da01e9729b441ca80aece34ac282dd8195b12a",
+          "prompt_blob": "9dd0e89ae48230c8f26be796d655b838c83a70ad",
+          "prompt_sha256": "b179d78f14e143a1d1c61e9a9398ac9e9a3156b2fff5a3e69462d41e711a6b4f",
+          "preexec_publication_commit": "da869f7171eb3e970e766ed3f8ff9100cfa316b0",
+          "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r2/preexec.ps1",
+          "preexec_script_blob": "fd98fa62ba315fc59ba9e8472934c1dfdc4814b4",
+          "preexec_script_sha256": "6c00a366d8b64d183bc73b47da237a133230014faa81665882ebe1449af6905d",
+          "planned_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R2-CODEX-001",
+          "plan_binding": {
+            "master_plan_commit": "ad7d6f0b9889fe4247c29ac3d77f0b90b5f40e56",
+            "master_plan_blob": "6068b0e664d43afc87468e52785806dafc70b59f",
+            "reuse_plan_commit": "da6fd27d78380db42fce155d634044c94a661229",
+            "reuse_plan_blob": "65f5a8359c18588be61ca42122acd894a8a80d99"
+          },
+          "supersedes": {
+            "r1_preexec_publication": "4d0ae5636ac91969c2a15416f8f0bd50d581d180",
+            "r1_state": "SUPERSEDED_BEFORE_RUN",
+            "r1_receipt": false,
+            "r1_dispatch": false,
+            "r1_agent_started": false,
+            "do_not_run_r1": true
           }
         },
         "host_lifecycle_cert": {
