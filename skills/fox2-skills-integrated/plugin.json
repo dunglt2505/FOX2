@@ -1,13 +1,13 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "fox2-skills-integrated",
-  "version": "0.5.0",
-  "description": "17 FOX2 CHAT-FIRST Skills: scoped, source-bound and host-compatible guidance.",
+  "version": "0.5.1",
+  "description": "11 FOX2 Agile Lite Skills across management, professional methods and technical safety.",
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "FOX2 Skills",
-        "shortDescription": "17 FOX2 source-bound operational Skills",
+        "shortDescription": "11 FOX2 Agile Skills",
         "category": "Productivity"
       }
     }
