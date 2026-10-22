@@ -158,5 +158,30 @@
     "provider": false,
     "broker": false,
     "LIVE": false
+  },
+  "agile_lite_20261022": {
+    "status": "OWNER_APPROVED_SOURCE_PUBLISHED_ON_PROPOSED_GOVERNANCE_BRANCH",
+    "owner_approval_date": "2026-10-22",
+    "scope": "PROJECT_WIDE_NEW_OR_RESCOPED_HUMAN_MANAGEMENT",
+    "policy": {
+      "version": "2.1.0",
+      "path": "docs/governance/FOX2_POLICY_V2.1.0.md",
+      "git_commit": "e08c23177af60ed3b0a7e62f2e88b0fea7927b32",
+      "blob_sha1": "05d319eee02dae7b5e3df81506fbc0cc848daa2b",
+      "sha256": "5e91f9276059d6be6bb27a3b4af43804002efd9540606e6fba6c1b2768eb484a"
+    },
+    "task_protocol": {
+      "version": "13",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13.md",
+      "git_commit": "e08c23177af60ed3b0a7e62f2e88b0fea7927b32",
+      "sha256": "f2a2433cc471adb5cace9e994d670d94e089aff895a7117f44e22df406d2d56d"
+    },
+    "library_byte_readback": "VERIFIED_POLICY_PROTOCOL_KANBAN",
+    "existing_machine_current": "UNCHANGED",
+    "governance_activation": "PENDING_BRANCH_PROMOTION",
+    "skills_plugin_adoption": "NOT_ATTESTED",
+    "installed_runtime_adoption": "NOT_ATTESTED",
+    "existing_dispatch_bindings": "UNCHANGED",
+    "reason": "No blanket version-upgrade; legacy references preserved unless incompatible active consumer is proven"
   }
 }
