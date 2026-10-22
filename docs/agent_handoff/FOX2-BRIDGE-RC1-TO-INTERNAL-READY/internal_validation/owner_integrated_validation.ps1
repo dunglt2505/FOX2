@@ -276,3 +276,6 @@ finally {
     Write-Output ($Summary | ConvertTo-Json -Compress -Depth 5)
     Write-Output 'FOX2_DO_NOT_RERUN_THIS_ATTEMPT=TRUE'
 }
+if ($null -ne $Failure) {
+    throw ('STOP: integrated validation consumed; reconcile stage ' + $Stage + '; NO REPLAY')
+}
