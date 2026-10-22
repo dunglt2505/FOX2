@@ -213,10 +213,11 @@
     "skills_plugin_source_head": "9e66d721bd0f8a14eea891092f40669b4bf3c3d3",
     "skills_plugin_release_attestation": {
       "path": "docs/governance/releases/FOX2_SKILLS_PLUGIN_RELEASE_0_5_3_20261022.json",
-      "commit": "46db38b0283151321e9300d950c69ba5a0ef1bf7",
-      "verdict": "SOURCE_PUBLISHED / PLUGIN_RUNTIME_CURRENT / HOTFIX_PASS"
+      "commit": "177be0ae9fbd3e25f11b7bffda346dabd5649f85",
+      "verdict": "PLUGIN_V053_BACKEND_CURRENT_HOTFIX_PASS"
     },
     "skills_promotion_contract": "READY_FOR_BOARD_FIVE_CHECKS_AND_FOUR_DECISIONS",
-    "skills_runtime_scope": "CHATGPT_PLUGIN_ONLY; INSTALLED_BRIDGE_MACHINE_RUNTIME_UNCHANGED"
+    "skills_runtime_scope": "CHATGPT_PLUGIN_ONLY; INSTALLED_BRIDGE_MACHINE_RUNTIME_UNCHANGED",
+    "skills_plugin_session_reload": "REQUIRED_FOR_ALREADY_OPEN_CHAT"
   }
 }
