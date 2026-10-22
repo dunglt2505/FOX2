@@ -2,7 +2,7 @@
   "record_type": "FOX2_SKILLS_PLUGIN_RELEASE_ATTESTATION",
   "recorded_date": "2026-10-22",
   "project": "FOX2",
-  "verdict": "SOURCE_PUBLISHED / PLUGIN_RUNTIME_CURRENT / HOTFIX_PASS",
+  "verdict": "SOURCE_PUBLISHED / PLUGIN_RELEASE_CURRENT / HOTFIX_PASS / ACTIVE_CHAT_SKILL_CACHE_STALE",
   "source": {
     "repository": "dunglt2505/FOX2",
     "branch": "main",
@@ -58,6 +58,13 @@
     "existing_dispatch_rebound": false,
     "broker_or_live_authority": false,
     "host_behavioral_certification": "NOT_RUN",
-    "note": "This attests the ChatGPT FOX2 Skills plugin release only. Installed FOX2 Bridge machine/runtime enforcement remains a separate lifecycle."
+    "note": "This attests Git source publication and the ChatGPT plugin backend current release. The already-open conversation skill snapshot did not hot-reload. Installed FOX2 Bridge machine/runtime enforcement remains a separate lifecycle."
+  },
+  "session_runtime": {
+    "plugin_backend_current_version": "0.5.3",
+    "plugin_backend_current_release_id": "pluginrel_6ada287a37188191883eed11a6a3a8ab",
+    "active_conversation_skills_read_observed_version": "0.5.0",
+    "active_conversation_hot_reload": "NOT_OBSERVED",
+    "interpretation": "Plugin backend publication is current and byte-verified; this already-open conversation retains an older loaded skill snapshot. Use a new/reloaded conversation to consume v0.5.3 through skills__read."
   }
 }
