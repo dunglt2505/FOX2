@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "OWNER_HOST_PREEXEC_A03_NOT_RUN",
+      "blocker": "OWNER_MANUAL_EXECUTION_OF_FRESH_HOST_LIFECYCLE_A03_DISPATCH_NOT_RUN",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_EXACT_HOST_LIFECYCLE_CERT_A03_PREEXEC_7ABA_F065; THEN_CHAT_REMOTE_INTAKE; IF_PASS_PUBLISH_A03_PASS_TO_ASSIGN_AND_FRESH_A03_DISPATCH_WITH_RUNTIME_AUTHORIZATION_ENVELOPE",
+      "next_safe_action": "OWNER_RUN_EXACT_HOST_LIFECYCLE_A03_DISPATCH_D7FB6ED0_ONCE_VIA_CHAT_POWERSHELL_WITH_RUNTIME_AUTHORIZATION_ENVELOPE; THEN_CHAT_RESULT_REVIEW; NEVER_REPLAY",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,7 +170,7 @@
         "next_phase": {
           "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A03",
           "stage": "TEST",
-          "status": "PREEXEC_PUBLISHED_NOT_RUN",
+          "status": "DISPATCH_PUBLISHED_UNCONSUMED_OWNER_LAUNCH_READY",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022",
           "task_commit": "33f6176dff86b00df6c9b8b0ef6f8eefce00578e",
@@ -183,8 +183,8 @@
           "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a03/host_lifecycle_cert_a03_preexec.ps1",
           "preexec_script_blob": "d3707c4d3919e8be51a6ea8ae806516611d4b240",
           "preexec_script_sha256": "2526f0cff55f3dedf1bc4d7ddcc3daa6ef477718963d1ef8c8210db5d8f911e0",
-          "preexec": "PUBLISHED_NOT_RUN",
-          "dispatch_published": false,
+          "preexec": "PASS_REMOTE_ACCEPTED",
+          "dispatch_published": true,
           "agent_started": false,
           "result": "NOT_RUN",
           "host_mutation": true,
@@ -214,7 +214,37 @@
             "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
             "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001",
             "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-CODEX-001"
-          ]
+          ],
+          "preexec_receipt_commit": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+          "preexec_receipt_blob": "847dd0f6c2ee5b5ebecc96a1808640aa0d9e0228",
+          "preexec_receipt_sha256": "0fd19aeee99092a82cd2beac4fbca7fd7fb0cc274d9063a3c94ce850d85ea9a8",
+          "pass_to_assign_commit": "158968a3866972fab244cfb131a7d333eca53d87",
+          "pass_to_assign_blob": "1514c919c16bab47620d471745b2ccd2076089f3",
+          "dispatch": {
+            "id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-CODEX-001",
+            "commit": "d7fb6ed0c9c8a2e40b61d09c1276ea54da5069a7",
+            "blob": "e01375c9f20cfdfce85d47657d429c98cfc5505b",
+            "sha256": "1f02d38cf33086fdcc9ccddb69bd281aa4c4642d3a2ad8605cb4bcaa83bb138b",
+            "schema_v3_validation": "PASS_ZERO_ERRORS",
+            "runtime_base": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+            "source": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+            "state": "PUBLISHED_UNCONSUMED",
+            "max_runs": 1,
+            "no_replay": true,
+            "retry_of": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-CODEX-001"
+          },
+          "launch_readiness": {
+            "verdict": "OWNER_LAUNCH_READY",
+            "task_branch_head": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+            "control_branch_head": "d7fb6ed0c9c8a2e40b61d09c1276ea54da5069a7",
+            "status_branch_pass_to_assign": "158968a3866972fab244cfb131a7d333eca53d87",
+            "runtime_envelope_required": true,
+            "code_writes": false,
+            "report_evidence_writes": true,
+            "host_wpf_state": "HIDDEN_OR_MINIMIZED_EXACT_CURRENT",
+            "worker_legacy_count": 0,
+            "g3": false
+          }
         },
         "host_lifecycle_cert": {
           "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
