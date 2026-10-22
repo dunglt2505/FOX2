@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "checked_at": "2026-10-22T02:22:32.4340315Z",
+  "task_branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/lifecycle_wpf_contract_rework_a02_preflight.json",
+  "source_head": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+  "task_source": {
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/task.md",
+    "git_commit_sha": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
+    "sha256": "7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c"
+  },
+  "status": "PASS",
+  "capabilities": {
+    "source_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "snapshot=1a11fa0b232a69f0c26a0b4029c331ee2a8c840f; head=56e4c1eeb9341062fdb8ec52110e4e5c44c329e2"
+    },
+    "task_prompt_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "task_sha256=7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c; prompt_sha256=a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201"
+    },
+    "governance_source": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Current Policy/Dictionary/Routing/Protocol bytes verified"
+    },
+    "a01_no_replay": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "A01 EXITED_CONSUMED; no replay"
+    },
+    "a02_dispatch_absent": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "No A02 executable Dispatch observed"
+    },
+    "worktree_clean": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Dedicated A02 worktree clean"
+    },
+    "one_writer": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "No task-scoped writer observed"
+    },
+    "codex_cli": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "version": "codex-cli 0.162.1",
+      "evidence": "Required CLI capabilities observed"
+    },
+    "codex_full_access_capability": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "version": "codex-cli 0.162.1",
+      "evidence": "FULL_ACCESS capability supported; not exercised by PreExec"
+    },
+    "codex_current_probe": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "version": "codex-cli 0.162.1",
+      "exit_code": 0,
+      "evidence": "Read-only gpt-6.1-sol/high probe returned exact marker"
+    },
+    "codex_auth_capacity": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "version": "codex-cli 0.162.1",
+      "exit_code": 0,
+      "evidence": "Current authenticated service request succeeded"
+    },
+    "eligible_agent_route": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "version": "codex-cli 0.162.1",
+      "exit_code": 0,
+      "evidence": "Pinned CODEX gpt-6.1-sol/high route ready"
+    }
+  },
+  "blockers": [],
+  "worktree": {
+    "status": "PASS",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
+    "competing_writer": "NONE_OBSERVED",
+    "stale_receipt_cleanup": "NOT_NEEDED"
+  },
+  "candidate_route": {
+    "product": "CODEX",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "dispatch_state": {
+    "executable_dispatch_published": false,
+    "dispatch_consumed": false
+  },
+  "agent_execution_started": false,
+  "notes": [
+    "Recovery snapshot=1a11fa0b232a69f0c26a0b4029c331ee2a8c840f.",
+    "A01 FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001 remains EXITED_CONSUMED / NO_REPLAY.",
+    "A02 task=f796306ca4e79b9ab61cd436cf69a5f28ede4faf blob=3beb3bf2f3c2a76dcd8b10308f3670da98e70424 sha256=7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c.",
+    "A02 prompt=56e4c1eeb9341062fdb8ec52110e4e5c44c329e2 blob=faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2 bytes=10270 sha256=a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201.",
+    "Previous CHAT prompt SHA-256 454423ec... was invalid due CHAT hash-helper state bug; prompt bytes never changed.",
+    "Feature Status correction commit=12c5de7f18027db5a122ebc91bdf0372b78aee94.",
+    "CODEX service probe used read-only sandbox; FULL_ACCESS capability was observed but not exercised.",
+    "No real Bridge/WPF lifecycle, Worker/F1, G3/G4, Canary, provider, broker, main, merge or LIVE action ran.",
+    "PASS authorizes CHAT receipt intake only; it is not PASS_TO_ASSIGN or Agent completion."
+  ]
+}
