@@ -1,0 +1,555 @@
+{
+  "base": "6d1d2a70f2d1cc47e44f70a0ba6cd07cd3985713",
+  "UNEXPLAINED": 0,
+  "classification_scope": "Every changed path and all diff hunks; evidence hashes are independently inventoried in the Result Contract manifest",
+  "paths": [
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/after_first_failure.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,291 @@"
+      ],
+      "reviewed_bytes_sha256": "6d0c0a539e56d17f968c173fca10322ee86e0f8df6da74b56eef5d26cdc7939e"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/assemble_result.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,140 @@"
+      ],
+      "reviewed_bytes_sha256": "9c53d5351379ca2a94217a561154ae59bd3594ef09455cc746f71f0a4bc4c02b"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/baseline_before_build.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,253 @@"
+      ],
+      "reviewed_bytes_sha256": "08aa2a73e299f2ab9e9f3009d5a0b2101aa78a5945d99fe12a8d7e8ee5b6e580"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1 @@"
+      ],
+      "reviewed_bytes_sha256": "9f2c764a1ae73ee66163a94b12f6c61997c501b38142b17dbed1c9fe066f8c16"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_attempt.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,11 @@"
+      ],
+      "reviewed_bytes_sha256": "d75009ae94d2f3363ea35909218e31f9a6076e8283036c7bbb477c5621bca5b1"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_once.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,17 @@"
+      ],
+      "reviewed_bytes_sha256": "213bb853b1deeed55f77ba68310785900a5bac08df1f246c56101c203519b192"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/cleanup_once.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,46 @@"
+      ],
+      "reviewed_bytes_sha256": "56321cb36279a1b45d93e38933b728d990a4f47739b19a753b45813aebcfdb93"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/compare_preservation.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,12 @@"
+      ],
+      "reviewed_bytes_sha256": "9f7480906db3eab130c49a393bc70fc3e11825ec2d22725ebc9ed30dc188a039"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/diff_check.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,2 @@"
+      ],
+      "reviewed_bytes_sha256": "4807e5dc553289d519ed948b15bb54d2422a286b91cfceaff6398ff0be8cd126"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/failure_and_preservation.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,40 @@"
+      ],
+      "reviewed_bytes_sha256": "5b93d318d0f1eb92dee2d6341035ee21c2e08493ac8943ed601706f279d7ccde"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/governance_resolution.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,446 @@"
+      ],
+      "reviewed_bytes_sha256": "de12a7f9f3b9f6cb3127658be5a91daaf9e10300f80185001bbafcaa51077a18"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1 @@"
+      ],
+      "reviewed_bytes_sha256": "d697fdf04baa336a1914b1130692855b17a63f8452d39d1df5bb18bba8bdd39f"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_attempt.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,11 @@"
+      ],
+      "reviewed_bytes_sha256": "9d4cf1887adb9eb51f405145cfd4cb5b7b722d376c3254a513c2bd80fe3b0400"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_once.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,7 @@"
+      ],
+      "reviewed_bytes_sha256": "b699d9a6516853b7802eea4c4b5ddae0cb6f586fd38da5397f6f31c8108169b1"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/installed_before_lifecycle.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,286 @@"
+      ],
+      "reviewed_bytes_sha256": "2e6200a49aea6130e6f0f9c7128d486d753173ded06a4dea172448b168db9781"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/k1.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,515 @@"
+      ],
+      "reviewed_bytes_sha256": null
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,30 @@"
+      ],
+      "reviewed_bytes_sha256": "0124ed2d31eda8d99c3a3b096550585e97ca844ef5b19ccaf63b51927babd797"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,15 @@"
+      ],
+      "reviewed_bytes_sha256": "3478a2b3ab37ea3d93605f9b55deee6834ac983a196f5cbe1a68e3b65c046e92"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_attempt.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,11 @@"
+      ],
+      "reviewed_bytes_sha256": "b42b531da472bb3a8c78150986c1f2ee717dc2458250e0a0f7156c14b5e87eff"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_once.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,29 @@"
+      ],
+      "reviewed_bytes_sha256": "486de3f5163f1b93d7fed5148ec867155b65959927cc03614506f3fb8cc76c0b"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/manifest_validation.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,2 @@"
+      ],
+      "reviewed_bytes_sha256": "c56c06d9c191fe3c75b01a5fd3e28f3fdc90037946d1ec9e4111afe175a6f60a"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/package_verification.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,96 @@"
+      ],
+      "reviewed_bytes_sha256": "b04e14f1814fd587dddda772f29da9e03399ea091adf73b794ae684bf553e4a7"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_install.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,282 @@"
+      ],
+      "reviewed_bytes_sha256": "ecedc2980faf293f225fc84a713b62513d47435e9eded66df06788947fdc6a47"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_mutation.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,253 @@"
+      ],
+      "reviewed_bytes_sha256": "ac407d4f93508e21ace301a5ecbc40821b7c95a46ef577f3594360e2cb0165d8"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/resolve_governance.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,11 @@"
+      ],
+      "reviewed_bytes_sha256": "6fe3f6b1dc78a7e98698356956ecd5342569558c8d9c557c3585b3a18e623c7c"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,299 @@"
+      ],
+      "reviewed_bytes_sha256": "cf99538e33707ccf1720a6b3c24466be3e1c3e56b417f1dae5717da162f9506e"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,69 @@"
+      ],
+      "reviewed_bytes_sha256": "aa432c7a7a5aedc9930323b651855a88bb69bced6df2df4c06d6118994656da9"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/snapshot.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,29 @@"
+      ],
+      "reviewed_bytes_sha256": "502a6e9974e74340541ea8053b430dfdec295b460bbaa2e7eacbfe10ce8a1f11"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/stale_wpf_cleanup.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,51 @@"
+      ],
+      "reviewed_bytes_sha256": "c0bf8c23590759fd3693fe753b5941990f804e4fc4e97fbe82463280ac6bb6dd"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/static_checks.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,18 @@"
+      ],
+      "reviewed_bytes_sha256": null
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_package.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,32 @@"
+      ],
+      "reviewed_bytes_sha256": "096a583752b4f5c60985760bc7489cbcec899ad86323e8f25bb0156b2491dfaa"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_result.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "reason": "Bounded A04 execution, immutable binding, read-only snapshot, single-attempt helper, or audit evidence",
+      "hunks": [
+        "@@ -0,0 +1,46 @@"
+      ],
+      "reviewed_bytes_sha256": "26c90dd19330997c9b2e1252fdfe6e2140884a6004754a65f00b0b05182cadbb"
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "classification": "REQUESTED",
+      "reason": "A04 report and Result Contract v2 delivery",
+      "hunks": [
+        "@@ -5,2 +5,2 @@",
+        "@@ -8 +8 @@",
+        "@@ -12,5 +12,5 @@",
+        "@@ -30 +30 @@",
+        "@@ -35,3 +35,3 @@",
+        "@@ -40 +40 @@",
+        "@@ -43 +43 @@",
+        "@@ -50,2 +50,2 @@",
+        "@@ -57 +57 @@",
+        "@@ -61,3 +61,3 @@",
+        "@@ -67 +67 @@",
+        "@@ -71 +71 @@",
+        "@@ -74 +74,4 @@",
+        "@@ -76 +78,0 @@",
+        "@@ -78 +80 @@",
+        "@@ -81 +83 @@",
+        "@@ -85 +87 @@",
+        "@@ -87 +89 @@",
+        "@@ -89 +91 @@",
+        "@@ -92 +94 @@",
+        "@@ -94 +96 @@",
+        "@@ -96 +98 @@",
+        "@@ -99 +101 @@",
+        "@@ -101 +103 @@",
+        "@@ -103 +105 @@",
+        "@@ -106 +108 @@",
+        "@@ -108 +110 @@",
+        "@@ -110 +112 @@",
+        "@@ -113 +115 @@",
+        "@@ -115 +117 @@",
+        "@@ -117 +119 @@",
+        "@@ -120,3 +122,3 @@",
+        "@@ -124 +126 @@",
+        "@@ -127,3 +129,10 @@",
+        "@@ -131 +140 @@",
+        "@@ -134,3 +143,3 @@",
+        "@@ -138 +147 @@",
+        "@@ -141,3 +150,3 @@",
+        "@@ -145 +154 @@",
+        "@@ -148,3 +157,3 @@",
+        "@@ -152 +161 @@",
+        "@@ -155,3 +164,3 @@",
+        "@@ -159 +168 @@",
+        "@@ -162 +171 @@",
+        "@@ -164 +173 @@",
+        "@@ -166 +175 @@",
+        "@@ -169,3 +178,3 @@",
+        "@@ -173 +182 @@",
+        "@@ -176,3 +185,3 @@",
+        "@@ -180 +189 @@",
+        "@@ -183,3 +192,3 @@",
+        "@@ -187 +196 @@",
+        "@@ -190,3 +199,24 @@",
+        "@@ -194 +224 @@",
+        "@@ -197,3 +227,3 @@",
+        "@@ -201 +231 @@",
+        "@@ -204 +234 @@",
+        "@@ -206 +236 @@",
+        "@@ -208 +238 @@",
+        "@@ -211 +241 @@",
+        "@@ -213 +243 @@",
+        "@@ -215 +245 @@",
+        "@@ -218,3 +248,3 @@",
+        "@@ -222 +252 @@",
+        "@@ -225,3 +255,3 @@",
+        "@@ -229 +259 @@",
+        "@@ -232,3 +262,3 @@",
+        "@@ -236 +266 @@",
+        "@@ -239 +269 @@",
+        "@@ -241 +271 @@",
+        "@@ -243 +273 @@",
+        "@@ -248 +278 @@",
+        "@@ -255 +285 @@",
+        "@@ -257 +287 @@",
+        "@@ -264 +294,14 @@",
+        "@@ -267,3 +310,3 @@",
+        "@@ -271 +314,3 @@",
+        "@@ -273 +318 @@",
+        "@@ -276 +321 @@",
+        "@@ -279,3 +324,3 @@",
+        "@@ -283 +328,3 @@",
+        "@@ -285 +332 @@",
+        "@@ -288,2 +335,2 @@",
+        "@@ -291,3 +338,3 @@",
+        "@@ -295,2 +342,3 @@",
+        "@@ -298 +346 @@",
+        "@@ -301 +349,15 @@",
+        "@@ -304,3 +366,3 @@",
+        "@@ -308 +370,4 @@",
+        "@@ -310 +375 @@",
+        "@@ -313,2 +378,2 @@",
+        "@@ -316,3 +381,3 @@",
+        "@@ -320 +385,3 @@",
+        "@@ -322 +389,13 @@",
+        "@@ -327 +406 @@",
+        "@@ -330 +409 @@",
+        "@@ -332 +411 @@",
+        "@@ -335 +414 @@",
+        "@@ -338 +417,2 @@",
+        "@@ -340 +420 @@",
+        "@@ -343 +423 @@",
+        "@@ -346 +426,2 @@",
+        "@@ -348 +429 @@",
+        "@@ -351 +432 @@",
+        "@@ -354 +435,2 @@",
+        "@@ -356 +438 @@",
+        "@@ -359 +441 @@",
+        "@@ -362 +444,2 @@",
+        "@@ -364 +447 @@",
+        "@@ -367 +450 @@",
+        "@@ -370 +453 @@",
+        "@@ -372 +455 @@",
+        "@@ -375 +458 @@",
+        "@@ -378 +461,2 @@",
+        "@@ -380 +464 @@",
+        "@@ -383 +467 @@",
+        "@@ -386 +470 @@",
+        "@@ -388 +472 @@",
+        "@@ -391 +475 @@",
+        "@@ -394 +478,3 @@",
+        "@@ -396 +482 @@",
+        "@@ -399 +485 @@",
+        "@@ -402 +488 @@",
+        "@@ -404 +490 @@",
+        "@@ -407 +493 @@",
+        "@@ -410 +496,3 @@",
+        "@@ -412 +500 @@",
+        "@@ -415,2 +503,2 @@",
+        "@@ -418 +506,2 @@",
+        "@@ -420 +509 @@",
+        "@@ -423,2 +512,2 @@",
+        "@@ -426 +515,2 @@",
+        "@@ -428 +518 @@",
+        "@@ -431,2 +521,42 @@",
+        "@@ -434 +564,3 @@",
+        "@@ -436 +568 @@",
+        "@@ -439 +571,41 @@",
+        "@@ -442,2 +614,3 @@",
+        "@@ -445 +618 @@",
+        "@@ -448 +621 @@",
+        "@@ -451,2 +624,4 @@",
+        "@@ -454 +629 @@",
+        "@@ -457 +632 @@",
+        "@@ -461 +636,2 @@",
+        "@@ -463 +639 @@",
+        "@@ -466 +642 @@",
+        "@@ -470 +646 @@",
+        "@@ -472 +648 @@",
+        "@@ -475 +651 @@",
+        "@@ -478,2 +654 @@",
+        "@@ -481 +656 @@",
+        "@@ -484 +659 @@",
+        "@@ -487,2 +662,2 @@",
+        "@@ -490 +665 @@",
+        "@@ -493 +668 @@",
+        "@@ -496 +671 @@",
+        "@@ -498 +673 @@",
+        "@@ -501 +676 @@",
+        "@@ -504,2 +679 @@",
+        "@@ -507 +681 @@",
+        "@@ -510 +684 @@",
+        "@@ -513 +687,36 @@",
+        "@@ -519 +728,370 @@",
+        "@@ -524,3 +1102,3 @@",
+        "@@ -528,2 +1106,2 @@",
+        "@@ -536,3 +1114,3 @@",
+        "@@ -540,2 +1118,2 @@",
+        "@@ -548,3 +1126,15 @@",
+        "@@ -552,2 +1142,50 @@",
+        "@@ -560,3 +1198,3 @@",
+        "@@ -564,2 +1202,2 @@",
+        "@@ -572,3 +1210,27 @@",
+        "@@ -576,2 +1238,2 @@",
+        "@@ -579 +1241 @@",
+        "@@ -584,3 +1246,3 @@",
+        "@@ -588,2 +1250,2 @@",
+        "@@ -596,3 +1258,51 @@",
+        "@@ -600,2 +1310,2 @@",
+        "@@ -603 +1313 @@",
+        "@@ -608,3 +1318,3 @@",
+        "@@ -612,2 +1322,2 @@",
+        "@@ -620,3 +1330,3 @@",
+        "@@ -624,2 +1334,2 @@",
+        "@@ -632,3 +1342,3 @@",
+        "@@ -636,2 +1346,2 @@",
+        "@@ -639 +1349 @@",
+        "@@ -644,3 +1354,3 @@",
+        "@@ -648,2 +1358,2 @@",
+        "@@ -656,3 +1366,3 @@",
+        "@@ -660,2 +1370,2 @@",
+        "@@ -668,3 +1378,3 @@",
+        "@@ -672,2 +1382,2 @@",
+        "@@ -680,3 +1390,3 @@",
+        "@@ -684,2 +1394,2 @@",
+        "@@ -692,3 +1402,3 @@",
+        "@@ -696,2 +1406,2 @@",
+        "@@ -704,3 +1414,3 @@",
+        "@@ -708,2 +1418,2 @@",
+        "@@ -711 +1421 @@",
+        "@@ -716,3 +1426,3 @@",
+        "@@ -720,2 +1430,2 @@",
+        "@@ -728,6 +1438,6 @@",
+        "@@ -740,3 +1450,3 @@",
+        "@@ -744,2 +1454,2 @@",
+        "@@ -752,3 +1462,3 @@",
+        "@@ -756,2 +1466,2 @@",
+        "@@ -764,3 +1474,3 @@",
+        "@@ -768,2 +1478,2 @@",
+        "@@ -778 +1488 @@",
+        "@@ -780,2 +1490,2 @@",
+        "@@ -783 +1493 @@",
+        "@@ -790,2 +1500,10 @@",
+        "@@ -793,2 +1511,2 @@",
+        "@@ -803 +1521 @@",
+        "@@ -811 +1529 @@",
+        "@@ -814,2 +1532,2 @@",
+        "@@ -817 +1535 @@"
+      ],
+      "reviewed_bytes_sha256": null
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "classification": "REQUESTED",
+      "reason": "A04 report and Result Contract v2 delivery",
+      "hunks": [
+        "@@ -1 +1 @@",
+        "@@ -3 +3 @@",
+        "@@ -5 +5 @@",
+        "@@ -7 +7 @@ Task `FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02`; Whole-WP `FOX2-BRIDGE-",
+        "@@ -9 +9 @@ Task `FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02`; Whole-WP `FOX2-BRIDGE-",
+        "@@ -11 +11 @@ Fresh Dispatch `FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX",
+        "@@ -13 +13 @@ Required-versus-observed gates: exact branch/worktree/base and remote task head",
+        "@@ -15 +15 @@ Required-versus-observed gates: exact branch/worktree/base and remote task head",
+        "@@ -17 +17 @@ Runtime base `4504bf95dd2baf474b30f896b23365c52fe10c9f`; original runtime base `",
+        "@@ -19 +19 @@ A01/CODEX-001 remains EXITED_CONSUMED, exit 1, CODEX_USAGE_LIMIT, NEEDS_RECONCIL",
+        "@@ -21 +21 @@ A01/CODEX-001 remains EXITED_CONSUMED, exit 1, CODEX_USAGE_LIMIT, NEEDS_RECONCIL",
+        "@@ -23 +23 @@ The harness uses stable `BridgeRoot/launch.ps1` twice and validates one current-",
+        "@@ -25 +25 @@ Existing `certify_rc1_ui.ps1` supplies inspect/check/explicit exit. Inspect vali",
+        "@@ -27 +27 @@ Three A02 proof gaps were corrected: absent current_dispatch no longer passes as",
+        "@@ -29 +29 @@ Three A02 proof gaps were corrected: absent current_dispatch no longer passes as",
+        "@@ -31 +31 @@ Only the allowed lifecycle harness and two test files contain material source/te",
+        "@@ -33 +33 @@ Configuration/database/manual-consumption checks and historical Batch-B consumed",
+        "@@ -35 +35 @@ The complete changed-path inventory and raw SHA-256 values are in `evidence_mani",
+        "@@ -37 +37 @@ The complete changed-path inventory and raw SHA-256 values are in `evidence_mani",
+        "@@ -39 +39 @@ Focused lifecycle/WPF + launcher + package + installation: **103 passed in 3.34s",
+        "@@ -41 +41 @@ The short detached A02 test worktree at `C:/Projects/FOX2/.git/wpf-a02-test` sta",
+        "@@ -43 +43 @@ An initial generated-evidence formatting check found CRLF trailing-whitespace di",
+        "@@ -45 +45,33 @@ An initial generated-evidence formatting check found CRLF trailing-whitespace di",
+        "@@ -47 +79 @@ All Dispatch-required offline checks are mapped individually in the manifest. Si",
+        "@@ -49 +81 @@ Evidence includes source binding, test snapshot byte hashes, actual pytest recei",
+        "@@ -51 +83 @@ Evidence includes source binding, test snapshot byte hashes, actual pytest recei",
+        "@@ -53 +85,15 @@ Real installed-host lifecycle: **NOT_RUN**. No actual package install/update/uni"
+      ],
+      "reviewed_bytes_sha256": null
+    }
+  ]
+}

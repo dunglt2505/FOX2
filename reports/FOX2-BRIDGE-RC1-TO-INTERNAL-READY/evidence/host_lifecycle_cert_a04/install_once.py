@@ -1,0 +1,7 @@
+import os,sys,json,subprocess
+from pathlib import Path
+from datetime import datetime,timezone
+repo=Path.cwd();out=repo/'reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04';package=Path(r'C:\Projects\FOX2-artifacts\host_lifecycle_cert_a04\FOX2-Bridge-085cc830-A04.zip');p=out/'install_attempt.json';assert not p.exists();v=json.loads((out/'package_verification.json').read_text());assert v['status']=='PASS';assert json.loads((out/'stale_wpf_cleanup.json').read_text())['status']=='PASS';s=json.loads((out/'pre_install.json').read_text());assert s['processes']['wpf']==[] and s['processes']['elevated'] is False
+record={'attempts':1,'started_at_utc':datetime.now(timezone.utc).isoformat(),'package_sha256':v['package_sha256'],'entrypoint':'agent_bridge/scripts/install_user.ps1','per_user':True,'elevation':False};p.write_text(json.dumps(record,indent=2)+'\n')
+r=subprocess.run([r'C:\Program Files\PowerShell\7\pwsh.exe','-NoProfile','-NonInteractive','-File',str(repo/'agent_bridge/scripts/install_user.ps1'),'-Package',str(package),'-Sha256',v['package_sha256'],'-Python',sys.executable],capture_output=True,text=True,timeout=300,creationflags=subprocess.CREATE_NO_WINDOW)
+record.update(exit_code=r.returncode,finished_at_utc=datetime.now(timezone.utc).isoformat(),status='PASS' if r.returncode==0 else 'FAIL');p.write_text(json.dumps(record,indent=2)+'\n');(out/'install.log').write_text((r.stdout+'\n'+r.stderr).replace(os.environ['USERPROFILE'],'UserProfile'));print(json.dumps(record));sys.exit(r.returncode)

@@ -1,0 +1,51 @@
+{
+  "started_at_utc": "2026-10-22T06:15:20.553970+00:00",
+  "stable_launch_count": 1,
+  "explicit_exit_count": 1,
+  "force_kill_count": 0,
+  "initial_safe_control": {
+    "state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "current_dispatch": null
+  },
+  "pid_before": 10608,
+  "package_before": {
+    "package_sha256": "52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4",
+    "source_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73"
+  },
+  "initial_inspect_exit": 1,
+  "initial_inspect": "WINDOW_UNAVAILABLE",
+  "host_mutation_started": true,
+  "surface_launch_exit": 0,
+  "surface_same_pid_path_count": true,
+  "inspection": {
+    "screens": [
+      "Dashboard",
+      "Activity",
+      "Agents",
+      "Diagnostics",
+      "Artifacts",
+      "Settings"
+    ],
+    "process_id": 10608,
+    "check_now_enabled": false
+  },
+  "safe_before_exit": {
+    "state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "current_dispatch": null
+  },
+  "explicit_exit_result": "EXIT_INVOKED",
+  "final_presentation_count": 0,
+  "presentation_lock_released": true,
+  "safe_after_exit": {
+    "state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "current_dispatch": null
+  },
+  "status": "PASS",
+  "finished_at_utc": "2026-10-22T06:15:30.210035+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-10-22T06:22:34.727442+00:00",
+  "changed_path_allowlist": "PASS",
+  "python_evidence_syntax": "PASS",
+  "orchestration_product_source_test_no_drift": "PASS",
+  "package_source_tracked_untracked_no_drift": "PASS",
+  "package_source_head": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+  "secret_privacy_scan": {
+    "status": "PASS",
+    "files_scanned": 34,
+    "findings": [],
+    "method": "Credential signatures, credential assignments, private-key headers, user-profile paths; file inventory inspection excludes raw config/database/prompts/binaries"
+  },
+  "git_diff_check": "PASS",
+  "K1_UNEXPLAINED": 0,
+  "forbidden_actions": "No Worker/F1/legacy tray, AppLocker/AppIDSvc, service, ProgramData ACL, reboot, G3/G4/Canary, provider/broker/LIVE, PR/main/merge action invoked; scope assertion from single-attempt execution record and helpers, not a hostwide attestation",
+  "historical_dispatch_immutability": "Fetched historical Dispatch files remain untouched; no replay launched"
+}

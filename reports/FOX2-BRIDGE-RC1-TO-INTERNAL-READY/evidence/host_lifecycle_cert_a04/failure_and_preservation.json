@@ -1,0 +1,40 @@
+{
+  "observed_at_utc": "2026-10-22T06:17:35.144390+00:00",
+  "checks": {
+    "configuration_from_fresh_a04_baseline": true,
+    "manual_consumption_from_fresh_a04_baseline": true,
+    "all_dispatch_identities_from_fresh_a04_baseline": true,
+    "database_identity_from_fresh_a04_baseline": true,
+    "sqlite_quick_check": true,
+    "database_logical_tables_from_preinstall": true,
+    "final_exact_pointer": true,
+    "final_exact_source": true,
+    "final_safe_control": true,
+    "worker_legacy_absent": true,
+    "startup_same_as_baseline": true
+  },
+  "database_file_hash_equal": false,
+  "database_file_hash_explanation": "Installed status/setup initialization rewrites sticky bridge_meta claim_authority using INSERT OR REPLACE; DB page hash changes, while all logical table row hashes match the fresh pre-install A04 baseline. No historical hash is an acceptance baseline.",
+  "stable_uninstall_attempt_count": 0,
+  "reinstall_attempt_count": 0,
+  "recovery_reinstall_count": 0,
+  "lifecycle_attempt_count": 1,
+  "lifecycle_reruns": 0,
+  "no_replay": true,
+  "first_failure": {
+    "type": "PermissionError",
+    "errno": 13,
+    "operation": "Path.open('r+b') on live BridgeDesktop/desktop.lock",
+    "source": "agent_bridge/scripts/certify_user_lifecycle.py:157",
+    "handler": "Re-raises any OSError whose winerror is not 32; actual winerror value was not logged.",
+    "observed_result": "FAIL",
+    "required_disposition": "REWORK_REQUIRED",
+    "code_edits_permitted": false
+  },
+  "final_presentation_count": 1,
+  "final_presentation_pid": 8144,
+  "host_usable": true,
+  "recovery_not_needed_reason": "Exact package remains installed; STOPPED/paused/setup/null state, config/consumption/history/database logical tables preserved. Existing WPF presentation remains live at the mandated first-failure stop.",
+  "uninstall_postconditions": "NOT_RUN",
+  "durable_preservation_across_uninstall_reinstall": "NOT_RUN"
+}

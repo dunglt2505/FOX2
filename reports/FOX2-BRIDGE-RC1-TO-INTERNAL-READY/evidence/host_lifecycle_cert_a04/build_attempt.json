@@ -1,0 +1,11 @@
+{
+  "build_attempts": 1,
+  "started_at_utc": "2026-10-22T06:14:07.743154+00:00",
+  "builder": "WORKTREES/FOX2-BRIDGE-RC1-PACKAGE-SOURCE-085CC830-A04/agent_bridge/scripts/build_user_package.py",
+  "package_path": "ARTIFACTS/host_lifecycle_cert_a04/FOX2-Bridge-085cc830-A04.zip",
+  "source_git_commit_preprobe": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+  "build_python": "WORKTREES/FOX2-BRIDGE-DESKTOP-BATCH-B/agent_bridge/.build-venv/Scripts/python.exe",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-22T06:14:38.630786+00:00",
+  "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee"
+}

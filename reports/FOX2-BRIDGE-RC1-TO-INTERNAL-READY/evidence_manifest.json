@@ -2,18 +2,18 @@
   "contract_version": "2.0",
   "project": "FOX2",
   "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-  "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02",
-  "change_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02",
+  "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04",
+  "change_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04",
   "submission_state": "READY_FOR_CHAT_REVIEW",
-  "submitted_at_utc": "2026-10-22T02:38:46.542606+00:00",
+  "submitted_at_utc": "2026-10-22T06:22:34.815393+00:00",
   "agent": {
     "product": "CODEX",
     "model": "gpt-6.1-sol",
-    "mode": "BUILD_CORRECTION_ONLY / high / MANUAL_LOCAL / FULL_ACCESS",
-    "host": "Owner Windows host; offline temporary fixtures",
-    "started_at_utc": "2026-10-22T02:29:30.5759665Z",
-    "finished_at_utc": "2026-10-22T02:38:46.542606+00:00",
-    "quota_observation": "PreExec REV3 authenticated service probe PASS; current pinned execution active; no numeric quota inferred; usage totals NOT_MEASURED"
+    "mode": "TEST / high / MANUAL_LOCAL / FULL_ACCESS",
+    "host": "Owner physical Windows host; per-user Bridge lifecycle",
+    "started_at_utc": "2026-10-22T06:11:53Z",
+    "finished_at_utc": "2026-10-22T06:22:34.815393+00:00",
+    "quota_observation": "Pinned active CODEX CLI 0.162.1/high/FULL_ACCESS writer and consumed launcher claim verified; numeric usage not measured."
   },
   "routing": {
     "policy_check": "PASS",
@@ -27,746 +27,1491 @@
     "r6": "PASS",
     "r7": "PASS",
     "assignment_check": "PASS",
-    "routing_evidence": "Fresh Dispatch and CHAT PASS_TO_ASSIGN plus PreExec REV3; current launcher claim and single process. See source_binding.json."
+    "routing_evidence": "Fetched A04 Dispatch, CHAT PASS_TO_ASSIGN, immutable PreExec, runtime envelope, one PID/claim, accepted split-worktree source verified; this does not confer lifecycle PASS."
   },
   "source": {
     "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
     "policy_version": "2.0.0",
-    "task_commit_sha": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
-    "source_manifest_sha256": "c3e72f3d1519cc45c2b7c3cffa0d0125a63f7c25f21629fe32db00fdd2ff83c1",
-    "approved_base_commit_sha": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+    "task_commit_sha": "8fdc2f7181e7f3e9a7f56ea72472fe3d2d2cea43",
+    "source_manifest_sha256": "bd450c2c3f3809b91c8a0cd614b43dedf8dbb7d110d1cb2f0a31d2455c65f84c",
+    "approved_base_commit_sha": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
     "source_readback_status": "PASS",
     "brd_revisions": [
-      "Bridge TechSpec v0.7 REV10 remains CANDIDATE_NO_PROMOTION; no semantic promotion."
+      "Bridge TechSpec v0.7 REV10 CANDIDATE_NO_PROMOTION; accepted WPF lifecycle task semantics govern this bounded TEST."
     ],
     "previous_evidence_reused": [
-      "Recovery snapshot is salvage input only; no A01 PASS reused. A01 consumed/quota failure and historical host FAIL preserved. Fresh A02 tests/static/K1 rerun."
+      "Accepted BUILD 085cc830 and CHAT acceptance cdf9f9c9 are source authorization only; no offline/historical lifecycle PASS reused. A03 provenance BLOCKED retained."
     ]
   },
   "permissions": {
     "git_source_read": true,
     "git_report_write": true,
     "git_report_push": true,
-    "git_code_push": true,
-    "code_allowed": true,
+    "git_code_push": false,
+    "code_allowed": false,
     "pr_create": false,
     "merge_allowed": false,
     "dnse_production": false,
     "broker_write": false,
     "live": false,
-    "grant_evidence": "Owner task plus fresh A02 Dispatch/CHAT PASS_TO_ASSIGN; offline BUILD only; exact authorized non-main result push."
+    "grant_evidence": "Owner task plus exact A04 Dispatch and CHAT PASS_TO_ASSIGN; code_allowed=false/git_code_push=false control legacy schema field; result report/evidence only."
   },
   "git": {
     "repository": "dunglt2505/FOX2",
-    "branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
-    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
-    "writer_lease": "One current task CODEX PID 3496; one running consumed launcher claim; no subagents or competing material writer observed.",
+    "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
+    "writer_lease": "Single task-scoped CODEX PID 11960 matching consumed A04 launcher claim; no Agent retry/subagent.",
     "report_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
     "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": null,
-    "local_head_before_submission": "4504bf95dd2baf474b30f896b23365c52fe10c9f"
+    "local_head_before_submission": "6d1d2a70f2d1cc47e44f70a0ba6cd07cd3985713"
   },
   "scope": {
     "requested": [
-      "Finish and independently verify salvaged lifecycle/WPF certification within the four allowed code/test paths."
+      "Bounded accepted-source package build/update and real Owner-host WPF/uninstall/reinstall lifecycle certification A04."
     ],
     "completed": [
-      "Presentation-only WPF contract retained/corrected; negative fixtures; A03 durable uninstall regressions; focused/full tests; static/K1/Result Contract evidence."
+      "Runtime and split-worktree authorization/provenance gates; one verified package build; fresh baseline; exact stale WPF cleanup; exact per-user update; safe paused state; first lifecycle failure preserved; durable logical state/identities checked; result delivery."
     ],
-    "partial": [],
+    "partial": [
+      "Current-package launch twice/singleton observed; certification stopped at held-lock proof; full lifecycle FAIL / REWORK_REQUIRED."
+    ],
     "not_done": [
-      "CHAT acceptance; real installed-host lifecycle certification; G3/G4 adoption."
+      "Current-package UI inspect/check, graceful exit, zero WPF/lock release, post-exit state, diagnostics, stable uninstall, same-package reinstall, across-uninstall durability and successful lifecycle final state."
     ],
     "explicit_exclusions": [
-      "Real installed lifecycle, Worker/F1, AppLocker/service/ACL, G3/G4/Canary, main/PR/merge/provider/broker/LIVE."
+      "Worker/F1 activation/health, G3/G4, Canary, AppLocker/AppIDSvc/service/ProgramData ACL/reboot, product/source/test/handoff/PreExec writes, PR/main/merge, provider/broker/LIVE."
     ],
     "changed_paths": [
       {
-        "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/after_first_failure.json",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "68e6b3298816f23728e09d95812b576c68f4b8e273b15b5c0841b0fc7576fb80"
+        "new_sha256": "bfd19d7c1bc07c6520efeb23160a6e70586eaf33c18b9e3390de59736063d514"
       },
       {
-        "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/assemble_result.py",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "46c99673ab76f8f89fe9a374b3bcf4edc7ded64b84a29a92d11bb15fe8d8d27b"
+        "new_sha256": "6e488070a09d3b24e75305b85e059534bdcf1aa6241c7987664eee3e59c8cd66"
       },
       {
-        "path": "agent_bridge/tests/test_rc1_package.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/baseline_before_build.json",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "9f97b909d2e206c92633101511aefa568570a0a8178a2fdbd5952bfc1958b5c7"
+        "new_sha256": "e4c4f1b75915d81b8ff21b87bb0bd6b146d85382295df10af6b0834681111277"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build.log",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "0a28c6f18a4c1c60fe013ef152288544f14bafc63e69b9bd52671aa35eabe48c"
+        "new_sha256": "99ae2caf1b5eb1927a51048cbabdec84641f3c86271441a86ee353d06c2096a8"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_attempt.json",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "7fd0c47cff9093b73fc57d4a26cd94cdb24e898958289a72407196a3935aeda6"
+        "new_sha256": "27a5d90f3106023052e763cfa7db0cee60680ee91fb7597af417a9c11fad79f5"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check.log",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "03be6a35de72a9e85f93bd97beb436ba706ab00d2c19170a622de1e29773d089"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check_initial.log",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "2bfedefb989ac30faab3d6c69116f7ce4d0e661d76a9f59727798634cfeb05a4"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial.log",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "d0f02baae723579209c4645db4ff814427b027403965739a16bb255055572817"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial_run.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "c498114d525714930f98ff7a4c2ce6b28cec3cfcf1267197948fdfaa2d1633d2"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial.log",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "4df1a3ec80209786dd33956872f8cc593c85b4711c0aa5fbbdfd2d2a50b326df"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial_run.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "4f4c41c2a29876f23c298482dbe9503301a422dc7b89fa9c495c3eaefa92a244"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_once.py",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "473f21986c95664ce0ec70d808dbc5e51d3dc4de9c5e9b2c0e85c767dd47118f"
+        "new_sha256": "e5fadd38f6517a0e3c12e4782b4e86de48fdc279a08bcfd63bc9d40c208e42ae"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/manifest_validation.log",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "7a3e97994a31063c3b029e939933ec7438b0a0e54b21aa0c35a658917c63f7e0"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/original_to_final_diff.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "90513c458901fd8624174ec5d0c8458a0bbceafe3226ef7b0523434cb5c9452d"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/run_tests.py",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "564ee6a009ee69ae55f4f35328f93276f49b3f8ae8e989c6401fb5f53c1e3030"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_review.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "8e6b6377ceaab451d6187b4ce2996c74b7ff4eb17dd101b2139f7c24286a1405"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_to_final_diff.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "dfbbb107e683f3e2f26fcf10fbe0ea96b3a72d77e987abc31f62ea2e2caedaf7"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/cleanup_once.py",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "c3e72f3d1519cc45c2b7c3cffa0d0125a63f7c25f21629fe32db00fdd2ff83c1"
+        "new_sha256": "65d0c494596e7bbae7820cf23d456a1c4088b9994a60083e2ab9a6dae9410c94"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/compare_preservation.py",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "003eb056dd338ae35e9a0aa1ec4845165ce467829b2ebf9a88b4f2a8122a8273"
+        "new_sha256": "e5c0bc28ec40e62a06174d87173d93cf5c4139f663d5a02e3ffb5200243d9977"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation.log",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "8d4cf7f9a2e6eaff43d489f839790543803973a0236923af87f99a1991c9d303"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation_history.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "8510a4bf8bab08d0eecaf3bd2389d1b30f1af413607ad16af2a4fc3e1cbb438f"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/test_snapshot_identity.json",
-        "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "6111275900de983a12ba2eade75eb4ecea2b721d61681ff3f6519eab0c0a06f6"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/diff_check.log",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 bounded generated execution and audit evidence",
         "within_allowed_paths": true,
-        "new_sha256": "8363b0de2a55e0ad646faac4c8b3940392fe18a82ce33a5f91785ba950a84cfd"
+        "new_sha256": "5710b6d5006bd2e8fede417a493d2f2c06dce59572355b421f6a4620405a4a15"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/failure_and_preservation.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "aec1b088b8d483c5e51c6455304d940e8b324d8ed36556c770404f7bb5b1daec"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/governance_resolution.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "10793161d8503bb000ba80cd743fe578b9c0ea5e33208d1879f0554d56c5d978"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install.log",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "4317c6fdd0e390f2979ced4e2ecbf7e9b0f31d7812a691de31b0c51c83135657"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_attempt.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "f0152cab1a647ec472d3d3575883abef0b5c203993b175162a5e4c8e3ca628ed"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_once.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "f6f03af0e5f95727bd1a4d23647f2237fdc175553a65a264371677bb2469db65"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/installed_before_lifecycle.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "57163946ecc56537cb3de6c50e6daf2d86aadc8a9b6c3fe037a886ad38b5b76c"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/k1.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "efbf4b8c2ec8bc25d472e550af088ae41828dd70b450b4ead9226a9f2bf1bc75"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "4ed49dc8eecd3389b60db97d701a025f17e420c84127e36e13184981c4e28379"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.log",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "f5c89c4c75dd3d089a62c354081c62233aea57a55008310671304b84e6fbad41"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_attempt.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "e591ea741248181b9e9f39b8492575441dbdb439021620fbf3f0a632a82da1b1"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_once.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "539deb2249ffa4e6183be80801b5297e763eed7d8bbfdf218230ca265c524f80"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/manifest_validation.log",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "694643cbbb63d0338b7a8bb01d426e12090537d44bf4d806cf9d37791f7d5640"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/package_verification.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "7a69c3c2e66eb1695cc78dd45b544b887d651b77839110e3262a1a23bde66ed5"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_install.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "4c29a453e6d25add0760d1e67537e53ef5104b2724ed773b6eb8b4c2cc699bbc"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_mutation.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "cb8f2d3de43e36498deb071ca6c2b82fc4a44284fab8dfd8744876a37fb94616"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/resolve_governance.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "5e1187ee08e0f4e0058108b02755b5ae325ee46eb810361c941dcc0c53d1f305"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "bd450c2c3f3809b91c8a0cd614b43dedf8dbb7d110d1cb2f0a31d2455c65f84c"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "9ebd163e28bd54f3329827e7328d7f01b613867978204dec5bf1feab19b70e82"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/snapshot.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "76694814a502fc7af219d59673ecd93667192e9bdabe51ec3c303cc147e7fc42"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/stale_wpf_cleanup.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "f6d010faf03f75a9d6d7f5617820721149614d6cb6dc00584d32d103f0a1028b"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/static_checks.json",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "8a7f3ed1d9bba679d36bfbaf8ea30e6a46cea95a90e032c6bdb4cbbdee3f20fe"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_package.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "1e3e4b83262b7f4c88bfd81f5790595d76f25fd8bd3dc763da9815a063379793"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_result.py",
+        "operation": "MODIFY",
+        "intent": "A04 bounded generated execution and audit evidence",
+        "within_allowed_paths": true,
+        "new_sha256": "cbde2f7022a7b27ebd2b6e188b1d1456c73cda42948556e9c6d33e27e9a94ad6"
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 report/contract delivery",
         "within_allowed_paths": true,
         "new_sha256": null
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "A04 report/contract delivery",
         "within_allowed_paths": true,
-        "new_sha256": "a03d3947f08da30d6d55b50d75f8dbcc8bec598aaa57ff4cd7096433dc3f01c2"
+        "new_sha256": "7a33d8f7ab6a0159ad8a7ea69abe23df7c1ebc6c18cfaf0d23bd8bc68b1558f9"
       }
     ],
     "forbidden_paths_touched": false
   },
   "tests": [
     {
-      "id": "T_FOCUSED_INITIAL",
-      "kind": "INTEGRATION",
+      "id": "T_RUNTIME",
+      "kind": "READBACK",
       "status": "PASS",
-      "command_or_method": "\"C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -m pytest agent_bridge/tests/test_lifecycle_wpf_contract.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_rc1_package.py agent_bridge/tests/test_installation.py -v --tb=short",
-      "environment": "{\"cwd\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\", \"PYTHONPATH\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\\\\agent_bridge\\\\src\", \"process_core_longpaths\": false}",
-      "run_at_utc": "2026-10-22T02:32:37.283577+00:00",
+      "command_or_method": "Independent fetched Git envelope and immutable source resolution.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_GATE",
+        "E_GOV"
       ],
-      "notes": "============================= 103 passed in 3.34s ============================="
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
     },
     {
-      "id": "T_FULL_INITIAL",
+      "id": "T_PACKAGE",
       "kind": "INTEGRATION",
       "status": "PASS",
-      "command_or_method": "\"C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -m pytest agent_bridge/tests -v --tb=short",
-      "environment": "{\"cwd\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\", \"PYTHONPATH\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\\\\agent_bridge\\\\src\", \"process_core_longpaths\": false}",
-      "run_at_utc": "2026-10-22T02:32:45.399891+00:00",
+      "command_or_method": "One accepted-source builder call plus all payload/source/wheel/dictionary hashes.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
       "evidence_ids": [
-        "E_FULL_INITIAL"
+        "E_BUILD",
+        "E_BUILD_LOG",
+        "E_PACKAGE"
       ],
-      "notes": "======================= 653 passed in 236.02s (0:03:56) ======================="
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
+    },
+    {
+      "id": "T_CLEANUP",
+      "kind": "INTEGRATION",
+      "status": "PASS",
+      "command_or_method": "One bounded stale show signal, same singleton identity, UI inspection, graceful exit and lock release.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "evidence_ids": [
+        "E_BASELINE",
+        "E_CLEANUP",
+        "E_PREINSTALL"
+      ],
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
+    },
+    {
+      "id": "T_INSTALL",
+      "kind": "INTEGRATION",
+      "status": "PASS",
+      "command_or_method": "Exact per-user install_user.ps1 with package SHA, then exact safe installed receipt/control.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "evidence_ids": [
+        "E_INSTALL",
+        "E_INSTALL_LOG",
+        "E_INSTALLED"
+      ],
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
+    },
+    {
+      "id": "T_LIFECYCLE",
+      "kind": "INTEGRATION",
+      "status": "FAIL",
+      "command_or_method": "One certify_user_lifecycle.py call; PermissionError errno13 at held-lock proof; no rerun.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "evidence_ids": [
+        "E_LIFE_ATTEMPT",
+        "E_LIFE",
+        "E_FIRST_FAILURE"
+      ],
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
+    },
+    {
+      "id": "T_PRESERVATION",
+      "kind": "READBACK",
+      "status": "PASS",
+      "command_or_method": "Fresh A04 config/manual hashes, all consumed identities and logical DB table hashes unchanged; physical DB hash changes disclosed.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "evidence_ids": [
+        "E_BASELINE",
+        "E_PREINSTALL",
+        "E_FINAL",
+        "E_PRESERVATION"
+      ],
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
     },
     {
       "id": "T_STATIC",
       "kind": "STATIC",
       "status": "PASS",
-      "command_or_method": "python evidence/lifecycle_wpf_contract_rework/verify_result.py",
-      "environment": "Offline source/evidence checks; PowerShell query parsed only.",
-      "run_at_utc": "2026-10-22T02:38:46.542606+00:00",
+      "command_or_method": "Allowed paths, evidence syntax, no source drift, secret/privacy scan, diff check and K1.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
       "evidence_ids": [
         "E_STATIC",
-        "E_STATIC_LOG"
+        "E_DIFF",
+        "E_K1"
       ],
-      "notes": "Includes K1 and A03/protected production byte identity."
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
     },
     {
-      "id": "T_SOURCE",
-      "kind": "READBACK",
+      "id": "T_CONTRACT",
+      "kind": "STATIC",
       "status": "PASS",
-      "command_or_method": "python evidence/lifecycle_wpf_contract_rework/bind_source.py",
-      "environment": "Read-only Git/source/PreExec/Dispatch/claim/process inventory.",
-      "run_at_utc": "2026-10-22T02:32:13.206519+00:00",
+      "command_or_method": "Dictionary-resolved Result Contract v2 schema/formats/hash/reference/path-inventory checks.",
+      "environment": "Owner Windows host; A04 scope only",
+      "run_at_utc": "2026-10-22T06:22:34.815393+00:00",
       "evidence_ids": [
-        "E_SOURCE"
+        "E_CONTRACT"
       ],
-      "notes": "Source bytes and scoped authority verified; no runtime/global promotion."
-    },
-    {
-      "id": "T_MANIFEST",
-      "kind": "READBACK",
-      "status": "PASS",
-      "command_or_method": "python evidence/lifecycle_wpf_contract_rework/verify_result.py --manifest-only",
-      "environment": "Dictionary-resolved immutable Result Contract schema; local raw-byte evidence readback.",
-      "run_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "evidence_ids": [
-        "E_MANIFEST_VALIDATION"
-      ],
-      "notes": "Executed after manifest assembly, with stable validation log included."
+      "notes": "FAIL and NOT_RUN gates remain authoritative; no recovery success substitutes."
     }
   ],
   "acceptance": [
     {
-      "id": "NO_LEGACY_DESKTOP_TRAY_HEALTH_DEPENDENCY",
+      "id": "A01_RUNTIME_ENVELOPE_REMOTE",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_GATE"
       ],
-      "reason": "test_no_legacy_tray_worker_heartbeat_or_f1_g3_mutation; no tray or legacy launcher health probe."
+      "reason": "All envelope, immutable Dispatch/PASS_TO_ASSIGN/receipt bytes, fetched ancestry, remote runtime HEAD, permissions and route bindings passed."
     },
     {
-      "id": "LAUNCH_TWICE_ONE_WPF_PRESENTATION",
+      "id": "A02_ORCHESTRATION_NO_DRIFT",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_GATE",
+        "E_STATIC"
       ],
-      "reason": "test_launch_twice_exact_singleton_paused_ui_and_graceful_exit; duplicate/missing presentation negatives."
+      "reason": "Initially clean; no agent_bridge product/source/test drift; only authorized evidence and report writes."
     },
     {
-      "id": "EXACT_CURRENT_PACKAGE_PRESENTATION_IDENTITY",
+      "id": "A03_DETACHED_PACKAGE_SOURCE",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_GATE",
+        "E_PACKAGE"
       ],
-      "reason": "Positive exact package path/current pointer/UI PID; old_package, unknown_path, pointer_drift, wrong_ui_pid and pid_changed rejected."
+      "reason": "Same repository, exact path, detached accepted HEAD; tracked/untracked clean before and after build."
     },
     {
-      "id": "PAUSED_SETUP_NO_CURRENT_DISPATCH_PRE_G3",
+      "id": "A04_EXACT_BUILDER_PREPROBE",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_GATE",
+        "E_BUILD"
       ],
-      "reason": "Paused/setup/null tests reject unsafe values and absent fields; unsafe pre/post-exit control rejected."
+      "reason": "Builder blob/raw bytes exact; source_git_commit() returned accepted source before one build."
     },
     {
-      "id": "CERTIFY_RC1_UI_INSPECT_CHECK_EXIT_REUSED",
+      "id": "A05_PACKAGE_BUILT_ONCE",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_BUILD",
+        "E_BUILD_LOG"
       ],
-      "reason": "Positive fixture verifies the existing script/action argv and inspect -> check -> exit order; UI failures rejected."
+      "reason": "One builder invocation, exit 0, existing isolated Python and dotnet; package outside BridgeRoot/worktrees."
     },
     {
-      "id": "GRACEFUL_WPF_EXIT_BEFORE_UNINSTALL",
+      "id": "A06_PACKAGE_SOURCE_HASHES",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_PACKAGE"
       ],
-      "reason": "Positive integration gates uninstall on explicit UI exit, count zero and lock release; exit timeout/retained lock rejected."
+      "reason": "Exact source commit; 59 source files, 40 wheel modules, 255 payload hashes, dictionary and accepted package verifier PASS."
     },
     {
-      "id": "NO_WORKER_START_OR_HEARTBEAT_REQUIREMENT",
+      "id": "A07_FRESH_A04_BASELINE",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_BASELINE",
+        "E_PREINSTALL"
       ],
-      "reason": "Process/CLI fixtures reject any Worker command; no heartbeat in state or evidence; launcher reports worker_started=False."
+      "reason": "Fresh bounded current/receipt, control, WPF, Worker, startup, config/DB/consumption/uninstall hashes, scheduler, versions and consumed identities; SQLite quick_check ok."
     },
     {
-      "id": "WORKER_F1_HEALTH_NOT_APPLICABLE_PRE_G3",
+      "id": "A08_STALE_WPF_CLEANUP",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_CLEANUP"
       ],
-      "reason": "Fixture asserts worker_f1_health=NOT_APPLICABLE_PRE_G3; no health PASS claim."
+      "reason": "One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
     },
     {
-      "id": "NO_F1_G3_MUTATION",
+      "id": "A09_EXACT_INSTALL_UPDATE",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_INSTALL",
+        "E_INSTALL_LOG",
+        "E_INSTALLED"
       ],
-      "reason": "Mocked lifecycle process boundary, source guard and unchanged F1/G3 production paths."
+      "reason": "Per-user install_user.ps1 exact package/SHA exit 0; pointer/source receipt exact."
     },
     {
-      "id": "STABLE_EXTERNAL_UNINSTALL_SUCCESS",
+      "id": "A10_SAFE_PAUSED_SETUP_NULL",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_INSTALLED"
       ],
-      "reason": "End-to-end stable external supervisor exit 0, preserved durable fixtures, checkpoint before exact reinstall."
+      "reason": "STOPPED, paused=true, setup_complete=true, explicit current_dispatch=null; Worker/legacy absent."
     },
     {
-      "id": "STABLE_EXTERNAL_UNINSTALL_FAILURE_STOP_ONCE",
+      "id": "A11_TWO_LAUNCH_SINGLETON",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_FIRST_FAILURE",
+        "E_LIFE_ATTEMPT",
+        "E_FINAL"
       ],
-      "reason": "Nonzero, timeout, start failure, incomplete postconditions, changed config/consumption and unreadable checks persist evidence and prevent retry/reinstall."
+      "reason": "Trace reached the lock probe after both synchronous stable launches and exact-presentation wait; failure snapshot independently confirms one exact-current PID 8144. No full presentation PASS is claimed."
     },
     {
-      "id": "INSTALLATION_AND_PACKAGE_TESTS",
+      "id": "A12_CURRENT_UI_INSPECT_CHECK",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE"
+      ],
+      "reason": "Current-package UI inspect/check follows the failed lock proof and was not reached. Stale-package cleanup inspection is separate."
+    },
+    {
+      "id": "A13_LIVE_PRESENTATION_LOCK",
+      "status": "FAIL",
+      "evidence_ids": [
+        "E_FIRST_FAILURE",
+        "E_LIFE"
+      ],
+      "reason": "First failure: PermissionError errno 13 opening desktop.lock; handler re-raises winerror !=32. Live lock-held proof not accepted; actual winerror value not logged."
+    },
+    {
+      "id": "A14_CURRENT_GRACEFUL_EXIT",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Current-package explicit exit follows the failed lock proof and was not reached."
+    },
+    {
+      "id": "A15_CURRENT_ZERO_WPF_LOCK_RELEASE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Current presentation remains live at first-failure stop. Stale cleanup zero/lock release must not substitute."
+    },
+    {
+      "id": "A16_POST_EXIT_SAFE_STATE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Current-package post-exit stage was not reached; safe paused state independently observed after failure."
+    },
+    {
+      "id": "A17_STABLE_UNINSTALL_ONCE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Stable uninstall attempts=0; failure occurred before uninstall. No retry."
+    },
+    {
+      "id": "A18_UNINSTALL_EXIT_ZERO",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Uninstall not invoked; no exit code exists."
+    },
+    {
+      "id": "A19_IMMEDIATE_UNINSTALL_POSTCONDITIONS",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Uninstall not invoked; no postcondition claim."
+    },
+    {
+      "id": "A20_DURABLE_UNINSTALL_REINSTALL_PRESERVATION",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Across-uninstall/reinstall preservation NOT_RUN. Current preservation independently passes from fresh A04 baseline."
+    },
+    {
+      "id": "A21_SAME_PACKAGE_REINSTALL",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Reinstall attempts=0; no recovery reinstall required."
+    },
+    {
+      "id": "A22_FINAL_CERTIFIED_STATE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Full successful-lifecycle final state NOT_RUN. Exact installed pointer/source and STOPPED/paused/setup/null observed after failure; one WPF remains."
+    },
+    {
+      "id": "A23_CONSUMED_IDENTITIES_PRESERVED",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_PRESERVATION",
+        "E_BASELINE",
+        "E_FINAL"
       ],
-      "reason": "test_installation.py and test_rc1_package.py rerun in focused and full suites."
+      "reason": "All fresh-baseline DB dispatch identities and manual-consumption hash unchanged; logical DB table hashes all match pre-install baseline."
     },
     {
-      "id": "RC1_LAUNCHER_TESTS",
+      "id": "A24_NO_REPLAY",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_GATE",
+        "E_BASELINE",
+        "E_LIFE_ATTEMPT",
+        "E_PRESERVATION"
       ],
-      "reason": "Unchanged test_rc1_launcher.py rerun; presentation-only/F1 denial assertions preserved."
+      "reason": "One running consumed A04 launcher claim, one Agent/lifecycle attempt, zero reruns; historical Dispatches not replayed or rebound."
     },
     {
-      "id": "FULL_AGENT_BRIDGE_TESTS",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FULL_INITIAL"
-      ],
-      "reason": "653 passed in 236.02s (0:03:56); all tests collected, no skips/exclusions."
-    },
-    {
-      "id": "PYTHON_SYNTAX_STATIC",
+      "id": "A25_NO_FORBIDDEN_MUTATION",
       "status": "PASS",
       "evidence_ids": [
         "E_STATIC",
-        "E_STATIC_LOG"
+        "E_LIFE",
+        "E_PRESERVATION"
       ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
+      "reason": "No Worker/F1, legacy tray, G3/G4/Canary, AppLocker/AppIDSvc, service/ACL, reboot, provider/broker/LIVE, PR/main/merge action invoked. Worker/F1 health NOT_APPLICABLE_PRE_G3."
     },
     {
-      "id": "CHANGED_PATH_ALLOWLIST",
+      "id": "A26_RESULT_PATH_ALLOWLIST",
       "status": "PASS",
       "evidence_ids": [
         "E_STATIC",
-        "E_STATIC_LOG"
+        "E_K1"
       ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
+      "reason": "All changed paths restricted to report.md, evidence_manifest.json and evidence/host_lifecycle_cert_a04/**."
     },
     {
-      "id": "FORBIDDEN_FILE_BYTE_IDENTITY",
+      "id": "A27_SECRET_PRIVACY_SCAN",
       "status": "PASS",
       "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
+        "E_STATIC"
       ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
+      "reason": "Credential/private-path scan and evidence inventory review; no raw config, DB, prompts, package binaries or private account data committed."
     },
     {
-      "id": "SECRET_SCAN",
+      "id": "A28_GIT_DIFF_CHECK",
       "status": "PASS",
       "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
+        "E_DIFF",
+        "E_STATIC"
       ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
+      "reason": "git diff --check against runtime base passes."
     },
     {
-      "id": "GIT_DIFF_CHECK",
+      "id": "A29_K1_UNEXPLAINED_ZERO",
       "status": "PASS",
       "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
+        "E_K1"
       ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
+      "reason": "Every report/manifest hunk REQUESTED; execution/evidence/helper files JUSTIFIED_GENERATED; UNEXPLAINED=0."
     },
     {
-      "id": "K1_UNEXPLAINED_ZERO",
+      "id": "A30_RESULT_CONTRACT_V2",
       "status": "PASS",
       "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
+        "E_CONTRACT"
       ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
+      "reason": "Dictionary-resolved v2 schema, formats, evidence references/hashes and full changed-path inventory validated."
     },
     {
-      "id": "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_MANIFEST_VALIDATION"
-      ],
-      "reason": "Dictionary-resolved Result Contract v2 schema, evidence hashes, path hashes and references read back."
-    },
-    {
-      "id": "REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_SOURCE",
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "BUILD boundary honored; all lifecycle calls in changed fixtures intercepted; real installed-host certification NOT_RUN."
-    },
-    {
-      "id": "REAL_HOST_LIFECYCLE_CERTIFICATION",
+      "id": "A31_REMOTE_RESULT_PUBLICATION",
       "status": "NOT_RUN",
       "evidence_ids": [],
-      "reason": "Outside offline BUILD authorization."
+      "reason": "Transport readback is recorded after the first push; final observed remote SHA is returned outside the committed report."
+    },
+    {
+      "id": "LIFECYCLE_OVERALL",
+      "status": "FAIL",
+      "evidence_ids": [
+        "E_LIFE_ATTEMPT",
+        "E_FIRST_FAILURE"
+      ],
+      "reason": "FAIL / REWORK_REQUIRED; lock-probe failure before uninstall; no product edits permitted."
+    },
+    {
+      "id": "SAFE_STATE_AND_DURABLE_AT_FAILURE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_PRESERVATION",
+        "E_FINAL"
+      ],
+      "reason": "Exact package remains usable; config, manual consumption, DB identity, all logical table hashes and consumed identities preserved."
+    },
+    {
+      "id": "WORKER_F1_HEALTH",
+      "status": "NOT_APPLICABLE",
+      "evidence_ids": [
+        "E_LIFE"
+      ],
+      "reason": "NOT_APPLICABLE_PRE_G3; no Worker/F1 health certification."
+    },
+    {
+      "id": "CURRENT_DIAGNOSTICS",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE"
+      ],
+      "reason": "Diagnostics follows successful presentation exit and was not reached."
     },
     {
       "id": "CHAT_ACCEPTANCE",
       "status": "NOT_RUN",
       "evidence_ids": [],
-      "reason": "Independent CHAT intake follows PUSHED_UNREVIEWED delivery."
+      "reason": "Independent CHAT result intake pending; PUSHED_UNREVIEWED is delivery only."
+    },
+    {
+      "id": "RUNTIME_AUTHORIZATION_ENVELOPE_PRESENT",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE"
+      ],
+      "reason": "Dispatch test maps to A01_RUNTIME_ENVELOPE_REMOTE: All envelope, immutable Dispatch/PASS_TO_ASSIGN/receipt bytes, fetched ancestry, remote runtime HEAD, permissions and route bindings passed."
+    },
+    {
+      "id": "AGENT_REMOTE_PASS_TO_ASSIGN_VERIFICATION_PASS",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE"
+      ],
+      "reason": "Dispatch test maps to A01_RUNTIME_ENVELOPE_REMOTE: All envelope, immutable Dispatch/PASS_TO_ASSIGN/receipt bytes, fetched ancestry, remote runtime HEAD, permissions and route bindings passed."
+    },
+    {
+      "id": "AGENT_REMOTE_DISPATCH_VERIFICATION_PASS",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE"
+      ],
+      "reason": "Dispatch test maps to A01_RUNTIME_ENVELOPE_REMOTE: All envelope, immutable Dispatch/PASS_TO_ASSIGN/receipt bytes, fetched ancestry, remote runtime HEAD, permissions and route bindings passed."
+    },
+    {
+      "id": "AGENT_REMOTE_PREEXEC_RECEIPT_VERIFICATION_PASS",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE"
+      ],
+      "reason": "Dispatch test maps to A01_RUNTIME_ENVELOPE_REMOTE: All envelope, immutable Dispatch/PASS_TO_ASSIGN/receipt bytes, fetched ancestry, remote runtime HEAD, permissions and route bindings passed."
+    },
+    {
+      "id": "ORCHESTRATION_WORKTREE_NO_PRODUCT_DRIFT",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE",
+        "E_STATIC"
+      ],
+      "reason": "Dispatch test maps to A02_ORCHESTRATION_NO_DRIFT: Initially clean; no agent_bridge product/source/test drift; only authorized evidence and report writes."
+    },
+    {
+      "id": "DETACHED_PACKAGE_SOURCE_WORKTREE_EXACT_ACCEPTED_SOURCE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE",
+        "E_PACKAGE"
+      ],
+      "reason": "Dispatch test maps to A03_DETACHED_PACKAGE_SOURCE: Same repository, exact path, detached accepted HEAD; tracked/untracked clean before and after build."
+    },
+    {
+      "id": "PACKAGE_SOURCE_WORKTREE_CLEAN_PREBUILD",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE",
+        "E_PACKAGE"
+      ],
+      "reason": "Dispatch test maps to A03_DETACHED_PACKAGE_SOURCE: Same repository, exact path, detached accepted HEAD; tracked/untracked clean before and after build."
+    },
+    {
+      "id": "ACCEPTED_BUILDER_BLOB_VERIFIED",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE",
+        "E_BUILD"
+      ],
+      "reason": "Dispatch test maps to A04_EXACT_BUILDER_PREPROBE: Builder blob/raw bytes exact; source_git_commit() returned accepted source before one build."
+    },
+    {
+      "id": "ACCEPTED_BUILDER_SOURCE_GIT_COMMIT_PROBE_PASS",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE",
+        "E_BUILD"
+      ],
+      "reason": "Dispatch test maps to A04_EXACT_BUILDER_PREPROBE: Builder blob/raw bytes exact; source_git_commit() returned accepted source before one build."
+    },
+    {
+      "id": "EXACT_ACCEPTED_SOURCE_PACKAGE_BUILD_PROVENANCE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_PACKAGE"
+      ],
+      "reason": "Dispatch test maps to A06_PACKAGE_SOURCE_HASHES: Exact source commit; 59 source files, 40 wheel modules, 255 payload hashes, dictionary and accepted package verifier PASS."
+    },
+    {
+      "id": "PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_PACKAGE"
+      ],
+      "reason": "Dispatch test maps to A06_PACKAGE_SOURCE_HASHES: Exact source commit; 59 source files, 40 wheel modules, 255 payload hashes, dictionary and accepted package verifier PASS."
+    },
+    {
+      "id": "PRE_STATE_DURABLE_HASH_SNAPSHOT",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_BASELINE",
+        "E_PREINSTALL"
+      ],
+      "reason": "Dispatch test maps to A07_FRESH_A04_BASELINE: Fresh bounded current/receipt, control, WPF, Worker, startup, config/DB/consumption/uninstall hashes, scheduler, versions and consumed identities; SQLite quick_check ok."
+    },
+    {
+      "id": "HIDDEN_OR_MINIMIZED_EXACT_CURRENT_WPF_CLASSIFIED",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CLEANUP"
+      ],
+      "reason": "Dispatch test maps to A08_STALE_WPF_CLEANUP: One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
+    },
+    {
+      "id": "IF_HIDDEN_SIGNAL_STABLE_LAUNCH_ONCE_ONLY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CLEANUP"
+      ],
+      "reason": "Dispatch test maps to A08_STALE_WPF_CLEANUP: One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
+    },
+    {
+      "id": "IF_HIDDEN_SINGLETON_COUNT_AND_PID_PATH_UNCHANGED",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CLEANUP"
+      ],
+      "reason": "Dispatch test maps to A08_STALE_WPF_CLEANUP: One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
+    },
+    {
+      "id": "WPF_UI_INSPECT_BINDS_EXACT_SAME_PID_BEFORE_CLEANUP",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CLEANUP"
+      ],
+      "reason": "Dispatch test maps to A08_STALE_WPF_CLEANUP: One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
+    },
+    {
+      "id": "EXPLICIT_GRACEFUL_WPF_EXIT_BEFORE_INSTALL_UPDATE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CLEANUP"
+      ],
+      "reason": "Dispatch test maps to A08_STALE_WPF_CLEANUP: One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
+    },
+    {
+      "id": "PRESENTATION_ZERO_AND_LOCK_RELEASE_AFTER_CLEANUP",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CLEANUP"
+      ],
+      "reason": "Dispatch test maps to A08_STALE_WPF_CLEANUP: One stable show signal; PID 10608/path/count unchanged; inspect same PID; one explicit exit; zero WPF and released lock."
+    },
+    {
+      "id": "REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_INSTALL",
+        "E_INSTALL_LOG",
+        "E_INSTALLED"
+      ],
+      "reason": "Dispatch test maps to A09_EXACT_INSTALL_UPDATE: Per-user install_user.ps1 exact package/SHA exit 0; pointer/source receipt exact."
+    },
+    {
+      "id": "CURRENT_POINTER_AND_INSTALLED_RECEIPT_BIND_EXACT_PACKAGE_SOURCE",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_INSTALL",
+        "E_INSTALL_LOG",
+        "E_INSTALLED"
+      ],
+      "reason": "Dispatch test maps to A09_EXACT_INSTALL_UPDATE: Per-user install_user.ps1 exact package/SHA exit 0; pointer/source receipt exact."
+    },
+    {
+      "id": "SAFE_PAUSED_STATE_BEFORE_CERTIFICATION",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_INSTALLED"
+      ],
+      "reason": "Dispatch test maps to A10_SAFE_PAUSED_SETUP_NULL: STOPPED, paused=true, setup_complete=true, explicit current_dispatch=null; Worker/legacy absent."
+    },
+    {
+      "id": "WPF_LAUNCH_TWICE_ONE_EXACT_PRESENTATION",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_FIRST_FAILURE",
+        "E_LIFE_ATTEMPT",
+        "E_FINAL"
+      ],
+      "reason": "Dispatch test maps to A11_TWO_LAUNCH_SINGLETON: Trace reached the lock probe after both synchronous stable launches and exact-presentation wait; failure snapshot independently confirms one exact-current PID 8144. No full presentation PASS is claimed."
+    },
+    {
+      "id": "UI_INSPECT_CHECK_SIX_NAVIGATION_AND_PAUSED_CHECK_DISABLED",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE"
+      ],
+      "reason": "Dispatch test maps to A12_CURRENT_UI_INSPECT_CHECK: Current-package UI inspect/check follows the failed lock proof and was not reached. Stale-package cleanup inspection is separate."
+    },
+    {
+      "id": "PRESENTATION_LOCK_HELD_THEN_RELEASED",
+      "status": "FAIL",
+      "evidence_ids": [
+        "E_FIRST_FAILURE",
+        "E_LIFE"
+      ],
+      "reason": "Dispatch test maps to A13_LIVE_PRESENTATION_LOCK: First failure: PermissionError errno 13 opening desktop.lock; handler re-raises winerror !=32. Live lock-held proof not accepted; actual winerror value not logged."
+    },
+    {
+      "id": "POST_EXIT_STOPPED_PAUSED_SETUP_NO_CURRENT_DISPATCH",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A16_POST_EXIT_SAFE_STATE: Current-package post-exit stage was not reached; safe paused state independently observed after failure."
+    },
+    {
+      "id": "WORKER_F1_NOT_APPLICABLE_PRE_G3_AND_NOT_STARTED",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_STATIC",
+        "E_LIFE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A25_NO_FORBIDDEN_MUTATION: No Worker/F1, legacy tray, G3/G4/Canary, AppLocker/AppIDSvc, service/ACL, reboot, provider/broker/LIVE, PR/main/merge action invoked. Worker/F1 health NOT_APPLICABLE_PRE_G3."
+    },
+    {
+      "id": "STABLE_EXTERNAL_UNINSTALL_EXERCISED_EXACTLY_ONCE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A17_STABLE_UNINSTALL_ONCE: Stable uninstall attempts=0; failure occurred before uninstall. No retry."
+    },
+    {
+      "id": "UNINSTALL_EXIT_ZERO",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A18_UNINSTALL_EXIT_ZERO: Uninstall not invoked; no exit code exists."
+    },
+    {
+      "id": "POST_UNINSTALL_CURRENT_POINTER_AND_OWNED_VERSIONS_ABSENT",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A19_IMMEDIATE_UNINSTALL_POSTCONDITIONS: Uninstall not invoked; no postcondition claim."
+    },
+    {
+      "id": "DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED_FROM_A04_PRESTATE",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A20_DURABLE_UNINSTALL_REINSTALL_PRESERVATION: Across-uninstall/reinstall preservation NOT_RUN. Current preservation independently passes from fresh A04 baseline."
+    },
+    {
+      "id": "SAME_EXACT_PACKAGE_REINSTALL_PASS",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A21_SAME_PACKAGE_REINSTALL: Reinstall attempts=0; no recovery reinstall required."
+    },
+    {
+      "id": "FINAL_CURRENT_POINTER_AND_SOURCE_EXACT",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A22_FINAL_CERTIFIED_STATE: Full successful-lifecycle final state NOT_RUN. Exact installed pointer/source and STOPPED/paused/setup/null observed after failure; one WPF remains."
+    },
+    {
+      "id": "FINAL_SETUP_PAUSED_SAFE_STATE_PASS",
+      "status": "NOT_RUN",
+      "evidence_ids": [
+        "E_LIFE",
+        "E_FIRST_FAILURE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A22_FINAL_CERTIFIED_STATE: Full successful-lifecycle final state NOT_RUN. Exact installed pointer/source and STOPPED/paused/setup/null observed after failure; one WPF remains."
+    },
+    {
+      "id": "CONSUMED_IDENTITIES_PRESERVED",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_PRESERVATION",
+        "E_BASELINE",
+        "E_FINAL"
+      ],
+      "reason": "Dispatch test maps to A23_CONSUMED_IDENTITIES_PRESERVED: All fresh-baseline DB dispatch identities and manual-consumption hash unchanged; logical DB table hashes all match pre-install baseline."
+    },
+    {
+      "id": "NO_OLD_DISPATCH_REPLAY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_GATE",
+        "E_BASELINE",
+        "E_LIFE_ATTEMPT",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A24_NO_REPLAY: One running consumed A04 launcher claim, one Agent/lifecycle attempt, zero reruns; historical Dispatches not replayed or rebound."
+    },
+    {
+      "id": "NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_STATIC",
+        "E_LIFE",
+        "E_PRESERVATION"
+      ],
+      "reason": "Dispatch test maps to A25_NO_FORBIDDEN_MUTATION: No Worker/F1, legacy tray, G3/G4/Canary, AppLocker/AppIDSvc, service/ACL, reboot, provider/broker/LIVE, PR/main/merge action invoked. Worker/F1 health NOT_APPLICABLE_PRE_G3."
+    },
+    {
+      "id": "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_STATIC",
+        "E_K1"
+      ],
+      "reason": "Dispatch test maps to A26_RESULT_PATH_ALLOWLIST: All changed paths restricted to report.md, evidence_manifest.json and evidence/host_lifecycle_cert_a04/**."
+    },
+    {
+      "id": "SECRET_SCAN",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_STATIC"
+      ],
+      "reason": "Dispatch test maps to A27_SECRET_PRIVACY_SCAN: Credential/private-path scan and evidence inventory review; no raw config, DB, prompts, package binaries or private account data committed."
+    },
+    {
+      "id": "GIT_DIFF_CHECK",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_DIFF",
+        "E_STATIC"
+      ],
+      "reason": "Dispatch test maps to A28_GIT_DIFF_CHECK: git diff --check against runtime base passes."
+    },
+    {
+      "id": "K1_UNEXPLAINED_ZERO",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_K1"
+      ],
+      "reason": "Dispatch test maps to A29_K1_UNEXPLAINED_ZERO: Every report/manifest hunk REQUESTED; execution/evidence/helper files JUSTIFIED_GENERATED; UNEXPLAINED=0."
+    },
+    {
+      "id": "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+      "status": "PASS",
+      "evidence_ids": [
+        "E_CONTRACT"
+      ],
+      "reason": "Dispatch test maps to A30_RESULT_CONTRACT_V2: Dictionary-resolved v2 schema, formats, evidence references/hashes and full changed-path inventory validated."
     }
   ],
   "evidence": [
     {
-      "id": "E_ARTIFACT_0",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
-      "sha256": "0a28c6f18a4c1c60fe013ef152288544f14bafc63e69b9bd52671aa35eabe48c",
+      "id": "E_FINAL",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/after_first_failure.json",
+      "sha256": "bfd19d7c1bc07c6520efeb23160a6e70586eaf33c18b9e3390de59736063d514",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: assemble_result.py",
+      "observed_at_utc": "2026-10-22T06:21:22.214194+00:00",
+      "description": "A04 bounded execution/evidence: after_first_failure.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_1",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
-      "sha256": "7fd0c47cff9093b73fc57d4a26cd94cdb24e898958289a72407196a3935aeda6",
+      "id": "E_FILE_assemble_result_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/assemble_result.py",
+      "sha256": "6e488070a09d3b24e75305b85e059534bdcf1aa6241c7987664eee3e59c8cd66",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: bind_source.py",
+      "observed_at_utc": "2026-10-22T06:21:22.214194+00:00",
+      "description": "A04 bounded execution/evidence: assemble_result.py",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_2",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check.log",
-      "sha256": "03be6a35de72a9e85f93bd97beb436ba706ab00d2c19170a622de1e29773d089",
+      "id": "E_FILE_baseline_before_build_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/baseline_before_build.json",
+      "sha256": "e4c4f1b75915d81b8ff21b87bb0bd6b146d85382295df10af6b0834681111277",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.214194+00:00",
+      "description": "A04 bounded execution/evidence: baseline_before_build.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_BUILD_LOG",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build.log",
+      "sha256": "99ae2caf1b5eb1927a51048cbabdec84641f3c86271441a86ee353d06c2096a8",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: diff_check.log",
+      "observed_at_utc": "2026-10-22T06:22:32.145735+00:00",
+      "description": "A04 bounded execution/evidence: build.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_3",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check_initial.log",
-      "sha256": "2bfedefb989ac30faab3d6c69116f7ce4d0e661d76a9f59727798634cfeb05a4",
+      "id": "E_BUILD",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_attempt.json",
+      "sha256": "27a5d90f3106023052e763cfa7db0cee60680ee91fb7597af417a9c11fad79f5",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.215379+00:00",
+      "description": "A04 bounded execution/evidence: build_attempt.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FILE_build_once_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/build_once.py",
+      "sha256": "e5fadd38f6517a0e3c12e4782b4e86de48fdc279a08bcfd63bc9d40c208e42ae",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.215379+00:00",
+      "description": "A04 bounded execution/evidence: build_once.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FILE_cleanup_once_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/cleanup_once.py",
+      "sha256": "65d0c494596e7bbae7820cf23d456a1c4088b9994a60083e2ab9a6dae9410c94",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.216805+00:00",
+      "description": "A04 bounded execution/evidence: cleanup_once.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FILE_compare_preservation_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/compare_preservation.py",
+      "sha256": "e5c0bc28ec40e62a06174d87173d93cf5c4139f663d5a02e3ffb5200243d9977",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.216805+00:00",
+      "description": "A04 bounded execution/evidence: compare_preservation.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_DIFF",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/diff_check.log",
+      "sha256": "5710b6d5006bd2e8fede417a493d2f2c06dce59572355b421f6a4620405a4a15",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: diff_check_initial.log",
+      "observed_at_utc": "2026-10-22T06:22:32.473737+00:00",
+      "description": "A04 bounded execution/evidence: diff_check.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_FOCUSED_INITIAL",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial.log",
-      "sha256": "d0f02baae723579209c4645db4ff814427b027403965739a16bb255055572817",
+      "id": "E_PRESERVATION",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/failure_and_preservation.json",
+      "sha256": "aec1b088b8d483c5e51c6455304d940e8b324d8ed36556c770404f7bb5b1daec",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.217311+00:00",
+      "description": "A04 bounded execution/evidence: failure_and_preservation.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_GOV",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/governance_resolution.json",
+      "sha256": "10793161d8503bb000ba80cd743fe578b9c0ea5e33208d1879f0554d56c5d978",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.218318+00:00",
+      "description": "A04 bounded execution/evidence: governance_resolution.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_INSTALL_LOG",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install.log",
+      "sha256": "4317c6fdd0e390f2979ced4e2ecbf7e9b0f31d7812a691de31b0c51c83135657",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: focused_initial.log",
-      "supports_ids": [
-        "T_FOCUSED_INITIAL"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_5",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial_run.json",
-      "sha256": "c498114d525714930f98ff7a4c2ce6b28cec3cfcf1267197948fdfaa2d1633d2",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: focused_initial_run.json",
+      "observed_at_utc": "2026-10-22T06:22:32.147435+00:00",
+      "description": "A04 bounded execution/evidence: install.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_FULL_INITIAL",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial.log",
-      "sha256": "4df1a3ec80209786dd33956872f8cc593c85b4711c0aa5fbbdfd2d2a50b326df",
+      "id": "E_INSTALL",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_attempt.json",
+      "sha256": "f0152cab1a647ec472d3d3575883abef0b5c203993b175162a5e4c8e3ca628ed",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.219317+00:00",
+      "description": "A04 bounded execution/evidence: install_attempt.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FILE_install_once_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/install_once.py",
+      "sha256": "f6f03af0e5f95727bd1a4d23647f2237fdc175553a65a264371677bb2469db65",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.219317+00:00",
+      "description": "A04 bounded execution/evidence: install_once.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_INSTALLED",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/installed_before_lifecycle.json",
+      "sha256": "57163946ecc56537cb3de6c50e6daf2d86aadc8a9b6c3fe037a886ad38b5b76c",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.218318+00:00",
+      "description": "A04 bounded execution/evidence: installed_before_lifecycle.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_K1",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/k1.json",
+      "sha256": "efbf4b8c2ec8bc25d472e550af088ae41828dd70b450b4ead9226a9f2bf1bc75",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:22:34.726547+00:00",
+      "description": "A04 bounded execution/evidence: k1.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_LIFE",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.json",
+      "sha256": "4ed49dc8eecd3389b60db97d701a025f17e420c84127e36e13184981c4e28379",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.220318+00:00",
+      "description": "A04 bounded execution/evidence: lifecycle.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FIRST_FAILURE",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle.log",
+      "sha256": "f5c89c4c75dd3d089a62c354081c62233aea57a55008310671304b84e6fbad41",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: full_initial.log",
-      "supports_ids": [
-        "T_FULL_INITIAL"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_7",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial_run.json",
-      "sha256": "4f4c41c2a29876f23c298482dbe9503301a422dc7b89fa9c495c3eaefa92a244",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: full_initial_run.json",
+      "observed_at_utc": "2026-10-22T06:22:32.147435+00:00",
+      "description": "A04 bounded execution/evidence: lifecycle.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_8",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
-      "sha256": "473f21986c95664ce0ec70d808dbc5e51d3dc4de9c5e9b2c0e85c767dd47118f",
+      "id": "E_LIFE_ATTEMPT",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_attempt.json",
+      "sha256": "e591ea741248181b9e9f39b8492575441dbdb439021620fbf3f0a632a82da1b1",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: k1.json",
+      "observed_at_utc": "2026-10-22T06:21:22.220318+00:00",
+      "description": "A04 bounded execution/evidence: lifecycle_attempt.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_MANIFEST_VALIDATION",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/manifest_validation.log",
-      "sha256": "7a3e97994a31063c3b029e939933ec7438b0a0e54b21aa0c35a658917c63f7e0",
+      "id": "E_FILE_lifecycle_once_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/lifecycle_once.py",
+      "sha256": "539deb2249ffa4e6183be80801b5297e763eed7d8bbfdf218230ca265c524f80",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.221326+00:00",
+      "description": "A04 bounded execution/evidence: lifecycle_once.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_CONTRACT",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/manifest_validation.log",
+      "sha256": "694643cbbb63d0338b7a8bb01d426e12090537d44bf4d806cf9d37791f7d5640",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: manifest_validation.log",
-      "supports_ids": [
-        "T_MANIFEST"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_10",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/original_to_final_diff.json",
-      "sha256": "90513c458901fd8624174ec5d0c8458a0bbceafe3226ef7b0523434cb5c9452d",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: original_to_final_diff.json",
+      "observed_at_utc": "2026-10-22T06:22:32.147435+00:00",
+      "description": "A04 bounded execution/evidence: manifest_validation.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_11",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/recovery_codex001_snapshot.json",
-      "sha256": "ee2511234bac861916b092c94cebc7162041b64c612988882e64e3fbe2a94c50",
+      "id": "E_PACKAGE",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/package_verification.json",
+      "sha256": "7a69c3c2e66eb1695cc78dd45b544b887d651b77839110e3262a1a23bde66ed5",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: recovery_codex001_snapshot.json",
+      "observed_at_utc": "2026-10-22T06:21:22.222336+00:00",
+      "description": "A04 bounded execution/evidence: package_verification.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_12",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/run_tests.py",
-      "sha256": "564ee6a009ee69ae55f4f35328f93276f49b3f8ae8e989c6401fb5f53c1e3030",
+      "id": "E_PREINSTALL",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_install.json",
+      "sha256": "4c29a453e6d25add0760d1e67537e53ef5104b2724ed773b6eb8b4c2cc699bbc",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: run_tests.py",
+      "observed_at_utc": "2026-10-22T06:21:22.222336+00:00",
+      "description": "A04 bounded execution/evidence: pre_install.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_13",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_review.json",
-      "sha256": "8e6b6377ceaab451d6187b4ce2996c74b7ff4eb17dd101b2139f7c24286a1405",
+      "id": "E_BASELINE",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/pre_mutation.json",
+      "sha256": "cb8f2d3de43e36498deb071ca6c2b82fc4a44284fab8dfd8744876a37fb94616",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: salvage_review.json",
+      "observed_at_utc": "2026-10-22T06:21:22.222336+00:00",
+      "description": "A04 bounded execution/evidence: pre_mutation.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_14",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_to_final_diff.json",
-      "sha256": "dfbbb107e683f3e2f26fcf10fbe0ea96b3a72d77e987abc31f62ea2e2caedaf7",
+      "id": "E_FILE_resolve_governance_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/resolve_governance.py",
+      "sha256": "5e1187ee08e0f4e0058108b02755b5ae325ee46eb810361c941dcc0c53d1f305",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: salvage_to_final_diff.json",
+      "observed_at_utc": "2026-10-22T06:21:22.223336+00:00",
+      "description": "A04 bounded execution/evidence: resolve_governance.py",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_SOURCE",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
-      "sha256": "c3e72f3d1519cc45c2b7c3cffa0d0125a63f7c25f21629fe32db00fdd2ff83c1",
+      "id": "E_GATE",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.json",
+      "sha256": "bd450c2c3f3809b91c8a0cd614b43dedf8dbb7d110d1cb2f0a31d2455c65f84c",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: source_binding.json",
+      "observed_at_utc": "2026-10-22T06:21:22.223336+00:00",
+      "description": "A04 bounded execution/evidence: runtime_source_gates.json",
       "supports_ids": [
-        "T_SOURCE"
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FILE_runtime_source_gates_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/runtime_source_gates.py",
+      "sha256": "9ebd163e28bd54f3329827e7328d7f01b613867978204dec5bf1feab19b70e82",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.223336+00:00",
+      "description": "A04 bounded execution/evidence: runtime_source_gates.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_FILE_snapshot_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/snapshot.py",
+      "sha256": "76694814a502fc7af219d59673ecd93667192e9bdabe51ec3c303cc147e7fc42",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.224333+00:00",
+      "description": "A04 bounded execution/evidence: snapshot.py",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_CLEANUP",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/stale_wpf_cleanup.json",
+      "sha256": "f6d010faf03f75a9d6d7f5617820721149614d6cb6dc00584d32d103f0a1028b",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.224333+00:00",
+      "description": "A04 bounded execution/evidence: stale_wpf_cleanup.json",
+      "supports_ids": [
+        "T_STATIC"
       ],
       "sanitized": true
     },
     {
       "id": "E_STATIC",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
-      "sha256": "003eb056dd338ae35e9a0aa1ec4845165ce467829b2ebf9a88b4f2a8122a8273",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/static_checks.json",
+      "sha256": "8a7f3ed1d9bba679d36bfbaf8ea30e6a46cea95a90e032c6bdb4cbbdee3f20fe",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: static_checks.json",
+      "observed_at_utc": "2026-10-22T06:22:34.727548+00:00",
+      "description": "A04 bounded execution/evidence: static_checks.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_STATIC_LOG",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation.log",
-      "sha256": "8d4cf7f9a2e6eaff43d489f839790543803973a0236923af87f99a1991c9d303",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: static_validation.log",
+      "id": "E_FILE_verify_package_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_package.py",
+      "sha256": "1e3e4b83262b7f4c88bfd81f5790595d76f25fd8bd3dc763da9815a063379793",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T06:21:22.225334+00:00",
+      "description": "A04 bounded execution/evidence: verify_package.py",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_18",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation_history.json",
-      "sha256": "8510a4bf8bab08d0eecaf3bd2389d1b30f1af413607ad16af2a4fc3e1cbb438f",
+      "id": "E_FILE_verify_result_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04/verify_result.py",
+      "sha256": "cbde2f7022a7b27ebd2b6e188b1d1456c73cda42948556e9c6d33e27e9a94ad6",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: static_validation_history.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_19",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/test_snapshot_identity.json",
-      "sha256": "6111275900de983a12ba2eade75eb4ecea2b721d61681ff3f6519eab0c0a06f6",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: test_snapshot_identity.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_20",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
-      "sha256": "8363b0de2a55e0ad646faac4c8b3940392fe18a82ce33a5f91785ba950a84cfd",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: verify_result.py",
+      "observed_at_utc": "2026-10-22T06:22:14.864473+00:00",
+      "description": "A04 bounded execution/evidence: verify_result.py",
       "supports_ids": [
         "T_STATIC"
       ],
@@ -775,23 +1520,31 @@
     {
       "id": "E_REPORT",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "sha256": "a03d3947f08da30d6d55b50d75f8dbcc8bec598aaa57ff4cd7096433dc3f01c2",
+      "sha256": "7a33d8f7ab6a0159ad8a7ea69abe23df7c1ebc6c18cfaf0d23bd8bc68b1558f9",
       "kind": "REPORT",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 bounded BUILD result report.",
+      "observed_at_utc": "2026-10-22T06:22:34.815393+00:00",
+      "description": "A04 truthful FAIL / REWORK_REQUIRED result; remaining lifecycle NOT_RUN.",
       "supports_ids": [
-        "T_MANIFEST"
+        "T_CONTRACT"
       ],
       "sanitized": true
     }
   ],
   "risks": [
     {
-      "id": "R_HOST_NOT_CERTIFIED",
-      "severity": "MEDIUM",
+      "id": "R_LOCK_PROOF",
+      "severity": "HIGH",
+      "state": "BLOCKED",
+      "impact": "Live presentation lock exception was not accepted; lifecycle FAIL before uninstall. One exact-current WPF remains at mandated stop.",
+      "next_action": "CHAT review and separately authorized BUILD correction; no A04 replay.",
+      "owner_role": "CHAT"
+    },
+    {
+      "id": "R_LIFECYCLE_NOT_CERTIFIED",
+      "severity": "HIGH",
       "state": "NOT_VERIFIED",
-      "impact": "Offline fixture success does not certify the installed Owner-host lifecycle, F1 adoption or G3/G4 readiness.",
-      "next_action": "Independent CHAT intake; separately authorized host certification if approved.",
+      "impact": "Current UI/exit/uninstall/reinstall/durability gates not exercised; no G3/G4/Canary readiness claim.",
+      "next_action": "Preserve NOT_RUN; fresh TEST only after accepted correction and fresh authorization.",
       "owner_role": "CHAT"
     }
   ],
@@ -800,7 +1553,7 @@
     "private_account_data_in_git": false,
     "licensed_raw_feed_in_git": false,
     "evidence_redacted": true,
-    "check_notes": "Bounded changed-delivery-file scan; no credentials or Bridge durable host data read or changed."
+    "check_notes": "Bounded hashes/state/identities and sanitized path aliases; no raw config/database/prompts/package binary committed; credential/private-path scan."
   },
   "usage": {
     "attempts": 1,
@@ -808,12 +1561,12 @@
     "usage_status": "NOT_MEASURED",
     "tokens_used": null,
     "credits_used": null,
-    "escalation_reason": "No Agent retry or replay; fixture reruns within this one A02 attempt only."
+    "escalation_reason": "First failure preserved. No lifecycle rerun, stable uninstall, recovery reinstall, Agent retry or model substitution."
   },
   "next_step": {
-    "requested_chat_decision": "REVIEW",
-    "action": "Independently review immutable A02 code/diff/tests/evidence; no acceptance claimed.",
+    "requested_chat_decision": "REWORK",
+    "action": "Review truthful FAIL; separately authorize correction for real Windows lock exception classification.",
     "owner_role": "CHAT",
-    "prerequisite_gate": "CHAT result intake; any future host lifecycle requires its own authorized task and material PreExec."
+    "prerequisite_gate": "Independent CHAT intake; accepted BUILD correction and fresh PreExec/Dispatch for later TEST. No A04 replay."
   }
 }

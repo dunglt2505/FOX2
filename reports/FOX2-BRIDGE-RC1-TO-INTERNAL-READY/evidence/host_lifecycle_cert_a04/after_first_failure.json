@@ -1,0 +1,291 @@
+{
+  "observed_at_utc": "2026-10-22T06:17:02.789160+00:00",
+  "explicit_lifecycle_actions_by_this_snapshot": 0,
+  "status_initialization_note": "Installed control status initializes sticky DENY_CROSS_ROOT_UNKNOWN metadata; DB file hash may change without logical dispatch changes",
+  "current": {
+    "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
+    "source_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73"
+  },
+  "control": {
+    "state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "current_dispatch": null,
+    "start_with_windows": true
+  },
+  "installed_receipt": {
+    "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
+    "manifest": {
+      "format": "FOX2_USER_PACKAGE_1",
+      "source_git_commit": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+      "source_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73",
+      "dictionary_version": "1.2",
+      "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7"
+    },
+    "receipt_sha256": "6788085ed48ba85b492e76c70387d1cb216ca8e1a2d57d9614b12f67c4299690"
+  },
+  "processes": {
+    "task_writers": [
+      {
+        "pid": 11960,
+        "high": true,
+        "model_ok": true,
+        "full_access": true
+      }
+    ],
+    "worker_legacy_count": 0,
+    "elevated": false,
+    "wpf": [
+      {
+        "ProcessId": 8144,
+        "ExecutablePath": "BridgeRoot\\versions\\f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee\\payload\\desktop\\FOX2.Bridge.Desktop.exe"
+      }
+    ],
+    "powershell_major": 7
+  },
+  "launcher_claim": {
+    "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-CODEX-001",
+    "dispatch_commit": "533712e930a5cf937fa9401add0a89baa4994615",
+    "runtime_base": "6d1d2a70f2d1cc47e44f70a0ba6cd07cd3985713",
+    "state": "RUNNING",
+    "dispatch_consumed": true,
+    "created_at": "2026-10-22T06:11:53.0221832Z",
+    "process_id": 11960,
+    "max_runs": 1
+  },
+  "durable_files": {
+    "config/bridge.toml": {
+      "sha256": "b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7",
+      "size": 377
+    },
+    "data/bridge.db": {
+      "sha256": "6add09ff2570dfe84a17aba283da278173c1c276bd0d19087ecf63cd458b5929",
+      "size": 634880
+    },
+    "data/manual_consumption.json": {
+      "sha256": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c",
+      "size": 924
+    },
+    "uninstall.ps1": {
+      "sha256": "ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff",
+      "size": 372
+    }
+  },
+  "sqlite_quick_check": [
+    [
+      "ok"
+    ]
+  ],
+  "database_identity": {
+    "device": 185793875323027705,
+    "inode": 1688849860999573
+  },
+  "dispatch_identities": [
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-001",
+      "state": "FAILED",
+      "payload_hash": "eb3b1b464bf693c721c8c239cd9440a49570bcf0e4c2b22ef3f3587f52e2ffa7"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-002",
+      "state": "FAILED",
+      "payload_hash": "3e178f1b88f265dfca578c355a6efc2b1f89f3f45338246a6fe8251fb4e002ee"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-003",
+      "state": "FAILED",
+      "payload_hash": "5aee922805d072cb210e0428a690cabc05baf175c7af3a30916ee7a4e942947e"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-CODEX-CANARY-004",
+      "state": "PUSHED_UNREVIEWED",
+      "payload_hash": "cb4e3b695d6f227fe902c53eed52e12714b82928464f4558a473ca003280d932"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DELIVERY-HOTFIX-01-CODEX-001",
+      "state": "FAILED",
+      "payload_hash": "9d9f7463580ee111c4526dec530f763fed3e58d6484ad6c7799984963c1d59d5"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DELIVERY-HOTFIX-01-CODEX-002",
+      "state": "FAILED",
+      "payload_hash": "b05639615b990763826d0ce7da98bac6803adf3e3b4f50346c242f5bd0de7a95"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-001",
+      "state": "FAILED",
+      "payload_hash": "d578bac50fd3d2269fefc5e180529b01bc36c5a93f8394afaf5e06da0e2b715e"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-02-CODEX-002",
+      "state": "FAILED",
+      "payload_hash": "3d70f4c6347072860f1143086332b588e8f5e8edfda8d4e5cdd67a572d797802"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-CODEX-001",
+      "state": "FAILED",
+      "payload_hash": "82dd23405ddaecd4d628cc65811eff720db8684260e3898da4ed34e13077e814"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-DESKTOP-01-CODEX-002",
+      "state": "PUSHED_UNREVIEWED",
+      "payload_hash": "954ae59558f65a63675ad04bb6bc4c070e51c2d0462e83202962fbef81e3bc15"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-002",
+      "state": "FAILED",
+      "payload_hash": "a0fe9f190fd694496c9a655b8d0f92db5961a30cf93a756cabc96d358aff4571"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-E2E-CANARY-003",
+      "state": "PUSHED_UNREVIEWED",
+      "payload_hash": "268aaead42911e31a6c8c67fdb5a393f2984434be825bfa2388fed81f4936cc4"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-FINAL-CANARY-009-CODEX-001",
+      "state": "PUSHED_UNREVIEWED",
+      "payload_hash": "a8756aa6e66e98ba0a6fcc0995bf72fd175ef103a8bf9f27f79466535112576a"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-OPS-CANARY-001",
+      "state": "PUSHED_UNREVIEWED",
+      "payload_hash": "bd6fb4c81cdf14735332e603125d36a7a45238b3eb9891abf837bb87e5915084"
+    },
+    {
+      "dispatch_id": "FOX2-BRIDGE-OPS-DEV-CANARY-001",
+      "state": "FAILED",
+      "payload_hash": "919e35ccd2859f75c8de247e89cb4f98ff8d10ae06e392144c9d0de5bf708712"
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-001",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-002",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-003",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-004",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-005",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-006",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-007",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-DESKTOP-BATCH-B-CODEX-008",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-001",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-002",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-003",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-CODEX-004",
+      "state": "NEEDS_RECONCILIATION",
+      "payload_hash": null
+    },
+    {
+      "dispatch_id": "FOX2-M1-P2-03-CODEX-001",
+      "state": "FAILED",
+      "payload_hash": "0c313dd4aae7031c1ca5c5b9d708b439366f7c973ce1ac5ecf7d500c9e81be20"
+    }
+  ],
+  "database_tables": {
+    "bridge_meta": {
+      "rows": 2,
+      "logical_sha256": "6e27093a3f1d1a2ad5cec49eb6064fa5bc2aaacf5fcadf4884a7383c1c3b4d44"
+    },
+    "candidate_discoveries": {
+      "rows": 53,
+      "logical_sha256": "f2f3082593ead172c06af7e608c1d08b361e8d1bcd45dd4cfc1058e9f83544ee"
+    },
+    "control_cursors": {
+      "rows": 2,
+      "logical_sha256": "59a0777ac322b63c5a47ebbf529a218bbc13bf5ccbd78fd4d212755ca1f6bf1d"
+    },
+    "dispatches": {
+      "rows": 28,
+      "logical_sha256": "2b8dca66a6493129016fe4ce4854ef6d2a6b6a95ee24cb7cae866798031ca7d0"
+    },
+    "executions": {
+      "rows": 16,
+      "logical_sha256": "3b01314649c8c56ba32982281dd1c62f01bd976a806fb6f1be989ec205636ec4"
+    },
+    "poll_observations": {
+      "rows": 847,
+      "logical_sha256": "dca445a4fe1dbaea433e17c400a2fe425ad4a28021bd00b01e5dcd82b100597f"
+    },
+    "review_events": {
+      "rows": 0,
+      "logical_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "worker_state": {
+      "rows": 1,
+      "logical_sha256": "650cae4d1cb98a9c278436440bc8cb4b93de58ca698dd6cf9859eaf0b4bad6ad"
+    }
+  },
+  "manual_consumption_identity": {
+    "sha256": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c",
+    "top_level_keys": [
+      "additional_authority_control_commit_008",
+      "additional_authority_control_commit_rc1_004",
+      "authority_control_commit",
+      "dispatch_ids",
+      "format"
+    ]
+  },
+  "owned_versions": [
+    {
+      "id": "52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4",
+      "receipt_sha256": "4075f48dc0718b7574a0764e5392fb31ca8ddc9a8896f7cd9747d7c2a67339c4"
+    },
+    {
+      "id": "a0516aed3d69564c657dc557b7b09cfaab549d6ab04ce4132e9399b50ce5b4ac",
+      "receipt_sha256": "c27e4f637e39c10be00a565d5b449ed76f3e92f29916713178695eb8413221f7"
+    },
+    {
+      "id": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
+      "receipt_sha256": "6788085ed48ba85b492e76c70387d1cb216ca8e1a2d57d9614b12f67c4299690"
+    }
+  ],
+  "scheduler": {
+    "stable_launch": true,
+    "logon_type": "Interactive",
+    "present": true,
+    "run_level": "Limited",
+    "state": "Ready",
+    "instances": "IgnoreNew"
+  }
+}

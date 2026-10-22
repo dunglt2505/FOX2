@@ -1,0 +1,30 @@
+{
+  "presentation_status": "FAILED_BEFORE_UNINSTALL",
+  "setup": {
+    "configuration": "BridgeRoot\\config\\bridge.toml",
+    "dictionary_sha256": "7fc3532890f4a60a4abc7bf3b08dc06fe6af6ee000176ac464bfe3aacda2ecd7",
+    "paused": true,
+    "stages": {
+      "codex": "AUTHENTICATED",
+      "copilot": "OPTIONAL_NOT_SELECTED",
+      "dispatch": "READABLE",
+      "git": "PASS",
+      "health": "PASS",
+      "repository": "PASS",
+      "runtime": "PASS",
+      "startup": "USER_OPT_IN",
+      "worktrees": "PASS"
+    },
+    "status": "SETUP_COMPLETE"
+  },
+  "startup": {
+    "scope": "CURRENT_USER_LOGON_LIMITED",
+    "start_with_windows": true
+  },
+  "task_scheduler": {
+    "instances": "IgnoreNew",
+    "logon_type": "Interactive",
+    "run_level": "Limited"
+  },
+  "worker_f1_health": "NOT_APPLICABLE_PRE_G3"
+}

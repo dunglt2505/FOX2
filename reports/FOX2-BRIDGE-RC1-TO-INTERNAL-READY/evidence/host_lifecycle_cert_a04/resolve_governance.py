@@ -1,0 +1,11 @@
+import json,hashlib,subprocess
+from pathlib import Path
+repo=Path.cwd();out=repo/'reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/host_lifecycle_cert_a04';ref='refs/remotes/origin/work/FOX2-POLICY-V200-OWNER-OVERRIDE-RELEASE-20261019'
+def raw(p):return subprocess.check_output(['git','show',ref+':'+p])
+registry=json.loads(raw('docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json'));resolution=json.loads(raw('docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json'));dictionary=json.loads(raw('docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json'))
+paths={'docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json':'1c28a6372a1cbbfd5341691ac9a5f98c8aa03e35','docs/governance/releases/FOX2_CURRENT_SOURCE_RESOLUTION_20261019.json':'186fdbc72dc1b22e97330895142d68600591ac21','docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json':'6c8f30e2e6b07f2e65e45c14faab99672d036083','docs/governance/FOX2_POLICY_V2.0.0.md':'2d373f374f906bf7959062050bbeae5350b0c482','docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md':'14d2e95e419cc67c3e0cf851cc806a96cf885b7e','docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md':'d34a022f2bda39a167a404c8530e57b30f337cb9'}
+identities=[]
+for p,b in paths.items():
+ actual=subprocess.check_output(['git','rev-parse',ref+':'+p]).decode().strip();assert actual==b;identities.append({'path':p,'blob':b,'sha256':hashlib.sha256(raw(p)).hexdigest()})
+result={'source_bytes_verified':'PASS','scoped_authority':'Owner task instruction plus fetched A04 Dispatch and CHAT PASS_TO_ASSIGN; governance records describe scoped human release, not installed machine adoption','installed_runtime_adoption':'NOT_ATTESTED_BY_GOVERNANCE','identities':identities,'dictionary_current':dictionary.get('current',dictionary.get('CURRENT')),'registry':registry,'source_resolution':resolution}
+(out/'governance_resolution.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'source_bytes_verified':'PASS','identities':identities,'dictionary_keys':list(dictionary),'registry_keys':list(registry)}))

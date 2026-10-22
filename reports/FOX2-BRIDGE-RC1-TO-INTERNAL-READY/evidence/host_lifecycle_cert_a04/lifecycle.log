@@ -1,0 +1,15 @@
+
+Traceback (most recent call last):
+  File "C:\Projects\FOX2-worktrees\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022\agent_bridge\scripts\certify_user_lifecycle.py", line 246, in <module>
+    a=p.parse_args(); main(a.package,a.sha256,a.evidence)
+                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\FOX2-worktrees\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022\agent_bridge\scripts\certify_user_lifecycle.py", line 222, in main
+    certify_presentation(root,sha,pwsh,cli,results,evidence)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\FOX2-worktrees\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022\agent_bridge\scripts\certify_user_lifecycle.py", line 157, in certify_presentation
+    with lock.open('r+b'):
+         ~~~~~~~~~^^^^^^^
+  File "UserProfile\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'UserProfile\\AppData\\Local\\FOX2\\BridgeDesktop\\desktop.lock'
