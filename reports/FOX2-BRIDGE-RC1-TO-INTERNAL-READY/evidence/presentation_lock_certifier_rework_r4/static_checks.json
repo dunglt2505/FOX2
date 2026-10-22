@@ -1,0 +1,38 @@
+{
+  "changed_paths": [
+    "agent_bridge/scripts/certify_user_lifecycle.py",
+    "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/assemble_result.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/code_diff.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused.log",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused_run.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full.log",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full_run.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/k1.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused.log",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused_run.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full.log",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full_run.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/source_binding.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/static_checks.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/test_snapshot.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/validation_history.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/verify_result.py",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md"
+  ],
+  "changed_path_allowlist": "PASS",
+  "code_test_paths_exactly_two": true,
+  "git_diff_check": "PASS",
+  "syntax": "PASS",
+  "preserved_lifecycle_tail_ast": "PASS",
+  "secret_privacy_scan": {
+    "status": "PASS",
+    "files_scanned": 20,
+    "findings": [],
+    "method": "Credential/private-key/authenticated-URL/private-user-path patterns plus material diff review; no host-data export."
+  },
+  "K1_UNEXPLAINED": 0,
+  "real_host_lifecycle": "NOT_RUN",
+  "worker_f1": "NOT_APPLICABLE_PRE_G3"
+}

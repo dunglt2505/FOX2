@@ -2,45 +2,50 @@
   "contract_version": "2.0",
   "project": "FOX2",
   "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
-  "task_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02",
-  "change_id": "FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02",
+  "task_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4",
+  "change_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4",
   "submission_state": "READY_FOR_CHAT_REVIEW",
-  "submitted_at_utc": "2026-10-22T02:38:46.542606+00:00",
+  "submitted_at_utc": "2026-10-22T10:37:35.281198+00:00",
   "agent": {
     "product": "CODEX",
     "model": "gpt-6.1-sol",
-    "mode": "BUILD_CORRECTION_ONLY / high / MANUAL_LOCAL / FULL_ACCESS",
-    "host": "Owner Windows host; offline temporary fixtures",
-    "started_at_utc": "2026-10-22T02:29:30.5759665Z",
-    "finished_at_utc": "2026-10-22T02:38:46.542606+00:00",
-    "quota_observation": "PreExec REV3 authenticated service probe PASS; current pinned execution active; no numeric quota inferred; usage totals NOT_MEASURED"
+    "mode": "BUILD_CORRECTION_ONLY / medium / FULL_ACCESS",
+    "host": "Existing Windows environment; offline fixtures only",
+    "started_at_utc": "2026-10-22T10:26:44.2883420Z",
+    "finished_at_utc": "2026-10-22T10:37:35.281198+00:00",
+    "quota_observation": "Current pinned execution active; current R4 PreExec capacity PASS reused; totals NOT_MEASURED"
   },
   "routing": {
+    "r0": "NOT_CHECKED",
+    "r1": "NOT_CHECKED",
+    "r2": "NOT_CHECKED",
+    "r3": "NOT_CHECKED",
+    "r4": "NOT_CHECKED",
+    "r5": "NOT_CHECKED",
+    "r6": "NOT_CHECKED",
+    "r7": "NOT_CHECKED",
     "policy_check": "PASS",
     "task_state_check": "PASS",
-    "r0": "PASS",
-    "r1": "PASS",
-    "r2": "PASS",
-    "r3": "PASS",
-    "r4": "PASS",
-    "r5": "PASS",
-    "r6": "PASS",
-    "r7": "PASS",
     "assignment_check": "PASS",
-    "routing_evidence": "Fresh Dispatch and CHAT PASS_TO_ASSIGN plus PreExec REV3; current launcher claim and single process. See source_binding.json."
+    "routing_evidence": "Current user prompt plus exact task/prompt/current R4 PreExec and observed pinned process; historical route evidence reused, not re-executed. No fresh R4 Dispatch file in starting tree."
   },
   "source": {
     "policy_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
     "policy_version": "2.0.0",
-    "task_commit_sha": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
-    "source_manifest_sha256": "c3e72f3d1519cc45c2b7c3cffa0d0125a63f7c25f21629fe32db00fdd2ff83c1",
-    "approved_base_commit_sha": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+    "task_commit_sha": "6b6cc697ca35b35ade1ccdf363782a1f912a8936",
+    "source_manifest_sha256": "6e95a5ef0d0486da19198614f0262ca04206beee525ff19e0f845ceaff7c906c",
+    "approved_base_commit_sha": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0",
     "source_readback_status": "PASS",
     "brd_revisions": [
       "Bridge TechSpec v0.7 REV10 remains CANDIDATE_NO_PROMOTION; no semantic promotion."
     ],
     "previous_evidence_reused": [
-      "Recovery snapshot is salvage input only; no A01 PASS reused. A01 consumed/quota failure and historical host FAIL preserved. Fresh A02 tests/static/K1 rerun."
+      "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+      "Package/provenance/install/safe-state/singleton PASS remains reusable; not repeated",
+      "R3 route rationale and historical PreExec v4 same-session capability only",
+      "ad7d6f0b9889fe4247c29ac3d77f0b90b5f40e56",
+      "da6fd27d78380db42fce155d634044c94a661229",
+      "R3 A01 CONSUMED_NO_RESULT / NO_REPLAY; historical FAIL/NOT_RUN retained"
     ]
   },
   "permissions": {
@@ -54,733 +59,466 @@
     "dnse_production": false,
     "broker_write": false,
     "live": false,
-    "grant_evidence": "Owner task plus fresh A02 Dispatch/CHAT PASS_TO_ASSIGN; offline BUILD only; exact authorized non-main result push."
+    "grant_evidence": "Current user R4 execution prompt; exact two source/test files plus R4 report/evidence and non-main commit/push only."
   },
   "git": {
     "repository": "dunglt2505/FOX2",
-    "branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
-    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
-    "writer_lease": "One current task CODEX PID 3496; one running consumed launcher claim; no subagents or competing material writer observed.",
+    "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-20261022",
+    "worktree": "C:/Projects/FOX2-worktrees/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-20261022",
+    "writer_lease": "One current task-scoped CODEX process observed; detached fixture worktree belongs to same writer; no subagents.",
     "report_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
     "delivery_status": "PUSHED_UNREVIEWED",
     "pr_url": null,
-    "local_head_before_submission": "4504bf95dd2baf474b30f896b23365c52fe10c9f"
+    "local_head_before_submission": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0"
   },
   "scope": {
     "requested": [
-      "Finish and independently verify salvaged lifecycle/WPF certification within the four allowed code/test paths."
+      "Bounded differential presentation-lock proof and A04 continuation API/flag; exact two-file regression coverage"
     ],
     "completed": [
-      "Presentation-only WPF contract retained/corrected; negative fixtures; A03 durable uninstall regressions; focused/full tests; static/K1/Result Contract evidence."
+      "Fresh and continuation proof, bounded errors, same-file release, unchanged lock bytes, required offline validation"
     ],
     "partial": [],
     "not_done": [
-      "CHAT acceptance; real installed-host lifecycle certification; G3/G4 adoption."
+      "Real host lifecycle NOT_RUN, outside R4"
     ],
     "explicit_exclusions": [
-      "Real installed lifecycle, Worker/F1, AppLocker/service/ACL, G3/G4/Canary, main/PR/merge/provider/broker/LIVE."
+      "WPF product changes; package rebuild/install; host lifecycle; Worker/F1; A05/G3/G4/Canary; main/merge/provider/broker/LIVE"
     ],
     "changed_paths": [
       {
         "path": "agent_bridge/scripts/certify_user_lifecycle.py",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "REQUESTED",
         "within_allowed_paths": true,
-        "new_sha256": "68e6b3298816f23728e09d95812b576c68f4b8e273b15b5c0841b0fc7576fb80"
+        "new_sha256": "f527ce9078da59da95caf06689949cced241d5d772b5636c9cba19cee016b7fb"
       },
       {
         "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "REQUESTED",
         "within_allowed_paths": true,
-        "new_sha256": "46c99673ab76f8f89fe9a374b3bcf4edc7ded64b84a29a92d11bb15fe8d8d27b"
+        "new_sha256": "1596af8f402a544d8acc9af36d9847cfd1ea786dcde7d9ab3b34af1fb8a40481"
       },
       {
-        "path": "agent_bridge/tests/test_rc1_package.py",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "9f97b909d2e206c92633101511aefa568570a0a8178a2fdbd5952bfc1958b5c7"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "0a28c6f18a4c1c60fe013ef152288544f14bafc63e69b9bd52671aa35eabe48c"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "7fd0c47cff9093b73fc57d4a26cd94cdb24e898958289a72407196a3935aeda6"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/assemble_result.py",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "03be6a35de72a9e85f93bd97beb436ba706ab00d2c19170a622de1e29773d089"
+        "new_sha256": "521db9bc72841727f386df911ee4c8ed959184dd71219d9e51dabba0cc57ec32"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check_initial.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/code_diff.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "2bfedefb989ac30faab3d6c69116f7ce4d0e661d76a9f59727798634cfeb05a4"
+        "new_sha256": "800548500424f15aa4f4fa39b589e6ac50cd3974e4a851087444fe63960634de"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused.log",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "d0f02baae723579209c4645db4ff814427b027403965739a16bb255055572817"
+        "new_sha256": "39e814dc0b61ed654c2c87baf71f55b1966a02074b78bbc637984d67e91c07e9"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial_run.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused_run.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "c498114d525714930f98ff7a4c2ce6b28cec3cfcf1267197948fdfaa2d1633d2"
+        "new_sha256": "4bfa9079c1b19cda70248e4de6311c0fa4ec724851e3c6453ff2b2cec17dde22"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full.log",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "4df1a3ec80209786dd33956872f8cc593c85b4711c0aa5fbbdfd2d2a50b326df"
+        "new_sha256": "6157a3c7d2f5ff35b38f384ff9663134634b47014a5292f7813627d9f5e39ad4"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial_run.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full_run.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "4f4c41c2a29876f23c298482dbe9503301a422dc7b89fa9c495c3eaefa92a244"
+        "new_sha256": "92ff167cd495dec9a1836618e4a4691c40b0edf44d58666b6b507c3fc29b93b2"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "473f21986c95664ce0ec70d808dbc5e51d3dc4de9c5e9b2c0e85c767dd47118f"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/manifest_validation.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/k1.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "7a3e97994a31063c3b029e939933ec7438b0a0e54b21aa0c35a658917c63f7e0"
+        "new_sha256": "1a1a96d0bd149dfe57de081847dadea394049e47e627645589a224276d661304"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/original_to_final_diff.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused.log",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "90513c458901fd8624174ec5d0c8458a0bbceafe3226ef7b0523434cb5c9452d"
+        "new_sha256": "8766b8fea158bfb2ab4da309541978d8a8bba867b416b85e1799135e37a4ae44"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/run_tests.py",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused_run.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "564ee6a009ee69ae55f4f35328f93276f49b3f8ae8e989c6401fb5f53c1e3030"
+        "new_sha256": "ca3fd955ebf8c1e3a7586b73a40e6b138f61870718fbd1218836da0b38c60d4d"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_review.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full.log",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "8e6b6377ceaab451d6187b4ce2996c74b7ff4eb17dd101b2139f7c24286a1405"
+        "new_sha256": "b9680dc3d511e75c4319fb7419ec9962d38bc1b60d0dad227e7baf46389cd842"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_to_final_diff.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full_run.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "dfbbb107e683f3e2f26fcf10fbe0ea96b3a72d77e987abc31f62ea2e2caedaf7"
+        "new_sha256": "127c672f1717c616bd3d976fd188b47d3d90e39e73d67ddf300fd3ee996ae353"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "c3e72f3d1519cc45c2b7c3cffa0d0125a63f7c25f21629fe32db00fdd2ff83c1"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
-        "within_allowed_paths": true,
-        "new_sha256": "003eb056dd338ae35e9a0aa1ec4845165ce467829b2ebf9a88b4f2a8122a8273"
-      },
-      {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation.log",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/source_binding.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "8d4cf7f9a2e6eaff43d489f839790543803973a0236923af87f99a1991c9d303"
+        "new_sha256": "6e95a5ef0d0486da19198614f0262ca04206beee525ff19e0f845ceaff7c906c"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation_history.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/static_checks.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "8510a4bf8bab08d0eecaf3bd2389d1b30f1af413607ad16af2a4fc3e1cbb438f"
+        "new_sha256": "3ad7cc6d2ed2f16510e2824900abaae98921630ea70c90fbb6c5a836aa2e0c43"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/test_snapshot_identity.json",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/test_snapshot.json",
         "operation": "ADD",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "6111275900de983a12ba2eade75eb4ecea2b721d61681ff3f6519eab0c0a06f6"
+        "new_sha256": "f6b799949425c5ba8a1d88d0c7c97bda66ecef0fdb170c22a32fef7de1a6e883"
       },
       {
-        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
-        "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/validation_history.json",
+        "operation": "ADD",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "8363b0de2a55e0ad646faac4c8b3940392fe18a82ce33a5f91785ba950a84cfd"
+        "new_sha256": "90945da559e4067aa40b49eadc2bb23c965a0b4da67511388f452395c7a5ee52"
+      },
+      {
+        "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/verify_result.py",
+        "operation": "ADD",
+        "intent": "JUSTIFIED_GENERATED",
+        "within_allowed_paths": true,
+        "new_sha256": "2b2a9a4853a5a6795b85000a8bdc6c1eb216f92b4ec45f9935dc35d05b38cbd0"
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
         "new_sha256": null
       },
       {
         "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
         "operation": "MODIFY",
-        "intent": "REQUESTED: scoped lifecycle/WPF code/tests and fresh A02 evidence; generated evidence JUSTIFIED_GENERATED.",
+        "intent": "JUSTIFIED_GENERATED",
         "within_allowed_paths": true,
-        "new_sha256": "a03d3947f08da30d6d55b50d75f8dbcc8bec598aaa57ff4cd7096433dc3f01c2"
+        "new_sha256": "eee6656596cfecfacca8bc312ca02a3d73fba781c6bd6c64c576bd750a4ce157"
       }
     ],
     "forbidden_paths_touched": false
   },
   "tests": [
     {
-      "id": "T_FOCUSED_INITIAL",
+      "id": "T_FOCUSED",
       "kind": "INTEGRATION",
       "status": "PASS",
-      "command_or_method": "\"C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -m pytest agent_bridge/tests/test_lifecycle_wpf_contract.py agent_bridge/tests/test_rc1_launcher.py agent_bridge/tests/test_rc1_package.py agent_bridge/tests/test_installation.py -v --tb=short",
-      "environment": "{\"cwd\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\", \"PYTHONPATH\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\\\\agent_bridge\\\\src\", \"process_core_longpaths\": false}",
-      "run_at_utc": "2026-10-22T02:32:37.283577+00:00",
+      "command_or_method": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "environment": "Existing Windows Python 3.13.15/pytest 8.3.5; byte-identical short fixture worktree",
+      "run_at_utc": "2026-10-22T10:33:21.112654+00:00",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_focused_log",
+        "E_focused_run_json"
       ],
-      "notes": "============================= 103 passed in 3.34s ============================="
+      "notes": "66 passed in 1.09s"
     },
     {
-      "id": "T_FULL_INITIAL",
+      "id": "T_FULL",
       "kind": "INTEGRATION",
       "status": "PASS",
-      "command_or_method": "\"C:\\Users\\Fox Le\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -m pytest agent_bridge/tests -v --tb=short",
-      "environment": "{\"cwd\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\", \"PYTHONPATH\": \"C:\\\\Projects\\\\FOX2\\\\.git\\\\wpf-a02-test\\\\agent_bridge\\\\src\", \"process_core_longpaths\": false}",
-      "run_at_utc": "2026-10-22T02:32:45.399891+00:00",
+      "command_or_method": "python -m pytest -q agent_bridge/tests",
+      "environment": "Existing Windows Python 3.13.15/pytest 8.3.5; byte-identical short fixture worktree",
+      "run_at_utc": "2026-10-22T10:37:01.262763+00:00",
       "evidence_ids": [
-        "E_FULL_INITIAL"
+        "E_full_log",
+        "E_full_run_json"
       ],
-      "notes": "======================= 653 passed in 236.02s (0:03:56) ======================="
+      "notes": "683 passed in 219.59s (0:03:39)"
     },
     {
       "id": "T_STATIC",
       "kind": "STATIC",
       "status": "PASS",
-      "command_or_method": "python evidence/lifecycle_wpf_contract_rework/verify_result.py",
-      "environment": "Offline source/evidence checks; PowerShell query parsed only.",
-      "run_at_utc": "2026-10-22T02:38:46.542606+00:00",
+      "command_or_method": "verify_result.py and --manifest-only",
+      "environment": "Authorized R4 worktree; offline only",
+      "run_at_utc": "2026-10-22T10:37:35.281198+00:00",
       "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
+        "E_static_checks_json",
+        "E_k1_json"
       ],
-      "notes": "Includes K1 and A03/protected production byte identity."
-    },
-    {
-      "id": "T_SOURCE",
-      "kind": "READBACK",
-      "status": "PASS",
-      "command_or_method": "python evidence/lifecycle_wpf_contract_rework/bind_source.py",
-      "environment": "Read-only Git/source/PreExec/Dispatch/claim/process inventory.",
-      "run_at_utc": "2026-10-22T02:32:13.206519+00:00",
-      "evidence_ids": [
-        "E_SOURCE"
-      ],
-      "notes": "Source bytes and scoped authority verified; no runtime/global promotion."
-    },
-    {
-      "id": "T_MANIFEST",
-      "kind": "READBACK",
-      "status": "PASS",
-      "command_or_method": "python evidence/lifecycle_wpf_contract_rework/verify_result.py --manifest-only",
-      "environment": "Dictionary-resolved immutable Result Contract schema; local raw-byte evidence readback.",
-      "run_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "evidence_ids": [
-        "E_MANIFEST_VALIDATION"
-      ],
-      "notes": "Executed after manifest assembly, with stable validation log included."
+      "notes": "Allowlist/privacy/syntax/diff/K1/preserved lifecycle tail/schema/hashes"
     }
   ],
   "acceptance": [
     {
-      "id": "NO_LEGACY_DESKTOP_TRAY_HEALTH_DEPENDENCY",
+      "id": "A_1",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_focused_log",
+        "E_static_checks_json"
       ],
-      "reason": "test_no_legacy_tray_worker_heartbeat_or_f1_g3_mutation; no tray or legacy launcher health probe."
+      "reason": "Full winerror32 and errno13 differential PASS; pre-live denial FAIL"
     },
     {
-      "id": "LAUNCH_TWICE_ONE_WPF_PRESENTATION",
+      "id": "A_2",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_focused_log",
+        "E_static_checks_json"
       ],
-      "reason": "test_launch_twice_exact_singleton_paused_ui_and_graceful_exit; duplicate/missing presentation negatives."
+      "reason": "Existing exact continuation errno13 provisional until same-file release; retained denial FAIL; zero-WPF one launch"
     },
     {
-      "id": "EXACT_CURRENT_PACKAGE_PRESENTATION_IDENTITY",
+      "id": "A_3",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_focused_log",
+        "E_static_checks_json"
       ],
-      "reason": "Positive exact package path/current pointer/UI PID; old_package, unknown_path, pointer_drift, wrong_ui_pid and pid_changed rejected."
+      "reason": "Missing/free/replaced lock and unrelated OSError FAIL; lock bytes unchanged"
     },
     {
-      "id": "PAUSED_SETUP_NO_CURRENT_DISPATCH_PRE_G3",
+      "id": "A_4",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_focused_log",
+        "E_static_checks_json"
       ],
-      "reason": "Paused/setup/null tests reject unsafe values and absent fields; unsafe pre/post-exit control rejected."
+      "reason": "Duplicate/wrong-path/PID/current-pointer/UI/safe-state negatives; Worker/F1 NOT_APPLICABLE_PRE_G3; no fallback"
     },
     {
-      "id": "CERTIFY_RC1_UI_INSPECT_CHECK_EXIT_REUSED",
+      "id": "A_5",
       "status": "PASS",
       "evidence_ids": [
-        "E_FOCUSED_INITIAL"
+        "E_focused_log",
+        "E_static_checks_json"
       ],
-      "reason": "Positive fixture verifies the existing script/action argv and inspect -> check -> exit order; UI failures rejected."
-    },
-    {
-      "id": "GRACEFUL_WPF_EXIT_BEFORE_UNINSTALL",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "Positive integration gates uninstall on explicit UI exit, count zero and lock release; exit timeout/retained lock rejected."
-    },
-    {
-      "id": "NO_WORKER_START_OR_HEARTBEAT_REQUIREMENT",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "Process/CLI fixtures reject any Worker command; no heartbeat in state or evidence; launcher reports worker_started=False."
-    },
-    {
-      "id": "WORKER_F1_HEALTH_NOT_APPLICABLE_PRE_G3",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "Fixture asserts worker_f1_health=NOT_APPLICABLE_PRE_G3; no health PASS claim."
-    },
-    {
-      "id": "NO_F1_G3_MUTATION",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "Mocked lifecycle process boundary, source guard and unchanged F1/G3 production paths."
-    },
-    {
-      "id": "STABLE_EXTERNAL_UNINSTALL_SUCCESS",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "End-to-end stable external supervisor exit 0, preserved durable fixtures, checkpoint before exact reinstall."
-    },
-    {
-      "id": "STABLE_EXTERNAL_UNINSTALL_FAILURE_STOP_ONCE",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "Nonzero, timeout, start failure, incomplete postconditions, changed config/consumption and unreadable checks persist evidence and prevent retry/reinstall."
-    },
-    {
-      "id": "INSTALLATION_AND_PACKAGE_TESTS",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "test_installation.py and test_rc1_package.py rerun in focused and full suites."
-    },
-    {
-      "id": "RC1_LAUNCHER_TESTS",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "Unchanged test_rc1_launcher.py rerun; presentation-only/F1 denial assertions preserved."
-    },
-    {
-      "id": "FULL_AGENT_BRIDGE_TESTS",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_FULL_INITIAL"
-      ],
-      "reason": "653 passed in 236.02s (0:03:56); all tests collected, no skips/exclusions."
-    },
-    {
-      "id": "PYTHON_SYNTAX_STATIC",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
-      ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
-    },
-    {
-      "id": "CHANGED_PATH_ALLOWLIST",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
-      ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
-    },
-    {
-      "id": "FORBIDDEN_FILE_BYTE_IDENTITY",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
-      ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
-    },
-    {
-      "id": "SECRET_SCAN",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
-      ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
-    },
-    {
-      "id": "GIT_DIFF_CHECK",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
-      ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
-    },
-    {
-      "id": "K1_UNEXPLAINED_ZERO",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_STATIC",
-        "E_STATIC_LOG"
-      ],
-      "reason": "Fresh static/identity/AST/allowlist/diff/scan/K1 execution."
-    },
-    {
-      "id": "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_MANIFEST_VALIDATION"
-      ],
-      "reason": "Dictionary-resolved Result Contract v2 schema, evidence hashes, path hashes and references read back."
-    },
-    {
-      "id": "REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN",
-      "status": "PASS",
-      "evidence_ids": [
-        "E_SOURCE",
-        "E_FOCUSED_INITIAL"
-      ],
-      "reason": "BUILD boundary honored; all lifecycle calls in changed fixtures intercepted; real installed-host certification NOT_RUN."
-    },
-    {
-      "id": "REAL_HOST_LIFECYCLE_CERTIFICATION",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "Outside offline BUILD authorization."
-    },
-    {
-      "id": "CHAT_ACCEPTANCE",
-      "status": "NOT_RUN",
-      "evidence_ids": [],
-      "reason": "Independent CHAT intake follows PUSHED_UNREVIEWED delivery."
+      "reason": "Exact two source/test paths; K1 UNEXPLAINED=0; no real host action"
     }
   ],
   "evidence": [
     {
-      "id": "E_ARTIFACT_0",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/assemble_result.py",
-      "sha256": "0a28c6f18a4c1c60fe013ef152288544f14bafc63e69b9bd52671aa35eabe48c",
+      "id": "E_assemble_result_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/assemble_result.py",
+      "sha256": "521db9bc72841727f386df911ee4c8ed959184dd71219d9e51dabba0cc57ec32",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: assemble_result.py",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: assemble_result.py",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_1",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/bind_source.py",
-      "sha256": "7fd0c47cff9093b73fc57d4a26cd94cdb24e898958289a72407196a3935aeda6",
+      "id": "E_code_diff_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/code_diff.json",
+      "sha256": "800548500424f15aa4f4fa39b589e6ac50cd3974e4a851087444fe63960634de",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: bind_source.py",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: code_diff.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_2",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check.log",
-      "sha256": "03be6a35de72a9e85f93bd97beb436ba706ab00d2c19170a622de1e29773d089",
+      "id": "E_focused_log",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused.log",
+      "sha256": "39e814dc0b61ed654c2c87baf71f55b1966a02074b78bbc637984d67e91c07e9",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: diff_check.log",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: focused.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_3",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/diff_check_initial.log",
-      "sha256": "2bfedefb989ac30faab3d6c69116f7ce4d0e661d76a9f59727798634cfeb05a4",
+      "id": "E_focused_run_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused_run.json",
+      "sha256": "4bfa9079c1b19cda70248e4de6311c0fa4ec724851e3c6453ff2b2cec17dde22",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: focused_run.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_full_log",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full.log",
+      "sha256": "6157a3c7d2f5ff35b38f384ff9663134634b47014a5292f7813627d9f5e39ad4",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: diff_check_initial.log",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: full.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_FOCUSED_INITIAL",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial.log",
-      "sha256": "d0f02baae723579209c4645db4ff814427b027403965739a16bb255055572817",
+      "id": "E_full_run_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full_run.json",
+      "sha256": "92ff167cd495dec9a1836618e4a4691c40b0edf44d58666b6b507c3fc29b93b2",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: full_run.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_k1_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/k1.json",
+      "sha256": "1a1a96d0bd149dfe57de081847dadea394049e47e627645589a224276d661304",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: k1.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_preliminary_focused_log",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused.log",
+      "sha256": "8766b8fea158bfb2ab4da309541978d8a8bba867b416b85e1799135e37a4ae44",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: focused_initial.log",
-      "supports_ids": [
-        "T_FOCUSED_INITIAL"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_5",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/focused_initial_run.json",
-      "sha256": "c498114d525714930f98ff7a4c2ce6b28cec3cfcf1267197948fdfaa2d1633d2",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: focused_initial_run.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: preliminary_focused.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_FULL_INITIAL",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial.log",
-      "sha256": "4df1a3ec80209786dd33956872f8cc593c85b4711c0aa5fbbdfd2d2a50b326df",
+      "id": "E_preliminary_focused_run_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused_run.json",
+      "sha256": "ca3fd955ebf8c1e3a7586b73a40e6b138f61870718fbd1218836da0b38c60d4d",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: preliminary_focused_run.json",
+      "supports_ids": [
+        "T_STATIC"
+      ],
+      "sanitized": true
+    },
+    {
+      "id": "E_preliminary_full_log",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full.log",
+      "sha256": "b9680dc3d511e75c4319fb7419ec9962d38bc1b60d0dad227e7baf46389cd842",
       "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: full_initial.log",
-      "supports_ids": [
-        "T_FULL_INITIAL"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_7",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/full_initial_run.json",
-      "sha256": "4f4c41c2a29876f23c298482dbe9503301a422dc7b89fa9c495c3eaefa92a244",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: full_initial_run.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: preliminary_full.log",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_8",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/k1.json",
-      "sha256": "473f21986c95664ce0ec70d808dbc5e51d3dc4de9c5e9b2c0e85c767dd47118f",
+      "id": "E_preliminary_full_run_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full_run.json",
+      "sha256": "127c672f1717c616bd3d976fd188b47d3d90e39e73d67ddf300fd3ee996ae353",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: k1.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: preliminary_full_run.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_MANIFEST_VALIDATION",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/manifest_validation.log",
-      "sha256": "7a3e97994a31063c3b029e939933ec7438b0a0e54b21aa0c35a658917c63f7e0",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: manifest_validation.log",
-      "supports_ids": [
-        "T_MANIFEST"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_10",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/original_to_final_diff.json",
-      "sha256": "90513c458901fd8624174ec5d0c8458a0bbceafe3226ef7b0523434cb5c9452d",
+      "id": "E_source_binding_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/source_binding.json",
+      "sha256": "6e95a5ef0d0486da19198614f0262ca04206beee525ff19e0f845ceaff7c906c",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: original_to_final_diff.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: source_binding.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_11",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/recovery_codex001_snapshot.json",
-      "sha256": "ee2511234bac861916b092c94cebc7162041b64c612988882e64e3fbe2a94c50",
+      "id": "E_static_checks_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/static_checks.json",
+      "sha256": "3ad7cc6d2ed2f16510e2824900abaae98921630ea70c90fbb6c5a836aa2e0c43",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: recovery_codex001_snapshot.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: static_checks.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_12",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/run_tests.py",
-      "sha256": "564ee6a009ee69ae55f4f35328f93276f49b3f8ae8e989c6401fb5f53c1e3030",
+      "id": "E_test_snapshot_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/test_snapshot.json",
+      "sha256": "f6b799949425c5ba8a1d88d0c7c97bda66ecef0fdb170c22a32fef7de1a6e883",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: run_tests.py",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: test_snapshot.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_13",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_review.json",
-      "sha256": "8e6b6377ceaab451d6187b4ce2996c74b7ff4eb17dd101b2139f7c24286a1405",
+      "id": "E_validation_history_json",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/validation_history.json",
+      "sha256": "90945da559e4067aa40b49eadc2bb23c965a0b4da67511388f452395c7a5ee52",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: salvage_review.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: validation_history.json",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_ARTIFACT_14",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/salvage_to_final_diff.json",
-      "sha256": "dfbbb107e683f3e2f26fcf10fbe0ea96b3a72d77e987abc31f62ea2e2caedaf7",
+      "id": "E_verify_result_py",
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/verify_result.py",
+      "sha256": "2b2a9a4853a5a6795b85000a8bdc6c1eb216f92b4ec45f9935dc35d05b38cbd0",
       "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: salvage_to_final_diff.json",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: verify_result.py",
       "supports_ids": [
         "T_STATIC"
       ],
       "sanitized": true
     },
     {
-      "id": "E_SOURCE",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/source_binding.json",
-      "sha256": "c3e72f3d1519cc45c2b7c3cffa0d0125a63f7c25f21629fe32db00fdd2ff83c1",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: source_binding.json",
-      "supports_ids": [
-        "T_SOURCE"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_STATIC",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_checks.json",
-      "sha256": "003eb056dd338ae35e9a0aa1ec4845165ce467829b2ebf9a88b4f2a8122a8273",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: static_checks.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_STATIC_LOG",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation.log",
-      "sha256": "8d4cf7f9a2e6eaff43d489f839790543803973a0236923af87f99a1991c9d303",
-      "kind": "TEST_LOG",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: static_validation.log",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_18",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/static_validation_history.json",
-      "sha256": "8510a4bf8bab08d0eecaf3bd2389d1b30f1af413607ad16af2a4fc3e1cbb438f",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: static_validation_history.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_19",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/test_snapshot_identity.json",
-      "sha256": "6111275900de983a12ba2eade75eb4ecea2b721d61681ff3f6519eab0c0a06f6",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: test_snapshot_identity.json",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_ARTIFACT_20",
-      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/verify_result.py",
-      "sha256": "8363b0de2a55e0ad646faac4c8b3940392fe18a82ce33a5f91785ba950a84cfd",
-      "kind": "OTHER",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 offline BUILD evidence: verify_result.py",
-      "supports_ids": [
-        "T_STATIC"
-      ],
-      "sanitized": true
-    },
-    {
-      "id": "E_REPORT",
+      "id": "E_report_md",
       "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
-      "sha256": "a03d3947f08da30d6d55b50d75f8dbcc8bec598aaa57ff4cd7096433dc3f01c2",
-      "kind": "REPORT",
-      "observed_at_utc": "2026-10-22T02:38:46.542606+00:00",
-      "description": "A02 bounded BUILD result report.",
+      "sha256": "eee6656596cfecfacca8bc312ca02a3d73fba781c6bd6c64c576bd750a4ce157",
+      "kind": "OTHER",
+      "observed_at_utc": "2026-10-22T10:37:35.281198+00:00",
+      "description": "R4 offline result evidence: report.md",
       "supports_ids": [
-        "T_MANIFEST"
+        "T_STATIC"
       ],
       "sanitized": true
     }
@@ -790,8 +528,8 @@
       "id": "R_HOST_NOT_CERTIFIED",
       "severity": "MEDIUM",
       "state": "NOT_VERIFIED",
-      "impact": "Offline fixture success does not certify the installed Owner-host lifecycle, F1 adoption or G3/G4 readiness.",
-      "next_action": "Independent CHAT intake; separately authorized host certification if approved.",
+      "impact": "Offline fixtures do not certify Owner-host lifecycle or operational readiness.",
+      "next_action": "CHAT review before separately authorized host certification.",
       "owner_role": "CHAT"
     }
   ],
@@ -800,7 +538,7 @@
     "private_account_data_in_git": false,
     "licensed_raw_feed_in_git": false,
     "evidence_redacted": true,
-    "check_notes": "Bounded changed-delivery-file scan; no credentials or Bridge durable host data read or changed."
+    "check_notes": "Bounded delivery-file pattern scan plus material diff review; no host data exported."
   },
   "usage": {
     "attempts": 1,
@@ -808,12 +546,12 @@
     "usage_status": "NOT_MEASURED",
     "tokens_used": null,
     "credits_used": null,
-    "escalation_reason": "No Agent retry or replay; fixture reruns within this one A02 attempt only."
+    "escalation_reason": "One R4 agent attempt; fixture reruns documented; no R3 replay."
   },
   "next_step": {
     "requested_chat_decision": "REVIEW",
-    "action": "Independently review immutable A02 code/diff/tests/evidence; no acceptance claimed.",
+    "action": "Apply independent CHAT result review to immutable pushed R4 result.",
     "owner_role": "CHAT",
-    "prerequisite_gate": "CHAT result intake; any future host lifecycle requires its own authorized task and material PreExec."
+    "prerequisite_gate": "PUSHED_UNREVIEWED; any host continuation requires separate authorization."
   }
 }

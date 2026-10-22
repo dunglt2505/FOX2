@@ -1,0 +1,7 @@
+{
+  "command": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
+  "started_at_utc": "2026-10-22T10:33:19.607250+00:00",
+  "finished_at_utc": "2026-10-22T10:33:21.112654+00:00",
+  "exit_code": 0,
+  "summary": "66 passed in 1.09s"
+}

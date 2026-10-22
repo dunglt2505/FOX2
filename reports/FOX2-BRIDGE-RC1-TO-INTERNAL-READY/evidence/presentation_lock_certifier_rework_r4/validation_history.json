@@ -1,0 +1,33 @@
+{
+  "runs_before_final_validation": [
+    {
+      "command": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "cwd": "authorized long worktree",
+      "exit_code": 1,
+      "result": "ImportError during collection: source-layout package not on Python import path; no tests executed"
+    },
+    {
+      "command": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "cwd": "authorized long worktree",
+      "environment": "PYTHONPATH=worktree/agent_bridge/src",
+      "exit_code": 1,
+      "result": "3 passed, 62 setup errors from Windows path length before harness execution"
+    },
+    {
+      "command": "python -m pytest -q agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "cwd": "short detached fixture worktree",
+      "exit_code": 1,
+      "result": "12 failed, 53 passed; new fixture wrapper incorrectly intercepted verification read/write and assertion rejected finalized proof on later unsafe-state failure. Corrected instrumentation; no production regression."
+    }
+  ],
+  "final_review_adjustment": "Retained-lock fixture narrowed to post-exit so full-mode pre-live accessibility cannot mask release regression; continuation PID drift added. Final focused/full rerun required.",
+  "host_lifecycle": "NOT_RUN",
+  "agent_attempts": 1,
+  "historical_R3": "CONSUMED_NO_RESULT / NO_REPLAY",
+  "staged_validation_history": [
+    {
+      "check": "git diff --cached --check / manifest readback",
+      "result": "FAIL before commit: CRLF line endings in generated JSON evidence treated as trailing whitespace; evidence normalized to LF and hashes regenerated; source/tests unchanged."
+    }
+  ]
+}

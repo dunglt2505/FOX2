@@ -1,0 +1,7 @@
+{
+  "command": "python -m pytest -q agent_bridge/tests",
+  "started_at_utc": "2026-10-22T10:29:02.980331+00:00",
+  "finished_at_utc": "2026-10-22T10:32:54.096760+00:00",
+  "exit_code": 0,
+  "summary": "682 passed in 230.58s (0:03:50)"
+}

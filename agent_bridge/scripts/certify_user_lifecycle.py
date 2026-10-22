@@ -4,6 +4,7 @@ Uses the installed interpreter for control and the stable external PowerShell 7
 supervisor for uninstall. Keeps durable data, then reinstalls the exact package.
 """
 import argparse
+import errno
 import hashlib
 import json
 import os
@@ -95,7 +96,24 @@ def require_safe_control(state, *, stopped=False):
         raise RuntimeError('Phase-2 requires paused/setup_complete/no current dispatch')
 
 
-def certify_presentation(root, sha, pwsh, cli, results, evidence):
+def probe_presentation_lock(lock):
+    """Read/write access only; never write bytes or expose exception path text."""
+    try:
+        with lock.open('r+b'):
+            pass
+    except OSError as error:
+        winerror = getattr(error, 'winerror', None)
+        classification = ('SHARING_VIOLATION' if winerror == 32 else
+                          'ACCESS_DENIED_REQUIRES_DIFFERENTIAL' if
+                          isinstance(error, PermissionError) and error.errno == errno.EACCES
+                          and winerror is None else 'UNRELATED_OSERROR')
+        return {'exception_class': type(error).__name__, 'errno': error.errno,
+                'winerror': winerror, 'classification': classification}
+    return {'exception_class': None, 'errno': None, 'winerror': None,
+            'classification': 'OPENABLE'}
+
+
+def certify_presentation(root, sha, pwsh, cli, results, evidence, *, continuation=False):
     """Observe only WPF presentation; protected Worker/F1 belongs to G3/G4."""
     env = {k: v for k, v in os.environ.items()
            if k.upper() not in {'PYTHONPATH', 'PYTHONHOME'}}
@@ -121,12 +139,13 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):
             raise RuntimeError('WPF process observation must be an explicit array')
         return observed
 
-    def exact_presentation():
-        observed = presentations()
+    def exact_presentation(observed=None):
+        observed = presentations() if observed is None else observed
         if len(observed) != 1:
             return None
         record = observed[0]
-        if (not record.get('ExecutablePath') or
+        if (type(record.get('ProcessId')) is not int or record['ProcessId'] <= 0 or
+                not record.get('ExecutablePath') or
                 Path(record['ExecutablePath']).resolve() != expected.resolve() or
                 not expected.is_file() or installed_version(root)['package_sha256'] != sha):
             raise RuntimeError('WPF presentation is not the exact current package')
@@ -147,21 +166,35 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):
 
     try:
         require_safe_control(cli('control', 'status'))
-        for _ in range(2):
+        observed = presentations()
+        if len(observed) > 1 or (observed and not continuation):
+            raise RuntimeError('Expected a fresh or single continuation WPF presentation')
+        live = exact_presentation(observed) if observed else None
+        probes = results['presentation_lock_probes'] = {}
+        if live is None:
+            if lock.exists():
+                probes['pre_live'] = probe_presentation_lock(lock)
+                if probes['pre_live']['classification'] != 'OPENABLE':
+                    raise RuntimeError('Pre-live presentation lock is not accessible')
+            else:
+                probes['pre_live'] = {'classification': 'ABSENT'}
+        launches = 0 if live else (1 if continuation else 2)
+        for _ in range(launches):
             ps('-WindowStyle', 'Hidden', '-File', str(root / 'launch.ps1'), timeout=120)
-        live = wait_for(exact_presentation, 'Expected exactly one current WPF presentation')
+        if live is None:
+            live = wait_for(exact_presentation, 'Expected exactly one current WPF presentation')
         # WPF opens this existing file with FileShare.None. Never alter its bytes.
         if not lock.is_file():
             raise RuntimeError('Live WPF presentation lock is missing')
-        try:
-            with lock.open('r+b'):
-                pass
-        except OSError as error:
-            if getattr(error, 'winerror', None) != 32:
-                raise
+        lock_identity = lock.stat()
+        probes['live'] = probe_presentation_lock(lock)
+        denial = probes['live']['classification']
+        if denial not in {'SHARING_VIOLATION', 'ACCESS_DENIED_REQUIRES_DIFFERENTIAL'}:
+            raise RuntimeError('Live WPF presentation lock denial is not proven')
+        if denial == 'SHARING_VIOLATION' or 'pre_live' in probes:
             results['live_presentation_lock_held'] = True
         else:
-            raise RuntimeError('Live WPF presentation lock is not held')
+            results['presentation_lock_status'] = 'PROVISIONAL_ACCESS_DENIED'
         screens = json.loads(ui('inspect'))
         if (screens.get('screens') != ['Dashboard', 'Activity', 'Agents', 'Diagnostics', 'Artifacts', 'Settings'] or
                 screens.get('process_id') != live['ProcessId'] or
@@ -172,7 +205,8 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):
         require_safe_control(cli('control', 'status'))
         if exact_presentation() != live:
             raise RuntimeError('WPF presentation changed before explicit exit')
-        results['presentation'] = {'two_launches': True, 'count': 1,
+        results['presentation'] = {'two_launches': launches == 2,
+            'launch_count': launches, 'continuation': continuation, 'count': 1,
             'package_sha256': sha, 'process_id': live['ProcessId'],
             'executable': str(expected), 'screens': screens['screens'],
             'paused_check_now': 'DISABLED'}
@@ -181,21 +215,35 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):
         if ui('exit') != 'EXIT_INVOKED':
             raise RuntimeError('Explicit WPF exit was not invoked')
         wait_for(lambda: not presentations(), 'WPF did not finish graceful exit', seconds=30)
-        with lock.open('r+b'):
-            results['presentation_lock_released'] = True
+        released_identity = lock.stat()
+        if (released_identity.st_dev, released_identity.st_ino) != (lock_identity.st_dev, lock_identity.st_ino):
+            raise RuntimeError('Presentation lock file changed before release proof')
+        probes['post_exit'] = probe_presentation_lock(lock)
+        if probes['post_exit']['classification'] != 'OPENABLE':
+            raise RuntimeError('Presentation lock release is not proven')
+        results['presentation_lock_released'] = True
+        results['live_presentation_lock_held'] = True
+        results['presentation_lock_status'] = 'PRESENTATION_LOCK_HELD'
         state = cli('control', 'status')
         require_safe_control(state, stopped=True)
         results['graceful_exit'] = {'state': state['state'], 'paused': True,
             'setup_complete': True, 'current_dispatch': None, 'presentation_count': 0,
             'explicit_ui_exit': True, 'elapsed_seconds': round(time.monotonic() - exit_started, 3)}
         write_json(evidence, results)
+    except OSError as error:
+        results['presentation_error'] = {
+            'exception_class': type(error).__name__, 'errno': error.errno,
+            'winerror': getattr(error, 'winerror', None), 'classification': 'UNRELATED_OSERROR'}
+        results['presentation_status'] = 'FAILED_BEFORE_UNINSTALL'
+        write_json(evidence, results)
+        raise RuntimeError('WPF presentation operating-system observation failed') from None
     except Exception:
         results['presentation_status'] = 'FAILED_BEFORE_UNINSTALL'
         write_json(evidence, results)
         raise
 
 
-def main(package,sha,evidence):
+def main(package,sha,evidence,*,continuation=False):
     root=BRIDGE_ROOT
     current=installed_version(root)
     assert current and current['package_sha256']==sha
@@ -219,7 +267,7 @@ def main(package,sha,evidence):
     task=json.loads(r.stdout); assert task['run_level']=='Limited' and task['logon_type']=='Interactive'
     assert 'launch.ps1' in task['action'] and task['instances']=='IgnoreNew'
     results['task_scheduler']={k:v for k,v in task.items() if k!='action'}
-    certify_presentation(root,sha,pwsh,cli,results,evidence)
+    certify_presentation(root,sha,pwsh,cli,results,evidence,continuation=continuation)
     support=root/'reports/support-certification.zip'
     results['diagnostics']=cli('diagnostics','--output',str(support))
     results['startup_disabled']=cli('control','set-start-with-windows','--enabled','false')
@@ -243,4 +291,6 @@ def main(package,sha,evidence):
 if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--package',type=Path,required=True)
     p.add_argument('--sha256',required=True); p.add_argument('--evidence',type=Path,required=True)
-    a=p.parse_args(); main(a.package,a.sha256,a.evidence)
+    p.add_argument('--continuation', action='store_true',
+                   help='Reuse one exact-current WPF presentation; otherwise launch once')
+    a=p.parse_args(); main(a.package,a.sha256,a.evidence,continuation=a.continuation)

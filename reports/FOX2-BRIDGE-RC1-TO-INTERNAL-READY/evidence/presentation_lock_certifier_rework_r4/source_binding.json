@@ -1,0 +1,46 @@
+{
+  "task_id": "FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4",
+  "runtime_base": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0",
+  "accepted_product_source": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+  "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-20261022",
+  "task_commit": "6b6cc697ca35b35ade1ccdf363782a1f912a8936",
+  "task_blob": "90e6c18192cb594f408c9fd99b23da772e37c87f",
+  "task_sha256": "54c2075c0cce6faa90c4f23292ebe43f90e28c356089f4cbbe1e245b9a257456",
+  "prompt_sha256": "bc10a5f348fbe8a5348db9159f93820841b8044bd5e4eb644093b892ea79b253",
+  "original_blobs": {
+    "agent_bridge/scripts/certify_user_lifecycle.py": "7e62103ea4876833f67794a927a2a54622a59ea5",
+    "agent_bridge/tests/test_lifecycle_wpf_contract.py": "f80e50d59b1f1bb9ec9d553e84bbe7948971cb66"
+  },
+  "preexec": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/presentation_lock_certifier_rework_r4.json",
+  "authority": "Current user execution prompt; no fresh R4 Dispatch file published in starting tree; historical R3 Dispatch not consumed/replayed/rebound by R4.",
+  "route": {
+    "product": "CODEX",
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "cli": "0.162.1",
+    "auth": "Logged in using ChatGPT",
+    "current_task_process": 9004,
+    "capacity": "Pinned current execution active; fresh selected-route probe PASS reused from current R4 PreExec; numeric quota not measured",
+    "task_process_started_at_utc": "2026-10-22T10:26:44.2883420Z"
+  },
+  "gates": {
+    "worktree_initially_clean": true,
+    "no_product_drift_before_edit": true,
+    "one_writer": "Only current task-scoped CODEX process observed; app infrastructure is not a task writer",
+    "push_dry_run": "PASS; Everything up-to-date",
+    "python": "3.13.15",
+    "pytest": "8.3.5",
+    "no_install_or_elevation": true,
+    "accepted_product_source_equals_runtime_base_agent_bridge": true
+  },
+  "reuse": {
+    "R3_A01": "CONSUMED_NO_RESULT / NO_REPLAY",
+    "R3_final_recovery": "3c32743e9b9cdcb7eb799094ee7bdefdaeb9aa71",
+    "A04": "Package/provenance/install/safe-state/singleton PASS remains reusable; not repeated",
+    "R3_PreExec_v4": "Historical same-session capability evidence only",
+    "master_plan": "ad7d6f0b9889fe4247c29ac3d77f0b90b5f40e56",
+    "reuse_plan": "da6fd27d78380db42fce155d634044c94a661229"
+  },
+  "host_lifecycle": "NOT_RUN",
+  "protected_stages": "A05/G3/G4/Canary not opened; Worker/F1 NOT_APPLICABLE_PRE_G3"
+}

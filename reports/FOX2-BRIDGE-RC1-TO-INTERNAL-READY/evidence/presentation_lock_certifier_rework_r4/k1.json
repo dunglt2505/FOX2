@@ -1,0 +1,247 @@
+{
+  "hunks": [
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -4,6 +4,7 @@ Uses the installed interpreter for control and the stable external PowerShell 7",
+      "sha256": "7e834d6bc58f1f7d1444fe8aa4f22b2dcbca93973994534d9acc8ef2fcbf5adc",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -95,7 +96,24 @@ def require_safe_control(state, *, stopped=False):",
+      "sha256": "9cc92c23385b7ccdc106304b6b525daac3685e820ae6fdb919fdade7bc0e1f14",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -121,12 +139,13 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):",
+      "sha256": "33975d135e35f71c72364d1a1c610a938b39fdd25a4b71de241b18cff492c2d6",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -147,21 +166,35 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):",
+      "sha256": "93a4c3382d8b5dc98ab730fc2f5071197ba0ac51a2df0e99ad17945b40c0340f",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -172,7 +205,8 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):",
+      "sha256": "6ac2a93d5010df37dc3678b13f5b8759451f73573164a796e51f5e1703d5357f",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -181,21 +215,35 @@ def certify_presentation(root, sha, pwsh, cli, results, evidence):",
+      "sha256": "d8e97f260b31378191f0285fd4b87e032e1945df9a3093d50ecf53845e7a3a27",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -219,7 +267,7 @@ def main(package,sha,evidence):",
+      "sha256": "d116bcb335baf1d310d99e3be09cdf28bd7e9ba781938b435d62a49ac268bb35",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/scripts/certify_user_lifecycle.py",
+      "header": "@@ -243,4 +291,6 @@ def main(package,sha,evidence):",
+      "sha256": "faa29b06248fce3b040bddaaa32f8fe8264c8c24a088032a97178f21e2e7df86",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -1,5 +1,6 @@",
+      "sha256": "dc545cf85fcae67298d3a48a80499348a5fcea653aea08ff81e1849f298077ef",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -27,7 +28,8 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "6c15e8c43ccd25b3559d112cef1333d6cdad5b37f3c23e5a2f7c2af800c09286",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -38,12 +40,18 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "233cd89e09ccda4c051a60e5f3a9b2cf78503fdec63209535f1402ca660693bd",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -69,14 +77,17 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "253a039bd0f39789cef780e2ac1b4ae0a986bc2f78f404ef45468dd13b5750dd",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -84,6 +95,8 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "5437ee7a16cd25412534dbe2ffdbadab431bd5ab941bae51e20e05098569ca69",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -103,6 +116,9 @@ def presentation(tmp_path, monkeypatch):",
+      "sha256": "f514225f1a5ad223effc8dfb45986c67a6d81f18d4020ac7dc22bc0a5302a06c",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -144,7 +160,8 @@ def test_launch_twice_exact_singleton_paused_ui_and_graceful_exit(presentation):",
+      "sha256": "e420e931a15b68193f02dcb3fda6c26f073a7a37bbcdc4c1c377f7d1ea4b192a",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -191,7 +208,8 @@ def test_no_legacy_tray_worker_heartbeat_or_f1_g3_mutation():",
+      "sha256": "d23c6e5f14cde41d3f6bae818af6e915f867f49362454787ba2bbcb1bde1098e",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -209,7 +227,8 @@ def test_main_stops_before_uninstall_when_presentation_gate_fails(tmp_path, monk",
+      "sha256": "aa7b428dc5c5747ec258b29b3410ddd8e15ed689f5faac575fb65c7933ac7008",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    },
+    {
+      "path": "agent_bridge/tests/test_lifecycle_wpf_contract.py",
+      "header": "@@ -217,4 +236,98 @@ def test_main_stops_before_uninstall_when_presentation_gate_fails(tmp_path, monk",
+      "sha256": "acae2eaee01355c648cc5f76dcfeb848e6ec57118a01b5d522bb0eb752a8ee90",
+      "classification": "REQUESTED",
+      "reason": "R4 bounded differential lock proof/continuation and required positive/negative fixtures; errno import and PID checks support that proof."
+    }
+  ],
+  "result_and_evidence": [
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/assemble_result.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/code_diff.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/focused_run.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/full_run.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/k1.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_focused_run.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full.log",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/preliminary_full_run.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/source_binding.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/static_checks.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/test_snapshot.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/validation_history.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/presentation_lock_certifier_rework_r4/verify_result.py",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    },
+    {
+      "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "classification": "JUSTIFIED_GENERATED",
+      "coverage": "All material hunks in this result/evidence file",
+      "reason": "R4 actual validation, binding, reviewable diff, report, manifest or reproducible offline evidence verification."
+    }
+  ],
+  "allowed_classes": [
+    "REQUESTED",
+    "NECESSARY_DEPENDENCY",
+    "JUSTIFIED_GENERATED",
+    "UNEXPLAINED"
+  ],
+  "UNEXPLAINED": 0
+}
