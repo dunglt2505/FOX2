@@ -18,4 +18,23 @@ Do **not** infer a current Policy, Protocol, BRD, Technical Spec, schema, or mod
 
 **Skill use is CHAT's responsibility, not a new technical approval gate.** When delegating, CHAT reads and applies the relevant installed Skills, resolves source/authority, performs R0–R7 and uses the existing task, preflight, prompt/Dispatch, result and review artifacts required by the verified Policy and Git-first Protocol. Do not claim Skill compliance merely from a file reference or validator PASS. Do not invent extra checklist documents or scripts; CHAT records evidence in the existing Whole-WP. If an executable handoff lacks a Git-published prompt and exact readback, keep it as a **draft**, not an issued Agent task.
 
+## INTERNAL_ONLY Fast Lane — Owner standing override 2026-10-22
+
+For new/re-scoped `INTERNAL_ONLY / NON_LIVE` FOX2 work, resolve and apply:
+
+`docs/governance/releases/FOX2_INTERNAL_FAST_LANE_OWNER_OVERRIDE_20261022.md`
+
+This standing Owner override makes the normal handoff rules **risk-proportionate**:
+
+- keep one Whole-WP; do not create Owner-facing micro-WPs for each correction/gate;
+- first executable task still uses source resolution + Prompt Builder + immutable task/prompt + fresh Dispatch;
+- a bounded correction after CHAT REWORK may reuse the existing task/prompt/source authority when Actor/Model/Thinking, permissions and allowed paths are unchanged; use a fresh Dispatch identity and changed/time-dependent pre-consume checks only;
+- a full standalone PreExec/PASS_TO_ASSIGN cycle is not repeated unless a material execution-envelope input changed;
+- preserve no-replay, source/scope lock, one-writer, bounded permissions, real test evidence and CHAT acceptance;
+- minimize evidence to the smallest reproducible report/manifest/log set; do not generate redundant artifacts for facts already reproducible from Git;
+- independent WORK audit is not a default internal gate;
+- for the current Bridge path after R5 CHAT_ACCEPT, use one `BRIDGE_INTERNAL_VALIDATION` run to combine A05 + remaining G3/G4 + local runtime trial + restart/no-replay when technically safe, followed by one final CHAT acceptance.
+
+The Fast Lane never grants main/merge/deploy/provider/broker/LIVE, never converts waived/unrun checks to PASS, and never permits replay of a consumed Dispatch.
+
 **Source & lifecycle:** Project Dictionary controls version/path identities only; BRD/Technical Spec/Policy own meaning. Existing immutable task/Dispatch snapshots retain their bound sources. For current global EFFECTIVE status, always resolve independently trusted Registry and release manifest. Protocol and schema names in older files are historical examples. No implicit main/merge/provider/broker/LIVE grant.
