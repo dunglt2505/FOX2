@@ -195,7 +195,7 @@
     "library_byte_readback": "VERIFIED_POLICY_PROTOCOL_KANBAN",
     "existing_machine_current": "UNCHANGED",
     "governance_activation": "OWNER_APPROVED_EFFECTIVE_NEW_RESCOPED_CHAT_WORK",
-    "skills_plugin_adoption": "PLUGIN_V042_RELEASE_VERIFIED",
+    "skills_plugin_adoption": "PLUGIN_V053_RELEASE_VERIFIED",
     "installed_runtime_adoption": "NOT_ATTESTED",
     "existing_dispatch_bindings": "UNCHANGED",
     "reason": "No blanket version-upgrade; legacy references preserved unless incompatible active consumer is proven",
@@ -207,8 +207,17 @@
       "sha256": "3d3de16c2def09963fd0e1500f55d069db9577dd3bc51fc51c24dc20b505af71"
     },
     "main_merge_commit": "354b05420d5d49ddb6f75f0b0bf0c16f709ab15f",
-    "skills_source": "MAIN_V042_EXACT_17_SKILLS",
-    "skills_plugin_release_id": "pluginrel_6ada121b449c81919ddae70aa0632919",
-    "skills_plugin_host_e2e": "NOT_ATTESTED"
+    "skills_source": "MAIN_V053_11_SKILLS",
+    "skills_plugin_release_id": "pluginrel_6ada287a37188191883eed11a6a3a8ab",
+    "skills_plugin_host_e2e": "NOT_ATTESTED",
+    "skills_plugin_source_head": "9e66d721bd0f8a14eea891092f40669b4bf3c3d3",
+    "skills_plugin_release_attestation": {
+      "path": "docs/governance/releases/FOX2_SKILLS_PLUGIN_RELEASE_0_5_3_20261022.json",
+      "commit": "177be0ae9fbd3e25f11b7bffda346dabd5649f85",
+      "verdict": "PLUGIN_V053_BACKEND_CURRENT_HOTFIX_PASS"
+    },
+    "skills_promotion_contract": "READY_FOR_BOARD_FIVE_CHECKS_AND_FOUR_DECISIONS",
+    "skills_runtime_scope": "CHATGPT_PLUGIN_ONLY; INSTALLED_BRIDGE_MACHINE_RUNTIME_UNCHANGED",
+    "skills_plugin_session_reload": "REQUIRED_FOR_ALREADY_OPEN_CHAT"
   }
 }
