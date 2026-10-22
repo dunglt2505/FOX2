@@ -1,18 +1,21 @@
 ---
 name: fox2-feature-certification
-description: Verify feature acceptance with actual behavior, tests and operational risk at a material milestone.
+description: Assess feature-level acceptance at meaningful product milestones.
 ---
 
 # fox2-feature-certification
 
 ## Activate when
-A materially changed feature, release gate or Owner-requested product acceptance requires certification.
+A release milestone, material-risk feature or Owner-requested product acceptance is reached.
 
 ## Work to perform
-Trace BRD/TechSpec acceptance to code and observed unit/integration/negative/security tests. Distinguish TEST_EVIDENCED, PRODUCT_USABLE, CHAT_ACCEPTED and RELEASED/LIVE; do not treat passing a small mocked subset as deployed host proof. Reuse unchanged accepted PASS when tests remain valid. Bridge can establish Agent delivery, not business acceptance by itself; a `PUSHED_UNREVIEWED` branch remains pending CHAT review. Do not add a certificate or mandatory independent review for each routine bug fix.
+Trace feature BRD/TechSpec acceptance to observable end-to-end behavior, integration boundaries, negative/security/regression results and deployed runtime evidence when relevant. Distinguish implemented code, TEST_EVIDENCED, PRODUCT_USABLE, CHAT_ACCEPTED and LIVE/RELEASED. Reuse unchanged prior PASS. Do not demand independent feature certification for each small fix or treat a Bridge transport result as customer-facing acceptance.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+One feature-level milestone verdict and substantive residual risk.
+
+## Responsibility boundary
+Own **milestone/product-level certification**, not per-task Result Review, Bridge PreExec or daily progress.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

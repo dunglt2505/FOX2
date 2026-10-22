@@ -1,0 +1,3 @@
+# FOX2 Skills v0.4.3 — Projectwide Agile ownership cleanup
+
+Owner-approved same-plugin source update; keep original identity, 17 Skill names and all domain specialties. Every Skill now owns one professional question and one output. Remove repeated management/Bridge execution duties. Prompt Builder produces ONLY task/prompt content; Router chooses route; Bridge/Git performs technical publication, PreExec, Dispatch, ledger, launch and result transport; CHAT Result Review accepts. Prior universal v0.3.5–v0.3.7 shared procedures are archived reference pointers; no new Policy, WP, platform or protected runtime change. All 17 Skills remain independently comprehensible in the ChatGPT Skill host. Plugin static tests are not Windows Bridge E2E proof.

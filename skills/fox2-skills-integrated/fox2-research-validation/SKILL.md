@@ -1,18 +1,21 @@
 ---
 name: fox2-research-validation
-description: Assess empirical research relevant to FOX2 investment/risk/exit algorithms.
+description: Validate empirical risk/trading/portfolio research quality for FOX2.
 ---
 
 # fox2-research-validation
 
 ## Activate when
-Evaluating backtests, research or candidate trading/risk techniques.
+An algorithm, financial model, trading hypothesis or external research is assessed.
 
 ## Work to perform
-Validate data provenance/as-of, look-ahead, survivorship bias, calibration, out-of-sample and walk-forward tests, transaction cost, slippage, drawdown, baseline and sample coverage. Distinguish hypothesis, simulated fixture, reproducible backtest and production-safe behavior. State limitations, confidence and next empirical test in concise report. No live/broker execution authorization from research or Governance Policy.
+Review data as-of/provenance, look-ahead and survivorship bias, sample and regime coverage, calibration, baseline, fees/slippage, out-of-sample/walk-forward robustness, drawdown and reproducibility. Distinguish idea, simulation, verified backtest and production-safe result. Deliver concise method, evidence, limitations and a testable next research step. Research does not authorize broker/LIVE or overwrite Portfolio/Exit Engine acceptance.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+Research verdict with actual empirical strength, limitations and next test.
+
+## Responsibility boundary
+Own **research validity**, not planning every coding task, assigning Agents or approving LIVE trading.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

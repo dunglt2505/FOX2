@@ -1,18 +1,21 @@
 ---
 name: fox2-brd-change-control
-description: Control real business requirement changes, not Policy/Dictionary version churn.
+description: Control substantive business-requirement changes and affected acceptance behavior.
 ---
 
 # fox2-brd-change-control
 
 ## Activate when
-BRD business behavior, validation or acceptance conditions materially change.
+FOX2 business rules, product behaviors, users, thresholds or acceptance criteria change.
 
 ## Work to perform
-Identify semantics (who, behavior, threshold, timing, error), old/new acceptance, affected API/TechSpec/test consumers and migration. Example: retention 30→90 days requires actual API and test updates where dependent. Do not reopen BRD for Policy, routing or Dictionary version change that leaves business behavior unchanged. Preserve released prior bytes, approval and source with scoped new revision only when business semantics change. Report impacted tests and downstream owner, not an administrative micro-WP.
+Identify old/new user-observable behavior, business rationale, actor, thresholds, timing, failure cases and test impact. Trace to changed TechSpec/API, relevant downstream consumers and migration needs. Example: changing retention 30→90 days must update affected API/tests, not merely a sentence. Ignore purely editorial or unrelated Policy/version edits. Preserve prior approved business intent and avoid task-per-consumer micro-WPs.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+One scoped BRD/acceptance change recommendation with impacted tests and owners.
+
+## Responsibility boundary
+Own **business semantic change**, not code architecture approval, source publication or feature certification.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.

@@ -1,18 +1,21 @@
 ---
 name: fox2-source-sync
-description: Synchronize requested Git and Library artifacts with exact non-destructive byte provenance.
+description: Copy and verify authorized source bytes without deciding their normative authority.
 ---
 
 # fox2-source-sync
 
 ## Activate when
-Authorized source-document cross-platform synchronization is requested or required for governed publication.
+An explicit authorized Git–Library or other named file synchronization is needed.
 
 ## Work to perform
-Find authorized source by registry and real Owner scope; compare actual SHA-256/bytes before updating destination. Preserve divergent destination, report conflict or request scoped overwrite only where authorized. Git publication is not Library readback, machine installation or CHAT acceptance. Ordinary CODEX/native DEV does not require synchronous copying of every task/BRD to Library. For Bridge technical prompt, Git bytes and control-branch readback matter; Library synchronization is only if independently requested by governance.
+Receive source identity and destination from Source Resolver or the Owner, compare bytes and conflicts, copy only authorized artifacts, verify destination hashes/readback and preserve byte-divergent files unless overwrite was expressly permitted. No blanket Library sync for every code/task handoff. Report source/destination byte equality separately from authority or machine adoption.
 
 ## Completion / stop
-Produce the concrete deliverable and actual proof with DONE/REWORK/BLOCKED or a precisely named lower execution state. Do not mark completed because a prompt, Dispatch, tool invocation or plan exists. CHAT owns the end-to-end result.
+Byte-level SYNCED/PARTIAL/CONFLICT for requested files with exact paths and evidence.
+
+## Responsibility boundary
+Own **file replication and comparison**, not content approval, selecting current Policy, dispatch publication or status tracking.
 
 ## Shared operating and Bridge applicability
-Apply shared `../../shared/operating_rules.md`. A routine reversible independent native task needs no Bridge Dispatch, manual R0–R7 artifact or immutable prompt publication. When and only when the actual execution is Bridge-controlled, follow `../../shared/bridge_e2e_v041.md` and the **installed** runtime contract, not an assumed current version. All source/receipt/test evidence must be observed, not invented. Old consumed attempts remain immutable and non-replayable. Complete outcomes in the SAME logical task; do not create administrative micro-WPs.
+FOX2 Agile Lite: one logical task, Build → Test → Deliver, CHAT owns outcome. Use only relevant methods and real evidence. Ordinary native DEV has no mandatory R0–R7/PreExec/Dispatch/extra approval; if the selected real route is Bridge or high-risk, its installed technical controls remain authoritative. No unrelated version churn, protected operations or consumed-attempt replay. This Skill does not authorize execution or grant external rights.
