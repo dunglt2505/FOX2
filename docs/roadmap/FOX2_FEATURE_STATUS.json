@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "OWNER_RUN_EXACT_R4_PREEXEC_B9E1255B_ONCE; R3_A01_CLOSED_CONSUMED_NO_RESULT_NO_REPLAY",
+      "blocker": "OWNER_RUN_FRESH_R4_CODEX_MEDIUM_DISPATCH_4655D1C2_ONCE; R3_A01_CLOSED_CONSUMED_NO_RESULT_NO_REPLAY",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_R4_PREEXEC_B9E1255B_ONCE; THEN_CHAT_REMOTE_INTAKE; IF_PASS PUBLISH_PASS_TO_ASSIGN_AND_FRESH_R4_CODEX_MEDIUM_DISPATCH; PRESERVE_A04_AND_R3_VALID_PASS",
+      "next_safe_action": "OWNER_RUN_EXACT_R4_CODEX_MEDIUM_DISPATCH_4655D1C2_ONCE; THEN_CHAT_RESULT_REVIEW; PRESERVE_A04_AND_R3_VALID_PASS; NO_PACKAGE_OR_HOST_MUTATION_IN_R4",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -174,10 +174,10 @@
         "next_phase": {
           "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R4",
           "stage": "BUILD",
-          "status": "PREEXEC_PUBLISHED_NOT_RUN",
+          "status": "DISPATCH_PUBLISHED_UNCONSUMED_OWNER_LAUNCH_READY",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "preexec": "PUBLISHED_NOT_RUN",
-          "dispatch_published": false,
+          "preexec": "PASS_REMOTE_ACCEPTED",
+          "dispatch_published": true,
           "agent_started": false,
           "result": "NOT_RUN",
           "host_mutation": false,
@@ -203,14 +203,18 @@
             "no_replay": true
           },
           "execution_envelope": {
-            "selected_route_candidate": "CODEX_GPT_6_1_SOL_MEDIUM",
-            "route_must_be_verified_by_preexec": true,
+            "selected_route": "CODEX_GPT_6_1_SOL_MEDIUM",
+            "route_verified_by_preexec": true,
+            "runtime_base": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0",
+            "pass_to_assign_commit": "ab04ab51a06dfd712d5031d8e90e7bcd46f142c6",
+            "dispatch_commit": "4655d1c2505ab4feb425efc9a09ceb0820631d3c",
             "reuse_unaffected_pass": true,
             "host_lifecycle_mutation": false,
             "package_build": false,
             "install_update": false,
             "uninstall_reinstall": false,
-            "no_replay_r3": true
+            "no_replay_after_consume": true,
+            "r3_no_replay": true
           },
           "no_replay_of": [
             "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
@@ -295,7 +299,7 @@
             "actor_candidate": "CODEX",
             "model_candidate": "gpt-6.1-sol",
             "thinking_candidate": "medium",
-            "route_verified": false
+            "route_verified": true
           },
           "superseded_r2_high_binding": {
             "task_commit": "9e1551d4e8e10aff3d302034c3f0c06588eac9ca",
@@ -360,24 +364,25 @@
             "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V3_FETCH_RECOVERY_20261022.md"
           },
           "pass_to_assign": {
-            "commit": "7efa989c070da15d2000ca105b04632f092701a5",
-            "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PASS_TO_ASSIGN_20261022.md",
-            "blob": "d3804453e23b6157a9341343d5c5292bbc41c73c",
-            "sha256": "02e71cecd14aa2603a2779aa858eb1cfe1dcc9fa5f476df00c5a18c9bad5ed8e",
-            "verdict": "PASS_TO_ASSIGN_R3_CERTIFIER_ONLY"
+            "commit": "ab04ab51a06dfd712d5031d8e90e7bcd46f142c6",
+            "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R4_PASS_TO_ASSIGN_20261022.md",
+            "blob": "0d85e82e45611e4188ee942730fd80a94305a5a6",
+            "sha256": "684825dd82b2ad07cbc2ec2351623086bb6c06d0feb75a6e574ad5a451303c66",
+            "verdict": "PASS_TO_ASSIGN_R4_CERTIFIER_ONLY"
           },
           "dispatch": {
-            "id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-CODEX-001",
+            "id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-CODEX-001",
+            "retry_of": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-CODEX-001",
             "control_branch": "work/FOX2-DISPATCH-chat",
-            "commit": "097c57a779d1fca58d08aed80e2af4a0646b7ea8",
-            "blob": "9cfba0acd7e6e1cbc5d74d7539ef9d414e940cac",
-            "sha256": "df288de7b09d3ba0d8996615513c059a2a8780f96550090ba2648ba9cdea08c3",
+            "commit": "4655d1c2505ab4feb425efc9a09ceb0820631d3c",
+            "blob": "514294c290c2cc9235fd2b616a948e9e1bf46fe9",
+            "sha256": "33014d81c55fb3c98f710cfddf5ba659ea271c624b81960e30c7f1f6a0121009",
             "schema_version": "3.0",
             "schema_blob": "1692061941e2bef498515cd0e96b9b3046119ebb",
             "schema_validation": "PASS_ZERO_ERRORS",
             "max_runs": 1,
-            "status": "CONSUMED_NO_REPLAY_NEEDS_RECONCILIATION",
-            "owner_launch_ready": false
+            "status": "PUBLISHED_UNCONSUMED",
+            "owner_launch_ready": true
           },
           "execution_recovery": {
             "commit": "7adcd72fc178d2aaf1d8eb66c86d1c993a1252ca",
@@ -404,6 +409,13 @@
             "r3_dispatch": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-CODEX-001",
             "verdict": "CONSUMED_NO_RESULT_NO_REPLAY",
             "salvageable_bytes": false
+          },
+          "preexec_receipt": {
+            "commit": "35aa18ccabcc6f7d4b889ed213c075fc314d45d0",
+            "blob": "13163c5a14812b71253e094d7dc8341bc0bbacf8",
+            "sha256": "e183bfef170fc98d826fbe48fe4eb8cef58648d4b979b211c6ab02546e8aa6b8",
+            "schema_blob": "25fe465f82a16edf29ebf773a220969192f546e8",
+            "chat_intake": "PASS_SCHEMA_VALID_ONE_COMMIT_ONE_RECEIPT_PATH"
           }
         },
         "host_lifecycle_cert": {
