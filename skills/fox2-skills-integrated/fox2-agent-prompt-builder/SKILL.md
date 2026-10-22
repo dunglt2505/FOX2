@@ -19,9 +19,9 @@ Resolve task/owner/approved source and testable acceptance; choose CHAT direct a
 Assigned residual is precise, minimal, authorized and has objective completion evidence; otherwise HOLD the executable portion.
 
 
-Completion is governed by the **Execution Contract v0.3.6** below; apply conditional obligations only when triggered, report bounded HOLD otherwise.
+For routine independent internal work follow the Agile Lite rule above. The controlled-route contract below applies only to an execution path that actually needs immutable Bridge or consequential safety evidence.
 
-## Execution Contract v0.3.6 — observable completion
+## Legacy controlled-route execution contract (conditional)
 - **TRIGGER:** Any NEW Agent assignment or task transfer, including CHAT→WORK/CODEX/Copilot and WORK→CHAT NEW work; not an existing Agent RESULT_RETURN or direct CHAT task.
 - **PRECONDITIONS:** Owner-authorized scope, resolved source/task/attempt, R0–R7 route and actual host capability; determine whether Owner manually launches a Windows CLI.
 - **REQUIRED_ACTIONS:** Direct-first; bind Role/Model/Thinking/Scope/STOP and Git result contract; publish exact task.md/prompt.md with readback where required; prepare verified PowerShell launcher if manual Windows CLI.
@@ -31,7 +31,7 @@ Completion is governed by the **Execution Contract v0.3.6** below; apply conditi
 - **FAILURE_STATE:** `HANDOFF_INCOMPLETE` when Git/result contract or required visible script is absent; `HOST_NOT_VERIFIED` / `EXECUTION_HOLD` on missing capability/permission/PreExec or consumed attempt.
 - **COMPLETION_GATE:** `OWNER_LAUNCH_READY` only when all applicable immutable, host, rights, one-writer and actual inline Owner-delivery checks pass; this does NOT mean Agent executed. Otherwise bounded HOLD/PARTIAL and next safe action.
 ## v0.3.7 — Task-level complexity/risk route contract for immutable handoff
-For NEW executable assignments, **consume `TASK_ROUTE_ASSESSMENT` before** freezing `Role · Engine/Model · Thinking · Scope · STOP`. Carry complexity, ambiguity, risk, dependency, evidence and `ROUTE_RATIONALE` in the *existing* task/prompt, not a micro-WP. Bind exactly the R0–R7 selected supported Model/Thinking; never default high based on feature/template or alter the route in PreExec. Material pre-consumption correction uses governed immutable supersession in the SAME Whole-WP; consumed attempt stays no-replay. Reuse accepted PASS and preserve unrelated work. PowerShell 7+/inline manual launch remains mandatory when applicable.
+For controlled-route executable assignments requiring a route assessment, consume `TASK_ROUTE_ASSESSMENT` before freezing `Role · Engine/Model · Thinking · Scope · STOP`. Carry complexity, ambiguity, risk, dependency, evidence and `ROUTE_RATIONALE` in the *existing* task/prompt, not a micro-WP. Bind exactly the R0–R7 selected supported Model/Thinking; never default high based on feature/template or alter the route in PreExec. Material pre-consumption correction uses governed immutable supersession in the SAME Whole-WP; consumed attempt stays no-replay. Reuse accepted PASS and preserve unrelated work. PowerShell 7+/inline manual launch remains mandatory when applicable.
 
 ## v0.3.7 — PowerShell 7+ code generation for Owner-operated Windows Agent CLI
 For any Windows/CLI Agent handoff requiring Owner-operated PowerShell, `fox2-agent-prompt-builder` MUST write the **entire executable launcher, prechecks, Git binding verification, STOP guards, and result-pickup instructions as PowerShell code targeting PowerShell 7 or newer**. The only supported interpreter for these scripts is `pwsh` (`pwsh.exe` on Windows), not Windows PowerShell 5.1 (`powershell.exe`).
