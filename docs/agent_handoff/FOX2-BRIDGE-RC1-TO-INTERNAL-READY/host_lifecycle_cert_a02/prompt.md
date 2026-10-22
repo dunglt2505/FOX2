@@ -11,6 +11,13 @@ Permission profile: FULL_ACCESS only within this task
 Max Agent attempts: 1
 No replay / no model substitution
 
+Prompt revision: R2_PRE_ASSIGNMENT_WPF_HIDDEN_STATE_RECOVERY
+
+This revision supersedes the earlier pre-assignment prompt commit
+`40bf70cbf0a46be0cfafbf9965704e68eb48fa5e` for future execution only.
+
+No Host Lifecycle A02 executable Dispatch existed and no Agent execution or Bridge host mutation had started when this prompt revision was published.
+
 IMPORTANT
 
 This file is a Git-published executable prompt candidate, but its existence is NOT execution authority.
@@ -34,13 +41,13 @@ Path:
 docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a02/task.md
 
 Task commit:
-d0b070e42d25a1581fee8a8731f393206ec5ef5b
+9ffa283034a4614e5cc5a60899f919e3f12d7a03
 
 Task blob SHA-1:
-fb6ecc9ebf097c58809123f04d61b5802e920e77
+6bc93b8fa5e449c48881ebbaa45db5822a12fafa
 
 Task raw SHA-256:
-cd3a08ebcbdd4d02e3b3a98a59de6eb6631cccbf9e94ae0d203ff9dc496c82ce
+d0c6b8c3aaae3a72befa65d46d5e1cd81fd4ef062bd1104a6e0132712a06a320
 
 ACCEPTED SOURCE
 
@@ -68,6 +75,14 @@ Never replay:
 - FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001
 
 The new future A02 host-lifecycle Dispatch must have a new identity and max_runs=1.
+
+PRE-ASSIGNMENT PREEXEC HISTORY
+
+- PreExec v1 publication `db69ce19cda3ec68a73cc3e9c9ad05225f0178eb` failed before material checks because its PowerShell helper used the automatic-variable name `$Args`.
+- PreExec v2 publication `39b0d5f609d629c9daa29a49751d5720e87d72bb` fixed that vehicle bug and then reached read-only host observation.
+- PreExec v2 observed exactly one current-package WPF process, then `certify_rc1_ui.ps1 -Action inspect` returned `Installed Desktop window unavailable`.
+- No PreExec receipt, executable Dispatch, Agent execution or host lifecycle mutation resulted from v1/v2.
+- Accepted WPF source explains this state: close/minimize hides the window, startup may create MainWindow without Show(), and App shutdown is explicit. Therefore an exact hidden/minimized singleton is a supported presentation state, not by itself an unsafe unknown process.
 
 GOVERNANCE BINDING
 
@@ -102,7 +117,7 @@ HOST MUTATION AUTHORITY
 
 This task authorizes only the per-user Bridge lifecycle needed to certify Phase-2 TEST:
 
-1. optional graceful close of one exact current-package stale WPF presentation before install;
+1. optional bounded surface-and-graceful-close of one exact current-package stale WPF presentation before install;
 2. build one exact accepted package outside BridgeRoot;
 3. install/update that exact package;
 4. establish/verify paused/setup/no-current-dispatch state;
@@ -174,26 +189,34 @@ Before package build or host mutation verify:
 
 No tool installation, host configuration change or alternate Agent route is permitted to make a gate pass.
 
-OPTIONAL PRE-INSTALL STALE WPF CLEANUP
+OPTIONAL PRE-INSTALL STALE WPF RECONCILIATION / CLEANUP
 
-If exactly one WPF presentation exists before package mutation:
-
-It may be closed only when all are re-verified:
-- exact current package path;
+If exactly one WPF presentation exists before package mutation, re-verify:
+- exact current package executable path;
 - current pointer identity;
-- existing certify_rc1_ui.ps1 inspect PID equals process PID;
-- safe paused/setup/no-current-dispatch state.
+- safe paused/setup/no-current-dispatch state;
+- no Worker/F1 or legacy tray process.
 
-Then:
-- invoke UI exit once;
+If the existing presentation is visible, require the UI inspect PID to equal the observed WPF PID.
+
+If the existing exact-current presentation is hidden/minimized and the UI seam reports only `Installed Desktop window unavailable`:
+- invoke stable `BridgeRoot/launch.ps1` exactly once;
+- this invocation is only to signal the already-running singleton show-event;
+- require WPF process count remains exactly one;
+- require PID and executable path remain unchanged;
+- wait boundedly for `certify_rc1_ui.ps1 -Action inspect` to succeed;
+- require inspect PID equals the same WPF PID.
+
+Only after visible exact identity is proven:
+- recheck safe paused/setup/no-current-dispatch state;
+- invoke explicit UI `exit` exactly once;
 - wait boundedly for zero WPF presentations;
-- require lock release;
+- require presentation lock release;
 - record this as pre-test cleanup only.
 
-If multiple presentations, unknown path, wrong package, inspection mismatch, graceful exit failure or timeout occurs:
-STOP before install.
+STOP before install if stable launch creates a second presentation, PID/path drifts, UI remains unavailable, safe state drifts, or graceful exit fails.
 
-No force kill.
+No force kill. No Worker/F1 fallback.
 
 PACKAGE BUILD
 
