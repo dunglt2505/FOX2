@@ -12,7 +12,7 @@
 | Priority | ID | Outcome / goal | Status | Delivery owner | Current evidence | Acceptance / next action |
 | --- | --- | --- | --- | --- | --- | --- |
 | P0 | `FOX2-M1-A-APP-BATCH-B` | Deliver the first runnable localhost FOX2 M1-A product: React/Vite UI + accepted backend integration + offline acceptance | **DOING** | CHAT | Branch `work/FOX2-M1-A-APP-BATCH-B@51a97bfa7420efa0a0e0ea9a1f35f77d2e823613`; frontend source exists and is 20 commits ahead of accepted APP-BATCH-A; no `tests/app_batch_b/**`, result report, or evidence manifest observed | Build/typecheck; implement focused UI/integration tests; run localhost/offline acceptance; CHAT review actual result. Keep frozen backend/API unless a reproducible backend defect is proven. |
-| P0 | `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` | Make the internal Windows Bridge usable and recoverable with correct no-replay behavior | **DOING** | CHAT | R5 result `work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022@10326dd116ccbfa90a70db4f4c8ec27487ee4fbf`; 69 focused + 686 full PASS; 17/17 evidence SHA-256 verified; R5 code-only CHAT_ACCEPT `1ef5506d592cc7da9c93e61d86a158c12b9b27b3`; CODEX exit 1 after push; Dispatch consumed/no-replay | Next: one authorized Owner-host integrated Bridge internal validation using R5 external certifier and exact A04 package; prove WPF lock, UI, graceful exit, state preservation, uninstall/reinstall, local trial, restart and no-replay. Then CHAT final acceptance. Do not replay R5. |
+| P0 | `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` | Make the internal Windows Bridge usable and recoverable with correct no-replay behavior | **DOING** | CHAT | R5 result `work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022@10326dd116ccbfa90a70db4f4c8ec27487ee4fbf`; 69 focused + 686 full PASS; 17/17 evidence SHA-256 verified; R5 code-only CHAT_ACCEPT `1ef5506d592cc7da9c93e61d86a158c12b9b27b3`; CODEX exit 1 after push; Dispatch consumed/no-replay; integrated host runner published `work/FOX2-BRIDGE-INTERNAL-VALIDATION-20261022@e52140d5beff4002467fb472a6b814862789dd31` (NOT_RUN) | Next: one authorized Owner-host integrated Bridge internal validation using R5 external certifier and exact A04 package; prove WPF lock, UI, graceful exit, state preservation, uninstall/reinstall, local trial, restart and no-replay. Then CHAT final acceptance. Do not replay R5. |
 | P1 | `FOX2-M1-A-RELEASE-INTEGRATION` | Integrate the accepted runnable M1-A product into the intended release/main line | **BACKLOG** | CHAT | APP-BATCH-A accepted; APP-BATCH-B not yet accepted; main and APP lineages currently diverged | Start only after APP-BATCH-B CHAT acceptance and explicit protected-main/merge authority. |
 | P2 | `FOX2-M1-B-PROVIDER-INTEGRATION` | Add read-only real market-data integration: REST + market WebSocket + recovery/freshness | **BACKLOG** | CHAT | Provider rights/network/entitlement evidence not current; no provider implementation milestone accepted | Begin after M1-A product acceptance and explicit provider/data-rights capability. No broker/account/order write. |
 | P3 | `FOX2-M2-DATA-HARDENING` | Extend coverage, PIT/corporate-actions handling and soak/recovery quality | **BACKLOG** | CHAT | M2 not started under current M1 delivery | Start after M1-B data path is accepted. |
@@ -93,7 +93,7 @@ The integrated run must cover the still-material internal acceptance:
 13. perform one local/internal trial followed by stop/restart;
 14. verify singleton/no duplicate process, no Dispatch replay, preserved safe control state and no Worker/legacy regression.
 
-This is the Agile-Lite replacement for separate Owner-facing A05 → G3 → G4 → independent audit → Canary → restart milestones.
+This is the Agile-Lite replacement for separate Owner-facing A05 → G3 → G4 → independent audit → Canary → restart milestones. The prepared one-shot runner covers lifecycle and presentation restart on the current host; G3 isolated privileged host enforcement, G4 adoption and F1 Worker runtime remain explicitly NOT_RUN until correctly evidenced. Combined management scope is not a machine safety waiver.
 
 Independent WORK audit is **not a default internal gate**. A separate external/provider/broker/LIVE boundary would require its own explicit decision and is outside this Bridge internal-ready task.
 
@@ -123,7 +123,7 @@ Final verdict is one of:
 
 ### Current next action
 
-`R5_CHAT_ACCEPTED_CODE_ONLY → ONE_AUTHORIZED_BRIDGE_INTERNAL_VALIDATION_ON_OWNER_WINDOWS_HOST → FINAL_CHAT_ACCEPTANCE → INTERNAL_FOX2_BRIDGE_READY`
+`R5_CHAT_ACCEPTED_CODE_ONLY → ONE_SHOT_OWNER_HOST_LIFECYCLE_RUNNER(e52140d5,NOT_RUN) → G3_G4_INTERNAL_ASSERTIONS_ON_AUTHORIZED_TARGET → FINAL_CHAT_ACCEPTANCE → INTERNAL_FOX2_BRIDGE_READY`
 
 ## WIP policy
 
@@ -161,7 +161,7 @@ The two top streams are independent enough to progress in parallel while writabl
 ## Next safe actions
 
 - **APP:** continue APP-BATCH-B directly under Agile Lite: build/typecheck, focused UI/API integration tests, localhost/offline acceptance, then CHAT result acceptance. No new Bridge/PreExec ceremony for ordinary reversible native DEV.
-- **Bridge:** R5 code correction accepted; preserve consumed/no-replay, validate accepted R5 external certifier and exact A04 package in one authorized integrated Windows-host run, then CHAT final acceptance.
+- **Bridge:** R5 code correction accepted; one-shot Owner-host lifecycle/restart runner published at `e52140d5beff4002467fb472a6b814862789dd31` and not executed. Run once after host preflight, return sanitized evidence for CHAT; privileged isolated-host G3 and G4 remain NOT_RUN until actual authorized evidence exists.
 - **Project:** do not create new governance or micro-WPs unless a real scope/authority/risk boundary appears.
 
 `PROJECT_HEALTH=YELLOW_GREEN / PRODUCT=DOING / BRIDGE=DOING / PROJECT_BLOCKED=NO / WIP=2 / NEXT=APP_BATCH_B_PRODUCT_CLOSURE_PARALLEL_BRIDGE_INTERNAL_VALIDATION`
