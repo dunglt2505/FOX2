@@ -90,7 +90,9 @@
     "master_plan_library_divergence": "PRESERVED_HISTORICAL_COPY; CURRENT_OPERATING_ADDENDUM_MIRRORED",
     "master_plan_operating_addendum": "GIT_AND_LIBRARY_EXACT_BYTES_READBACK_PASS",
     "master_plan_operating_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261019_OPERATING_ADDENDUM.md",
-    "internal_fast_lane": "OWNER_APPROVED_HUMAN_OPERATING_OVERRIDE; NOT_RUNTIME_ENFORCEMENT"
+    "internal_fast_lane": "OWNER_APPROVED_HUMAN_OPERATING_OVERRIDE; NOT_RUNTIME_ENFORCEMENT",
+    "master_plan_fast_lane_addendum": "PUBLISHED_ON_ROADMAP_BRANCH; OWNER_APPROVED_OPERATING_ADDENDUM",
+    "master_plan_fast_lane_addendum_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261022_INTERNAL_FAST_LANE_ADDENDUM.md"
   },
   "instructions_for_CHAT": [
     "At the start of a new task, verify the projectwide GOVERNANCE Registry and this source-map on the owner-approved release branch, apply Governance EFFECTIVE source and independently check actual machine route support; NEVER treat product tests as a Governance document release requirement.",
@@ -137,6 +139,12 @@
       "sha256": "df94d8ce1bcebae50cf416243579218d3939bd76a1453f4fd311533bd476f9f3",
       "authority": "EXPLICIT_OWNER_IN_CHAT_2026_10_22",
       "scope": "INTERNAL_ONLY_NON_LIVE"
+    },
+    "master_plan_fast_lane_addendum": {
+      "git_path": "docs/roadmap/FOX2_MASTER_EXECUTION_PLAN_20261022_INTERNAL_FAST_LANE_ADDENDUM.md",
+      "git_source_commit": "6f4efca8cccb7e3a88ebd50c8dd475e5d98cd4b8",
+      "scope": "OWNER_FACING_ROADMAP_AND_INTERNAL_ONLY_EXECUTION_SEQUENCE",
+      "library_readback": "NOT_REQUIRED_FOR_THIS_CHAT_OPERATING_POINTER"
     }
   },
   "protected_permissions": {
