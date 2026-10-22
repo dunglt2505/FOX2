@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "A04_REAL_HOST_LIFECYCLE_FAILED_AT_PRESENTATION_LOCK_PROBE_PERMISSIONERROR_ERRNO13; BUILD_CERTIFICATION_HARNESS_REWORK_REQUIRED",
+      "blocker": "PRESENTATION_LOCK_CERT_REWORK_A01_PREEXEC_NOT_RUN_AFTER_A04_CHAT_REWORK",
       "as_of": "2026-10-22",
-      "next_safe_action": "BUILD_REWORK_PRESENTATION_LOCK_CERTIFICATION_SEMANTICS_ON_ACCEPTED_SOURCE_085CC830; THEN_CHAT_ACCEPT_NEW_SOURCE; THEN_FRESH_HOST_LIFECYCLE_A05",
+      "next_safe_action": "OWNER_RUN_EXACT_PRESENTATION_LOCK_CERT_REWORK_A01_PREEXEC_4D0AE563; IF_PASS_CHAT_INTAKE_THEN_PASS_TO_ASSIGN_AND_FRESH_CODEX_CODING_DISPATCH",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,20 +170,20 @@
         "next_phase": {
           "id": "PRESENTATION_LOCK_CERT_REWORK_A01",
           "stage": "BUILD",
-          "status": "PRE_ASSIGNMENT",
+          "status": "PREEXEC_PUBLISHED_NOT_RUN",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
-          "task_commit": "8fdc2f7181e7f3e9a7f56ea72472fe3d2d2cea43",
-          "task_blob": "50d77f3039d2a8f9ce40105457da8e18b639289d",
-          "task_sha256": "397e179c63666ce611e2c03cfb988ccbd9290a72b9643014fe1ff0588bfb7aa8",
-          "prompt_commit": "43abc5a8a988d93e3ccdd09b72f14fa4feae4d24",
-          "prompt_blob": "51a422a8140d3789064ff6cafb763d3a1a5241ee",
-          "prompt_sha256": "5ed59d6fe681ffdd15cc2e41cf88ac2a478717499f7d1b8e7812259be44ca5ef",
-          "preexec_publication_commit": "3fb31e03f5317bc975119d164736e7785c46243c",
-          "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a04/host_lifecycle_cert_a04_preexec.ps1",
-          "preexec_script_blob": "92e9fdd52948d45485c42eeade18a17ffe2e5832",
-          "preexec_script_sha256": "318146bc8b9904a186c0f585098d12a64edf711d1e46bae6d19b308f7297c448",
-          "preexec": "PASS_REMOTE_ACCEPTED",
+          "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERT-REWORK-A01-20261022",
+          "task_commit": "ce72a539cbdc53a100a9c8b78d2bffe29726c15d",
+          "task_blob": "8c54daf0b25f5322c92d1207831c7f5fac172e2a",
+          "task_sha256": "05b8e571f1ba6557fb3898c14a9e23abf412f479adafa9e5f1bfd625a9e46b6f",
+          "prompt_commit": "cddde72f8166dc81742a6f0c693adfff69b1bd00",
+          "prompt_blob": "9265ab80d228bc3ab20217a5d946b8b1c6033cd2",
+          "prompt_sha256": "7967ff645188717812d46ef84815de2ac784c3d24a822c2204ab125074b69ace",
+          "preexec_publication_commit": "4d0ae5636ac91969c2a15416f8f0bd50d581d180",
+          "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_cert_rework_a01/preexec.ps1",
+          "preexec_script_blob": "79d4b96a7d37bc119689b3ac17415650cebf08b8",
+          "preexec_script_sha256": "00eb08fa2997fbb20dbcdf84dc9ea3c4bf4bb0d4f5803e65f3152831a19554b4",
+          "preexec": "PUBLISHED_NOT_RUN",
           "dispatch_published": false,
           "agent_started": false,
           "result": "NOT_RUN",
@@ -197,11 +197,7 @@
             "state": "CONSUMED_CHAT_REWORK",
             "result_sha": "92394d0ae68911c98bcdaa40aaa76ed56de66881",
             "chat_review": "a3e49a62dbd340eacd8dc8369aa303ed0e93b6f3",
-            "lifecycle": "FAIL_PRESENTATION_LOCK_PROBE",
-            "package_build": "PASS",
-            "install_update": "PASS",
-            "stable_uninstall": "NOT_RUN",
-            "reinstall": "NOT_RUN",
+            "first_failure": "PermissionError errno=13 at live desktop.lock probe",
             "no_replay": true
           },
           "execution_envelope": {
@@ -242,7 +238,12 @@
             "required_semantics": "TRANSIENT_DIFFERENTIAL_LOCK_PROOF_PRELIVE_OPENABLE_LIVE_DENIED_POSTEXIT_OPENABLE",
             "wpf_product_change_allowed": false,
             "g3": false
-          }
+          },
+          "allowed_code_paths": [
+            "agent_bridge/scripts/certify_user_lifecycle.py",
+            "agent_bridge/tests/test_lifecycle_wpf_contract.py"
+          ],
+          "planned_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERT-REWORK-A01-CODEX-001"
         },
         "host_lifecycle_cert": {
           "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
