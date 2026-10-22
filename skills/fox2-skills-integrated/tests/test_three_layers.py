@@ -25,7 +25,7 @@ class ThreeLayerArchitecture(unittest.TestCase):
   self.assertEqual(set(m['skills']),set(self.files))
   self.assertEqual(m['skills_count'],11)
   for p in ('plugin.json','.codex-plugin/plugin.json','manifest.json'):
-   q=json.loads((R/p).read_text());self.assertEqual(q['version'],'0.5.2');self.assertEqual(q['name'],'fox2-skills-integrated')
+   q=json.loads((R/p).read_text());self.assertEqual(q['version'],'0.5.3');self.assertEqual(q['name'],'fox2-skills-integrated')
  def test_native_agile_is_not_bridge_admission(self):
   s=(R/'shared/operating_rules.md').read_text()
   for term in ('Native reversible DEV','Bridge', 'one logical task', 'no-replay', 'Prompt Builder'):
