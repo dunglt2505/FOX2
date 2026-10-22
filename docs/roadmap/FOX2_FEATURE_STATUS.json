@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "PRESENTATION_LOCK_CERT_REWORK_A01_PREEXEC_NOT_RUN_AFTER_A04_CHAT_REWORK",
+      "blocker": "PRESENTATION_LOCK_CERTIFIER_REWORK_R2_REQUIRED_BEFORE_ANY_NEW_DISPATCH; PRIOR_R1_PREEXEC_4D0AE563_SUPERSEDED_UNRUN",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_EXACT_PRESENTATION_LOCK_CERT_REWORK_A01_PREEXEC_4D0AE563; IF_PASS_CHAT_INTAKE_THEN_PASS_TO_ASSIGN_AND_FRESH_CODEX_CODING_DISPATCH",
+      "next_safe_action": "PUBLISH_REUSE_FIRST_CERTIFIER_REWORK_R2; RUN_FRESH_R2_PREEXEC; THEN_ONE_CODEX_CODING_DISPATCH; AFTER_CHAT_ACCEPT_RUN_A05_CONTINUATION_ONLY_USING_A04_PACKAGE_F99C7ADD_WITHOUT_REBUILD_OR_PREINSTALL",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -168,21 +168,10 @@
           }
         },
         "next_phase": {
-          "id": "PRESENTATION_LOCK_CERT_REWORK_A01",
+          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_A01_R2",
           "stage": "BUILD",
-          "status": "PREEXEC_PUBLISHED_NOT_RUN",
+          "status": "R1_SUPERSEDED_BEFORE_PREEXEC_R2_REQUIRED",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERT-REWORK-A01-20261022",
-          "task_commit": "ce72a539cbdc53a100a9c8b78d2bffe29726c15d",
-          "task_blob": "8c54daf0b25f5322c92d1207831c7f5fac172e2a",
-          "task_sha256": "05b8e571f1ba6557fb3898c14a9e23abf412f479adafa9e5f1bfd625a9e46b6f",
-          "prompt_commit": "cddde72f8166dc81742a6f0c693adfff69b1bd00",
-          "prompt_blob": "9265ab80d228bc3ab20217a5d946b8b1c6033cd2",
-          "prompt_sha256": "7967ff645188717812d46ef84815de2ac784c3d24a822c2204ab125074b69ace",
-          "preexec_publication_commit": "4d0ae5636ac91969c2a15416f8f0bd50d581d180",
-          "preexec_script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_cert_rework_a01/preexec.ps1",
-          "preexec_script_blob": "79d4b96a7d37bc119689b3ac17415650cebf08b8",
-          "preexec_script_sha256": "00eb08fa2997fbb20dbcdf84dc9ea3c4bf4bb0d4f5803e65f3152831a19554b4",
           "preexec": "PUBLISHED_NOT_RUN",
           "dispatch_published": false,
           "agent_started": false,
@@ -194,10 +183,19 @@
           "prior_attempt": {
             "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04",
             "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-CODEX-001",
-            "state": "CONSUMED_CHAT_REWORK",
+            "state": "CLOSED_CHAT_REWORK_CONSUMED_NO_REPLAY",
             "result_sha": "92394d0ae68911c98bcdaa40aaa76ed56de66881",
             "chat_review": "a3e49a62dbd340eacd8dc8369aa303ed0e93b6f3",
-            "first_failure": "PermissionError errno=13 at live desktop.lock probe",
+            "package_build": "PASS_REUSE",
+            "package_provenance": "PASS_REUSE",
+            "install_update": "PASS_REUSE",
+            "safe_state": "PASS_REUSE",
+            "launch_twice_singleton": "PASS_REUSE",
+            "presentation_lock": "FAIL_TO_REPAIR",
+            "ui_after_lock": "NOT_RUN",
+            "graceful_exit_after_lock": "NOT_RUN",
+            "stable_uninstall": "NOT_RUN",
+            "reinstall": "NOT_RUN",
             "no_replay": true
           },
           "execution_envelope": {
@@ -243,7 +241,32 @@
             "agent_bridge/scripts/certify_user_lifecycle.py",
             "agent_bridge/tests/test_lifecycle_wpf_contract.py"
           ],
-          "planned_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERT-REWORK-A01-CODEX-001"
+          "runtime_package_subject": {
+            "source_commit": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+            "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
+            "source_inventory_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73",
+            "archive": "C:\\Projects\\FOX2-artifacts\\host_lifecycle_cert_a04\\FOX2-Bridge-085cc830-A04.zip",
+            "reuse_required": true,
+            "rebuild_forbidden_if_archive_hash_valid": true
+          },
+          "reuse_plan": {
+            "commit": "da6fd27d78380db42fce155d634044c94a661229",
+            "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/HOST_LIFECYCLE_A04_A05_REUSE_PLAN_20261022.md",
+            "strategy": "A04_ACCEPTED_PREREQUISITES_PLUS_CERTIFIER_CORRECTION_PLUS_A05_CONTINUATION_ONLY",
+            "a04_closed": true,
+            "a04_replay": false,
+            "a05_rebuild": false,
+            "a05_preinstall": false,
+            "a05_tail": "LOCK_PROOF_UI_EXIT_LOCK_RELEASE_POSTEXIT_SAFE_UNINSTALL_ONCE_PRESERVATION_SAME_PACKAGE_REINSTALL_FINAL_SAFE"
+          },
+          "superseded_preexec": {
+            "publication_commit": "4d0ae5636ac91969c2a15416f8f0bd50d581d180",
+            "state": "SUPERSEDED_BEFORE_RUN",
+            "receipt_exists": false,
+            "dispatch_exists": false,
+            "agent_started": false,
+            "instruction": "DO_NOT_RUN"
+          }
         },
         "host_lifecycle_cert": {
           "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
