@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "OWNER_RUN_FRESH_R3_CODEX_MEDIUM_DISPATCH_097C57A7_ONCE; PREEXEC_V4_REMOTE_ACCEPTED; NO_REPLAY_AFTER_CONSUME",
+      "blocker": "R3_CODEX_A01_DISPATCH_CONSUMED_NO_REMOTE_RESULT_LOCAL_STATE_UNKNOWN_AFTER_POST_CONSUME_REPORTING_DEFECT",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_EXACT_R3_CODEX_MEDIUM_DISPATCH_097C57A7_ONCE; THEN_CHAT_RESULT_REVIEW; PRESERVE_A04_PASS; NO_PACKAGE_OR_HOST_MUTATION_IN_R3",
+      "next_safe_action": "RUN_ONE_READONLY_HOST_RECONCILIATION_PROBE_ONLY; DO_NOT_REPLAY_DISPATCH_097C57A7; IF_VALID_EXISTING_LOCAL_RESULT_EXISTS_SALVAGE_EXISTING_BYTES_ONLY; ELSE CLASSIFY_CONSUMED_NO_RESULT_AND_CREATE_FRESH_ATTEMPT_IF_GOVERNANCE_PERMITS",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -174,12 +174,12 @@
         "next_phase": {
           "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R3",
           "stage": "BUILD",
-          "status": "DISPATCH_PUBLISHED_UNCONSUMED_OWNER_LAUNCH_READY",
+          "status": "DISPATCH_CONSUMED_NEEDS_RECONCILIATION_NO_REMOTE_RESULT",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "preexec": "PASS_REMOTE_ACCEPTED_V4",
           "dispatch_published": true,
-          "agent_started": false,
-          "result": "NOT_RUN",
+          "agent_started": true,
+          "result": "UNKNOWN_LOCAL_STATE_NO_REMOTE_RESULT",
           "host_mutation": false,
           "allowed_before_g3": true,
           "g3_unlocked": false,
@@ -380,8 +380,18 @@
             "schema_blob": "1692061941e2bef498515cd0e96b9b3046119ebb",
             "schema_validation": "PASS_ZERO_ERRORS",
             "max_runs": 1,
-            "status": "PUBLISHED_UNCONSUMED",
-            "owner_launch_ready": true
+            "status": "CONSUMED_NO_REPLAY_NEEDS_RECONCILIATION",
+            "owner_launch_ready": false
+          },
+          "execution_recovery": {
+            "commit": "7adcd72fc178d2aaf1d8eb66c86d1c993a1252ca",
+            "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_CODEX_A01_CONSUMED_RECOVERY_20261022.md",
+            "remote_result_state": "NO_REMOTE_RESULT_REMOTE_EQUALS_RUNTIME_BASE",
+            "local_result_state": "UNKNOWN",
+            "first_failure_visible": "POST_CONSUME_REPORTING_WRAPPER_SAFE_NOT_RECOGNIZED",
+            "inner_execution_outcome": "UNKNOWN_MASKED_BY_REPORTING_DEFECT",
+            "no_replay": true,
+            "next_probe": "READ_ONLY_LOCAL_CLAIM_PROCESS_HEAD_DIFF_LAST_MESSAGE_RESULT_PATHS"
           }
         },
         "host_lifecycle_cert": {
