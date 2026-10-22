@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "checked_at": "2026-10-22T09:43:53.7761280Z",
+  "task_branch": "work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-20261022",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/presentation_lock_certifier_rework_r3_v4.json",
+  "source_head": "4bdbe33ebcb0d03f261a7870f9e364a67f1fdfd7",
+  "task_source": {
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r3/task.md",
+    "git_commit_sha": "c5b8ccef94fc222bc2626209c74c074b827269f3",
+    "sha256": "4dde2215f4095f26caa00bb6c0254cfb421d3d5d21086e5c1b6769b197acec5e"
+  },
+  "status": "PASS",
+  "capabilities": {
+    "source_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "accepted_source=085cc8302e824dbccf9cbef80422ed48894b9cb4; publication=4bdbe33ebcb0d03f261a7870f9e364a67f1fdfd7"
+    },
+    "route_assessment_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "COMPLEXITY=MEDIUM; EXECUTION_RISK=MEDIUM; SAFETY_OVERRIDE=NO; selected CODEX/gpt-6.1-sol/medium"
+    },
+    "selected_route_verification": {
+      "status": "PASS",
+      "material": true,
+      "version": "codex-cli 0.162.1",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "exit_code": 0,
+      "evidence": "Fresh gpt-6.1-sol/medium read-only capacity probe PASS; no effort substitution"
+    },
+    "test_python": {
+      "status": "PASS",
+      "material": true,
+      "version": "Python 3.13; pytest 8.3.5; jsonschema 4.26.0",
+      "executable": "USERLOCAL/Programs/Python/Python313/python.exe",
+      "evidence": "Fresh bounded discovery found an existing compatible Python 3.13 pytest environment; no installation"
+    },
+    "certifier_source_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "certifier_blob=7e62103ea4876833f67794a927a2a54622a59ea5; test_blob=f80e50d59b1f1bb9ec9d553e84bbe7948971cb66"
+    },
+    "task_prompt_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "task_sha256=4dde2215f4095f26caa00bb6c0254cfb421d3d5d21086e5c1b6769b197acec5e; prompt_sha256=44f0138cf10ae96de0392d84f11b5151ad85496fa93d64aa056a3316ad42d75c"
+    },
+    "recovery_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "preexec_v1=ba9b8eda7de3c2aa53cf0e7aeee3249f60780b13:BLOCKED_TEST_PYTHON_BINDING_DEFECT_DO_NOT_RERUN; preexec_v2=5319554547aeb03b9a3faf8970794f21c9f97cb7:SCHEMA_INVALID_DO_NOT_USE_FOR_PASS_TO_ASSIGN; preexec_v3=c06a8ab9d1ca84a1bef41da354de5c3ea876a620:READ_ONLY_FETCH_FAILED_NO_RECEIPT_NO_DISPATCH; recovery_v1=03ba2e7961307a6ce29b424765b05a337da8c200; recovery_v2=2b6ecc56fad6deca2f85c3f2fd7651a3bd4ce7ff; recovery_v3=dd2707ea0d003ceec0eedda331a7cc6dc59b6d5a"
+    },
+    "reuse_plan_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "master_plan=ad7d6f0b9889fe4247c29ac3d77f0b90b5f40e56; reuse_plan=da6fd27d78380db42fce155d634044c94a661229; v037_review=7cee0933ffd241deaa8e748bfeb626c56fab0cd0"
+    },
+    "governance_source": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Current Registry/Resolution/Dictionary/Policy/Routing/Protocol blobs verified"
+    },
+    "worktree_clean": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Dedicated R3 worktree clean; zero agent_bridge drift before coding"
+    },
+    "one_writer": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "No task-scoped CODEX writer observed"
+    },
+    "codex_cli": {
+      "status": "PASS",
+      "material": true,
+      "version": "codex-cli 0.162.1",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "evidence": "Pinned CODEX CLI verified"
+    },
+    "git_push_permission": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Program Files\\Git\\cmd\\git.exe",
+      "evidence": "Authorized R3 branch push dry-run PASS"
+    },
+    "no_replay": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "A04 historical Dispatch present; R2 Dispatch absent; R3 Dispatch absent"
+    },
+    "host_lifecycle_isolation": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "R3 is certifier-only correction; package build/install/host lifecycle/G3 forbidden"
+    }
+  },
+  "blockers": [],
+  "worktree": {
+    "status": "PASS",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R3-20261022",
+    "competing_writer": "NONE_OBSERVED",
+    "stale_receipt_cleanup": "NOT_NEEDED"
+  },
+  "candidate_route": {
+    "product": "CODEX",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "dispatch_state": {
+    "executable_dispatch_published": false,
+    "dispatch_consumed": false
+  },
+  "agent_execution_started": false,
+  "notes": [
+    "PreExec v1 BLOCKED because package-build venv was incorrectly assumed to provide pytest.",
+    "PreExec v2 host probes PASS but receipt is schema-invalid and cannot authorize assignment.",
+    "PreExec v3 stopped on read-only governance fetch plumbing before receipt/Dispatch.",
+    "PreExec v4 uses FETCH_HEAD branch reads with bounded retry and installs nothing.",
+    "Receipt candidate_route.model_policy uses schema-supported PINNED; route-assessment semantics remain in evidence/notes.",
+    "FOX2 Skills v0.3.7 route assessment selected Medium before PreExec.",
+    "PreExec verifies selected Medium route; it does not classify complexity.",
+    "R3 corrects only external certifier + focused regression test.",
+    "A04 reusable PASS remains preserved; no package rebuild or replay.",
+    "No package build/install/host lifecycle mutation/G3/G4/Canary authority.",
+    "Receipt is validated against current Receipt Schema v1 before Git publication.",
+    "PASS permits CHAT intake and fresh R3 coding assignment only."
+  ]
+}
