@@ -39,9 +39,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "A02_EXECUTION_HOLD_CODEX_USAGE_LIMIT_CAPACITY_NOT_READY; FRESH_ROUTE_SPECIFIC_PREEXEC_REQUIRED_BEFORE_ANY_DISPATCH",
+      "blocker": "A02_PREEXEC_REV2_STOPPED_PRE_AGENT_ON_CHAT_PROMPT_SHA_BINDING_ERROR; CORRECTED_PROMPT_SHA256_BOUND; FRESH_PREEXEC_REV3_REQUIRED",
       "as_of": "2026-10-22",
-      "next_safe_action": "AFTER_CODEX_CAPACITY_RECOVERS_RUN_FRESH_A02_PREEXEC_ON_DEDICATED_CLEAN_WORKTREE_BOUND_TO_TASK_F796306C_PROMPT_56E4C1EE_AND_SNAPSHOT_1A11FA0B; IF_PASS CHAT_PUBLISH_FRESH_A02_DISPATCH; NEVER_REPLAY_A01",
+      "next_safe_action": "RUN_FRESH_A02_PREEXEC_REV3_ON_EXISTING_CLEAN_DEDICATED_WORKTREE_WITH_CORRECT_PROMPT_SHA256_A9B07516; IF_PASS CHAT_PUBLISH_RECEIPT_PASS_TO_ASSIGN_AND_FRESH_A02_DISPATCH; NEVER_REPLAY_A01",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -358,7 +358,7 @@
               "task_sha256": "7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c",
               "prompt_commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
               "prompt_blob": "faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2",
-              "prompt_sha256": "454423eca1bb2b13bddade1c1fa46a7feee07a047ab53e2e696b4324ddeff279",
+              "prompt_sha256": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201",
               "model": "gpt-6.1-sol",
               "reasoning": "high",
               "execution_path": "MANUAL_LOCAL",
@@ -369,7 +369,18 @@
               "dispatch_published": false,
               "agent_started": false,
               "result": "NOT_RUN",
-              "blocker": "FRESH_PREEXEC_AND_CURRENT_QUOTA_CAPACITY_REQUIRED"
+              "blocker": "FRESH_PREEXEC_AND_CURRENT_QUOTA_CAPACITY_REQUIRED",
+              "binding_correction": {
+                "date": "2026-10-22",
+                "field": "prompt_sha256",
+                "previous_value": "454423eca1bb2b13bddade1c1fa46a7feee07a047ab53e2e696b4324ddeff279",
+                "corrected_value": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201",
+                "reason": "CHAT_HASH_HELPER_STATE_BUG; RAW_GIT_BLOB_AND_OWNER_WORKTREE_HASH_AGREE",
+                "prompt_blob": "faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2",
+                "prompt_commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+                "prompt_bytes": 10270,
+                "prompt_bytes_changed": false
+              }
             }
           }
         }
