@@ -65,7 +65,7 @@ $V037ReviewBlob = '74864a7520bcaaedcb885c4581a7f679fd5d1a43'
 
 $RecoveryPath = 'reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V1_RECOVERY_20261022.md'
 $RecoveryCommit = '03ba2e7961307a6ce29b424765b05a337da8c200'
-$SchemaRecoveryPath = 'reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V3_SCHEMA_RECOVERY_20261022.md'
+$SchemaRecoveryPath = 'reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V2_SCHEMA_RECOVERY_20261022.md'
 $SchemaRecoveryCommit = '2b6ecc56fad6deca2f85c3f2fd7651a3bd4ce7ff'
 
 $RegistryPath = 'docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json'
@@ -439,6 +439,7 @@ $expectedSetup = @(
     $PromptPath,
     $PreExecV1Path,
     $PreExecV2Path,
+    $PreExecV2ReceiptPath,
     $ScriptPath
 ) | Sort-Object
 
@@ -471,6 +472,9 @@ Require (
     (G @('rev-parse',($PreExecV2Commit + ':' + $PreExecV2ReceiptPath))) -ceq
     $PreExecV2ReceiptBlob
 ) 'PREEXEC_V2_RECEIPT_HISTORY_MISMATCH'
+
+$preexecV2ReceiptFull = Join-Path $Worktree ($PreExecV2ReceiptPath -replace '/', '\\')
+Require ((Get-Sha256 $preexecV2ReceiptFull) -ceq $PreExecV2ReceiptSha256) 'PREEXEC_V2_RECEIPT_SHA256_MISMATCH'
 
 $taskFull = Join-Path $Worktree ($TaskPath -replace '/', '\')
 $promptFull = Join-Path $Worktree ($PromptPath -replace '/', '\')
@@ -867,7 +871,7 @@ Require (
 & $Git -C $Worktree diff --cached --check
 Require ($LASTEXITCODE -eq 0) 'RECEIPT_DIFF_CHECK_FAILED'
 
-& $Git -C $Worktree commit -m 'preexec(fox2): PASS R3 Medium certifier v2' -- $ReceiptPath
+& $Git -C $Worktree commit -m 'preexec(fox2): PASS R3 Medium certifier v3' -- $ReceiptPath
 Require ($LASTEXITCODE -eq 0) 'RECEIPT_COMMIT_FAILED'
 
 $receiptCommit = G @('rev-parse','HEAD')
