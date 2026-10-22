@@ -1,0 +1,38 @@
+{
+  "version": "0.5.3",
+  "inventory": "CHANGED_OVERLAY_FILES_ONLY",
+  "files": {
+    ".codex-plugin/plugin.json": {
+      "bytes": 602,
+      "sha256": "6be5025a80ede5f5c65a5c985a83a2e998af74adae174ea06f373317bbc444a0"
+    },
+    "README.md": {
+      "bytes": 1075,
+      "sha256": "6a82f1c3a7f12e419b5979068f673c3cfdcfaba96bc6c7f53c29c1109ada23a8"
+    },
+    "RELEASE_README_v0_5_3.md": {
+      "bytes": 1166,
+      "sha256": "ae2dee10e56bb5027cdabee47fcc980623f6374ad01cdb6d2e91e2a4334807a1"
+    },
+    "manifest.json": {
+      "bytes": 2858,
+      "sha256": "85e812fefa31357890efce47b2053a201f371cbeef35d4a8125a2a9e7e4ee5ff"
+    },
+    "plugin.json": {
+      "bytes": 447,
+      "sha256": "8786de515bf909e3ee2256e8efbb02cad16238d7e6ecd152856919fba12fbc5b"
+    },
+    "skills/fox2-mgmt-delivery/SKILL.md": {
+      "bytes": 4875,
+      "sha256": "624262220845f620af2611687662de89ef2ed0af616ac482fbe01190980ab5bf"
+    },
+    "tests/test_source_integrity.py": {
+      "bytes": 857,
+      "sha256": "2dab37e9e1ad1903bb31175ee23793a72bb1910fccf8a37339929921b5c27510"
+    },
+    "tests/test_three_layers.py": {
+      "bytes": 1739,
+      "sha256": "47ea4dd9fac0e164823b7612b12dd695b2a0d60ee33cfe2ad717035524f121f4"
+    }
+  }
+}
