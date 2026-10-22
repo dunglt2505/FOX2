@@ -1,0 +1,147 @@
+{
+  "schema_version": "3.0",
+  "project": "FOX2",
+  "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001",
+  "dispatch_action": "EXECUTE_LOCAL_AGENT",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "target_agent": "CODEX",
+  "workspace_id": "FOX2_LOCAL",
+  "dictionary": {
+    "version": "1.3",
+    "git_path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+    "git_commit_sha": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+    "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d"
+  },
+  "policy": {
+    "version": "2.0.0",
+    "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+    "git_path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+    "git_commit_sha": "96175ac4f39197794a04e695f0046fa7ef9321fe"
+  },
+  "task": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/task.md",
+    "commit_sha": "f796306ca4e79b9ab61cd436cf69a5f28ede4faf",
+    "sha256": "7bfe425ad18f372960fb0440cd8694fb1a2a86edd7bd10cac5b105817f73d58c"
+  },
+  "prompt": {
+    "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/lifecycle_wpf_contract_rework_a02/prompt.md",
+    "git_commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
+    "git_blob_sha1": "faef3f5cf4b6d286d7a30cb4200c6b6526ed55b2",
+    "sha256": "a9b07516ce8f5b31ffb7b404f993407855cb1449f28be244011902630df5f201"
+  },
+  "source": {
+    "commit_sha": "1a11fa0b232a69f0c26a0b4029c331ee2a8c840f",
+    "git_source_ready": "YES"
+  },
+  "routing": {
+    "model_policy": "PINNED",
+    "auto_tier": null,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "execution_path": "MANUAL_LOCAL",
+  "delivery_owner": "AGENT",
+  "permissions": {
+    "code_allowed": true,
+    "git_code_push": true,
+    "git_report_write": true,
+    "git_report_push": true,
+    "pr_create": false,
+    "merge_allowed": false,
+    "production_provider": false,
+    "broker_write": false,
+    "live": false
+  },
+  "decision_receipt": {
+    "policy_check": "PASS",
+    "task_state_check": "PASS",
+    "source_binding_check": "PASS",
+    "routing_r0_r7": "PASS",
+    "assignment_check": "PASS",
+    "material_capability_check": "PASS",
+    "execution_authorized": "YES",
+    "code_allowed": "YES",
+    "dev_grant_ref": "Owner-directed continuation of FOX2 Bridge Whole-WP. A01 Dispatch b7894655bb53ac302279439d024de7822139abe5 is EXITED_CONSUMED/NO_REPLAY after CODEX usage-limit failure. Recovery snapshot 1a11fa0b232a69f0c26a0b4029c331ee2a8c840f preserves salvage WIP without acceptance. Fresh A02 task/prompt f796306ca4e79b9ab61cd436cf69a5f28ede4faf / 56e4c1eeb9341062fdb8ec52110e4e5c44c329e2. PreExec REV3 PASS receipt 4504bf95dd2baf474b30f896b23365c52fe10c9f blob 827fb02b57a49483b8a5be7589170d38cbb9df59 SHA256 0d265137e1567a2b47999e99716cacca9c6121bb2ac606688b949b4f88aa6c2f. CHAT PASS_TO_ASSIGN 61b75156bb4b241b88a26c0c11cb8af79f79a94b. Scope is offline BUILD correction/verification only; no real host lifecycle, Worker/F1, G3/G4/Canary/main/PR/merge/provider/broker/LIVE."
+  },
+  "runtime_contract": {
+    "repo": "dunglt2505/FOX2",
+    "branch": "work/FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
+    "worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-20261022",
+    "base_sha": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+    "allowed_code_paths": [
+      "agent_bridge/scripts/certify_user_lifecycle.py",
+      "agent_bridge/tests/test_rc1_package.py",
+      "agent_bridge/tests/test_rc1_launcher.py",
+      "agent_bridge/tests/test_lifecycle_wpf_contract.py"
+    ],
+    "allowed_report_paths": [
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/report.md",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence_manifest.json",
+      "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/lifecycle_wpf_contract_rework/**"
+    ],
+    "required_capabilities": [
+      "git",
+      "pwsh7",
+      "codex_cli_0_162_1_or_verified_compatible",
+      "pinned_gpt_6_1_sol_high",
+      "full_access_permission_profile",
+      "dedicated_clean_a02_worktree",
+      "single_writer",
+      "immutable_recovery_task_prompt_binding",
+      "task_specific_preexec_rev3_pass_4504bf95",
+      "effective_dispatch_schema_blob_1692061941e2bef498515cd0e96b9b3046119ebb",
+      "dispatch_remote_readback_before_start"
+    ],
+    "stop_conditions": [
+      "any_replay_or_reuse_of_A01_dispatch",
+      "recovery_task_prompt_preexec_or_dispatch_binding_mismatch",
+      "task_branch_remote_head_not_exact_runtime_base_before_start",
+      "recovery_snapshot_1a11fa0b_not_ancestor_of_runtime_base",
+      "wrong_worktree_branch_or_unrelated_WIP",
+      "competing_task_scoped_writer",
+      "codex_model_reasoning_or_permission_profile_mismatch",
+      "auth_quota_capacity_or_runtime_failure_after_start_means_A02_consumed_no_replay",
+      "unauthorized_path_change_or_drive_by_refactor",
+      "recovery_codex001_snapshot_json_byte_change",
+      "launcher_f1_wpf_production_architecture_change_required",
+      "installation_py_or_certify_rc1_ui_ps1_change_required",
+      "real_installed_bridge_launch_install_update_uninstall_or_reinstall_required",
+      "worker_or_f1_start_required_before_G3",
+      "AppLocker_AppIDSvc_service_ProgramData_ACL_or_reboot_required",
+      "G3_G4_Canary_or_final_C4_action",
+      "historical_host_lifecycle_FAIL_or_A01_consumed_state_rewrite",
+      "result_contract_report_or_evidence_delivery_failure",
+      "secret_diff_check_test_allowlist_or_K1_failure",
+      "main_pr_merge_deploy_provider_broker_or_live_action"
+    ]
+  },
+  "required_tests": [
+    "NO_LEGACY_DESKTOP_TRAY_HEALTH_DEPENDENCY",
+    "LAUNCH_TWICE_ONE_WPF_PRESENTATION",
+    "EXACT_CURRENT_PACKAGE_PRESENTATION_IDENTITY",
+    "PAUSED_SETUP_NO_CURRENT_DISPATCH_PRE_G3",
+    "CERTIFY_RC1_UI_INSPECT_CHECK_EXIT_REUSED",
+    "GRACEFUL_WPF_EXIT_BEFORE_UNINSTALL",
+    "NO_WORKER_START_OR_HEARTBEAT_REQUIREMENT",
+    "WORKER_F1_HEALTH_NOT_APPLICABLE_PRE_G3",
+    "NO_F1_G3_MUTATION",
+    "STABLE_EXTERNAL_UNINSTALL_SUCCESS",
+    "STABLE_EXTERNAL_UNINSTALL_FAILURE_STOP_ONCE",
+    "INSTALLATION_AND_PACKAGE_TESTS",
+    "RC1_LAUNCHER_TESTS",
+    "FULL_AGENT_BRIDGE_TESTS",
+    "PYTHON_SYNTAX_STATIC",
+    "CHANGED_PATH_ALLOWLIST",
+    "FORBIDDEN_FILE_BYTE_IDENTITY",
+    "SECRET_SCAN",
+    "GIT_DIFF_CHECK",
+    "K1_UNEXPLAINED_ZERO",
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST",
+    "REAL_HOST_LIFECYCLE_REMAINS_NOT_RUN"
+  ],
+  "created_by": "CHAT",
+  "created_at": "2026-10-22T02:24:59Z",
+  "max_runs": 1,
+  "retry_of_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001"
+}
