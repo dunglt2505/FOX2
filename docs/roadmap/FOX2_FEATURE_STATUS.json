@@ -7,10 +7,10 @@
       "feature_id": "FOX2-BRIDGE-RC1",
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
-      "stage": "BUILD",
+      "stage": "TEST",
       "status": "IN_PROGRESS",
-      "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED; HOST_LIFECYCLE_A01_CHAT_REWORK; WPF_REWORK_A01_DISPATCH_CONSUMED_USAGE_LIMIT_NO_RESULT; RECOVERY_SNAPSHOT_1A11FA0B_REMOTE_READBACK; A02_TASK_PROMPT_PUBLISHED_EXECUTION_HOLD",
-      "evidence_scope": "BUILD_REWORK_RECOVERY_ONLY; A01_PARTIAL_WIP_SALVAGED_NOT_ACCEPTED; A02_PREPARED_NOT_ASSIGNED; TESTS_K1_STATIC_NOT_VERIFIED; REAL_HOST_LIFECYCLE_NOT_RUN; G3_FALSE",
+      "evidence": "SAMEHOST_BUILD_CHAT_ACCEPTED; HOST_LIFECYCLE_A01_CHAT_REWORK; WPF_REWORK_A01_CONSUMED_NO_RESULT; RECOVERY_SNAPSHOT_1A11FA0B; A02_BUILD_CHAT_ACCEPTED_085CC830",
+      "evidence_scope": "A02_BUILD_SOURCE_TEST_EVIDENCE_CHAT_ACCEPTED_ONLY; REAL_OWNER_HOST_LIFECYCLE_RETRY_NOT_RUN; G3_G4_CANARY_NOT_RUN",
       "source_sha": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
       "evidence_refs": [
         {
@@ -36,19 +36,23 @@
         {
           "commit": "32403fd0fb31c8ddd5a8265b95262f7e8eca6a18",
           "path": "docs/roadmap/FOX2_BRIDGE_RC1_INTEGRATED_PLAN_TRACKER_20261021.md"
+        },
+        {
+          "commit": "cdf9f9c919102a2337ef357f4b658dc9993f48e5",
+          "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/LIFECYCLE_WPF_REWORK_A02_CHAT_RESULT_REVIEW_20261022.md"
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "A02_PREEXEC_REV2_STOPPED_PRE_AGENT_ON_CHAT_PROMPT_SHA_BINDING_ERROR; CORRECTED_PROMPT_SHA256_BOUND; FRESH_PREEXEC_REV3_REQUIRED",
+      "blocker": "FRESH_HOST_LIFECYCLE_CERT_A02_TASK_PROMPT_PREEXEC_DISPATCH_REQUIRED",
       "as_of": "2026-10-22",
-      "next_safe_action": "RUN_FRESH_A02_PREEXEC_REV3_ON_EXISTING_CLEAN_DEDICATED_WORKTREE_WITH_CORRECT_PROMPT_SHA256_A9B07516; IF_PASS CHAT_PUBLISH_RECEIPT_PASS_TO_ASSIGN_AND_FRESH_A02_DISPATCH; NEVER_REPLAY_A01",
+      "next_safe_action": "PREPARE_FRESH_HOST_LIFECYCLE_CERT_A02_FROM_ACCEPTED_RESULT_085CC830; THEN_RUN_FRESH_HOST_PREEXEC; NO_REPLAY_A01_OR_REWORK_A02",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
       "g1": "ACCEPTED_DESIGN_ONLY",
       "g2": "ACCEPTED_ISOLATED_HOST_BUILD_ONLY",
       "samehost_build": "CHAT_ACCEPTED_BUILD_ONLY",
-      "package_lifecycle": "HOST_LIFECYCLE_A01_CHAT_REWORK; A01_CODEX_DISPATCH_EXITED_CONSUMED_USAGE_LIMIT_NO_RESULT; LOCAL_WIP_SNAPSHOTTED_IMMUTABLY_AT_1A11FA0B; A02_TASK_PROMPT_PUBLISHED; EXECUTION_HOLD_PENDING_FRESH_PREEXEC_AND_QUOTA; REAL_HOST_LIFECYCLE_RETRY_NOT_AUTHORIZED_UNTIL_BUILD_REWORK_ACCEPTED",
+      "package_lifecycle": "HOST_LIFECYCLE_A01_FAIL_REWORK_ACCEPTED_AS_HISTORICAL; LIFECYCLE_WPF_REWORK_A02_BUILD_CHAT_ACCEPTED_AT_085CC830; FRESH_REAL_HOST_LIFECYCLE_CERT_A02_REQUIRED; G3_REMAINS_LOCKED",
       "g3_physical": "NOT_RUN",
       "g4_installed_adoption": "NOT_RUN",
       "final_canary": "NEW_IDENTITY_REQUIRED_AFTER_G4",
@@ -164,14 +168,18 @@
           }
         },
         "next_phase": {
-          "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION",
+          "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A02",
           "stage": "TEST",
-          "status": "NOT_RUN",
-          "source_result": "2faa33f9ab4d06bcc51c8fd1d2c7040fc06a29cb",
+          "status": "PREPARATION_REQUIRED",
+          "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "requires_fresh_task_prompt_preexec_dispatch": true,
           "host_mutation": true,
           "allowed_before_g3": true,
-          "g3_unlocked": false
+          "g3_unlocked": false,
+          "no_replay_of": [
+            "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
+            "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001"
+          ]
         },
         "host_lifecycle_cert": {
           "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
@@ -364,12 +372,22 @@
               "execution_path": "MANUAL_LOCAL",
               "permission": "FULL_ACCESS",
               "task_prompt_published": true,
-              "preexec": "NOT_RUN",
-              "quota_capacity": "BLOCKED_LAST_OBSERVATION_USAGE_LIMIT_TRY_AFTER_03_07_LOCAL",
-              "dispatch_published": false,
-              "agent_started": false,
-              "result": "NOT_RUN",
-              "blocker": "FRESH_PREEXEC_AND_CURRENT_QUOTA_CAPACITY_REQUIRED",
+              "preexec": "PASS_REMOTE_ACCEPTED",
+              "quota_capacity": "PASS_CURRENT_PROBE",
+              "dispatch_published": true,
+              "agent_started": true,
+              "result": {
+                "result_commit": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+                "review_commit": "cdf9f9c919102a2337ef357f4b658dc9993f48e5",
+                "verdict": "CHAT_ACCEPT_BUILD_ONLY",
+                "focused_tests": "103_PASS",
+                "full_tests": "653_PASS",
+                "manifest_hashes": "22_OF_22_MATCH",
+                "material_code_hashes": "3_OF_3_MATCH",
+                "k1": "UNEXPLAINED_0",
+                "real_host_lifecycle": "NOT_RUN"
+              },
+              "blocker": null,
               "binding_correction": {
                 "date": "2026-10-22",
                 "field": "prompt_sha256",
@@ -380,6 +398,20 @@
                 "prompt_commit": "56e4c1eeb9341062fdb8ec52110e4e5c44c329e2",
                 "prompt_bytes": 10270,
                 "prompt_bytes_changed": false
+              },
+              "preexec_receipt_commit": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+              "preexec_receipt_blob": "827fb02b57a49483b8a5be7589170d38cbb9df59",
+              "preexec_receipt_sha256": "0d265137e1567a2b47999e99716cacca9c6121bb2ac606688b949b4f88aa6c2f",
+              "pass_to_assign_commit": "61b75156bb4b241b88a26c0c11cb8af79f79a94b",
+              "dispatch": {
+                "id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001",
+                "commit": "126e8d857e7e4964fe05a47d558215763779535f",
+                "blob": "0997c8126e24dbf973949fb14610324b49b99bdc",
+                "sha256": "b4ee5b36de3a85318dafcafcc2593b2f4c94433f8c82a723264743324cc02aac",
+                "runtime_base": "4504bf95dd2baf474b30f896b23365c52fe10c9f",
+                "state": "EXITED_CONSUMED_RESULT_PUSHED",
+                "max_runs": 1,
+                "no_replay": true
               }
             }
           }
