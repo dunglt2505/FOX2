@@ -1,0 +1,63 @@
+{
+  "record_type": "FOX2_SKILLS_PLUGIN_RELEASE_ATTESTATION",
+  "recorded_date": "2026-10-22",
+  "project": "FOX2",
+  "verdict": "SOURCE_PUBLISHED / PLUGIN_RUNTIME_CURRENT / HOTFIX_PASS",
+  "source": {
+    "repository": "dunglt2505/FOX2",
+    "branch": "main",
+    "source_package_head": "9e66d721bd0f8a14eea891092f40669b4bf3c3d3",
+    "manifest_path": "skills/fox2-skills-integrated/manifest.json",
+    "release_notes_path": "skills/fox2-skills-integrated/RELEASE_README_v0_5_3.md",
+    "inventory_path": "skills/fox2-skills-integrated/RELEASE_FILE_HASHES_0_5_3.json",
+    "inventory_blob_sha1": "73b3a7512c9eb979b058fa8aac596f5e16865c77",
+    "inventory_sha256": "af0d4d107ae33f0436f175b047abbbed101486a7e06a4925f36172fb5fd0c33f",
+    "archive_sha256": "113b226b947b7565a6f6f5c3ac96c2756693a682138b55500663f472454538f9"
+  },
+  "plugin": {
+    "plugin_id": "Plugin_09a3ebea839481919e879d0f414e6cde",
+    "name": "fox2-skills-integrated",
+    "scope": "USER",
+    "previous_runtime_release": {
+      "version": "0.5.2",
+      "release_id": "pluginrel_6ada26ae384c8191be97871d3ba21c05",
+      "disposition": "SUPERSEDED_PLUGIN_RUNTIME_BYTE_DEFECT"
+    },
+    "current_runtime_release": {
+      "version": "0.5.3",
+      "release_id": "pluginrel_6ada287a37188191883eed11a6a3a8ab",
+      "current_release_id": "pluginrel_6ada287a37188191883eed11a6a3a8ab",
+      "readback": "PASS"
+    }
+  },
+  "readback": {
+    "manifest.json": "BYTE_EXACT_PASS",
+    "plugin.json": "BYTE_EXACT_PASS",
+    "README.md": "BYTE_EXACT_PASS",
+    "RELEASE_README_v0_5_3.md": "BYTE_EXACT_PASS",
+    "skills/fox2-mgmt-delivery/SKILL.md": {
+      "status": "BYTE_EXACT_PASS",
+      "sha256": "624262220845f620af2611687662de89ef2ed0af616ac482fbe01190980ab5bf",
+      "literal_chat_owns_result_acceptance": true,
+      "unexpected_control_characters": 0
+    },
+    "tests/test_source_integrity.py": "BYTE_EXACT_PASS",
+    "tests/test_three_layers.py": "BYTE_EXACT_PASS",
+    ".codex-plugin/plugin.json": {
+      "status": "SEMANTIC_NORMALIZATION_PASS",
+      "note": "Plugin Creator reordered JSON keys; name/version/skills/displayName semantics match v0.5.3 source. Byte equality is not claimed."
+    }
+  },
+  "behavior": {
+    "promotion_contract": "READY_FOR_BOARD_FIVE_CHECKS_AND_FOUR_DECISIONS",
+    "behavioral_delta_from_0_5_2": "NONE",
+    "hotfix_reason": "v0.5.2 plugin transport introduced one control character into fox2-mgmt-delivery/SKILL.md; v0.5.3 republishes clean bytes."
+  },
+  "scope_limits": {
+    "bridge_machine_runtime_changed": false,
+    "existing_dispatch_rebound": false,
+    "broker_or_live_authority": false,
+    "host_behavioral_certification": "NOT_RUN",
+    "note": "This attests the ChatGPT FOX2 Skills plugin release only. Installed FOX2 Bridge machine/runtime enforcement remains a separate lifecycle."
+  }
+}
