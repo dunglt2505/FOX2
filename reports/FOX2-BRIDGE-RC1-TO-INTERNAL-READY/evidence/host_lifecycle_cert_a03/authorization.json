@@ -1,0 +1,94 @@
+{
+  "bindings": [
+    {
+      "blob_sha1": "687dfc109ed438db5a5b69b75486f1a32994eb9d",
+      "commit": "33f6176dff86b00df6c9b8b0ef6f8eefce00578e",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a03/task.md",
+      "sha256": "f9e2fe4e285f703edabd8ec1266b0244d520ee2e1be876daf45b332bfcfc1f0f"
+    },
+    {
+      "blob_sha1": "ccffde862e11490743e5aabb5c79a4a0986ab9a1",
+      "commit": "db9902a1adbe21f801707ed9680fe38524e92dfc",
+      "path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a03/prompt.md",
+      "sha256": "170f48485aa44deee24c4e3af1529273343dd5cef3d94489e7e24b11bf1c38ee"
+    }
+  ],
+  "checked_at_utc": "2026-10-22T04:12:07.893745+00:00",
+  "clean_worktree_before_and_after_probe": true,
+  "current_host_gates": "NOT_RUN after provenance blocker; immutable PreExec host PASS is historical readiness only",
+  "dispatch_blob": "e01375c9f20cfdfce85d47657d429c98cfc5505b",
+  "dispatch_schema_validation": "PASS",
+  "dispatch_sha256": "1f02d38cf33086fdcc9ccddb69bd281aa4c4642d3a2ad8605cb4bcaa83bb138b",
+  "envelope": {
+    "FOX2_ACCEPTED_SOURCE": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+    "FOX2_CONTROL_BRANCH": "work/FOX2-DISPATCH-chat",
+    "FOX2_DISPATCH_COMMIT": "d7fb6ed0c9c8a2e40b61d09c1276ea54da5069a7",
+    "FOX2_DISPATCH_ID": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-CODEX-001",
+    "FOX2_OWNER_LAUNCHER_VERIFIED": "TRUE",
+    "FOX2_PASS_TO_ASSIGN_COMMIT": "158968a3866972fab244cfb131a7d333eca53d87",
+    "FOX2_PASS_TO_ASSIGN_PATH": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/HOST_LIFECYCLE_CERT_A03_PASS_TO_ASSIGN_20261022.md",
+    "FOX2_PREEXEC_RECEIPT_COMMIT": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+    "FOX2_RUNTIME_BASE": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+    "FOX2_STATUS_BRANCH": "work/FOX2-BRIDGE-F1-G1-INTEGRATED-DESIGN-20261021"
+  },
+  "fetched_control_head": "d7fb6ed0c9c8a2e40b61d09c1276ea54da5069a7",
+  "fetched_status_head": "0311076e3c7795576744e987f2270532f9378c25",
+  "governance": {
+    "dictionary": {
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083",
+      "commit": "b25f7f728de67cf8595bf24f22fcbd79ef50babc",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+      "machine_installed_effectivity": "NOT_ATTESTED",
+      "observed_sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "sha256": "8a64771916d9e3d447f560658e20b307b5945a5d6b3820ea61cd0298636abe1d",
+      "source_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+      "version": "1.3"
+    },
+    "git_first_protocol": {
+      "blob_sha1": "d34a022f2bda39a167a404c8530e57b30f337cb9",
+      "commit": "f2a8bc8e6ce0785a800d78a3c384f205fdc5a6fa",
+      "observed_sha256": "d4efa04f4b50d94d04486ab6eb7f718548611a7fa07a18293701f7ca0d4455a6",
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v12.md",
+      "status": "RELEASED_UNCHANGED",
+      "version": "12"
+    },
+    "policy": {
+      "blob_sha1": "2d373f374f906bf7959062050bbeae5350b0c482",
+      "commit": "96175ac4f39197794a04e695f0046fa7ef9321fe",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+      "machine_installed_effectivity": "NOT_ATTESTED",
+      "observed_sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "path": "docs/governance/FOX2_POLICY_V2.0.0.md",
+      "sha256": "281bcd61bb8c2fb7929ac474f218adbd004bbca6bc21e5311944a0e590723e1e",
+      "source_embedded_status": "OWNER_APPROVED_POLICY_SOURCE",
+      "version": "2.0.0"
+    },
+    "routing_index": {
+      "blob_sha1": "14d2e95e419cc67c3e0cf851cc806a96cf885b7e",
+      "commit": "bcd008983b61349646a5198ff243069f81484fae",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
+      "machine_installed_effectivity": "NOT_ATTESTED",
+      "observed_sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "path": "docs/governance/FOX2_AGENT_PROMPT_POLICY_V1_4_0_OWNER_OVERRIDE_ROUTING_INDEX_20261019.md",
+      "sha256": "5759b9a8d63ef165ef63c60ecc601198e39296518c5a1eb91db54555ccd07205",
+      "source_embedded_status": "OWNER_APPROVED_MIGRATION_CANDIDATE",
+      "version": "1.4.0"
+    }
+  },
+  "host_execution_go": "BLOCKED_BY_PROVENANCE",
+  "immutable_envelope_verification": "PASS",
+  "local_head": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+  "network_observation": "Initial git fetch failed DNS; subsequent ls-remote and explicit fetch of control/status/governance/task branches succeeded. No host configuration change.",
+  "pass_to_assign_sha256": "8803d708f014c833576c88e31ba88ca629d55622197d53359348b3a351fdbe31",
+  "preexec_sha256": "0fd19aeee99092a82cd2beac4fbca7fd7fb0cc274d9063a3c94ce850d85ea9a8",
+  "product_drift": false,
+  "remote_task_head": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+  "setup_paths": [
+    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a03/host_lifecycle_cert_a03_preexec.ps1",
+    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a03/prompt.md",
+    "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a03/task.md",
+    "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/host_lifecycle_cert_a03.json"
+  ],
+  "task_branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-20261022"
+}

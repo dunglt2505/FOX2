@@ -1,0 +1,36 @@
+{
+  "builder_arguments": [
+    "--output",
+    "--build-python"
+  ],
+  "builder_blob_sha1": "2417212e5677a2061e3957544a99e2ba80f46f4d",
+  "builder_identical_to_accepted_source": true,
+  "builder_path": "agent_bridge/scripts/build_user_package.py",
+  "builder_raw_sha256": "8e937d23304d061bd5f051e804a64734c90f1b0b7eb4ad6d4c2398ebd1565d43",
+  "checked_at_utc": "2026-10-22T04:12:07.893745+00:00",
+  "disposition": "REWORK_REQUIRED",
+  "expected_source_git_commit": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
+  "function_lines": [
+    60,
+    89
+  ],
+  "gate": "manifest.source_git_commit must equal accepted source",
+  "host_mutation_started": false,
+  "install_attempts": 0,
+  "isolated": true,
+  "lifecycle_attempts": 0,
+  "manifest_assignment_line": 175,
+  "observed_source_git_commit_function_return": "534204d5cc39a17fb4b3beb948b9b472d6e550b5",
+  "package_build": "NOT_RUN",
+  "package_manifest": "NOT_CREATED",
+  "package_sha256": null,
+  "probe": "existing isolated Python -I; import accepted builder with sys.dont_write_bytecode=True; invoke source_git_commit() only; no build() or subprocess package commands",
+  "python_version": "3.13.15",
+  "recovery_attempts": 0,
+  "reinstall_attempts": 0,
+  "required_resolution": "CHAT reconcile authorized build checkout/source identity with builder HEAD provenance, or assign source correction separately; fresh authorization required; no A03 replay.",
+  "result": "BLOCKED",
+  "source_git_commit_function": "def source_git_commit() -> str:\n    \"\"\"Bind package provenance to a clean, checked-out Git source.\"\"\"\n    import re\n    repository = ROOT.parent\n\n    def git(*args: str):\n        return subprocess.run(['git', '-C', str(repository), *args], capture_output=True, text=True, check=False)\n    identity = git('rev-parse', '--verify', 'HEAD')\n    if identity.returncode or not re.fullmatch('[0-9a-f]{40}', identity.stdout.strip()):\n        raise ValueError('an immutable Git source commit is required to package Bridge')\n    status = git('status', '--porcelain', '--untracked-files=all', '--', 'agent_bridge/src', 'agent_bridge/scripts', 'agent_bridge/desktop_app')\n    if status.returncode:\n        raise ValueError('cannot verify package source worktree')\n    excluded = ('/__pycache__/', '/.pytest_cache/', '/bin/', '/obj/', '/publish/', '/build/', '/dist/', '/.venv/', '/.build-venv/')\n    for line in status.stdout.splitlines():\n        path = line[3:].replace('\\\\', '/')\n        if any((item in path for item in excluded)) or path.endswith(('.pyc', '.pyo')):\n            continue\n        if '.egg-info/' in path:\n            continue\n        raise ValueError('package source worktree has uncommitted code')\n    return identity.stdout.strip()",
+  "uninstall_attempts": 0,
+  "workaround_used": false
+}

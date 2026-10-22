@@ -1,0 +1,376 @@
+{
+  "dispatch_required_tests": {
+    "AGENT_REMOTE_DISPATCH_VERIFICATION_PASS": {
+      "evidence_id": "E_AUTH",
+      "reason": "Fetched immutable Git bytes verified against supplied envelope.",
+      "status": "PASS"
+    },
+    "AGENT_REMOTE_PASS_TO_ASSIGN_VERIFICATION_PASS": {
+      "evidence_id": "E_AUTH",
+      "reason": "Fetched immutable Git bytes verified against supplied envelope.",
+      "status": "PASS"
+    },
+    "AGENT_REMOTE_PREEXEC_RECEIPT_VERIFICATION_PASS": {
+      "evidence_id": "E_AUTH",
+      "reason": "Fetched immutable Git bytes verified against supplied envelope.",
+      "status": "PASS"
+    },
+    "CHANGED_PATH_ALLOWLIST_REPORT_EVIDENCE_ONLY": {
+      "evidence_id": "E_VALIDATION",
+      "reason": "Generated result static validation.",
+      "status": "PASS"
+    },
+    "CONSUMED_IDENTITIES_PRESERVED": {
+      "evidence_id": "E_HISTORY",
+      "reason": "No lifecycle mutation/replay or historical record write occurred.",
+      "status": "PASS"
+    },
+    "CURRENT_POINTER_AND_INSTALLED_RECEIPT_BIND_EXACT_PACKAGE_SOURCE": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "DURABLE_CONFIG_DATABASE_MANUAL_CONSUMPTION_PRESERVED": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "EXACT_ACCEPTED_SOURCE_PACKAGE_BUILD_PROVENANCE": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Accepted builder binds runtime HEAD rather than required accepted source.",
+      "status": "BLOCKED"
+    },
+    "EXPLICIT_GRACEFUL_WPF_EXIT_BEFORE_INSTALL_UPDATE": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "FINAL_CURRENT_POINTER_AND_SOURCE_EXACT": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "FINAL_SETUP_PAUSED_SAFE_STATE_PASS": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "GIT_DIFF_CHECK": {
+      "evidence_id": "E_VALIDATION",
+      "reason": "Generated result static validation.",
+      "status": "PASS"
+    },
+    "HIDDEN_OR_MINIMIZED_EXACT_CURRENT_WPF_CLASSIFIED": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "IF_HIDDEN_SIGNAL_STABLE_LAUNCH_ONCE_ONLY": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "IF_HIDDEN_SINGLETON_COUNT_AND_PID_PATH_UNCHANGED": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "K1_UNEXPLAINED_ZERO": {
+      "evidence_id": "E_K1",
+      "reason": "All result hunks classified JUSTIFIED_GENERATED.",
+      "status": "PASS"
+    },
+    "NO_G3_G4_APPLOCKER_SERVICE_ACL_MUTATION": {
+      "evidence_id": "E_HISTORY",
+      "reason": "No lifecycle mutation/replay or historical record write occurred.",
+      "status": "PASS"
+    },
+    "NO_OLD_DISPATCH_REPLAY": {
+      "evidence_id": "E_HISTORY",
+      "reason": "No lifecycle mutation/replay or historical record write occurred.",
+      "status": "PASS"
+    },
+    "PACKAGE_SHA256_AND_MANIFEST_VERIFIED_BEFORE_HOST_MUTATION": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "POST_EXIT_STOPPED_PAUSED_SETUP_NO_CURRENT_DISPATCH": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "POST_UNINSTALL_CURRENT_POINTER_AND_OWNED_VERSIONS_ABSENT": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "PRESENTATION_LOCK_HELD_THEN_RELEASED": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "PRESENTATION_ZERO_AND_LOCK_RELEASE_AFTER_CLEANUP": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "PRE_STATE_DURABLE_HASH_SNAPSHOT": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "REAL_INSTALL_OR_UPDATE_EXACT_PACKAGE_PASS": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "RESULT_CONTRACT_V2_REPORT_AND_EVIDENCE_MANIFEST": {
+      "evidence_id": "E_VALIDATION",
+      "reason": "Generated result static validation.",
+      "status": "PASS"
+    },
+    "RUNTIME_AUTHORIZATION_ENVELOPE_PRESENT": {
+      "evidence_id": "E_AUTH",
+      "reason": "Fetched immutable Git bytes verified against supplied envelope.",
+      "status": "PASS"
+    },
+    "SAFE_PAUSED_STATE_BEFORE_CERTIFICATION": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "SAME_EXACT_PACKAGE_REINSTALL_PASS": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "SECRET_SCAN": {
+      "evidence_id": "E_VALIDATION",
+      "reason": "Generated result static validation.",
+      "status": "PASS"
+    },
+    "STABLE_EXTERNAL_UNINSTALL_EXERCISED_EXACTLY_ONCE": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "UI_INSPECT_CHECK_SIX_NAVIGATION_AND_PAUSED_CHECK_DISABLED": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "UNINSTALL_EXIT_ZERO": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "WORKER_F1_NOT_APPLICABLE_PRE_G3_AND_NOT_STARTED": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "WPF_LAUNCH_TWICE_ONE_EXACT_PRESENTATION": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    },
+    "WPF_UI_INSPECT_BINDS_EXACT_SAME_PID_BEFORE_CLEANUP": {
+      "evidence_id": "E_PROVENANCE",
+      "reason": "Stopped before package build and host mutation; no inferred lifecycle PASS.",
+      "status": "NOT_RUN"
+    }
+  },
+  "disposition": "REWORK_REQUIRED",
+  "final_delivery_note": "Read final external pointer for actual observed remote result SHA.",
+  "result": "BLOCKED",
+  "task_acceptance": [
+    {
+      "evidence_id": "E_AUTH",
+      "id": "AC01",
+      "reason": "Accepted source is the exact ancestor; agent_bridge tree has no drift.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC02",
+      "reason": "Read-only source_git_commit() returned runtime HEAD, incompatible with required accepted source; no manifest created.",
+      "status": "BLOCKED"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC03",
+      "reason": "Package build/hash/manifest/payload checks stopped before build.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_HOST",
+      "id": "AC04",
+      "reason": "Only limited read-only observation; full pre-state snapshot not performed.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_HOST",
+      "id": "AC05",
+      "reason": "No WPF surfacing, inspect or cleanup; existing singleton left untouched.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC06",
+      "reason": "Install/update exact package: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC07",
+      "reason": "Current pointer and installed receipt bind accepted package: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC08",
+      "reason": "Safe paused/setup/no-current-dispatch state: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC09",
+      "reason": "Launch twice exactly one WPF: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC10",
+      "reason": "UI inspect/check: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC11",
+      "reason": "Live presentation lock: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC12",
+      "reason": "Safe state and identity before exit: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC13",
+      "reason": "Explicit graceful exit: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC14",
+      "reason": "Zero presentation and released lock: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC15",
+      "reason": "Post-exit safe state: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC16",
+      "reason": "Stable external uninstall exactly once: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC17",
+      "reason": "Uninstall exit zero: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC18",
+      "reason": "Immediate uninstall postconditions: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC19",
+      "reason": "Durable config/database/manual-consumption preservation: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC20",
+      "reason": "Same exact package reinstall: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC21",
+      "reason": "Final pointer/source: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_PROVENANCE",
+      "id": "AC22",
+      "reason": "Final setup/paused state: stopped before package build or host mutation.",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence_id": "E_HISTORY",
+      "id": "AC23",
+      "reason": "No historical consumed identity was rewritten; manual-consumption hash matches PreExec. No lifecycle/DB preservation PASS claimed.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_HISTORY",
+      "id": "AC24",
+      "reason": "No old Dispatch replay; this A03 Agent attempt is consumed and cannot be replayed.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_HISTORY",
+      "id": "AC25",
+      "reason": "No Worker/F1/G3/G4/AppLocker/service/ACL or other forbidden mutation invoked.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_VALIDATION",
+      "id": "AC26",
+      "reason": "Only the authorized report/evidence paths changed.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_VALIDATION",
+      "id": "AC27",
+      "reason": "Bounded generated-artifact secret/privacy scan passed.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_VALIDATION",
+      "id": "AC28",
+      "reason": "Git diff --check passed for generated result changes.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_K1",
+      "id": "AC29",
+      "reason": "Every changed file and material hunk is JUSTIFIED_GENERATED report/evidence; UNEXPLAINED=0.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_VALIDATION",
+      "id": "AC30",
+      "reason": "Result Contract v2 schema and evidence hashes validated.",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "E_VALIDATION",
+      "id": "AC31",
+      "reason": "Delivery pending at report assembly. Actual push/readback is performed subsequently and remote SHA returned outside this report.",
+      "status": "NOT_RUN"
+    }
+  ],
+  "worker_f1_health": "NOT_APPLICABLE_PRE_G3"
+}

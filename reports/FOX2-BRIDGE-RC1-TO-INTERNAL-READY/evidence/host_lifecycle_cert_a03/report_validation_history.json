@@ -1,0 +1,8 @@
+{
+  "scope": "Report generation only; no package build or host lifecycle invocation",
+  "initial_check": "Report assembler raised AssertionError comparing generated path inventory before and after replacing the inherited manifest.",
+  "cause": "The inherited manifest had not yet changed when the first changed-path inventory was collected; writing the new manifest added its path.",
+  "correction": "Include both mandatory report paths explicitly in the result inventory and rerun report assembly/validation.",
+  "product_source_changes": false,
+  "lifecycle_retries": 0
+}

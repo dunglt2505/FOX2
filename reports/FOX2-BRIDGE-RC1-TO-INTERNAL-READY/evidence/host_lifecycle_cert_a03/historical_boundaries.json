@@ -1,0 +1,47 @@
+{
+  "database_hash_matches_preexec": false,
+  "database_hash_note": "Read-only observed DB hash differs from PreExec; cause not investigated or attributed. No A03 lifecycle mutation occurred. Durable preservation is NOT_RUN.",
+  "dispatches": [
+    {
+      "blob_sha1": "353ca16452d5d717ca023872a54c2eeb2f3c310b",
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
+      "replayed": false
+    },
+    {
+      "blob_sha1": "cd91624ff7d85cb23f04bf60d2ee641601f7afc1",
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
+      "replayed": false
+    },
+    {
+      "blob_sha1": "0997c8126e24dbf973949fb14610324b49b99bdc",
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001",
+      "replayed": false
+    },
+    {
+      "blob_sha1": "bb5f040e389863bcd0c3a1a464ccf9faad2d987e",
+      "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-CODEX-001",
+      "replayed": false
+    }
+  ],
+  "host_a01": {
+    "commit": "9dd91becf47d934183baf147d0a4f03f4bf5933d",
+    "result": "FAIL / REWORK_REQUIRED"
+  },
+  "host_a02": {
+    "lifecycle": "NOT_RUN",
+    "recovery_commit": "53c3913899f87ad867c04c14d1da52b27d3cdbec",
+    "state": "CONSUMED_NO_RESULT"
+  },
+  "host_a03": {
+    "agent_attempts": 1,
+    "disposition": "REWORK_REQUIRED",
+    "lifecycle": "NOT_RUN",
+    "replay_permitted": false,
+    "result": "BLOCKED",
+    "retries": 0
+  },
+  "manual_consumption_hash_matches_preexec": true,
+  "no_worker_f1_g3_g4_applocker_service_acl_mutation": true,
+  "note": "No historical record was rewritten. No old Dispatch was executed. Hash equality of manual consumption is not a full DB/consumed-ledger certification.",
+  "observed_at_utc": "2026-10-22T04:14:23.111324+00:00"
+}

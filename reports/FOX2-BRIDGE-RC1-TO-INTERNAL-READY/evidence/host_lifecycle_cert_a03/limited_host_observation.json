@@ -1,0 +1,43 @@
+{
+  "observed_at_utc": "2026-10-22T04:12:31.8761601+00:00",
+  "mode": "READ_ONLY_LIMITED_OBSERVATION_AFTER_PROVENANCE_STOP",
+  "installed": true,
+  "current_package_sha256": "52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4",
+  "current_source_sha256": "6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73",
+  "wpf_count": 1,
+  "wpf": [
+    {
+      "pid": 10608,
+      "path_alias": "BridgeRoot/versions/52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4/payload/desktop/FOX2.Bridge.Desktop.exe",
+      "exact_current": true
+    }
+  ],
+  "task_codex_writer_count": 1,
+  "task_codex_writers": [
+    {
+      "pid": 4652,
+      "parent_pid": 20560,
+      "model_matches": true,
+      "high_matches": true,
+      "full_access_matches": true
+    }
+  ],
+  "durable_hashes": {
+    "config/bridge.toml": "b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7",
+    "data/bridge.db": "2d0f5815ddae9224b304e5eb7e7cd32be447c8dab5ebc0327406ed00d47b7343",
+    "data/manual_consumption.json": "c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c",
+    "uninstall.ps1": "ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff"
+  },
+  "full_pre_state_snapshot": "NOT_RUN",
+  "control_status": "NOT_RUN",
+  "ui_inspect": "NOT_RUN",
+  "launch_count": 0,
+  "ui_exit_count": 0,
+  "package_build_count": 0,
+  "install_count": 0,
+  "lifecycle_count": 0,
+  "stable_uninstall_count": 0,
+  "reinstall_count": 0,
+  "recovery_count": 0,
+  "notes": "No Bridge CLI, launch, inspect, exit, scheduler or service command invoked. Historical PreExec observations are not a fresh host lifecycle PASS."
+}
