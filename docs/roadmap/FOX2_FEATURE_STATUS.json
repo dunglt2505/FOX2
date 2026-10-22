@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "R3_CODEX_A01_DISPATCH_CONSUMED_NO_REMOTE_RESULT_LOCAL_STATE_UNKNOWN_AFTER_POST_CONSUME_REPORTING_DEFECT",
+      "blocker": "R3_CODEX_A01_CONSUMED_NO_REPLAY; REMOTE_AND_LOCAL_HEAD_EQUAL_RUNTIME_BASE; WORKTREE_CLEAN; NO_ACTIVE_WRITER; CLAIM_PATH_AND_LAST_MESSAGE_NEED_FINAL_READONLY_RECONCILIATION",
       "as_of": "2026-10-22",
-      "next_safe_action": "RUN_ONE_READONLY_HOST_RECONCILIATION_PROBE_ONLY; DO_NOT_REPLAY_DISPATCH_097C57A7; IF_VALID_EXISTING_LOCAL_RESULT_EXISTS_SALVAGE_EXISTING_BYTES_ONLY; ELSE CLASSIFY_CONSUMED_NO_RESULT_AND_CREATE_FRESH_ATTEMPT_IF_GOVERNANCE_PERMITS",
+      "next_safe_action": "RUN_ONE_CORRECTED_READONLY_RECOVERY_PROBE_ONLY; NO_CODEX; NO_GIT_WRITE; NO_REPLAY. IF_NO_LOCAL_RESULT_AND_NO_WRITER_CONFIRM_CONSUMED_NO_RESULT_THEN FRESH ATTEMPT ONLY IF GOVERNANCE_PERMITS",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -174,12 +174,12 @@
         "next_phase": {
           "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R3",
           "stage": "BUILD",
-          "status": "DISPATCH_CONSUMED_NEEDS_RECONCILIATION_NO_REMOTE_RESULT",
+          "status": "DISPATCH_CONSUMED_RECOVERY_PROBE_PARTIAL_NO_LOCAL_OR_REMOTE_DELTA_OBSERVED",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "preexec": "PASS_REMOTE_ACCEPTED_V4",
           "dispatch_published": true,
           "agent_started": true,
-          "result": "UNKNOWN_LOCAL_STATE_NO_REMOTE_RESULT",
+          "result": "NEEDS_RECONCILIATION_LOCAL_RESULT_LIKELY_ABSENT",
           "host_mutation": false,
           "allowed_before_g3": true,
           "g3_unlocked": false,
@@ -391,7 +391,17 @@
             "first_failure_visible": "POST_CONSUME_REPORTING_WRAPPER_SAFE_NOT_RECOGNIZED",
             "inner_execution_outcome": "UNKNOWN_MASKED_BY_REPORTING_DEFECT",
             "no_replay": true,
-            "next_probe": "READ_ONLY_LOCAL_CLAIM_PROCESS_HEAD_DIFF_LAST_MESSAGE_RESULT_PATHS"
+            "next_probe": "READ_ONLY_LOCAL_CLAIM_PROCESS_HEAD_DIFF_LAST_MESSAGE_RESULT_PATHS",
+            "partial_probe_commit": "a133ad8ec957b841db05b0c23dc267438d81fa92",
+            "observed_local_head": "7fcdfd19e0d9177b4d85e39fd249b5e65ccc0d49",
+            "observed_remote_head": "7fcdfd19e0d9177b4d85e39fd249b5e65ccc0d49",
+            "observed_worktree_clean": true,
+            "observed_task_scoped_process_count": 0,
+            "claim_common_dir_probe_exists": false,
+            "remaining_unknowns": [
+              "EXACT_CLAIM_LOCATION",
+              "RECENT_CODEX_LAST_MESSAGE"
+            ]
           }
         },
         "host_lifecycle_cert": {
