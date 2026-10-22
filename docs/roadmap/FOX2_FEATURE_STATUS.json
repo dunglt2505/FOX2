@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "OWNER_RUN_VERIFIED_SHORT_BOOTSTRAP_FOR_IMMUTABLE_R4_LAUNCHER_EF065D1B; BOOTSTRAP_STOPS_IF_DURABLE_R4_CLAIM_EXISTS",
+      "blocker": "R4_CHAT_REWORK_ERRNO13_DIFFERENTIAL_PROOF_ACCEPTS_PRELIVE_ABSENT; R4_DISPATCH_CONSUMED_NO_REPLAY",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_SHORT_PS7_BOOTSTRAP_ONLY; BOOTSTRAP_FETCHES_LAUNCHER_EF065D1B_BLOB_8FAEC491_SHA256_D1673570, PARSES IT, EXECUTES_VIA_PWSH_FILE; DO_NOT_PASTE_LONG_LAUNCHER_BODY",
+      "next_safe_action": "OPEN_FRESH_R5_BOUNDED_CORRECTION_FROM_R4_RESULT_AS_UNACCEPTED_SALVAGE; PRESERVE_A04_AND_R4_UNAFFECTED_PASS; ADD_ABSENT_PRELIVE_PLUS_ERRNO13_NEGATIVES; NO_A05_UNTIL_CHAT_ACCEPT",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -172,14 +172,14 @@
           }
         },
         "next_phase": {
-          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R4",
+          "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R5",
           "stage": "BUILD",
-          "status": "IMMUTABLE_OWNER_LAUNCHER_PUBLISHED_BOOTSTRAP_READY",
+          "status": "REWORK_REQUIRED_R4_SEMANTIC_GAP",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "preexec": "PASS_REMOTE_ACCEPTED",
-          "dispatch_published": true,
+          "preexec": "NOT_RUN_R5",
+          "dispatch_published": false,
           "agent_started": false,
-          "result": "NOT_RUN",
+          "result": "NOT_RUN_R5",
           "host_mutation": false,
           "allowed_before_g3": true,
           "g3_unlocked": false,
@@ -433,6 +433,14 @@
             "long_body_paste_forbidden": true,
             "durable_claim_required_before_consumed_marker": true,
             "stop_if_existing_claim": true
+          },
+          "previous_r4_review": {
+            "commit": "07ce66987345859f978c06fbb4abbdeeaa0ff04c",
+            "result_sha": "d997756b5f4cfaa7e442dfc5d929093782b7a90f",
+            "verdict": "CHAT_REWORK",
+            "first_failure": "PRELIVE_ABSENT_ERRNO13_CAN_BE_ACCEPTED_BY_KEY_PRESENCE",
+            "consumed_dispatch": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R4-CODEX-001",
+            "no_replay": true
           }
         },
         "host_lifecycle_cert": {
