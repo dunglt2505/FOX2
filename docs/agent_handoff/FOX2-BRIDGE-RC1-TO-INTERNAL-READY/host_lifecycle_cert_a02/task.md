@@ -10,6 +10,15 @@ Execution path: `MANUAL_LOCAL`
 Permission profile: `FULL_ACCESS` only within this task
 Max Agent attempts: 1
 
+Task revision: `R2_PRE_ASSIGNMENT_WPF_HIDDEN_STATE_RECOVERY`
+
+This revision supersedes the earlier **pre-assignment** task binding at
+`d0b070e42d25a1581fee8a8731f393206ec5ef5b` for future execution only.
+
+No executable Host Lifecycle A02 Dispatch existed and no Agent execution or host mutation had started when this revision was published.
+
+Reason for revision: PreExec v2 observed exactly one current-package `FOX2.Bridge.Desktop.exe` and then failed because the UI Automation top-level window was unavailable. Accepted WPF source proves this can be a legitimate hidden/minimized presentation state: `ShutdownMode=OnExplicitShutdown`, close/minimize hides the window, and startup may create `MainWindow` without `Show()`. The TEST contract therefore distinguishes exact hidden/minimized presentation from unknown/wrong-process state instead of requiring a visible UI during read-only PreExec.
+
 ## Goal
 
 Certify the **accepted A02 WPF presentation-only lifecycle contract** on the Owner physical Windows host.
@@ -70,7 +79,7 @@ At execution:
 Owner physical Windows host only.
 
 Allowed real host mutation is strictly the per-user Bridge package lifecycle required for this TEST:
-- graceful close of one existing current-package WPF presentation before install if necessary and provably safe;
+- bounded surface-and-graceful-close of one existing exact-current-package WPF presentation before install if necessary and provably safe;
 - exact package install/update;
 - setup/startup state operations required by the accepted lifecycle harness;
 - WPF launch/inspect/check/graceful exit;
@@ -108,7 +117,15 @@ Before package build or host mutation:
 12. no G3/G4/Canary task active;
 13. no unsafe process/state condition that would make package mutation ambiguous.
 
-If exactly one current-package WPF presentation remains from a previous failed certification, execution may use the existing UI seam for a **single graceful exit before first package mutation**. If it is not exact current-package, is duplicated, cannot be inspected, or does not exit gracefully, STOP before package mutation. No force kill.
+If exactly one current-package WPF presentation remains from a previous failed certification, read-only PreExec may classify it as either:
+- `VISIBLE_INSPECTABLE_EXACT_CURRENT`; or
+- `HIDDEN_OR_MINIMIZED_EXACT_CURRENT`.
+
+The hidden/minimized classification is allowed only when process count is exactly one, executable path exactly matches the current-package Desktop executable, Bridge control state is paused/setup-complete/no-current-dispatch, and Worker/legacy tray processes are absent.
+
+A hidden/minimized exact-current presentation is **not** closed during PreExec. The future fresh executable Dispatch may surface that same singleton exactly once via stable `BridgeRoot/launch.ps1`, require process count remains one and PID/path remain unchanged, then require UI inspect to bind the same PID before a single graceful exit.
+
+If path/PID identity is unknown, launch creates more than one presentation, UI remains unavailable after bounded surfacing, or graceful exit fails, STOP before package install/update. No force kill.
 
 Missing material capability or unsafe host state => STOP before mutation.
 
@@ -154,16 +171,29 @@ Do not commit secrets, raw config, DB contents, raw prompts, private local paths
 
 ## Real lifecycle sequence
 
-### L0 — optional stale current-package presentation cleanup
+### L0 — optional stale exact-current WPF reconciliation and cleanup
 
-Only if PreExec observes exactly one WPF presentation and execution re-verifies it is the exact current package:
-- inspect using existing UI seam;
-- invoke explicit graceful `exit` once;
+Only if PreExec observes exactly one WPF presentation and execution re-verifies it is the exact current package.
+
+If the presentation is already visible/inspectable:
+- require UI inspect PID equals the observed process PID.
+
+If the presentation is exact-current but hidden/minimized:
+- invoke stable `BridgeRoot/launch.ps1` exactly once to signal the existing singleton show-event;
+- do not start Worker/F1;
+- wait boundedly for the UI window;
+- require WPF process count remains exactly one;
+- require the same PID and exact executable path remain;
+- require UI inspect PID equals that same process PID.
+
+After either visible path is established:
+- recheck paused/setup-complete/current_dispatch=null;
+- invoke explicit graceful `exit` exactly once;
 - wait boundedly for zero presentations;
 - require presentation lock release;
 - record cleanup as preparation, not lifecycle PASS.
 
-If any identity/exit condition fails, STOP before install/update.
+If surfacing creates a second presentation, process/PID/path drifts, UI remains unavailable, safe control drifts, or graceful exit fails, STOP before install/update. No force kill and no fallback Worker/tray launch.
 
 ### L1 — install/update accepted package
 
@@ -268,7 +298,7 @@ Temporary package/build/test outputs are not committed.
 2. package source_git_commit exactly `085cc830...`;
 3. package SHA-256/manifest/payload verification before mutation;
 4. bounded pre-state snapshot;
-5. any pre-install WPF cleanup is exact-current-package + graceful only;
+5. any pre-install WPF cleanup proves exact-current identity; hidden/minimized state may be surfaced once through stable launch with same singleton PID before graceful exit;
 6. install/update exact package PASS;
 7. current pointer/installed receipt exact;
 8. safe paused/setup/no-current-dispatch state;
