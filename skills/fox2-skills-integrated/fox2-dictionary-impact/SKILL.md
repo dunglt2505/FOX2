@@ -5,9 +5,9 @@ description: Trace domain dictionary changes and consumer impact.
 
 # fox2-dictionary-impact
 
-## Agile Lite Owner-approved operating precedence (2026-10-22)
+## Agile Lite Owner-approved precedence
 
-Use Policy v2.1.0 and canonical `../shared/operating_rules.md` for ONE Kanban / Build -> Test -> Deliver. This Skill's specialized safeguards remain; legacy unconditional R0-R7, full PreExec receipt, Git-published task/prompt, Agent Dispatch, independent review and document release chains are conditional ONLY on a selected material/Bridge/irreversible technical route. Normal authorized native DEV does not need these extra management gates. Fix only actual source/consumer drift, preserve historical bindings and no-replay, never represent UNKNOWN as PASS.
+Use Policy v2.1.0 and `../shared/operating_rules.md`. Ordinary internal native DEV follows one task, real output, focused test and CHAT acceptance. Legacy Git-first/PreExec/Dispatch requirements below are applicable only when chosen technical transport or irreversible risk requires them. Preserve domain validation, current source authority, historical bindings and no-replay. No blanket version changes.
 
 ## Activate when
 A field, metric, domain identity or naming change is considered.
