@@ -1,17 +1,11 @@
-# FOX2 Skills — Agile Lite Operating Rules (v0.4.3)
+# FOX2 three-layer Skills operating rules — 0.5.0
 
-Effective human governance: Policy v2.1.0, Routing v1.5.0, Task/Result Protocol v13, for new/re-scoped FOX2 tasks. Keep historical machine-bound sources immutable.
+Owner-approved 2026-10-22 for ALL FOX2 project tasks. Layer 1 `mgmt` handles one Kanban, task priority, routing, context. Layer 2 `method` handles domain-specific thinking/instructions and acceptance. Layer 3 `tech` handles publication/readback, material host checks, recovery. A Skill is a **method**, not extra permission or an approval board.
 
-## Three responsibility layers
-1. **Project management (Owner / CHAT / one Kanban):** prioritize outcomes and one task; BACKLOG → DOING ↔ BLOCKED → DONE, Build → Test → Deliver. CHAT owns completion. No approval-stage Kanbans, duplicate WP or repeated Owner approval for authorized routine fixes.
-2. **Skills (professional methods):** each Skill has one trigger, one specialized method and one deliverable. Skills advise and prepare bounded artifacts; they are not a competing Policy, permission authority, enforcement agent or release mechanism. Use only needed Skills; no coverage certificate or eight-field receipt for every task.
-3. **Execution systems (Git / CODEX / Copilot / Bridge):** enforce their genuine runtime permissions, scope/writer, source locks, PreExec when applicable, schema/Dispatch when Bridge is chosen, immutable one-attempt ledger, no-replay and result publication. Prompt Builder only writes prompt; Bridge/Git publisher owns technical handoff and result transport; Result Review checks product acceptance.
+**Agile Lite:** one logical task, Build → Test → Deliver. CHAT owns end-to-end delivery; call only Skills needed. Native reversible DEV has no automatic R0–R7 worksheet, durable PreExec receipt, Git-published prompt, Bridge Dispatch, micro-WP, independent review or forced High model. Reuse accepted evidence and correct small defects within the same task.
 
-## Proportional checks
-Ordinary reversible native DEV: one task, focused tests, accepted result; no mandatory R0–R7 sheet, immutable Git prompt, PreExec receipt, secondary audit or document release. For actual Bridge/irreversible/high-risk action, satisfy installed technical controls and real permissions; do not fabricate PASS/authority, silently change pinned model or replay a consumed attempt. LIVE/broker/provider writes and destructive work remain protected.
+**Bridge exception:** real Bridge runtime (not Skill prose) owns schema/normalizer, Dispatch v3, PreExec, ledger/no-replay, Agent CLI, Git publication of results and actual worktree/permission boundaries. Prompt Builder writes ONLY task/prompt content; Publishing & Sync verifies committed bytes; Route Preflight inspects real technical guards; Result Acceptance reviews result. Do not infer verified technical PASS from Owner approval or task text.
 
-## Source and evidence integrity
-Use one authorized current source resolver; historical versions remain historical or machine-bound unless a real incompatible consumer is found. Never blanket-bump BRD, TechSpec, Dictionary or old Dispatch references. Git push != test PASS != CHAT acceptance != installed runtime adoption. Preserve accepted unchanged PASS; fix smallest causal fault and retest only affected dependencies.
+**Trust and source:** Human current Policy/Router/Protocol and a historic machine-pinned Bridge Policy may differ legitimately. Resolve by scope/real consumer, not filename version; preserve old immutable Dispatches. Avoid secrets in public Git, protected main, unsafe overwrite and provider/broker/LIVE operations absent actual authority. `NOT_RUN`, `UNKNOWN`, `FAIL` remain evidence, never PASS.
 
-## Applicability
-This file is the sole current shared operating rule for the 17 Skills. Older shared/host/sdlc/eight-field routing docs are archived method references only, not current mandatory instructions. For actual Bridge technical details, refer to installed runtime contracts; `shared/bridge_e2e_v041.md` is compatibility reference, NOT a Prompt Builder task list. If shared files are not accessible through the Skill host, each SKILL.md has the essential scope and safety boundary itself.
+**Single owner per responsibility:** mgmt chooses WHAT/WHO, method specifies HOW/GOOD, tech operates/verifies allowed route. No duplicated global management guards copied into every Skill; each Skill states its own inputs/output/boundary for host self-sufficiency. Technical baseline reference files under historical releases are non-normative unless selected installed runtime explicitly uses them.

@@ -1,29 +1,23 @@
 {
   "format": "FOX2_SKILLS_CLOUD_PLUGIN_MANIFEST_1",
   "name": "fox2-skills-integrated",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "status": "PLUGIN_RELEASE_METADATA_NOT_GOVERNANCE_EFFECTIVE",
   "plugin_scope": "PRIVATE_PERSONAL_PLUGIN",
   "skills": [
-    "fox2-agent-prompt-builder",
-    "fox2-agent-route-runtime",
-    "fox2-brd-change-control",
-    "fox2-dictionary-impact",
-    "fox2-document-publication",
-    "fox2-execution-recovery",
-    "fox2-feature-certification",
-    "fox2-governance-preflight",
-    "fox2-project-health",
-    "fox2-research-validation",
-    "fox2-result-review",
-    "fox2-source-resolver",
-    "fox2-source-sync",
-    "fox2-status-roadmap",
-    "fox2-strategic-agent-triage",
-    "fox2-techspec-validator",
-    "fox2-thread-handoff"
+    "fox2-mgmt-delivery",
+    "fox2-mgmt-agent-routing",
+    "fox2-mgmt-context-handoff",
+    "fox2-method-prompt-builder",
+    "fox2-method-requirements-design",
+    "fox2-method-source-contracts",
+    "fox2-method-result-acceptance",
+    "fox2-method-research-validation",
+    "fox2-tech-publication-sync",
+    "fox2-tech-route-preflight",
+    "fox2-tech-execution-recovery"
   ],
-  "skills_count": 17,
+  "skills_count": 11,
   "shared_resolver": "shared/git_resolver.py",
   "shared_guidance": "shared/operating_rules.md",
   "policy": "FOX2 Policy v2.1.0",
@@ -31,8 +25,8 @@
   "task_protocol": "FOX2 Git-first Task/Result Protocol v13",
   "source_repo": "dunglt2505/FOX2",
   "source_commit": "c6b4d138520fb4486c316dc68f771249a774f955",
-  "current_file_hashes": "RELEASE_FILE_HASHES_0_4_2.json",
-  "previous_file_hashes": "RELEASE_FILE_HASHES_0_4_1.json",
+  "current_file_hashes": "RELEASE_FILE_HASHES_0_5_0.json",
+  "previous_file_hashes": "RELEASE_FILE_HASHES_0_4_2.json",
   "historical_candidate_manifest": "historical/CHAT_FIRST_0_2_0_CANDIDATE_MANIFEST_REFERENCE_ONLY.json",
   "host_behavioral_certification": "NOT_RUN",
   "machine_effective_status": "NOT_ATTESTED_UNTIL_RELEASE_CHAIN",
@@ -46,15 +40,18 @@
   "source_resolver_verdict": "SOURCE_BYTES_VERIFIED_GOVERNANCE_ACTIVE_MACHINE_SEPARATE",
   "skill_compliance": {
     "host_behavioral_certification": "NOT_RUN",
-    "runtime_validator": "NOT_DEPLOYED",
-    "no_git_mutation": true
+    "runtime_validator": "INSTALLED_BRIDGE_NOT_TESTED_HERE",
+    "no_git_mutation": true,
+    "skills_count": 11
   },
   "execution_ownership": {
     "contract": "CHAT_END_TO_END_DIRECT_FIRST",
     "work_default": "INDEPENDENT_AUDIT_ONLY",
     "no_extra_approval_layer": true
   },
-  "current_release_notes": "RELEASE_README_v0_4_2.md",
-  "bridge_handoff_guidance": "shared/bridge_e2e_v041.md",
-  "source_sync": "GIT_SOURCE_UPDATE_PENDING_SEPARATE_PUBLICATION"
+  "current_release_notes": "RELEASE_README_v0_5_0.md",
+  "bridge_handoff_guidance": "INSTALLED_BRIDGE_MACHINE_CONTRACT_ONLY",
+  "source_sync": "GIT_RELEASE_TO_BE_VERIFIED",
+  "skills_architecture": "3_LAYER_AGILE_LITE",
+  "migration_map": "SKILL_MIGRATION_v0_5_0.md"
 }
