@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "OWNER_RUN_VERIFIED_SHORT_BOOTSTRAP_FOR_IMMUTABLE_R5_LAUNCHER_42CAC745_ONCE; R4_DISPATCH_CONSUMED_NO_REPLAY; A05_LOCKED",
+      "blocker": "OWNER_RUN_R5_IMMUTABLE_LAUNCHER_42CAC745_ONCE; AFTER_RESULT_CHAT_REVIEW; NO_SEPARATE_A05_G3_G4_AUDIT_CANARY_OWNER_MILESTONES",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_SHORT_PS7_BOOTSTRAP_ONLY; FETCH_VERIFY_PARSE_EXECUTE_R5_LAUNCHER_42CAC745_BLOB_03EC9F16_SHA256_12840C92; THEN_CHAT_RESULT_REVIEW; DO_NOT_PASTE_LONG_LAUNCHER",
+      "next_safe_action": "RUN_R5_ONCE; IF_CHAT_ACCEPT THEN ONE_BRIDGE_INTERNAL_VALIDATION_RUN_COMBINING_A05_REMAINING_G3_G4_LOCAL_RUNTIME_TRIAL_RESTART_NO_REPLAY; THEN_FINAL_CHAT_ACCEPTANCE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -443,7 +443,11 @@
             "no_replay": true
           },
           "accepted_product_source": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "salvage_base": "d997756b5f4cfaa7e442dfc5d929093782b7a90f"
+          "salvage_base": "d997756b5f4cfaa7e442dfc5d929093782b7a90f",
+          "operating_mode": "INTERNAL_FAST_LANE_V1",
+          "post_accept_next": "BRIDGE_INTERNAL_VALIDATION_SINGLE_RUN",
+          "independent_work_audit_default": false,
+          "owner_facing_micro_gates_suppressed": true
         },
         "host_lifecycle_cert": {
           "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01",
@@ -690,7 +694,25 @@
         "g4_adoption_acceptance": "PREPARED_CANDIDATE_ONLY",
         "final_canary_prerequisites": "PREPARED_NEW_IDENTITY_REQUIRED",
         "host_mutation_authorized": false
-      }
+      },
+      "operating_mode": "INTERNAL_FAST_LANE_V1",
+      "operating_mode_authority": {
+        "path": "docs/governance/releases/FOX2_INTERNAL_FAST_LANE_OWNER_OVERRIDE_20261022.md",
+        "commit": "5160e9a33234bfda6ca3a56e807e7ac63ac6e84f",
+        "source_resolution_commit": "38fe4f7b5e017ff0868869a0d8d2f1e504f58574",
+        "roadmap_addendum_commit": "6f4efca8cccb7e3a88ebd50c8dd475e5d98cd4b8"
+      },
+      "owner_facing_path": [
+        "BUILD_CORRECT",
+        "INTERNAL_VALIDATE",
+        "READY"
+      ],
+      "post_r5_path": [
+        "R5_CHAT_RESULT_REVIEW",
+        "BRIDGE_INTERNAL_VALIDATION",
+        "FINAL_CHAT_ACCEPTANCE",
+        "INTERNAL_FOX2_BRIDGE_READY"
+      ]
     },
     {
       "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
