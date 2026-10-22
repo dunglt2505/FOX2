@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "receipt_type": "FOX2_PREEXEC_RECEIPT",
+  "project": "FOX2",
+  "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "checked_at": "2026-10-22T04:26:27.7434230Z",
+  "task_branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
+  "receipt_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/preexec/host_lifecycle_cert_a04.json",
+  "source_head": "3fb31e03f5317bc975119d164736e7785c46243c",
+  "task_source": {
+    "git_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/host_lifecycle_cert_a04/task.md",
+    "git_commit_sha": "8fdc2f7181e7f3e9a7f56ea72472fe3d2d2cea43",
+    "sha256": "397e179c63666ce611e2c03cfb988ccbd9290a72b9643014fe1ff0588bfb7aa8"
+  },
+  "status": "PASS",
+  "capabilities": {
+    "source_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "accepted=085cc8302e824dbccf9cbef80422ed48894b9cb4; publication=3fb31e03f5317bc975119d164736e7785c46243c"
+    },
+    "task_prompt_binding": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "task=397e179c63666ce611e2c03cfb988ccbd9290a72b9643014fe1ff0588bfb7aa8; prompt=5ed59d6fe681ffdd15cc2e41cf88ac2a478717499f7d1b8e7812259be44ca5ef"
+    },
+    "governance_source": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Current Policy/Dictionary/Routing/Protocol bytes verified"
+    },
+    "worktree_clean": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Dedicated host lifecycle A04 worktree clean"
+    },
+    "one_writer": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "No task-scoped writer observed"
+    },
+    "host_safe_control": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "installed=True; state=STOPPED; paused=True; setup=True"
+    },
+    "host_wpf_state": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "count=1; exact=True; state=HIDDEN_OR_MINIMIZED_EXACT_CURRENT; inspect=WINDOW_UNAVAILABLE; main_window_handle=0"
+    },
+    "worker_legacy_absent": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Worker/legacy tray-launcher count=0"
+    },
+    "isolated_build_python": {
+      "status": "PASS",
+      "material": true,
+      "version": "3.13",
+      "executable": "WORKTREES/FOX2-BRIDGE-DESKTOP-BATCH-B/agent_bridge/.build-venv/Scripts/python.exe",
+      "evidence": "Existing isolated build environment verified"
+    },
+    "dotnet": {
+      "status": "PASS",
+      "material": true,
+      "version": "8.0.426",
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "evidence": "Existing dotnet verified"
+    },
+    "codex_cli": {
+      "status": "PASS",
+      "material": true,
+      "version": "codex-cli 0.162.1",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "evidence": "Pinned CODEX CLI verified"
+    },
+    "codex_auth_capacity": {
+      "status": "PASS",
+      "material": true,
+      "version": "codex-cli 0.162.1",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "exit_code": 0,
+      "evidence": "Current authenticated read-only service probe PASS"
+    },
+    "eligible_agent_route": {
+      "status": "PASS",
+      "material": true,
+      "version": "codex-cli 0.162.1",
+      "executable": "C:\\Users\\Fox Le\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin\\codex.exe",
+      "exit_code": 0,
+      "evidence": "Pinned CODEX gpt-6.1-sol/high ready"
+    },
+    "git_push_permission": {
+      "status": "PASS",
+      "material": true,
+      "executable": "C:\\Program Files\\Git\\cmd\\git.exe",
+      "evidence": "Task branch push dry-run PASS"
+    },
+    "package_source_worktree": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "detached accepted source=085cc8302e824dbccf9cbef80422ed48894b9cb4; worktree=WORKTREES/FOX2-BRIDGE-RC1-PACKAGE-SOURCE-085CC830-A04"
+    },
+    "package_builder_provenance": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "builder_blob=2417212e5677a2061e3957544a99e2ba80f46f4d; source_git_commit=085cc8302e824dbccf9cbef80422ed48894b9cb4"
+    },
+    "fresh_attempt_dispatch_absent": {
+      "status": "PASS",
+      "material": true,
+      "evidence": "Fresh A04 Dispatch absent before PreExec; historical A03 Dispatch identity preserved/no-replay"
+    }
+  },
+  "blockers": [],
+  "worktree": {
+    "status": "PASS",
+    "path": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
+    "competing_writer": "NONE_OBSERVED",
+    "stale_receipt_cleanup": "NOT_NEEDED"
+  },
+  "candidate_route": {
+    "product": "CODEX",
+    "model_policy": "PINNED",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "permission_profile": "FULL_ACCESS"
+  },
+  "dispatch_state": {
+    "executable_dispatch_published": false,
+    "dispatch_consumed": false
+  },
+  "agent_execution_started": false,
+  "notes": [
+    "Accepted BUILD result=085cc8302e824dbccf9cbef80422ed48894b9cb4; real host lifecycle still NOT_RUN before this PreExec.",
+    "Installed=True; current_package=52007843327db63acb0c7908f06ba33378404686f03b6f81d07178de4c2f16d4; current_source=6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73; state=STOPPED.",
+    "WPF count=1; pid=10608; exact current package=True; state=HIDDEN_OR_MINIMIZED_EXACT_CURRENT; inspect=WINDOW_UNAVAILABLE; main_window_handle=0; main_window_title=.",
+    "Worker/legacy count=0; paused=True; setup=True; no current dispatch verified when installed.",
+    "Durable hashes only: config=b39bdc088a6ef3f7b59c48ab9692706adcec7905eb5a263c7baceb17fb9076f7; database=1cd9702a7ce3653496b67c7a553d0183d538498ac5b485da062921b9b47d21cc; manual_consumption=c758c3707b45289466d80635e5b7e7a386bb7823c33bed9ba2b7f1950a9a236c; uninstall=ba42770bc1986c8103cb9709684c509d1adb819852ae78694908bb34e41c2bff.",
+    "Build env=WORKTREES/FOX2-BRIDGE-DESKTOP-BATCH-B/agent_bridge/.build-venv/Scripts/python.exe; python=3.13; pip=26.2.1; setuptools=84.0.0; wheel=0.48.0; build=1.6.1; dotnet=8.0.426.",
+    "Package source worktree=WORKTREES/FOX2-BRIDGE-RC1-PACKAGE-SOURCE-085CC830-A04; detached HEAD=085cc8302e824dbccf9cbef80422ed48894b9cb4; builder_blob=2417212e5677a2061e3957544a99e2ba80f46f4d; source_git_commit()=085cc8302e824dbccf9cbef80422ed48894b9cb4.",
+    "No package build/install/update/uninstall/reinstall, WPF exit, Worker/F1, G3/G4/Canary or Bridge lifecycle mutation occurred during PreExec.",
+    "One exact current-package WPF may be visible or legitimately hidden/minimized. PreExec performs no surfacing or exit. If hidden/minimized, only the future fresh executable TEST Dispatch may signal stable launch once to surface the existing singleton, require same PID/count=1, then inspect and graceful-exit.",
+    "Historical Host A03 Dispatch remains consumed/no-replay and produced a truthful provenance-blocked result with no package build or host mutation.",
+    "PASS permits CHAT intake only. Fresh A04 Dispatch remains unpublished and Agent lifecycle certification has not started."
+  ]
+}
