@@ -57,10 +57,6 @@ On the A03 orchestration/task worktree the exact return was:
 
 but the package acceptance gate requires:
 
-`085cc8302e824dbcc51c8fd1d2c7040fc06a29cb`
-
-Correction: accepted source SHA is actually:
-
 `085cc8302e824dbccf9cbef80422ed48894b9cb4`.
 
 Therefore an A03 package build in the A03 task worktree cannot satisfy its own provenance requirement.
