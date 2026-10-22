@@ -176,10 +176,10 @@
           "dispatch_published": false,
           "agent_started": false,
           "result": "NOT_RUN",
-          "host_mutation": true,
+          "host_mutation": false,
           "allowed_before_g3": true,
           "g3_unlocked": false,
-          "retry_class": "FRESH_ATTEMPT_AFTER_A03_PROVENANCE_REWORK",
+          "retry_class": "FRESH_R2_CERTIFIER_BUILD_AFTER_A04_CHAT_REWORK_AND_R1_SUPERSEDED_UNRUN",
           "prior_attempt": {
             "task_id": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04",
             "dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-CODEX-001",
@@ -199,34 +199,25 @@
             "no_replay": true
           },
           "execution_envelope": {
-            "design": "POST_PROMPT_AUTHORIZATION_TRANSPORT_VIA_LAUNCHER_ENV_PLUS_AGENT_REMOTE_GIT_VERIFICATION",
-            "planned_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-CODEX-001",
-            "pass_to_assign_path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/HOST_LIFECYCLE_CERT_A04_PASS_TO_ASSIGN_20261022.md",
+            "design": "FRESH_R2_CODEX_CODING_ASSIGNMENT_AFTER_PREEXEC_PASS",
+            "planned_dispatch_id": "FOX2-DISPATCH-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R2-CODEX-001",
             "control_branch": "work/FOX2-DISPATCH-chat",
             "status_branch": "work/FOX2-BRIDGE-F1-G1-INTEGRATED-DESIGN-20261021",
-            "package_source_worktree_env": "FOX2_PACKAGE_SOURCE_WORKTREE",
             "future_commits_not_hardcoded_in_prompt": true,
-            "agent_must_remote_verify": true
+            "agent_must_remote_verify": true,
+            "host_lifecycle_mutation": false,
+            "package_build": false,
+            "install_update": false,
+            "uninstall_reinstall": false
           },
           "no_replay_of": [
             "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
             "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A01-CODEX-001",
             "FOX2-DISPATCH-BRIDGE-RC1-LIFECYCLE-WPF-CONTRACT-REWORK-A02-CODEX-001",
             "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-CODEX-001",
-            "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-CODEX-001"
+            "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03-CODEX-001",
+            "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-CODEX-001"
           ],
-          "package_source_contract": {
-            "design": "SPLIT_ORCHESTRATION_AND_DETACHED_ACCEPTED_SOURCE_WORKTREES",
-            "orchestration_worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A04-20261022",
-            "package_source_worktree": "C:\\Projects\\FOX2-worktrees\\FOX2-BRIDGE-RC1-PACKAGE-SOURCE-085CC830-A04",
-            "package_source_head": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-            "detached_required": true,
-            "builder_path": "agent_bridge/scripts/build_user_package.py",
-            "builder_blob": "2417212e5677a2061e3957544a99e2ba80f46f4d",
-            "preexec_requires_source_git_commit_probe": true,
-            "builder_patch_allowed": false,
-            "manifest_rewrite_allowed": false
-          },
           "correction_scope": {
             "allowed_paths": [
               "agent_bridge/scripts/certify_user_lifecycle.py",
