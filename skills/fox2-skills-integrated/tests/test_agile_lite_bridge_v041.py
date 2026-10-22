@@ -7,7 +7,7 @@ def s(n):return (SK/n/'SKILL.md').read_text()
 class FOX2SkillsV041(unittest.TestCase):
  def test_manifest_identity(self):
   for p in ['plugin.json','.codex-plugin/plugin.json','manifest.json']:
-   d=json.loads((R/p).read_text());self.assertEqual(d['name'],'fox2-skills-integrated');self.assertEqual(d['version'],'0.4.1')
+   d=json.loads((R/p).read_text());self.assertEqual(d['name'],'fox2-skills-integrated');self.assertEqual(d['version'],json.loads((R/'plugin.json').read_text())['version'])
  def test_seventeen_domain_skills_and_headers(self):
   self.assertEqual({x.parent.name for x in SK.glob('*/SKILL.md')},set(REQ))
   for name in REQ:

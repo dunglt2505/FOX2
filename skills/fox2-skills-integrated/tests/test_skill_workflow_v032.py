@@ -9,5 +9,5 @@ class WorkflowsV041(unittest.TestCase):
   s=(R/'skills/fox2-source-resolver/SKILL.md').read_text();self.assertIn('Policy 1.8.9',s)
   self.assertIn('Policy 2.1.0',s)
  def test_manifest_identity(self):
-  m=json.loads((R/'manifest.json').read_text());self.assertEqual(m['version'],'0.4.1')
-  self.assertEqual(m['current_file_hashes'],'RELEASE_FILE_HASHES_0_4_1.json')
+  m=json.loads((R/'manifest.json').read_text());self.assertEqual(m['version'],json.loads((R/'plugin.json').read_text())['version'])
+  self.assertEqual(m['current_file_hashes'],'RELEASE_FILE_HASHES_'+json.loads((R/'plugin.json').read_text())['version'].replace('.','_')+'.json')

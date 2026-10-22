@@ -9,7 +9,7 @@
     "defaultPrompt": null
   },
   "name": "fox2-skills-integrated",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "17 FOX2 CHAT-FIRST Skills: scoped, source-bound and host-compatible guidance.",
   "author": {
     "name": "Workspace upload"

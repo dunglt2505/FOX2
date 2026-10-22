@@ -11,7 +11,7 @@ class AgileLiteRetained(unittest.TestCase):
    self.assertNotIn('## Controlling guards (self-contained',t)
  def test_version_advances_without_identity_change(self):
   for f in ['plugin.json','.codex-plugin/plugin.json','manifest.json']:
-   v=json.loads((R/f).read_text());self.assertEqual(v['version'],'0.4.1')
+   v=json.loads((R/f).read_text());self.assertEqual(v['version'],json.loads((R/'plugin.json').read_text())['version'])
    self.assertEqual(v['name'],'fox2-skills-integrated')
  def test_keep_safety_and_easy_native(self):
   t=(R/'shared/operating_rules.md').read_text()

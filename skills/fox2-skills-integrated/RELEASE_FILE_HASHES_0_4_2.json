@@ -1,0 +1,167 @@
+{
+  "version": "0.4.2",
+  "inventory": "CHANGED_OVERLAY_FILES_ONLY",
+  "retained_previous_assets": "UNCHANGED",
+  "files": {
+    ".codex-plugin/plugin.json": {
+      "bytes": 601,
+      "sha256": "96ead62986b67159cbe7b85192d5de2633a88d17247494a4837ae7976ab54b59"
+    },
+    "RELEASE_FILE_HASHES_0_4_0.json": {
+      "bytes": 3643,
+      "sha256": "43ff3e727cc543cd93f4f13874bee9e39606b74833805a8d8e46d89428df4b7e"
+    },
+    "RELEASE_FILE_HASHES_0_4_1.json": {
+      "bytes": 5833,
+      "sha256": "90cea465e642778922b9523539f77e79146484a1877de80c41c883497771a3ca"
+    },
+    "RELEASE_README_v0_4_0.md": {
+      "bytes": 624,
+      "sha256": "d06f3722a5d449ce253038bab62dc816ab71177e910039510ee262c79dd0d61f"
+    },
+    "RELEASE_README_v0_4_1.md": {
+      "bytes": 855,
+      "sha256": "e2a6a085fa5b0b54329bff50d57e4edb7454e5a7c1a360c3cefd004f58173ecc"
+    },
+    "RELEASE_README_v0_4_2.md": {
+      "bytes": 503,
+      "sha256": "2bb5c046844d5bcd16fb410482cdc2316614c4d4a1a42b3e011de364b2d2dd2f"
+    },
+    "manifest.json": {
+      "bytes": 2434,
+      "sha256": "772bb1ef0b055da4c73801f26a51e6e8167107a2a783da03a16fb87373c5fc57"
+    },
+    "plugin.json": {
+      "bytes": 456,
+      "sha256": "2bc4a8c9af27c3de51db2dabd4b8d6ef187aae99faa2d4c51a2c9ce1ebe5d858"
+    },
+    "shared/bridge_e2e_v041.md": {
+      "bytes": 6957,
+      "sha256": "fcfcd3d645c1171f2329d249264950a8877f65982802efb8723781402c7f39d0"
+    },
+    "shared/operating_rules.md": {
+      "bytes": 2913,
+      "sha256": "614d490b778f4d3e0bd04991f209cf69086c3ec0b5b3b0713c8b2e779a650ddd"
+    },
+    "skills/fox2-agent-prompt-builder/SKILL.md": {
+      "bytes": 5841,
+      "sha256": "c9f2e807621ac795bf80a9981917b5bad1b34fb0f96c59b18e4b02f47b592bea"
+    },
+    "skills/fox2-agent-route-runtime/SKILL.md": {
+      "bytes": 2693,
+      "sha256": "2307f0bea42c0c21f25fdfa3fbd5fb7eeab161d0d6e7e7f5e3a52f3e13d43a00"
+    },
+    "skills/fox2-brd-change-control/SKILL.md": {
+      "bytes": 1652,
+      "sha256": "0302e2b541baa87ad49d4588c201b96bd61f7e58379efb14076a1541928e5da2"
+    },
+    "skills/fox2-dictionary-impact/SKILL.md": {
+      "bytes": 1845,
+      "sha256": "b3ed18c55d2aa71f23a31bb78345eca6a1dd49e3f135c7fad11588f4892cec09"
+    },
+    "skills/fox2-document-publication/SKILL.md": {
+      "bytes": 2272,
+      "sha256": "5842b398be39d9400d7de230ae3477266f4c8a46b2ff7281478e0b5bbf6a804c"
+    },
+    "skills/fox2-execution-recovery/SKILL.md": {
+      "bytes": 2128,
+      "sha256": "23200d0261d2a15b4ffd2b3f74aab7fd003f21c51ef4b204e57f9a736febf142"
+    },
+    "skills/fox2-feature-certification/SKILL.md": {
+      "bytes": 1693,
+      "sha256": "0d5a130d9c647be0ca79e1e787c6795db2192afc6e94c62d1e3ee8c120214b49"
+    },
+    "skills/fox2-governance-preflight/SKILL.md": {
+      "bytes": 2591,
+      "sha256": "821963bdd326567ca9fa3f432b6b1340a809270a1468329e233e12f4acc210fa"
+    },
+    "skills/fox2-project-health/SKILL.md": {
+      "bytes": 1568,
+      "sha256": "f2e8040cb96d1926c6f9ec3f167a1d93eb67c1777266b8967049192afab3cf0a"
+    },
+    "skills/fox2-research-validation/SKILL.md": {
+      "bytes": 1549,
+      "sha256": "72638d8b50ac0be2c1ac3ef625c36b2f0abcb21b53e68130ab13fad2e7b12cc9"
+    },
+    "skills/fox2-result-review/SKILL.md": {
+      "bytes": 2465,
+      "sha256": "334ae4504074ce2aba7418c8beef7a4de853f74f6c755b4b457eb1afba3efd76"
+    },
+    "skills/fox2-source-resolver/SKILL.md": {
+      "bytes": 2445,
+      "sha256": "1c665dadd8fb6d87daf88ccdee698bee04da0effe4e677e16517daeec8c82c4b"
+    },
+    "skills/fox2-source-sync/SKILL.md": {
+      "bytes": 1702,
+      "sha256": "eb9267dbcdcb280c76a10f3c2198622181bd3f922c84d402f677ea4c46afa3ea"
+    },
+    "skills/fox2-status-roadmap/SKILL.md": {
+      "bytes": 1533,
+      "sha256": "142aa2b89ef19d21adcdd88fe1b0366d75cafcd25a34d4a416df3b2610559ce9"
+    },
+    "skills/fox2-strategic-agent-triage/SKILL.md": {
+      "bytes": 1616,
+      "sha256": "f49a8f9c9f4c7a164fa85bd21729c51f620c6232c54b1176151bfd1c19a90583"
+    },
+    "skills/fox2-techspec-validator/SKILL.md": {
+      "bytes": 1652,
+      "sha256": "445784aa6dab907595ebc6ac1f18efb22b3fe553a9a3a398b12850423fb8df49"
+    },
+    "skills/fox2-thread-handoff/SKILL.md": {
+      "bytes": 1980,
+      "sha256": "5fc82fcfdefb18ca997a6dff9f39fd68c5e049d91e77169019316cde4ceeb8e4"
+    },
+    "tests/test_agile_lite_bridge_v041.py": {
+      "bytes": 4530,
+      "sha256": "0897037c4ffea440bb4c9d52be970320615d52106a1dc92772afeac9dde1a4ce"
+    },
+    "tests/test_agile_lite_v040.py": {
+      "bytes": 1096,
+      "sha256": "1b116e389e01af8ba5cf7a56b76345c6530123877afea7a3837dc4ddc806ce16"
+    },
+    "tests/test_bridge_scenarios_v041.py": {
+      "bytes": 7491,
+      "sha256": "f7b27522e966a27a03e622696a9edf847b2cc0c8b32896e55bbe4afa85b624a8"
+    },
+    "tests/test_chat_first_policy.py": {
+      "bytes": 1069,
+      "sha256": "897f7a50a61b1090fe06367d741063e4d54e049ffa3c708d226af43f3afb7c8f"
+    },
+    "tests/test_execution_ownership_v034.py": {
+      "bytes": 524,
+      "sha256": "51f36206629974a4a15d137f50abe5d56cd36822b0217b2d9ff22bcf53c6d729"
+    },
+    "tests/test_focused_recovery_v037.py": {
+      "bytes": 496,
+      "sha256": "369f6c94eeba30a6d8a6b3414fe617063105b4e5fc76d3733d740321249a41fe"
+    },
+    "tests/test_governance_two_lifecycles.py": {
+      "bytes": 601,
+      "sha256": "5d61e5ae4d2a7f8813f8039bae4f2536792b7753dbc0a31ebe025ded4dcb5a12"
+    },
+    "tests/test_integration.py": {
+      "bytes": 947,
+      "sha256": "5022170886c4ef51adac39394dbcbddbad828b8e091403c7e92bdfdf684d231d"
+    },
+    "tests/test_release_metadata.py": {
+      "bytes": 1172,
+      "sha256": "9192db547a5a6f918f075a763a43ecb19b49e076905f008f05a537c2c1da24ab"
+    },
+    "tests/test_sdlc_handoff_v035.py": {
+      "bytes": 675,
+      "sha256": "f26a9621bd746826c5405217283f7d9cb172bc1886430525f7de875cecc0e8cf"
+    },
+    "tests/test_skill_execution_contract_v036.py": {
+      "bytes": 998,
+      "sha256": "7e03e1e448099eeae88b62aef8399c9bf9b7bc36238321075901f950540d2f40"
+    },
+    "tests/test_skill_workflow_v032.py": {
+      "bytes": 822,
+      "sha256": "bf7b03efb8f53a9526f4db10773c7d6b99c08ff663db8488a12cc4a0a874de9f"
+    },
+    "tests/test_task_level_routing_v037.py": {
+      "bytes": 710,
+      "sha256": "e1bb269ad3ed54c098e13564038b172cecc25949471cfc51eedf52861d56e3be"
+    }
+  }
+}

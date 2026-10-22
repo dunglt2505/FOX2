@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "fox2-skills-integrated",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "17 FOX2 CHAT-FIRST Skills: scoped, source-bound and host-compatible guidance.",
   "extensions": {
     "com.openai": {
