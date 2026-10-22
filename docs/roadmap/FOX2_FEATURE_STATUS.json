@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "HOST_A02_EXISTING_CLAIM_REQUIRES_EMPTY_STRING_NORMALIZATION_BEFORE_CONSUME; DISPATCH_STILL_UNCONSUMED",
+      "blocker": "HOST_LIFECYCLE_A02_CONSUMED_NO_RESULT_AGENT_BLOCKED_ON_POST_PROMPT_AUTHORIZATION_VISIBILITY; NO_HOST_MUTATION",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_CLAIMED_PRECONSUME_CONTINUATION_V2_ACCEPTING_NULL_OR_EMPTY_UNSET_FIELDS; SAME_CLAIM_ONLY; THEN_CHAT_RESULT_REVIEW_OR_RECOVERY",
+      "next_safe_action": "CREATE_FRESH_HOST_LIFECYCLE_CERT_A03_WITH_RUNTIME_EXECUTION_ENVELOPE; RUN_FRESH_A03_PREEXEC; THEN_NEW_PASS_TO_ASSIGN_AND_NEW_DISPATCH",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,7 +170,7 @@
         "next_phase": {
           "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A02",
           "stage": "TEST",
-          "status": "DISPATCH_CLAIMED_PRECONSUME_RECOVERY_V2_REQUIRED",
+          "status": "A02_CONSUMED_NO_RESULT_A03_PREPARATION",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-20261022",
           "task_commit": "9ffa283034a4614e5cc5a60899f919e3f12d7a03",
@@ -185,8 +185,8 @@
           "preexec_script_sha256": "49cbac34145bf95d7c53de61caced45facfd605787ad30afb2dac38a31f1df1f",
           "preexec": "PASS_REMOTE_ACCEPTED",
           "dispatch_published": true,
-          "agent_started": false,
-          "result": "NOT_RUN",
+          "agent_started": true,
+          "result": "CONSUMED_NO_RESULT",
           "host_mutation": true,
           "allowed_before_g3": true,
           "g3_unlocked": false,
@@ -261,14 +261,14 @@
             "schema_v3_validation": "PASS_ZERO_ERRORS",
             "runtime_base": "76913f36b461689a84e8b4acf57a9ef83a98828d",
             "source": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-            "state": "CLAIMED_PRECONSUME",
+            "state": "CONSUMED_NO_RESULT_NO_REPLAY",
             "max_runs": 1,
             "no_replay": true,
             "retry_of": "FOX2-DISPATCH-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A01-CODEX-001",
-            "consumed": false
+            "consumed": true
           },
           "launch_readiness": {
-            "verdict": "RECOVERED_SAFE_TO_RESUME_EXISTING_CLAIM_ONLY",
+            "verdict": "A02_CLOSED_NO_REPLAY",
             "task_branch_head": "76913f36b461689a84e8b4acf57a9ef83a98828d",
             "control_branch_head": "8dceb41112d8240ec579ddede23b8ae6a9d06662",
             "code_writes": false,
@@ -299,6 +299,18 @@
             "consumed": false,
             "agent_started": false,
             "safe_action": "VALIDATE result_sha/delivery/detail as null-or-whitespace only; normalize to JSON null at SPAWN_ATTEMPTED transition; resume same claim; non-empty value means NO_REPLAY_STOP"
+          },
+          "execution_recovery_final": {
+            "review_commit": "53c3913899f87ad867c04c14d1da52b27d3cdbec",
+            "verdict": "RECOVERED_CONSUMED_NO_RESULT_FRESH_ATTEMPT_REQUIRED",
+            "codex_exit": 0,
+            "certification": "NOT_RUN",
+            "host_mutation": false,
+            "remote_result": false,
+            "result_delivery": "NEEDS_RECONCILIATION",
+            "root_cause": "IMMUTABLE_PROMPT_REQUIRED_POST_PROMPT_PASS_TO_ASSIGN_DISPATCH_AND_OWNER_LAUNCH_AUTHORIZATION_BUT_AGENT_EXECUTION_CONTEXT_DID_NOT_EXPOSE_THOSE_LATER_ARTIFACTS",
+            "no_replay": true,
+            "next_attempt": "FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A03"
           }
         },
         "host_lifecycle_cert": {
