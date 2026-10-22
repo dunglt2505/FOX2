@@ -376,3 +376,161 @@ Current scheduling:
 
 `CURRENT_OWNER_PRIORITY=BRIDGE_FIRST / CURRENT_WHOLE_WP=FOX2-BRIDGE-RC1-TO-INTERNAL-READY / APP_BATCH_B=PAUSED / CANARY_009=PRESERVE_UNCONSUMED / MICRO_WP_DEFAULT=NO / NEXT=FRESH_PREEXEC_ON_EXACT_SOURCE_FREEZE_HEAD / MERGE=NO / LIVE=NO`
 
+## Bridge Host Lifecycle reuse-first directive — 2026-10-22
+
+This section is the current Owner-directed execution rule for the Host Lifecycle portion of WP1 and supersedes any earlier Host Lifecycle wording that would repeat already accepted A04 prerequisites. Historical A01–A04 attempts remain immutable evidence and are not rewritten.
+
+### Controlling principles
+
+- Whole-WP remains `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`; this directive does not create a new Owner-facing micro-WP.
+- A04 is CLOSED as `CHAT_REWORK / FAIL`, consumed and no-replay.
+- Host Lifecycle acceptance may be composite when all evidence refers to the same runtime subject and each required gate row is independently covered.
+- Historical PASS may be reused only when the underlying runtime subject and relevant implementation bytes remain unchanged.
+- Historical FAIL / NOT_RUN remain FAIL / NOT_RUN until a later fresh attempt covers those exact missing rows.
+- Fresh execution must never rerun passed mutation solely to reproduce evidence.
+- G3/G4/Canary remain locked until composite Host Lifecycle acceptance.
+
+### Fixed A04 runtime subject
+
+The runtime subject preserved from A04 is:
+
+- package SHA-256: `f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee`;
+- package source commit: `085cc8302e824dbccf9cbef80422ed48894b9cb4`;
+- source inventory SHA-256: `6d76f99ce9fcc62bbcf9f2450a45bc920c28b2fd70828353c0a8fea096c5de73`;
+- A04 package archive: `C:\Projects\FOX2-artifacts\host_lifecycle_cert_a04\FOX2-Bridge-085cc830-A04.zip`.
+
+The A04 CHAT result review is:
+`a3e49a62dbd340eacd8dc8369aa303ed0e93b6f3`.
+
+The detailed reuse decision is:
+`reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/HOST_LIFECYCLE_A04_A05_REUSE_PLAN_20261022.md`
+published at commit
+`da6fd27d78380db42fce155d634044c94a661229`.
+
+### A04 accepted prerequisites — REUSE, do not rerun
+
+A04 materially established and CHAT accepted as truthful prerequisite evidence:
+
+1. runtime authorization/source/task/Dispatch integrity;
+2. split orchestration/package-source worktree provenance;
+3. accepted builder provenance probe;
+4. exact package build once;
+5. exact package SHA/source/source-inventory identity;
+6. 59 source-file, 40 wheel-module and 255 payload hash checks;
+7. stale exact-current WPF bounded cleanup;
+8. per-user install/update exact package;
+9. exact installed pointer and receipt;
+10. STOPPED / paused / setup_complete / current_dispatch=null;
+11. Worker/legacy absent;
+12. launch-twice reached one exact-current WPF singleton;
+13. package/current/source identity preserved after first failure;
+14. SQLite quick_check and logical durable-state preservation at A04 failure checkpoint.
+
+These rows remain accepted prerequisites while the fixed A04 runtime subject above remains unchanged.
+
+### A04 uncovered rows — must be completed, not inferred
+
+A04 first failed at presentation-lock certification with
+`PermissionError(errno=13)`.
+
+The following remain FAIL/NOT_RUN and must be covered by continuation evidence:
+
+- live presentation-lock classification;
+- UI inspect/check after lock proof;
+- graceful exit;
+- zero WPF + lock release;
+- post-exit safe state;
+- stable external uninstall exactly once;
+- uninstall postconditions;
+- durable preservation across uninstall;
+- same exact A04 package reinstall;
+- final installed safe state.
+
+### External certifier correction — R2
+
+`agent_bridge/scripts/certify_user_lifecycle.py` is an external certification harness and is not part of the installed runtime package payload. A correction limited to this harness and its focused regression test does not itself create a new runtime package subject.
+
+R2 correction scope is exactly:
+
+- `agent_bridge/scripts/certify_user_lifecycle.py`;
+- `agent_bridge/tests/test_lifecycle_wpf_contract.py`.
+
+Required semantics:
+
+- explicit `winerror=32` sharing violation remains accepted;
+- actual Windows/Python `PermissionError(errno=EACCES/13, winerror absent/None)` may be accepted only under differential proof;
+- persistent ACL/access denial remains fail-closed;
+- lock missing while live, lock unexpectedly openable while live, and lock inaccessible after exit remain FAIL;
+- lock bytes are never modified by the proof;
+- negative singleton/UI/safe-state cases remain preserved;
+- no WPF C# product change unless a separate material scope change is authorized.
+
+The previously published unrun R1 PreExec
+`4d0ae5636ac91969c2a15416f8f0bd50d581d180`
+is `SUPERSEDED_BEFORE_RUN`; receipt absent, coding Dispatch absent, Agent not started. It MUST NOT be run.
+
+### A05 continuation-only rule
+
+After CHAT accepts R2 certifier correction, A05 is a fresh attempt identity because A04 Dispatch is consumed, but it is not a full lifecycle rerun.
+
+A05 PreExec performs only read-only validity checks:
+
+- installed package remains `f99c7add…`;
+- installed receipt source remains `085cc830…`;
+- A04 archive exists and hashes to `f99c7add…`;
+- safe control remains STOPPED/paused/setup_complete/current_dispatch=null;
+- Worker/legacy remain absent;
+- any live WPF is exact-current and count is 0 or 1;
+- corrected certifier source/tests have CHAT acceptance;
+- A04 consumed/no-replay identity remains preserved.
+
+If the A04 archive is present and hash-valid:
+- package rebuild is forbidden as unnecessary repetition;
+- pre-lifecycle install/update is forbidden as unnecessary repetition.
+
+If one exact-current WPF remains live from A04:
+- reuse it;
+- do not relaunch merely to repeat singleton evidence;
+- corrected proof is `live exact WPF -> live lock denied -> UI check -> graceful exit -> WPF=0 -> same lock openable`.
+
+If zero WPF exists:
+- one launch of the already-installed exact package is allowed only to re-establish the missing live state;
+- historical A04 launch-twice singleton evidence remains accepted.
+
+After corrected presentation proof, A05 must execute only the previously unrun lifecycle tail:
+
+`fresh durable baseline -> stable uninstall exactly once -> uninstall postconditions -> preservation compare -> reinstall SAME exact A04 package -> final safe-state verification`.
+
+### Composite Host Lifecycle exit gate
+
+Host Lifecycle is ACCEPTED only when the union of:
+
+`A04 accepted prerequisite evidence + CHAT-accepted R2 certifier evidence + A05 continuation evidence`
+
+contains no required FAIL/NOT_RUN rows.
+
+A04 remains historical `CLOSED_REWORK / FAIL`; A05 does not rewrite it.
+
+After composite Host Lifecycle ACCEPTED:
+
+`G3 physical gate -> G4 installed adoption -> fresh independent current-source pre-Canary audit -> Canary 009 exactly once -> restart/no-replay -> CHAT final intake -> INTERNAL_FOX2_BRIDGE_READY`.
+
+### Current WP1 execution order
+
+```text
+WP1 ACTIVE
+  A04 CLOSED_REWORK / no replay
+  -> R2 external-certifier correction (2 files only)
+  -> CHAT_ACCEPT corrected certifier
+  -> A05 continuation-only on SAME A04 package
+  -> CHAT composite Host Lifecycle acceptance
+  -> G3/G4
+  -> independent pre-Canary audit
+  -> Canary 009 exactly once
+  -> restart/no-replay
+  -> CHAT final intake
+  -> INTERNAL_FOX2_BRIDGE_READY
+```
+
+`BRIDGE_HOST_LIFECYCLE_STRATEGY=REUSE_FIRST / A04=CLOSED_REWORK_NO_REPLAY / R1_PREEXEC_4D0AE563=SUPERSEDED_UNRUN / R2=CERTIFIER_ONLY / A05=CONTINUATION_ONLY / A05_REBUILD=NO_IF_ARCHIVE_VALID / A05_PREINSTALL=NO / G3=LOCKED_UNTIL_COMPOSITE_ACCEPT`
+
