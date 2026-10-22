@@ -49,7 +49,7 @@ function WpfIdentity([object[]]$List) {
     if ($List.Count -eq 1) {
         $Expected = Join-Path $Root ('versions\' + $PackageHash + '\payload\desktop\FOX2.Bridge.Desktop.exe')
         Need (Test-Path -LiteralPath $Expected -PathType Leaf) 'Exact WPF missing'
-        Need (![string]::IsNullOrWhiteSpace([string]$List[0].ExecutablePath)) 'WPF path unavailable'
+        Need (-not [string]::IsNullOrWhiteSpace([string]$List[0].ExecutablePath)) 'WPF path unavailable'
         Need ([IO.Path]::GetFullPath([string]$List[0].ExecutablePath).Equals(
             [IO.Path]::GetFullPath($Expected),[StringComparison]::OrdinalIgnoreCase)) 'WPF package mismatch'
     }
@@ -118,7 +118,7 @@ function WaitWpf([int]$Number,[int]$Seconds) {
     do {
         $P = @(WPF)
         WpfIdentity $P
-        if ($P.Count -eq $Number) { return ,$P }
+        if ($P.Count -eq $Number) { return $P }
         Start-Sleep -Milliseconds 500
     } while ([DateTime]::UtcNow -lt $Deadline)
     throw ('STOP: WPF count did not become ' + $Number)
