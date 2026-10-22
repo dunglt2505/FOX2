@@ -43,9 +43,9 @@
         }
       ],
       "exit_gate": "SAMEHOST_BUILD_CHAT_ACCEPTED -> CURRENT_PACKAGE_INSTALL_UPDATE_UNINSTALL_ROLLBACK_ACCEPTED -> PHYSICAL_LENOVO_G3_CHAT_ACCEPTED -> G4_INSTALLED_ADOPTION_RUNTIME_VERIFIED -> NEW_FINAL_CANARY/C4_CURRENT_SOURCE_CHAT_ACCEPTED",
-      "blocker": "HOST_A02_PRECONSUME_CLAIMED_STATE_REQUIRES_SAFE_CONTINUATION; DISPATCH_NOT_CONSUMED; AGENT_NOT_STARTED",
+      "blocker": "HOST_A02_EXISTING_CLAIM_REQUIRES_EMPTY_STRING_NORMALIZATION_BEFORE_CONSUME; DISPATCH_STILL_UNCONSUMED",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_CLAIMED_PRECONSUME_CONTINUATION_FOR_EXISTING_DISPATCH_8DCEB411; DO_NOT_DELETE_CLAIM_OR_RERUN_ORIGINAL_LAUNCHER; THEN_CHAT_RESULT_REVIEW_OR_RECOVERY",
+      "next_safe_action": "OWNER_RUN_CLAIMED_PRECONSUME_CONTINUATION_V2_ACCEPTING_NULL_OR_EMPTY_UNSET_FIELDS; SAME_CLAIM_ONLY; THEN_CHAT_RESULT_REVIEW_OR_RECOVERY",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -170,7 +170,7 @@
         "next_phase": {
           "id": "CURRENT_PACKAGE_HOST_LIFECYCLE_CERTIFICATION_A02",
           "stage": "TEST",
-          "status": "DISPATCH_CLAIMED_PRECONSUME_RECOVERY_REQUIRED",
+          "status": "DISPATCH_CLAIMED_PRECONSUME_RECOVERY_V2_REQUIRED",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
           "branch": "work/FOX2-BRIDGE-RC1-HOST-LIFECYCLE-CERT-A02-20261022",
           "task_commit": "9ffa283034a4614e5cc5a60899f919e3f12d7a03",
@@ -288,6 +288,17 @@
             "control_remote_head": "8dceb41112d8240ec579ddede23b8ae6a9d06662",
             "no_remote_result": true,
             "safe_action": "VALIDATE_EXISTING_CLAIM_EXACTLY_AND_RESUME_SAME_ATTEMPT_FROM_CLAIMED_TO_SPAWN_ATTEMPTED; NEVER_DELETE_OR_RECREATE_CLAIM"
+          },
+          "execution_recovery_v2": {
+            "review_commit": "d688ce59de7b1b4697e4a41502d73b4f8f9b2362",
+            "class": "CLAIM_UNSET_STRING_SERIALIZATION",
+            "observed": "result_sha stored as empty string while claim remained CLAIMED and dispatch_consumed=false",
+            "git_task_head": "76913f36b461689a84e8b4acf57a9ef83a98828d",
+            "git_control_head": "8dceb41112d8240ec579ddede23b8ae6a9d06662",
+            "no_result_commit": true,
+            "consumed": false,
+            "agent_started": false,
+            "safe_action": "VALIDATE result_sha/delivery/detail as null-or-whitespace only; normalize to JSON null at SPAWN_ATTEMPTED transition; resume same claim; non-empty value means NO_REPLAY_STOP"
           }
         },
         "host_lifecycle_cert": {
