@@ -2,12 +2,12 @@
   "schema": "FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY_V1",
   "project": "FOX2",
   "registry_scope": "PROJECTWIDE_GOVERNANCE_DOCUMENT_AUTHORITY_ONLY",
-  "status": "AGILE_LITE_BRANCH_SOURCE_CANDIDATE_NOT_GLOBAL_RELEASED",
+  "status": "GOVERNANCE_EFFECTIVE_OWNER_AUTHORIZED_IN_SCOPE",
   "record_date": "2026-10-22",
-  "release_branch": "work/FOX2-AGILE-LITE-PROJECT-OPERATING-20261022",
+  "release_branch": "main",
   "authority": {
-    "source": "OWNER_DIRECT_IN_CHAT_APPROVAL_AND_INSTRUCTION_2026-10-19",
-    "purpose": "Governance documentation release and source selection for new/re-scoped FOX2 CHAT work",
+    "source": "OWNER_DIRECT_IN_CHAT_APPROVAL_AND_EXECUTION_2026-10-22",
+    "purpose": "Projectwide Agile Lite outcome-first management for new/re-scoped FOX2 work; existing historical machine/Dispatch identities preserved",
     "release_decision": {
       "path": "docs/governance/releases/FOX2_GOVERNANCE_PRODUCT_GATE_DECOUPLING_20261019.md",
       "commit": "327e0ea80292e60fa4e826f4c78918fd32835dcc",
@@ -21,10 +21,10 @@
     "new_owner_approval": {
       "observed": "EXPLICIT_OWNER_APPROVAL_2026-10-22",
       "scope": "PROJECT_WIDE_OUTCOME_FIRST_PROJECT_MANAGEMENT",
-      "publication": "GIT_AND_LIBRARY_READBACK_POLICY_PROTOCOL_KANBAN",
-      "effectivity": "PROPOSED_POINTER_BRANCH_ONLY_PENDING_MERGE",
+      "publication": "GIT_MAIN_MERGED_CORE_DOCS_LIBRARY_VERIFIED_REGISTRY_MIRROR_PENDING",
+      "effectivity": "OWNER_APPROVED_MAIN_GOVERNANCE_EFFECTIVE_2026-10-22",
       "excluded": [
-        "PROTECTED_MAIN_MERGE",
+        "UNRELATED_FUTURE_PROTECTED_MAIN_MERGE",
         "LIVE",
         "BROKER_PROVIDER_WRITE",
         "CONSUMED_ATTEMPT_REPLAY",
@@ -40,7 +40,7 @@
       "blob_sha1": "05d319eee02dae7b5e3df81506fbc0cc848daa2b",
       "sha256": "5e91f9276059d6be6bb27a3b4af43804002efd9540606e6fba6c1b2768eb484a",
       "source_embedded_status": "OWNER_APPROVED_SOURCE_CANDIDATE",
-      "governance_effectivity": "BRANCH_SOURCE_CANDIDATE_NOT_MAIN",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
       "machine_installed_effectivity": "NOT_ATTESTED"
     },
     "dictionary": {
@@ -60,7 +60,7 @@
       "blob_sha1": "dfb88b3a89ee52c56db705d3569e8a786e1c1cfc",
       "sha256": "3d3de16c2def09963fd0e1500f55d069db9577dd3bc51fc51c24dc20b505af71",
       "source_embedded_status": "OWNER_APPROVED_PROJECT_OPERATING_SOURCE",
-      "governance_effectivity": "BRANCH_SOURCE_CANDIDATE_NOT_MAIN",
+      "governance_effectivity": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_AND_RESCOPED_CHAT_WORK",
       "machine_installed_effectivity": "NOT_ATTESTED"
     },
     "git_first_protocol": {
@@ -69,7 +69,7 @@
       "commit": "e08c23177af60ed3b0a7e62f2e88b0fea7927b32",
       "blob_sha1": "fdea8de23efe925d899a015df1e5355a1a03ba86",
       "sha256": "f2a2433cc471adb5cace9e994d670d94e089aff895a7117f44e22df406d2d56d",
-      "status": "BRANCH_SOURCE_CANDIDATE_NOT_MAIN"
+      "status": "OWNER_APPROVED_EFFECTIVE_FOR_NEW_CHAT_MANAGED_WORK"
     },
     "brds": [
       {
@@ -128,11 +128,11 @@
     }
   },
   "consumer_states": {
-    "governance_chat": "OWNER_APPROVED_HUMAN_OPERATING_DIRECTION;_BRANCH_POINTER_CANDIDATE",
+    "governance_chat": "AGILE_LITE_POLICY_2_1_EFFECTIVE_NEW_CHAT_MANAGEMENT",
     "generated_binding_hosted_tests": "PASS_REFERENCE_ONLY",
     "bridge_owner_installed": "NOT_ATTESTED",
     "old_bridge_rc1_trust_registry": "WP_ONLY_UNCHANGED",
-    "app_offline_dev": "OWNER_APPROVED_LIGHTWEIGHT_MANAGEMENT;_ACTUAL_HOST_AND_RUNTIME_NOT_ATTESTED",
+    "app_offline_dev": "AGILE_LITE_HUMAN_MANAGEMENT_EFFECTIVE_NATIVE_HOST_CAPABILITY_NOT_ATTESTED",
     "product_acceptance": "NOT_CLAIMED",
     "global_machine_auto_adoption": "NOT_CLAIMED"
   },
@@ -143,9 +143,11 @@
     "prior_routing": "v1.3 historical; new CHAT routing uses v1.4 under owner governance authority",
     "non_retroactive": true,
     "no_auto_dispatch_replay": true,
-    "master_plan_priority": "CODE_FIRST"
+    "master_plan_priority": "CODE_FIRST",
+    "previous_policy_v2_0": "HISTORICAL_HUMAN_GOVERNANCE_FOR_PRE_2026_10_22_TASKS",
+    "previous_routing_index_v1_4": "HISTORICAL_HUMAN_GOVERNANCE_FOR_PRE_2026_10_22_TASKS"
   },
-  "resolver_rule": "Projectwide owner decision dated 2026-10-22 governs the Agile Lite candidate for new/re-scoped human management. Git/Library sources are verified on this proposal branch; `current_governance` branch pointers are NOT global until authorized promotion. Machine consumers and locked legacy Dispatches retain their own pinned Dictionary/Policy and real safety checks. Do not blanket-upgrade BRD, Tech Spec or historical version references.",
+  "resolver_rule": "Resolve current projectwide CHAT human operating Policy v2.1.0, Routing v1.5.0 and Task/Result Protocol v13 from this main Governance Registry for new/re-scoped work. Use Dictionary/immutable source binding only for the selected machine consumer or historical Bridge Dispatch. Do not use version-only differences as a reason to rework unchanged BRD/TechSpec or to replay completed/consumed tasks.",
   "gates": {
     "governance_document": [
       "owner_scope",
@@ -174,7 +176,7 @@
     "LIVE": false
   },
   "agile_lite_20261022": {
-    "status": "OWNER_APPROVED_SOURCE_PUBLISHED_ON_PROPOSED_GOVERNANCE_BRANCH",
+    "status": "PUBLISHED_EFFECTIVE_HUMAN_PROJECT_MANAGEMENT",
     "owner_approval_date": "2026-10-22",
     "scope": "PROJECT_WIDE_NEW_OR_RESCOPED_HUMAN_MANAGEMENT",
     "policy": {
@@ -192,17 +194,19 @@
     },
     "library_byte_readback": "VERIFIED_POLICY_PROTOCOL_KANBAN",
     "existing_machine_current": "UNCHANGED",
-    "governance_activation": "PENDING_MAIN_PROMOTION_AND_COMPATIBILITY",
+    "governance_activation": "OWNER_APPROVED_EFFECTIVE_NEW_RESCOPED_CHAT_WORK",
     "skills_plugin_adoption": "NOT_ATTESTED",
     "installed_runtime_adoption": "NOT_ATTESTED",
     "existing_dispatch_bindings": "UNCHANGED",
     "reason": "No blanket version-upgrade; legacy references preserved unless incompatible active consumer is proven",
-    "registry_pointer": "UPDATED_ON_BRANCH_ONLY",
+    "registry_pointer": "MAIN_CURRENT",
     "routing_index": {
       "version": "1.5.0",
       "path": "docs/governance/FOX2_AGENT_ROUTING_INDEX_v1.5.0.md",
       "git_commit": "09d98759458ea30004da1811114915bdbd0fa3f4",
       "sha256": "3d3de16c2def09963fd0e1500f55d069db9577dd3bc51fc51c24dc20b505af71"
-    }
+    },
+    "main_merge_commit": "354b05420d5d49ddb6f75f0b0bf0c16f709ab15f",
+    "skills_source": "MAIN_PUBLISHED_PLUGIN_INSTALLED_NOT_ATTESTED"
   }
 }
