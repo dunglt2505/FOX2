@@ -195,7 +195,7 @@
     "library_byte_readback": "VERIFIED_POLICY_PROTOCOL_KANBAN",
     "existing_machine_current": "UNCHANGED",
     "governance_activation": "OWNER_APPROVED_EFFECTIVE_NEW_RESCOPED_CHAT_WORK",
-    "skills_plugin_adoption": "PLUGIN_V041_RELEASE_VERIFIED",
+    "skills_plugin_adoption": "PLUGIN_V042_RELEASE_VERIFIED",
     "installed_runtime_adoption": "NOT_ATTESTED",
     "existing_dispatch_bindings": "UNCHANGED",
     "reason": "No blanket version-upgrade; legacy references preserved unless incompatible active consumer is proven",
@@ -207,8 +207,8 @@
       "sha256": "3d3de16c2def09963fd0e1500f55d069db9577dd3bc51fc51c24dc20b505af71"
     },
     "main_merge_commit": "354b05420d5d49ddb6f75f0b0bf0c16f709ab15f",
-    "skills_source": "MAIN_V041_EXACT_17_SKILLS",
-    "skills_plugin_release_id": "pluginrel_6ada1029d3248191af2cd6c5a6dcaec0",
+    "skills_source": "MAIN_V042_EXACT_17_SKILLS",
+    "skills_plugin_release_id": "pluginrel_6ada121b449c81919ddae70aa0632919",
     "skills_plugin_host_e2e": "NOT_ATTESTED"
   }
 }
