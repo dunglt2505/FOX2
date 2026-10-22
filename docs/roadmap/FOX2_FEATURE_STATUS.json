@@ -47,9 +47,9 @@
         }
       ],
       "exit_gate": "COMPOSITE_HOST_LIFECYCLE_ACCEPTED(A04_REUSABLE_PASS + CHAT_ACCEPTED_CERTIFIER_CORRECTION + A05_CONTINUATION) -> G3 -> G4 -> CURRENT_INDEPENDENT_PRECANARY_AUDIT -> FRESH_CANARY -> RESTART_NO_REPLAY -> CHAT_FINAL_INTAKE",
-      "blocker": "OWNER_RUN_EXACT_R3_PREEXEC_V2_39F0993C; V1_BA9B8EDA_BLOCKED_ON_WRONG_TEST_PYTHON_BINDING_AND_MUST_NOT_RERUN",
+      "blocker": "OWNER_RUN_R3_PREEXEC_V4_4BDBE33E; V1_BLOCKED_TEST_PYTHON; V2_SCHEMA_INVALID; V3_READONLY_GOVERNANCE_FETCH_FAILED",
       "as_of": "2026-10-22",
-      "next_safe_action": "OWNER_RUN_R3_PREEXEC_V2_39F0993C_ONCE; V2_DISCOVERS_EXISTING_PYTHON313_PYTEST_ENV_WITHOUT_INSTALL; THEN_CHAT_INTAKE_AND_IF_PASS PUBLISH_PASS_TO_ASSIGN_AND_FRESH_R3_CODEX_MEDIUM_DISPATCH",
+      "next_safe_action": "RUN_R3_PREEXEC_V4_ONCE; V4_USES_FETCH_HEAD_BOUNDED_RETRY_AND_VALIDATES_RECEIPT_SCHEMA_BEFORE_PUBLICATION; IF_PASS_CHAT_INTAKE_THEN_PASS_TO_ASSIGN_AND_R3_CODEX_MEDIUM_DISPATCH",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "CONSUMED_HISTORICAL_RESULT_PRESENT_NOT_CURRENT_ACCEPTANCE_NO_REPLAY",
       "internal_ready": "NOT_ATTESTED",
@@ -174,9 +174,9 @@
         "next_phase": {
           "id": "PRESENTATION_LOCK_CERTIFIER_REWORK_R3",
           "stage": "BUILD",
-          "status": "PREEXEC_V1_BLOCKED_RECOVERED_V2_PUBLISHED_NOT_RUN",
+          "status": "PREEXEC_V4_PUBLISHED_NOT_RUN",
           "source_result": "085cc8302e824dbccf9cbef80422ed48894b9cb4",
-          "preexec": "V2_PUBLISHED_NOT_RUN",
+          "preexec": "V4_PUBLISHED_NOT_RUN",
           "dispatch_published": false,
           "agent_started": false,
           "result": "NOT_RUN",
@@ -333,6 +333,25 @@
             "commit": "03ba2e7961307a6ce29b424765b05a337da8c200",
             "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V1_RECOVERY_20261022.md",
             "verdict": "RECOVERED_PREEXEC_V1_BLOCKED_NO_SIDE_EFFECT"
+          },
+          "preexec_v3": {
+            "publication_commit": "c06a8ab9d1ca84a1bef41da354de5c3ea876a620",
+            "state": "READ_ONLY_GOVERNANCE_FETCH_FAILED_NO_RECEIPT_NO_DISPATCH",
+            "instruction": "DO_NOT_RERUN"
+          },
+          "preexec_v4": {
+            "publication_commit": "4bdbe33ebcb0d03f261a7870f9e364a67f1fdfd7",
+            "script_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/presentation_lock_certifier_rework_r3/preexec_v4.ps1",
+            "script_blob": "0c87e921b6903790b3f60cbd536b85a5d19411d6",
+            "script_sha256": "f12e6c87b79f48072fea5cffaf66113abf53f7653f851ac305d784ee01fc4500",
+            "route": "CODEX_GPT_6_1_SOL_MEDIUM",
+            "fetch_strategy": "FETCH_HEAD_READONLY_WITH_BOUNDED_RETRY",
+            "receipt_schema_validation": true,
+            "state": "PUBLISHED_NOT_RUN"
+          },
+          "fetch_recovery": {
+            "commit": "dd2707ea0d003ceec0eedda331a7cc6dc59b6d5a",
+            "path": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/PRESENTATION_LOCK_CERTIFIER_R3_PREEXEC_V3_FETCH_RECOVERY_20261022.md"
           }
         },
         "host_lifecycle_cert": {
