@@ -27,12 +27,30 @@
         }
       ],
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
-      "blocker": "BRIDGE_BOOTSTRAP_CONTROLS_BLOCKED; ADMISSION_COMPATIBILITY_ADOPTION_UNATTESTED; FINAL_CANARY_GATES_NOT_RUN",
-      "as_of": "2026-10-19T23:23:08.562605+07:00",
-      "next_safe_action": "READ_ONLY_Q0_Q1_AND_SUPPORTED_BOOTSTRAP_CONTROL_EVIDENCE_REVIEW; NO_EXECUTION_UNDER_CURRENT_OWNER_SCOPE",
+      "blocker": "CURRENT_CONTROL_PAUSED_FALSE; INTERNAL_VALIDATION_NOT_CONSUMED_OBSERVED; NO_AUTOMATIC_RERUN",
+      "as_of": "2026-10-23",
+      "next_safe_action": "READONLY_RECONCILIATION_OF_PAUSE_AND_WRITERS; RESTORATION_REQUIRES_SEPARATELY_SCOPED_DECISION_BEFORE_PRECONSUME",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
-      "internal_ready": "NOT_ATTESTED"
+      "internal_ready": "NOT_ATTESTED",
+      "internal_validation_reconciliation": {
+        "runner_base": "f551e3790aa93b2a43b710e4756630d95f2472b3",
+        "observed_utc": "2026-10-23T01:28:07Z",
+        "state": "STOPPED",
+        "paused": false,
+        "setup_complete": true,
+        "current_dispatch": null,
+        "failed_fields": [
+          "paused"
+        ],
+        "internal_claim": "ABSENT_AT_INSPECTION",
+        "internal_output": "ABSENT_AT_INSPECTION",
+        "historical_failure_fields": "NOT_RECORDED_IN_COMBINED_STOP",
+        "r5_no_replay": true,
+        "validator_rerun": "NOT_AUTHORIZED_BY_DIAGNOSIS",
+        "report": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/UNSAFE_CONTROL_RECONCILIATION_20261023.md",
+        "installed_mutation": false
+      }
     },
     {
       "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
