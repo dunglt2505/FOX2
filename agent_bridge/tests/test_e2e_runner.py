@@ -255,6 +255,11 @@ def execution_harness(bridge_config, monkeypatch):
         monkeypatch.setattr(runner, '_resolve_prompt', lambda _: 'immutable local fixture prompt')
         monkeypatch.setattr(runner, '_commit_and_push_codex_result',
                             lambda **_: pytest.fail('non-zero/pre-spawn failure must not publish'))
+        # This adapter lifecycle fixture deliberately uses a fake .git file
+        # and monkeypatches subprocess.Popen to count paid Agent launches.
+        # Read-only WIP Git inventory is tested separately with real Git;
+        # it must not be mistaken for another Agent process here.
+        monkeypatch.setattr(runner, '_dirty_changed_paths', lambda _: ())
         from fox2_agent_bridge.codex_adapter import CodexAdapter
         from fox2_agent_bridge.copilot_adapter import CopilotAdapter
         selected = CodexAdapter if product == 'CODEX' else CopilotAdapter

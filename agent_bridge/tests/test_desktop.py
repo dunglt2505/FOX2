@@ -481,7 +481,8 @@ def test_exact_result_verification_branch_ancestry_scope_acceptance(bridge_confi
         if 'branch' in args:return SimpleNamespace(stdout='work/exact')
         if 'status' in args:return SimpleNamespace(stdout='')
         if 'rev-parse' in args:return SimpleNamespace(stdout='b'*40)
-        if 'diff' in args:return SimpleNamespace(stdout='reports/result.md')
+        if 'diff' in args:
+            return SimpleNamespace(stdout=b'reports/result.md\x00' if kwargs.get('binary') else 'reports/result.md')
         return SimpleNamespace(stdout='')
     monkeypatch.setattr(runner,'_git',git)
     monkeypatch.setattr(runner,'_remote_branch_head',lambda branch:'b'*40)
