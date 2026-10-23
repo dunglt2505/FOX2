@@ -86,7 +86,9 @@ def _publisher(monkeypatch, *, owner="BRIDGE", remote="a", local="b",
     base, result = "a" * 40, "b" * 40
     checkpoint = {
         "payload": {"delivery_owner": owner, "branch": "work/FOX2-test-delivery",
-                    "worktree": "/tmp/fox2-checkpoint", "_agent_product": "CODEX"},
+                    "worktree": "/tmp/fox2-checkpoint", "_agent_product": "CODEX",
+                    "allowed_code_paths": [],
+                    "allowed_report_paths": ["reports/FOX2-result/**"]},
         "expected_result_sha": result if expected == "b" else expected,
         "before_head": base if before == "a" else before,
         "agent_exit_code": exit_code,
@@ -98,6 +100,14 @@ def _publisher(monkeypatch, *, owner="BRIDGE", remote="a", local="b",
         calls.append(args)
         if "push" in args:
             return SimpleNamespace(stdout="")
+        if "diff" in args and binary:
+            return SimpleNamespace(stdout=b"reports/FOX2-result/report.md\x00")
+        if "ls-tree" in args:
+            return SimpleNamespace(stdout=(
+                b"100644 blob " + b"0" * 40 +
+                b"\treports/FOX2-result/report.md\x00"))
+        if "show" in args and binary:
+            return SimpleNamespace(stdout=b"safe report bytes")
         if "branch" in args:
             return SimpleNamespace(stdout="work/FOX2-test-delivery\n")
         if "status" in args:
