@@ -275,3 +275,30 @@ def test_new_dispatch_draft_cli_is_non_overwriting_and_unpublished(tmp_path):
     assert json.loads(source.read_text()) == draft
     repeat = subprocess.run(args, capture_output=True, text=True, timeout=15)
     assert repeat.returncode != 0
+
+
+def test_committed_recovery_content_guard_uses_exact_commit_tree(workspace):
+    from fox2_agent_bridge.git_delivery_guard import validate_committed_result
+    before = git(["-C", str(workspace), "rev-parse", "HEAD"]).stdout.strip()
+    (workspace / "result.txt").write_text("okay\n", encoding="utf-8")
+    git(["-C", str(workspace), "add", "result.txt"])
+    git(["-C", str(workspace), "commit", "-m", "safe"])
+    after = git(["-C", str(workspace), "rev-parse", "HEAD"]).stdout.strip()
+    validate_committed_result(git, workspace, before, after, ("result.txt",))
+
+    (workspace / "result.txt").write_text("github_pat_" + "P" * 32)
+    git(["-C", str(workspace), "add", "result.txt"])
+    git(["-C", str(workspace), "commit", "-m", "unsafe fixture"])
+    secret_head = git(["-C", str(workspace), "rev-parse", "HEAD"]).stdout.strip()
+    with pytest.raises(WorkspaceBlocked, match="secret"):
+        validate_committed_result(git, workspace, after, secret_head, ("result.txt",))
+
+
+def test_committed_recovery_rejects_gitlink_and_symlink_modes_without_host_permission(workspace):
+    from fox2_agent_bridge.git_delivery_guard import validate_committed_result
+    def fake_git(args, *, binary=False):
+        if "ls-tree" in args:
+            return SimpleNamespace(stdout=b"120000 blob " + b"0" * 40 + b"\tresult.txt\x00")
+        raise AssertionError("non-regular committed file must never be read")
+    with pytest.raises(WorkspaceBlocked, match="non-regular committed"):
+        validate_committed_result(fake_git, workspace, "a" * 40, "b" * 40, ("result.txt",))

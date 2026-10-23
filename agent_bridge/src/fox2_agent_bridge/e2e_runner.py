@@ -39,7 +39,7 @@ from .result_store import write_execution_report
 from .agent_policy import validate_selection, ADAPTER_REGISTRY, ExecutionTuple, configuration_mismatch
 from .logging_config import redact_context
 from .dispatch_normalizer import normalize_dispatch
-from .git_delivery_guard import validate_staged_blobs
+from .git_delivery_guard import validate_staged_blobs, validate_committed_result
 from .project_dictionary import PROJECT_ID, IDENTIFIERS, PROTECTED_AUTHORITY_DEFAULTS
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
@@ -765,6 +765,21 @@ class BridgeE2ERunner:
             raise WorkspaceBlocked("publish recovery requires a clean worktree")
         if self._git(["-C", str(worktree), "rev-parse", "HEAD^"]).stdout.strip() != before:
             raise WorkspaceBlocked("published result commit parent differs from bound base")
+        # Persisted commit may predate the current executable. Recheck the
+        # exact tree and all changed paths *before* any resumed push, instead
+        # of trusting the prior Agent output or a post-push verifier.
+        raw_names = self._git([
+            "-C", str(worktree), "diff", "--no-renames", "--name-only", "-z",
+            before, expected], binary=True).stdout
+        try:
+            changed = tuple(p.decode("utf-8") for p in raw_names.split(b"\x00") if p)
+        except UnicodeDecodeError as exc:
+            raise WorkspaceBlocked("invalid committed result path encoding") from exc
+        self._verify_changed_paths(payload=payload, changed=changed)
+        validate_committed_result(self._git, worktree, before, expected, changed)
+        self._verify_acceptance(payload=payload, worktree=worktree,
+            agent_stdout=str(context.get("agent_stdout", "")),
+            agent_label=str(payload.get("_agent_product", "Agent")))
         current_remote = self._remote_branch_head(branch)
         if current_remote == before:
             self._git(["-C", str(worktree), "push", "origin",

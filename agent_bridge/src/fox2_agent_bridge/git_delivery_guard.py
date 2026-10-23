@@ -84,3 +84,40 @@ def validate_staged_blobs(
             raise WorkspaceBlocked("staged blob exceeds bounded secret scan")
         if any(pattern.search(blob) for pattern in _SECRET_BYTES):
             raise WorkspaceBlocked("possible secret detected in staged content")
+
+
+def validate_committed_result(
+    git: Callable[..., Any], worktree: Path, before_head: str,
+    commit_sha: str, paths: tuple[str, ...],
+) -> None:
+    """Read the EXACT persisted commit tree before any resumed network push."""
+    import re as _re
+    if not (_re.fullmatch(r"[0-9a-f]{40}", before_head) and
+            _re.fullmatch(r"[0-9a-f]{40}", commit_sha)):
+        raise WorkspaceBlocked("invalid immutable publication identities")
+    if not paths:
+        raise WorkspaceBlocked("empty committed result cannot be published")
+    for path in paths:
+        _safe_relative(path)
+        raw = git(["-C", str(worktree), "ls-tree", "-z", commit_sha, "--", path],
+                  binary=True).stdout
+        if not raw:
+            # Deletion: the path must not exist in the new commit.
+            continue
+        entries = [x for x in raw.split(b"\x00") if x]
+        if len(entries) != 1:
+            raise WorkspaceBlocked("ambiguous committed file identity")
+        try:
+            meta, name = entries[0].split(b"\t", 1)
+        except ValueError as exc:
+            raise WorkspaceBlocked("invalid committed tree entry") from exc
+        if (name.decode("utf-8", "strict") != path or
+                meta.split(b" ", 1)[0] not in (b"100644", b"100755") or
+                b" blob " not in meta):
+            raise WorkspaceBlocked("non-regular committed file or path mismatch")
+        blob = git(["-C", str(worktree), "show", f"{commit_sha}:{path}"],
+                   binary=True).stdout
+        if not isinstance(blob, bytes) or len(blob) > _MAX_BLOB_BYTES:
+            raise WorkspaceBlocked("committed blob exceeds bounded secret scan")
+        if any(pattern.search(blob) for pattern in _SECRET_BYTES):
+            raise WorkspaceBlocked("possible secret detected in committed content")
