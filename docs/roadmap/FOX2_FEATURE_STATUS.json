@@ -29,7 +29,7 @@
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
       "blocker": "G3_PHYSICAL_WINDOWS_CAPABILITY_NOT_YET_OBSERVED; G3_PRIVILEGED_HOST_TEST_NOT_RUN; FINAL_F1_PACKAGE_NOT_BUILT; G4_NOT_RUN; A04_RESTART_FAILURE_UNDIAGNOSED",
       "as_of": "2026-10-23",
-      "next_safe_action": "RUN_OWNER_PHYSICAL_WINDOWS_READONLY_G3_CAPABILITY_PROBE; INTAKE_HOST_FACTS; THEN_FRESH_SOURCE_BOUND_G3_PHYSICAL_PREFLIGHT_AND_BOUNDED_TEST_IF_SAFE",
+      "next_safe_action": "ONE_PINNED_READONLY_HOST_CAPABILITY_PROBE_ON_PHYSICAL_WINDOWS; CHAT_SCOPED_INTAKE_OF_JSON; THEN_G3_HOST_SAFE_EXECUTION_DECISION; NO_VM_OR_REPEAT_LIFECYCLE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
@@ -104,14 +104,16 @@
           "directive": "OWNER_APPROVED_G3_ON_PHYSICAL_WINDOWS_HOST_2026-10-23",
           "target": "OWNER_SELECTED_PHYSICAL_WINDOWS",
           "scope": "G3_TARGET_CHANGE; PRIVILEGED_MUTATIONS_REQUIRE_CURRENT_WINDOWS_CAPABILITY_SOURCE_AND_RESTORE_PROOF",
-          "active_task_commit": "55825fcbb968e28c307032fe6ce9d503817b2e8a",
+          "active_task_commit": "9f2d10822fb1a3926b8bda6d992a795880160927",
           "active_task_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/task.md",
           "active_preexec_path": "agent_bridge/scripts/f1_g3_host_preexec.ps1",
           "read_only_probe": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/physical_host_capability_readonly.ps1",
           "hardware_class_gate": "NONE",
           "capability_observed": "NOT_RUN",
           "host_execution": "NOT_RUN",
-          "source": "OWNER_CURRENT_CONVERSATION"
+          "source": "OWNER_CURRENT_CONVERSATION",
+          "read_only_probe_blob": "cbac88686704d6d1d3cad9f71dea4a690f325aa3",
+          "probe_schema": "FOX2_G3_PHYSICAL_READONLY_V3"
         }
       }
     },
@@ -587,7 +589,7 @@
         "read_only_probe_status": "NOT_RUN_ON_OWNER_HOST",
         "current_task_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/task.md",
         "current_preexec_path": "agent_bridge/scripts/f1_g3_host_preexec.ps1",
-        "candidate_source_commit": "55825fcbb968e28c307032fe6ce9d503817b2e8a",
+        "candidate_source_commit": "9f2d10822fb1a3926b8bda6d992a795880160927",
         "historical_blocked_preexec_commit": "c61ffd259a384e9c96b563968c6b7b98a0f156cd",
         "historical_blocked_preexec_status": "BLOCKED_PRESERVED_NOT_REBOUND",
         "admin_capability": "UNKNOWN",
@@ -596,7 +598,17 @@
         "privileged_execution": "NOT_RUN",
         "admission": "NOT_RUN",
         "g4": "NOT_RUN",
-        "next": "OWNER_PHYSICAL_HOST_READONLY_SCAN; REVIEW_CURRENT_TECHNICAL_PREFLIGHT; STOP_IF_POLICY_SERVICE_RESTORE_UNPROVEN"
+        "next": "ONE_OWNER_PHYSICAL_WINDOWS_READONLY_SCAN_OF_PINNED_SCRIPT_V3; CHAT_INTAKE; THEN_DECIDE_BOUNDED_NEXT_SAFE_G3_HOST_ACTION",
+        "read_only_probe_blob": "cbac88686704d6d1d3cad9f71dea4a690f325aa3",
+        "current_preexec_blob": "d50c31145c041be5818d2772eb04c512eee0f4a8",
+        "current_task_blob": "95023611026aa89e8c3f4edc485d976dc2a2ca44",
+        "capability_probe_schema": "FOX2_G3_PHYSICAL_READONLY_V3",
+        "capability_probe_status": "PUBLISHED_NOT_RUN_ON_HOST",
+        "policy_restore_capability": "NOT_ATTESTED_HASHES_NOT_BACKUP",
+        "policy_channel_scope": "GROUP_POLICY_QUERY_ONLY_CSP_NOT_VERIFIED",
+        "preexec_status": "NOT_RUN_ON_PHYSICAL_HOST",
+        "test_status": "NOT_RUN",
+        "admission_status": "NOT_GRANTED_BY_READONLY_SOURCE"
       },
       "g4": {
         "status": "NOT_RUN",
