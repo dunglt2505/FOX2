@@ -39,6 +39,7 @@ from .result_store import write_execution_report
 from .agent_policy import validate_selection, ADAPTER_REGISTRY, ExecutionTuple, configuration_mismatch
 from .logging_config import redact_context
 from .dispatch_normalizer import normalize_dispatch
+from .git_delivery_guard import validate_staged_blobs
 from .project_dictionary import PROJECT_ID, IDENTIFIERS, PROTECTED_AUTHORITY_DEFAULTS
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
@@ -685,6 +686,7 @@ class BridgeE2ERunner:
         self._git(["-C", str(worktree), "diff", "--check"])
         self._git(["-C", str(worktree), "add", "-A", "--", *changed])
         self._git(["-C", str(worktree), "diff", "--cached", "--check"])
+        validate_staged_blobs(self._git, worktree, changed)
         dispatch_id = str(payload["dispatch_id"])
         self._git(
             [
@@ -725,6 +727,50 @@ class BridgeE2ERunner:
             before_head=before_head,
             agent_stdout=agent_stdout,
             agent_label="Codex",
+        )
+
+    def _reconcile_publishing(self, context: dict[str, object]) -> tuple[str, tuple[str, ...]]:
+        """Complete only an already-persisted commit; NEVER launch an Agent again.
+
+        This is called only under Desktop's single-worker lock for a zero-exit
+        PUBLISHING checkpoint. Ref drift, missing durable SHA or local changes
+        stop the recovery. The same commit is reused, never re-committed.
+        """
+        payload = context.get("payload")
+        if not isinstance(payload, dict) or payload.get("delivery_owner") != "BRIDGE":
+            raise WorkspaceBlocked("no authorized Bridge publication intent")
+        branch = payload.get("branch")
+        if (not isinstance(branch, str) or not _BRANCH_PATTERN.fullmatch(branch)
+                or branch in {"work/main", "work/master"} or ".." in branch):
+            raise WorkspaceBlocked("invalid bounded result branch for recovery")
+        expected = context.get("expected_result_sha")
+        before = context.get("before_head")
+        if (not isinstance(expected, str) or not FULL_SHA_PATTERN.fullmatch(expected)
+                or not isinstance(before, str) or not FULL_SHA_PATTERN.fullmatch(before)
+                or expected == before):
+            raise WorkspaceBlocked("durable exact Git publish intent unavailable")
+        if context.get("agent_exit_code") != 0:
+            raise WorkspaceBlocked("failed Agent cannot recover as successful publication")
+        worktree = Path(str(payload["worktree"]))
+        if self._git(["-C", str(worktree), "branch", "--show-current"]).stdout.strip() != branch:
+            raise WorkspaceBlocked("publish recovery worktree branch drift")
+        if self._git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip() != expected:
+            raise WorkspaceBlocked("publish recovery local committed SHA drift")
+        if self._git(["-C", str(worktree), "status", "--porcelain", "--untracked-files=all"]).stdout.strip():
+            raise WorkspaceBlocked("publish recovery requires a clean worktree")
+        if self._git(["-C", str(worktree), "rev-parse", "HEAD^"]).stdout.strip() != before:
+            raise WorkspaceBlocked("published result commit parent differs from bound base")
+        current_remote = self._remote_branch_head(branch)
+        if current_remote == before:
+            self._git(["-C", str(worktree), "push", "origin",
+                       f"{expected}:refs/heads/{branch}"])
+        elif current_remote != expected:
+            raise WorkspaceBlocked("remote ref drift during idempotent Git reconciliation")
+        # Verify after the push OR if remote was already pushed but ledger missed it.
+        return self._verify_result(
+            payload=payload, worktree=worktree, before_head=before,
+            agent_stdout=str(context.get("agent_stdout", "")),
+            agent_label=str(payload.get("_agent_product", "Agent")),
         )
 
     def _verify_result(
