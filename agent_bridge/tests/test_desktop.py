@@ -104,8 +104,11 @@ def test_restart_stages_never_replay(bridge_config, stage, remote, outcome):
     ledger = SQLiteLedger(bridge_config.database_path)
     ledger.initialize()
     ledger.claim_dispatch(dispatch_id='exact', payload_hash='a'*64, execution_id='e', observed_at_utc=utc_now())
+    # This legacy positive fixture models an AGENT-owned already-pushed result.
+    # BRIDGE-owned recovery instead requires an immutable PUBLISHING commit SHA.
     payload = {'worktree': str(bridge_config.worktree_root/'exact'), '_agent_product': 'CODEX',
-               'agent': {'product': 'CODEX'}, 'branch': 'work/exact'}
+               'agent': {'product': 'CODEX'}, 'branch': 'work/exact',
+               'delivery_owner': 'AGENT'}
     if stage != 'UNKNOWN':
         ledger.checkpoint('e', stage, {'payload': payload, 'before_head': 'a'*40, 'agent_stdout': 'marker', 'agent_exit_code': 0})
     calls = []
