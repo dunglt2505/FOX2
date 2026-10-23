@@ -115,6 +115,12 @@ def test_candidate_can_be_composed_offline_but_not_attested():
         Artifact("Script", "legacy.ps1", 7, "5" * 64, "6" * 64, "Deny"),
         Artifact("Script", "current.ps1", 8, "7" * 64, "8" * 64, "Allow"),
     )
+    # The actual Owner snapshot is NOT a reviewed baseline for G2.
+    with pytest.raises(ValueError):
+        policy_artifact(
+            items, source_commit="a" * 40, package_digest="b" * 64,
+            baseline_xml=EMPTY
+        )
     xml, manifest = policy_artifact(
         items, source_commit="a" * 40, package_digest="b" * 64,
         baseline_xml=candidate

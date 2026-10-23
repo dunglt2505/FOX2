@@ -1,4 +1,4 @@
-"""Build an AppLocker host baseline CANDIDATE from reviewed path inputs.
+"""Build an AppLocker host baseline CANDIDATE from explicit path inputs.
 
 Offline only: no default allow rules, host discovery, policy mutation or grant.
 A G3 reviewer must verify every candidate path, ACL and complete machine coverage
