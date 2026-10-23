@@ -94,6 +94,7 @@ if ((Test-Path -LiteralPath $Repo -PathType Container) -and
 $Check.installed.root_exists = Test-Path -LiteralPath $Root -PathType Container
 $Check.installed.config_present = Test-Path -LiteralPath (
     Join-Path $Root 'config\bridge.toml') -PathType Leaf
+$RuntimePython = $null
 $Pointer = Join-Path $Root 'current.json'
 if (Test-Path -LiteralPath $Pointer -PathType Leaf) {
     try {
@@ -113,7 +114,7 @@ if (Test-Path -LiteralPath $Pointer -PathType Leaf) {
             $R = Get-Content -LiteralPath $Receipt -Raw -ErrorAction Stop |
                 ConvertFrom-Json -ErrorAction Stop
             if ([string]$R.package_sha256 -ceq $Id) {
-                $Check.installed.receipt_identity = 'POINTER_RECEIPT_PACKAGE_SHA_MATCH'
+                $Check.installed.receipt_identity = 'POINTER_RECEIPT_SHA_FIELD_MATCH_NOT_ARCHIVE_VERIFIED'
                 $Source = [string]$R.manifest.source_git_commit
                 if ($Source -match '^[0-9a-f]{40}$') {
                     $Check.installed.package_source_commit = $Source
