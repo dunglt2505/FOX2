@@ -27,9 +27,9 @@
         }
       ],
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
-      "blocker": "G3_ADMIN_AND_GP_SNAPSHOT_PASS_OBSERVED; ENFORCEMENT_NOT_RUN; CSP_UNKNOWN; RESTORE_TEST_NOT_RUN; G4_NOT_RUN; A04_RESTART_FAILED",
+      "blocker": "OWNER_HOST_EMPTY_APPLOCKER_BASELINE_CONFIRMED; G3_OFFLINE_CANDIDATE_SOURCE_PUBLISHED_TEST_NOT_RUN; FINAL_F1_PACKAGE_AND_HOST_G3_G4_NOT_RUN; RESTART_FAILED",
       "as_of": "2026-10-23",
-      "next_safe_action": "VALIDATE_LOCAL_POLICY_BACKUP_RESTORE_FEASIBILITY_AND_EXACT_G3_SOURCE_ON_PHYSICAL_HOST; DO_NOT_MUTATE_POLICY_UNTIL_G3_INTAKE; FOLLOW_WITH_G3_E1_E10_OR_EXPLICIT_BLOCKER",
+      "next_safe_action": "FOCUSED_OFFLINE_BASELINE_CANDIDATE_TESTS_AND_REVIEWED_HOST_EXE_SCRIPT_ALLOW_INVENTORY; G3_POLICY_ENFORCEMENT_STAYS_DENY_UNTIL_COMPATIBILITY_PROVED",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
@@ -345,9 +345,9 @@
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "G3_REAL_ENFORCEMENT_NOT_RUN; RESTORE_PATH_NOT_TESTED; CSP_COVERAGE_UNKNOWN; G3_TASK_SOURCE_PREFLIGHT_NOT_RUN",
+      "blocker": "HOST_APPLOCKER_BASELINE_ZERO_COLLECTIONS; SAFE_ALLOW_INVENTORY_NOT_VERIFIED; OFFLINE_CANDIDATE_CODE_UNTESTED; G3_WINDOWS_ENFORCEMENT_NOT_RUN",
       "as_of": "2026-10-23",
-      "next_safe_action": "NO_MORE_GENERIC_CAPABILITY_PROBES; PERFORM_READONLY_RESTORE_FEASIBILITY_AND_G3_SOURCE_BINDING_CHECK; THEN_PHYSICAL_ENFORCEMENT_OR_PRECISE_STOP",
+      "next_safe_action": "RUN_FOCUSED_NEW_OFFLINE_TESTS_AND_REVIEW_ALLOW_PATH_COVERAGE; DO_NOT_APPLY_DEFAULT_APPLOCKER_RULES_TO_OWNER_HOST",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -585,7 +585,7 @@
         "no_replay": true
       },
       "g3": {
-        "status": "ADMIN_AND_GP_SNAPSHOT_PASS_SCOPED__G3_ENFORCEMENT_NOT_RUN",
+        "status": "BASELINE_EMPTY_CONFIRMED__OFFLINE_CANDIDATE_CODE_PUBLISHED__G3_ENFORCEMENT_BLOCKED",
         "target": "OWNER_SELECTED_PHYSICAL_WINDOWS",
         "hardware_class_gate": "NONE",
         "read_only_probe_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/physical_host_capability_readonly.ps1",
@@ -601,7 +601,7 @@
         "privileged_execution": "NOT_RUN",
         "admission": "NOT_RUN",
         "g4": "NOT_RUN",
-        "next": "PRESERVE_LOCAL_BACKUP_PRIVATE; VERIFY_PRECHANGE_POLICY_RESTORE_PATH_WITH_NO_MUTATION_AND_CURRENT_TASK_SOURCE; THEN_BOUNDED_G3_EXECUTION_ONLY_WITH_SAFE_RESTORE_PROCEDURE_AND_CHAT_INTAKE",
+        "next": "REVIEW_AND_TEST_OFFLINE_CANDIDATE_BUILDER; COLLECT_SAFE_HOST_EXE_SCRIPT_ALLOW_PATH_LIST_AND_F1_PACKAGE_INVENTORY; CREATE_AND_REVIEW_SAME_HOST_BASELINE_OFFLINE; ONLY_THEN_G3_HOST_TEST",
         "read_only_probe_blob": "cbac88686704d6d1d3cad9f71dea4a690f325aa3",
         "current_preexec_blob": "70a6188ad626ff81ed62c4148de3ca0b50a6015d",
         "current_task_blob": "95023611026aa89e8c3f4edc485d976dc2a2ca44",
@@ -675,11 +675,60 @@
         },
         "policy_snapshot": "GP_POLICY_EXPORT_AND_XML_READBACK_PASS_OBSERVED__CSP_UNKNOWN",
         "blockers": [
-          "G3_PRIVILEGED_EXECUTION_NOT_RUN",
-          "G3_PRECHANGE_POLICY_RESTORE_TEST_NOT_RUN",
-          "CSP_POLICY_CHANNEL_NOT_VERIFIED",
-          "G3_SOURCE_AND_ATTEMPT_PREFLIGHT_NOT_RUN"
-        ]
+          "EXE_SCRIPT_ZERO_ALLOW_HOST_BASELINE",
+          "REVIEWED_HOST_APP_ALLOW_INVENTORY_MISSING",
+          "FINAL_F1_PACKAGE_INVENTORY_NOT_AVAILABLE",
+          "CSP_POLICY_CHANNEL_UNKNOWN",
+          "ROLLBACK_RESTORE_NOT_TESTED",
+          "ACTUAL_G3_E1_E10_NOT_RUN"
+        ],
+        "empty_baseline_observation": {
+          "schema": "FOX2_G3_POLICY_BASELINE_INVENTORY_V1",
+          "provenance": "OWNER_STDOUT_CURRENT_CHAT_2026-10-23",
+          "host": "OWNER_SELECTED_PHYSICAL_WINDOWS",
+          "source": "LOCALAPPDATA_PRIVATE_EXPORTED_APPLOCKER_POLICY",
+          "source_hash_verified": true,
+          "local": {
+            "Exe": 0,
+            "Script": 0,
+            "Msi": 0,
+            "Dll": 0,
+            "Appx": 0
+          },
+          "effective": {
+            "Exe": 0,
+            "Script": 0,
+            "Msi": 0,
+            "Dll": 0,
+            "Appx": 0
+          },
+          "total_rule_collections": 0,
+          "total_allow": 0,
+          "total_deny": 0,
+          "enforcement_modes": [],
+          "status": "EXE_SCRIPT_ALLOW_BASELINE_MISSING",
+          "policy_mutation": "NONE_OWNER_STDOUT",
+          "host_enforcement": "NOT_RUN",
+          "gp_policy_sha256": "635222d6f1ee0a7561e6c04e8894e688a5d19a3ce7549294f4c821a11f807e15",
+          "scope": "GROUP_POLICY_ONLY_CSP_NOT_VERIFIED",
+          "csp": "NOT_VERIFIED",
+          "real_runtime_data": "OWNER_STDOUT_NO_REMOTE_HOST_ATTESTATION"
+        },
+        "baseline_candidate_builder": {
+          "source_commit": "573594c7315ee766bd91f6c79e3783a025ca2fed",
+          "artifact_module": "agent_bridge/src/fox2_agent_bridge/f1_host_baseline.py",
+          "cli": "agent_bridge/scripts/f1_host_baseline_candidate.py",
+          "tests": "agent_bridge/tests/test_f1_host_baseline.py",
+          "publisher_state": "SOURCE_PUBLISHED_AND_GIT_READBACK",
+          "unit_tests": "NOT_RUN_ON_HOST_OR_CI",
+          "host_candidate": "NOT_GENERATED_MISSING_REVIEWED_EXE_AND_SCRIPT_ALLOW_PATHS",
+          "allows_autogenerated": false,
+          "requires_snapshot_identity": true,
+          "baseline_review": "REQUIRED_G3",
+          "policy_generation": "OFFLINE_ONLY_AUDIT_MODE",
+          "host_application": "NOT_RUN",
+          "g3_authority": "NOT_GRANTED"
+        }
       },
       "g4": {
         "status": "NOT_RUN",
