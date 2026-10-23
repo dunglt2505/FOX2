@@ -29,3 +29,7 @@ No `backend/**`, `agent_bridge/**`, BRD, governance, provider/broker/LIVE, main,
 ## Native launcher recovery 2026-10-23
 
 HOLD / BLOCKED_HOST_SANDBOX. Git identity was corrected locally; source-locked R3 invoked Codex once but sandbox setup failed before any process/test/code change. R3 is consumed: do not replay. See evidence/native-recovery-r3-20261023/report.md and evidence_manifest.json for actual host evidence, provenance and next safe action. Historical evidence above remains unchanged.
+
+## Native Codex R4 outcome — 2026-10-23
+
+**HOLD / BLOCKED_HOST_DNS_AND_SANDBOX.** R4 at assigned prompt commit `9b4386e9` was claimed and invoked once. The first native exec failed before PowerShell started. Codex also logged DNS failures connecting to its WebSocket endpoint. No product changes or tests were reported; independent Git readback showed no remote product code result. Owner launcher correctly stopped at missing deliverable. **R4 CONSUMED; do not replay.** Source observations and limitations: `evidence/native-r4-20261023/host-blocker.md`. All historical tests retain their original provenance; Website remains unaccepted.

@@ -42,5 +42,26 @@
     "consumed": true,
     "historical_manifest": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/history/evidence_manifest.json",
     "chat_verdict": "HOLD"
+  },
+  "current_blocker": "BLOCKED_HOST_DNS_AND_SANDBOX",
+  "native_r4_20261023": {
+    "source_sha": "21d023c6c3fd4d379f7e7427d9eb6c97b5ea0e05",
+    "assignment_sha": "9b4386e9e5579d99060c11bccf5b390ede01e841",
+    "agent_model": "gpt-6.1-sol",
+    "thinking": "medium",
+    "claimed": true,
+    "agent_started": true,
+    "consumed": true,
+    "agent_command_execution": "FAILED_BEFORE_SHELL_START",
+    "dns_websocket": "FAILED_OS_ERROR_11001",
+    "product_changes": "NONE_REPORTED_REMOTE_NO_RESULT",
+    "local_worktree_post_exit": "NOT_INDEPENDENTLY_VERIFIED",
+    "frontend_typecheck": "NOT_RUN",
+    "frontend_build": "NOT_RUN",
+    "tests": "NOT_RUN",
+    "browser_http": "NOT_RUN",
+    "git_result": "NO_PRODUCT_DELIVERY",
+    "chat_verdict": "HOLD",
+    "blocker_report": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-r4-20261023/host-blocker.md"
   }
 }
