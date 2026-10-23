@@ -1,3 +1,5 @@
+> **HISTORICAL ONLY — DO NOT USE FOR CURRENT G3 PHYSICAL HOST.** This v3 source binding pins an older task and runner. The Owner's current physical-host task/preflight source is different; never use the old task SHA-256 or runner blob to launch a fresh G3 test. The existing historical receipt remains BLOCKED. This file is retained for provenance, not executable handoff.
+
 # FOX2 — G3 Host PreExec Binding v3
 
 Task ID: FOX2-BRIDGE-RC1-G3-HOST-A01

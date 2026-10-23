@@ -34,9 +34,9 @@ if($null -eq (Get-Command git -ErrorAction SilentlyContinue)){throw 'git unavail
 
 $cap=[ordered]@{}
 $blockers=[System.Collections.Generic.List[object]]::new()
-$branch=(Invoke-Git @('branch','--show-current')).Text
-$head=(Invoke-Git @('rev-parse','HEAD')).Text
-$status=(Invoke-Git @('status','--porcelain=v1','--untracked-files=all')).Text
+$branch=(Invoke-Git -GitArgs @('branch','--show-current')).Text
+$head=(Invoke-Git -GitArgs @('rev-parse','HEAD')).Text
+$status=(Invoke-Git -GitArgs @('status','--porcelain=v1','--untracked-files=all')).Text
 
 if($branch -eq $ExpectedBranch){$cap.git_branch=Obs 'PASS' $true 'Exact G3 task branch observed.'}
 else{Add-Blocker $blockers 'G3_BRANCH_MISMATCH' 'SOURCE' 'Current branch differs from bound G3 branch.';$cap.git_branch=Obs 'FAIL' $true 'G3 branch mismatch.' 1 'G3_BRANCH_MISMATCH'}
@@ -51,11 +51,11 @@ $taskFull=Join-Path $Worktree ($TaskPath -replace '/', [IO.Path]::DirectorySepar
 if(-not(Test-Path -LiteralPath $taskFull -PathType Leaf)){Add-Blocker $blockers 'G3_TASK_MISSING' 'SOURCE' 'Bound G3 task file is missing.';$cap.task_identity=Obs 'MISSING' $true 'Bound task file missing.' 1 'G3_TASK_MISSING'}
 else{$taskHash=Sha256TextFile $taskFull;if($taskHash -eq $ExpectedTaskSha256){$cap.task_identity=Obs 'PASS' $true 'Task SHA-256 matches bound task.'}else{Add-Blocker $blockers 'G3_TASK_HASH_MISMATCH' 'SOURCE' 'Task SHA-256 does not match.';$cap.task_identity=Obs 'FAIL' $true 'Task SHA-256 mismatch.' 1 'G3_TASK_HASH_MISMATCH'}}
 
-$remote=Invoke-Git @('ls-remote','--refs','origin',('refs/heads/'+$ExpectedBranch)) $true
+$remote=Invoke-Git -GitArgs @('ls-remote','--refs','origin',('refs/heads/'+$ExpectedBranch)) -AllowFail $true
 if($remote.Code -ne 0 -or [string]::IsNullOrWhiteSpace($remote.Text)){Add-Blocker $blockers 'G3_REMOTE_UNREADABLE' 'GIT' 'Cannot read exact remote G3 branch.';$cap.remote_source=Obs 'FAIL' $true 'Remote G3 branch unreadable.' $remote.Code 'G3_REMOTE_UNREADABLE'}
 else{$remoteHead=($remote.Text -split '\s+')[0];if($remoteHead -eq $ExpectedSourceHead){$cap.remote_source=Obs 'PASS' $true 'Remote G3 branch equals bound source head.'}else{Add-Blocker $blockers 'G3_REMOTE_DRIFT' 'GIT' 'Remote G3 branch differs from bound source.';$cap.remote_source=Obs 'FAIL' $true 'Remote branch drift.' 1 'G3_REMOTE_DRIFT'}}
 
-$wtList=[regex]::Split((Invoke-Git @('worktree','list','--porcelain')).Text,'\r?\n')
+$wtList=[regex]::Split((Invoke-Git -GitArgs @('worktree','list','--porcelain')).Text,'\r?\n')
 $branchMarker='branch refs/heads/'+$ExpectedBranch
 $owners=@($wtList|Where-Object{$_ -eq $branchMarker})
 if($owners.Count -eq 1){$cap.one_writer=Obs 'PASS' $true 'Exactly one Git worktree owns the G3 branch.'}
@@ -67,7 +67,7 @@ if($isAdmin){$cap.elevated_admin=Obs 'PASS' $true 'Elevated Administrator token 
 else{Add-Blocker $blockers 'G3_ADMIN_REQUIRED' 'PERMISSION' 'Elevated Administrator token required for privileged G3 on selected physical Windows host.';$cap.elevated_admin=Obs 'FAIL' $true 'Current token is not elevated Administrator.' 1 'G3_ADMIN_REQUIRED'}
 
 $cap.pwsh=Obs 'PASS' $true ('PowerShell '+$PSVersionTable.PSVersion.ToString())
-$gitVersion=(Invoke-Git @('--version')).Text
+$gitVersion=(Invoke-Git -GitArgs @('--version')).Text
 $cap.git_tool=Obs 'PASS' $true $gitVersion
 
 $os=Get-CimInstance Win32_OperatingSystem
@@ -130,7 +130,7 @@ $receipt=[ordered]@{
     checked_at=(Get-Date).ToUniversalTime().ToString('o');task_branch=$ExpectedBranch;receipt_path=$ReceiptPath;source_head=$ExpectedSourceHead;
     task_source=[ordered]@{git_path=$TaskPath;git_commit_sha=$ExpectedSourceHead;sha256=$ExpectedTaskSha256};
     status=$statusValue;capabilities=$cap;blockers=@($blockers);
-    worktree=[ordered]@{status=if([string]::IsNullOrWhiteSpace($status)){'PASS'}else{'BLOCKED'};path=$Worktree;competing_writer=if($owners.Count -eq 1){'NONE_OBSERVED'}else{'PRESENT'};stale_receipt_cleanup='NOT_NEEDED'};
+    worktree=[ordered]@{status=if([string]::IsNullOrWhiteSpace($status)){'PASS'}else{'BLOCKED'};path='REDACTED_LOCAL';competing_writer=if($owners.Count -eq 1){'NONE_OBSERVED'}else{'PRESENT'};stale_receipt_cleanup='NOT_NEEDED'};
     dispatch_state=[ordered]@{executable_dispatch_published=$false;dispatch_consumed=$false};agent_execution_started=$false;
     notes=@('OWNER_MANUAL_HOST G3 preflight; no Agent route selected.','No AppLocker/service/AppIDSvc/ACL mutation performed by this PreExec.','PASS is a technical preflight observation only; never proof of current policy restoration or CSP coverage.','Host mutation requires a separately verified restorable policy backup and scoped permission.')
 }
@@ -157,17 +157,17 @@ finally{Remove-Item -LiteralPath $tmp -Force -ErrorAction SilentlyContinue}
 if($LASTEXITCODE -ne 0){throw 'Failed to stage G3 receipt.'}
 & git -C $Worktree -c 'core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol' diff --cached --check
 if($LASTEXITCODE -ne 0){throw 'G3 receipt diff check failed.'}
-$staged=(Invoke-Git @('diff','--cached','--name-only')).Text
+$staged=(Invoke-Git -GitArgs @('diff','--cached','--name-only')).Text
 if($staged.Trim() -ne $ReceiptPath){throw "STOP: staged path outside receipt: $staged"}
 
 & git -C $Worktree -c 'user.name=FOX2 G3 Host PreExec' -c 'user.email=fox2-g3-preexec@local.invalid' commit -m 'preexec(fox2): record G3 physical-host readiness'
 if($LASTEXITCODE -ne 0){throw 'G3 receipt commit failed.'}
-$receiptCommit=(Invoke-Git @('rev-parse','HEAD')).Text
+$receiptCommit=(Invoke-Git -GitArgs @('rev-parse','HEAD')).Text
 $receiptBase64=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($json))
 $pushSpec=$receiptCommit+':refs/heads/'+$ExpectedBranch
 & git -C $Worktree push origin $pushSpec
 $pushExit=$LASTEXITCODE
-$remoteAfter=Invoke-Git @('ls-remote','--refs','origin',('refs/heads/'+$ExpectedBranch)) $true
+$remoteAfter=Invoke-Git -GitArgs @('ls-remote','--refs','origin',('refs/heads/'+$ExpectedBranch)) -AllowFail $true
 $remoteSha=if($remoteAfter.Code -eq 0 -and -not[string]::IsNullOrWhiteSpace($remoteAfter.Text)){($remoteAfter.Text -split '\s+')[0]}else{$null}
 
 Write-Output ('FOX2_G3_PREEXEC_STATUS='+$statusValue)
