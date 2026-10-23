@@ -84,3 +84,14 @@ test("old Stock360 or refresh snapshots are never visible under a new request ke
   assert.equal(current.data.symbol, "AAA");
   assert.equal(current.loading, false);
 });
+
+test("healthy local backend must not masquerade as LIVE market data", () => {
+  const { healthBadge, providerModeLabel } = loadModule("../../frontend/src/healthTruth.ts");
+  const offline = { status: "OK", provider_enabled: false };
+  assert.equal(healthBadge(offline), "OK");
+  assert.notEqual(healthBadge(offline), "LIVE");
+  assert.equal(providerModeLabel(offline), "Disabled / offline-safe");
+  assert.equal(healthBadge({ status: "UNHEALTHY", provider_enabled: true }), "UNHEALTHY");
+  assert.equal(providerModeLabel(null), "Unknown");
+  assert.equal(healthBadge(null), "UNAVAILABLE");
+});

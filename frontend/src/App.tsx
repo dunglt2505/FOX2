@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { api, ApiError } from "./api";
 import { visibleResource } from "./resourceVisibility";
+import { healthBadge, providerModeLabel } from "./healthTruth";
 import type { ResourceSnapshot } from "./resourceVisibility";
 import type {
   BarsPayload,
@@ -308,11 +309,11 @@ function OverviewPage({ onNavigate }: { onNavigate: (path: string) => void }) {
           <span className="truth-strip__label">Runtime</span>
           {health.loading ? <span className="muted">Checking…</span> :
             health.error ? <StateBadge state="UNAVAILABLE" /> :
-            <StateBadge state={health.data?.status === "OK" ? "LIVE" : "UNAVAILABLE"} />}
+            <StateBadge state={healthBadge(health.data)} />}
         </div>
         <div>
           <span className="truth-strip__label">Provider mode</span>
-          <span>{health.data?.provider_enabled ? "Enabled" : "Disabled / offline-safe"}</span>
+          <span>{health.loading ? "Checking…" : providerModeLabel(health.data)}</span>
         </div>
         <div>
           <span className="truth-strip__label">Last UI refresh</span>
@@ -777,9 +778,9 @@ function DataSourcesPage() {
           <span className="eyebrow">Process</span>
           <div className="summary-stat">
             <strong>{health.loading ? "Checking…" : health.data?.status || "Unavailable"}</strong>
-            <StateBadge state={health.data?.status === "OK" ? "LIVE" : "UNAVAILABLE"} />
+            <StateBadge state={healthBadge(health.data)} />
           </div>
-          <p>{health.data?.provider_enabled ? "Provider mode enabled." : "Provider integration disabled; localhost remains usable with explicit unavailable states."}</p>
+          <p>{!health.data ? "Provider mode unknown: localhost health is unavailable." : health.data.provider_enabled ? "Provider mode enabled." : "Provider integration disabled; localhost remains usable with explicit unavailable states."}</p>
         </Panel>
         <Panel>
           <span className="eyebrow">Contract</span>
