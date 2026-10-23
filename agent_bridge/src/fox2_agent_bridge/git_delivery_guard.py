@@ -80,7 +80,7 @@ def validate_staged_blobs(
             item.resolve(strict=True).relative_to(root)
         except (OSError, ValueError) as exc:
             raise WorkspaceBlocked("staged file escaped or vanished from worktree") from exc
-        blob = git(["-C", str(worktree), "show", ":" + path], binary=True).stdout
+        blob = git(["-C", str(worktree), "show", ":" + path, "--"], binary=True).stdout
         if not isinstance(blob, bytes) or len(blob) > _MAX_BLOB_BYTES:
             raise WorkspaceBlocked("staged blob exceeds bounded secret scan")
         if any(pattern.search(blob) for pattern in _SECRET_BYTES):
@@ -116,7 +116,9 @@ def validate_committed_result(
                 meta.split(b" ", 1)[0] not in (b"100644", b"100755") or
                 b" blob " not in meta):
             raise WorkspaceBlocked("non-regular committed file or path mismatch")
-        blob = git(["-C", str(worktree), "show", f"{commit_sha}:{path}"],
+        # Explicit revision separator avoids Windows filesystem stat/path-length
+        # guessing for a virtual commit:path that exists only in the Git tree.
+        blob = git(["-C", str(worktree), "show", f"{commit_sha}:{path}", "--"],
                    binary=True).stdout
         if not isinstance(blob, bytes) or len(blob) > _MAX_BLOB_BYTES:
             raise WorkspaceBlocked("committed blob exceeds bounded secret scan")
