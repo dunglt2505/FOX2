@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-23  |  **Status:** DESIGN_CANDIDATE / DEV_NOT_STARTED / HOST_E2E_NOT_RUN
 **Existing logical task:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`; no new project WP, no independent management board.
-**Documents:** BRD-09 REV4 (R32–R43 / T30–T43) and Bridge Tech Spec v0.7 REV11 (§28).
+**Documents:** BRD-09 REV4 (R36–R47 / T32–T45); Dictionary R32–R35 / T30–T31 and Bridge Tech Spec v0.7 REV11 (§28).
 
 ## Outcome
 CHAT handoff → exact Agent coding/test → **Bridge Git Publisher by default** → remote result SHA → CHAT acceptance. Git publication must not consume Agent tokens. Failures, quota exhaustion and restarts can preserve explicitly authorized safe WIP without declaring DONE.
@@ -12,9 +12,9 @@ CHAT handoff → exact Agent coding/test → **Bridge Git Publisher by default**
 | Slice | Real work | Acceptance / evidence |
 |---|---|---|
 | **A. Baseline and host reconciliation** | CHAT checks actual installed Bridge vs R5 source, pending immutable run, writer/permissions, current Schema v3 and recovery-ref authorization; reuse accepted evidence | Known source/host; no guessed admission; in-flight R5 untouched |
-| **B. Normal Bridge Git delivery** | Generator explicitly sets BRIDGE; maintain AGENT opt-in; independent Git publisher for both CODEX/Copilot, pre-push checks, remote SHA readback | T30–T34,T42; success plus negative test/path branches |
-| **C. Failure/WIP publisher** | Supervisor captures exit/quota/timeout/child state, safe recovery ref, WIP artifact/provenance; durable ledger, restart/idempotent publish | T35–T40,T43; no replay, no unsafe WIP |
-| **D. CHAT handback & integrated validation** | Return publisher/ref/SHA/test status, review/rework, installed Windows host canary normal and failed run | T34,T41,T43; CHAT verdict from actual Git |
+| **B. Normal Bridge Git delivery** | Generator explicitly sets BRIDGE; maintain AGENT opt-in; independent Git publisher for both CODEX/Copilot, pre-push checks, remote SHA readback | T32–T36,T44; success plus negative test/path branches |
+| **C. Failure/WIP publisher** | Supervisor captures exit/quota/timeout/child state, safe recovery ref, WIP artifact/provenance; durable ledger, restart/idempotent publish | T37–T42,T45; no replay, no unsafe WIP |
+| **D. CHAT handback & integrated validation** | Return publisher/ref/SHA/test status, review/rework, installed Windows host canary normal and failed run | T36,T43,T45; CHAT verdict from actual Git |
 
 ## Execution boundaries
 

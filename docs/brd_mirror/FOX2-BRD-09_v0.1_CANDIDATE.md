@@ -345,6 +345,9 @@ These are BRD-09-specific acceptance IDs. They do **not** modify or mark PASS in
 | `FOX2-09-T28` | Dispatch is published while PC is asleep/offline, then PC wakes/logs in | Worker reconciles and processes the still-eligible dispatch without duplicate execution |
 | `FOX2-09-T29` | Optional future push/webhook hint is received | Hint alone grants no authority; exact Git dispatch validation/replay rules still apply |
 
+| `FOX2-09-T30` | Dictionary canonical/current schema identity, generated binding and version-neutral path | Exactly one authority; no competing current constants or invalid dispatch path |
+| `FOX2-09-T31` | Normalize legacy schema and reject non-Dictionary control refs | Compatible internal representation; no arbitrary control branch or schema shortcut |
+
 All scenarios are `NOT_RUN` until implementation evidence exists.
 
 ## 13. Out of scope for BRD-09 v0.1
@@ -411,18 +414,18 @@ New Bridge Dispatch must **explicitly** set `delivery_owner=BRIDGE` as generator
 
 | ID | Required business outcome | Priority | Tests |
 |---|---|---|---|
-| FOX2-09-R32 | CHAT-to-Git-to-Bridge-to-Agent-to-Git-to-CHAT cycle delivers the exact bounded task without extra WPs | P0 | T30 |
-| FOX2-09-R33 | `BRIDGE` is explicit default for new Bridge task handoff; `AGENT` is an authorized opt-in and old locked attempts remain unchanged | P0 | T31 |
-| FOX2-09-R34 | Bridge independently supervises Agent lifecycle and can push result using Git/pwsh without asking Agent or spending Agent tokens | P0 | T32 |
-| FOX2-09-R35 | Success publication requires verified task branch/base, allowlisted worktree, actual test/evidence contract and real Git rights | P0 | T33 |
-| FOX2-09-R36 | Real remote branch and full commit SHA are returned to CHAT as `PUSHED_UNREVIEWED`, never automatic DONE | P0 | T34 |
-| FOX2-09-R37 | Coding error, nonzero exit, quota/token exhaustion, timeout or crash does not trigger success publication or blind retry | P0 | T35,T36 |
-| FOX2-09-R38 | Safe partial changes may be published as `WIP_INCOMPLETE` on an explicitly permitted recovery ref, with failure/test provenance | P0 | T37 |
-| FOX2-09-R39 | No WIP push with active/unknown writer, invalid scope, secrets, missing push/recovery permission, or unverified branch | P0 | T38 |
-| FOX2-09-R40 | Offline/rejected push and post-push restart reconcile ledger and remote Git idempotently with no replay of consumed Dispatch | P0 | T39,T40 |
-| FOX2-09-R41 | CHAT can see true status, publisher, tests, changed paths, result/recovery branch, verified SHA and next action; sanitized logs | P0 | T41 |
-| FOX2-09-R42 | Explicit AGENT-owned publisher remains supported with verified Git and no Bridge double-push | P1 | T42 |
-| FOX2-09-R43 | CHAT resumes bounded work from verified WIP with a new authorized attempt on the SAME logical task; WIP never equals DONE | P0 | T43 |
+| FOX2-09-R36 | CHAT-to-Git-to-Bridge-to-Agent-to-Git-to-CHAT cycle delivers the exact bounded task without extra WPs | P0 | T30 |
+| FOX2-09-R37 | `BRIDGE` is explicit default for new Bridge task handoff; `AGENT` is an authorized opt-in and old locked attempts remain unchanged | P0 | T31 |
+| FOX2-09-R38 | Bridge independently supervises Agent lifecycle and can push result using Git/pwsh without asking Agent or spending Agent tokens | P0 | T32 |
+| FOX2-09-R39 | Success publication requires verified task branch/base, allowlisted worktree, actual test/evidence contract and real Git rights | P0 | T33 |
+| FOX2-09-R40 | Real remote branch and full commit SHA are returned to CHAT as `PUSHED_UNREVIEWED`, never automatic DONE | P0 | T34 |
+| FOX2-09-R41 | Coding error, nonzero exit, quota/token exhaustion, timeout or crash does not trigger success publication or blind retry | P0 | T35,T36 |
+| FOX2-09-R42 | Safe partial changes may be published as `WIP_INCOMPLETE` on an explicitly permitted recovery ref, with failure/test provenance | P0 | T37 |
+| FOX2-09-R43 | No WIP push with active/unknown writer, invalid scope, secrets, missing push/recovery permission, or unverified branch | P0 | T38 |
+| FOX2-09-R44 | Offline/rejected push and post-push restart reconcile ledger and remote Git idempotently with no replay of consumed Dispatch | P0 | T39,T40 |
+| FOX2-09-R45 | CHAT can see true status, publisher, tests, changed paths, result/recovery branch, verified SHA and next action; sanitized logs | P0 | T41 |
+| FOX2-09-R46 | Explicit AGENT-owned publisher remains supported with verified Git and no Bridge double-push | P1 | T42 |
+| FOX2-09-R47 | CHAT resumes bounded work from verified WIP with a new authorized attempt on the SAME logical task; WIP never equals DONE | P0 | T43 |
 
 ### 16.3 Outcome states and user expectations
 
@@ -435,20 +438,20 @@ New Bridge Dispatch must **explicitly** set `delivery_owner=BRIDGE` as generator
 
 | ID | Scenario | Expected |
 |---|---|---|
-| FOX2-09-T30 | CHAT task → Bridge → Git → CHAT | Exact task, remote SHA, no extra management WP |
-| FOX2-09-T31 | New default and AGENT opt-in | Explicit owner selection and machine permission checks |
-| FOX2-09-T32 | Agent cannot issue Git commands | Bridge still publishes after valid coding outcome |
-| FOX2-09-T33 | Exit 0 with tests fail/unauthorized changes | No success Git publish |
-| FOX2-09-T34 | Success pushed/read back | Full remote SHA; status only PUSHED_UNREVIEWED |
-| FOX2-09-T35 | Nonzero exit after partial edits | Safe recovery assessment, no false success |
-| FOX2-09-T36 | Quota/token or timeout/lingering child | Writer quiescence verified before any checkpoint |
-| FOX2-09-T37 | Safe WIP and authorized recovery branch | WIP-only remote commit with tests/failure metadata |
-| FOX2-09-T38 | Out-of-scope/secret/no rights/unknown writer | No publication, local evidence retained |
-| FOX2-09-T39 | Offline/push rejected | Bounded reconciliation; no duplicate commit |
-| FOX2-09-T40 | Worker crash around local commit/push/ledger | Remote SHA reconcile, no Agent replay |
-| FOX2-09-T41 | Result status handback | Accurate publisher/ref/SHA/tests and redacted diagnostics |
-| FOX2-09-T42 | AGENT publisher authorized | Agent push verified; Bridge does not push twice |
-| FOX2-09-T43 | CHAT rework from WIP | Same logical task, new authorized attempt |
+| FOX2-09-T32 | CHAT task → Bridge → Git → CHAT | Exact task, remote SHA, no extra management WP |
+| FOX2-09-T33 | New default and AGENT opt-in | Explicit owner selection and machine permission checks |
+| FOX2-09-T34 | Agent cannot issue Git commands | Bridge still publishes after valid coding outcome |
+| FOX2-09-T35 | Exit 0 with tests fail/unauthorized changes | No success Git publish |
+| FOX2-09-T36 | Success pushed/read back | Full remote SHA; status only PUSHED_UNREVIEWED |
+| FOX2-09-T37 | Nonzero exit after partial edits | Safe recovery assessment, no false success |
+| FOX2-09-T38 | Quota/token or timeout/lingering child | Writer quiescence verified before any checkpoint |
+| FOX2-09-T39 | Safe WIP and authorized recovery branch | WIP-only remote commit with tests/failure metadata |
+| FOX2-09-T40 | Out-of-scope/secret/no rights/unknown writer | No publication, local evidence retained |
+| FOX2-09-T41 | Offline/push rejected | Bounded reconciliation; no duplicate commit |
+| FOX2-09-T42 | Worker crash around local commit/push/ledger | Remote SHA reconcile, no Agent replay |
+| FOX2-09-T43 | Result status handback | Accurate publisher/ref/SHA/tests and redacted diagnostics |
+| FOX2-09-T44 | AGENT publisher authorized | Agent push verified; Bridge does not push twice |
+| FOX2-09-T45 | CHAT rework from WIP | Same logical task, new authorized attempt |
 
 **Non-effect:** No automatic authority to push main/merge, write broker/provider/LIVE, relaunch consumed dispatch, modify in-flight R5, or publish unsafe WIP. These requirements need implementation and Windows-host tests before they can be marked PASS.
 

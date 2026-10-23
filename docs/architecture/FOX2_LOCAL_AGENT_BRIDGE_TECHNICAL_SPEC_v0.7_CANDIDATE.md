@@ -1270,7 +1270,7 @@ This Candidate does not:
 
 ## 28. REV11 — Complete Bridge-owned Git Result Delivery technical contract (2026-10-23)
 
-**Candidate, not installed runtime.** REV11 supersedes historical Agent-first default language in REV6 / §12.1 for **new** Bridge task generation only. Old Dispatch source/Policy/hash/delivery owner are immutable. BRD trace: BRD-09 REV4 R32–R43, tests T30–T43.
+**Candidate, not installed runtime.** REV11 supersedes historical Agent-first default language in REV6 / §12.1 for **new** Bridge task generation only. Old Dispatch source/Policy/hash/delivery owner are immutable. BRD trace: BRD-09 REV4 R36–R47, tests T32–T45. Earlier R32–R35/T30–T31 remain Dictionary requirements.
 
 ### 28.1 Execution ownership
 
@@ -1327,11 +1327,11 @@ Minimum fields: `logical_task_id, dispatch_id, execution_id, task/prompt/source 
 
 | BRD acceptance | Engineering tests |
 |---|---|
-| T30,T31,T42 | New generator explicit BRIDGE default; AGENT opt-in; v3 normalizer validation; immutable old owner/no double push |
-| T32,T33,T34 | Both CODEX/Copilot Agent-without-Git success; bridge remote SHA, negative test failure/branch drift/path drift |
-| T35,T36,T37,T38 | Nonzero/quota/timeout/lingering child; allowed WIP recovery ref; denied path/secret/no-rights; no false success |
-| T39,T40 | Crash before/after commit/push/readback, remote-head conflict, bounded offline retry, idempotent reconciliation/no replay |
-| T41,T43 | Structured result/WIP handback to CHAT, same-task rework with new authorized attempt |
+| T32,T33,T44 | New generator explicit BRIDGE default; AGENT opt-in; v3 normalizer validation; immutable old owner/no double push |
+| T34,T35,T36 | Both CODEX/Copilot Agent-without-Git success; bridge remote SHA, negative test failure/branch drift/path drift |
+| T37,T38,T39,T40 | Nonzero/quota/timeout/lingering child; allowed WIP recovery ref; denied path/secret/no-rights; no false success |
+| T41,T42 | Crash before/after commit/push/readback, remote-head conflict, bounded offline retry, idempotent reconciliation/no replay |
+| T43,T45 | Structured result/WIP handback to CHAT, same-task rework with new authorized attempt |
 
 Test tiers: focused unit/fake-Git negative fixtures → isolated non-main Git integration → **installed Windows host** CODEX and Copilot happy-path plus fault-injection/timeout/restart and actual process-tree quiescence checks. Reuse unaffected accepted R5/RC1 evidence; static tests cannot claim installed runtime PASS.
 
