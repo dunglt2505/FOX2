@@ -114,7 +114,7 @@ def test_wip_real_git_ref_sha_only_once_and_original_failure_preserved(wip_env):
     assert "src/result.py" in git(
         ["-C", str(e.worktree), "status", "--porcelain"]).stdout
     report_raw = git(["-C", str(e.worktree), "show",
-                      f"{commit}:{e.grant.report_path}"]).stdout
+                      f"{commit}:{e.grant.report_path}", "--"]).stdout
     manifest = json.loads(report_raw)
     assert manifest["status"] == "WIP_INCOMPLETE"
     assert manifest["acceptance"] == "NOT_ACCEPTED"
@@ -222,3 +222,86 @@ def test_ledger_wip_intent_is_immutable_and_does_not_mark_dispatch_done(wip_env)
             intent_sha256="f" * 64, recovery_ref=e.grant.recovery_branch,
             before_head=e.base, commit_sha=intent["commit_sha"])
     assert e.ledger.dispatch_status(e.dispatch)["dispatch_state"] == "NEEDS_RECONCILIATION"
+
+
+def test_wip_remote_lookup_uses_task_repo_even_from_another_repo(wip_env, tmp_path, monkeypatch):
+    unrelated = tmp_path / "unrelated"
+    git(["init", str(unrelated)])
+    monkeypatch.chdir(unrelated)
+    result = publish(wip_env)
+    assert result["remote_commit_sha"] == wip_env.ledger.wip_intent(wip_env.attempt)["commit_sha"]
+
+
+def test_wip_accepts_runner_generated_uuid_execution(wip_env):
+    from uuid import uuid4
+    e = wip_env
+    execution = str(uuid4())
+    # Fixture substitutes the runner's real UUID shape on the same consumed row.
+    with e.ledger.connect() as conn:
+        conn.execute("UPDATE executions SET execution_id=? WHERE execution_id=?",
+                     (execution, e.attempt))
+    grant = replace(e.grant, execution_id=execution)
+    assert publish(e, grant=grant)["execution_id"] == execution
+
+
+def test_wip_manifest_must_be_in_original_report_allowlist(wip_env):
+    e = wip_env
+    row = e.ledger.dispatch_status(e.dispatch)
+    context = row["checkpoint"]
+    context["payload"]["allowed_report_paths"] = ["reports/other/**"]
+    e.ledger.checkpoint(e.attempt, "AGENT_EXITED", context)
+    with pytest.raises(WorkspaceBlocked, match="outside dispatch scope"):
+        publish(e)
+    assert e.ledger.wip_intent(e.attempt) is None
+
+
+def test_wip_lost_quiescence_after_commit_preserves_intent_without_push(wip_env):
+    observations = iter((True, False))
+    with pytest.raises(WorkspaceBlocked, match="changed before push"):
+        publish(wip_env, quiescence=lambda _: next(observations))
+    intent = wip_env.ledger.wip_intent(wip_env.attempt)
+    assert intent["state"] == "PREPARED"
+    assert git(["--git-dir", str(wip_env.bare), "show-ref", "--verify",
+                "refs/heads/" + wip_env.grant.recovery_branch], check=False).returncode != 0
+    assert publish(wip_env)["remote_commit_sha"] == intent["commit_sha"]
+
+
+def test_wip_push_completed_but_readback_failed_reuses_same_sha(wip_env, monkeypatch):
+    e = wip_env
+    original = e.runner._git
+    pushed = []
+    def lost_readback(args, **kwargs):
+        if "ls-remote" in args and pushed:
+            raise WorkspaceBlocked("offline after push")
+        result = original(args, **kwargs)
+        if "push" in args:
+            pushed.append(args)
+        return result
+    monkeypatch.setattr(e.runner, "_git", lost_readback)
+    with pytest.raises(WorkspaceBlocked, match="offline"):
+        publish(e)
+    intent = e.ledger.wip_intent(e.attempt)
+    assert intent["state"] == "PREPARED"
+    monkeypatch.setattr(e.runner, "_git", original)
+    assert publish(e)["remote_commit_sha"] == intent["commit_sha"]
+    assert len(pushed) == 1
+
+
+def test_wip_root_outside_host_boundary_never_stages_or_pushes(wip_env):
+    from fox2_agent_bridge.errors import BridgeError
+    e = wip_env
+    e.runner.config.worktree_root = e.worktree / "other-root"
+    with pytest.raises(BridgeError):
+        publish(e)
+    assert e.ledger.wip_intent(e.attempt) is None
+    assert git(["--git-dir", str(e.bare), "show-ref", "--verify",
+                "refs/heads/" + e.grant.recovery_branch], check=False).returncode != 0
+
+
+def test_wip_writer_lease_revoked_before_push_preserves_exact_intent(wip_env):
+    observations = iter((True, False))
+    with pytest.raises(WorkspaceBlocked, match="changed before push"):
+        publish(wip_env, writer=lambda _id, _root: next(observations))
+    intent = wip_env.ledger.wip_intent(wip_env.attempt)
+    assert intent["state"] == "PREPARED"
+    assert publish(wip_env)["remote_commit_sha"] == intent["commit_sha"]
