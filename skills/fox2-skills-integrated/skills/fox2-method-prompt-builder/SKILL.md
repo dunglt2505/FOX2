@@ -5,34 +5,58 @@ description: "Write bounded, high-quality Agent task prompts from a route alread
 
 # fox2-method-prompt-builder
 
-**FOX2 Layer 2 — Domain methods — Agile Lite 0.5.0**
+**FOX2 Layer 2 — Domain methods — Agile Lite 0.5.9**
 
 ## Activate when
-CHAT has decided to delegate one residual task to CODEX, Copilot or independent WORK.
+CHAT delegates one residual task to CODEX, Copilot or independent WORK. For interactive FOX2 coding, honor Router-selected **Codex Extension in Visual Studio Code (VS Code)** as the preferred delivery surface.
 
 ## Input
-Already-selected actor/model/thinking/transport, objective, acceptance, allowed scope, applicable source context, execution constraints supplied by the actual transport.
+Router-selected actor/model/thinking/transport; exact task objective, scoped workspace/worktree and branch (when observed), accepted sources, tests, write allowlist, Git delivery owner and STOP rules.
 
 ## Work to perform
-**Only six content elements:**
-1. `Goal` — an observable result and reason.
-2. `Scope` — allowed files/actions, exclusions, single-writer constraint when relevant.
-3. `Context` — applicable BRD/TechSpec/source references and factual assumptions; exact immutable identity *when provided/required by chosen transport*.
-4. `Execution` — copy the ROUTER-selected Agent/Model/Thinking unchanged; do not re-route or default High.
-5. `Acceptance` — observable behavior, focused tests and material negative/regression cases.
-6. `Return` — require a **Git-backed result handoff**: delivered code/artifacts or report, actual test outcomes, the **authorized result branch**, who is allowed to publish (Agent/Bridge/authorized CHAT publisher), and the **observed remote result commit SHA** to return to CHAT. When the selected runner does not supply a valid destination or delivery ownership, identify the missing information before claiming an executable handoff. Report `GIT_DELIVERY_PENDING` until remote publication/readback is proven; a chat summary or local change is not result delivery.
+Write one self-contained **VS Code-ready Codex prompt** in six elements, without changing the Router-selected route:
+1. `Goal` — observable task result and reason.
+2. `Scope` — exact allowed code/test/report paths, excluded actions, worktree/branch and single-writer boundary.
+3. `Context` — BRD/TechSpec, immutable source SHA when required, accepted earlier evidence and constraints.
+4. `Execution` — selected CODEX/Model/Thinking/transport unchanged; for VS Code, work from the **already opened correct workspace** using Codex Extension, inspect existing code, implement, run focused real tests, and stop at the first material failure. Do not generate a Windows PowerShell launcher for ordinary interactive coding.
+5. `Acceptance` — concrete behavior, actual test commands/results, negative/regression checks and explicit `CODE_CHANGE` or `TEST_EVIDENCE_ONLY` semantics.
+6. `Return` — actual changed paths, tests/results, report/evidence path, authorized Git result ref, designated publisher and full remote commit SHA after readback. State the **authorized result branch**, **remote result commit SHA** and verified remote SHA. A CHAT summary or local file is not Git delivery.
 
-For **native DEV**, output a concise prompt directly without mandatory Git-*prompt* publication, but **require Agent code and material reports to be committed and pushed to the authorized Git result branch** when the Agent has that permission. State the result branch and return remote SHA. For **Bridge**, output task/prompt *content* matching Bridge's accepted `task.md` and `prompt.md` interface. **When `delivery_owner=AGENT`, instruct Agent to commit/push on the authorized task branch; when `delivery_owner=BRIDGE`, instruct Agent explicitly NOT to commit/push and leave result publication to Bridge**. The selected runner supplies delivery ownership; Prompt Builder never chooses or changes it. For **WORK/read-only with Git delivery in task contract**, push report/evidence to authorized report branch if permitted; otherwise deliver exact file bytes to the separately authorized publisher, preserving author/publisher provenance. No alternative channel counts as Git completion until the authorized publisher pushes and CHAT can read back the remote SHA.
+### Visual Studio Code / Codex Extension handoff contract
 
-Prompt quality checklist: task is independently understandable; **return instructions always give a Git result destination/branch and publication owner for delegated Agent work, with remote readback as delivery criterion**; allowed scope and STOP precise; no secrets placed into a public repository; no prompt-only claim that tests/permissions were verified; rework reuses the SAME logical task. When Owner needs manual execution, request host-specific verified launch instructions from the actual execution owner; do not invent CLI flags or generate speculative PowerShell.
+- **Preferred for interactive coding only when Router selected it.** Return a single paste-ready prompt and brief handoff instruction: open correct FOX2 worktree as the VS Code workspace; select Codex Extension session; paste/send prompt there. Do **not** claim to open VS Code, inject text into its extension, start an Agent or set a model/effort through an unverified connector.
+- Only observed IDE acknowledgement permits Agent start claim; otherwise `PROMPT_READY / IDE_HANDOFF_PENDING`, not `AGENT_STARTED`. No extra WP.
+- No automatic PowerShell/CLI launch or Bridge Dispatch for this **native IDE route**; if a task explicitly requires Bridge/headless execution, keep its installed machine contract and locked route. Never rebind/replay consumed Dispatch.
+- Publisher selection remains Router/authorized execution contract's responsibility: `delivery_owner=AGENT` means an authorized Codex Agent commits/pushes; `delivery_owner=BRIDGE` means Agent does NOT push and independent Bridge publishes **only when its integration with this worktree/IDE outcome is actually proven**. Otherwise use separately authorized exact-artifact publication; missing publication proof = `GIT_DELIVERY_PENDING`. Never double-push or rely on Agent tail-push after token exhaustion.
+- Distinguish `PROMPT_READY`, actual IDE handoff acknowledgement, `AGENT_RUNNING`, `GIT_RESULT_PUBLISHED` and `CHAT_ACCEPTED` as separate facts. CHAT reviews exact remote SHA/tests before DONE and synchronizes the single Master Plan/Board when materially changed.
 
-**Bridge boundary:** The Prompt Builder **writes the Agent instruction to deliver via Git**, but never publishes or verifies commits itself. Git task/prompt publishing, SHA readback, Dispatch v3 construction/validation, route capability PreExec, decision receipt, ledger/no-replay claim, CLI launch, result transport and status progression belong to Bridge/Git technical execution, NOT this Skill. Prompt Builder may mention those constraints *as context only*.
+### PowerShell 5.1 / `pwsh` 7 and Git scripting (exception only)
+
+Generate a PowerShell launcher only for explicitly selected verified host route; prefer tested host launchers. Bind observed `powershell.exe` 5.1 vs `pwsh.exe` 7, absolute `git.exe` path, worktree/branch/base SHA, rights and STOP. Require syntax/test on target shell; until run label `NOT_RUN`.
+
+Call native executable variables with `& $Git`, not `(GV ...)`, the `GV` alias, or `$Git -C ...`; check `$LASTEXITCODE` **immediately** after native Git. Read-only example:
+
+```powershell
+$Git = (Get-Command git -CommandType Application -ErrorAction Stop).Source
+$head = & $Git -C $Worktree rev-parse --verify HEAD
+if ($LASTEXITCODE -ne 0) { throw 'STOP: Git failed' }
+```
+
+No unverified CLI flags, unsafe reset, blind `git add -A`, force push, parallel publisher or unsupported PowerShell assumptions.
+
+### Return modes: `CODE_CHANGE` / `TEST_EVIDENCE_ONLY`
+
+Without an explicitly selected mode, set `UNRESOLVED`. `CODE_CHANGE` normally requires authorized code diff and actually executed tests. A specifically authorized `TEST_EVIDENCE_ONLY` task means **no product code diff is required** if **actual required tests** ran against pinned source/worktree, with command, observed exit code/output, nonempty authorized evidence/report and verified pushed remote SHA. Stale or `NOT_RUN` tests, empty success reports or Agent-declared PASS alone do not pass. Reclassifying a code task as evidence-only requires CHAT review; no silent mode change.
+
+Checklist: exact scope, STOP, route, tests, result ref/publisher, no public Git secrets. Unknown IDE capability/rights: name blocker, never fake PASS; same logical task.
+
+**Bridge boundary:** Prompt Builder **never publishes or verifies commits itself**; it writes content, **not** Dispatch v3, preflight/decision receipts, CLI launch, Git commits, no-replay ledger or result acceptance; the installed Bridge/authorized publisher owns those operations. VS Code is not presumed to expose a Bridge-observable completion signal.
 
 ## Output
-One executable, bounded prompt (plus task text when selected transport requires it), status `PROMPT_READY` or a named missing input. `PROMPT_READY` is not DISPATCH_ADMITTED, AGENT_STARTED or DONE.
+One VS Code Codex Extension-ready bounded prompt when IDE route chosen, or correctly selected alternative prompt. Return `PROMPT_READY / IDE_HANDOFF_PENDING` for non-automated handoff, or exact observed acknowledgement if available; never equate prompt completion to `AGENT_STARTED` or DONE.
 
 ## Responsibility boundary
-Owns wording and completeness of instructions ONLY. Never generates/validates Dispatch, sets technical PASS, runs PreExec, chooses route/delivery owner, publishes to Git, launches Agent or reviews result.
+Owns wording and completeness ONLY. **Never generates/validates Dispatch**, **chooses route/delivery owner**, **runs PreExec**, **publishes to Git**, launches Agents or reviews results. All Git and source rights remain external.
 
 ## Common rules
-One logical Kanban task; only material checks for selected action. Ordinary native DEV has no mandatory Bridge/PreExec/R0–R7 paperwork. For actual Bridge execution the installed Bridge enforces its own machine protocol and no-replay; never fabricate PASS, permissions or host actions. CHAT owns result acceptance; no broker/LIVE, protected branch or irreversible side effects without real authority. 
+One logical Kanban task; only material checks for selected action. Native reversible DEV needs no Bridge/R0–R7 paperwork; Bridge follows actual installed no-replay/permission rules. CHAT owns result acceptance; no broker/LIVE, protected branch or irreversible side effects without real authority.

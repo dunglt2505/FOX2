@@ -5,46 +5,59 @@ description: "Plan, prioritize, promote, track, and report FOX2 delivery in one 
 
 # fox2-mgmt-delivery
 
-**FOX2 Layer 1 — Project management — Agile Lite 0.5.3**
+**FOX2 Layer 1 — Project management — Agile Lite 0.5.8**
 
 ## Activate when
-Owner asks what to build next, current status, a blocker, project health, priority, or whether a Master Plan/Roadmap feature should enter the Agile Board.
+Owner asks to implement with FOX2 Skills, plan/track project status, move Master Plan work to Board, or Watch/CHAT observes new evidence.
 
 ## Input
 Owner outcome, Master Plan/Roadmap feature candidates, live task status, actual Git/test/host evidence, dependencies, acceptance readiness and deadlines if supplied.
 
 ## Work to perform
-1. Pick the highest-value safe outcome; prioritize user-visible product progress and real defects over administrative documents.
+1. Prioritize proven product progress and real defects, not administration.
 2. Keep ONE board `BACKLOG → DOING ↔ BLOCKED → DONE`, one logical task containing `ID · goal · scope · owner · acceptance · status · evidence/blocker`. No independent stage gate or project-level R0–R7 paperwork.
-3. Evaluate Master Plan/Roadmap features with the **Board promotion contract** below. Promotion changes management visibility/status only; it does not create a duplicate feature, new authority, Agent route, or release right.
+3. Apply the **Board promotion contract** without duplicating features or granting authority.
 4. Preserve accepted, unaffected PASS. Mark a task DONE only when evidence meets its acceptance; `prompt published`, `Agent started` and Bridge `PUSHED_UNREVIEWED` are not DONE.
-5. Report product capabilities, changed facts, true blockers, next owner action and cycle time where observed. Unknown or untested evidence stays UNKNOWN. WIP ideally ≤2 simultaneous material code writers with non-overlapping paths; treat this as operating guidance, not a blocking certificate.
-6. For a necessary Agent choice request the routing method; for result quality request result acceptance. Avoid creating new micro-WPs because one attempt needs correction.
+5. Report real capabilities, blockers and next owner action; unknown evidence stays UNKNOWN. Prefer WIP ≤2 independent nonoverlapping writers.
+6. Invoke Router only for Agent choice, Result Acceptance only on real results. Correct in SAME task; no micro-WP.
+
+## Skill Routing Matrix — one-Whole-WP orchestration
+
+**Trigger:** Owner says "áp dụng FOX2 Skills để triển khai", a task changes stage, Agent returns, execution fails, or Watch observes a material milestone. CHAT runs this **selection method inside the existing Management Skill**; it is **not a 12th Skill**, executable dispatcher, new gate or standing requirement to call all 11 Skills.
+
+| Event or actual work | Select matching Skill(s), only when needed |
+|---|---|
+| Priority, whole-task planning, Master Plan/Board/Watch | `fox2-mgmt-delivery` |
+| Agent/model/thinking/transport choice | `fox2-mgmt-agent-routing` |
+| Thread/actor context transfer | `fox2-mgmt-context-handoff` |
+| Compose Agent task prompt | `fox2-method-prompt-builder` |
+| BRD/Tech Spec or acceptance-design change | `fox2-method-requirements-design` |
+| Source authority / Dictionary contract | `fox2-method-source-contracts` |
+| Real returned Git result / acceptance | `fox2-method-result-acceptance` |
+| Research or evidence appraisal | `fox2-method-research-validation` |
+| Authorized Git/result/doc publishing + remote SHA | `fox2-tech-publication-sync` |
+| Material host/Bridge/permission preflight | `fox2-tech-route-preflight` |
+| Failed/uncertain execution, quota, crash, no-replay | `fox2-tech-execution-recovery` |
+
+**Coverage:** Classify only applicable Skills as `REQUIRED`, then `APPLIED` **only after actually reading/using** their rules and evidence; use `NOT_APPLICABLE` for out-of-scope Skills and `UNAVAILABLE` when access/capability is missing. Re-evaluate lazily at task assignment, result/rework and closure/progress sync. Report a compact coverage verdict and next safe action in the same logical task, not 11 forms. An unavailable required step blocks only dependent actions; continue safe independent work and never invent technical PASS.
+
+**End-to-end:** CHAT is accountable for **Build → Test → Deliver → CHAT acceptance → Master Plan/Board sync → Git remote readback** when relevant; use the actual publisher for Git writes. Completion means verified outcomes, not merely a generated prompt, plan, PR or Agent start. Existing approved evidence stays valid; do not re-run consumed Dispatch or add WORK audit/Canary/LIVE without actual task need and authority.
+
+## Evidence-driven progress synchronization (CHAT / scheduled Watch)
+
+**Triggers:** Scheduled FOX2 Watch run; verified Agent/Bridge Git delivery; CHAT acceptance/rework; material blocker, dependency or task-status change. A Skill is not a daemon: Watch/CHAT invokes it and an authorized Git publisher writes files.
+
+1. Read authorized Master Plan/addenda, Board, Git/CI/test/CHAT evidence; `PUSHED_UNREVIEWED` is not DONE.
+2. Update **Board** on material task state, owner, SHA, blockers and next action; no duplicate WPs.
+3. Update **Master Plan** on milestone/dependency/scope/roadmap change. Preserve immutable historical copies and Library/Git conflicts.
+4. Delegate exact write/readback to `fox2-tech-publication-sync`: compare remote base, use authorized scoped Git ref (non-main PR if protected), verify full SHA; no implicit main merge or LIVE grant.
+5. Return `SYNCED` and `BOARD_UPDATED`/`MASTER_PLAN_UPDATED` plus SHA, `NO_MATERIAL_CHANGE` (no empty commit), or `SYNC_PENDING/BLOCKED`; dedupe by verified SHA.
 
 ## Board promotion contract
 
-Evaluate promotion when a current WIP slot frees, a dependency/source/acceptance fact changes, Owner asks what is next, or a roadmap feature enters the near delivery horizon.
+Evaluate when a milestone, source, dependency or WIP slot changes, or when Owner asks to promote a feature. `READY_FOR_BOARD=YES` requires all five: `OUTCOME_DEFINED` (observable product outcome), `DEPENDENCIES_KNOWN`, `SOURCE_READY_ENOUGH` for the next safe action, `ACCEPTANCE_ACTIONABLE`, and `NEXT_SAFE_ACTION_KNOWN`. Record actual evidence and missing conditions, not speculative PASS.
 
-Set `READY_FOR_BOARD=YES` only when all five checks are true:
-
-- `OUTCOME_DEFINED`: the feature has an observable user/product outcome, not merely an activity or document.
-- `DEPENDENCIES_KNOWN`: material upstream dependencies and their current states are known; they need not all be DONE to put the feature in BACKLOG.
-- `SOURCE_READY_ENOUGH`: source/authority/contracts are sufficient for the **next safe action**. Do not require every future BRD/provider/runtime fact to be complete before backlog visibility.
-- `ACCEPTANCE_ACTIONABLE`: there is a measurable acceptance condition for the next meaningful increment.
-- `NEXT_SAFE_ACTION_KNOWN`: CHAT can name a concrete next action that is permitted now or immediately after a known dependency.
-
-Return exactly one promotion decision:
-
-- `KEEP_IN_MASTER_PLAN`: one or more readiness checks are false, or the feature is too far outside the actionable horizon. This is **not BLOCKED**.
-- `PROMOTE_TO_BACKLOG`: `READY_FOR_BOARD=YES`, but the feature is not selected for active execution because of priority, dependency timing or WIP capacity.
-- `PROMOTE_TO_DOING`: `READY_FOR_BOARD=YES`, the feature is the selected highest-value safe outcome, its immediate dependency is available, and a WIP slot exists or Owner explicitly reprioritizes.
-- `BLOCKED`: the feature is board-worthy and would otherwise proceed, but a concrete prerequisite prevents the next safe action. Name the exact unblocker; never use BLOCKED for distant backlog work.
-
-WIP capacity decides `BACKLOG` versus `DOING`; it does **not** decide `READY_FOR_BOARD`.
-
-Do not mirror the entire Master Plan onto the Board. Keep only the actionable/near-horizon portfolio plus active work. Preserve the same Feature/Whole-WP identity when promoted or reprioritized; normal correction remains the SAME logical task.
-
-For every promotion assessment record the five checks, the decision, evidence for any false/blocked condition, and `NEXT_SAFE_ACTION`.
+Use exactly one decision: `KEEP_IN_MASTER_PLAN` (not ready/far horizon), `PROMOTE_TO_BACKLOG` (ready, not selected), `PROMOTE_TO_DOING` (ready, selected with WIP/Owner reprioritization), or `BLOCKED` (selected, real prerequisite stops next action; name unblocker). WIP capacity determines BACKLOG versus DOING, not readiness. Keep only near-term actionable work on Board, preserve the same Feature/Whole-WP identity and accepted evidence; no mirrored roadmap, duplicate task, or administrative micro-WP.
 
 ## Output
 One prioritized task or concise project delivery view, including `READY_FOR_BOARD` and one promotion decision when roadmap promotion is in scope; next safe action and evidence-based DONE/DOING/BLOCKED.

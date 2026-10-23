@@ -20,6 +20,10 @@ Task acceptance, observed diff/artifact and tests, risk, plus **authorized Git r
 4. For milestone-level feature certification only, trace core BRD/TechSpec acceptance to unit/integration/negative tests and actual usable product evidence. Distinguish `TEST_EVIDENCED`, `PRODUCT_USABLE`, `CHAT_ACCEPTED`, `RELEASED` and `LIVE`.
 5. Reuse accepted unchanged PASS; retest what changed or what independently needs fresh evidence. Do not demand independent audit for each small reversible patch.
 
+**No-code result acceptance:** An explicitly `TEST_EVIDENCE_ONLY` assignment may be accepted without changes to **product code**, but only after independent inspection of the actual executed test/check command, exit status, relevant negative coverage, source/worktree identity and authorized remote Git evidence commit/report SHA. `NOT_RUN`, self-reported PASS, stale logs or merely clean `git diff` must NOT be accepted. The required remote delivery artifact still applies. A previously scoped code-change task cannot silently become evidence-only without CHAT reclassification based on real proof.
+
+**Progress handoff:** When CHAT issues an evidence-backed acceptance, REWORK or BLOCKED verdict that changes tracked state, invoke `fox2-mgmt-delivery` to evaluate Board/Master Plan synchronization. A review verdict alone does not prove the Git docs were updated.
+
 ## Output
 One evidence-based CHAT acceptance verdict referencing the **verified remote Git result branch and commit SHA**; otherwise `GIT_DELIVERY_PENDING` with one exact publication blocker. Rework/blocked does not create another logical task.
 

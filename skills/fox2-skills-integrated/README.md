@@ -1,7 +1,15 @@
-# FOX2 Skills — Agile Lite 0.5.5
+# FOX2 Skills — Agile Lite 0.5.8
 
 11 Skills in THREE responsibility layers: management (3), professional methods (5), technical/safety (3). One task, no extra approvals for ordinary authorized internal coding. Management owns Master Plan → Agile Board promotion; Bridge execution remains bound to installed machine contracts.
 
 **Git result handback:** Every delegated coding Agent must deliver code and material reports to the authorized Git result branch by the assigned publication owner (Agent or Bridge), and return the observed remote SHA. CHAT reads back Git before accepting DONE. Prompt Builder only writes the return instruction, never performs Git or Bridge operations. If push is unavailable, delivery is `GIT_DELIVERY_PENDING` until separately authorized publication and verification.
 
 See `SKILL_MIGRATION_v0_5_0.md` for mapping 17 old → 11 current Skills. `shared/operating_rules.md` remains common guidance; each Skill is self-contained. No host Bridge E2E claimed. Tests are static/fixture only.
+
+**Project progress sync:** `fox2-mgmt-delivery` evaluates evidence-driven updates for the one Kanban and current Master Plan/addenda on accepted Git/CHAT events or the scheduled FOX2 Project Progress Watch. `fox2-tech-publication-sync` owns authorized Git publication/readback. Without permissions or changed evidence, report PENDING/NO_MATERIAL_CHANGE rather than claim a sync.
+
+**PowerShell and verification:** Prompt Builder requires actual target PowerShell/Git host, safe native-command invocation and test-only deliverables when product code need not change; no Git delivery, no actual executed tests = no acceptance.
+
+**Skill Routing Matrix restored:** Within `fox2-mgmt-delivery`, choose only needed Skills by actual task event; track `REQUIRED/APPLIED/NOT_APPLICABLE/UNAVAILABLE`. CHAT keeps one Whole-WP from Build/Test/Deliver through acceptance, Board/Master Plan and verified Git readback. This method does not itself execute Agents or push Git.
+
+**VS Code-first interactive coding (0.5.9):** Router prefers Codex Extension for interactive FOX2 work in an observed isolated workspace; Prompt Builder emits copy-ready IDE handoff. Until a direct IDE integration acknowledges it, prompt-ready is not Agent-started. Bridge/CLI remains for governed unattended work. Previous 0.5.8 Skill Matrix, progress-sync and PowerShell/test-evidence protections remain.

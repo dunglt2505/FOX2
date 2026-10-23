@@ -20,6 +20,8 @@ Already selected route and actual installed machine/host/permission evidence.
 4. Preserve protected operation restrictions (no silent main/merge, destructive, provider, broker/LIVE changes) and fail closed on unknown capability or consumed attempts. Owner internal waiver is authority, never invented evidence.
 5. Return `PROCEED_FOR_THIS_ACTION` or `BLOCKED` with the **specific** failed prerequisite, continue unrelated safe work.
 
+**PowerShell/Git host gate (when a script is the selected action):** Resolve the installed `powershell.exe` 5.1 versus `pwsh.exe` 7 runtime, absolute Git executable, exact worktree/branch, execution rights and ownership. Inspect shell syntax/invocation in the **actual target version**; check `$LASTEXITCODE` for native Git operations and `& $Git` for command path variables. A text-only script review is not an executed Windows test. Do not reject a legitimate `TEST_EVIDENCE_ONLY` task just because product source is unchanged; apply its real test/evidence and authorized result-publisher contract.
+
 ## Output
 One scoped readiness verdict bound to observed host evidence, with exact STOP when necessary.
 
