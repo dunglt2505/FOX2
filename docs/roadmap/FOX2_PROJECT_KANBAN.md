@@ -2,7 +2,7 @@
 
 **Operating model:** FOX2 Agile Lite / Policy v2.1.0  
 **Board:** one project board: `BACKLOG → DOING ↔ BLOCKED → DONE`  
-**Live as of:** 2026-10-23 (Owner physical Windows target + G3 source updated)  
+**Live as of:** 2026-10-23 (Owner physical Windows; G3 read-only probe V3 ready / NOT_RUN)  
 **Status:** `LIVE_GIT_EVIDENCE_SYNCED`  
 **Management authority:** `main:docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json` @ `a7ca2b7610fa8ecd2766c67cfb19a28c32d9e5c9`  
 **Rule:** Git/test/host evidence wins over stale Issue/PR prose. Prompt, PreExec, Dispatch, Agent start, or `PUSHED_UNREVIEWED` alone is never DONE.
@@ -12,7 +12,7 @@
 | Priority | ID | Outcome / goal | Status | Delivery owner | Current evidence | Acceptance / next action |
 | --- | --- | --- | --- | --- | --- | --- |
 | P0 | `FOX2-M1-A-APP-BATCH-B` | Deliver the first runnable localhost FOX2 M1-A product: React/Vite UI + accepted backend integration + offline acceptance | **DOING** | CHAT | Branch `work/FOX2-M1-A-APP-BATCH-B@51a97bfa7420efa0a0e0ea9a1f35f77d2e823613`; frontend source exists and is 20 commits ahead of accepted APP-BATCH-A; no `tests/app_batch_b/**`, result report, or evidence manifest observed | Build/typecheck; implement focused UI/integration tests; run localhost/offline acceptance; CHAT review actual result. Keep frozen backend/API unless a reproducible backend defect is proven. |
-| P0 | `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` | Deliver usable, safe internal Windows Bridge | **DOING** | CHAT | G2 F1 BUILD `CHAT_ACCEPT` at `dcf42dd76c8f22e155d469d356e1f1219f3d7b14`, R5 code-only `CHAT_ACCEPT`; Owner A04 lifecycle `PASS_OBSERVED`; attempt 001 `CONSUMED/NO_REPLAY`; restart `FAILED_IN_PROGRESS`; **G3 physical Windows host NOT_RUN**; G4 NOT_RUN | Owner-selected **physical Windows computer**; active G3 source at `55825fcbb968e28c307032fe6ce9d503817b2e8a`, no hardware-class gate. Next read-only Windows capability check → source-bound G3 preflight and bounded host verification → G4 final F1 package, restart/no-replay → one CHAT acceptance. |
+| P0 | `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` | Deliver usable, safe internal Windows Bridge | **DOING** | CHAT | G2 F1 BUILD `CHAT_ACCEPT` at `dcf42dd76c8f22e155d469d356e1f1219f3d7b14`, R5 code-only `CHAT_ACCEPT`; Owner A04 lifecycle `PASS_OBSERVED`; attempt 001 `CONSUMED/NO_REPLAY`; restart `FAILED_IN_PROGRESS`; **G3 physical Windows host NOT_RUN**; G4 NOT_RUN | Owner-selected **physical Windows computer**; active G3 source at `9f2d10822fb1a3926b8bda6d992a795880160927`, no hardware-class gate. Next read-only Windows capability check → source-bound G3 preflight and bounded host verification → G4 final F1 package, restart/no-replay → one CHAT acceptance. |
 | P1 | `FOX2-M1-A-RELEASE-INTEGRATION` | Integrate the accepted runnable M1-A product into the intended release/main line | **BACKLOG** | CHAT | APP-BATCH-A accepted; APP-BATCH-B not yet accepted; main and APP lineages currently diverged | Start only after APP-BATCH-B CHAT acceptance and explicit protected-main/merge authority. |
 | P2 | `FOX2-M1-B-PROVIDER-INTEGRATION` | Add read-only real market-data integration: REST + market WebSocket + recovery/freshness | **BACKLOG** | CHAT | Provider rights/network/entitlement evidence not current; no provider implementation milestone accepted | Begin after M1-A product acceptance and explicit provider/data-rights capability. No broker/account/order write. |
 | P3 | `FOX2-M2-DATA-HARDENING` | Extend coverage, PIT/corporate-actions handling and soak/recovery quality | **BACKLOG** | CHAT | M2 not started under current M1 delivery | Start after M1-B data path is accepted. |
@@ -43,7 +43,7 @@ A task is placed in BLOCKED only when an active outcome has a real prerequisite 
 **Board status:** **DOING**  
 **Rule:** R5, former A05, G3/G4, local trial and restart/no-replay are internal checks of this one task, not separate Agile tasks.
 
-**Owner decision 2026-10-23 — G3 uses Owner's PHYSICAL Windows computer.** Only relevant Windows capabilities/permission and existing service/policy state are preconditions; no extra hardware-form-factor admission. Current G3 task, PreExec and read-only capability source at `55825fcbb968e28c307032fe6ce9d503817b2e8a`. Earlier BLOCKED G3 receipt remains historical. G2/R5 accepted and A04 lifecycle PASS_OBSERVED are preserved; integrated attempt 001 remains CONSUMED, restart FAILED, unused A04 restart-only runner ON_HOLD. Before privileged changes, current host must establish Windows AppLocker/SCM/privilege, no-conflict and existing-policy restoration capability. G3/G4 host execution NOT_RUN; G4 adoption is a distinct right, no Canary/LIVE/main/provider/broker.
+**Owner decision 2026-10-23 — G3 uses Owner's PHYSICAL Windows computer.** Only relevant Windows capabilities/permission and existing service/policy state are preconditions; no extra hardware-form-factor admission. Current G3 task, PreExec and read-only capability source at `9f2d10822fb1a3926b8bda6d992a795880160927`. Earlier BLOCKED G3 receipt remains historical. G2/R5 accepted and A04 lifecycle PASS_OBSERVED are preserved; integrated attempt 001 remains CONSUMED, restart FAILED, unused A04 restart-only runner ON_HOLD. Before privileged changes, current host must establish Windows AppLocker/SCM/privilege, no-conflict and existing-policy restoration capability. G3/G4 host execution NOT_RUN; G4 adoption is a distinct right, no Canary/LIVE/main/provider/broker.
 
 
 ### Definition of Done
@@ -165,7 +165,7 @@ The two top streams are independent enough to progress in parallel while writabl
 ## Next safe actions
 
 - **APP:** continue APP-BATCH-B directly under Agile Lite: build/typecheck, focused UI/API integration tests, localhost/offline acceptance, then CHAT result acceptance. No new Bridge/PreExec ceremony for ordinary reversible native DEV.
-- **Bridge:** Owner physical Windows target selected; no environment-type prerequisites. G2/R5/A04 accepted evidence reused, attempt001 no replay, A04 restart-only runner held. Run current physical host read-only capability script first. Do not change Windows AppLocker/service until host preflight verifies rights, exact source, one writer and restorable existing policy; then bounded G3 technical tests. G4 final F1 adoption/restart remains NOT_RUN.
+- **Bridge:** run ONE Git-SHA-pinned physical Windows read-only capability probe V3 from `9f2d10822fb1a3926b8bda6d992a795880160927` (blob `cbac88686704d6d1d3cad9f71dea4a690f325aa3`) and send sanitized JSON to CHAT. Distinguish AppLocker module availability from GP policy-query failure; GP query does not prove CSP coverage or backup/restore. Reuse G2/R5/A04 evidence and consumed attempt001 without replay. Only then select a bounded G3 host action; G4 F1 adoption and final-artifact restart remain NOT_RUN.
 - **Project:** do not create new governance or micro-WPs unless a real scope/authority/risk boundary appears.
 
 `PROJECT_HEALTH=YELLOW_GREEN / PRODUCT=DOING / BRIDGE=DOING / PROJECT_BLOCKED=NO / WIP=2 / NEXT=APP_BATCH_B_PRODUCT_CLOSURE_PARALLEL_BRIDGE_INTERNAL_VALIDATION`
