@@ -1,0 +1,9 @@
+{
+  "claimed_utc": "2026-10-23T08:41:37.4915934Z",
+  "prior_state": "NOT_STARTED",
+  "assignment": "e7c4d83a13c9bcf8d39d67ea9112b1727fe7fdde",
+  "source": "92191f1d9701a9886ed886e6653e39d604b8b617",
+  "attempt": "native-recovery-r3",
+  "task_id": "FOX2-M1-A-APP-BATCH-B",
+  "pid": 19108
+}

@@ -1,0 +1,7 @@
+Blocked by the native execution host before PowerShell startup:
+
+`Failed to create unified exec process: helper_unknown_error: setup refresh had errors`
+
+Both read-only attempts failed; writing blocker evidence also failed. No code changes, tests, services, commits or pushes were performed. Existing report/manifest could not be read or updated.
+
+Acceptance remains blocked. The runner must restore execution and filesystem access before work can continue.

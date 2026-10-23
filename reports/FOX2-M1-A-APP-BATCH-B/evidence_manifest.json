@@ -31,5 +31,16 @@
     "secret_scan_full_bundle": "NOT_RUN",
     "final_chat_acceptance": "NOT_ACCEPTED"
   },
-  "stop": "No main/merge/deploy/provider/broker/LIVE changes; do not infer production readiness."
+  "stop": "No main/merge/deploy/provider/broker/LIVE changes; do not infer production readiness.",
+  "task_id": "FOX2-M1-A-APP-BATCH-B",
+  "native_recovery_20261023": {
+    "manifest": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/evidence_manifest.json",
+    "status": "BLOCKED_HOST_SANDBOX",
+    "report": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/report.md",
+    "tests": "NOT_RUN",
+    "attempt": "native-recovery-r3",
+    "consumed": true,
+    "historical_manifest": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/history/evidence_manifest.json",
+    "chat_verdict": "HOLD"
+  }
 }

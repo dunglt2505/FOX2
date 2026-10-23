@@ -1,0 +1,65 @@
+{
+  "agent_started": true,
+  "agent_exit": 0,
+  "publisher": "CHAT_VIA_OWNER_AUTHORIZED_POWERSHELL",
+  "product_tests": "NOT_RUN",
+  "status": "BLOCKED_HOST_SANDBOX",
+  "assignment_sha": "e7c4d83a13c9bcf8d39d67ea9112b1727fe7fdde",
+  "task_id": "FOX2-M1-A-APP-BATCH-B",
+  "model": "gpt-6.1-sol",
+  "chat_verdict": "HOLD",
+  "effort": "medium",
+  "agent_code_changes": false,
+  "evidence": [
+    {
+      "sha256": "5FECEB66FFC86F38D952786C6D696C79C2DBC239DD4E91B46729D73A27FB57E9",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/agent-exit.txt"
+    },
+    {
+      "sha256": "F2D970BA8EE7A0224B7EFE39415A124DD93D1E69C18BCB9BFA8B2B2B29C5AC50",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/codex-final.txt"
+    },
+    {
+      "sha256": "644EF9B035B00A56DCA7CEF627B46D45C156B53465D2A9F5AF6366C3747A0444",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/evidence-hashes.json"
+    },
+    {
+      "sha256": "5E9F0CA8C1812F8AC3235A5D13977A1646428BD4124D1D7063CFCF518B86B294",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/launch-website-codex-recovery-r3.ps1"
+    },
+    {
+      "sha256": "3E0E1DFB7F3BA2416D5BF6D0F3F379701B7518615C49EB24397B8E6D2A2EE689",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/recovery-r2-claim.json"
+    },
+    {
+      "sha256": "804DA737D0E981DEE95A37173A4AAA9C9426CCFEDDFD222B4CA849144542D88D",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/recovery-r3-claim.json"
+    },
+    {
+      "sha256": "5F429E7F0E31211617D37061512502D155787D4E1D20C96642156E483260C919",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/report.md"
+    },
+    {
+      "sha256": "CF032F376B895899A8A3EDCE32B9B01CB3D04B86A25939A7E990D3D65F4C6491",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/sandbox-error-excerpt.txt"
+    },
+    {
+      "sha256": "3BDF8727D6D78050126C8383BDEC9FD69510513B1357EE402ACA1DFA602B3FA6",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/started.json"
+    },
+    {
+      "sha256": "B8E125EE21440CA009394099D50A83AF747F5CE119F4C5633130D6A0471D266A",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/verification-before-run.json"
+    },
+    {
+      "sha256": "3A99792C0C56130DBF07D4E78DCCE5766C1159B739735FF010EC08A95A3975D4",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/history/evidence_manifest.json"
+    },
+    {
+      "sha256": "EE94AD3C151FC3E577B80E80055EFF33AA52CE41DD9FF4A44F2EEC27E19F01F2",
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/history/report.md"
+    }
+  ],
+  "base_sha": "92191f1d9701a9886ed886e6653e39d604b8b617",
+  "attempt": "native-recovery-r3"
+}
