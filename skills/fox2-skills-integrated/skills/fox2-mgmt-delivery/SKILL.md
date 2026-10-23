@@ -8,7 +8,7 @@ description: "Plan, prioritize, promote, track, and report FOX2 delivery in one 
 **FOX2 Layer 1 — Project management — Agile Lite 0.5.3**
 
 ## Activate when
-Owner asks what to build next, current status, a blocker, project health, priority, or whether a Master Plan/Roadmap feature should enter the Agile Board.
+Owner asks what to build next, current status, a blocker, project health, priority, or whether a Master Plan/Roadmap feature should enter the Agile Board; also when Watch/CHAT observes a verified delivery, acceptance or material project-state change.
 
 ## Input
 Owner outcome, Master Plan/Roadmap feature candidates, live task status, actual Git/test/host evidence, dependencies, acceptance readiness and deadlines if supplied.
@@ -20,6 +20,18 @@ Owner outcome, Master Plan/Roadmap feature candidates, live task status, actual 
 4. Preserve accepted, unaffected PASS. Mark a task DONE only when evidence meets its acceptance; `prompt published`, `Agent started` and Bridge `PUSHED_UNREVIEWED` are not DONE.
 5. Report product capabilities, changed facts, true blockers, next owner action and cycle time where observed. Unknown or untested evidence stays UNKNOWN. WIP ideally ≤2 simultaneous material code writers with non-overlapping paths; treat this as operating guidance, not a blocking certificate.
 6. For a necessary Agent choice request the routing method; for result quality request result acceptance. Avoid creating new micro-WPs because one attempt needs correction.
+
+## Evidence-driven progress synchronization (CHAT / scheduled Watch)
+
+**Activation:** On a scheduled FOX2 Project Progress Watch, verified Agent/Bridge Git delivery, CHAT acceptance/rework, material blocker/dependency change, or explicit Owner status request. Skills are instructions, **not** a self-running daemon: the Watch/CHAT must invoke this method, and only an authorized Git publisher can actually write files.
+
+1. **Read current evidence:** Resolve the effective Master Plan plus operating addenda and single Project Kanban; compare actual Git refs/SHA, tests, CI, CHAT acceptance and previous synced state. Do not infer DONE from `PUSHED_UNREVIEWED`, unreviewed PRs, local logs or missing evidence.
+2. **Update Board on material task events:** For an existing logical task, write verified status `BACKLOG/DOING/BLOCKED/DONE`, owner, precise result SHA, blocker, acceptance verdict and next safe action. Do not duplicate WPs or mirror all distant roadmap features.
+3. **Update Master Plan only on strategic changes:** Milestone acceptance, dependency, scope, release sequencing or material roadmap changes. Preserve immutable historical plans; use the currently authorized live plan/addendum, never silently overwrite divergent Library copies.
+4. **Publish safely:** Request `fox2-tech-publication-sync` for authorized Git changes; compare expected remote base, publish to scoped non-main branch/PR when protected main cannot be written, then read back exact files/SHA. No merge, governance promotion or LIVE permission is implied.
+5. **Return truthful sync evidence:** `SYNCED` only after remote readback, `NO_MATERIAL_CHANGE` with no empty commit, or `SYNC_PENDING/BLOCKED` with exact missing permission/source/conflict. Report separate `BOARD_UPDATED` and `MASTER_PLAN_UPDATED` booleans; do not claim a document changed merely because a summary was produced.
+
+**Idempotency:** Use the observed event/result SHA and existing document content to avoid repeated updates. If source/branch/ownership conflicts, preserve current files, provide a bounded proposed delta and stop before overwriting.
 
 ## Board promotion contract
 
