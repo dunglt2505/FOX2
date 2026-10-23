@@ -24,6 +24,24 @@ Already-selected actor/model/thinking/transport, objective, acceptance, allowed 
 
 For **native DEV**, output a concise prompt directly without mandatory Git-*prompt* publication, but **require Agent code and material reports to be committed and pushed to the authorized Git result branch** when the Agent has that permission. State the result branch and return remote SHA. For **Bridge**, output task/prompt *content* matching Bridge's accepted `task.md` and `prompt.md` interface. **When `delivery_owner=AGENT`, instruct Agent to commit/push on the authorized task branch; when `delivery_owner=BRIDGE`, instruct Agent explicitly NOT to commit/push and leave result publication to Bridge**. The selected runner supplies delivery ownership; Prompt Builder never chooses or changes it. For **WORK/read-only with Git delivery in task contract**, push report/evidence to authorized report branch if permitted; otherwise deliver exact file bytes to the separately authorized publisher, preserving author/publisher provenance. No alternative channel counts as Git completion until the authorized publisher pushes and CHAT can read back the remote SHA.
 
+### PowerShell 5.1 / `pwsh` 7 and Git scripting
+
+Generate PowerShell only when requested; prefer a tested host launcher. Bind the *observed* shell version, `git.exe` path, worktree, exact branch/source SHA, Git/publisher rights and STOP; do not treat PS5.1 as PS7. Require target-host syntax validation and a non-destructive/fake-Git fixture. If not run, label `NOT_RUN`, **not** verified.
+
+Invoke executable variables with **`&`**, never `(GV ...)`, `GV` alias or `$Git -C ...`. Use quoted path variables and check native `$LASTEXITCODE` immediately, not `$?` after other commands. Safe *read-only pattern*:
+
+```powershell
+$Git = (Get-Command git -CommandType Application -ErrorAction Stop).Source
+$head = & $Git -C $Worktree rev-parse --verify HEAD
+if ($LASTEXITCODE -ne 0) { throw 'STOP: Git command failed' }
+```
+
+Avoid unverified CLI flags, pipeline parsing assumptions, destructive reset, unrestricted `git add -A`, force push or a second Publisher. In Bridge-owned mode, Bridge publishes **outside** the Agent; no tail-command dependent on remaining Agent tokens.
+
+### Return modes: `CODE_CHANGE` or `TEST_EVIDENCE_ONLY`
+
+Choose mode explicitly before acceptance; otherwise `UNRESOLVED`. `CODE_CHANGE` normally requires changed product code **and** executed tests. For a genuine `TEST_EVIDENCE_ONLY` task, **no product code diff is required** when actual required tests ran against pinned source/worktree, command and exit status are evidenced, and an authorized test/report artifact is pushed to the Git result branch with verified remote SHA. Do not invent an empty success commit or relax installed Bridge schema. If Git proof is absent, set `GIT_DELIVERY_PENDING`. Tests `NOT_RUN`, stale logs or Agent-declared PASS alone **never pass**. CHAT must explicitly reclassify a code-change task as evidence-only based on actual findings, not merely a clean diff.
+
 Prompt quality checklist: task is independently understandable; **return instructions always give a Git result destination/branch and publication owner for delegated Agent work, with remote readback as delivery criterion**; allowed scope and STOP precise; no secrets placed into a public repository; no prompt-only claim that tests/permissions were verified; rework reuses the SAME logical task. When Owner needs manual execution, request host-specific verified launch instructions from the actual execution owner; do not invent CLI flags or generate speculative PowerShell.
 
 **Bridge boundary:** The Prompt Builder **writes the Agent instruction to deliver via Git**, but never publishes or verifies commits itself. Git task/prompt publishing, SHA readback, Dispatch v3 construction/validation, route capability PreExec, decision receipt, ledger/no-replay claim, CLI launch, result transport and status progression belong to Bridge/Git technical execution, NOT this Skill. Prompt Builder may mention those constraints *as context only*.

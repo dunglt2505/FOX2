@@ -21,6 +21,8 @@ Authorized source and destination paths, exact bytes, source authority, writer/W
 5. For file sync, compare SHA-256 of actual source/destination, preserve divergent content without blind overwrite and report conflict or proof of exact readback.
 6. Distinguish `SOURCE_PUBLISHED`, `LIBRARY_VERIFIED`, `HUMAN_EFFECTIVE` and `MACHINE_ADOPTED`; no Git push is proof of machine/runtime enforcement.
 
+**Evidence-only Git delivery:** For a genuinely test-only task with no product diff, verify an authorized test report/evidence commit (not an empty success marker), test execution facts and full remote SHA. Do not impose a nonempty product-code diff, nor equate report existence with executed tests. Bridge publication remains governed by the installed result/test schema and selected delivery owner; report `GIT_DELIVERY_PENDING` if the authorized remote artifact does not exist.
+
 **Project progress documents:** For a management-approved Board/Master Plan delta, publish only exact authorized files to the allowed Git ref with expected-base protection and full remote readback. Do not overwrite historical Master Plans or merge protected main. Return observed SHA/path or `SYNC_PENDING` with the precise permission/conflict blocker; do not choose task status or invent acceptance.
 
 ## Output
