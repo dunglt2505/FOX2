@@ -1,0 +1,13 @@
+{
+  "task": "FOX2-M1-A-APP-BATCH-B",
+  "branch": "work/FOX2-M1-A-APP-BATCH-B",
+  "publisher": "Codex Extension / local Git authenticated dunglt2505",
+  "code_result_sha": "5690afb29b662bd62a0adaea364c2c29a1146e45",
+  "remote_readback_sha": "5690afb29b662bd62a0adaea364c2c29a1146e45",
+  "push_exit_code": 0,
+  "readback_exit_code": 0,
+  "committed_inventory_entries_verified": 42,
+  "historical_HEAD_copies": "BYTE_IDENTICAL",
+  "note": "Code/test/evidence publication verified. A following metadata commit records this receipt; final delivery SHA is returned after its remote readback.",
+  "chat_acceptance": "PENDING"
+}

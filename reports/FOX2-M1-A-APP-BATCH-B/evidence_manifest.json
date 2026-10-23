@@ -763,7 +763,10 @@
       "remote_source_sha": "ee4784e9fbf055979dea540242ce74f2b79736cc",
       "git_dry_run_exit": 0
     },
-    "git_delivery": "PREPARED_FOR_AUTHORIZED_PUSH_REMOTE_READBACK_PENDING",
-    "chat_acceptance": "PENDING"
+    "git_delivery": "PUBLISHED_REMOTE_CODE_RESULT_VERIFIED",
+    "chat_acceptance": "PENDING",
+    "code_result_sha": "5690afb29b662bd62a0adaea364c2c29a1146e45",
+    "remote_readback_sha": "5690afb29b662bd62a0adaea364c2c29a1146e45",
+    "publication_receipt": "evidence/ide-origin-guard-rework-20261023/publication-receipt.json"
   }
 }
