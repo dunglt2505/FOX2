@@ -23,15 +23,13 @@ Owner outcome, Master Plan/Roadmap feature candidates, live task status, actual 
 
 ## Evidence-driven progress synchronization (CHAT / scheduled Watch)
 
-**Activation:** On a scheduled FOX2 Project Progress Watch, verified Agent/Bridge Git delivery, CHAT acceptance/rework, material blocker/dependency change, or explicit Owner status request. Skills are instructions, **not** a self-running daemon: the Watch/CHAT must invoke this method, and only an authorized Git publisher can actually write files.
+**Triggers:** Scheduled FOX2 Watch run; verified Agent/Bridge Git delivery; CHAT acceptance/rework; material blocker, dependency or task-status change. A Skill is not a daemon: Watch/CHAT invokes it and an authorized Git publisher writes files.
 
-1. **Read current evidence:** Resolve the effective Master Plan plus operating addenda and single Project Kanban; compare actual Git refs/SHA, tests, CI, CHAT acceptance and previous synced state. Do not infer DONE from `PUSHED_UNREVIEWED`, unreviewed PRs, local logs or missing evidence.
-2. **Update Board on material task events:** For an existing logical task, write verified status `BACKLOG/DOING/BLOCKED/DONE`, owner, precise result SHA, blocker, acceptance verdict and next safe action. Do not duplicate WPs or mirror all distant roadmap features.
-3. **Update Master Plan only on strategic changes:** Milestone acceptance, dependency, scope, release sequencing or material roadmap changes. Preserve immutable historical plans; use the currently authorized live plan/addendum, never silently overwrite divergent Library copies.
-4. **Publish safely:** Request `fox2-tech-publication-sync` for authorized Git changes; compare expected remote base, publish to scoped non-main branch/PR when protected main cannot be written, then read back exact files/SHA. No merge, governance promotion or LIVE permission is implied.
-5. **Return truthful sync evidence:** `SYNCED` only after remote readback, `NO_MATERIAL_CHANGE` with no empty commit, or `SYNC_PENDING/BLOCKED` with exact missing permission/source/conflict. Report separate `BOARD_UPDATED` and `MASTER_PLAN_UPDATED` booleans; do not claim a document changed merely because a summary was produced.
-
-**Idempotency:** Use the observed event/result SHA and existing document content to avoid repeated updates. If source/branch/ownership conflicts, preserve current files, provide a bounded proposed delta and stop before overwriting.
+1. Read the currently authorized Master Plan/addenda, single Kanban and actual Git/CI/test/CHAT acceptance evidence. Never infer DONE from `PUSHED_UNREVIEWED` or a chat report.
+2. Update **Board** only for material existing-task changes: `BACKLOG/DOING/BLOCKED/DONE`, owner, verified SHA, blocker, acceptance and next action; do not duplicate WPs or import all roadmap entries.
+3. Update **Master Plan** only when a real milestone, dependency, scope or roadmap sequence changes. Preserve immutable historical copies and unresolved Library/Git divergence.
+4. Delegate exact write/readback to `fox2-tech-publication-sync`: compare remote base, use authorized scoped Git ref (non-main PR if protected), verify full SHA; no implicit main merge or LIVE grant.
+5. Return `SYNCED` with separately reported `BOARD_UPDATED`/`MASTER_PLAN_UPDATED` and remote SHA, `NO_MATERIAL_CHANGE` with no empty commit, or `SYNC_PENDING/BLOCKED` with the exact missing permission/source/conflict. Idempotently suppress repeated events by verified source/result SHA.
 
 ## Board promotion contract
 
