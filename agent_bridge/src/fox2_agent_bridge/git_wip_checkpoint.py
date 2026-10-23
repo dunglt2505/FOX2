@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Callable, Any
 
 from .errors import WorkspaceBlocked
+from .paths import validate_path
 from .git_delivery_guard import _safe_relative, validate_staged_blobs, validate_committed_result
 
 _SHA = re.compile(r"[0-9a-f]{40}\Z")
@@ -87,9 +88,9 @@ class WipGrant:
         return hashlib.sha256(data).hexdigest()
 
 
-def _one_ref(runner, branch: str) -> str | None:
+def _one_ref(runner, worktree: Path, branch: str) -> str | None:
     result = runner._git(
-        ["ls-remote", "--refs", "origin", f"refs/heads/{branch}"])
+        ["-C", str(worktree), "ls-remote", "--refs", "origin", f"refs/heads/{branch}"])
     rows = [x.split("\t", 1) for x in result.stdout.splitlines() if x.strip()]
     if not rows:
         return None
@@ -134,12 +135,14 @@ def publish_wip_checkpoint(
             row.get("result") is None or
             not isinstance(payload.get("worktree"), str)):
         raise WorkspaceBlocked("WIP task/source/owner checkpoint mismatch")
-    worktree = Path(payload["worktree"])
+    worktree = validate_path(Path(payload["worktree"]),
+                             allowed_roots=(runner.config.worktree_root,),
+                             label="WIP original task worktree")
     if runner._git(["-C", str(worktree), "branch", "--show-current"]).stdout.strip() != grant.task_branch:
         raise WorkspaceBlocked("WIP original task branch drift")
     if runner._git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip() != grant.before_head:
         raise WorkspaceBlocked("WIP original task HEAD drift")
-    if _one_ref(runner, grant.task_branch) != grant.before_head:
+    if _one_ref(runner, worktree, grant.task_branch) != grant.before_head:
         raise WorkspaceBlocked("WIP original remote task branch drift")
     existing = runner.ledger.wip_intent(grant.execution_id)
     intent = grant.digest()
@@ -153,7 +156,7 @@ def publish_wip_checkpoint(
         validate_committed_result(
             runner._git, worktree, grant.before_head, after, changes)
     else:
-        if _one_ref(runner, grant.recovery_branch) is not None:
+        if _one_ref(runner, worktree, grant.recovery_branch) is not None:
             raise WorkspaceBlocked("recovery ref already exists; no overwrite")
         changed = runner._dirty_changed_paths(worktree)
         if changed != tuple(sorted(grant.changed_paths)):
@@ -219,11 +222,11 @@ def publish_wip_checkpoint(
             dispatch_id=grant.dispatch_id, execution_id=grant.execution_id,
             intent_sha256=intent, recovery_ref=grant.recovery_branch,
             before_head=grant.before_head, commit_sha=after)
-    remote = _one_ref(runner, grant.recovery_branch)
+    remote = _one_ref(runner, worktree, grant.recovery_branch)
     if remote is None:
         runner._git(["-C", str(worktree), "push", "origin",
                      f"{after}:refs/heads/{grant.recovery_branch}"])
-        remote = _one_ref(runner, grant.recovery_branch)
+        remote = _one_ref(runner, worktree, grant.recovery_branch)
     if remote != after:
         raise WorkspaceBlocked("WIP Git remote conflicts with exact immutable commit")
     runner.ledger.verify_wip_remote(

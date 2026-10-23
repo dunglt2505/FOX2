@@ -10,6 +10,7 @@ import pytest
 
 from fox2_agent_bridge.app import BridgeApp
 from fox2_agent_bridge.errors import LockHeld
+from fox2_agent_bridge.ledger import SCHEMA_VERSION
 from fox2_agent_bridge.logging_config import configure_logging, log_event
 from fox2_agent_bridge.process_lock import ProcessLock
 
@@ -142,8 +143,8 @@ def test_health_command_runs_without_agent_execution(
 
     assert report["project_id"] == "FOX2"
     assert report["repository"] == "dunglt2505/FOX2"
-    # F0 migrates runtime ledgers to v5; health must report the actual schema.
-    assert report["database"]["schema_version"] == 5
+    # Version-aware check: WIP intent table advances ledger schema to v6.
+    assert report["database"]["schema_version"] == SCHEMA_VERSION
     with app.ledger.connect() as connection:
         assert connection.execute(
             "SELECT value FROM bridge_meta WHERE key='claim_authority'"
