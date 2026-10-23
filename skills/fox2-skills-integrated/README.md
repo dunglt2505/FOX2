@@ -1,4 +1,4 @@
-# FOX2 Skills — Agile Lite 0.5.7
+# FOX2 Skills — Agile Lite 0.5.8
 
 11 Skills in THREE responsibility layers: management (3), professional methods (5), technical/safety (3). One task, no extra approvals for ordinary authorized internal coding. Management owns Master Plan → Agile Board promotion; Bridge execution remains bound to installed machine contracts.
 
@@ -9,3 +9,5 @@ See `SKILL_MIGRATION_v0_5_0.md` for mapping 17 old → 11 current Skills. `share
 **Project progress sync:** `fox2-mgmt-delivery` evaluates evidence-driven updates for the one Kanban and current Master Plan/addenda on accepted Git/CHAT events or the scheduled FOX2 Project Progress Watch. `fox2-tech-publication-sync` owns authorized Git publication/readback. Without permissions or changed evidence, report PENDING/NO_MATERIAL_CHANGE rather than claim a sync.
 
 **PowerShell and verification:** Prompt Builder requires actual target PowerShell/Git host, safe native-command invocation and test-only deliverables when product code need not change; no Git delivery, no actual executed tests = no acceptance.
+
+**Skill Routing Matrix restored:** Within `fox2-mgmt-delivery`, choose only needed Skills by actual task event; track `REQUIRED/APPLIED/NOT_APPLICABLE/UNAVAILABLE`. CHAT keeps one Whole-WP from Build/Test/Deliver through acceptance, Board/Master Plan and verified Git readback. This method does not itself execute Agents or push Git.

@@ -1,0 +1,46 @@
+{
+  "version": "0.5.8",
+  "inventory": "CHANGED_OVERLAY_FILES_ONLY",
+  "files": {
+    "skills/fox2-mgmt-delivery/SKILL.md": {
+      "bytes": 6533,
+      "sha256": "1b87cc45b45538dbc50a7f931d1182381252984c8d45b746fa44998286860a7b"
+    },
+    "shared/operating_rules.md": {
+      "bytes": 3500,
+      "sha256": "c8d9dd174e5cdf81df8015ccc9a2977a3382f9a7e1c14e0409e23a2afdcbd597"
+    },
+    "README.md": {
+      "bytes": 1978,
+      "sha256": "7d56e549e17e55588d78129e7e5a0a4752843ee96177dd04aa86cfe28d938765"
+    },
+    "RELEASE_README_v0_5_8.md": {
+      "bytes": 938,
+      "sha256": "f2c78dff19c8fbf90b53d73cd27380c02f8a5e6f6809beb2cb060f5421936670"
+    },
+    "plugin.json": {
+      "bytes": 447,
+      "sha256": "cdcfc2bbdc32446d4da506e56a88a68d9e79cf264c763d5f0d6d775f5d5db3c8"
+    },
+    ".codex-plugin/plugin.json": {
+      "bytes": 602,
+      "sha256": "cf1007c7e1f0aa3f79c1bbe93c8511284fb728fe3e9af46cb23d5628b0d1e652"
+    },
+    "manifest.json": {
+      "bytes": 3367,
+      "sha256": "28a26c658c25c9edd7f2802e9f76c5468ff3def42a332800706c1696fc0f51ab"
+    },
+    "tests/test_three_layers.py": {
+      "bytes": 1739,
+      "sha256": "9a7e95b35362c741d2c4a39ee703d9d4b566fd69608b8f58029612bfa2197800"
+    },
+    "tests/test_source_integrity.py": {
+      "bytes": 857,
+      "sha256": "050b617afa0d2189bcc726a709f2dcd8ac0570b84440d35b9817ffe77c68877b"
+    },
+    "tests/test_skill_routing_matrix_v058.py": {
+      "bytes": 1789,
+      "sha256": "826948e14acd278697b4991c5f42da9f8e906772e471aeadbfcbeb1eb6f80339"
+    }
+  }
+}
