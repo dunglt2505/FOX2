@@ -27,9 +27,9 @@
         }
       ],
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
-      "blocker": "G3_OFFLINE_TOOL_68_CI_PASS; HOST_GP_BASELINE_EMPTY_NO_REVIEWED_ALLOWLIST; FINAL_F1_PACKAGE_HOST_IDENTITY_UNKNOWN; G3_WINDOWS_ENFORCEMENT_NOT_RUN; G4_NOT_RUN",
+      "blocker": "CI_WINDOWS_702_PASS_AND_QUARANTINED_F0_DENY_BUILT; OWNER_G3_HOST_ALLOW_ACL_NOT_VERIFIED; FINAL_F1_HOST_PACKAGE_UNKNOWN; G3_RUNTIME_NOT_RUN; G4_NOT_RUN; A04_RESTART_FAILED",
       "as_of": "2026-10-23",
-      "next_safe_action": "COLLECT_ACTUAL_SAFE_HOST_ALLOW_PATH_REVIEW_AND_FINAL_F1_PACKAGE_INVENTORY; BUILD_REVIEWED_BASELINE_OFFLINE; G3_POLICY_ENFORCEMENT_AND_G4_REMAIN_DENY_UNTIL_EVIDENCED",
+      "next_safe_action": "ONE_G3_PHYSICAL_HOST_READONLY_ALLOW_ACL_PACKAGE_RECEIPT_OUTPUT_THEN_OFFLINE_POLICY_REVIEW; DO_NOT_REPLAY_ATTEMPT001_OR_START_POLICY_SERVICE_MUTATION",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
@@ -116,7 +116,11 @@
           "probe_schema": "FOX2_G3_PHYSICAL_READONLY_V3",
           "admin_observed": "PASS_OWNER_STDOUT_2026-10-23T04:14:24Z",
           "local_policy_xml_snapshot": "PASS_OBSERVED_PRIVATE_BACKUP",
-          "policy_restoration": "NOT_TESTED"
+          "policy_restoration": "NOT_TESTED",
+          "g3_readonly_acl_source": "f1ddae2ef96b3c1568363d53c88a833d3919ef7a",
+          "g3_readonly_acl_status": "PUBLISHED_CI_SYNTAX_PASS_NOT_RUN_OWNER_HOST",
+          "quarantined_package_sha256": "6d87ae9e38c6f12f910f44f5f212da4e23f9ab9f9832cbc0fed0ccb6b92e4888",
+          "package_adoption": "NOT_RUN"
         }
       }
     },
@@ -345,9 +349,9 @@
         }
       ],
       "exit_gate": "F0_OFFLINE_SAFETY_SOURCE_TEST_AND_CHAT_DIRECT_DELIVERY_ACCEPTED_SCOPED;_F1_LEGACY_RETIREMENT_AND_POSITIVE_INSTALLED_ADMISSION_SEPARATE_MATERIAL_GATES",
-      "blocker": "MISSING_REVIEWED_HOST_ALLOWLIST_AND_G2_F1_PACKAGE_INVENTORY_FOR_G3_POLICY; G3_WINDOWS_RUNTIME_NOT_RUN",
+      "blocker": "G3_PHYSICAL_ALLOW_PATH_ACL_COVERAGE_UNKNOWN; HOST_FINAL_F1_PACKAGE_NOT_VERIFIED; POLICY_RESTORE_NOT_TESTED; G3_E1_E10_NOT_RUN",
       "as_of": "2026-10-23",
-      "next_safe_action": "HOST_EXE_SCRIPT_COVERAGE_INVENTORY_AND_CURRENT_F1_PACKAGE_IDENTITIES; OFFLINE_CANDIDATE_REVIEW; THEN_G3_TEST_WITH_SAFE_ROLLBACK",
+      "next_safe_action": "ONE_HOST_READONLY_ALLOW_PATH_ACL_PACKAGE_RECEIPT_SCAN_WITH_PINNED_SCRIPT; USE_OUTPUT_TO_REVIEW_BASELINE; NO_POLICY_OR_SERVICE_MUTATION",
       "build": "F0_OFFLINE_BUILD_COMPLETE_CHAT_DIRECT_SCOPED;_WHOLE_FEATURE_BUILD_BLOCKED_F1_AND_INSTALLED_ADMISSION",
       "test": "267_FOCUSED_PASS_AT_BA1CBDF_SAME_SELECTED_BYTES_AT_611EC26;_88_CONSUMER_PASS_AT_611EC26;_ZERO_FAIL_ERROR_SKIP_FINAL_RUNS;_EARLIER_FAILED_RUNS_PRESERVED",
       "canary009": "HOLD",
@@ -585,7 +589,7 @@
         "no_replay": true
       },
       "g3": {
-        "status": "BASELINE_EMPTY_CONFIRMED__OFFLINE_TOOL_68_PASS__PRIVILEGED_G3_BLOCKED",
+        "status": "G3_OFFLINE_WINDOWS_702_PASS__PHYSICAL_ALLOW_PACKAGE_SCAN_NOT_RUN__G3_PRIVILEGED_BLOCKED",
         "target": "OWNER_SELECTED_PHYSICAL_WINDOWS",
         "hardware_class_gate": "NONE",
         "read_only_probe_path": "docs/agent_handoff/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/g3/physical_host_capability_readonly.ps1",
@@ -601,7 +605,7 @@
         "privileged_execution": "NOT_RUN",
         "admission": "NOT_RUN",
         "g4": "NOT_RUN",
-        "next": "REVIEW_PHYSICAL_WINDOWS_EXE_SCRIPT_ALLOW_COVERAGE_AND_CURRENT_F1_PACKAGE_INVENTORY_THEN_USE_OFFLINE_GENERATOR; NO_POLICY_ENFORCEMENT_YET",
+        "next": "OWNER_RUN_ONE_READONLY_PHYSICAL_ALLOW_PATH_ACL_PACKAGE_RECEIPT_SCAN; CHAT_REVIEW_REVIEWED_ALLOWLIST_AND_F1_PACKAGE_IDENTITY; GENERATE_OFFLINE_CANDIDATE; REAL_G3_E1_E10_ONLY_AFTER_RESTORE_CAPABILITY",
         "read_only_probe_blob": "cbac88686704d6d1d3cad9f71dea4a690f325aa3",
         "current_preexec_blob": "70a6188ad626ff81ed62c4148de3ca0b50a6015d",
         "current_task_blob": "95023611026aa89e8c3f4edc485d976dc2a2ca44",
@@ -746,6 +750,39 @@
           "g3_runtime": "NOT_RUN",
           "current_source_commit": "ee504e435b068dc7ef3d07d94705251cf12756c2",
           "partial_write_guard": "OWN_CREATED_FILES_DELETED_ON_FAIL; NO_OVERWRITE"
+        },
+        "physical_allow_package_readonly": {
+          "schema": "FOX2_G3_PHYSICAL_ALLOW_PACKAGE_READONLY_V1",
+          "script_commit": "dc41d626134b83e68f656d621b81948783aa11e6",
+          "test_source_commit": "f1ddae2ef96b3c1568363d53c88a833d3919ef7a",
+          "script_path": "agent_bridge/scripts/f1_g3_physical_allow_inventory_readonly.ps1",
+          "script_blob": "4632903b077f965572d262d85f5a3fa9f6e1df1d",
+          "parse_validation": "PASS_WINDOWS_CI_NOT_OWNER_HOST",
+          "physical_host_execution": "NOT_RUN",
+          "snapshot_sha256_expected": "635222d6f1ee0a7561e6c04e8894e688a5d19a3ce7549294f4c821a11f807e15",
+          "actions": "READ_ONLY_HOST_ACL_AND_KNOWN_PACKAGE_RECEIPT_SCAN",
+          "candidate_approved": "NONE",
+          "report_private_paths": "NOT_EXPOSED",
+          "app_locker_mutation": "NONE",
+          "g3_enforcement": "NOT_RUN"
+        },
+        "windows_full_source_validation": {
+          "status": "SUCCESS_COMPLETED",
+          "run_id": 39904550039,
+          "url": "https://github.com/dunglt2505/FOX2/actions/runs/39904550039",
+          "source_commit": "f1ddae2ef96b3c1568363d53c88a833d3919ef7a",
+          "windows_python_313_full_bridge_tests": "702_PASSED",
+          "windows_rc1_package_tests": "34_PASSED",
+          "host_inventory_powershell_syntax": "PASS_WINDOWS_CI",
+          "package_build": "QUARANTINED_F0_DENY_BUILT",
+          "package_sha256": "6d87ae9e38c6f12f910f44f5f212da4e23f9ab9f9832cbc0fed0ccb6b92e4888",
+          "package_source_git_commit": "f1ddae2ef96b3c1568363d53c88a833d3919ef7a",
+          "f1_activation": "DENY_PENDING_G3_G4",
+          "owner_host_package_present": "NOT_VERIFIED",
+          "final_installed_f1": "NOT_BUILT_OR_ADOPTED",
+          "tests_scope": "CI_WINDOWS_ONLY_NO_APPLOCKER_MUTATION",
+          "policy_enforcement": "NOT_RUN",
+          "g4": "NOT_RUN"
         }
       },
       "g4": {
