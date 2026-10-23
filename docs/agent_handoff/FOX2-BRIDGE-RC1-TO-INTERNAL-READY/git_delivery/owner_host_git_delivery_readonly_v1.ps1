@@ -96,6 +96,9 @@ $Check.installed.config_present = Test-Path -LiteralPath (
     Join-Path $Root 'config\bridge.toml') -PathType Leaf
 $RuntimePython = $null
 $Pointer = Join-Path $Root 'current.json'
+# StrictMode: the installed pointer may not exist. Keep a defined, nullable
+# interpreter identity before the optional receipt lookup.
+$RuntimePython = $null
 if (Test-Path -LiteralPath $Pointer -PathType Leaf) {
     try {
         $Current = Get-Content -LiteralPath $Pointer -Raw -ErrorAction Stop |
