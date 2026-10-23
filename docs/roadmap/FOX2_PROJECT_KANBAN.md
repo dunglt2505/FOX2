@@ -132,7 +132,24 @@ Final verdict is one of:
 
 ### Current next action
 
-`G2_F1_BUILD_CHAT_ACCEPT + R5_CODE_CHAT_ACCEPT + A04_LIFECYCLE_PASS_OBSERVED/ATTEMPT001_CONSUMED → G3_OWNER_PHYSICAL_WINDOWS_READONLY_CHECK(NOT_RUN) → G3_HOST_PREFLIGHT_AND_ACTUAL_TEST(NOT_RUN) → G4_FINAL_F1_ADOPTION_AND_RESTART(NOT_RUN) → ONE_CHAT_FINAL_ACCEPTANCE`
+`G2_F1_BUILD_CHAT_ACCEPT + R5_CODE_CHAT_ACCEPT + A04_LIFECYCLE_PASS_OBSERVED/ATTEMPT001_CONSUMED_RESTART_FAILED + G3_PHYSICAL_READONLY_AND_ADMIN_GP_EXPORT_PASS_SCOPED_ZERO_ALLOW_RULES → ONE_REMAINING_HOST_READONLY_INTAKE(GIT_LEDGER_INSTALLED_CLI_ALLOW_ACL_PACKAGE) → BIND_TRUSTED_TEST_VERIFIER_WRITER_AND_WIP_RECOVERY_AUTHORITY → NEW_AUTHORIZED_NON_MAIN_NORMAL_AND_INTERRUPTED_E2E → G3_RESTORABLE_POLICY_AND_E1_E10 → G4_INSTALLED_F1_ADOPTION_RESTART → ONE_CHAT_FINAL_ACCEPTANCE`
+
+## Whole-Bridge Agile reality check — 2026-10-23
+
+**One Whole-WP:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`; board `DOING`, delivery `HOLD_FOR_ACTUAL_HOST_EVIDENCE`; `INTERNAL_FOX2_BRIDGE_READY=NOT_ATTESTED`. This is outcome tracking, not a new release gate or additional Agent task.
+
+| Slice | SDLC / observed state | Acceptance boundary |
+| --- | --- | --- |
+| Desktop/Core F0 + R5 | BUILD/TEST code accepted. Prior A04 installed/lifecycle observed; consumed attempt001, restart trial **FAILED_IN_PROGRESS** | Old A04 package is **not** the new F1 package; do not replay or rerun accepted R5 coding |
+| F1 G1/G2 | G1 design and G2 build/code CHAT-accepted, offline security tests PASS | F1 installed protection not proven |
+| Bridge Git Delivery + WIP | Source PR #26 `e6b898b` CHAT_ACCEPTED **code/offline only**; exact `agent_bridge` tree `922db707` independently passed Windows **778/778 full** plus **34/34 package** tests ([run 39930138365](https://github.com/dunglt2505/FOX2/actions/runs/39930138365)). WIP separate-ref and test gate exist in code | Installed CODEX/Copilot E2E, trusted required-test verifier, Git credentials/rights, immutable recovery grant, child-tree quiescence and one-writer supervisor lease **NOT_VERIFIED** |
+| Owner physical G3 host | Administrator, native AppLocker module, GP query and exported XML SHA readback PASS_SCOPED; Local/Effective GP policy **zero RuleCollections/EXE/Script Allow**, AppIDSvc Stopped/Manual, F1 service/root absent | Actual safe Allow/ACL inventory, CSP scope, policy **RESTORE_NOT_TESTED**, privileged G3 E1–E10 **NOT_RUN** |
+| G4 + final runtime | Old installed A04 state only; source CI builds F0 DENY/quarantined artifact | G4 final F1 installed adoption/restart **NOT_RUN**; INTERNAL_READY **NOT_ATTESTED** |
+| Canary / LIVE | OUT_OF_SCOPE_HOLD | No automatic Canary, broker/provider operation, main merge or LIVE rights |
+
+**Smallest safe critical path (without duplicate gates):** reuse all accepted R5/G2/A04/code CI evidence. Conduct **one remaining read-only owner physical host intake**, combining the already published Git Delivery installed-source/ledger/CLI check and the G3 Allow-path/ACL/package check; do not rerun Owner's earlier AppLocker/Admin/backup probes. Resolve the actual installed Policy/Dictionary/ledger and Git writer rights before any executor use. Bind the trusted test verifier and process-tree/one-writer attestation under real supervisor control; for WIP use only a separately authorized recovery ref. Execute **new non-main authorized normal/failed Agent host attempts** without replaying attempt001, then G3 only after safe restore/coverage checks, followed by G4 installed F1 and restart. CHAT gives **one** final product verdict. PR #25 design remains Candidate; PR #26 code remains Draft/non-main. Neither is runtime or release authority.
+
+**Agile operating correction:** stop parallel CHAT/WORK writers in overlapping `agent_bridge/**`; no more generic source-version cleanup, repeated full CI or separate audit by default. Rework only demonstrable regression(s). Preserve historical FAIL/BLOCKED/NOT_RUN and do not promote them by analogy from offline tests.
 
 ## WIP policy
 
