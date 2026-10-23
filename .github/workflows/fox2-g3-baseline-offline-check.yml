@@ -1,0 +1,55 @@
+name: FOX2 G3 offline baseline candidate checks
+
+on:
+  push:
+    branches:
+      - work/FOX2-BRIDGE-RESTART-CONTINUATION-20261023
+    paths:
+      - 'agent_bridge/src/fox2_agent_bridge/f1_host_baseline.py'
+      - 'agent_bridge/scripts/f1_host_baseline_candidate.py'
+      - 'agent_bridge/tests/test_f1_host_baseline.py'
+      - '.github/workflows/fox2-g3-baseline-offline-check.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fox2-g3-baseline-offline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-source-tests:
+    name: G3 baseline candidate and unchanged G2 policy tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact source (CI only; no host privileges)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Pin Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify immutable checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${{ github.sha }}"
+          test -z "$(git status --porcelain)"
+          echo 'FOX2_G3_CI_CHECKOUT=PASS'
+          echo 'WINDOWS_APPLOCKER_MUTATION=NOT_APPLICABLE'
+          echo 'G3_HOST_ENFORCEMENT=NOT_RUN'
+      - name: Install project test dependencies (runner only)
+        run: python -m pip install -e './agent_bridge[dev]'
+      - name: Compile candidate and CLI
+        run: |
+          python -m py_compile agent_bridge/src/fox2_agent_bridge/f1_host_baseline.py agent_bridge/scripts/f1_host_baseline_candidate.py agent_bridge/tests/test_f1_host_baseline.py
+      - name: Focused G3 candidate plus pre-existing G2 policy safety
+        run: python -m pytest -q agent_bridge/tests/test_f1_host_baseline.py agent_bridge/tests/test_f1_policy.py
+      - name: CI scope is offline only
+        run: |
+          echo 'G3_OFFLINE_SOURCE_TEST=PASS_IF_PRIOR_STEPS_SUCCEEDED'
+          echo 'HOST_POLICY_INSTALLED=FALSE'
+          echo 'G3_RUNTIME_ENFORCEMENT=NOT_RUN'
+          echo 'G4_ADOPTION=NOT_RUN'
