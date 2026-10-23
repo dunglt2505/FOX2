@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - work/FOX2-BRIDGE-F1-CHAT-DIRECT-INTEGRATED-20261021
+      - work/FOX2-BRIDGE-RESTART-CONTINUATION-20261023
     paths:
       - 'agent_bridge/**'
       - '.github/workflows/fox2-bridge-f1-offline-ci.yml'
