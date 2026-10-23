@@ -39,7 +39,7 @@ from .result_store import write_execution_report
 from .agent_policy import validate_selection, ADAPTER_REGISTRY, ExecutionTuple, configuration_mismatch
 from .logging_config import redact_context
 from .dispatch_normalizer import normalize_dispatch
-from .git_delivery_guard import validate_staged_blobs, validate_committed_result
+from .git_delivery_guard import validate_staged_blobs, validate_committed_result, _safe_relative
 from .project_dictionary import PROJECT_ID, IDENTIFIERS, PROTECTED_AUTHORITY_DEFAULTS
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
@@ -639,18 +639,25 @@ class BridgeE2ERunner:
                 )
 
     def _dirty_changed_paths(self, worktree: Path) -> tuple[str, ...]:
+        """Collect exact tracked/untracked paths without newline ambiguity."""
         paths: set[str] = set()
         commands = (
-            ["diff", "--name-only"],
-            ["diff", "--cached", "--name-only"],
-            ["ls-files", "--others", "--exclude-standard"],
+            ["diff", "--no-renames", "--name-only", "-z"],
+            ["diff", "--cached", "--no-renames", "--name-only", "-z"],
+            ["ls-files", "--others", "--exclude-standard", "-z"],
         )
         for command in commands:
-            result = self._git(["-C", str(worktree), *command])
-            for line in result.stdout.splitlines():
-                value = line.strip().replace("\\", "/")
-                if value:
-                    paths.add(value)
+            raw = self._git(["-C", str(worktree), *command], binary=True).stdout
+            if not isinstance(raw, bytes):
+                raise WorkspaceBlocked("binary Git status identity unavailable")
+            try:
+                entries = [part.decode("utf-8", "strict")
+                           for part in raw.split(b"\x00") if part]
+            except UnicodeError as exc:
+                raise WorkspaceBlocked("unsafe Git status path encoding") from exc
+            for value in entries:
+                _safe_relative(value)
+                paths.add(value)
         return tuple(sorted(paths))
 
     def _commit_and_push_codex_result(
@@ -829,13 +836,18 @@ class BridgeE2ERunner:
                 "result commit is not pushed to the authorized task branch"
             )
 
-        changed = tuple(
-            line.strip().replace("\\", "/")
-            for line in self._git(
-                ["-C", str(worktree), "diff", "--name-only", f"{before_head}..{after_head}"]
-            ).stdout.splitlines()
-            if line.strip()
-        )
+        raw_changes = self._git([
+            "-C", str(worktree), "diff", "--no-renames", "--name-only", "-z",
+            f"{before_head}..{after_head}"], binary=True).stdout
+        if not isinstance(raw_changes, bytes):
+            raise WorkspaceBlocked("binary Git result identity unavailable")
+        try:
+            changed = tuple(part.decode("utf-8", "strict")
+                            for part in raw_changes.split(b"\x00") if part)
+        except UnicodeError as exc:
+            raise WorkspaceBlocked("unsafe Git result path encoding") from exc
+        for path in changed:
+            _safe_relative(path)
         self._verify_changed_paths(payload=payload, changed=changed)
         self._verify_acceptance(
             payload=payload,

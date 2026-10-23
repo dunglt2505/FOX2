@@ -25,7 +25,8 @@ _MAX_BLOB_BYTES = 8_000_000
 
 def _safe_relative(path: str) -> None:
     """Reject suspicious Git paths even when a broad path glob accepts them."""
-    if (not isinstance(path, str) or not path or "\x00" in path or
+    if (not isinstance(path, str) or not path or
+            any(ord(ch) < 32 or ord(ch) == 127 for ch in path) or
             "\\" in path or ":" in path or path.startswith("/") or
             any(segment in ("", ".", "..", ".git") for segment in path.split("/"))):
         raise WorkspaceBlocked("unsafe staged Git path")

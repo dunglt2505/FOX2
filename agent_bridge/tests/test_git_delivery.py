@@ -374,3 +374,66 @@ def test_bridge_publisher_refuses_main_even_with_allowlisted_result(tmp_path):
     with pytest.raises(WorkspaceBlocked, match="protected or invalid"):
         runner._commit_and_push_codex_result(payload=payload, worktree=tmp_path,
             before_head="a" * 40, agent_stdout="not authorized")
+
+
+def test_git_change_inventory_uses_exact_nul_paths_and_rejects_control_names(tmp_path):
+    runner = object.__new__(BridgeE2ERunner)
+    commands = []
+    def fake_git(args, *, binary=False):
+        commands.append(args)
+        assert binary
+        if "ls-files" in args:
+            return SimpleNamespace(stdout=b"reports/a file.md\x00")
+        if "--cached" in args:
+            return SimpleNamespace(stdout=b"reports/old.txt\x00")
+        return SimpleNamespace(stdout=b"reports/new.md\x00")
+    runner._git = fake_git
+    assert runner._dirty_changed_paths(tmp_path) == (
+        "reports/a file.md", "reports/new.md", "reports/old.txt")
+    assert all("-z" in args for args in commands)
+
+    def unsafe_git(args, *, binary=False):
+        return SimpleNamespace(stdout=b"reports/evil\nline.md\x00")
+    runner._git = unsafe_git
+    with pytest.raises(WorkspaceBlocked, match="unsafe staged Git path"):
+        runner._dirty_changed_paths(tmp_path)
+
+
+def test_git_change_inventory_rejects_invalid_utf8_without_path_rebinding(tmp_path):
+    runner = object.__new__(BridgeE2ERunner)
+    runner._git = lambda args, *, binary=False: SimpleNamespace(
+        stdout=b"reports/invalid-\xff.md\x00")
+    with pytest.raises(WorkspaceBlocked, match="encoding"):
+        runner._dirty_changed_paths(tmp_path)
+
+
+def test_bridge_publisher_handles_space_in_git_name_with_real_bare_remote(tmp_path):
+    bare = tmp_path / "remote.git"
+    wt = tmp_path / "wt"
+    git(["init", "--bare", str(bare)])
+    git(["init", str(wt)])
+    git(["-C", str(wt), "config", "user.name", "Test"])
+    git(["-C", str(wt), "config", "user.email", "test@local.invalid"])
+    git(["-C", str(wt), "checkout", "-b", "work/FOX2-safe-path"])
+    name = "reports/space name.md"
+    (wt / "reports").mkdir()
+    (wt / name).write_text("base")
+    git(["-C", str(wt), "add", "--", name])
+    git(["-C", str(wt), "commit", "-m", "base"])
+    git(["-C", str(wt), "remote", "add", "origin", str(bare)])
+    git(["-C", str(wt), "push", "origin", "work/FOX2-safe-path"])
+    before = git(["-C", str(wt), "rev-parse", "HEAD"]).stdout.strip()
+    (wt / name).write_text("safe updated")
+    runner = object.__new__(BridgeE2ERunner)
+    runner.config = SimpleNamespace(tool_paths={"git": "git"}, local_repo=wt)
+    runner.ledger = SQLiteLedger(tmp_path / "bridge.db")
+    runner.ledger.initialize()
+    payload = {"delivery_owner": "BRIDGE", "branch": "work/FOX2-safe-path",
+               "dispatch_id": "FOX2-DISPATCH-SPACE-PATH",
+               "allowed_code_paths": [], "allowed_report_paths": ["reports/**"]}
+    head, paths = runner._commit_and_push_codex_result(
+        payload=payload, worktree=wt, before_head=before,
+        agent_stdout="fixture")
+    assert paths == (name,)
+    assert head == git(["--git-dir", str(bare), "rev-parse",
+                        "refs/heads/work/FOX2-safe-path"]).stdout.strip()
