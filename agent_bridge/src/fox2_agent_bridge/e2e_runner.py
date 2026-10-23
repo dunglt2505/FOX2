@@ -1111,6 +1111,36 @@ class BridgeE2ERunner:
 
             pending = self.ledger.pending_executions()
             stage = next((row['stage'] for row in pending if row['execution_id'] == execution_id), 'UNKNOWN')
+            # Capturing partial-work FILE NAMES is read-only. It is never a
+            # grant to stage, commit or push. The Agent/child writer might
+            # still be active after an adapter error, so integrity is UNKNOWN.
+            # Do not leak file names or content into a Git/public report.
+            wip_info: dict[str, object] = {
+                "schema": "FOX2_WIP_LOCAL_OBSERVATION_V1",
+                "path_inventory": "NOT_OBSERVED",
+                "path_count": None,
+                "path_manifest_sha256": None,
+                "file_bytes_review": "NOT_RUN",
+                "child_writer_quiescence": "NOT_VERIFIED",
+                "authorized_recovery_ref": "NONE",
+                "git_wip_publication": "NOT_RUN",
+                "next_safe_action": "VERIFY_QUIESCENCE_SCOPE_SECRETS_AND_EXPLICIT_RECOVERY_GRANT",
+            }
+            if stage in {"RUNNING", "AGENT_EXITED", "PUBLISHING"}:
+                try:
+                    paths = self._dirty_changed_paths(worktree)
+                    if paths:
+                        self._verify_changed_paths(payload=payload, changed=paths)
+                        wip_info["path_inventory"] = "ALLOWLIST_MATCH_OBSERVED_UNSTABLE"
+                        wip_info["path_count"] = len(paths)
+                        wip_info["path_manifest_sha256"] = hashlib.sha256(
+                            "\x00".join(paths).encode("utf-8")).hexdigest()
+                    else:
+                        wip_info["path_inventory"] = "NO_CHANGED_FILES_OBSERVED_UNSTABLE"
+                        wip_info["path_count"] = 0
+                except Exception:
+                    wip_info["path_inventory"] = "INSPECTION_OR_SCOPE_BLOCKED"
+            failure_result["wip_local_observation"] = wip_info
             metadata = getattr(agent_result, 'metadata', None)
             nonzero_after_start = agent_result is not None and (agent_result.exit_code != 0 or
                 bool(metadata and (metadata.get('post_start_failure') or configuration_mismatch(metadata))))

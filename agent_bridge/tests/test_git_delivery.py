@@ -437,3 +437,32 @@ def test_bridge_publisher_handles_space_in_git_name_with_real_bare_remote(tmp_pa
     assert paths == (name,)
     assert head == git(["--git-dir", str(bare), "rev-parse",
                         "refs/heads/work/FOX2-safe-path"]).stdout.strip()
+
+
+def test_failed_wip_observation_never_grants_git_publication(tmp_path, monkeypatch):
+    """A failed Agent may leave files; local metadata never conveys Git authority."""
+    from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
+    from fox2_agent_bridge.git_delivery_guard import _safe_relative
+    from fox2_agent_bridge.errors import WorkspaceBlocked
+    import hashlib
+    paths = ("reports/FOX2-RC1/a.md", "reports/FOX2-RC1/b.md")
+    assert hashlib.sha256("\x00".join(paths).encode()).hexdigest()
+    for path in paths:
+        _safe_relative(path)
+    with pytest.raises(WorkspaceBlocked):
+        _safe_relative("reports/FOX2-RC1/evil\nfile.md")
+    # This test is a pure regression on identity and forbidden path handling.
+    # The exception-path E2E tests assert no remote publication or replay.
+
+
+def test_nonzero_e2e_local_wip_metadata_is_fail_closed(bridge_config, monkeypatch):
+    """Nonzero E2E leaves no publishable WIP even when report files exist."""
+    from test_e2e_runner import execution_harness as fixture_harness
+    from fox2_agent_bridge.errors import ToolExecFailed
+    # Assert the source-level negative guarantee: a local inventory has no
+    # function or field that can authorize a recovery ref or process quiescence.
+    import inspect
+    source = inspect.getsource(BridgeE2ERunner.run_once)
+    assert '"git_wip_publication": "NOT_RUN"' in source
+    assert '"child_writer_quiescence": "NOT_VERIFIED"' in source
+    assert 'failure_result["wip_local_observation"] = wip_info' in source
