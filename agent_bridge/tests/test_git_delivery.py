@@ -235,3 +235,43 @@ def test_agent_owner_still_verifies_external_push_without_bridge_publish(tmp_pat
 def test_bridge_denies_traversal_protected_and_ads_paths(workspace, path):
     with pytest.raises(WorkspaceBlocked, match="unsafe staged Git path"):
         validate_staged_blobs(git, workspace, (path,))
+
+
+def test_new_dispatch_draft_defaults_to_bridge_without_legacy_rebinding(tmp_path):
+    from fox2_agent_bridge.dispatch_draft import prepare_new_dispatch_draft
+    from fox2_agent_bridge.errors import DispatchInvalid
+    from test_e2e_runner import _dispatch_payload
+    from test_project_dictionary import bound_dispatch
+    original = bound_dispatch(_dispatch_payload(tmp_path / "task"))
+    original.pop("delivery_owner")
+    prepared = prepare_new_dispatch_draft(original)
+    assert prepared["delivery_owner"] == "BRIDGE"
+    assert "delivery_owner" not in original
+    prepared_agent = prepare_new_dispatch_draft(original, delivery_owner="AGENT")
+    assert prepared_agent["delivery_owner"] == "AGENT"
+    with pytest.raises(DispatchInvalid, match="cannot be rebound"):
+        prepare_new_dispatch_draft(prepared_agent)
+    assert prepared_agent["delivery_owner"] == "AGENT"
+    with pytest.raises(DispatchInvalid, match="current v3"):
+        prepare_new_dispatch_draft({**original, "schema_version": "0.6"})
+
+
+def test_new_dispatch_draft_cli_is_non_overwriting_and_unpublished(tmp_path):
+    import sys
+    from test_e2e_runner import _dispatch_payload
+    from test_project_dictionary import bound_dispatch
+    draft = bound_dispatch(_dispatch_payload(tmp_path / "task"))
+    draft.pop("delivery_owner")
+    source = tmp_path / "draft.json"
+    output = tmp_path / "prepared.json"
+    source.write_text(json.dumps(draft), encoding="utf-8")
+    tool = Path(__file__).parents[1] / "scripts/prepare_new_bridge_dispatch.py"
+    args = [sys.executable, str(tool), "--new-draft", "--input", str(source),
+            "--output", str(output)]
+    result = subprocess.run(args, capture_output=True, text=True, timeout=15)
+    assert result.returncode == 0, result.stderr
+    assert json.loads(result.stdout)["git_delivery"] == "NOT_RUN"
+    assert json.loads(output.read_text())["delivery_owner"] == "BRIDGE"
+    assert json.loads(source.read_text()) == draft
+    repeat = subprocess.run(args, capture_output=True, text=True, timeout=15)
+    assert repeat.returncode != 0

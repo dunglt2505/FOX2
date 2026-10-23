@@ -1061,6 +1061,20 @@ class BridgeE2ERunner:
             if agent_result is not None:
                 failure_result["agent_product"] = agent_product
                 failure_result[agent_product.lower()] = agent_result.as_dict()
+                # An exited CLI is not proof all descendants stopped. Never
+                # commit partial code to the success branch from this path.
+                # Publishing WIP requires a *separately authorized* recovery
+                # ref and verified process-tree quiescence; neither is inferred.
+                failure_result["git_delivery"] = {
+                    "delivery_owner": owner,
+                    "publisher": "NONE",
+                    "publication_kind": "ERROR_ONLY",
+                    "test_status": "FAIL_OR_NOT_VERIFIED",
+                    "wip_status": "LOCAL_EVIDENCE_ONLY_NOT_PUBLISHED",
+                    "child_writer_quiescence": "NOT_VERIFIED",
+                    "recovery_ref": "NOT_AUTHORIZED",
+                    "next_safe_action": "VERIFY_CHILD_QUIESCENCE_AND_SCOPE_THEN_AUTHORIZE_NEW_RECOVERY_REF",
+                }
 
             pending = self.ledger.pending_executions()
             stage = next((row['stage'] for row in pending if row['execution_id'] == execution_id), 'UNKNOWN')
