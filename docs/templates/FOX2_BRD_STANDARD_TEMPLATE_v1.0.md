@@ -1,8 +1,10 @@
 # FOX2 — BRD Standard Template v1.0
 
 **Document type:** Business Requirements Document (BRD) template for FOX2  
-**Template status:** CANDIDATE — not a released/effective project rule on main  
-**Application:** new BRDs and the next substantive change to an existing BRD  
+**Owner direction:** approved for project-wide future BRD authoring on 2026-10-23  
+**Git adoption:** PR #31 / CANDIDATE on non-main branch; not yet integrated into main  
+**Application:** every new BRD; material revisions to existing DRAFT/CANDIDATE BRDs; released BRDs only on a separately scoped substantive change  
+**Usage guide:** [FOX2 BRD authoring & source index](../brd_mirror/README.md)  
 **Principle:** BRD defines WHAT, WHY and acceptance; Technical Spec defines HOW.
 
 > **Usage:** Copy from the FOX2-BRD-XX heading below to a real BRD. Replace bracketed fields and remove example rows before release. Use N/A with a reason if a section is inapplicable. Do not rewrite an already RELEASED_EFFECTIVE BRD just to change its structure, or renumber released requirement/test IDs. The template does not itself grant DEV, merge or LIVE authority.
