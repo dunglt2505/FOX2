@@ -27,9 +27,9 @@
         }
       ],
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
-      "blocker": "UNSAFE_CONTROL_PAUSE_BLOCKER_RESOLVED; INTEGRATED_VALIDATION_RESULT_NOT_RUN",
+      "blocker": "INTEGRATED_ATTEMPT_001_LIFECYCLE_PASS_REPORTED; RESTART_TRIAL_STOPPED_RUNTIMEEXCEPTION; EXACT_RESTART_CAUSE_UNKNOWN; G3_G4_NOT_RUN",
       "as_of": "2026-10-23",
-      "next_safe_action": "REVIEW_PATCHED_IMMUTABLE_VALIDATOR_AND_FRESH_PRECONSUME_FOR_HOST_VALIDATION; RESPECT_PRIOR_STOP_BEFORE_VALIDATOR_SCOPE",
+      "next_safe_action": "FRESH_ONE_SHOT_RESTART_ONLY_HOST_PREFLIGHT_AND_CONTINUATION; PRESERVE_ATTEMPT_001_NO_REPLAY; THEN_CHAT_ACCEPTANCE_AND_AUTHORIZED_G3_G4",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
@@ -53,6 +53,26 @@
         "safe": true,
         "validator_run": false,
         "recovery_evidence": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/internal_validation/pause_recovery_20261023.json"
+      },
+      "integrated_validation": {
+        "attempt": "FOX2-BRIDGE-INTERNAL-VALIDATION-001",
+        "attempt_consumed": true,
+        "host_source": "OWNER_STDOUT_2026-10-23T02:20:07.8846646Z",
+        "runner_commit": "68c648fc0abcfa787a7f40cc96669fbd1715a144",
+        "r5_accepted_result": "10326dd116ccbfa90a70db4f4c8ec27487ee4fbf",
+        "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
+        "preconsume": "PASS_OBSERVED",
+        "lifecycle": "PASS_OBSERVED_NOT_REMOTE_EVIDENCE_REVIEWED",
+        "restart": "FAILED_IN_PROGRESS",
+        "failure_stage": "RESTART_PRESENTATION_TRIAL",
+        "failure_class": "RuntimeException",
+        "first_causal_step": "UNKNOWN_NOT_RECORDED_BY_ATTEMPT_001",
+        "g3": "NOT_RUN",
+        "g4": "NOT_RUN",
+        "internal_ready": "NOT_ATTESTED",
+        "next_bounded_attempt": "FOX2-BRIDGE-RESTART-CONTINUATION-001",
+        "host_attempt_status": "NOT_STARTED_AT_PUBLICATION",
+        "report": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/INTERNAL_VALIDATION_ATTEMPT001_SCOPED_INTAKE_20261023.md"
       }
     },
     {
