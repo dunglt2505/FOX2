@@ -177,7 +177,7 @@ def test_health_cli_entrypoint_emits_json(bridge_config, monkeypatch, capsys) ->
 
 
 def test_health_does_not_mutate_fox2_source(bridge_config) -> None:
-    repo = Path(r"C:\Projects\FOX2")
+    repo = Path(r"D:\Projects\FOX2")
     before = subprocess.run(
         ["git", "-C", str(repo), "status", "--porcelain"],
         capture_output=True,

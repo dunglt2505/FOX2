@@ -24,7 +24,7 @@ from .agent_policy import configuration_mismatch
 STATES = frozenset({'STOPPED', 'STARTING', 'RECONCILING', 'IDLE', 'POLLING',
                     'EXECUTING', 'PUBLISHING', 'PAUSED', 'DEGRADED', 'ERROR', 'STOPPING'})
 BACKOFF = (30, 60, 120, 300)
-LEGACY_ROOT = Path(r'C:\Projects\FOX2-AgentBridge')
+LEGACY_ROOT = Path(r'D:\Projects\FOX2-AgentBridge')
 
 
 def initialize_runtime(config: BridgeConfig) -> SQLiteLedger:

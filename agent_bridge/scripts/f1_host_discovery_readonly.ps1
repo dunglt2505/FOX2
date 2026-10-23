@@ -15,7 +15,7 @@ function Probe([scriptblock]$Action) {
     catch { return $null }
 }
 
-$repo = 'C:\Projects\FOX2'
+$repo = 'D:\Projects\FOX2'
 $gitHead = $null
 $gitBranch = $null
 $gitOriginMatches = $false

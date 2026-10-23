@@ -93,3 +93,11 @@ def test_config_file_loads_fixed_fox2_values(tmp_path: Path) -> None:
 
     assert config.project_id == "FOX2"
     assert config.repository == "dunglt2505/FOX2"
+
+
+def test_project_roots_use_d_drive_without_c_alias() -> None:
+    assert PROJECT_ROOT == Path(r"D:\Projects\FOX2")
+    assert WORKTREE_ROOT == Path(r"D:\Projects\FOX2-worktrees")
+    config = BridgeConfig()
+    assert config.local_repo == PROJECT_ROOT
+    assert config.worktree_root == WORKTREE_ROOT

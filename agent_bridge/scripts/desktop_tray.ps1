@@ -17,7 +17,7 @@ if (Test-Path -LiteralPath $InstalledPython) {
     $Python = (Resolve-Path -LiteralPath $InstalledPython).Path
     Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
 } else {
-    $Python = 'C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe'
+    $Python = 'D:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe'
     $env:PYTHONPATH = (Resolve-Path (Join-Path $PSScriptRoot '..\src')).Path
 }
 function Invoke-BridgeControl {

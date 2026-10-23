@@ -460,7 +460,7 @@ def test_production_per_user_store_is_accepted() -> None:
         BRIDGE_ROOT / "control.git",
         BRIDGE_ROOT / "data-other" / "control.git",
         BRIDGE_ROOT / "data" / ".." / "control.git",
-        Path(r"C:\Projects\FOX2-AgentBridge") / "data" / "control.git",
+        Path(r"D:\Projects\FOX2-AgentBridge") / "data" / "control.git",
     ],
 )
 def test_production_store_outside_bridge_data_is_blocked(store_path: Path) -> None:
@@ -520,7 +520,7 @@ def test_blob_identity_and_full_commit_sha_are_captured(git_fixture: GitFixture)
 
 
 def test_owner_fox2_workspace_is_not_mutated(git_fixture: GitFixture) -> None:
-    repo = Path(r"C:\Projects\FOX2")
+    repo = Path(r"D:\Projects\FOX2")
     before_status = run_git(repo, "status", "--porcelain")
     before_head = run_git(repo, "rev-parse", "HEAD")
     before_attributes = (repo / ".gitattributes").read_bytes()

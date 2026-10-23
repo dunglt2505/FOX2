@@ -8,9 +8,9 @@ from typing import Iterable
 
 from .errors import PathInvalid
 
-PROJECT_ROOT = Path(r"C:\Projects\FOX2")
+PROJECT_ROOT = Path(r"D:\Projects\FOX2")
 BRIDGE_ROOT = Path.home() / 'AppData' / 'Local' / 'FOX2' / 'AgentBridge'
-WORKTREE_ROOT = Path(r"C:\Projects\FOX2-worktrees")
+WORKTREE_ROOT = Path(r"D:\Projects\FOX2-worktrees")
 
 
 def canonical(path: Path) -> Path:

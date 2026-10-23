@@ -137,8 +137,11 @@ def build(output: Path, python: Path) -> dict:
         wheels.mkdir()
         env = {**os.environ, 'SOURCE_DATE_EPOCH': '1767225600'}
         run([python, '-m', 'build', '--wheel', '--no-isolation', '--outdir', wheels, source], env=env)
+        offline_wheelhouse = os.environ.get('FOX2_OFFLINE_WHEELHOUSE')
+        offline_args = (['--no-index', '--find-links', offline_wheelhouse]
+                        if offline_wheelhouse else [])
         run([python, '-m', 'pip', '--isolated', 'download', '--disable-pip-version-check',
-             '--only-binary=:all:', '--no-deps', '--dest', wheels,
+             *offline_args, '--only-binary=:all:', '--no-deps', '--dest', wheels,
              *[f'{n}=={v}' for n,v in check['dependencies'].items()]])
         package_wheels = sorted(wheels.glob('fox2_agent_bridge-*.whl'))
         if len(package_wheels) != 1:

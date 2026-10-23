@@ -5,7 +5,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $RepoWorktree = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
-$Python = "C:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe"
+$Python = "D:\Projects\FOX2-AgentBridge\.venv\Scripts\python.exe"
 $BridgeSrc = Join-Path $RepoWorktree "agent_bridge\src"
 
 if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) {

@@ -11,8 +11,8 @@ $Text.Text = @"
 Confirm these locations and prerequisites:
 
 Runtime: $env:LOCALAPPDATA\FOX2\AgentBridge
-Repository: C:\Projects\FOX2
-Worktrees: C:\Projects\FOX2-worktrees
+Repository: D:\Projects\FOX2
+Worktrees: D:\Projects\FOX2-worktrees
 
 Setup checks Git access, Codex sign-in, the FOX2 dispatch branch and
 runtime health. Copilot is optional for this Codex route.
