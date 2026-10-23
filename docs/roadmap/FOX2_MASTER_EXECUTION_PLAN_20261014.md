@@ -420,3 +420,44 @@ Current scheduling:
 **Stateful guardrail:** old Owner Bridge-first schedule is superseded now for **coordination**; APP task's own frozen `WAIT_BRIDGE_READY` wording and its historical preflight are not magically rewritten by this plan. Rebind the APP task before execution, but do not do extra administrative loops just to refresh unchanged evidence. CHAT can prepare and publish the route addendum directly; CODEX/host is only for material Windows proof and coding; WORK not needed until risk-specific independent audit.
 
 `APP_DEV_ROUTE_DESIGNED=YES / APP_NATIVE_SESSION_ADMISSION=NOT_VERIFIED / APP_PREEXEC_NEW=NOT_RUN / APP_PASS_TO_ASSIGN=NO / PRODUCT_BUILD_AND_TEST=NOT_RUN / BRIDGE_READY_REQUIRED_FOR_OFFLINE_APP=NO / DISPATCH001_HOLD=YES / CANARY009_HOLD=YES`
+
+---
+
+## Owner-approved Agile Lite Website closure — 2026-10-23
+
+**Decision/authority:** Owner explicitly approved this consolidated Website execution plan and asked CHAT to save it in Master Plan and Board on 2026-10-23. This is an amendment for human project management of the EXISTING `FOX2-M1-A-APP-BATCH-B` Whole-WP, **not** a new feature, executable Dispatch, machine-source rebind, protected-main merge, permission expansion, or product acceptance. Current human governance for new/re-scoped work resolves from the main Governance Registry at `0da03b052c6a63d560e830c7956a2625c0bfe843`: Policy v2.1.0, Routing v1.5.0 and Git-first Task/Result Protocol v13. Older version pointers and PreExec/R0–R7 language above are retained as historical instructions, but are **superseded for this authorized reversible native Website DEV route**; they remain applicable only to historical machine contracts/Bridge where actually required.
+
+**Outcome:** one usable, offline-safe M1-A localhost Website using accepted backend APP-BATCH-A, not provider/WS/Canary/LIVE integration. Product pages: `/overview`, `/watchlist`, `/stocks/:symbol` and `/settings/data-sources`; preserve Dark/Light, source state/rights/provenance truthfulness, local preference semantics and no direct provider/broker calls.
+
+### Observed baseline (not a new test)
+
+| Item | Evidence/status |
+| --- | --- |
+| Backend APP-BATCH-A | Accepted at `3db6298e4286022e5820eb7b712c436cbade6a62` with historical 364 PASS / three superseded deselections; do not rerun this entire suite without impacted reason |
+| Website source | `work/FOX2-M1-A-APP-BATCH-B@ee4784e9fbf055979dea540242ce74f2b79736cc`; React/Vite, 4 routes, theme, typed API wiring exist |
+| Focused frontend helper tests | 4/4 PASS only in an **isolated exact-blob** environment, `tests/app_batch_b/api-resource.test.mjs`; not full-checkout/HTTP/browser PASS |
+| Latest product-level tests | Real checkout install/typecheck/build, localhost restart, backend HTTP integration, watchlist CAS persistence and browser 1440/1024/390 remain `NOT_RUN / NOT_VERIFIED` |
+| Native Codex R3/R4 | Consumed, held due to Windows sandbox and R4 DNS failure; no accepted Website coding result |
+| Native Codex R5 | Assignment `e5807980d1e74e0c03b44c10297860cd1cfa5548` published. Owner showed PowerShell `GV` alias collision **before the R5 claim step**; local attempt marker, worktree and remote need reconciliation before any fresh launch. Do not infer agent started/consumed from the preclaim error; do not replay a consumed attempt. |
+| Native sandbox diagnostic | Separate Owner-host PowerShell/DNS/TCP443/MXC probe PASS at the time observed; does not attest subsequent Codex `exec` or product behavior |
+
+### One Whole-WP product-closure execution sequence
+
+| Step | Responsible actor | Work and required evidence | Status at decision |
+| --- | --- | --- | --- |
+| **A. Product readiness** | CHAT direct | Re-read exact Website HEAD/current task and existing code/API/acceptance; reconcile R5 claim and local worktree; document only actual missing tests or reproducible issues; avoid writing new ceremony/whole-WP | `IN_PROGRESS` |
+| **B. Build and causal fix** | CODEX native Windows if host verified; CHAT direct for operations supported by connected Git tools | On one safe bounded non-main app writer, run dependency install, typecheck, build and focused tests; fix only errors in `frontend/**` and `tests/app_batch_b/**`. Backend/API and accepted tests read-only. No duplicate scripts/attempts on host error | `NOT_VERIFIED` |
+| **C. Offline product acceptance** | Host runner/CODEX evidence; CHAT verifies | Start/restart backend+frontend on loopback, 4 routes/deep-link refresh, watchlist add/remove/restart/409/422 and max100, truthful gap/stale/null/current-vs-history, responsive Dark/Light 1440/1024/390, diagnostics/read-only and sanitized security negatives; record actual commands, status and screenshots/network logs | `NOT_RUN` |
+| **D. Git result and acceptance** | Authorized delivery publisher; CHAT independent readback | Push only code plus material evidence to `work/FOX2-M1-A-APP-BATCH-B`; report remote commit SHA outside committed result, verify scope/diff/tests/secrets and `ACCEPT / REWORK / HOLD`. No status DONE before product exit criteria | `GIT_DELIVERY_PENDING` |
+
+**Offline definition of done (one acceptance, not multiple gates):** React frontend typechecks/builds; pages usable by navigation and deep-link reload; watchlist CAS/persistence/invalid/duplicate/max100 proven; API integration and loopback Host/Origin/content-type/404/409/422/503 negatives evidenced; honest source/rights/as-of/unavailable semantics with `UNKNOWN != 0` and no fake LIVE/current quote; no secrets/direct provider calls or polling storms; Dark/Light viewport 1440/1024/390 without overflow/serious console errors; report/test/evidence pushed and CHAT accepted. Map actual subsets to released BRD-08 `FOX2-08-T01..T14` and relevant BRD-06/N1/WS acceptance; never rewrite canonical IDs or mark unrun provider/WS/LIVE cases PASS. Provider/WS live capability belongs to M1-B and is not a blocker for the separately scoped M1-A offline acceptance.
+
+### Agile operating constraints
+
+- **ONE task / ONE Board:** `FOX2-M1-A-APP-BATCH-B` stays `DOING`; only its native Codex transport is HOLD until host verified. Avoid a new R6/micro-WP for a PowerShell alias, path or launcher bug; fix preclaim tooling in the same execution context when verified safe. R2/R3/R4 remain immutable consumed history.
+- **DIRECT FIRST:** CHAT owns review, source analysis, verification and native Git publication when authorized; Agent only performs real host-dependent build/UI/browser/API work. WORK independent auditor not a routine gate.
+- **GIT FIRST RESULTS:** no completion based on prompt, launcher, exit code, synthetic fixture, or Agent narrative. Require result code/test/evidence on authorized non-main branch and remote SHA readback.
+- **SECURITY/RELEASE:** one writer; scope `frontend/**`, `tests/app_batch_b/**`, `reports/FOX2-M1-A-APP-BATCH-B/**` (preserve R3/R4/preexec history); no source contract/BRD/backend mutations without separate bounded authorization; no main/merge/deploy/provider/broker/LIVE. No weaker sandbox or model fallback silently.
+- **TRACKING:** update only Website Board row with observed Git/test/host changes; preserve Bridge P0 WIP and accepted APP backend baseline. The 2026-10-23 Owner approval makes this the current **CHAT management direction**; publishing to a non-main work branch is not evidence that the main Board, Registry or installed runtime has adopted the document.
+
+`WEBSITE_WP=DOING / BUILD=IMPLEMENTED_NOT_ACCEPTED / TEST=NOT_VERIFIED / R3_R4=CONSUMED / R5=PRECLAIM_ERROR_RECONCILE / NEXT_SAFE_ACTION=RECONCILE_R5_HOST_STATE_THEN_REAL_BUILD_TEST / MAIN_MERGE=NO`
