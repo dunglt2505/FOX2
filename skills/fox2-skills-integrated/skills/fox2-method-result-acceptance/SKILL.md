@@ -11,17 +11,17 @@ description: "Review Agent deliverables and verify feature acceptance proportion
 An Agent result, code change, test artifact or material feature milestone needs CHAT acceptance.
 
 ## Input
-Task acceptance, observed code diff/artifact, actual executed tests, risk and (if Bridge) verified remote result.
+Task acceptance, observed diff/artifact and tests, risk, plus **authorized Git result branch and verified remote commit SHA** for delegated Agent work (native or Bridge).
 
 ## Work to perform
-1. Compare **actual** diff/output to acceptance, changed-file allowlist, focused tests and relevant negative/security regressions. A plan or self-reported PASS is not evidence.
-2. For Bridge transport, read real result branch/remote SHA, ledger state, task/prompt/Dispatch reference and publication owner. `PUSHED_UNREVIEWED` is not CHAT acceptance; remote result must be reviewed. Do not require reports not present in the selected task's actual contract.
+1. For ANY delegated Agent assignment (native CODEX/Copilot, Bridge or report-producing WORK whose result is required on Git), first verify an **actually pushed remote result commit on the assigned branch**, the observed SHA and its files. Missing/unreadable Git publication is `GIT_DELIVERY_PENDING`, not a successful result handoff or DONE. If Agent lacks Git permission, inspect only the authorized publisher's later push; preserve author/publisher provenance. Then compare **actual** diff/output to acceptance, changed-file allowlist, focused tests and relevant negative/security regressions. A plan, local edit, chat report or self-reported PASS is not Git/result evidence.
+2. For Bridge transport, additionally verify actual ledger state, task/prompt/Dispatch reference and publication owner against the already verified remote result branch/SHA. `PUSHED_UNREVIEWED` is not CHAT acceptance; remote result must be reviewed. Do not require reports not present in the selected task's actual contract.
 3. Conclude `DONE/CHAT_ACCEPTED`, `REWORK` (precise defect in SAME logical task), or `BLOCKED` (real prerequisite). Do not issue a fresh Agent prompt when merely receiving a result.
 4. For milestone-level feature certification only, trace core BRD/TechSpec acceptance to unit/integration/negative tests and actual usable product evidence. Distinguish `TEST_EVIDENCED`, `PRODUCT_USABLE`, `CHAT_ACCEPTED`, `RELEASED` and `LIVE`.
 5. Reuse accepted unchanged PASS; retest what changed or what independently needs fresh evidence. Do not demand independent audit for each small reversible patch.
 
 ## Output
-One evidence-based CHAT acceptance verdict with exact rework or next action.
+One evidence-based CHAT acceptance verdict referencing the **verified remote Git result branch and commit SHA**; otherwise `GIT_DELIVERY_PENDING` with one exact publication blocker. Rework/blocked does not create another logical task.
 
 ## Responsibility boundary
 Owns quality verdict only. Does NOT route Agents, generate prompts, operate Bridge, grant deployment/LIVE authority or add a certificate for each fix.

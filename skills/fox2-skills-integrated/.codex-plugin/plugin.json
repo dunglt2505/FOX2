@@ -1,12 +1,4 @@
 {
-  "name": "fox2-skills-integrated",
-  "version": "0.5.3",
-  "description": "11 FOX2 Agile Lite Skills across management, professional methods and technical safety.",
-  "author": {
-    "name": "Workspace upload"
-  },
-  "keywords": [],
-  "skills": "./skills",
   "interface": {
     "displayName": "FOX2 Skills",
     "shortDescription": "11 FOX2 Agile Skills",
@@ -15,5 +7,13 @@
     "developerName": "Workspace upload",
     "capabilities": [],
     "defaultPrompt": null
-  }
+  },
+  "name": "fox2-skills-integrated",
+  "version": "0.5.5",
+  "description": "11 FOX2 Agile Lite Skills across management, professional methods and technical safety.",
+  "author": {
+    "name": "Workspace upload"
+  },
+  "keywords": [],
+  "skills": "./skills"
 }

@@ -1,0 +1,3 @@
+# FOX2 Skills v0.5.5 — Git Result Contract + presentation correction
+
+Owners require that delegated Agent results reach authorized Git and CHAT verifies remote result SHA before DONE. Scope: Prompt Builder return instructions, native/Bridge publication responsibility, technical readback, result acceptance and context transfer. No runtime Bridge/schema/permissions change. The v0.5.4 overlay had inadvertently restored the v0.3.x plugin description (17 Skills); v0.5.5 corrects presentation to 11 current Skills without altering existing plugin identity and preserves the v0.5.4 handoff instructions. Static regression only; Windows host E2E NOT_RUN.

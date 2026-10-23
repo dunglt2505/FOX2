@@ -1,0 +1,58 @@
+{
+  "version": "0.5.5",
+  "inventory": "CHANGED_OVERLAY_FILES_ONLY",
+  "files": {
+    "skills/fox2-method-prompt-builder/SKILL.md": {
+      "bytes": 4630,
+      "sha256": "9ebddb54ad7fcb65c1d645aa49d148ac07308998b1ca862794e03ae986bb2ef5"
+    },
+    "skills/fox2-method-result-acceptance/SKILL.md": {
+      "bytes": 3025,
+      "sha256": "613b78bfb0fb0dab6bdfd141fbadcd5d9a9d8f3da078b5d7ccb2ec6022fcb7d4"
+    },
+    "skills/fox2-tech-publication-sync/SKILL.md": {
+      "bytes": 3090,
+      "sha256": "db23cb78684e40f9515b4087465b671519dccb10e1d27b7ad48ab2bf9e994711"
+    },
+    "skills/fox2-mgmt-context-handoff/SKILL.md": {
+      "bytes": 1978,
+      "sha256": "025d89e0fd4dedc080e63ac9c3ce25352be7e1b10cac8e75d3d8a5064f47413f"
+    },
+    "shared/operating_rules.md": {
+      "bytes": 2457,
+      "sha256": "a6c61120b96a61d31d19bb1d8b8327fb2020d796ee14f59d7b54dcd4c13669f7"
+    },
+    "README.md": {
+      "bytes": 1018,
+      "sha256": "d1607466f55be8adeca69c92d1ca61f1e25fdd1eda9842657ed7a9eb3f27eaa2"
+    },
+    "manifest.json": {
+      "bytes": 2951,
+      "sha256": "0097cbadcc5adcadf823f043873cb1e287b991c554674eb84182a4f1d461310f"
+    },
+    "plugin.json": {
+      "bytes": 447,
+      "sha256": "76c614b2ea56df43f86d92fe71ec3902132ae4ba57209debcec87a9c5267c977"
+    },
+    ".codex-plugin/plugin.json": {
+      "bytes": 602,
+      "sha256": "d0c5bc2c22339131729640e03da1595004c57889dcc113a2428aed73b466cb75"
+    },
+    "RELEASE_README_v0_5_5.md": {
+      "bytes": 654,
+      "sha256": "2a30d8f7fa9aa258542404ec55cdec7979befcff8217fd64c919ab77a7666afa"
+    },
+    "tests/test_git_result_delivery_v054.py": {
+      "bytes": 3134,
+      "sha256": "3ecf28f45ce97e1ba6084e4665b8dc63f92c5df94b53ee5ef2eb8ab48ccc7e36"
+    },
+    "tests/test_three_layers.py": {
+      "bytes": 1739,
+      "sha256": "d65b1b3b83d1ee1d0f0dd499d6d951666807a11ab9a056aebcef52c9931fcbcf"
+    },
+    "tests/test_source_integrity.py": {
+      "bytes": 857,
+      "sha256": "71fa7c4213aed35da627d758f1be531befeec80f76570179712e4922d15dbdf5"
+    }
+  }
+}
