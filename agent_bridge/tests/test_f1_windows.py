@@ -30,6 +30,14 @@ def test_native_abi_and_current_user_cannot_enter_authority(tmp_path):
     with pytest.raises(AuthorityDeny, match='LOCAL_SYSTEM_REQUIRED'):
         api.require_system()
     fixture = tmp_path / 'untrusted-plan.json'; fixture.write_text('{}')
+    # Windows runner temp ACL ownership/inheritance varies. Explicitly grant
+    # BUILTIN Users Modify on this *temporary test file* so its DACL really
+    # contains a low-trust write surface; never relax protected() to match
+    # accidental hosted-runner ACLs.
+    grant = subprocess.run(
+        ['icacls', str(fixture), '/grant', '*S-1-5-32-545:(M)'],
+        capture_output=True, text=True, timeout=15)
+    assert grant.returncode == 0, grant.stderr
     with pytest.raises(AuthorityDeny, match='UNTRUSTED_OWNER|USER_WRITABLE_AUTHORITY'):
         api.protected(fixture)
     with pytest.raises(AuthorityDeny, match='SERVICE_ABSENT'):
