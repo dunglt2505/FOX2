@@ -2,7 +2,7 @@
 
 **Operating model:** FOX2 Agile Lite / Policy v2.1.0  
 **Board:** one project board: `BACKLOG → DOING ↔ BLOCKED → DONE`  
-**Live as of:** 2026-10-23 (after consumed host attempt 001)  
+**Live as of:** 2026-10-23 (Owner-approved G3-first Bridge recovery)  
 **Status:** `LIVE_GIT_EVIDENCE_SYNCED`  
 **Management authority:** `main:docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json` @ `a7ca2b7610fa8ecd2766c67cfb19a28c32d9e5c9`  
 **Rule:** Git/test/host evidence wins over stale Issue/PR prose. Prompt, PreExec, Dispatch, Agent start, or `PUSHED_UNREVIEWED` alone is never DONE.
@@ -12,7 +12,7 @@
 | Priority | ID | Outcome / goal | Status | Delivery owner | Current evidence | Acceptance / next action |
 | --- | --- | --- | --- | --- | --- | --- |
 | P0 | `FOX2-M1-A-APP-BATCH-B` | Deliver the first runnable localhost FOX2 M1-A product: React/Vite UI + accepted backend integration + offline acceptance | **DOING** | CHAT | Branch `work/FOX2-M1-A-APP-BATCH-B@51a97bfa7420efa0a0e0ea9a1f35f77d2e823613`; frontend source exists and is 20 commits ahead of accepted APP-BATCH-A; no `tests/app_batch_b/**`, result report, or evidence manifest observed | Build/typecheck; implement focused UI/integration tests; run localhost/offline acceptance; CHAT review actual result. Keep frozen backend/API unless a reproducible backend defect is proven. |
-| P0 | `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` | Make the internal Windows Bridge usable and recoverable with correct no-replay behavior | **DOING** | CHAT | R5 result `work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022@10326dd116ccbfa90a70db4f4c8ec27487ee4fbf`; 69 focused + 686 full PASS; 17/17 evidence SHA-256 verified; R5 code-only CHAT_ACCEPT `1ef5506d592cc7da9c93e61d86a158c12b9b27b3`; CODEX exit 1 after push; Dispatch consumed/no-replay; integrated Owner-host attempt `FOX2-BRIDGE-INTERNAL-VALIDATION-001` CONSUMED; A04/R5 lifecycle PASS reported; restart entered and stopped with RuntimeException (exact failed predicate not captured); fresh restart-only continuation published `work/FOX2-BRIDGE-RESTART-CONTINUATION-20261023@f5499bec2dbb216ff8c5774000fa50d953189404` (NOT_RUN) | Next: reconcile current WPF/claim and run fresh one-shot **restart-only** continuation if host preflight permits; do NOT replay lifecycle or uninstall/reinstall. Then finish G3/G4 internal assertions on an authorized isolated target and CHAT final acceptance. Bridge stays DOING. |
+| P0 | `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` | Deliver a safe, usable internal Windows Bridge | **DOING** | CHAT | G2 BUILD CHAT_ACCEPT `dcf42dd76c8f22e155d469d356e1f1219f3d7b14`; R5 code-only CHAT_ACCEPT; A04 lifecycle PASS_OBSERVED; attempt 001 CONSUMED; restart FAILED_IN_PROGRESS; G3 historical PreExec BLOCKED; G4 NOT_RUN | Owner 2026-10-23: hold unused A04 restart runner. Prioritize read-only G3 isolated VM readiness; run only authorized host checks on proven isolated target, then separately authorized G4 final F1 package and restart/no-replay test. One CHAT final acceptance. |
 | P1 | `FOX2-M1-A-RELEASE-INTEGRATION` | Integrate the accepted runnable M1-A product into the intended release/main line | **BACKLOG** | CHAT | APP-BATCH-A accepted; APP-BATCH-B not yet accepted; main and APP lineages currently diverged | Start only after APP-BATCH-B CHAT acceptance and explicit protected-main/merge authority. |
 | P2 | `FOX2-M1-B-PROVIDER-INTEGRATION` | Add read-only real market-data integration: REST + market WebSocket + recovery/freshness | **BACKLOG** | CHAT | Provider rights/network/entitlement evidence not current; no provider implementation milestone accepted | Begin after M1-A product acceptance and explicit provider/data-rights capability. No broker/account/order write. |
 | P3 | `FOX2-M2-DATA-HARDENING` | Extend coverage, PIT/corporate-actions handling and soak/recovery quality | **BACKLOG** | CHAT | M2 not started under current M1 delivery | Start after M1-B data path is accepted. |
@@ -42,6 +42,9 @@ A task is placed in BLOCKED only when an active outcome has a real prerequisite 
 **Goal:** `INTERNAL_FOX2_BRIDGE_READY`  
 **Board status:** **DOING**  
 **Rule:** R5, former A05, G3/G4, local trial and restart/no-replay are internal checks of this one task, not separate Agile tasks.
+
+**Owner direction 2026-10-23 — G3 first (supersedes prior test sequencing):** G2 F1 BUILD was accepted at `dcf42dd76c8f22e155d469d356e1f1219f3d7b14`, not blocked by an old coding HOLD. A04 lifecycle PASS stays reusable; restart failure is not PASS and attempt001 cannot replay. Existing restart-only runner at `f5499bec2dbb216ff8c5774000fa50d953189404` stays NOT_RUN/ON_HOLD. Current G3 PreExec BLOCKED on the checked host: `G3_ADMIN_REQUIRED`, `G3_ISOLATED_TARGET_UNPROVEN`, `G3_APPLOCKER_MODULE_MISSING`. Next safe action: inspect target VM readiness without mutation. G3 tests then require current isolated-host admission; G4 owner-host adoption remains separate and NOT_RUN. Validate restart/no-replay on the final F1 artifact and perform one CHAT acceptance.
+
 
 ### Definition of Done
 
@@ -161,7 +164,7 @@ The two top streams are independent enough to progress in parallel while writabl
 ## Next safe actions
 
 - **APP:** continue APP-BATCH-B directly under Agile Lite: build/typecheck, focused UI/API integration tests, localhost/offline acceptance, then CHAT result acceptance. No new Bridge/PreExec ceremony for ordinary reversible native DEV.
-- **Bridge:** consumed Owner-host attempt 001 reached `USER_LIFECYCLE=PASS` and `FOX2_INTEGRATED_LIFECYCLE=PASS`; restart failed with undiagnosed RuntimeException. Preserve package/legacy evidence and no-replay. Execute ONLY fresh bounded restart-only continuation at `f5499bec2dbb216ff8c5774000fa50d953189404` if host preflight PASS. G3/G4 and F1 runtime remain NOT_RUN.
+- **Bridge:** Owner-approved G3-first plan active. Hold A04 restart-only runner, preserve consumed attempt001 and lifecycle PASS. Check a disposable isolated VM and its actual host capabilities; G3 existing technical contract must pass before its tests. G4 needs separate Owner-host authority and final-F1 package runtime evidence. Do not label an unrun gate PASS.
 - **Project:** do not create new governance or micro-WPs unless a real scope/authority/risk boundary appears.
 
 `PROJECT_HEALTH=YELLOW_GREEN / PRODUCT=DOING / BRIDGE=DOING / PROJECT_BLOCKED=NO / WIP=2 / NEXT=APP_BATCH_B_PRODUCT_CLOSURE_PARALLEL_BRIDGE_INTERNAL_VALIDATION`
