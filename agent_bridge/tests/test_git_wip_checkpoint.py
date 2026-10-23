@@ -87,11 +87,12 @@ def wip_env(tmp_path):
         grant=grant, base=base, dispatch=dispatch, attempt=attempt)
 
 
-def publish(env, *, grant=None, authority=None, quiescence=None):
+def publish(env, *, grant=None, authority=None, quiescence=None, writer=None):
     return env.runner._publish_authorized_wip(
         grant=grant or env.grant,
         authority_verifier=authority if authority is not None else lambda _: True,
-        quiescence_verifier=quiescence if quiescence is not None else lambda _: True)
+        quiescence_verifier=quiescence if quiescence is not None else lambda _: True,
+        writer_verifier=writer if writer is not None else lambda _id, _root: True)
 
 
 def test_wip_real_git_ref_sha_only_once_and_original_failure_preserved(wip_env):
@@ -130,15 +131,19 @@ def test_wip_real_git_ref_sha_only_once_and_original_failure_preserved(wip_env):
                 "refs/heads/" + e.grant.recovery_branch]).stdout.strip() == "2"
 
 
-@pytest.mark.parametrize("auth,quiet", [
-    (None, None), (lambda g: False, lambda i: True),
-    (lambda g: True, lambda i: False),
+@pytest.mark.parametrize("auth,quiet,writer", [
+    (None, None, None),
+    (lambda g: False, lambda i: True, lambda i, p: True),
+    (lambda g: True, lambda i: False, lambda i, p: True),
+    (lambda g: True, lambda i: True, None),
+    (lambda g: True, lambda i: True, lambda i, p: False),
 ])
-def test_wip_requires_real_host_verifier_callbacks(wip_env, auth, quiet):
+def test_wip_requires_real_host_verifier_callbacks(wip_env, auth, quiet, writer):
     with pytest.raises(WorkspaceBlocked):
         wip_env.runner._publish_authorized_wip(
             grant=wip_env.grant,
-            authority_verifier=auth, quiescence_verifier=quiet)
+            authority_verifier=auth, quiescence_verifier=quiet,
+            writer_verifier=writer)
     assert wip_env.ledger.wip_intent(wip_env.attempt) is None
     remote = git(["--git-dir", str(wip_env.bare), "show-ref",
                   "--verify", "refs/heads/" + wip_env.grant.recovery_branch],

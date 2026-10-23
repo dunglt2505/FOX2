@@ -105,6 +105,7 @@ def publish_wip_checkpoint(
     runner: Any, *, grant: WipGrant,
     authority_verifier: Callable[[WipGrant], bool] | None = None,
     quiescence_verifier: Callable[[str], bool] | None = None,
+    writer_verifier: Callable[[str, Path], bool] | None = None,
 ) -> dict[str, object]:
     """Publisher callable only after original failed attempt and external grants.
 
@@ -138,6 +139,12 @@ def publish_wip_checkpoint(
     worktree = validate_path(Path(payload["worktree"]),
                              allowed_roots=(runner.config.worktree_root,),
                              label="WIP original task worktree")
+    # Child quiescence is not equivalent to exclusive Git writer ownership.
+    # This check is supplied only by the installed singleton host supervisor;
+    # no implicit default, no user-reported "lock is free" approximation.
+    if (writer_verifier is None or
+            writer_verifier(grant.execution_id, worktree) is not True):
+        raise WorkspaceBlocked("exclusive Bridge writer ownership not verified")
     if runner._git(["-C", str(worktree), "branch", "--show-current"]).stdout.strip() != grant.task_branch:
         raise WorkspaceBlocked("WIP original task branch drift")
     if runner._git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip() != grant.before_head:

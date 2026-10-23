@@ -751,7 +751,7 @@ class BridgeE2ERunner:
         )
 
     def _publish_authorized_wip(self, *, grant, authority_verifier=None,
-                                quiescence_verifier=None):
+                                quiescence_verifier=None, writer_verifier=None):
         """Explicit recovery-only entrypoint. Never invoked by normal Agent path.
 
         Installed host must supply trusted source/permission and Windows child
@@ -760,7 +760,8 @@ class BridgeE2ERunner:
         from .git_wip_checkpoint import publish_wip_checkpoint
         return publish_wip_checkpoint(
             self, grant=grant, authority_verifier=authority_verifier,
-            quiescence_verifier=quiescence_verifier)
+            quiescence_verifier=quiescence_verifier,
+            writer_verifier=writer_verifier)
 
     def _reconcile_publishing(self, context: dict[str, object]) -> tuple[str, tuple[str, ...]]:
         """Complete only an already-persisted commit; NEVER launch an Agent again.
