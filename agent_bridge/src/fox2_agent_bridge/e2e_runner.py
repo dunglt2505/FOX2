@@ -5,6 +5,7 @@ from __future__ import annotations
 import fnmatch
 import hashlib
 import json
+import os
 import re
 import subprocess
 import uuid
@@ -151,12 +152,14 @@ class BridgeE2ERunner:
         check: bool = True,
         binary: bool = False,
         timeout: int = 120,
+        extra_env: dict[str, str] | None = None,
     ) -> subprocess.CompletedProcess[Any]:
         command = [self.git_executable, *arguments]
         try:
             result = subprocess.run(
                 command,
                 cwd=cwd,
+                env={**os.environ, **extra_env} if extra_env else None,
                 creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
                 capture_output=True,
                 text=not binary,
@@ -746,6 +749,18 @@ class BridgeE2ERunner:
             agent_stdout=agent_stdout,
             agent_label="Codex",
         )
+
+    def _publish_authorized_wip(self, *, grant, authority_verifier=None,
+                                quiescence_verifier=None):
+        """Explicit recovery-only entrypoint. Never invoked by normal Agent path.
+
+        Installed host must supply trusted source/permission and Windows child
+        quiescence verifiers. Missing proof blocks without touching Git/ledger.
+        """
+        from .git_wip_checkpoint import publish_wip_checkpoint
+        return publish_wip_checkpoint(
+            self, grant=grant, authority_verifier=authority_verifier,
+            quiescence_verifier=quiescence_verifier)
 
     def _reconcile_publishing(self, context: dict[str, object]) -> tuple[str, tuple[str, ...]]:
         """Complete only an already-persisted commit; NEVER launch an Agent again.

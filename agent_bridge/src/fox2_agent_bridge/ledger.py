@@ -13,8 +13,23 @@ from typing import Iterable
 from .errors import DatabaseError
 from .paths import BRIDGE_ROOT
 
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 MIGRATIONS: dict[int, tuple[str, ...]] = {
+    6: (
+        """CREATE TABLE wip_publications (
+            execution_id TEXT PRIMARY KEY,
+            dispatch_id TEXT NOT NULL,
+            intent_sha256 TEXT NOT NULL,
+            recovery_ref TEXT NOT NULL,
+            before_head TEXT NOT NULL,
+            commit_sha TEXT NOT NULL,
+            state TEXT NOT NULL CHECK(state IN ('PREPARED', 'REMOTE_VERIFIED')),
+            remote_sha TEXT,
+            updated_at_utc TEXT NOT NULL,
+            FOREIGN KEY(execution_id) REFERENCES executions(execution_id)
+        )""",
+        "UPDATE bridge_meta SET value = '6' WHERE key = 'schema_version'",
+    ),
     5: (
         "INSERT OR IGNORE INTO bridge_meta (key, value) "
         "VALUES ('claim_authority', 'SINGLE_ROOT')",
@@ -554,6 +569,79 @@ class SQLiteLedger:
             raise
         except sqlite3.Error as exc:
             raise DatabaseError(f"cannot finish dispatch execution: {exc}") from exc
+
+    def prepare_wip_intent(
+        self, *, dispatch_id: str, execution_id: str, intent_sha256: str,
+        recovery_ref: str, before_head: str, commit_sha: str
+    ) -> str:
+        """Persist exact recoverable WIP commit BEFORE any remote push.
+
+        Never change the original consumed Dispatch status to successful.
+        On retry accept only byte-identical intent and return its old state.
+        """
+        from .logging_config import redact_context
+        import re
+        if not (all(isinstance(x, str) and x for x in
+                    (dispatch_id, execution_id, recovery_ref)) and
+                re.fullmatch(r"[0-9a-f]{64}", intent_sha256) and
+                re.fullmatch(r"[0-9a-f]{40}", before_head) and
+                re.fullmatch(r"[0-9a-f]{40}", commit_sha)):
+            raise DatabaseError("invalid immutable WIP publication intent")
+        now = utc_now()
+        with self.connect() as conn:
+            conn.execute("BEGIN IMMEDIATE")
+            bound = conn.execute(
+                "SELECT d.state AS dispatch_state, e.state AS execution_state "
+                "FROM dispatches d JOIN executions e ON d.dispatch_id=e.dispatch_id "
+                "WHERE d.dispatch_id=? AND e.execution_id=?",
+                (dispatch_id, execution_id)).fetchone()
+            if (bound is None or bound["dispatch_state"] != "NEEDS_RECONCILIATION"
+                    or bound["execution_state"] not in ("NEEDS_RECONCILIATION", "RUNNING")):
+                raise DatabaseError("WIP requires original failed consumed execution")
+            old = conn.execute(
+                "SELECT * FROM wip_publications WHERE execution_id=?",
+                (execution_id,)).fetchone()
+            identity = (dispatch_id, intent_sha256, recovery_ref, before_head, commit_sha)
+            if old is not None:
+                prior = tuple(old[key] for key in
+                              ("dispatch_id", "intent_sha256", "recovery_ref",
+                               "before_head", "commit_sha"))
+                if prior != identity:
+                    raise DatabaseError("WIP already bound to a different immutable intent")
+                return str(old["state"])
+            conn.execute(
+                "INSERT INTO wip_publications (execution_id,dispatch_id,intent_sha256,"
+                "recovery_ref,before_head,commit_sha,state,remote_sha,updated_at_utc) "
+                "VALUES (?,?,?,?,?,?,'PREPARED',NULL,?)",
+                (execution_id, *identity, now))
+            return "PREPARED"
+
+    def verify_wip_remote(
+        self, *, execution_id: str, intent_sha256: str,
+        expected_sha: str, observed_sha: str
+    ) -> None:
+        """WIP only; original execution remains NEEDS_RECONCILIATION."""
+        if observed_sha != expected_sha:
+            raise DatabaseError("WIP remote readback commit mismatch")
+        with self.connect() as conn:
+            conn.execute("BEGIN IMMEDIATE")
+            row = conn.execute(
+                "SELECT * FROM wip_publications WHERE execution_id=?",
+                (execution_id,)).fetchone()
+            if (row is None or row["intent_sha256"] != intent_sha256
+                    or row["commit_sha"] != expected_sha):
+                raise DatabaseError("unbound WIP readback cannot be recorded")
+            conn.execute(
+                "UPDATE wip_publications SET state='REMOTE_VERIFIED',remote_sha=?,"
+                "updated_at_utc=? WHERE execution_id=?",
+                (observed_sha, utc_now(), execution_id))
+
+    def wip_intent(self, execution_id: str) -> dict[str, object] | None:
+        with self.connect() as conn:
+            row = conn.execute(
+                "SELECT * FROM wip_publications WHERE execution_id=?",
+                (execution_id,)).fetchone()
+        return dict(row) if row is not None else None
 
     def recover_interrupted_executions(self, *, finished_at_utc: str) -> int:
         """Compatibility entry point: conservative recovery without remote evidence.
