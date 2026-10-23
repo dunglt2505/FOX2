@@ -1,0 +1,119 @@
+{
+  "task_id": "FOX2-M1-A-APP-BATCH-B",
+  "base_branch": "work/FOX2-M1-A-APP-BATCH-B",
+  "base_sha": "92191f1d9701a9886ed886e6653e39d604b8b617",
+  "governance_sha": "0da03b052c6a63d560e830c7956a2625c0bfe843",
+  "product_sources": [
+    {
+      "path": "docs/brd_mirror/FOX2-BRD-00_v0.5.md",
+      "blob_sha1": "e353e6fe6d0aea3fd8cef21c8b12d9986d5160e8"
+    },
+    {
+      "path": "docs/brd_mirror/FOX2-BRD-06_v0.5.md",
+      "blob_sha1": "ee912b39cd009ba89a50cb28e4a3a6e76b52b5df"
+    },
+    {
+      "path": "docs/brd_mirror/FOX2-BRD-08_v0.5.md",
+      "blob_sha1": "66853c784c578c4cc75addd5bbf8ce565dd77d9e"
+    },
+    {
+      "path": "docs/brd_mirror/FOX2-BRD-08_v0.4.md",
+      "blob_sha1": "98a3cc700833f0f5e7af37a1f65e4d44c9823d03"
+    },
+    {
+      "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_v0.1.md",
+      "blob_sha1": "e4a95b97039d482085996afbfad232b789d1b236"
+    },
+    {
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+      "blob_sha1": "369a893a83dd140ce423c032784941a22d4a443e"
+    },
+    {
+      "path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+      "blob_sha1": "fa395662b772658d782b46718b7eb8392f6bbf76"
+    },
+    {
+      "path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+      "blob_sha1": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193"
+    },
+    {
+      "path": "docs/acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+      "blob_sha1": "321bc0e2525befa8842f09edfc09ce20c2cbab09"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2-M1-A-APP-BATCH-B/task.md",
+      "blob_sha1": "c9ac5d3f1b966694f2ccb5a03deb9ce97948a53b"
+    }
+  ],
+  "governance_sources": [
+    {
+      "path": "docs/governance/FOX2_PROJECTWIDE_GOVERNANCE_REGISTRY.json",
+      "blob_sha1": "7f4860669e4c83e020f09400d4cecd260febacdb"
+    },
+    {
+      "path": "docs/governance/FOX2_POLICY_V2.1.0.md",
+      "blob_sha1": "05d319eee02dae7b5e3df81506fbc0cc848daa2b"
+    },
+    {
+      "path": "docs/governance/FOX2_AGENT_ROUTING_INDEX_v1.5.0.md",
+      "blob_sha1": "dfb88b3a89ee52c56db705d3569e8a786e1c1cfc"
+    },
+    {
+      "path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v13.md",
+      "blob_sha1": "fdea8de23efe925d899a015df1e5355a1a03ba86"
+    },
+    {
+      "path": "docs/governance/FOX2_PROJECT_DICTIONARY_v1.3.json",
+      "blob_sha1": "6c8f30e2e6b07f2e65e45c14faab99672d036083"
+    },
+    {
+      "path": "docs/roadmap/FOX2_PROJECT_KANBAN.md",
+      "blob_sha1": "771dfa66d642ecdc91de12681087115fd08fbe16"
+    },
+    {
+      "path": "docs/architecture/FOX2_M1_TECHNICAL_SPEC_REGISTRY_BINDING_v1.md",
+      "blob_sha1": "e27561804cb308a5caa60165b402754776f68d24"
+    }
+  ],
+  "route": {
+    "actor": "CODEX",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "transport": "native",
+    "sandbox": "workspace-write",
+    "git_publisher": "OWNER_POWERSHELL_RUNNER"
+  },
+  "host_execution": "NOT_RUN",
+  "historical_dispatch_replay": false,
+  "previous_not_run_assignment": "39b24ffc5cfa92e59aca56635c970bb9e0d30ffe",
+  "current_increment_evidence": [
+    {
+      "path": "frontend/src/api.ts",
+      "blob_sha1": "20b20989fb3ba60bb46076eff2a608ed74efb568"
+    },
+    {
+      "path": "frontend/src/healthTruth.ts",
+      "blob_sha1": "f096b65c9136db2345bb01a2444aec2e9f2639fb"
+    },
+    {
+      "path": "frontend/src/resourceVisibility.ts",
+      "blob_sha1": "4253deb9ce0b49d0f4eef2067ba5fd65e1ba18f5"
+    },
+    {
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/frontend_focus_tests_20261023.txt",
+      "blob_sha1": "3a4b66e3b5aebd2745a52f6bec98b771f2adb519"
+    },
+    {
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence_manifest.json",
+      "blob_sha1": "3bd71d874b94cc810d5499d0e502d5a70eba4c41"
+    },
+    {
+      "path": "reports/FOX2-M1-A-APP-BATCH-B/report.md",
+      "blob_sha1": "d5c46ab77fbf0ff3c48c86c9a2d6b08117a1ef8e"
+    },
+    {
+      "path": "tests/app_batch_b/api-resource.test.mjs",
+      "blob_sha1": "bab96c326da35324611cd4e756f3b1049e49fcf0"
+    }
+  ]
+}
