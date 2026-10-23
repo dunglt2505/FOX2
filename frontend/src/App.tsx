@@ -1,5 +1,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { api, ApiError } from "./api";
+import { visibleResource } from "./resourceVisibility";
+import type { ResourceSnapshot } from "./resourceVisibility";
 import type {
   BarsPayload,
   Instrument,
@@ -93,30 +95,31 @@ function usePath() {
 }
 
 function useResource<T>(key: string, loader: () => Promise<T>) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [snapshot, setSnapshot] = useState<ResourceSnapshot<T>>({
+    key, data: null, loading: true, error: null
+  });
 
   useEffect(() => {
     let live = true;
-    setLoading(true);
-    setError(null);
+    setSnapshot({ key, data: null, loading: true, error: null });
     loader()
       .then((value) => {
-        if (live) setData(value);
+        if (live) setSnapshot({ key, data: value, loading: false, error: null });
       })
       .catch((reason: unknown) => {
-        if (live) setError(reason instanceof Error ? reason : new Error("Request failed"));
-      })
-      .finally(() => {
-        if (live) setLoading(false);
+        if (live) setSnapshot({
+          key, data: null, loading: false,
+          error: reason instanceof Error ? reason : new Error("Request failed")
+        });
       });
     return () => {
       live = false;
     };
   }, [key]);
 
-  return { data, loading, error };
+  // During the first render after navigation the prior effect has not yet
+  // cleaned up. Never present its stock/refresh data under the new key.
+  return visibleResource(snapshot, key);
 }
 
 function NavItem({

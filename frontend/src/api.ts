@@ -28,14 +28,18 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   });
 
   if (!response.ok) {
-    let detail = "Request failed";
-    try {
-      const payload = (await response.json()) as { detail?: unknown };
-      if (typeof payload.detail === "string") detail = payload.detail;
-    } catch {
-      // Keep the sanitized generic message.
-    }
-    throw new ApiError(response.status, detail);
+    // Never relay free-form backend details to the investor browser; those may
+    // contain internal endpoint, entitlement or credential information.
+    const safeMessage: Record<number, string> = {
+      400: "Invalid request.",
+      401: "Local API authentication is required.",
+      403: "Access denied.",
+      404: "Requested data is unavailable.",
+      409: "Preference version conflict. Refresh before retrying.",
+      422: "The request contains invalid input.",
+      429: "Too many requests. Retry later."
+    };
+    throw new ApiError(response.status, safeMessage[response.status] ?? "FOX2 backend request failed.");
   }
 
   return (await response.json()) as T;
