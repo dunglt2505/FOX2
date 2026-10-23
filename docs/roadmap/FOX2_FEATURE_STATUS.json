@@ -29,7 +29,7 @@
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
       "blocker": "CI_WINDOWS_702_PASS_AND_QUARANTINED_F0_DENY_BUILT; OWNER_G3_HOST_ALLOW_ACL_NOT_VERIFIED; FINAL_F1_HOST_PACKAGE_UNKNOWN; G3_RUNTIME_NOT_RUN; G4_NOT_RUN; A04_RESTART_FAILED",
       "as_of": "2026-10-23",
-      "next_safe_action": "ONE_G3_PHYSICAL_HOST_READONLY_ALLOW_ACL_PACKAGE_RECEIPT_OUTPUT_THEN_OFFLINE_POLICY_REVIEW; DO_NOT_REPLAY_ATTEMPT001_OR_START_POLICY_SERVICE_MUTATION",
+      "next_safe_action": "BRIDGE_GIT_DELIVERY_WIP_RECOVERY_GUARDS_AND_HOST_VALIDATION; G3_PHYSICAL_HOST_READONLY_ALLOW_ACL_RECEIPT_STILL_PENDING; NO_REPLAY_OR_RUNTIME_POLICY_MUTATION",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
@@ -122,6 +122,35 @@
           "quarantined_package_sha256": "6d87ae9e38c6f12f910f44f5f212da4e23f9ab9f9832cbc0fed0ccb6b92e4888",
           "package_adoption": "NOT_RUN"
         }
+      },
+      "git_delivery": {
+        "work_package": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+        "design_candidate_pr": 25,
+        "design_candidate_commit": "a1b4c522fe65c8450ab6c90c8e8a504b742b3e67",
+        "requirements": "R36_R47",
+        "acceptance": "T32_T45",
+        "source_commit": "a9d4ec091da0de61422c2c952a2084f14d4056c1",
+        "implementation_stage": "BUILD_TEST_OFFLINE",
+        "status": "NORMAL_GIT_PUBLISHER_CI_TEST_PASS__HOST_END_TO_END_NOT_RUN",
+        "delivery_owner_default_new_draft": "BRIDGE_EXPLICIT",
+        "historical_dispatch_rebind": "FORBIDDEN",
+        "agent_owned_compatibility": "VERIFIED_TESTED_NO_BRIDGE_DOUBLE_PUSH",
+        "normal_result_status": "PUSHED_UNREVIEWED",
+        "windows_ci": {
+          "run_id": 39911082251,
+          "conclusion": "SUCCESS",
+          "source_commit": "a9d4ec091da0de61422c2c952a2084f14d4056c1",
+          "full_bridge_tests": "736_PASSED",
+          "package_tests": "34_PASSED",
+          "quarantined_f0_deny_sha256": "90a2ad0eef0d4945d1eafbafa81a65b04ca8c9b54d726db762d20ffe15c37cf2"
+        },
+        "real_git_integration": "LOCAL_BARE_REMOTE_CODEX_AND_COPILOT_PASS_ON_WINDOWS_CI",
+        "wip_after_failed_agent": "LOCAL_EVIDENCE_PRESERVED__REMOTE_WIP_PUBLISHER_NOT_IMPLEMENTED",
+        "child_quiescence_attested": "NOT_VERIFIED",
+        "installed_host": "NOT_RUN",
+        "chat_acceptance": "OFFLINE_CODE_ONLY_SCOPE_ACCEPTED",
+        "internal_ready": "NOT_ATTESTED",
+        "next_safe_action": "BUILD_FAIL_CLOSED_AUTHORIZED_WIP_CHECKPOINT_AND_NEGATIVE_CI_TESTS; INSTALLED_HOST_RECONCILIATION_SEPARATELY_REQUIRED"
       }
     },
     {
