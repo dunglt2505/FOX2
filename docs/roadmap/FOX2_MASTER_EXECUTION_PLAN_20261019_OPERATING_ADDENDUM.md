@@ -55,3 +55,17 @@ The 2026-10-16 Library Master Plan has additional historical content and differs
 **NEXT_SAFE_ACTION:** CHAT reconcile R5 result/current host and machine route, then prepare **one new, properly authorized integrated host-validation attempt** (not R5 replay); proceed only after verified source/permission, installed adoption/host preflight, and one-writer checks. This project-management update alone grants no executable host right.
 
 **Product stream:** APP-BATCH-B remains independently DOING/P0; Bridge does not block reversible native application development. WIP target 2 non-overlapping writers. Do not promote Canary/LIVE, extra micro-WPs or routine WORK audit into the Bridge internal-ready Definition of Done.
+
+---
+
+## 2026-10-23 — Evidence-based Bridge host dependency correction
+
+**Scope:** management-only update within existing `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`, preserving the 2026-10-23 Agile plan and all immutable historical attempts. This section supersedes the earlier suggestion to repeat a single A04-integrated host validation where newer evidence and Owner-directed final F1 dependency apply. It does not grant G3/G4 host mutation, DEV, protected-main merge, Canary or LIVE.
+
+**Observed change:** the scoped Owner-host intake for Integrated Validation 001 records `PRECONSUME=PASS`, A04 lifecycle `PASS_OBSERVED` from console (private JSON not independently read), then `RESTART_PRESENTATION_TRIAL=FAILED` (`RuntimeException`, causal predicate UNKNOWN). Attempt 001 is `CONSUMED_NO_REPLAY`; R5 is also consumed. Pause recovery was observed safe at `68c648fc0abcfa787a7f40cc96669fbd1715a144`. Reuse bounded accepted PASS, never promote host restart to PASS. Git Delivery PR #26 (`e6b898b28a427c0492f466a2beab0f3c278ac40b`) provides native Windows source/fixture evidence: 235 focused PASS, 774 full-suite PASS **before** final guard delta, 85 final guard PASS. `PUSHED_UNREVIEWED`; installed normal/interrupted CODEX/Copilot E2E `NOT_RUN`.
+
+**Current Owner-directed dependency order:** (1) read-only reconcile selected physical Windows host, exact machine source, permissions and G3 restore capability; (2) fresh authorized G3 E1–E10 host enforcement and restoration; (3) separately authorized G4 adoption of the **final F1 artifact**, not automatic reuse of A04 as final package; (4) final installed F1 restart/singleton/no-replay plus material Git Delivery E2E with actual supervisor/test verifier, Git credentials, writer lease and recovery-ref rights; (5) remote result readback and one CHAT acceptance. The prepared A04 restart-only continuation remains **deferred**, not canceled or run, until a causal read-only check proves necessary. Physical Windows is the selected test target; do not impose a VM-only gate.
+
+**Parallel APP stream:** APP-BATCH-B remains DOING and offline product NOT_ACCEPTED. Product branch `ee4784e9fbf055979dea540242ce74f2b79736cc`; R3/R4 consumed; R5 prompt `e5807980d1e74e0c03b44c10297860cd1cfa5548` published and PR #27 records a preclaim `GV` alias failure. Local R5 claim/worktree and actual `codex exec` remain unverified. No new app product tests or canonical M1 acceptance PASS; continue the same Whole-WP after source/marker reconciliation.
+
+**Status:** `BRIDGE=TEST_IN_PROGRESS / G3_G4=NOT_RUN / FINAL_F1_RESTART=NOT_ATTESTED / GIT_DELIVERY=PUSHED_UNREVIEWED / APP=DOING / MAIN_SYNC=PENDING`. This non-main amendment is a publication candidate only, not effective main or installed machine adoption.
