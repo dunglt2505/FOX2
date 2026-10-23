@@ -5,7 +5,7 @@ description: "Choose one capable CHAT/CODEX/Copilot/WORK actor, model, thinking 
 
 # fox2-mgmt-agent-routing
 
-**FOX2 Layer 1 — Project management — Agile Lite 0.5.0**
+**FOX2 Layer 1 — Project management — Agile Lite 0.5.9**
 
 ## Activate when
 A task needs an actor/model/effort/transport decision or a materially changed route.
@@ -15,8 +15,8 @@ Residual task complexity, context uncertainty, code/host access, observed Agent 
 
 ## Work to perform
 1. Work CHAT-direct when the needed tools and permission are available. Use CODEX/Copilot for host-dependent coding; WORK only for genuinely independent judgment. Do not delegate ordinary analysis to create an extra gate.
-2. Choose the least costly *capable* `Actor · Model/Engine · Thinking · Transport(native|Bridge) · Scope · STOP`. Separate implementation difficulty from execution/financial/security risk. Never default all tasks to High.
-3. For native reversible DEV, record route briefly in existing task; no formal R0–R7 artifact or PreExec certificate.
+2. Choose the least costly *capable* `Actor · Model/Engine · Thinking · Transport(VSCODE_EXTENSION|CLI|BRIDGE) · Scope · STOP`. Prefer **CODEX via VS Code Codex Extension** for interactive FOX2 coding/debug when that workspace and Agent capability are observed; use CLI/Bridge for background/headless, installed-host checks, or tasks needing independently supervised process lifecycle. This is a route preference, not proof of extension connectivity or a replacement of an existing immutable route. Never default all tasks to High.
+3. For VS Code handoff, confirm exact local workspace/worktree, non-main branch, isolated writer and Codex Extension presence. If CHAT has no verified channel into the active IDE session, route as `VSCODE_EXTENSION / MANUAL_PROMPT_HANDOFF`; never report the Agent as started merely because a prompt was produced. Native reversible DEV needs no formal R0–R7 or Bridge admission.
 4. For an actual Bridge route, choose route BEFORE PreExec. Verify which model/effort/mode is supported using observed host evidence; passing the tuple to Bridge is not claiming it was verified. Maintain exact pin for ongoing/consumed attempts; neither Prompt Builder nor PreExec may silently replace it.
 5. If capability/authorization is unknown, select safe independent work or return ROUTE_UNKNOWN for the blocked action only.
 

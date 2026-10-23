@@ -5,7 +5,7 @@ description: "Preserve task context during FOX2 thread or actor transitions with
 
 # fox2-mgmt-context-handoff
 
-**FOX2 Layer 1 — Project management — Agile Lite 0.5.0**
+**FOX2 Layer 1 — Project management — Agile Lite 0.5.9**
 
 ## Activate when
 A FOX2 task must continue in another thread or transfer context to an actor.
@@ -18,6 +18,8 @@ Existing task, last accepted evidence, immutable attempt when any, real next saf
 2. Carry only goal, observed result, **authorized Git result branch and pushed commit SHA for delegated Agent work**, source commit when material, next action, actor and STOP. If no observed pushed result exists, label `GIT_DELIVERY_PENDING`; never treat a local Agent message as final Git handoff. Do not paste entire Policy corpus or reopen accepted evidence.
 3. For genuine Agent assignment, ask Prompt Builder for task wording after Router chooses actor. For existing result return, use Result Acceptance, not a fresh Prompt Builder cycle.
 4. If Bridge was used, retain the exact Dispatch ID, source/prompt identity, consumed state and no-replay limitation; do not reuse or rebind it for a new thread.
+
+**IDE handoff:** On a Router-selected VS Code Codex Extension task, preserve exact workspace/worktree, Git branch/source identity, actor/model/effort and authorized publisher. `PROMPT_READY / IDE_HANDOFF_PENDING` means paste-ready content only. Mark received/running only with real session evidence; do not create a second Agent run or assume the Extension shares a Bridge/CLI process.
 
 ## Output
 One compact context handoff with exact verified state and next owner.
