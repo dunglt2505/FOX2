@@ -81,7 +81,7 @@ if ((Test-Path -LiteralPath $Repo -PathType Container) -and
                 $Origin[0] -match '(?i)(^|[:/])dunglt2505/FOX2(\.git)?/?$'
             )
         }
-        $Dirty = @(& $GitExe -C $Repo status --porcelain=v1 --untracked-files=all 2>$null)
+        $Dirty = @(& $GitExe --no-optional-locks -C $Repo status --porcelain=v1 --untracked-files=all 2>$null)
         if ($LASTEXITCODE -eq 0) {
             $Check.repo.dirty = ($Dirty.Count -gt 0)
         }
@@ -171,7 +171,7 @@ finally:
 print(json.dumps(out,sort_keys=True))
 '@
         try {
-            $Raw = @(& $DbPython -B -c $ReadCode $Db 2>$null)
+            $Raw = @(& $DbPython -I -S -B -c $ReadCode $Db 2>$null)
             if ($LASTEXITCODE -eq 0 -and $Raw.Count -eq 1) {
                 $Status = $Raw[0] | ConvertFrom-Json -ErrorAction Stop
                 $Check.ledger.observation = [string]$Status.observation
