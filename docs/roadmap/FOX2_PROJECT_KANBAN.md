@@ -36,6 +36,10 @@ A task is placed in BLOCKED only when an active outcome has a real prerequisite 
 | React/Vite presentation source | present on APP-BATCH-B branch | **IMPLEMENTED_NOT_ACCEPTED** |
 | Bridge R5 correction | PreExec PASS, execution/result still pending | **DOING** |
 
+### Bridge Git result-delivery design — 2026-10-23
+
+**Candidate addition within existing `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` task:** Bridge-owned Git commit/push is the target default for new Bridge dispatches; Agent push is opt-in; safe WIP when Agent exits with error/token/timeout; no replay, actual remote SHA → CHAT review. Sources: BRD-09 REV4 R36–R47 (Dictionary R32–R35 preserved), Technical Spec v0.7 REV11 §28, `docs/roadmap/FOX2_BRIDGE_GIT_DELIVERY_PLAN_20261023_CANDIDATE.md`. **DESIGN ONLY / HOST NOT TESTED.** Preserve already-immutable R5, implement after valid writer/host readiness; no new micro-WP.
+
 ## Bridge completion plan — one logical task
 
 **Task:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`  
