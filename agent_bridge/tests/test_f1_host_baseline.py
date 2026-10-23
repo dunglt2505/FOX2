@@ -153,3 +153,34 @@ def test_cli_only_creates_candidates_and_never_overwrites(tmp_path):
     assert json.loads(first.stdout)["policy_applied"] is False
     second = subprocess.run(command, capture_output=True, text=True, timeout=20)
     assert second.returncode != 0
+
+
+def test_cli_partial_summary_failure_removes_own_candidate(tmp_path, monkeypatch):
+    """Do not leave a falsely reviewable candidate on a half-written result."""
+    from pathlib import Path
+    from fox2_agent_bridge.f1_host_baseline import build_host_baseline_candidate
+    import importlib.util
+    source = Path(__file__).parents[1] / 'scripts/f1_host_baseline_candidate.py'
+    spec = importlib.util.spec_from_file_location('fox2_f1_host_cli', source)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    local = tmp_path / 'local.xml'
+    effective = tmp_path / 'effective.xml'
+    manifest = tmp_path / 'manifest.json'
+    output = tmp_path / 'candidate.xml'
+    local.write_bytes(EMPTY)
+    effective.write_bytes(EMPTY)
+    manifest.write_text(json.dumps(proposal()))
+    original_open = Path.open
+    def fail_summary(self, *args, **kwargs):
+        if str(self).endswith('.review.json'):
+            raise OSError('simulated partial summary failure')
+        return original_open(self, *args, **kwargs)
+    monkeypatch.setattr(Path, 'open', fail_summary)
+    monkeypatch.setattr(sys, 'argv', [str(source), '--local-snapshot', str(local),
+       '--effective-snapshot', str(effective), '--allow-manifest', str(manifest),
+       '--output', str(output)])
+    with pytest.raises(OSError, match='simulated'):
+        module.main()
+    assert not output.exists()
+    assert not output.with_suffix('.review.json').exists()

@@ -35,15 +35,20 @@ def main():
         args.local_snapshot.read_bytes(), args.effective_snapshot.read_bytes(),
         proposal
     )
+    # Roll back only files created by this invocation. No partial artifact may
+    # block a safe retry or masquerade as a complete review report.
+    created = []
     try:
         with output.open("xb") as handle:
+            created.append(output)
             handle.write(content)
         with summary_path.open("x", encoding="utf-8", newline="\n") as handle:
+            created.append(summary_path)
             json.dump(summary, handle, sort_keys=True, indent=2)
             handle.write("\n")
     except Exception:
-        if not summary_path.exists() and output.exists():
-            output.unlink()
+        for path in reversed(created):
+            path.unlink(missing_ok=True)
         raise
     print(json.dumps(summary, sort_keys=True))
 
