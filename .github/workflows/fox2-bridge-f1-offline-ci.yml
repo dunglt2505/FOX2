@@ -59,6 +59,18 @@ jobs:
           }
           Write-Host 'OWNER_LAYOUT_FIXTURE=CI_ONLY_CLEAN_NO_BRIDGE_RUNTIME'
 
+      - name: Parse physical G3 allow and package inventory (NO OWNER HOST EXECUTION)
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [void][System.Management.Automation.Language.Parser]::ParseFile(
+            'agent_bridge/scripts/f1_g3_physical_allow_inventory_readonly.ps1',
+            [ref]$tokens, [ref]$errors)
+          if (@($errors).Count -ne 0) { throw 'STOP: G3 read-only inventory syntax invalid' }
+          Write-Host 'G3_PHYSICAL_READONLY_SCRIPT_SYNTAX=PASS'
+          Write-Host 'G3_OWNER_HOST_SCAN=NOT_RUN'
+
       - name: Syntax and changed package tests
         run: |
           python -m py_compile agent_bridge/scripts/build_user_package.py agent_bridge/tests/test_rc1_package.py
