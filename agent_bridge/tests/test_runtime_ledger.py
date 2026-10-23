@@ -88,6 +88,7 @@ def test_sqlite_initializes_and_records_schema_version(tmp_path: Path) -> None:
         "poll_observations",
         "candidate_discoveries",
         "worker_state",
+        "wip_publications",
     }
 
 
