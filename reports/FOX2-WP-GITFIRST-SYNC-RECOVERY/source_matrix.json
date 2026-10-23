@@ -1,0 +1,178 @@
+[
+  {
+    "library_relpath": "00_Governance/FOX2_POLICY_V1.2.md",
+    "bytes": 66882,
+    "sha256": "bd43e0b878a4b671866486e0d8247b39dfb0f42a0391d50b273e85b697e9d350",
+    "git_blob_sha": "158ee245fbb818ab80fac8999169d7c1d805c5fa",
+    "crlf_count": 0,
+    "blob_state": "EXISTS",
+    "git_path": "docs/governance/FOX2_POLICY_V1.2.md",
+    "remote_commit_sha": "38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "exact_byte_remote_readback": "PASS"
+  },
+  {
+    "library_relpath": "00_Governance/FOX2_POLICY_V1.2_RELEASE_MANIFEST_20261012.json",
+    "bytes": 2703,
+    "sha256": "78b47da35318c77da73b76eb005c98b6b630732db657fd5bb8fbac6ffe4882e6",
+    "git_blob_sha": "cf0565fe653b0ebe48a8c40e5df8ca78afdd9751",
+    "crlf_count": 0,
+    "blob_state": "EXISTS",
+    "git_path": "docs/governance/FOX2_POLICY_V1.2_RELEASE_MANIFEST_20261012.json",
+    "remote_commit_sha": "38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "exact_byte_remote_readback": "PASS"
+  },
+  {
+    "library_relpath": "01_BRD/FOX2-BRD-00_v0.4.md",
+    "bytes": 14779,
+    "sha256": "e13b00581ab04c4bb2aabbfb196aec06475c2b0fc44d5b366ca2e382444ebef8",
+    "git_blob_sha": "bad3394adbb1566752b551fe56e9c90d15b91afc",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/brd_mirror/FOX2-BRD-00_v0.4.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "01_BRD/FOX2-BRD-06_v0.4.md",
+    "bytes": 24284,
+    "sha256": "be3ce2d664401b176019d063182684f3ae043690c16a4c83b38ff43eea24dd1e",
+    "git_blob_sha": "92c57dd686b9dde61ace46287e8f1ac63ec3a553",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/brd_mirror/FOX2-BRD-06_v0.4.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "01_BRD/FOX2-BRD-08_v0.4.md",
+    "bytes": 14697,
+    "sha256": "0e8b3c4206fee03f732588063eeb92ebb07af97d2164f06495a7f7539a893ca7",
+    "git_blob_sha": "98a3cc700833f0f5e7af37a1f65e4d44c9823d03",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/brd_mirror/FOX2-BRD-08_v0.4.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "01_BRD/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json",
+    "bytes": 11114,
+    "sha256": "646b97efe2c1ce982ddbb95f823fcd283b9b802c50654cf42fc938548d213e3d",
+    "git_blob_sha": "27965a9aebe9a5be07fb9f539e7ba10b7633bb13",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/brd_mirror/FOX2_M1_V04_LIBRARY_RELEASE_RECEIPT_20261011.json",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "01_BRD/FOX2_M1_V04_RELEASE_SUMMARY_AND_NEXT_GATE.md",
+    "bytes": 3683,
+    "sha256": "0b7a10dc42c84022907241441f744269b2083e0dc283204e9dbf16acc94bb178",
+    "git_blob_sha": "2a233a92e031db4e0e08187bee4706a38069158d",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/brd_mirror/FOX2_M1_V04_RELEASE_SUMMARY_AND_NEXT_GATE.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "03_Data_Contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+    "bytes": 7501,
+    "sha256": "ee63c40237f5fba84ea44abb95ae09ce5a06858a821f7fb3f47b7ec22a912dd2",
+    "git_blob_sha": "369a893a83dd140ce423c032784941a22d4a443e",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/data_contracts/FOX2_MARKET_DATA_CONTRACT_v0.4.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "03_Data_Contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+    "bytes": 22607,
+    "sha256": "821914afe00a7d17de2c9ec805982f72ecffb455dbeff781759db395bc57bd52",
+    "git_blob_sha": "fa395662b772658d782b46718b7eb8392f6bbf76",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/data_contracts/FOX2_MARKET_DATA_v0.4.schema.json",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "05_Acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+    "bytes": 17289,
+    "sha256": "ad1fd6ef4b4b150132366a5ccf1d465aa347e6411060f32fae4672777fb4bf92",
+    "git_blob_sha": "0e7ff73eb58e11bba4b513f84199e96f0c0d6193",
+    "crlf_count": 105,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/acceptance/FOX2_M1_ACCEPTANCE_v0.4.csv",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "05_Acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+    "bytes": 3333,
+    "sha256": "cdc01892853ad87b563f962e567701ff37687950b5d4a166967487d2230dc73b",
+    "git_blob_sha": "321bc0e2525befa8842f09edfc09ce20c2cbab09",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/acceptance/FOX2_M1_V04_CHANGE_CONTRACT_AND_REQUIREMENT_MAP.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "06_Roadmap/FOX2_M1_ROADMAP_v0.3.md",
+    "bytes": 3158,
+    "sha256": "96e567e6743e5f4182b09737912a4e67b01cc7b0868a0499e1fa79e6181e14a8",
+    "git_blob_sha": "43629d6fc37774cfc155740196fe084e98db4134",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/roadmap/FOX2_M1_ROADMAP_v0.3.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  },
+  {
+    "library_relpath": "07_Agent_Handoff/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/FOX2_M1_0_GIT_FIRST_TASK_V1_2_20261012.md",
+    "bytes": 3414,
+    "sha256": "94b5eb94f98c84e8c28f4fc64a7add1d8389a5b3b55424840ab23ed008e2353b",
+    "git_blob_sha": "da608704d9059b52565d0a767a07f340d0863e55",
+    "crlf_count": 0,
+    "blob_state": "EXISTS",
+    "git_path": "docs/agent_handoff/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/task.md",
+    "remote_commit_sha": "38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "exact_byte_remote_readback": "PASS"
+  },
+  {
+    "library_relpath": "07_Agent_Handoff/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/FOX2_M1_0_SOURCE_MANIFEST_PREPARED_V1_2_20261012.json",
+    "bytes": 1114,
+    "sha256": "e5c68d582e9b8b5f340e51c3048ce0ca4b42ac9fcb20f066eec9b5e80d5752cf",
+    "git_blob_sha": "6c1d8748c4a5720f242640e56651e43b41a5fd53",
+    "crlf_count": 0,
+    "blob_state": "EXISTS",
+    "git_path": "docs/agent_handoff/FOX2-WP-M1-0-DNSE-HOST-EVIDENCE-READONLY/source_manifest.json",
+    "remote_commit_sha": "38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "exact_byte_remote_readback": "PASS"
+  },
+  {
+    "library_relpath": "07_Agent_Handoff/FOX2_GIT_EVIDENCE_SCHEMA_v1.json",
+    "bytes": 2554,
+    "sha256": "6f4602e78af6555ed45b2c184d1f30e35dbd89a3ec9d1484f588f5d012bac65f",
+    "git_blob_sha": "6be9ec56cd29aea22ea3b6d6471ac4450914cb98",
+    "crlf_count": 0,
+    "blob_state": "EXISTS",
+    "git_path": "docs/agent_handoff/FOX2_GIT_EVIDENCE_SCHEMA_v1.json",
+    "remote_commit_sha": "38114631df5dd0a62e55d1122c35aca7bbbc8271",
+    "exact_byte_remote_readback": "PASS"
+  },
+  {
+    "library_relpath": "07_Agent_Handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v1.md",
+    "bytes": 1727,
+    "sha256": "e33325caa912ebf326c8cbdfd81acd180a60c5e69d0e062cab8a4673d6dab69b",
+    "git_blob_sha": "27658ac25db355545e6f53619c54d148ea930bc3",
+    "crlf_count": 0,
+    "blob_state": "NOT_FOUND_404",
+    "git_path": "docs/agent_handoff/FOX2_GIT_FIRST_TASK_RESULT_PROTOCOL_v1.md",
+    "remote_commit_sha": null,
+    "exact_byte_remote_readback": "NOT_PUBLISHED"
+  }
+]
