@@ -1,6 +1,7 @@
 # FOX2-BRD-09 — AgentBridge Desktop & Local Orchestration
 
 **Version:** `0.1 Candidate REV4`  
+**Revision date:** 2026-10-23  
 **Status:** `CANDIDATE / OWNER_REVIEW / NO_DEV_GRANT`  
 **Project:** FOX2 initially; product direction supports a later generic AgentBridge distribution  
 **Date:** 2026-10-14  
@@ -393,7 +394,7 @@ This is a **new BRD Candidate**. It does not supersede BRD-00/06/08 and does not
 
 Owner approval/publication may later promote BRD-09 to a released version. Until then:
 
-`BRD09_STATUS=CANDIDATE_REV2 / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / ACCEPTANCE=NOT_RUN / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT`.
+`BRD09_STATUS=HISTORICAL_REV3 / SIGNALING=GITHUB_MAILBOX_LOCAL_PULL / ACCEPTANCE=NOT_RUN / CODE_ALLOWED=NO_FROM_THIS_DOCUMENT`.
 
 
 ## 16. REV4 — Full Bridge-owned Git Delivery (Owner direction, 2026-10-23)
