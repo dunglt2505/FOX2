@@ -1,0 +1,3 @@
+ISOLATED_TEST_ONLY; registry=ISOLATED_TEST_UNIVERSE; no seeded market data
+ISOLATED_TEST_ONLY; registry=ISOLATED_TEST_UNIVERSE; no seeded market data
+ISOLATED_TEST_ONLY; registry=ISOLATED_TEST_UNIVERSE; no seeded market data

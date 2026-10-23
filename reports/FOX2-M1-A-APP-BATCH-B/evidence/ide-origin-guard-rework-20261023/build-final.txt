@@ -1,0 +1,13 @@
+
+> fox2-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v5.4.14 building for production...
+transforming...
+✓ 35 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.33 kB │ gzip:  0.60 kB
+dist/assets/index-DUVoYiV9.css   22.89 kB │ gzip:  5.57 kB
+dist/assets/index-R-1C1Aqs.js   171.66 kB │ gzip: 53.89 kB │ map: 424.06 kB
+✓ built in 735ms

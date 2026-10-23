@@ -1,0 +1,170 @@
+[
+  {
+    "path": "frontend/package-lock.json",
+    "sha256": "8626efbde3934a78010e2f86f8f5e1b8acef1d872bcf232b0403f625fe6453fc"
+  },
+  {
+    "path": "frontend/package.json",
+    "sha256": "60eb9d7b2f2bcf4fa28e4e31a9132af3eb9c0ba62ae513086d6b742d3bc6a8d2"
+  },
+  {
+    "path": "frontend/vite.config.ts",
+    "sha256": "f6134fb793435c34f9a242f13b14090c38eccd4bbdd7cb4abac15f4a4d07eeb1"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/backend-http.txt",
+    "sha256": "434e65f3cf5ccfb3ba6ca832273251fe0932780270f12d1667ceb6fda2f20094"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/build.txt",
+    "sha256": "075cd504d271e7841ccd30e7422beb60acf11d0eb704f9e04dcb3381a023e6a2"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/commands.txt",
+    "sha256": "03557c387b662a660382e622b572585377bf46b1836620bbda5c67459c5de8f0"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/history/evidence_manifest.json",
+    "sha256": "c6f19dea32a0884033b4ef63885fd2d69733555b5f93862d8b4851b7325be9aa"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/history/report.md",
+    "sha256": "cc071c1c28b2c316862b2f0b2b9a926ac7fb34f9e1b33b4ffa71dd3af945da08"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/install.txt",
+    "sha256": "aa18b4d40a51e85d45043979e0e6e052b1d43688567e3df13d7d24fadda4b6a7"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/test.txt",
+    "sha256": "81d5f73f7809037f7ea5c9dea7f18cdc990bbca1d8427e604170a75011848167"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-20261023/typecheck.txt",
+    "sha256": "9e36411d63ea33651a026874d0af23efaddf90e3e1de5475f02d342ec736931e"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023-corrected/asgi-output.txt",
+    "sha256": "93a8cd2704e8b44c29badc77051f59ba180534844d0ee622b8ee5db3dc5053bd"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023-corrected/http-command-output.txt",
+    "sha256": "1ae6d3d91f85278b70e33e01380880410dc52163855dc9aa10be1c8ff4ef14ee"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023-corrected/http-results.json",
+    "sha256": "246d4d1b18d231ca6ab239ad259815cb7efccb49afb52df5ff92b39b7b25e172"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023/asgi-output.txt",
+    "sha256": "93a8cd2704e8b44c29badc77051f59ba180534844d0ee622b8ee5db3dc5053bd"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023/history-before-recovery/evidence_manifest.json",
+    "sha256": "cf2cd7d39eab61c94b6eb61b376b7a76473266e9a36dc65532b17f69823656a8"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023/history-before-recovery/report.md",
+    "sha256": "1aded0642811e9f733373a767bc5108ff004d9b12f63c32121228b980b97aa67"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023/http-command-output.txt",
+    "sha256": "fa3f263e18bcec96cd826c6b68ee860af5bab76f319a47ea13286c6210f4ed18"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-backend-integration-20261023/http-results.json",
+    "sha256": "42133fd536c919b3b58e1a52fd909b2bf22ed31dbf1e1e59ae8ac82f0e2f8ee2"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/asgi-output.txt",
+    "sha256": "93a8cd2704e8b44c29badc77051f59ba180534844d0ee622b8ee5db3dc5053bd"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/backend-8000-requests.jsonl",
+    "sha256": "0ebe82fda7ea4b4455970cf1a94506e20052bc8508032345a92c86f2ab5f2cb8"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/backend-8001-requests.jsonl",
+    "sha256": "da62dd9d327d4dcc1e7a0444372e1d39957abddd3e1fcd9ff9cd2d0fdfd4f13f"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/build-final.txt",
+    "sha256": "cb455d66af231f95078aa10d060ca631101d6fbb7f4b30ddc70cfdb47fdae500"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/history-before-rework/evidence_manifest.json",
+    "sha256": "e5d2081368a6eb0b1c7eb8c60ff4c0275accf92d3e09d40aa6be2201fe52d67c"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/history-before-rework/report.md",
+    "sha256": "643caf5ba11040407970fd2427bcfc71e3843dc55237a3eb69be57d931063206"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/http-command-output.txt",
+    "sha256": "cac63b43aa22271dba4166cad7ba818e54c6921f2f7cbce2bab786abf13212ee"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/http-results.json",
+    "sha256": "0606e76e39d2ae53d032cd570164589c75c85ccb20aa9e2547243045ddfe022f"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/node-types-install.txt",
+    "sha256": "d5b3eb83ef56ecda6355aa8b8cdbbc14945f589ef93f08e81928b3dac720c19d"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/outbound-8000-0.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/outbound-8000-1.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/outbound-8001-2.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/publisher-dry-run.txt",
+    "sha256": "ec262df3468484e6d7d9e6568a88de3dd266052592b400d7575ce8b9c1b2c0f1"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/secret-scan.txt",
+    "sha256": "09f2fd4e11559f497b3a8f3345b4de428b8f2297329f021c9de6f54021cf9bb8"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/test-final.txt",
+    "sha256": "f376ece336bc36c9f84423267eabf3c228c61fc08a3858941d2b091f26d7ae39"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/typecheck-final.txt",
+    "sha256": "9e36411d63ea33651a026874d0af23efaddf90e3e1de5475f02d342ec736931e"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/typecheck.txt",
+    "sha256": "4f4e9f143f9bcd5f962128c96382ff8afffda45981a9c1b50a3a4980f634b326"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence/ide-origin-guard-rework-20261023/vite-output.txt",
+    "sha256": "7298cbbb3d8ad6e485990cb9c74d61f7343f637799fe6d2a47fd8d9bc3a5975a"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/evidence_manifest.json",
+    "sha256": "757f0f352596bdb9a357bad028623b4e4f4a587f674af43788d7565ab93daa0c"
+  },
+  {
+    "path": "reports/FOX2-M1-A-APP-BATCH-B/report.md",
+    "sha256": "ee4435c87a63362ae77f17b0e9818c26d4b3d2a5239c6c3b93c39ce7a4c225f3"
+  },
+  {
+    "path": "tests/app_batch_b/http_integration.py",
+    "sha256": "95ae590c8bd94241f896ad7ac5ea8970e6a5bbe0b05883baf4b2d7ab427fa2aa"
+  },
+  {
+    "path": "tests/app_batch_b/local_test_backend.py",
+    "sha256": "ce274d99650f2fda1327c439e632d9c906b10275b46e13de08f74ad050fb50ba"
+  },
+  {
+    "path": "tests/app_batch_b/scan_frontend.mjs",
+    "sha256": "33a473d813e8475cb61e0752adfb833e0476f99019048b69a11f36119e0023f1"
+  }
+]

@@ -1,0 +1,9 @@
+
+> fox2-frontend@0.1.0 typecheck
+> tsc --noEmit --pretty false
+
+vite.config.ts(2,38): error TS2307: Cannot find module 'node:http' or its corresponding type declarations.
+vite.config.ts(19,35): error TS2339: Property 'rawHeaders' does not exist on type 'IncomingMessage'.
+vite.config.ts(20,21): error TS2339: Property 'rawHeaders' does not exist on type 'IncomingMessage'.
+vite.config.ts(20,75): error TS2339: Property 'rawHeaders' does not exist on type 'IncomingMessage'.
+vite.config.ts(38,66): error TS2339: Property 'method' does not exist on type 'IncomingMessage'.

@@ -1,0 +1,116 @@
+{
+  "schema": "FOX2_APP_BATCH_B_PARTIAL_EVIDENCE_V1",
+  "task": "FOX2-M1-A-APP-BATCH-B",
+  "stage": "BUILD",
+  "status": "IN_PROGRESS_NOT_ACCEPTED",
+  "branch": "work/FOX2-M1-A-APP-BATCH-B",
+  "verified_source_parent": "fe506361a9be6ab28e44791c2ba27988144049a8",
+  "tests": {
+    "focused_node": {
+      "result": "PASS",
+      "passed": 4,
+      "failed": 0,
+      "environment": "isolated tool sandbox Node 22.16.0 TypeScript 5.8.3",
+      "scope": "exact-blob API, resource, health helpers and regression test file",
+      "transcript": "reports/FOX2-M1-A-APP-BATCH-B/evidence/frontend_focus_tests_20261023.txt"
+    }
+  },
+  "exact_blob_parity": {
+    "frontend/src/api.ts": "20b20989fb3ba60bb46076eff2a608ed74efb568",
+    "frontend/src/resourceVisibility.ts": "4253deb9ce0b49d0f4eef2067ba5fd65e1ba18f5",
+    "frontend/src/healthTruth.ts": "f096b65c9136db2345bb01a2444aec2e9f2639fb",
+    "tests/app_batch_b/api-resource.test.mjs": "bab96c326da35324611cd4e756f3b1049e49fcf0"
+  },
+  "checks": {
+    "remote_branch_and_changed_blob_readback": "PASS",
+    "backend_route_static_mapping": "REVIEWED_NOT_RUNTIME_TESTED",
+    "frontend_typecheck": "NOT_RUN",
+    "frontend_build": "NOT_RUN",
+    "browser_responsive_1440_1024_390": "NOT_RUN",
+    "offline_backend_http_integration": "NOT_RUN",
+    "secret_scan_full_bundle": "NOT_RUN",
+    "final_chat_acceptance": "NOT_ACCEPTED"
+  },
+  "stop": "No main/merge/deploy/provider/broker/LIVE changes; do not infer production readiness.",
+  "task_id": "FOX2-M1-A-APP-BATCH-B",
+  "native_recovery_20261023": {
+    "manifest": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/evidence_manifest.json",
+    "status": "BLOCKED_HOST_SANDBOX",
+    "report": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/report.md",
+    "tests": "NOT_RUN",
+    "attempt": "native-recovery-r3",
+    "consumed": true,
+    "historical_manifest": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-recovery-r3-20261023/history/evidence_manifest.json",
+    "chat_verdict": "HOLD"
+  },
+  "current_blocker": "BLOCKED_BACKEND_LOCALHOST_ECONNREFUSED",
+  "native_r4_20261023": {
+    "source_sha": "21d023c6c3fd4d379f7e7427d9eb6c97b5ea0e05",
+    "assignment_sha": "9b4386e9e5579d99060c11bccf5b390ede01e841",
+    "agent_model": "gpt-6.1-sol",
+    "thinking": "medium",
+    "claimed": true,
+    "agent_started": true,
+    "consumed": true,
+    "agent_command_execution": "FAILED_BEFORE_SHELL_START",
+    "dns_websocket": "FAILED_OS_ERROR_11001",
+    "product_changes": "NONE_REPORTED_REMOTE_NO_RESULT",
+    "local_worktree_post_exit": "NOT_INDEPENDENTLY_VERIFIED",
+    "frontend_typecheck": "NOT_RUN",
+    "frontend_build": "NOT_RUN",
+    "tests": "NOT_RUN",
+    "browser_http": "NOT_RUN",
+    "git_result": "NO_PRODUCT_DELIVERY",
+    "chat_verdict": "HOLD",
+    "blocker_report": "reports/FOX2-M1-A-APP-BATCH-B/evidence/native-r4-20261023/host-blocker.md"
+  },
+  "ide_continuation_20261023": {
+    "source_sha": "ee4784e9fbf055979dea540242ce74f2b79736cc",
+    "writer": "Current Codex Extension designated by CHAT",
+    "status": "BLOCKED_BACKEND_LOCALHOST",
+    "assignment_result_mode": "CODE_CHANGE",
+    "proposed_classification": "TEST_EVIDENCE_ONLY_CANDIDATE",
+    "history": "evidence/ide-20261023/history",
+    "commands": [
+      {
+        "command": "npm install --no-audit --no-fund",
+        "log": "evidence/ide-20261023/install.txt",
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      {
+        "command": "npm run typecheck",
+        "log": "evidence/ide-20261023/typecheck.txt",
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      {
+        "command": "npm run build",
+        "log": "evidence/ide-20261023/build.txt",
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      {
+        "passed": 4,
+        "log": "evidence/ide-20261023/test.txt",
+        "exit_code": 0,
+        "command": "npm run test",
+        "failed": 0,
+        "result": "PASS"
+      },
+      {
+        "command": "Node fetch http://127.0.0.1:8000/api/health with AbortSignal.timeout(5000)",
+        "log": "evidence/ide-20261023/backend-http.txt",
+        "exit_code": 1,
+        "cause": "ECONNREFUSED",
+        "result": "FAIL"
+      }
+    ],
+    "browser": "NOT_RUN",
+    "http_security_negatives": "NOT_RUN",
+    "watchlist_runtime": "NOT_RUN",
+    "theme_responsive": "NOT_RUN",
+    "git_delivery": "PENDING_PUBLICATION_RIGHTS_NOT_VERIFIED",
+    "chat_acceptance": "PENDING"
+  }
+}

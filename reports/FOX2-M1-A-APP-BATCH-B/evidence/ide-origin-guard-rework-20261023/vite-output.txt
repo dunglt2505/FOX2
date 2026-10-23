@@ -1,0 +1,9 @@
+
+> fox2-frontend@0.1.0 dev
+> vite --host 127.0.0.1 --strictPort
+
+Re-optimizing dependencies because lockfile has changed
+
+  VITE v5.4.14  ready in 350 ms
+
+  ➜  Local:   http://127.0.0.1:5173/

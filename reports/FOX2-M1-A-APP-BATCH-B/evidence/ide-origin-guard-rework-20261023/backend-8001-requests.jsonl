@@ -1,0 +1,2 @@
+{"method": "GET", "path": "/api/health", "host": "127.0.0.1:8001", "origin": null}
+{"method": "GET", "path": "/api/watchlist", "host": "127.0.0.1:8001", "origin": null}

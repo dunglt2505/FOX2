@@ -1,0 +1,34 @@
+{"name": "real_health_provider_disabled", "result": "PASS", "detail": {"contract_version": "market-data-v0.4-candidate", "status": "OK", "provider_enabled": false}}
+{"name": "test_universe_provenance", "result": "PASS", "detail": {"items": [{"instrument_id": "TEST:AAA", "symbol": "AAA", "instrument_type": "STOCK", "venue": "HOSE", "board_id": "ISOLATED_TEST"}], "universe_source": "ISOLATED_TEST_UNIVERSE", "universe_revision": "website-http-v1", "coverage": "PARTIAL", "cursor": null}}
+{"name": "market_unavailable_without_fake_values", "result": "PASS", "detail": {"payload": null, "as_of": null, "freshness": "UNAVAILABLE", "source_state": "UNKNOWN"}}
+{"name": "initial_watchlist", "result": "PASS", "detail": {"version": 0, "items": [], "updated_at": null}}
+{"name": "add_and_readback", "result": "PASS", "detail": {"version": 1, "items": ["TEST:AAA", "TEST:BBB"], "updated_at": "2026-10-23T14:09:44.800040Z"}}
+{"name": "CAS_409_preserves_winner", "result": "PASS", "detail": {"version": 1, "items": ["TEST:AAA", "TEST:BBB"], "updated_at": "2026-10-23T14:09:44.800040Z"}}
+{"name": "invalid_unknown_duplicate_101_rejected_422", "result": "PASS", "detail": {"rejected_cases": 6, "prior_preserved": true}}
+{"name": "remove_and_persist", "result": "PASS", "detail": {"version": 2, "items": ["TEST:BBB"], "updated_at": "2026-10-23T14:09:44.901455Z"}}
+{"name": "ASGI_process_restart_SQLite_persistence", "result": "PASS", "detail": {"version": 2, "items": ["TEST:BBB"], "updated_at": "2026-10-23T14:09:44.901455Z"}}
+{"name": "CAS_concurrent_one_winner", "result": "PASS", "detail": {"statuses": [200, 409], "winner_preserved": true}}
+{"name": "exactly_100_then_101_rejected", "result": "PASS", "detail": {"100": 200, "101": 422}}
+{"name": "HTTP_404_422", "result": "PASS", "detail": {"404": true, "422": true}}
+{"name": "backend_Host_Origin_content_type_guards", "result": "PASS", "detail": {"foreign_host": 400, "foreign_origin": 403, "content_type": 415, "state_preserved": true}}
+{"name": "real_HTTP_503_unconfigured_store", "result": "PASS", "detail": {"detail": "Service unavailable"}}
+{"name": "Vite_same_origin_proxy_health_watchlist_stock", "result": "PASS", "detail": "Actual Vite proxy GET and same-origin JSON PUT reached accepted backend"}
+{"name": "four_routes_direct_HTTP_reload", "result": "FAIL", "critical": false, "detail": "/overview: expected HTTP 200, observed 404: "}
+Traceback (most recent call last):
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 284, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 126, in main
+    check('four_routes_direct_HTTP_reload', lambda: reload_check(expected))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 81, in check
+    detail = callback()
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 126, in <lambda>
+    check('four_routes_direct_HTTP_reload', lambda: reload_check(expected))
+                                                    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 259, in reload_check
+    html = expected(path, 200, port=5173)
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 93, in expected
+    assert status == code, f'{path}: expected HTTP {code}, observed {status}: {value}'
+           ^^^^^^^^^^^^^^
+AssertionError: /overview: expected HTTP 200, observed 404: 

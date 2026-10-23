@@ -1,0 +1,36 @@
+{"name": "real_health_provider_disabled", "result": "PASS", "detail": {"contract_version": "market-data-v0.4-candidate", "status": "OK", "provider_enabled": false}}
+{"name": "test_universe_provenance", "result": "PASS", "detail": {"items": [{"instrument_id": "TEST:AAA", "symbol": "AAA", "instrument_type": "STOCK", "venue": "HOSE", "board_id": "ISOLATED_TEST"}], "universe_source": "ISOLATED_TEST_UNIVERSE", "universe_revision": "website-http-v1", "coverage": "PARTIAL", "cursor": null}}
+{"name": "market_unavailable_without_fake_values", "result": "PASS", "detail": {"payload": null, "as_of": null, "freshness": "UNAVAILABLE", "source_state": "UNKNOWN"}}
+{"name": "initial_watchlist", "result": "PASS", "detail": {"version": 0, "items": [], "updated_at": null}}
+{"name": "add_and_readback", "result": "PASS", "detail": {"version": 1, "items": ["TEST:AAA", "TEST:BBB"], "updated_at": "2026-10-23T14:10:06.182389Z"}}
+{"name": "CAS_409_preserves_winner", "result": "PASS", "detail": {"version": 1, "items": ["TEST:AAA", "TEST:BBB"], "updated_at": "2026-10-23T14:10:06.182389Z"}}
+{"name": "invalid_unknown_duplicate_101_rejected_422", "result": "PASS", "detail": {"rejected_cases": 6, "prior_preserved": true}}
+{"name": "remove_and_persist", "result": "PASS", "detail": {"version": 2, "items": ["TEST:BBB"], "updated_at": "2026-10-23T14:10:06.309795Z"}}
+{"name": "ASGI_process_restart_SQLite_persistence", "result": "PASS", "detail": {"version": 2, "items": ["TEST:BBB"], "updated_at": "2026-10-23T14:10:06.309795Z"}}
+{"name": "CAS_concurrent_one_winner", "result": "PASS", "detail": {"statuses": [200, 409], "winner_preserved": true}}
+{"name": "exactly_100_then_101_rejected", "result": "PASS", "detail": {"100": 200, "101": 422}}
+{"name": "HTTP_404_422", "result": "PASS", "detail": {"404": true, "422": true}}
+{"name": "backend_Host_Origin_content_type_guards", "result": "PASS", "detail": {"foreign_host": 400, "foreign_origin": 403, "content_type": 415, "state_preserved": true}}
+{"name": "real_HTTP_503_unconfigured_store", "result": "PASS", "detail": {"detail": "Service unavailable"}}
+{"name": "Vite_same_origin_proxy_health_watchlist_stock", "result": "PASS", "detail": "Actual Vite proxy GET and same-origin JSON PUT reached accepted backend"}
+{"name": "four_routes_direct_HTTP_reload", "result": "PASS", "detail": "Four direct HTTP GETs returned Vite entry; browser rendering NOT_RUN"}
+{"name": "ISOLATED_TEST_SQLite_profile", "result": "PASS", "detail": {"profile": "ISOLATED_TEST"}}
+{"name": "Vite_proxy_rejects_foreign_Origin_mutation", "result": "FAIL", "critical": true, "detail": "CRITICAL: Vite foreign Origin expected 403, observed 200; prior_version=5; response={'version': 6, 'items': [], 'updated_at': '2026-10-23T14:10:13.291575Z'}"}
+Traceback (most recent call last):
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 284, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 129, in main
+    check('Vite_proxy_rejects_foreign_Origin_mutation',
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          lambda: proxy_origin_check(expected), critical=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 81, in check
+    detail = callback()
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 130, in <lambda>
+    lambda: proxy_origin_check(expected), critical=True)
+            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Fox Le\AppData\Local\FOX2\APP-BATCH-B-CODEX-CONTINUE-20261023\repo\tests\app_batch_b\http_integration.py", line 277, in proxy_origin_check
+    assert status == 403, (f'CRITICAL: Vite foreign Origin expected 403, observed {status}; '
+           ^^^^^^^^^^^^^
+AssertionError: CRITICAL: Vite foreign Origin expected 403, observed 200; prior_version=5; response={'version': 6, 'items': [], 'updated_at': '2026-10-23T14:10:13.291575Z'}

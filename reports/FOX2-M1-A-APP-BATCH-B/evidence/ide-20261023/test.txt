@@ -1,0 +1,16 @@
+
+> fox2-frontend@0.1.0 test
+> node --test ../tests/app_batch_b/*.test.mjs
+
+✔ investor API uses same-origin backend endpoints only, with CAS payload (93.1354ms)
+✔ API error text never reflects backend secrets, including 409 CAS (63.5003ms)
+✔ old Stock360 or refresh snapshots are never visible under a new request key (4.7654ms)
+✔ healthy local backend must not masquerade as LIVE market data (3.3831ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 425.283
