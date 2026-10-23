@@ -15,7 +15,7 @@ Existing task, last accepted evidence, immutable attempt when any, real next saf
 
 ## Work to perform
 1. Classify `CONTEXT_TRANSFER`, `NEW_AGENT_ASSIGNMENT`, `RESULT_RETURN` or `REWORK`. Context transfer is not automatically a new task or a reason to write a prompt.
-2. Carry only goal, observed result, current source/branch/commit when material, next action, actor and STOP. Do not paste entire Policy corpus or reopen accepted evidence.
+2. Carry only goal, observed result, **authorized Git result branch and pushed commit SHA for delegated Agent work**, source commit when material, next action, actor and STOP. If no observed pushed result exists, label `GIT_DELIVERY_PENDING`; never treat a local Agent message as final Git handoff. Do not paste entire Policy corpus or reopen accepted evidence.
 3. For genuine Agent assignment, ask Prompt Builder for task wording after Router chooses actor. For existing result return, use Result Acceptance, not a fresh Prompt Builder cycle.
 4. If Bridge was used, retain the exact Dispatch ID, source/prompt identity, consumed state and no-replay limitation; do not reuse or rebind it for a new thread.
 
