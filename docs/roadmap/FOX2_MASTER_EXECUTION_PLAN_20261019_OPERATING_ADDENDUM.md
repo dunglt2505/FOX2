@@ -24,3 +24,34 @@ Policy v2.0.0 is Owner-approved for new human governance decisions. Dictionary v
 The 2026-10-16 Library Master Plan has additional historical content and differs from the 2026-10-19 Git Master Plan. **Neither copy is silently overwritten.** For new operating priority this addendum takes precedence over conflicting historical scheduling. A complete byte-exact merge of those two archival Master Plan versions is a separate source-reconciliation matter, not a reason to stop Owner-approved CODE-FIRST preparation.
 
 **No new Whole-WP, DEV grant, executable Dispatch, rebind, Worker start or LIVE decision is created by this document.**
+
+---
+
+## Owner-approved Bridge RC1 Agile execution update — 2026-10-23
+
+**Authority:** Owner approved the whole-Bridge Agile reassessment and directed updating the Master Plan and Board for execution on 2026-10-23. **Management scope only:** does not rebind consumed R5, approve host mutation, merge/main, Canary, provider, broker or LIVE. This newer section supersedes conflicting Bridge scheduling and pending-R5 descriptions above; historical records remain intact.
+
+**Whole-WP / feature:** `FOX2-BRIDGE-RC1-TO-INTERNAL-READY` / `FOX2-BRIDGE-RC1`.
+**Outcome:** `INTERNAL_FOX2_BRIDGE_READY` — one usable/recoverable Windows per-user internal Bridge with singleton and durable no-replay guarantees.
+**Agile:** DOING; **SDLC:** TEST (BUILD correction R5 complete), not DEPLOY/LIVE; `READY_FOR_BOARD=YES`, `PROMOTE_TO_DOING`. Owner/acceptance actor: CHAT. One logical task; former A05/G3/G4/local trial/restart are test coverage within it, not new Board tasks.
+
+### Evidence baseline and remaining facts
+
+- Accepted product/source lineage: `085cc8302e824dbccf9cbef80422ed48894b9cb4`.
+- A04 package archive/source/inventory, installation/pointer, safe paused state, singleton and logical durable-state evidence remain reusable **only for their previously observed checks**. Exact A04 package SHA-256: `f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee`. A04 real-host lifecycle hit `PermissionError errno13` at presentation lock and then stopped; downstream UI/exit/uninstall/reinstall are **NOT_RUN**.
+- R5 remote result at `work/FOX2-BRIDGE-RC1-PRESENTATION-LOCK-CERTIFIER-REWORK-R5-20261022@10326dd116ccbfa90a70db4f4c8ec27487ee4fbf` was read back by CHAT. Exactly two authorized code/test paths changed. Corrected fail-closed `ABSENT + errno13/no-winerror` logic; retained `OPENABLE` differential proof, WinError32 and existing-live safe continuation. Focused `69 PASS`, `agent_bridge/tests` full `686 PASS`, static/allowlist/K1 `UNEXPLAINED=0`. **CHAT accepted R5's bounded code/result correction on 2026-10-23**; no host-ready attestation is implied.
+- R5 Dispatch is consumed/no-replay. Do **not** invoke its immutable Owner launcher again. R5 offline test result does not prove updated certifier adoption in the installed package. Installed-host adoption/current state must be freshly observed.
+- **Not yet verified:** current-host WPF live lock/exit, stable uninstall and same-package reinstall, durable preservation across lifecycle, integrated local trial plus stop/restart, Worker/F1 intent as applicable and no-replay after restart. `INTERNAL_FOX2_BRIDGE_READY=NOT_ATTESTED`.
+
+### One integrated Owner-host validation — acceptance outcomes
+
+1. **Identity and safety:** recheck actual present host/processes, package archive and installed pointer/source against A04 identity; verify current certifier invocation uses *accepted R5 bytes*, safe paused/setup/null-dispatch state and no competing writer/claim. If one correct WPF is already running, continue it; zero means launch once; wrong/duplicate WPF is STOP. Use installed machine validator and route-specific capability/permission checks before consequential host actions.
+2. **Presentation:** observe single correct WPF, the new R5 held-lock decision, UI navigation and paused Check Now, graceful exit, zero processes, same lock OPENABLE. Stop before uninstall on any failure.
+3. **Durability and recovery:** snapshot SQLite/logical identities, config and consumption state; invoke stable external uninstall **once**; check exact postconditions and durable preservation; reinstall the **same exact A04 package without rebuild**; confirm safe final installed state. Avoid assuming physical SQLite file byte identity where logically safe DB updates are expected.
+4. **Usable internal operation:** validate missing G3/G4 *internal intent* in a single bounded local trial, then stop/restart and verify singleton, safe control, no duplicate Worker/legacy processes, no consumed Dispatch replay and preserved ledger/durable state. Protected F1/host actions only after real specific authority/preflight; otherwise record scoped `NOT_VERIFIED`, not PASS.
+
+**Evidence handback:** authorized Git result branch/actual remote SHA, bounded sanitized host/result logs, minimal current matrix of 4 outcomes, changes and failing checkpoint. CHAT reads back actual result; `PUSHED_UNREVIEWED` is not acceptance. Verdict is `DONE/INTERNAL_FOX2_BRIDGE_READY`, `REWORK` for first causal defect in the same Whole-WP, or `BLOCKED` for a concrete host prerequisite. Preserve accepted PASS and historical FAIL/NOT_RUN; never replay consumed Dispatch or force host cleanup.
+
+**NEXT_SAFE_ACTION:** CHAT reconcile R5 result/current host and machine route, then prepare **one new, properly authorized integrated host-validation attempt** (not R5 replay); proceed only after verified source/permission, installed adoption/host preflight, and one-writer checks. This project-management update alone grants no executable host right.
+
+**Product stream:** APP-BATCH-B remains independently DOING/P0; Bridge does not block reversible native application development. WIP target 2 non-overlapping writers. Do not promote Canary/LIVE, extra micro-WPs or routine WORK audit into the Bridge internal-ready Definition of Done.
