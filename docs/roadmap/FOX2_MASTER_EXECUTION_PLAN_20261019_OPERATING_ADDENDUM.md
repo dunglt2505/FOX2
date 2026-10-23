@@ -55,3 +55,47 @@ The 2026-10-16 Library Master Plan has additional historical content and differs
 **NEXT_SAFE_ACTION:** CHAT reconcile R5 result/current host and machine route, then prepare **one new, properly authorized integrated host-validation attempt** (not R5 replay); proceed only after verified source/permission, installed adoption/host preflight, and one-writer checks. This project-management update alone grants no executable host right.
 
 **Product stream:** APP-BATCH-B remains independently DOING/P0; Bridge does not block reversible native application development. WIP target 2 non-overlapping writers. Do not promote Canary/LIVE, extra micro-WPs or routine WORK audit into the Bridge internal-ready Definition of Done.
+
+---
+
+## 2026-10-23 — Evidence-based Bridge host dependency correction
+
+**Scope:** management-only update within existing `FOX2-BRIDGE-RC1-TO-INTERNAL-READY`, preserving the 2026-10-23 Agile plan and all immutable historical attempts. This section supersedes the earlier suggestion to repeat a single A04-integrated host validation where newer evidence and Owner-directed final F1 dependency apply. It does not grant G3/G4 host mutation, DEV, protected-main merge, Canary or LIVE.
+
+**Observed change:** the scoped Owner-host intake for Integrated Validation 001 records `PRECONSUME=PASS`, A04 lifecycle `PASS_OBSERVED` from console (private JSON not independently read), then `RESTART_PRESENTATION_TRIAL=FAILED` (`RuntimeException`, causal predicate UNKNOWN). Attempt 001 is `CONSUMED_NO_REPLAY`; R5 is also consumed. Pause recovery was observed safe at `68c648fc0abcfa787a7f40cc96669fbd1715a144`. Reuse bounded accepted PASS, never promote host restart to PASS. Git Delivery PR #26 (`e6b898b28a427c0492f466a2beab0f3c278ac40b`) provides native Windows source/fixture evidence: 235 focused PASS, 774 full-suite PASS **before** final guard delta, 85 final guard PASS. `PUSHED_UNREVIEWED`; installed normal/interrupted CODEX/Copilot E2E `NOT_RUN`.
+
+**Current Owner-directed dependency order:** (1) read-only reconcile selected physical Windows host, exact machine source, permissions and G3 restore capability; (2) fresh authorized G3 E1–E10 host enforcement and restoration; (3) separately authorized G4 adoption of the **final F1 artifact**, not automatic reuse of A04 as final package; (4) final installed F1 restart/singleton/no-replay plus material Git Delivery E2E with actual supervisor/test verifier, Git credentials, writer lease and recovery-ref rights; (5) remote result readback and one CHAT acceptance. The prepared A04 restart-only continuation remains **deferred**, not canceled or run, until a causal read-only check proves necessary. Physical Windows is the selected test target; do not impose a VM-only gate.
+
+**Parallel APP stream:** APP-BATCH-B remains DOING and offline product NOT_ACCEPTED. Product branch `ee4784e9fbf055979dea540242ce74f2b79736cc`; R3/R4 consumed; R5 prompt `e5807980d1e74e0c03b44c10297860cd1cfa5548` published and PR #27 records a preclaim `GV` alias failure. Local R5 claim/worktree and actual `codex exec` remain unverified. No new app product tests or canonical M1 acceptance PASS; continue the same Whole-WP after source/marker reconciliation.
+
+**Status:** `BRIDGE=TEST_IN_PROGRESS / G3_G4=NOT_RUN / FINAL_F1_RESTART=NOT_ATTESTED / GIT_DELIVERY=PUSHED_UNREVIEWED / APP=DOING / MAIN_SYNC=PENDING`. This non-main amendment is a publication candidate only, not effective main or installed machine adoption.
+
+
+---
+
+## 2026-10-23 — APP-BATCH-B Origin-guard Git delivery milestone
+
+**Same Whole-WP:** `FOX2-M1-A-APP-BATCH-B`; management-only evidence sync, not a new task, product acceptance or DEV/merge/LIVE grant. Prior R3/R4 consumed and R5 preclaim failure remain immutable historical records. Later VS Code Codex Extension work published a bounded code/test result to `work/FOX2-M1-A-APP-BATCH-B`: code commit `5690afb29b662bd62a0adaea364c2c29a1146e45`, final evidence/receipt HEAD `d472031a526d04263015c7b871fde35aed740322` (remote SHA readback verified).
+
+**Milestone observed:** Vite dev proxy foreign-Origin mutation previously reproduced as HTTP 200/state change; new Origin/Host guard returns 403 before upstream and preserves state. Actual Windows frontend `typecheck` and `build` PASS; focused 4/4 PASS; isolated-loopback HTTP integration 22/22 PASS with 28 additional negative Host/Origin header cases; test-only SQLite persistence/restart, CAS 409, 422, 404/503 and no invented provider data. These are bounded code/test results, not browser acceptance. Previous failed checks remain historical, not relabeled PASS.
+
+**Remaining product gates:** real browser navigation and reload, Dark/Light responsive 1440/1024/390, STALE/GAP UI presentation, browser network/polling/security behavior are `NOT_RUN` (no browser surface in result). `CHAT_PRODUCT_ACCEPTANCE=PENDING`; canonical M1 acceptance 105/105 `NOT_RUN`. The APP→M1-A release integration→M1-B→M2 critical path and WIP=2 remain unchanged. CHAT should review the scoped result, obtain material browser evidence on an authorized host, then accept or rework within this same Whole-WP. No protected-main merge, provider/broker or LIVE authorization; Bridge RC1 schedule and installed status unchanged.
+
+---
+
+## 2026-10-24 — Skills-based project roadmap
+
+**Authority:** main Registry for human new work: Policy v2.1.0, Routing v1.5.0, Git-first Protocol 13, BRD-00/06/08 v0.5, M1 TechSpec 0.1, Data Contract 0.4, Acceptance v0.4. Immutable Bridge machine pins remain separate. This is a non-main management candidate, not a release or mutation grant.
+
+**WIP=2, SAME Whole-WPs:** Website APP-BATCH-B `DOING`; Bridge RC1 `TEST/DOING`; backend APP-BATCH-A, DSM, store, M1 foundation accepted. Website Origin Guard/security, HTTP and build scoped accepted, browser not run. Bridge R5 certifier bounded code accepted `10326dd116ccbfa90a70db4f4c8ec27487ee4fbf`, but installed F1 lifecycle not attested; Validation 001 `CONSUMED_NO_REPLAY` and restart `FAILED`. PR #26 `e6b898b28a427c0492f466a2beab0f3c278ac40b` is `PUSHED_UNREVIEWED` Git Delivery native source tests (235 focused, 774 full pre-final-guard, 85 final-guard PASS), not installed host E2E.
+
+**Next sequence (no new task IDs):** 
+- APP: one real Windows browser pass on existing workspace/branch for four routes/navigation/reloads, UI Watchlist, Dark/Light 1440/1024/390, truthful null/STALE/GAP, console/network, no upstream calls/polling. Use valid test-only backends, preserve accepted 22/22 HTTP/4/4 focused evidence. Git evidence readback then CHAT final offline Website verdict; failure => bounded SAME-WP rework.
+- Bridge: read-only reconcile selected physical Windows installed source/Policy/ACL/AppLocker/backup, ledger/writer/host rights; separately authorized G3 E1–E10 enforcement + restoration; separately authorized G4 final F1 package adoption; real installed restart/singleton/no-replay and normal/interrupted CODEX/Copilot Git Delivery E2E; Git result/CHAT final acceptance. R5 and Validation 001 never replayed. Reuse A04 only to the scope truly evidenced.
+- CHAT governance/hygiene: avoid applying historical policy versions to new human tasks; resolve PR #27 vs PR #30 overlapping Board content before any authorized integration; Skills v0.5.9 active for this CHAT plugin but draft PR #28 is not main/runtime adoption; PR #31 BRD standard, PR #25 BRD-09 remain candidates; avoid mass reformat. Maintain one persistent VS Code FOX2 workspace; read-only local Git worktree/dirty/process inventory before moving/archive any C:\Projects folder. No destructive cleanup/no third writer.
+- After APP acceptance: authorized M1-A release/main integration; then M1-B provider read-only REST/WS only upon rights/net/entitlement grants; M2 hardening; finally M3/M4 domain engines only with effective BRDs and acceptance.
+
+**Acceptance truth:** v0.4 canonical 105-case CSV historically marks all NOT_RUN; scoped Git-backed APP results do not silently rewrite it. Do not call 105/105 PASS. No main/merge/deploy/provider/broker/LIVE authority from this plan.
+
+**STATUS:** `GOVERNANCE_HUMAN_EFFECTIVE / WEBSITE_DOING_BROWSER_PENDING / BRIDGE_TEST_IN_PROGRESS_G3_G4_NOT_RUN / RELEASE_INTEGRATION_BACKLOG / PROVIDER_BACKLOG / HOST_LIVE_STATE_NOT_VERIFIED / MAIN_NOT_UPDATED`.
+
