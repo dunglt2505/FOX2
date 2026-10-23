@@ -1,104 +1,116 @@
 #requires -Version 7.0
-# FOX2 G3 — PHYSICAL WINDOWS HOST: read-only capability inventory.
-# This does NOT authorize G3 AppLocker/SCM/Service changes or F1 positive claims.
+# FOX2 G3 physical Windows host capability — READ ONLY, no policy/service mutation.
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$Os = Get-CimInstance -ClassName Win32_OperatingSystem -ErrorAction Stop
-$Computer = Get-CimInstance -ClassName Win32_ComputerSystem -ErrorAction Stop
-$Identity = [Security.Principal.WindowsIdentity]::GetCurrent()
-$Principal = [Security.Principal.WindowsPrincipal]::new($Identity)
-$Elevated = $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-
-$OsCandidate = [bool](([int]$Os.BuildNumber -ge 22000) -and
-    ([string]$Os.Caption -match '(?i)Windows 11') -and
-    ([string]$Os.Caption -match '(?i)Pro|Enterprise|Education'))
+$Os = Get-CimInstance Win32_OperatingSystem -ErrorAction Stop
+$Machine = Get-CimInstance Win32_ComputerSystem -ErrorAction Stop
+$CurrentPrincipal = [Security.Principal.WindowsPrincipal]::new(
+    [Security.Principal.WindowsIdentity]::GetCurrent())
+$IsAdmin = $CurrentPrincipal.IsInRole(
+    [Security.Principal.WindowsBuiltInRole]::Administrator)
+$OsSupported = [bool](([int]$Os.BuildNumber -ge 22000) -and
+    ([string]$Os.Caption -match '(?i)windows 11') -and
+    ([string]$Os.Caption -match '(?i)pro|enterprise|education'))
 
 $AppId = Get-Service -Name AppIDSvc -ErrorAction SilentlyContinue
-$F1 = Get-Service -Name FOX2F1Authority -ErrorAction SilentlyContinue
-$AuthorityRoot = Join-Path $env:ProgramData 'FOX2\F1Authority'
+$F1Service = Get-Service -Name FOX2F1Authority -ErrorAction SilentlyContinue
+$F1Root = Join-Path $env:ProgramData 'FOX2\F1Authority'
 $NativePS = Join-Path $env:WINDIR 'System32\WindowsPowerShell\v1.0\powershell.exe'
-$Module = 'NOT_VERIFIED'
-$PolicyQuery = 'NOT_VERIFIED'
-$EffectiveDigest = $null
-$LocalDigest = $null
+$ModuleStatus = 'NOT_VERIFIED'
+$PolicyStatus = 'NOT_VERIFIED'
+$EffectiveHash = $null
+$LocalHash = $null
 
 if (Test-Path -LiteralPath $NativePS -PathType Leaf) {
     $NativeCode = @'
-$ErrorActionPreference='Stop'
+$ErrorActionPreference = 'Stop'
+$r = [ordered]@{
+    module_loaded = $false
+    group_policy_query = $false
+    effective_sha256 = $null
+    local_sha256 = $null
+}
 try {
     Import-Module AppLocker -ErrorAction Stop
-    $moduleOk = $null -ne (Get-Command Get-AppLockerPolicy -ErrorAction Stop)
-    $effective = [string](Get-AppLockerPolicy -Effective -Xml -ErrorAction Stop)
-    $local = [string](Get-AppLockerPolicy -Local -Xml -ErrorAction Stop)
-    $available = (-not [string]::IsNullOrWhiteSpace($effective)) -and
-                 (-not [string]::IsNullOrWhiteSpace($local))
-    $sha = [Security.Cryptography.SHA256]::Create()
+    $null = Get-Command Get-AppLockerPolicy -ErrorAction Stop
+    $r.module_loaded = $true
     try {
-        $effDigest = if ($available) {
-            [BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($effective))).Replace('-','').ToLowerInvariant()
-        } else { $null }
-        $localDigest = if ($available) {
-            [BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($local))).Replace('-','').ToLowerInvariant()
-        } else { $null }
-    } finally { $sha.Dispose() }
-    @{ module=$moduleOk; policy_query=$available; effective_sha256=$effDigest;
-       local_sha256=$localDigest } | ConvertTo-Json -Compress
-} catch {
-    @{ module=$false; policy_query=$false; effective_sha256=$null;
-       local_sha256=$null } | ConvertTo-Json -Compress
-}
+        $effective = [string](Get-AppLockerPolicy -Effective -Xml -ErrorAction Stop)
+        $local = [string](Get-AppLockerPolicy -Local -Xml -ErrorAction Stop)
+        if (-not [string]::IsNullOrWhiteSpace($effective) -and
+            -not [string]::IsNullOrWhiteSpace($local)) {
+            $hash = [Security.Cryptography.SHA256]::Create()
+            try {
+                $r.effective_sha256 = [BitConverter]::ToString(
+                    $hash.ComputeHash([Text.Encoding]::UTF8.GetBytes($effective))
+                ).Replace('-','').ToLowerInvariant()
+                $r.local_sha256 = [BitConverter]::ToString(
+                    $hash.ComputeHash([Text.Encoding]::UTF8.GetBytes($local))
+                ).Replace('-','').ToLowerInvariant()
+                $r.group_policy_query = $true
+            } finally { $hash.Dispose() }
+        }
+    } catch { }
+} catch { }
+$r | ConvertTo-Json -Compress
 '@
     $Encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($NativeCode))
     try {
         $Raw = @(& $NativePS -NoProfile -NonInteractive -EncodedCommand $Encoded 2>$null)
         if ($LASTEXITCODE -eq 0 -and $Raw.Count -ge 1) {
-            $Value = ($Raw -join [Environment]::NewLine) | ConvertFrom-Json
-            $Module = if ($Value.module -eq $true) { 'AVAILABLE_NATIVE_PS51' } else { 'FAILED_OR_UNAVAILABLE' }
-            $PolicyQuery = if ($Value.policy_query -eq $true) { 'PASS_READONLY' } else { 'FAILED_OR_UNAVAILABLE' }
-            $EffectiveDigest = $Value.effective_sha256
-            $LocalDigest = $Value.local_sha256
+            $Value = ($Raw -join [Environment]::NewLine) | ConvertFrom-Json -ErrorAction Stop
+            $ModuleStatus = if ($Value.module_loaded -eq $true) {
+                'AVAILABLE_NATIVE_WINDOWS_PS'
+            } else { 'UNAVAILABLE_OR_IMPORT_FAILED' }
+            $PolicyStatus = if ($Value.group_policy_query -eq $true) {
+                'GP_POLICY_QUERY_PASS'
+            } else { 'GP_POLICY_QUERY_FAILED_OR_EMPTY' }
+            $EffectiveHash = $Value.effective_sha256
+            $LocalHash = $Value.local_sha256
         } else {
-            $Module = 'FAILED_OR_UNAVAILABLE'
-            $PolicyQuery = 'FAILED_OR_UNAVAILABLE'
+            $ModuleStatus = 'NATIVE_POWERSHELL_QUERY_FAILED'
+            $PolicyStatus = 'NOT_VERIFIED'
         }
     } catch {
-        $Module = 'FAILED_OR_UNAVAILABLE'
-        $PolicyQuery = 'FAILED_OR_UNAVAILABLE'
+        $ModuleStatus = 'NATIVE_POWERSHELL_QUERY_FAILED'
+        $PolicyStatus = 'NOT_VERIFIED'
     }
 }
-$Gaps = @()
-if (-not $OsCandidate) { $Gaps += 'WINDOWS_11_EDITION_NOT_CONFIRMED' }
-if (-not $Elevated) { $Gaps += 'ADMIN_TOKEN_NOT_PRESENT_FOR_FUTURE_G3' }
-if ($Module -ne 'AVAILABLE_NATIVE_PS51') { $Gaps += 'APPLOCKER_MODULE_NOT_AVAILABLE' }
-if ($PolicyQuery -ne 'PASS_READONLY') { $Gaps += 'APPLOCKER_POLICY_QUERY_NOT_AVAILABLE' }
-if ($null -eq $AppId) { $Gaps += 'APPIDSVC_MISSING' }
-if ($null -ne $F1) { $Gaps += 'EXISTING_F1_SERVICE_REQUIRES_RECONCILIATION' }
-if (Test-Path -LiteralPath $AuthorityRoot) { $Gaps += 'EXISTING_F1_AUTHORITY_ROOT_REQUIRES_RECONCILIATION' }
 
-[ordered]@{
-    schema = 'FOX2_G3_PHYSICAL_HOST_READONLY_V2'
-    owner_target = 'PHYSICAL_WINDOWS'
-    read_only = $true
-    observed_utc = [DateTime]::UtcNow.ToString('o')
-    host_target = 'OWNER_SELECTED_PHYSICAL_WINDOWS'
-    privileged_host_mutation_authorized_by_probe = $false
-    existing_host_policy_restore_verified = $false
-    admin_token_elevated = [bool]$Elevated
-    domain_joined = [bool]$Computer.PartOfDomain
-    windows_11_edition_candidate = $OsCandidate
+$Gaps = @()
+if (-not $OsSupported) { $Gaps += 'WINDOWS_11_EDITION_NOT_CONFIRMED' }
+if (-not $IsAdmin) { $Gaps += 'ADMIN_REQUIRED_FOR_FUTURE_G3_PRIVILEGED_TEST' }
+if ($ModuleStatus -ne 'AVAILABLE_NATIVE_WINDOWS_PS') { $Gaps += 'APPLOCKER_MODULE_NOT_AVAILABLE' }
+if ($PolicyStatus -ne 'GP_POLICY_QUERY_PASS') { $Gaps += 'APPLOCKER_GP_POLICY_QUERY_NOT_CONFIRMED' }
+if ($null -eq $AppId) { $Gaps += 'APPIDSVC_NOT_PRESENT' }
+if ($null -ne $F1Service) { $Gaps += 'EXISTING_F1_SERVICE_REQUIRES_RECONCILIATION' }
+if (Test-Path -LiteralPath $F1Root) { $Gaps += 'EXISTING_F1_ROOT_REQUIRES_RECONCILIATION' }
+
+$Result = [ordered]@{
+    schema = 'FOX2_G3_PHYSICAL_READONLY_V3'
+    target = 'OWNER_SELECTED_PHYSICAL_WINDOWS'
+    captured_utc = [DateTime]::UtcNow.ToString('o')
+    scan = 'COMPLETED_READONLY'
+    windows_11_edition_candidate = $OsSupported
+    administrator_token_observed = [bool]$IsAdmin
+    domain_joined = [bool]$Machine.PartOfDomain
     native_windows_powershell_present = (Test-Path -LiteralPath $NativePS -PathType Leaf)
-    applocker_module = $Module
-    policy_query = $PolicyQuery
-    effective_policy_sha256 = $EffectiveDigest
-    local_policy_sha256 = $LocalDigest
+    applocker_module = $ModuleStatus
+    applocker_gp_policy_query = $PolicyStatus
+    applocker_policy_channel_coverage = 'GROUP_POLICY_ONLY_CSP_NOT_VERIFIED'
+    effective_gp_policy_sha256 = $EffectiveHash
+    local_gp_policy_sha256 = $LocalHash
     appidsvc_present = ($null -ne $AppId)
     appidsvc_status = if ($null -eq $AppId) { 'MISSING' } else { [string]$AppId.Status }
-    existing_f1_service = ($null -ne $F1)
-    existing_f1_authority_root = (Test-Path -LiteralPath $AuthorityRoot)
+    f1_service_present = ($null -ne $F1Service)
+    f1_authority_root_present = (Test-Path -LiteralPath $F1Root)
     capability_gaps = @($Gaps)
-    g3_host_preexec = 'NOT_RUN'
-    g3_privileged_operations = 'NOT_AUTHORIZED_BY_THIS_PROBE'
-    g4_owner_host_adoption = 'NOT_RUN'
+    policy_export_and_restore = 'NOT_VERIFIED'
+    privileged_g3_host_mutation = 'NOT_RUN_NOT_AUTHORIZED_BY_THIS_SCAN'
+    g3_test = 'NOT_RUN'
+    g4_install = 'NOT_RUN'
     internal_ready = 'NOT_ATTESTED'
-} | ConvertTo-Json -Depth 5
+}
+Write-Output 'FOX2_G3_PHYSICAL_READONLY=COMPLETE'
+$Result | ConvertTo-Json -Depth 5

@@ -117,9 +117,11 @@ else{Add-Blocker $blockers 'G3_EXISTING_AUTHORITY_ROOT' 'OTHER' 'Existing protec
 if($null -ne $effectiveXml -and $null -ne $localXml){
     $effectiveHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes([string]$effectiveXml))).ToLowerInvariant()
     $localHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes([string]$localXml))).ToLowerInvariant()
-    $cap.rollback_policy_snapshot=Obs 'PASS' $true ('Pre-change policy digests (not a restorable backup): effective='+$effectiveHash+'; local='+$localHash)
-}else{Add-Blocker $blockers 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE' 'CAPABILITY' 'Pre-change policy digests could not be observed; stop before any host mutation.';$cap.rollback_policy_snapshot=Obs 'FAIL' $true 'Policy rollback snapshot unavailable.' 1 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE'}
+    $cap.policy_digest_readback=Obs 'PASS' $true ('GP policy digests (not proof of restoration or CSP coverage): effective='+$effectiveHash+'; local='+$localHash)
+}else{Add-Blocker $blockers 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE' 'CAPABILITY' 'Pre-change policy digests could not be observed; stop before any host mutation.';$cap.policy_digest_readback=Obs 'FAIL' $true 'Group Policy digest readback unavailable.' 1 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE'}
 
+$cap.policy_export_and_restore='NOT_VERIFIED_BY_THIS_PREFLIGHT'
+$cap.policy_channel_coverage='GP_ONLY_CSP_NOT_VERIFIED'
 $statusValue=if($blockers.Count -eq 0){'PASS'}else{'BLOCKED'}
 $receiptFull=Join-Path $Worktree ($ReceiptPath -replace '/', [IO.Path]::DirectorySeparatorChar)
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $receiptFull)|Out-Null
@@ -130,7 +132,7 @@ $receipt=[ordered]@{
     status=$statusValue;capabilities=$cap;blockers=@($blockers);
     worktree=[ordered]@{status=if([string]::IsNullOrWhiteSpace($status)){'PASS'}else{'BLOCKED'};path=$Worktree;competing_writer=if($owners.Count -eq 1){'NONE_OBSERVED'}else{'PRESENT'};stale_receipt_cleanup='NOT_NEEDED'};
     dispatch_state=[ordered]@{executable_dispatch_published=$false;dispatch_consumed=$false};agent_execution_started=$false;
-    notes=@('OWNER_MANUAL_HOST G3 preflight; no Agent route selected.','No AppLocker/service/AppIDSvc/ACL mutation performed by this PreExec.','PASS authorizes CHAT intake only; host mutation requires verified restorable policy backup and bounded permission.')
+    notes=@('OWNER_MANUAL_HOST G3 preflight; no Agent route selected.','No AppLocker/service/AppIDSvc/ACL mutation performed by this PreExec.','PASS is a technical preflight observation only; never proof of current policy restoration or CSP coverage.','Host mutation requires a separately verified restorable policy backup and scoped permission.')
 }
 $json=$receipt|ConvertTo-Json -Depth 12
 $json=($json -replace '\r\n',[string][char]10).TrimEnd()+[char]10

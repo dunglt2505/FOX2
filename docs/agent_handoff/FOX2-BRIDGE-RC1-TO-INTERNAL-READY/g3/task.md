@@ -15,7 +15,7 @@ Current human Agile Lite governance applies to new management decisions; install
 
 ## Required G3 readiness on the selected physical computer
 Read-only capability checks may run without Administrator privileges. Verify Windows edition, PowerShell 7, AppLocker policy-query capability (including Windows PowerShell compatibility), AppIDSvc, currently installed F1 service/protected authority root, and OS policy ownership.
-Before any privileged mutation, verify an elevated Administrator token, exact source/package identity, one-writer/no-active-Agent, no unresolved F1 collision or live claim, and actual ability to export and restore the current effective policy/AppIDSvc/service configuration. Digests alone are NOT restorable backups.
+Before any privileged mutation, verify an elevated Administrator token, exact source/package identity, one-writer/no-active-Agent, no unresolved F1 collision or live claim, and actual ability to export and restore the current effective policy/AppIDSvc/service configuration. Digests alone are NOT restorable backups. Get-AppLockerPolicy can read Group Policy but may omit policies provisioned through CSP; current policy channel must be determined before any enforcement change.
 CHAT must read back fresh target-specific PreExec and authorize only actions within the existing bounded G3 scope. Read-only scan alone is not PASS_TO_EXECUTE.
 
 ## G3 technical evidence — do not cut safety tests
