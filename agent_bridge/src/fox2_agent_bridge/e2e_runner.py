@@ -41,6 +41,7 @@ from .agent_policy import validate_selection, ADAPTER_REGISTRY, ExecutionTuple, 
 from .logging_config import redact_context
 from .dispatch_normalizer import normalize_dispatch
 from .git_delivery_guard import validate_staged_blobs, validate_committed_result, _safe_relative
+from .git_test_gate import run_test_gate, verify_test_evidence
 from .project_dictionary import PROJECT_ID, IDENTIFIERS, PROTECTED_AUTHORITY_DEFAULTS
 
 _BRANCH_PATTERN = re.compile(r"^work/[A-Za-z0-9._/-]+$")
@@ -80,6 +81,7 @@ class E2EResult:
     agent_metadata: dict[str, object] | None = None
     execution_tuple: dict[str, object] | None = None
     delivery_owner: str = "BRIDGE"
+    test_evidence: dict[str, object] | None = None
 
     def as_dict(self) -> dict[str, object]:
         result: dict[str, object] = {
@@ -96,7 +98,8 @@ class E2EResult:
             "remote_commit_sha": self.after_head,
             "delivery_owner": self.delivery_owner,
             "publisher": self.delivery_owner,
-            "test_status": "NOT_ATTESTED_BY_BRIDGE",
+            "test_status": (self.test_evidence or {}).get("status", "NOT_ATTESTED_BY_BRIDGE"),
+            "test_evidence": self.test_evidence,
             "changed_paths": list(self.changed_paths),
             "agent_product": self.agent_product,
             "agent_exit_code": self.agent_exit_code,
@@ -124,6 +127,7 @@ class BridgeE2ERunner:
         transport: GitTransport | None = None,
         progress: Callable[[str], None] | None = None,
         can_claim: Callable[[], bool] | None = None,
+        required_test_verifier: Callable | None = None,
     ) -> None:
         self.config = config
         self.ledger = ledger
@@ -134,6 +138,8 @@ class BridgeE2ERunner:
         )
         self.progress = progress
         self.can_claim = can_claim or (lambda: True)
+        # Supplied only by the trusted host composition, never by Dispatch JSON.
+        self.required_test_verifier = required_test_verifier
 
     def _progress(self, message: str) -> None:
         if self.progress is not None:
@@ -708,6 +714,16 @@ class BridgeE2ERunner:
         self._git(["-C", str(worktree), "add", "-A", "--", *changed])
         self._git(["-C", str(worktree), "diff", "--cached", "--check"])
         validate_staged_blobs(self._git, worktree, changed)
+        test_evidence = None
+        if payload.get('required_tests'):
+            test_evidence = run_test_gate(
+                self._git, worktree, payload['required_tests'],
+                getattr(self, 'required_test_verifier', None))
+            validate_staged_blobs(self._git, worktree, changed)
+            if (self._git(['-C', str(worktree), 'rev-parse', 'HEAD']).stdout.strip() != before_head or
+                    self._git(['-C', str(worktree), 'branch', '--show-current']).stdout.strip() != target_branch):
+                raise WorkspaceBlocked('branch or HEAD changed during required tests')
+        payload['_bridge_test_evidence'] = test_evidence
         dispatch_id = str(payload["dispatch_id"])
         self._git(
             [
@@ -725,12 +741,16 @@ class BridgeE2ERunner:
         after_head = self._git(
             ["-C", str(worktree), "rev-parse", "HEAD"]
         ).stdout.strip()
+        if test_evidence:
+            tree = self._git(['-C', str(worktree), 'rev-parse', f'{after_head}^{{tree}}']).stdout.strip()
+            verify_test_evidence(payload['required_tests'], tree, test_evidence)
         execution_id = payload.get('_execution_id')
         if execution_id:
             row = next(row for row in self.ledger.pending_executions()
                        if row['execution_id'] == execution_id)
             context = json.loads(row['checkpoint_json'])
             context['expected_result_sha'] = after_head
+            context['test_evidence'] = test_evidence
             self.ledger.checkpoint(str(execution_id), 'PUBLISHING', context)
         self._git(
             [
@@ -805,6 +825,9 @@ class BridgeE2ERunner:
             raise WorkspaceBlocked("invalid committed result path encoding") from exc
         self._verify_changed_paths(payload=payload, changed=changed)
         validate_committed_result(self._git, worktree, before, expected, changed)
+        if payload.get('required_tests'):
+            tree = self._git(['-C', str(worktree), 'rev-parse', f'{expected}^{{tree}}']).stdout.strip()
+            verify_test_evidence(payload['required_tests'], tree, context.get('test_evidence'))
         self._verify_acceptance(payload=payload, worktree=worktree,
             agent_stdout=str(context.get("agent_stdout", "")),
             agent_label=str(payload.get("_agent_product", "Agent")))
@@ -870,6 +893,12 @@ class BridgeE2ERunner:
             agent_stdout=agent_stdout,
             agent_label=agent_label,
         )
+        if payload.get('delivery_owner') == 'AGENT' and payload.get('required_tests'):
+            # Agent owns the push, but its stdout cannot satisfy Bridge's
+            # required-test gate or produce a successful result handback.
+            payload['_bridge_test_evidence'] = run_test_gate(
+                self._git, worktree, payload['required_tests'],
+                getattr(self, 'required_test_verifier', None))
         return after_head, changed
 
     def _write_runtime_report_best_effort(
@@ -1048,6 +1077,7 @@ class BridgeE2ERunner:
                 agent_stderr=agent_result.stderr,
                 agent_metadata=getattr(agent_result, 'metadata', None),
                 execution_tuple=execution_tuple.as_dict(),
+                test_evidence=payload.get('_bridge_test_evidence'),
                 delivery_owner=owner,
             )
             self.ledger.finish_execution(

@@ -143,7 +143,7 @@ def test_health_command_runs_without_agent_execution(
     assert report["project_id"] == "FOX2"
     assert report["repository"] == "dunglt2505/FOX2"
     # F0 migrates runtime ledgers to v5; health must report the actual schema.
-    assert report["database"]["schema_version"] == 5
+    assert report["database"]["schema_version"] == 6
     with app.ledger.connect() as connection:
         assert connection.execute(
             "SELECT value FROM bridge_meta WHERE key='claim_authority'"

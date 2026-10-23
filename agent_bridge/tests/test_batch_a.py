@@ -163,7 +163,15 @@ def test_batch_real_git_delivery_has_one_publication_path(tmp_path, monkeypatch,
     transport=SimpleNamespace(query_control_sha=lambda _:'c'*40,fetch_control=lambda *_:None,
         read_dispatch_blob=lambda *_:(raw,'d'*40))
     ledger=SQLiteLedger(config.database_path);ledger.initialize()
-    runner=BridgeE2ERunner(config,ledger,transport=transport)
+    def verify_fixture_tests(root, tree, names):
+        # This integration uses a fake Agent and a trusted fixture verifier.
+        # The verifier checks actual artifact bytes, outside Agent stdout.
+        artifact = root/'reports/FOX2-BRIDGE-E2E-CANARY/result.md'
+        passed = artifact.read_text().strip() == 'fixture result'
+        return {'tree_sha': tree, 'results': {
+            name: 'PASS' if passed else 'FAIL' for name in names}}
+    runner=BridgeE2ERunner(config,ledger,transport=transport,
+                         required_test_verifier=verify_fixture_tests)
     monkeypatch.setattr('fox2_agent_bridge.e2e_runner.DispatchPoller.poll_once',lambda _:SimpleNamespace(status='NO_CHANGE'))
     monkeypatch.setattr(runner,'_resolve_prompt',lambda _:'immutable fixture')
     publisher_calls=[]
