@@ -161,7 +161,26 @@
         "wip_commit_provenance": "REAL_LOCAL_BARE_GIT_REMOTE_IDEMPOTENT_AND_NEGATIVE_TESTS_PASS",
         "wip_state_model": "PREPARED_TO_REMOTE_VERIFIED_WHILE_DISPATCH_REMAINS_NEEDS_RECONCILIATION",
         "wip_ref_permission": "EXTERNAL_IMMUTABLE_GRANT_VERIFIER_REQUIRED_NOT_PROVEN_ON_HOST",
-        "wip_host_publication": "NOT_RUN_NOT_AUTHORIZED"
+        "wip_host_publication": "NOT_RUN_NOT_AUTHORIZED",
+        "native_continuation": {
+          "code_commit": "62477cbd66653cbe98a3e2adfd4d1b21919a2182",
+          "pull_request": 26,
+          "source_base": "b11bf27d673ccc85515b7de54dae74ef6dbf65cc",
+          "agent_bridge_tree": "922db7077737f47d03537f475ffbc70520dec37a",
+          "status": "PUSHED_UNREVIEWED_NATIVE_SOURCE_TESTED__INSTALLED_HOST_E2E_NOT_RUN",
+          "focused_tests": 235,
+          "full_regression_before_final_guard_delta": 774,
+          "final_guard_regression": 85,
+          "test_evidence": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/git_delivery_native_20261023.md",
+          "required_test_gate": "TRUSTED_HOST_VERIFIER_AND_EXACT_TREE_REQUIRED_FAIL_CLOSED_WHEN_UNBOUND",
+          "wip_gate": "IMMUTABLE_GRANT_ROOT_REPORT_SCOPE_QUIESCENCE_EXCLUSIVE_WRITER_REQUIRED_RECHECK_BEFORE_PUSH",
+          "host_e2e": "NOT_RUN",
+          "r5_replay": false,
+          "runtime_install": false,
+          "main_merge": false,
+          "blocker": "INSTALLED_POLICY_CLI_GIT_RIGHTS_TEST_VERIFIER_RECOVERY_REF_AND_PROCESS_WRITER_ATTESTATIONS_NOT_BOUND",
+          "next_safe_action": "READONLY_INSTALLED_HOST_AND_LEDGER_RECONCILIATION_THEN_BIND_SUPERVISOR_AND_RUN_NEW_AUTHORIZED_NON_MAIN_ATTEMPTS"
+        }
       }
     },
     {

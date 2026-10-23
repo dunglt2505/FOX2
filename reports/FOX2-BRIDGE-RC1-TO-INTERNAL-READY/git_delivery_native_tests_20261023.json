@@ -1,0 +1,39 @@
+{
+  "schema": "FOX2_NATIVE_GIT_DELIVERY_VALIDATION_1",
+  "logical_task_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+  "code_commit": "62477cbd66653cbe98a3e2adfd4d1b21919a2182",
+  "agent_bridge_tree": "922db7077737f47d03537f475ffbc70520dec37a",
+  "sessions": [
+    {
+      "session": "focused",
+      "tests": 235,
+      "failures": 0,
+      "errors": 0,
+      "seconds": "214.352",
+      "xml_sha256": "91b38471e46b5ab71938e81b8cc6f1c074cf0ec70be8df7767a9f07ed207e416"
+    },
+    {
+      "session": "full_before_final_guard_delta",
+      "tests": 774,
+      "failures": 0,
+      "errors": 0,
+      "seconds": "531.893",
+      "xml_sha256": "05d2330dc21c463ded1ee1cf6950e035dabdbf2490e759b90eb508e884fd75bd"
+    },
+    {
+      "session": "final_guard",
+      "tests": 85,
+      "failures": 0,
+      "errors": 0,
+      "seconds": "153.945",
+      "xml_sha256": "bf190f714c1458e8210005f51476173f7994b800baa2bf92b8a8f8d186c9ab54"
+    }
+  ],
+  "scope": "NATIVE_WINDOWS_SOURCE_AND_FAKE_AGENT_REAL_LOCAL_BARE_GIT_FIXTURES",
+  "full_suite_scope": "STARTED_PRE_FINAL_GUARD_DELTA_UNAFFECTED_PASS_REUSED_FINAL_DELTA_85_TESTS_REEXECUTED",
+  "installed_host_e2e": "NOT_RUN",
+  "runtime_install": false,
+  "consumed_dispatch_replayed": false,
+  "main_merge": false,
+  "status": "TEST_EVIDENCED_SCOPED_NOT_PRODUCT_ACCEPTED"
+}
