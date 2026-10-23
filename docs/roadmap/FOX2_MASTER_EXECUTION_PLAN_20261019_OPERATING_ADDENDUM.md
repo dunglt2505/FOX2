@@ -80,3 +80,22 @@ The 2026-10-16 Library Master Plan has additional historical content and differs
 **Milestone observed:** Vite dev proxy foreign-Origin mutation previously reproduced as HTTP 200/state change; new Origin/Host guard returns 403 before upstream and preserves state. Actual Windows frontend `typecheck` and `build` PASS; focused 4/4 PASS; isolated-loopback HTTP integration 22/22 PASS with 28 additional negative Host/Origin header cases; test-only SQLite persistence/restart, CAS 409, 422, 404/503 and no invented provider data. These are bounded code/test results, not browser acceptance. Previous failed checks remain historical, not relabeled PASS.
 
 **Remaining product gates:** real browser navigation and reload, Dark/Light responsive 1440/1024/390, STALE/GAP UI presentation, browser network/polling/security behavior are `NOT_RUN` (no browser surface in result). `CHAT_PRODUCT_ACCEPTANCE=PENDING`; canonical M1 acceptance 105/105 `NOT_RUN`. The APP→M1-A release integration→M1-B→M2 critical path and WIP=2 remain unchanged. CHAT should review the scoped result, obtain material browser evidence on an authorized host, then accept or rework within this same Whole-WP. No protected-main merge, provider/broker or LIVE authorization; Bridge RC1 schedule and installed status unchanged.
+
+---
+
+## 2026-10-24 — Skills-based project roadmap
+
+**Authority:** main Registry for human new work: Policy v2.1.0, Routing v1.5.0, Git-first Protocol 13, BRD-00/06/08 v0.5, M1 TechSpec 0.1, Data Contract 0.4, Acceptance v0.4. Immutable Bridge machine pins remain separate. This is a non-main management candidate, not a release or mutation grant.
+
+**WIP=2, SAME Whole-WPs:** Website APP-BATCH-B `DOING`; Bridge RC1 `TEST/DOING`; backend APP-BATCH-A, DSM, store, M1 foundation accepted. Website Origin Guard/security, HTTP and build scoped accepted, browser not run. Bridge R5 certifier bounded code accepted `10326dd116ccbfa90a70db4f4c8ec27487ee4fbf`, but installed F1 lifecycle not attested; Validation 001 `CONSUMED_NO_REPLAY` and restart `FAILED`. PR #26 `e6b898b28a427c0492f466a2beab0f3c278ac40b` is `PUSHED_UNREVIEWED` Git Delivery native source tests (235 focused, 774 full pre-final-guard, 85 final-guard PASS), not installed host E2E.
+
+**Next sequence (no new task IDs):** 
+- APP: one real Windows browser pass on existing workspace/branch for four routes/navigation/reloads, UI Watchlist, Dark/Light 1440/1024/390, truthful null/STALE/GAP, console/network, no upstream calls/polling. Use valid test-only backends, preserve accepted 22/22 HTTP/4/4 focused evidence. Git evidence readback then CHAT final offline Website verdict; failure => bounded SAME-WP rework.
+- Bridge: read-only reconcile selected physical Windows installed source/Policy/ACL/AppLocker/backup, ledger/writer/host rights; separately authorized G3 E1–E10 enforcement + restoration; separately authorized G4 final F1 package adoption; real installed restart/singleton/no-replay and normal/interrupted CODEX/Copilot Git Delivery E2E; Git result/CHAT final acceptance. R5 and Validation 001 never replayed. Reuse A04 only to the scope truly evidenced.
+- CHAT governance/hygiene: avoid applying historical policy versions to new human tasks; resolve PR #27 vs PR #30 overlapping Board content before any authorized integration; Skills v0.5.9 active for this CHAT plugin but draft PR #28 is not main/runtime adoption; PR #31 BRD standard, PR #25 BRD-09 remain candidates; avoid mass reformat. Maintain one persistent VS Code FOX2 workspace; read-only local Git worktree/dirty/process inventory before moving/archive any C:\Projects folder. No destructive cleanup/no third writer.
+- After APP acceptance: authorized M1-A release/main integration; then M1-B provider read-only REST/WS only upon rights/net/entitlement grants; M2 hardening; finally M3/M4 domain engines only with effective BRDs and acceptance.
+
+**Acceptance truth:** v0.4 canonical 105-case CSV historically marks all NOT_RUN; scoped Git-backed APP results do not silently rewrite it. Do not call 105/105 PASS. No main/merge/deploy/provider/broker/LIVE authority from this plan.
+
+**STATUS:** `GOVERNANCE_HUMAN_EFFECTIVE / WEBSITE_DOING_BROWSER_PENDING / BRIDGE_TEST_IN_PROGRESS_G3_G4_NOT_RUN / RELEASE_INTEGRATION_BACKLOG / PROVIDER_BACKLOG / HOST_LIVE_STATE_NOT_VERIFIED / MAIN_NOT_UPDATED`.
+
