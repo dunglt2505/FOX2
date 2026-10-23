@@ -1,0 +1,20 @@
+TAP version 13
+# Subtest: investor API uses same-origin backend endpoints only, with CAS payload
+ok 1 - investor API uses same-origin backend endpoints only, with CAS payload
+# Subtest: API error text never reflects backend secrets, including 409 CAS
+ok 2 - API error text never reflects backend secrets, including 409 CAS
+# Subtest: old Stock360 or refresh snapshots are never visible under a new request key
+ok 3 - old Stock360 or refresh snapshots are never visible under a new request key
+# Subtest: healthy local backend must not masquerade as LIVE market data
+ok 4 - healthy local backend must not masquerade as LIVE market data
+1..4
+# tests 4
+# pass 4
+# fail 0
+# duration_ms 368.232577
+
+Environment: isolated tool sandbox Node v22.16.0 / TypeScript 5.8.3
+Run: NODE_PATH="$(npm root -g)" node --test tests/app_batch_b/*.test.mjs
+All four executed source/test files were proven identical by git hash-object
+to the published GitHub blob SHAs recorded in evidence_manifest.json.
+NOT a full repo checkout, npm install/ci, Vite build, browser or localhost HTTP integration run.

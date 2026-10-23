@@ -13,7 +13,9 @@
 
 ## Evidence / limitations
 - Standalone reconstructed-file Node test harness: **4/4 PASS** in isolated tooling sandbox (Node 22 + TypeScript 5.8.3); this is NOT a current Git checkout/full frontend result.
-- Git branch commit and remote byte readback to be verified separately after publication.
+- Remote Git commit/readback: **VERIFIED** for both CHAT changes `b48651b14e877e53be578a8512141e3f93878938` and `fe506361a9be6ab28e44791c2ba27988144049a8`; branch HEAD and changed path allowlist checked.
+- Exact test-source Git blob parity: `api.ts=20b20989fb3ba60bb46076eff2a608ed74efb568`, `resourceVisibility.ts=4253deb9ce0b49d0f4eef2067ba5fd65e1ba18f5`, `healthTruth.ts=f096b65c9136db2345bb01a2444aec2e9f2639fb`, `api-resource.test.mjs=bab96c326da35324611cd4e756f3b1049e49fcf0`; all four hashes match locally executed sources.
+- Static backend routing review: all eight invoked frontend API methods map to the accepted backend's `/api` endpoints; this is **not** an actual HTTP integration test.
 - Actual `npm install/ci`, `npm run typecheck`, `npm run build`, browser tests at 1440/1024/390, backend localhost API integration and security review remain **NOT_RUN/NOT_VERIFIED** on this committed branch.
 - Do not claim `FOX2_M1_A_RUNNABLE_LOCALHOST_OFFLINE_ACCEPTED` until those material gates pass.
 

@@ -1,0 +1,35 @@
+{
+  "schema": "FOX2_APP_BATCH_B_PARTIAL_EVIDENCE_V1",
+  "task": "FOX2-M1-A-APP-BATCH-B",
+  "stage": "BUILD",
+  "status": "IN_PROGRESS_NOT_ACCEPTED",
+  "branch": "work/FOX2-M1-A-APP-BATCH-B",
+  "verified_source_parent": "fe506361a9be6ab28e44791c2ba27988144049a8",
+  "tests": {
+    "focused_node": {
+      "result": "PASS",
+      "passed": 4,
+      "failed": 0,
+      "environment": "isolated tool sandbox Node 22.16.0 TypeScript 5.8.3",
+      "scope": "exact-blob API, resource, health helpers and regression test file",
+      "transcript": "reports/FOX2-M1-A-APP-BATCH-B/evidence/frontend_focus_tests_20261023.txt"
+    }
+  },
+  "exact_blob_parity": {
+    "frontend/src/api.ts": "20b20989fb3ba60bb46076eff2a608ed74efb568",
+    "frontend/src/resourceVisibility.ts": "4253deb9ce0b49d0f4eef2067ba5fd65e1ba18f5",
+    "frontend/src/healthTruth.ts": "f096b65c9136db2345bb01a2444aec2e9f2639fb",
+    "tests/app_batch_b/api-resource.test.mjs": "bab96c326da35324611cd4e756f3b1049e49fcf0"
+  },
+  "checks": {
+    "remote_branch_and_changed_blob_readback": "PASS",
+    "backend_route_static_mapping": "REVIEWED_NOT_RUNTIME_TESTED",
+    "frontend_typecheck": "NOT_RUN",
+    "frontend_build": "NOT_RUN",
+    "browser_responsive_1440_1024_390": "NOT_RUN",
+    "offline_backend_http_integration": "NOT_RUN",
+    "secret_scan_full_bundle": "NOT_RUN",
+    "final_chat_acceptance": "NOT_ACCEPTED"
+  },
+  "stop": "No main/merge/deploy/provider/broker/LIVE changes; do not infer production readiness."
+}
