@@ -95,16 +95,22 @@ def reconcile(ledger: SQLiteLedger, runner: BridgeE2ERunner | None) -> list[dict
                 if runner is None:
                     raise ValueError('remote verifier unavailable')
                 payload = context['payload']
-                if (row['stage'] == 'PUBLISHING'
-                        and context.get('expected_result_sha')
-                        and payload.get('delivery_owner') == 'BRIDGE'):
+                owner = payload.get('delivery_owner')
+                if owner == 'BRIDGE':
+                    # A BRIDGE-owned Agent must NEVER be able to impersonate
+                    # publication with its own Git commit/push. The durable
+                    # exact SHA can only come from Bridge's PUBLISHING intent.
+                    if row['stage'] != 'PUBLISHING' or not context.get('expected_result_sha'):
+                        raise ValueError('Bridge publication has no durable commit identity')
                     head, paths = runner._reconcile_publishing(context)
-                else:
+                elif owner == 'AGENT':
                     head, paths = runner._verify_result(
                         payload=payload, worktree=Path(str(payload['worktree'])),
                         before_head=str(context['before_head']),
                         agent_stdout=str(context['agent_stdout']),
                         agent_label=str(payload['_agent_product']))
+                else:
+                    raise ValueError('unknown immutable delivery owner')
                 if context.get('expected_result_sha') and head != context['expected_result_sha']:
                     raise ValueError('remote result does not match durable publish identity')
                 result = {'after_head': head, 'changed_paths': list(paths),

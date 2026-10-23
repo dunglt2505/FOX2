@@ -78,6 +78,7 @@ class E2EResult:
     agent_stderr: str
     agent_metadata: dict[str, object] | None = None
     execution_tuple: dict[str, object] | None = None
+    delivery_owner: str = "BRIDGE"
 
     def as_dict(self) -> dict[str, object]:
         result: dict[str, object] = {
@@ -91,6 +92,10 @@ class E2EResult:
             "branch": self.branch,
             "before_head": self.before_head,
             "after_head": self.after_head,
+            "remote_commit_sha": self.after_head,
+            "delivery_owner": self.delivery_owner,
+            "publisher": self.delivery_owner,
+            "test_status": "NOT_ATTESTED_BY_BRIDGE",
             "changed_paths": list(self.changed_paths),
             "agent_product": self.agent_product,
             "agent_exit_code": self.agent_exit_code,
@@ -995,6 +1000,7 @@ class BridgeE2ERunner:
                 agent_stderr=agent_result.stderr,
                 agent_metadata=getattr(agent_result, 'metadata', None),
                 execution_tuple=execution_tuple.as_dict(),
+                delivery_owner=owner,
             )
             self.ledger.finish_execution(
                 dispatch_id=dispatch_id,

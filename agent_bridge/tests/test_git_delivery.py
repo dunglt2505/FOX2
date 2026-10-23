@@ -182,3 +182,56 @@ def test_reconcile_persisted_bridge_publish_intent_without_agent_replay(tmp_path
     assert not ledger.claim_dispatch(
         dispatch_id=dispatch, payload_hash="c" * 64,
         execution_id="replay", observed_at_utc=utc_now())
+
+
+def test_bridge_intent_must_have_checkpoint_sha_before_recovery(tmp_path):
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    dispatch = "FOX2-DISPATCH-NO-DURABLE-SHA"
+    ledger.claim_dispatch(dispatch_id=dispatch, payload_hash="d" * 64,
+                          execution_id="one", observed_at_utc=utc_now())
+    payload = {"delivery_owner": "BRIDGE", "branch": "work/FOX2-test-delivery",
+               "worktree": str(tmp_path), "_agent_product": "COPILOT",
+               "agent": {"product": "COPILOT"}}
+    checkpoint = {"payload": payload, "before_head": "a" * 40,
+                  "agent_exit_code": 0, "agent_stdout": "fixture"}
+    ledger.checkpoint("one", "PUBLISHING", checkpoint)
+    runner = SimpleNamespace(
+        _reconcile_publishing=lambda ctx: pytest.fail("no SHA; cannot resume"),
+        _verify_result=lambda **kw: pytest.fail("Agent push forbidden for BRIDGE"))
+    status = reconcile(ledger, runner)
+    assert status[0]["outcome"] == "NEEDS_RECONCILIATION"
+    assert ledger.dispatch_status(dispatch)["dispatch_state"] == "NEEDS_RECONCILIATION"
+
+
+def test_agent_owner_still_verifies_external_push_without_bridge_publish(tmp_path):
+    ledger = SQLiteLedger(tmp_path / "bridge.db")
+    ledger.initialize()
+    dispatch = "FOX2-DISPATCH-AGENT-OWNED-001"
+    ledger.claim_dispatch(dispatch_id=dispatch, payload_hash="d" * 64,
+                          execution_id="one", observed_at_utc=utc_now())
+    payload = {"delivery_owner": "AGENT", "branch": "work/FOX2-test-delivery",
+               "worktree": str(tmp_path), "_agent_product": "CODEX",
+               "agent": {"product": "CODEX"}}
+    ledger.checkpoint("one", "AGENT_EXITED", {
+        "payload": payload, "before_head": "a" * 40,
+        "agent_exit_code": 0, "agent_stdout": "fixture"})
+    verified = []
+    def verifier(**args):
+        verified.append(args)
+        return "b" * 40, ("reports/FOX2-result/report.md",)
+    runner = SimpleNamespace(_verify_result=verifier,
+        _reconcile_publishing=lambda ctx: pytest.fail("no Bridge double-push"))
+    outcomes = reconcile(ledger, runner)
+    assert outcomes[0]["outcome"] == "PUSHED_UNREVIEWED"
+    assert len(verified) == 1
+    assert ledger.dispatch_status(dispatch)["dispatch_state"] == "PUSHED_UNREVIEWED"
+
+
+@pytest.mark.parametrize("path", [
+    "../escape.txt", "a/../b.txt", ".git/config", "C:result.txt",
+    "/abs/result.txt", "a\\b.txt", "a//b.txt",
+])
+def test_bridge_denies_traversal_protected_and_ads_paths(workspace, path):
+    with pytest.raises(WorkspaceBlocked, match="unsafe staged Git path"):
+        validate_staged_blobs(git, workspace, (path,))
