@@ -1,4 +1,4 @@
-# FOX2 G3 isolated-host PreExec. Read-only host checks plus durable Git receipt.
+# FOX2 G3 physical Windows host PreExec. Read-only host checks plus Git receipt.
 [CmdletBinding()]
 param(
     [Parameter(Mandatory=$true)][string]$Worktree,
@@ -64,7 +64,7 @@ else{Add-Blocker $blockers 'G3_COMPETING_WORKTREE' 'SERIALIZATION' 'G3 branch ha
 $principal=[Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
 $isAdmin=$principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 if($isAdmin){$cap.elevated_admin=Obs 'PASS' $true 'Elevated Administrator token observed.'}
-else{Add-Blocker $blockers 'G3_ADMIN_REQUIRED' 'PERMISSION' 'Elevated Administrator token required on isolated G3 target.';$cap.elevated_admin=Obs 'FAIL' $true 'Current token is not elevated Administrator.' 1 'G3_ADMIN_REQUIRED'}
+else{Add-Blocker $blockers 'G3_ADMIN_REQUIRED' 'PERMISSION' 'Elevated Administrator token required for privileged G3 on selected physical Windows host.';$cap.elevated_admin=Obs 'FAIL' $true 'Current token is not elevated Administrator.' 1 'G3_ADMIN_REQUIRED'}
 
 $cap.pwsh=Obs 'PASS' $true ('PowerShell '+$PSVersionTable.PSVersion.ToString())
 $gitVersion=(Invoke-Git @('--version')).Text
@@ -78,14 +78,18 @@ $osOk=($buildNumber -ge 22000) -and ($caption -match 'Pro|Enterprise|Education')
 if($osOk){$cap.windows_applocker_edition=Obs 'PASS' $true ('Supported Windows edition/build observed: '+$caption+' / '+$os.BuildNumber)}
 else{Add-Blocker $blockers 'G3_WINDOWS_EDITION_UNSUPPORTED' 'CAPABILITY' 'Windows 11-class build with Pro/Enterprise/Education edition required.';$cap.windows_applocker_edition=Obs 'FAIL' $true 'Unsupported Windows edition for this G3 contract.' 1 'G3_WINDOWS_EDITION_UNSUPPORTED'}
 
-$vmText=[string]($cs.Manufacturer+' '+$cs.Model)
-$isVirtual=$vmText -match '(?i)(virtual|vmware|virtualbox|kvm|qemu|parallels|hyper-v)'
-if($isVirtual -and -not $cs.PartOfDomain){$cap.isolated_virtual_target=Obs 'PASS' $true ('Virtual non-domain target observed: '+$cs.Manufacturer+' / '+$cs.Model)}
-else{Add-Blocker $blockers 'G3_ISOLATED_TARGET_UNPROVEN' 'PERMISSION' 'G3 requires a virtual isolated non-domain test target.';$cap.isolated_virtual_target=Obs 'FAIL' $true 'Isolated virtual target not proven.' 1 'G3_ISOLATED_TARGET_UNPROVEN'}
+$cap.selected_host=Obs 'PASS' $true 'Owner selected this physical Windows host for G3; actual capabilities checked below.'
+if([bool]$cs.PartOfDomain){
+    Add-Blocker $blockers 'G3_DOMAIN_POLICY_AUTHORITY_UNKNOWN' 'CAPABILITY' 'Domain-managed Windows policy authority and restoration capability are not verified.'
+    $cap.domain_policy_boundary=Obs 'FAIL' $true 'Domain management requires policy-authority reconciliation.' 1 'G3_DOMAIN_POLICY_AUTHORITY_UNKNOWN'
+}else{
+    $cap.domain_policy_boundary=Obs 'PASS' $true 'Host is not domain-joined.'
+}
 
 $effectiveXml=$null;$localXml=$null
 try{
-    Import-Module AppLocker -ErrorAction Stop
+    try { Import-Module AppLocker -ErrorAction Stop }
+    catch { Import-Module AppLocker -UseWindowsPowerShell -ErrorAction Stop }
     $effectiveXml=Get-AppLockerPolicy -Effective -Xml -ErrorAction Stop
     $localXml=Get-AppLockerPolicy -Local -Xml -ErrorAction Stop
     $cap.applocker_module=Obs 'PASS' $true 'AppLocker cmdlets are operational in this PowerShell host.'
@@ -113,8 +117,8 @@ else{Add-Blocker $blockers 'G3_EXISTING_AUTHORITY_ROOT' 'OTHER' 'Existing protec
 if($null -ne $effectiveXml -and $null -ne $localXml){
     $effectiveHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes([string]$effectiveXml))).ToLowerInvariant()
     $localHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes([string]$localXml))).ToLowerInvariant()
-    $cap.rollback_policy_snapshot=Obs 'PASS' $true ('Pre-change AppLocker query hashes captured: effective='+$effectiveHash+'; local='+$localHash)
-}else{Add-Blocker $blockers 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE' 'CAPABILITY' 'Pre-change policy snapshot cannot be established.';$cap.rollback_policy_snapshot=Obs 'FAIL' $true 'Policy rollback snapshot unavailable.' 1 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE'}
+    $cap.rollback_policy_snapshot=Obs 'PASS' $true ('Pre-change policy digests (not a restorable backup): effective='+$effectiveHash+'; local='+$localHash)
+}else{Add-Blocker $blockers 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE' 'CAPABILITY' 'Pre-change policy digests could not be observed; stop before any host mutation.';$cap.rollback_policy_snapshot=Obs 'FAIL' $true 'Policy rollback snapshot unavailable.' 1 'G3_POLICY_ROLLBACK_SNAPSHOT_UNAVAILABLE'}
 
 $statusValue=if($blockers.Count -eq 0){'PASS'}else{'BLOCKED'}
 $receiptFull=Join-Path $Worktree ($ReceiptPath -replace '/', [IO.Path]::DirectorySeparatorChar)
@@ -126,7 +130,7 @@ $receipt=[ordered]@{
     status=$statusValue;capabilities=$cap;blockers=@($blockers);
     worktree=[ordered]@{status=if([string]::IsNullOrWhiteSpace($status)){'PASS'}else{'BLOCKED'};path=$Worktree;competing_writer=if($owners.Count -eq 1){'NONE_OBSERVED'}else{'PRESENT'};stale_receipt_cleanup='NOT_NEEDED'};
     dispatch_state=[ordered]@{executable_dispatch_published=$false;dispatch_consumed=$false};agent_execution_started=$false;
-    notes=@('OWNER_MANUAL_HOST G3 preflight; no Agent route selected.','No AppLocker/service/AppIDSvc/ACL mutation performed by this PreExec.','PASS authorizes CHAT intake only; host mutation waits for PASS_TO_EXECUTE.')
+    notes=@('OWNER_MANUAL_HOST G3 preflight; no Agent route selected.','No AppLocker/service/AppIDSvc/ACL mutation performed by this PreExec.','PASS authorizes CHAT intake only; host mutation requires verified restorable policy backup and bounded permission.')
 }
 $json=$receipt|ConvertTo-Json -Depth 12
 $json=($json -replace '\r\n',[string][char]10).TrimEnd()+[char]10
@@ -154,7 +158,7 @@ if($LASTEXITCODE -ne 0){throw 'G3 receipt diff check failed.'}
 $staged=(Invoke-Git @('diff','--cached','--name-only')).Text
 if($staged.Trim() -ne $ReceiptPath){throw "STOP: staged path outside receipt: $staged"}
 
-& git -C $Worktree -c 'user.name=FOX2 G3 Host PreExec' -c 'user.email=fox2-g3-preexec@local.invalid' commit -m 'preexec(fox2): record G3 isolated-host readiness'
+& git -C $Worktree -c 'user.name=FOX2 G3 Host PreExec' -c 'user.email=fox2-g3-preexec@local.invalid' commit -m 'preexec(fox2): record G3 physical-host readiness'
 if($LASTEXITCODE -ne 0){throw 'G3 receipt commit failed.'}
 $receiptCommit=(Invoke-Git @('rev-parse','HEAD')).Text
 $receiptBase64=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($json))

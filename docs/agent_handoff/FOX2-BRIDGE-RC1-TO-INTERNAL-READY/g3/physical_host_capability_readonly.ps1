@@ -10,8 +10,6 @@ $Identity = [Security.Principal.WindowsIdentity]::GetCurrent()
 $Principal = [Security.Principal.WindowsPrincipal]::new($Identity)
 $Elevated = $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
-$Hardware = ([string]$Computer.Manufacturer + ' ' + [string]$Computer.Model)
-$LooksVirtual = [bool]($Hardware -match '(?i)(virtual machine|vmware|virtualbox|kvm|qemu|parallels|hyper-v|hypervisor|xen)')
 $OsCandidate = [bool](([int]$Os.BuildNumber -ge 22000) -and
     ([string]$Os.Caption -match '(?i)Windows 11') -and
     ([string]$Os.Caption -match '(?i)Pro|Enterprise|Education'))
@@ -70,7 +68,6 @@ try {
     }
 }
 $Gaps = @()
-if ($LooksVirtual) { $Gaps += 'PHYSICAL_HARDWARE_NOT_CONFIRMED' }
 if (-not $OsCandidate) { $Gaps += 'WINDOWS_11_EDITION_NOT_CONFIRMED' }
 if (-not $Elevated) { $Gaps += 'ADMIN_TOKEN_NOT_PRESENT_FOR_FUTURE_G3' }
 if ($Module -ne 'AVAILABLE_NATIVE_PS51') { $Gaps += 'APPLOCKER_MODULE_NOT_AVAILABLE' }
@@ -80,14 +77,13 @@ if ($null -ne $F1) { $Gaps += 'EXISTING_F1_SERVICE_REQUIRES_RECONCILIATION' }
 if (Test-Path -LiteralPath $AuthorityRoot) { $Gaps += 'EXISTING_F1_AUTHORITY_ROOT_REQUIRES_RECONCILIATION' }
 
 [ordered]@{
-    schema = 'FOX2_G3_PHYSICAL_HOST_READONLY_V1'
+    schema = 'FOX2_G3_PHYSICAL_HOST_READONLY_V2'
     owner_target = 'PHYSICAL_WINDOWS'
     read_only = $true
     observed_utc = [DateTime]::UtcNow.ToString('o')
-    physical_hardware_candidate = (-not $LooksVirtual)
-    physical_host_execution_authorized = $false
-    daily_use_host_protection = 'NOT_ATTESTED'
-    recovery_and_rollback_proven = $false
+    host_target = 'OWNER_SELECTED_PHYSICAL_WINDOWS'
+    privileged_host_mutation_authorized_by_probe = $false
+    existing_host_policy_restore_verified = $false
     admin_token_elevated = [bool]$Elevated
     domain_joined = [bool]$Computer.PartOfDomain
     windows_11_edition_candidate = $OsCandidate
@@ -101,7 +97,6 @@ if (Test-Path -LiteralPath $AuthorityRoot) { $Gaps += 'EXISTING_F1_AUTHORITY_ROO
     existing_f1_service = ($null -ne $F1)
     existing_f1_authority_root = (Test-Path -LiteralPath $AuthorityRoot)
     capability_gaps = @($Gaps)
-    old_vm_bound_preexec_usable_for_physical = $false
     g3_host_preexec = 'NOT_RUN'
     g3_privileged_operations = 'NOT_AUTHORIZED_BY_THIS_PROBE'
     g4_owner_host_adoption = 'NOT_RUN'
