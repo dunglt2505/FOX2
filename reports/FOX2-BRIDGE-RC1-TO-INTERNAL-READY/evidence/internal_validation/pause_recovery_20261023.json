@@ -1,0 +1,43 @@
+{
+  "schema": "FOX2_PAUSE_RECOVERY_V1",
+  "observed_utc": "2026-10-23T02:03:26Z",
+  "observation_time_scope": "recorded_after_successful_command",
+  "actor": "CHAT_DIRECT_OWNER_AUTHORIZED",
+  "action": "PAUSE_RESTORED",
+  "safe": true,
+  "failed": [],
+  "source_modules_verified": 40,
+  "config_manual_bytes_unchanged": true,
+  "internal_claim": "ABSENT",
+  "internal_output": "ABSENT",
+  "validator_run": false,
+  "worker_f1_legacy_count": 0,
+  "bridge_writer_count": 0,
+  "wpf_count": 0,
+  "sandbox_service_exclusion": "EXACT_NAME_AND_SERVICE_PID",
+  "lifecycle": "NOT_RUN",
+  "no_replay": true,
+  "package_sha256": "f99c7add1b99bad938d977f634fd8a88e20763f5e35aaadf5cfe3072a1a327ee",
+  "post_state": {
+    "state": "STOPPED",
+    "paused": true,
+    "setup_complete": true,
+    "current_dispatch": null
+  },
+  "owner_consent": "User instructed to continue after explicit proposal to restore pause through standard A04 control, verify, and stop before validator.",
+  "execution": {
+    "powershell_parser_errors": 0,
+    "process_exit": 0,
+    "standard_command": "installed A04 python -I -B -m fox2_agent_bridge control pause",
+    "privilege": "NON_ELEVATED_VERIFIED",
+    "installed_code_modified": false,
+    "claim_created": false,
+    "uninstall_reinstall": false
+  },
+  "limitations": [
+    "Standard A04 control initializes the ledger before setting pause; this is an authorized mutation, not a read-only probe.",
+    "Configuration and manual consumption bytes verified unchanged; no assertion that every other SQLite row was unchanged.",
+    "Safe is a point-in-time observation, not a future execution admission.",
+    "Historical unsafe-control failure field values and cause of paused=false remain unrecorded."
+  ]
+}

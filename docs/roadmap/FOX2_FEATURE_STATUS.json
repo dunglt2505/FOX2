@@ -8,7 +8,7 @@
       "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
       "target": "INTERNAL_FOX2_BRIDGE_READY",
       "stage": "TEST",
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "evidence": "CHAT_ACCEPTED",
       "evidence_scope": "FROZEN_TECHNICAL_AND_C3_ONLY_NOT_CURRENT_CANARY_OR_RELEASE",
       "source_sha": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
@@ -27,9 +27,9 @@
         }
       ],
       "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
-      "blocker": "CURRENT_CONTROL_PAUSED_FALSE; INTERNAL_VALIDATION_NOT_CONSUMED_OBSERVED; NO_AUTOMATIC_RERUN",
+      "blocker": "UNSAFE_CONTROL_PAUSE_BLOCKER_RESOLVED; INTEGRATED_VALIDATION_RESULT_NOT_RUN",
       "as_of": "2026-10-23",
-      "next_safe_action": "READONLY_RECONCILIATION_OF_PAUSE_AND_WRITERS; RESTORATION_REQUIRES_SEPARATELY_SCOPED_DECISION_BEFORE_PRECONSUME",
+      "next_safe_action": "REVIEW_PATCHED_IMMUTABLE_VALIDATOR_AND_FRESH_PRECONSUME_FOR_HOST_VALIDATION; RESPECT_PRIOR_STOP_BEFORE_VALIDATOR_SCOPE",
       "c3": "PASS_ACCEPTED_SCOPED",
       "canary009": "HOLD",
       "internal_ready": "NOT_ATTESTED",
@@ -37,19 +37,22 @@
         "runner_base": "f551e3790aa93b2a43b710e4756630d95f2472b3",
         "observed_utc": "2026-10-23T01:28:07Z",
         "state": "STOPPED",
-        "paused": false,
+        "paused": true,
         "setup_complete": true,
         "current_dispatch": null,
-        "failed_fields": [
-          "paused"
-        ],
-        "internal_claim": "ABSENT_AT_INSPECTION",
-        "internal_output": "ABSENT_AT_INSPECTION",
+        "failed_fields": [],
+        "internal_claim": "ABSENT_AFTER_RECOVERY",
+        "internal_output": "ABSENT_AFTER_RECOVERY",
         "historical_failure_fields": "NOT_RECORDED_IN_COMBINED_STOP",
         "r5_no_replay": true,
-        "validator_rerun": "NOT_AUTHORIZED_BY_DIAGNOSIS",
+        "validator_rerun": "NOT_EXECUTED; PRIOR_AUTHORIZED_RECOVERY_STOPS_BEFORE_VALIDATOR",
         "report": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/chat_reviews/UNSAFE_CONTROL_RECONCILIATION_20261023.md",
-        "installed_mutation": false
+        "installed_mutation": false,
+        "latest_observed_utc": "2026-10-23T02:03:26Z",
+        "recovery_status": "DONE_CHAT_ACCEPTED_SCOPED",
+        "safe": true,
+        "validator_run": false,
+        "recovery_evidence": "reports/FOX2-BRIDGE-RC1-TO-INTERNAL-READY/evidence/internal_validation/pause_recovery_20261023.json"
       }
     },
     {
