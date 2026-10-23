@@ -312,3 +312,65 @@ def test_committed_recovery_rejects_gitlink_and_symlink_modes_without_host_permi
         raise AssertionError("non-regular committed file must never be read")
     with pytest.raises(WorkspaceBlocked, match="non-regular committed"):
         validate_committed_result(fake_git, workspace, "a" * 40, "b" * 40, ("result.txt",))
+
+
+@pytest.mark.parametrize("agent_product", ["CODEX", "COPILOT"])
+def test_bridge_publisher_real_local_bare_git_remote_no_agent_push(tmp_path, agent_product):
+    """Git subprocess commits/pushes exact bounded work; remote SHA readback."""
+    from fox2_agent_bridge.e2e_runner import BridgeE2ERunner
+    bare = tmp_path / "remote.git"
+    worktree = tmp_path / "worktree"
+    git(["init", "--bare", str(bare)])
+    git(["init", str(worktree)])
+    git(["-C", str(worktree), "config", "user.name", "Fixture"])
+    git(["-C", str(worktree), "config", "user.email", "fixture@local.invalid"])
+    git(["-C", str(worktree), "checkout", "-b", "work/FOX2-git-publisher"])
+    report = worktree / "reports" / "result.md"
+    report.parent.mkdir()
+    report.write_text("baseline\n", encoding="utf-8")
+    git(["-C", str(worktree), "add", "--", "reports/result.md"])
+    git(["-C", str(worktree), "commit", "-m", "before"])
+    git(["-C", str(worktree), "remote", "add", "origin", str(bare)])
+    git(["-C", str(worktree), "push", "-u", "origin", "work/FOX2-git-publisher"])
+    before = git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip()
+    report.write_text(f"safe {agent_product} result\n", encoding="utf-8")
+
+    runner = object.__new__(BridgeE2ERunner)
+    runner.config = SimpleNamespace(tool_paths={"git": "git"}, local_repo=worktree)
+    runner.ledger = SQLiteLedger(tmp_path / "ledger.db")
+    runner.ledger.initialize()
+    payload = {
+        "delivery_owner": "BRIDGE", "branch": "work/FOX2-git-publisher",
+        "dispatch_id": "FOX2-DISPATCH-GIT-PUBLISHER-001",
+        "allowed_code_paths": [], "allowed_report_paths": ["reports/**"],
+    }
+    head, paths = runner._commit_and_push_codex_result(
+        payload=payload, worktree=worktree, before_head=before,
+        agent_stdout="test evidence in file")
+    assert paths == ("reports/result.md",)
+    assert head != before
+    assert head == git(["-C", str(worktree), "rev-parse", "HEAD"]).stdout.strip()
+    assert head == git(["--git-dir", str(bare), "rev-parse",
+                        "refs/heads/work/FOX2-git-publisher"]).stdout.strip()
+    assert not git(["-C", str(worktree), "status", "--porcelain"]).stdout.strip()
+    # An already-finished attempt never manufactures another result commit.
+    with pytest.raises(WorkspaceBlocked, match="Git history"):
+        runner._commit_and_push_codex_result(payload=payload, worktree=worktree,
+            before_head=before, agent_stdout="duplicate")
+    assert head == git(["--git-dir", str(bare), "rev-parse",
+                        "refs/heads/work/FOX2-git-publisher"]).stdout.strip()
+    # AGENT owns its own publication: invoking the Bridge publisher is forbidden.
+    payload["delivery_owner"] = "AGENT"
+    with pytest.raises(WorkspaceBlocked, match="Agent-owned"):
+        runner._commit_and_push_codex_result(payload=payload, worktree=worktree,
+            before_head=head, agent_stdout="not authorized")
+
+
+def test_bridge_publisher_refuses_main_even_with_allowlisted_result(tmp_path):
+    runner = object.__new__(BridgeE2ERunner)
+    payload = {"delivery_owner": "BRIDGE", "branch": "main",
+               "dispatch_id": "FOX2-DISPATCH-INVALID",
+               "allowed_code_paths": [], "allowed_report_paths": ["reports/**"]}
+    with pytest.raises(WorkspaceBlocked, match="protected or invalid"):
+        runner._commit_and_push_codex_result(payload=payload, worktree=tmp_path,
+            before_head="a" * 40, agent_stdout="not authorized")

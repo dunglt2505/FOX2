@@ -663,6 +663,12 @@ class BridgeE2ERunner:
     ) -> tuple[str, tuple[str, ...]]:
         if payload.get('delivery_owner', 'BRIDGE') != 'BRIDGE':
             raise WorkspaceBlocked('Bridge publication forbidden for Agent-owned delivery')
+        target_branch = payload.get('branch')
+        if (not isinstance(target_branch, str)
+                or not _BRANCH_PATTERN.fullmatch(target_branch)
+                or target_branch in {'work/main', 'work/master'}
+                or '..' in target_branch):
+            raise WorkspaceBlocked('protected or invalid Bridge result branch')
         current_branch = self._git(['-C', str(worktree), 'branch', '--show-current']).stdout.strip()
         if current_branch != payload['branch']:
             raise WorkspaceBlocked('publication worktree no longer matches exact task branch')
