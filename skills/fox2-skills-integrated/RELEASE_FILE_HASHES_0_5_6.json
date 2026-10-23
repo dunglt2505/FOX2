@@ -1,0 +1,50 @@
+{
+  "version": "0.5.6",
+  "inventory": "CHANGED_OVERLAY_FILES_ONLY",
+  "files": {
+    "skills/fox2-mgmt-delivery/SKILL.md": {
+      "bytes": 6330,
+      "sha256": "ae1e803932882b6fb13306f122749cf793e593cae6fe12d65ba2cdc033f3ec7b"
+    },
+    "skills/fox2-method-result-acceptance/SKILL.md": {
+      "bytes": 3290,
+      "sha256": "3f7cd4ba50b278e00a5e294ded246e791e8a36a219a2ad0b2fee4f7becba3c0c"
+    },
+    "skills/fox2-tech-publication-sync/SKILL.md": {
+      "bytes": 3492,
+      "sha256": "bed2d6c58bdaa21538fe7d9da8f39a08be507b02e6d137832d5461d7ef7b1513"
+    },
+    "README.md": {
+      "bytes": 1398,
+      "sha256": "2ae66ba75cc317134a2aa385eaa89f44b0aeed693f00e8cdd3642f92fae39f7a"
+    },
+    "manifest.json": {
+      "bytes": 3014,
+      "sha256": "caf37c3969a2cb01a219a2e5f60372cf13dcd1a118d32f29d9b786b5a17f0a59"
+    },
+    "plugin.json": {
+      "bytes": 447,
+      "sha256": "8cef5c665f89827065d2155e1bc372a19f9c0ddc076bb9c298bcad341a72bd5c"
+    },
+    ".codex-plugin/plugin.json": {
+      "bytes": 602,
+      "sha256": "a16732eb13407149f334daab603ffde9e66ae89d813cbc9fa30b1cf32bcb14e9"
+    },
+    "RELEASE_README_v0_5_6.md": {
+      "bytes": 835,
+      "sha256": "e18a69b94ffbdd770ab1ee6385124c388a36c30371a0b7b86a4b23c448ffd224"
+    },
+    "tests/test_three_layers.py": {
+      "bytes": 1739,
+      "sha256": "7bdd2f6f4b5665c067470a3ca8a7170478d764bd0f9715903900b6668b87011e"
+    },
+    "tests/test_source_integrity.py": {
+      "bytes": 857,
+      "sha256": "4678dbf23fd51f529e55a3b807dc44fd703daf56e7be7e8c99a207b64cc8f063"
+    },
+    "tests/test_progress_autosync_v056.py": {
+      "bytes": 957,
+      "sha256": "7fe46f1f5856bb2a172acdd9a33e627f2b54f9fd448b6b5190bb78273b25cec5"
+    }
+  }
+}

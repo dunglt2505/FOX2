@@ -1,7 +1,7 @@
 {
   "format": "FOX2_SKILLS_CLOUD_PLUGIN_MANIFEST_1",
   "name": "fox2-skills-integrated",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "status": "PLUGIN_RELEASE_METADATA_NOT_GOVERNANCE_EFFECTIVE",
   "plugin_scope": "PRIVATE_PERSONAL_PLUGIN",
   "skills": [
@@ -25,8 +25,8 @@
   "task_protocol": "FOX2 Git-first Task/Result Protocol v13",
   "source_repo": "dunglt2505/FOX2",
   "source_commit": "87c301d78dfb23fa2475ad740296a2b6b3da0009",
-  "current_file_hashes": "RELEASE_FILE_HASHES_0_5_5.json",
-  "previous_file_hashes": "RELEASE_FILE_HASHES_0_5_4.json",
+  "current_file_hashes": "RELEASE_FILE_HASHES_0_5_6.json",
+  "previous_file_hashes": "RELEASE_FILE_HASHES_0_5_5.json",
   "historical_candidate_manifest": "historical/CHAT_FIRST_0_2_0_CANDIDATE_MANIFEST_REFERENCE_ONLY.json",
   "host_behavioral_certification": "NOT_RUN",
   "machine_effective_status": "NOT_ATTESTED_UNTIL_RELEASE_CHAIN",
@@ -49,9 +49,9 @@
     "work_default": "INDEPENDENT_AUDIT_ONLY",
     "no_extra_approval_layer": true
   },
-  "current_release_notes": "RELEASE_README_v0_5_5.md",
+  "current_release_notes": "RELEASE_README_v0_5_6.md",
   "bridge_handoff_guidance": "INSTALLED_BRIDGE_MACHINE_CONTRACT_ONLY",
-  "source_sync": "GIT_RESULT_DELIVERY_SKILL_GUIDANCE_MAINTAINED_SEPARATELY_FROM_BRIDGE_RUNTIME",
+  "source_sync": "GIT_NONMAIN_PR_PENDING_MAIN_PUBLICATION",
   "skills_architecture": "3_LAYER_AGILE_LITE",
   "migration_map": "SKILL_MIGRATION_v0_5_0.md",
   "source_commit_role": "V0_5_3_PUBLISHED_BASE_UNTIL_V0_5_4_SOURCE_READBACK",
@@ -59,5 +59,6 @@
   "bridge_reference_scope": "INSTALLED_MACHINE_CONTRACT_TAKES_PRECEDENCE",
   "delivery_promotion_contract": "READY_FOR_BOARD_FIVE_CHECKS_AND_FOUR_DECISIONS",
   "hotfix_of": "0.5.4_METADATA_AND_PRESENTATION_REGRESSION",
-  "result_delivery_contract": "AGENT_OR_BRIDGE_GIT_PUSH_REMOTE_SHA_VERIFIED_BEFORE_CHAT_DONE"
+  "result_delivery_contract": "AGENT_OR_BRIDGE_GIT_PUSH_REMOTE_SHA_VERIFIED_BEFORE_CHAT_DONE",
+  "progress_sync_contract": "EVENT_DRIVEN_WATCH_CHAT_EVIDENCE_WITH_AUTHORIZED_GIT_REMOTE_READBACK"
 }
