@@ -1,0 +1,107 @@
+{
+  "schema": "FOX2_FEATURE_STATUS_OPERATIONAL_V1",
+  "project": "FOX2",
+  "authority": "OPERATIONAL_RECORD_ONLY_NOT_GOVERNANCE_AUTHORITY",
+  "features": [
+    {
+      "feature_id": "FOX2-BRIDGE-RC1",
+      "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+      "target": "INTERNAL_FOX2_BRIDGE_READY",
+      "stage": "TEST",
+      "status": "BLOCKED",
+      "evidence": "CHAT_ACCEPTED",
+      "evidence_scope": "FROZEN_TECHNICAL_AND_C3_ONLY_NOT_CURRENT_CANARY_OR_RELEASE",
+      "source_sha": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+      "evidence_refs": [
+        {
+          "commit": "f3d6468fedb553ba6c6192ba5811cb1b26a11ab9",
+          "path": "reports/BRIDGE-DESKTOP-BATCH-B/evidence/rc1_final_closure_004/acceptance_gates.json"
+        },
+        {
+          "commit": "435154487e8e9bf6eab54a12f1f329e63787aa84",
+          "path": "reports/BRIDGE-RC1-PRECANARY-AUDIT-20261018/CHAT_INDEPENDENT_AUDIT_INTAKE_20261019.json"
+        },
+        {
+          "commit": "1ce109b9a4c538b255c6d8ffc6be8b4dccecf65d",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/preexec/preflight_receipt.json"
+        }
+      ],
+      "exit_gate": "FRESH_MATERIAL_LAUNCH_GATES_AND_SEVEN_FINAL_ACCEPTANCE_GATES",
+      "blocker": "BRIDGE_BOOTSTRAP_CONTROLS_BLOCKED; ADMISSION_COMPATIBILITY_ADOPTION_UNATTESTED; FINAL_CANARY_GATES_NOT_RUN",
+      "as_of": "2026-10-19T23:23:08.562605+07:00",
+      "next_safe_action": "READ_ONLY_Q0_Q1_AND_SUPPORTED_BOOTSTRAP_CONTROL_EVIDENCE_REVIEW; NO_EXECUTION_UNDER_CURRENT_OWNER_SCOPE",
+      "c3": "PASS_ACCEPTED_SCOPED",
+      "canary009": "HOLD",
+      "internal_ready": "NOT_ATTESTED"
+    },
+    {
+      "feature_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION",
+      "wp_id": "FOX2-BRIDGE-RC1-TO-INTERNAL-READY",
+      "infrastructure_wp_id": "FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019",
+      "target": "EXPLICIT_MANUAL_LOCAL_ADMISSION_SAFE_ONCE_ONLY",
+      "stage": "BUILD",
+      "status": "BLOCKED",
+      "evidence": "CHAT_ACCEPTED_BLOCKED_EVIDENCE_ONLY",
+      "evidence_scope": "HOST_FINAL_LAUNCHER_ATTRIBUTION_READONLY;_LEGACY_DB_PRESENT_294912_BYTES_NO_MARKER_OR_KNOWN_LAUNCHER_PATH;_CURRENT_BRIDGE_PROCESSES_AND_LOGON_TASK_OBSERVED;_OFFLINE_FAIL_CLOSED_DESIGN_DECIDED_NOT_CODED",
+      "source_sha": "a3ad10d490993fb4ed4ccfd7d1a73f74cc465581",
+      "evidence_refs": [
+        {
+          "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/report.md"
+        },
+        {
+          "commit": "dd3e46616c1f5dd2643eead3901ceaa1693cc6d6",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json"
+        },
+        {
+          "commit": "3b4ebbed504911836f327b53e9f8da20a5dd0be6",
+          "path": "docs/roadmap/FOX2_BRIDGE_MANUAL_LOCAL_ATTEMPT02_CHAT_RESULT_REVIEW_20261020.md"
+        },
+        {
+          "commit": "bd5cd44e31ceb7384b558c8fb08ccefd98dfb9e6",
+          "path": "docs/roadmap/FOX2_BRIDGE_CROSS_ROOT_NO_REPLAY_DESIGN_CONTRACT_CANDIDATE_20261020.md"
+        },
+        {
+          "commit": "04c9141f9a9bc47504473aa577b24201734d8c0b",
+          "path": "docs/agent_handoff/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/NATIVE_OFFLINE_ATTEMPT_03/task.md"
+        },
+        {
+          "commit": "a3ad10d490993fb4ed4ccfd7d1a73f74cc465581",
+          "path": "reports/FOX2-BRIDGE-MANUAL-LOCAL-ADMISSION-DEV-20261019/test_summary.json"
+        },
+        {
+          "commit": "c659100b785ee75fdbe12b851ee30ec1d3aaf352",
+          "path": "docs/roadmap/FOX2_BRIDGE_MANUAL_LOCAL_ATTEMPT03_CHAT_RESULT_REVIEW_20261020.md"
+        },
+        {
+          "commit": "8f072f99c22a8201a3c6f04ba5dafa62ea55d2fc",
+          "path": "docs/roadmap/FOX2_BRIDGE_LEGACY_HOST_LIFECYCLE_INVENTORY_CONTRACT_20261020.md"
+        },
+        {
+          "commit": "c6e9966eed688bb8b3286e1a2feda5acd129b5cd",
+          "path": "docs/roadmap/FOX2_BRIDGE_HOST_AUDIT_MARKER_RECONCILIATION_20261020.md"
+        },
+        {
+          "commit": "1c210139cad1f09b59ec4f1c728f00e929de57dc",
+          "path": "docs/roadmap/FOX2_BRIDGE_HOST_LIFECYCLE_PARTIAL_OBSERVATION_REVIEW_20261020.md"
+        },
+        {
+          "commit": "eb760d67bc6c98b444d56090646f34fbdb47c3fb",
+          "path": "docs/roadmap/FOX2_BRIDGE_HOST_LIFECYCLE_ATTRIBUTION_REVIEW_20261020.md"
+        },
+        {
+          "commit": "44390e142f3dc5a7eace0a97c5b28c545d376b0b",
+          "path": "docs/roadmap/FOX2_BRIDGE_DURABLE_FENCING_OFFLINE_BUILD_DECISION_20261020.md"
+        }
+      ],
+      "exit_gate": "F0_IMPLEMENT_SAFETY_ONLY_DENY_BY_DEFAULT_CLAIM_GUARD_AND_PASS_PRESERVED_NEGATIVE_TESTS_WITH_CHAT_ACCEPTANCE;_F1_INSTALLED_DURABLE_LEGACY_RETIREMENT_SEPARATE_GATE",
+      "blocker": "CROSS_ROOT_NO_REPLAY_6_FAIL;_LEGACY_SIDE_DURABLE_FENCE_NOT_PROVEN;_F0_OFFLINE_FAIL_CLOSED_NOT_IMPLEMENTED;_ONE_WRITER_RUNTIME_NOT_ATTESTED",
+      "as_of": "2026-10-20",
+      "next_safe_action": "PREPARE_SAME_WP_F0_OFFLINE_FAIL_CLOSED_IMPLEMENTATION_SOURCE_LOCK_AND_FRESH_CODEX_PREEXEC;_NO_POSITIVE_MANUAL_ADMISSION_OR_RUNTIME_DEPLOY",
+      "build": "NOT_ACCEPTED",
+      "test": "SIX_CROSS_ROOT_NEGATIVE_FAIL;_NO_F0_BUILD_TESTS_YET",
+      "canary009": "HOLD",
+      "internal_ready": "NOT_ATTESTED"
+    }
+  ]
+}
